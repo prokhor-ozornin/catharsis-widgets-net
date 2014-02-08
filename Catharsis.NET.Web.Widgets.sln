@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catharsis.Web.Widgets.Tests", "Catharsis.Web.Widgets.Tests\Catharsis.Web.Widgets.Tests.csproj", "{833A2BE5-13BB-4923-A438-1D6983902FF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catharsis.Web.Widgets", "Catharsis.Web.Widgets\Catharsis.Web.Widgets.csproj", "{62AA44B7-C3CC-4A0E-97BB-D497803943EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{833A2BE5-13BB-4923-A438-1D6983902FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{833A2BE5-13BB-4923-A438-1D6983902FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{833A2BE5-13BB-4923-A438-1D6983902FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{833A2BE5-13BB-4923-A438-1D6983902FF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62AA44B7-C3CC-4A0E-97BB-D497803943EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62AA44B7-C3CC-4A0E-97BB-D497803943EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62AA44B7-C3CC-4A0E-97BB-D497803943EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62AA44B7-C3CC-4A0E-97BB-D497803943EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

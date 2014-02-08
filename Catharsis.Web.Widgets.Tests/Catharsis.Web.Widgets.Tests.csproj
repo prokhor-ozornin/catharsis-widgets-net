@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{833A2BE5-13BB-4923-A438-1D6983902FF6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Catharsis.Web.Widgets</RootNamespace>
+    <AssemblyName>Catharsis.Web.Widgets.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Catharsis.Web.Widgets.Tests.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Catharsis.Commons">
+      <HintPath>..\packages\Catharsis.Commons.1.5.0\lib\net40\Catharsis.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="xunit">
+      <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CackleCommentsCountWidgetTests.cs" />
+    <Compile Include="CackleCommentsWidgetTests.cs" />
+    <Compile Include="CackleHtmlHelperTests.cs" />
+    <Compile Include="CackleLatestCommentsWidgetTests.cs" />
+    <Compile Include="CackleLoginWidgetTests.cs" />
+    <Compile Include="DisqusCommentsWidgetTests.cs" />
+    <Compile Include="DisqusHtmlHelperTests.cs" />
+    <Compile Include="FacebookHtmlHelperTests.cs" />
+    <Compile Include="FacebookInitWidgetTests.cs" />
+    <Compile Include="FacebookLikeButtonWidgetTests.cs" />
+    <Compile Include="FacebookPostWidgetTests.cs" />
+    <Compile Include="FacebookVideoLinkWidgetTests.cs" />
+    <Compile Include="FacebookVideoWidgetTests.cs" />
+    <Compile Include="GlobalSettingsManagerTests.cs" />
+    <Compile Include="GoogleAnalyticsWidgetTests.cs" />
+    <Compile Include="GoogleHtmlHelperTests.cs" />
+    <Compile Include="GooglePlusOneButtonWidgetTests.cs" />
+    <Compile Include="HtmlHelperExtensionsTests.cs" />
+    <Compile Include="HtmlWidgetBaseTests.cs" />
+    <Compile Include="HttpRequestExtensionsTests.cs" />
+    <Compile Include="ICackleHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IDisqusHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IFacebookHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IFacebookLikeButtonWidgetExtensionsTests.cs" />
+    <Compile Include="IFacebookPostWidgetExtensionsTests.cs" />
+    <Compile Include="IGoogleHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IGooglePlusOneButtonWidgetExtensionsTests.cs" />
+    <Compile Include="IHtmlWidgetExtensionsTests.cs" />
+    <Compile Include="IInlineImageExtensionsTests.cs" />
+    <Compile Include="IIntenseDebateHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IMailRuHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IMailRuLikeButtonWidgetExtensionsTests.cs" />
+    <Compile Include="InlineImageWidgetTests.cs" />
+    <Compile Include="IntenseDebateCommentsWidgetTests.cs" />
+    <Compile Include="IntenseDebateHtmlHelperTests.cs" />
+    <Compile Include="IntenseDebateLinkWidgetTests.cs" />
+    <Compile Include="IRuTubeHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IRuTubeVideoLinkWidget.cs" />
+    <Compile Include="IRuTubeVideoWidget.cs" />
+    <Compile Include="ISurfingbirdHtmlHelperExtensionsTests.cs" />
+    <Compile Include="ISurfingbirdSurfButtonWidgetExtensionsTests.cs" />
+    <Compile Include="ITumblrFollowButtonWidgetExtensionsTests.cs" />
+    <Compile Include="ITumblrHtmlHelperExtensionsTests.cs" />
+    <Compile Include="ITumblrShareButtonWidgetExtensionsTests.cs" />
+    <Compile Include="ITwitterFollowButtonWidgetExtensionsTests.cs" />
+    <Compile Include="ITwitterHtmlHelperExtensionsTests.cs" />
+    <Compile Include="ITwitterTweetButtonWidgetExtensionsTests.cs" />
+    <Compile Include="IVimeoHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IVkontakteCommentsWidgetExtensionsTests.cs" />
+    <Compile Include="IVkontakteCommunityWidgetExtensionsTests.cs" />
+    <Compile Include="IVkontakteHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IVkontakteLikeButtonWidgetExtensionsTests.cs" />
+    <Compile Include="IVkontakteSubscriptionWidgetExtensionsTests.cs" />
+    <Compile Include="IYandexAnalyticsWidgetExtensionsTests.cs" />
+    <Compile Include="IYandexHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IYandexSharePanelWidgetExtensionsTests.cs" />
+    <Compile Include="IYandexYaButtonWidgetExtensionsTests.cs" />
+    <Compile Include="IYouTubeHtmlHelperExtensionsTests.cs" />
+    <Compile Include="LocalSettingsManagerTests.cs" />
+    <Compile Include="MailRuHtmlHelperTests.cs" />
+    <Compile Include="MailRuIcqWidgetTests.cs" />
+    <Compile Include="MailRuLikeButtonWidgetTests.cs" />
+    <Compile Include="MailRuVideoLinkWidgetTests.cs" />
+    <Compile Include="MailRuVideoWidgetTests.cs" />
+    <Compile Include="MockHtmlHelper.cs" />
+    <Compile Include="MockHtmlWidget.cs" />
+    <Compile Include="MockVideoWidget.cs" />
+    <Compile Include="ObjectExtensionsTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuTubeHtmlHelperTests.cs" />
+    <Compile Include="RuTubeVideoLinkWidgetTests.cs" />
+    <Compile Include="RuTubeVideoWidgetTests.cs" />
+    <Compile Include="SettingsTests.cs" />
+    <Compile Include="StringExtensionsTests.cs" />
+    <Compile Include="SurfingbirdHtmlHelperTests.cs" />
+    <Compile Include="SurfingbirdSurfButtonWidgetTests.cs" />
+    <Compile Include="TagBuilderExtensionsTests.cs" />
+    <Compile Include="TextReaderExtensionsTests.cs" />
+    <Compile Include="TumblrFollowButtonWidgetTests.cs" />
+    <Compile Include="TumblrHtmlHelperTests.cs" />
+    <Compile Include="TumblrShareButtonWidgetTests.cs" />
+    <Compile Include="TwitterFollowButtonWidgetTests.cs" />
+    <Compile Include="TwitterHtmlHelperTests.cs" />
+    <Compile Include="TwitterTweetButtonWidgetTests.cs" />
+    <Compile Include="VimeoHtmlHelperTests.cs" />
+    <Compile Include="VimeoVideoLinkWidgetTests.cs" />
+    <Compile Include="VimeoVideoWidgetTests.cs" />
+    <Compile Include="VkontakteCommentsWidgetTests.cs" />
+    <Compile Include="VkontakteCommunityWidgetTests.cs" />
+    <Compile Include="VkontakteHtmlHelperTests.cs" />
+    <Compile Include="VkontakteInitWidgetTests.cs" />
+    <Compile Include="VkontakteLikeButtonWidgetTests.cs" />
+    <Compile Include="VkontakteSubscriptionWidgetTests.cs" />
+    <Compile Include="VkontakteVideoLinkWidgetTests.cs" />
+    <Compile Include="VkontakteVideoWidgetTests.cs" />
+    <Compile Include="YandexAnalyticsWidgetTests.cs" />
+    <Compile Include="YandexHtmlHelperTests.cs" />
+    <Compile Include="YandexSharePanelWidgetTests.cs" />
+    <Compile Include="YandexVideoLinkWidgetTests.cs" />
+    <Compile Include="YandexVideoWidgetTests.cs" />
+    <Compile Include="YandexLikeButtonWidgetTests.cs" />
+    <Compile Include="YouTubeHtmlHelperTests.cs" />
+    <Compile Include="YouTubeVideoLinkWidgetTests.cs" />
+    <Compile Include="YouTubeVideoWidgetTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Catharsis.Web.Widgets\Catharsis.Web.Widgets.csproj">
+      <Project>{62AA44B7-C3CC-4A0E-97BB-D497803943EB}</Project>
+      <Name>Catharsis.Web.Widgets</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
