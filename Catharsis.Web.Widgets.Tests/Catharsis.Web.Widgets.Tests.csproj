@@ -104,6 +104,8 @@
     <Compile Include="ITwitterFollowButtonWidgetExtensionsTests.cs" />
     <Compile Include="ITwitterHtmlHelperExtensionsTests.cs" />
     <Compile Include="ITwitterTweetButtonWidgetExtensionsTests.cs" />
+    <Compile Include="IVideoJSHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IVideoJSPlayerWidgetExtensionsTests.cs" />
     <Compile Include="IVimeoHtmlHelperExtensionsTests.cs" />
     <Compile Include="IVkontakteCommentsWidgetExtensionsTests.cs" />
     <Compile Include="IVkontakteCommunityWidgetExtensionsTests.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="MailRuLikeButtonWidgetTests.cs" />
     <Compile Include="MailRuVideoLinkWidgetTests.cs" />
     <Compile Include="MailRuVideoWidgetTests.cs" />
+    <Compile Include="MediaSourceTests.cs" />
     <Compile Include="MockHtmlHelper.cs" />
     <Compile Include="MockHtmlWidget.cs" />
     <Compile Include="MockVideoWidget.cs" />
@@ -141,6 +144,8 @@
     <Compile Include="TwitterFollowButtonWidgetTests.cs" />
     <Compile Include="TwitterHtmlHelperTests.cs" />
     <Compile Include="TwitterTweetButtonWidgetTests.cs" />
+    <Compile Include="VideoJSHtmlHelperTests.cs" />
+    <Compile Include="VideoJSPlayerWidgetTests.cs" />
     <Compile Include="VimeoHtmlHelperTests.cs" />
     <Compile Include="VimeoVideoLinkWidgetTests.cs" />
     <Compile Include="VimeoVideoWidgetTests.cs" />

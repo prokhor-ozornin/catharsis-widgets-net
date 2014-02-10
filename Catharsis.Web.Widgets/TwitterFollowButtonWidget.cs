@@ -6,9 +6,6 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   public sealed class TwitterFollowButtonWidget : HtmlWidgetBase<ITwitterFollowButtonWidget>, ITwitterFollowButtonWidget
   {
     private string account;

@@ -3,9 +3,6 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   public sealed class VimeoVideoLinkWidget : HtmlWidgetBase<IVimeoVideoLinkWidget>, IVimeoVideoLinkWidget
   {
     private string id;

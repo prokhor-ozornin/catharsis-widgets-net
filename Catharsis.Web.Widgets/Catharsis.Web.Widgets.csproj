@@ -104,6 +104,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IVideoJSHtmlHelper.cs" />
+    <Compile Include="IVideoJSHtmlHelperExtensions.cs" />
+    <Compile Include="IVideoJSPlayerWidget.cs" />
+    <Compile Include="IMediaSource.cs" />
+    <Compile Include="IVideoJSPlayerWidgetExtensions.cs" />
+    <Compile Include="VideoContentTypes.cs" />
+    <Compile Include="VideoJSHtmlHelper.cs" />
+    <Compile Include="VideoJSPlayerWidget.cs" />
+    <Compile Include="MediaSource.cs" />
     <Compile Include="WidgetsBundleConfig.cs" />
     <Compile Include="CackleCommentsCountWidget.cs" />
     <Compile Include="CackleCommentsWidget.cs" />
@@ -287,6 +296,7 @@
     <Compile Include="VkontakteSubscriptionWidget.cs" />
     <Compile Include="VkontakteVideoLinkWidget.cs" />
     <Compile Include="VkontakteVideoWidget.cs" />
+    <Compile Include="WidgetsStyles.cs" />
     <Compile Include="WidgetsScripts.cs" />
     <Compile Include="WidgetsScriptsBundles.cs" />
     <Compile Include="YandexAnalyticsWidget.cs" />

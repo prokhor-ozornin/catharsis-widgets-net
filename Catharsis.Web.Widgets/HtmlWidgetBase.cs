@@ -4,9 +4,6 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   public abstract class HtmlWidgetBase<T> : IHtmlWidget where T : IHtmlWidget
   {
     private readonly IDictionary<string, object> htmlAttributes = new Dictionary<string, object>();
@@ -20,10 +17,6 @@ namespace Catharsis.Web.Widgets
       });
     }
 
-    /// <summary>
-    ///   <para></para>
-    /// </summary>
-    /// <returns></returns>
     public override string ToString()
     {
       return this.ToHtmlString();
@@ -36,9 +29,6 @@ namespace Catharsis.Web.Widgets
 
     public string HtmlBody { get; set; }
 
-    /// <summary>
-    ///   <para>Abstract declaration of <see cref="IHtmlWidget.Write(TextWriter)"/> method.</para>
-    /// </summary>
     public abstract void Write(TextWriter writer);
   }
 }

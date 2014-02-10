@@ -6,9 +6,6 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   public sealed class YandexSharePanelWidget : HtmlWidgetBase<IYandexSharePanelWidget>, IYandexSharePanelWidget
   {
     private string language;

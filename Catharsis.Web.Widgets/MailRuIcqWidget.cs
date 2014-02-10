@@ -3,9 +3,6 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   public sealed class MailRuIcqWidget : HtmlWidgetBase<IMailRuIcqWidget>, IMailRuIcqWidget
   {
     private string account;

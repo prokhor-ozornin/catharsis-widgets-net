@@ -4,9 +4,6 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   public sealed class SurfingbirdSurfButtonWidget : HtmlWidgetBase<ISurfingbirdSurfButtonWidget>, ISurfingbirdSurfButtonWidget
   {
     private string url;

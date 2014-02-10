@@ -99,11 +99,11 @@ namespace Catharsis.Web.Widgets
       Assertion.NotEmpty(tag);
 
       var tagBuilder = new TagBuilder(tag);
-      widget.HtmlAttributes.Each(attribute => tagBuilder.Attributes.Add(attribute.Key, attribute.Value.ToString()));
       if (builder != null) 
       {
         builder(tagBuilder);
       }
+      widget.HtmlAttributes.Each(attribute => tagBuilder.Attributes.Add(attribute.Key, attribute.Value.ToString()));
       return tagBuilder.ToString();
     }
 

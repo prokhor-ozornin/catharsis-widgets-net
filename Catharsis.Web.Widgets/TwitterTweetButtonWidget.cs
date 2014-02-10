@@ -3,14 +3,10 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Web;
-using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   public sealed class TwitterTweetButtonWidget : HtmlWidgetBase<ITwitterTweetButtonWidget>, ITwitterTweetButtonWidget
   {
     private string url;

@@ -157,6 +157,18 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Performs testing of <see cref="HtmlHelperExtensions.VideoJS(HtmlHelper)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void VideoJS_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.VideoJS(null));
+
+      Assert.True(html.VideoJS() != null);
+      Assert.True(ReferenceEquals(html.VideoJS(), html.VideoJS()));
+    }
+
+    /// <summary>
     ///   <para>Performs testing of <see cref="HtmlHelperExtensions.Vimeo(HtmlHelper)"/> method.</para>
     /// </summary>
     [Fact]

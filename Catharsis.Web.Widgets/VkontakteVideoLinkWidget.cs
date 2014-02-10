@@ -3,9 +3,6 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   public sealed class VkontakteVideoLinkWidget : HtmlWidgetBase<IVkontakteVideoLinkWidget>, IVkontakteVideoLinkWidget
   {
     private string id;

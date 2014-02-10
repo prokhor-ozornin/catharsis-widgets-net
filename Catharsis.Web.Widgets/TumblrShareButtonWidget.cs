@@ -3,9 +3,6 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   public sealed class TumblrShareButtonWidget : HtmlWidgetBase<ITumblrShareButtonWidget>, ITumblrShareButtonWidget
   {
     private byte type = (byte) TumblrShareButtonType.First;

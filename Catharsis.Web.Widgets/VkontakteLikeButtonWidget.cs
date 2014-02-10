@@ -4,9 +4,6 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   public sealed class VkontakteLikeButtonWidget : HtmlWidgetBase<IVkontakteLikeButtonWidget>, IVkontakteLikeButtonWidget
   {
     private string text;

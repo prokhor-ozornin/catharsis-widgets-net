@@ -20,6 +20,7 @@ namespace Catharsis.Web.Widgets
     private static ISurfingbirdHtmlHelper surfingbird;
     private static ITumblrHtmlHelper tumblr;
     private static ITwitterHtmlHelper twitter;
+    private static IVideoJSHtmlHelper videoJS;
     private static IVimeoHtmlHelper vimeo;
     private static IVkontakteHtmlHelper vkontakte;
     private static IYandexHtmlHelper yandex;
@@ -179,6 +180,19 @@ namespace Catharsis.Web.Widgets
       Assertion.NotNull(html);
 
       return twitter ?? (twitter = new TwitterHtmlHelper());
+    }
+
+    /// <summary>
+    ///   <para>Initializes HTML helper object for rendering of VideoJS widgets.</para>
+    /// </summary>
+    /// <param name="html">Helper object to call method on.</param>
+    /// <returns>Widgets factory helper.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="html"/> is a <c>null</c> reference.</exception>
+    public static IVideoJSHtmlHelper VideoJS(this HtmlHelper html)
+    {
+      Assertion.NotNull(html);
+
+      return videoJS ?? (videoJS = new VideoJSHtmlHelper());
     }
 
     /// <summary>

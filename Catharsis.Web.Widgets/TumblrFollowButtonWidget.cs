@@ -3,7 +3,7 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  internal sealed class TumblrFollowButtonWidget : HtmlWidgetBase<ITumblrFollowButtonWidget>, ITumblrFollowButtonWidget
+  public sealed class TumblrFollowButtonWidget : HtmlWidgetBase<ITumblrFollowButtonWidget>, ITumblrFollowButtonWidget
   {
     private string account;
     private byte type = (byte) TumblrFollowButtonType.First;

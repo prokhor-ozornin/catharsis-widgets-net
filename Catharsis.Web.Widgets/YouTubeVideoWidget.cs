@@ -3,9 +3,6 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   public sealed class YouTubeVideoWidget : HtmlWidgetBase<IYouTubeVideoWidget>, IYouTubeVideoWidget
   {
     private string id;
