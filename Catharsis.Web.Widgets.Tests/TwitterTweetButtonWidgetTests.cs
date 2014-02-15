@@ -22,14 +22,14 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new TwitterTweetButtonWidget();
-      Assert.True(widget.Field("url") == null);
-      Assert.True(widget.Field("language") == null);
-      Assert.True(widget.Field("text") == null);
-      Assert.True(widget.Field("via") == null);
-      Assert.True(widget.Field("size") == null);
-      Assert.True(widget.Field("countUrl") == null);
-      Assert.True(widget.Field("countPosition") == null);
-      Assert.True(widget.Field("optOut") == null);
+      Assert.Null(widget.Field("url"));
+      Assert.Null(widget.Field("language"));
+      Assert.Null(widget.Field("text"));
+      Assert.Null(widget.Field("via"));
+      Assert.Null(widget.Field("size"));
+      Assert.Null(widget.Field("countUrl"));
+      Assert.Null(widget.Field("countPosition"));
+      Assert.Null(widget.Field("optOut"));
       Assert.False(widget.Field("tags").To<IEnumerable<string>>().Any());
       Assert.False(widget.Field("accounts").To<IEnumerable<string>>().Any());
     }
@@ -44,7 +44,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Url(string.Empty));
 
       var widget = new TwitterFollowButtonWidget();
-      Assert.True(widget.Field("account") == null);
+      Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
       Assert.True(widget.Field("account").To<string>() == "account");
     }
@@ -59,7 +59,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Language(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.True(widget.Field("language") == null);
+      Assert.Null(widget.Field("language"));
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
       Assert.True(widget.Field("language").To<string>() == "language");
     }
@@ -74,7 +74,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Text(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.True(widget.Field("text") == null);
+      Assert.Null(widget.Field("text"));
       Assert.True(ReferenceEquals(widget.Text("text"), widget));
       Assert.True(widget.Field("text").To<string>() == "text");
     }
@@ -89,7 +89,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Via(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.True(widget.Field("via") == null);
+      Assert.Null(widget.Field("via"));
       Assert.True(ReferenceEquals(widget.Via("via"), widget));
       Assert.True(widget.Field("via").To<string>() == "via");
     }
@@ -104,7 +104,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Size(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.True(widget.Field("size") == null);
+      Assert.Null(widget.Field("size"));
       Assert.True(ReferenceEquals(widget.Size("size"), widget));
       Assert.True(widget.Field("size").To<string>() == "size");
     }
@@ -119,7 +119,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().CountUrl(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.True(widget.Field("countUrl") == null);
+      Assert.Null(widget.Field("countUrl"));
       Assert.True(ReferenceEquals(widget.CountUrl("countUrl"), widget));
       Assert.True(widget.Field("countUrl").To<string>() == "countUrl");
     }
@@ -134,7 +134,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().CountPosition(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.True(widget.Field("countPosition") == null);
+      Assert.Null(widget.Field("countPosition"));
       Assert.True(ReferenceEquals(widget.CountPosition("countPosition"), widget));
       Assert.True(widget.Field("countPosition").To<string>() == "countPosition");
     }
@@ -146,7 +146,7 @@ namespace Catharsis.Web.Widgets
     public void OptOut_Method()
     {
       var widget = new TwitterTweetButtonWidget();
-      Assert.True(widget.Field("opOut") == null);
+      Assert.Null(widget.Field("opOut"));
       Assert.True(ReferenceEquals(widget.OptOut(), widget));
       Assert.True(widget.Field("optOut").To<bool>());
     }

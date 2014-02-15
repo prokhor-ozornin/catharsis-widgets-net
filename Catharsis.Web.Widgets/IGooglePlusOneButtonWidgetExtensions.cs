@@ -26,7 +26,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies size of the button.</para>
+    ///   <para>Size of the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="size">Size of the button.</param>
@@ -41,7 +41,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies horizontal alignment of the button assets within its frame.</para>
+    ///   <para>Horizontal alignment of the button assets within its frame.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="alignment">Horizontal alignment of the button.</param>
@@ -56,7 +56,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies annotation to display next to the button.</para>
+    ///   <para>Annotation to display next to the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="annotation">Annotation for the button.</param>

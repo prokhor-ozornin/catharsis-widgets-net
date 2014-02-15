@@ -1,18 +1,23 @@
-namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para></para>
   /// </summary>
-  public enum FacebookLikeButtonColorScheme
+  public enum FacebookCommentsOrder
   {
     /// <summary>
     ///   <para></para>
     /// </summary>
-    Dark,
+    Social,
 
     /// <summary>
     ///   <para></para>
     /// </summary>
-    Light
+    ReverseTime,
+
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    Time
   }
 }

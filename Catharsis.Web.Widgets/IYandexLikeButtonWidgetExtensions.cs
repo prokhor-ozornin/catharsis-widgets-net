@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public static class IYandexLikeButtonWidgetExtensions
   {
     /// <summary>
-    ///   <para>Specifies size of the button.</para>
+    ///   <para>Size of the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="size"></param>
@@ -25,7 +25,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies visual layout/appearance of the button.</para>
+    ///   <para>Visual layout/appearance of the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="layout">Layout of button.</param>

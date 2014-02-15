@@ -12,7 +12,7 @@ namespace Catharsis.Web.Widgets
   public static class IVideoJSPlayerWidgetExtensions
   {
     /// <summary>
-    ///   <para>Specifies horizontal width of video.</para>
+    ///   <para>Horizontal width of video.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="width">Width of video.</param>
@@ -27,7 +27,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies vertical height of video.</para>
+    ///   <para>Vertical height of video.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="height">Height of video.</param>
@@ -42,7 +42,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies collection of video sources to use.</para>
+    ///   <para>Collection of video sources to use.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="videos">Collection of videos.</param>

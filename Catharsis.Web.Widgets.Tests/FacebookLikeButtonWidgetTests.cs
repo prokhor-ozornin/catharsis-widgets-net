@@ -18,14 +18,14 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new FacebookLikeButtonWidget();
-      Assert.True(widget.Field("verb") == null);
-      Assert.True(widget.Field("colorScheme") == null);
-      Assert.True(widget.Field("url") == null);
-      Assert.True(widget.Field("forKids") == null);
-      Assert.True(widget.Field("layout") == null);
-      Assert.True(widget.Field("trackLabel") == null);
-      Assert.True(widget.Field("showFaces") == null);
-      Assert.True(widget.Field("width") == null);
+      Assert.Null(widget.Field("verb"));
+      Assert.Null(widget.Field("colorScheme"));
+      Assert.Null(widget.Field("url"));
+      Assert.Null(widget.Field("kids"));
+      Assert.Null(widget.Field("layout"));
+      Assert.Null(widget.Field("trackLabel"));
+      Assert.Null(widget.Field("faces"));
+      Assert.Null(widget.Field("width"));
     }
 
     /// <summary>
@@ -38,7 +38,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Verb(string.Empty));
 
       var widget = new FacebookLikeButtonWidget();
-      Assert.True(widget.Field("verb") == null);
+      Assert.Null(widget.Field("verb"));
       Assert.True(ReferenceEquals(widget.Verb("verb"), widget));
       Assert.True(widget.Field("verb").To<string>() == "verb");
     }
@@ -53,7 +53,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().ColorScheme(string.Empty));
 
       var widget = new FacebookLikeButtonWidget();
-      Assert.True(widget.Field("colorScheme") == null);
+      Assert.Null(widget.Field("colorScheme"));
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
       Assert.True(widget.Field("colorScheme").To<string>() == "colorScheme");
     }
@@ -68,21 +68,21 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Url(string.Empty));
 
       var widget = new FacebookLikeButtonWidget();
-      Assert.True(widget.Field("url") == null);
+      Assert.Null(widget.Field("url"));
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
       Assert.True(widget.Field("url").To<string>() == "url");
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.ForKids(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.Kids(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void ForKids_Method()
+    public void Kids_Method()
     {
       var widget = new FacebookLikeButtonWidget();
-      Assert.True(widget.Field("forKids") == null);
-      Assert.True(ReferenceEquals(widget.ForKids(), widget));
-      Assert.True(widget.Field("forKids").To<bool>());
+      Assert.Null(widget.Field("kids"));
+      Assert.True(ReferenceEquals(widget.Kids(), widget));
+      Assert.True(widget.Field("kids").To<bool>());
     }
 
     /// <summary>
@@ -95,7 +95,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Layout(string.Empty));
 
       var widget = new FacebookLikeButtonWidget();
-      Assert.True(widget.Field("layout") == null);
+      Assert.Null(widget.Field("layout"));
       Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
       Assert.True(widget.Field("layout").To<string>() == "layout");
     }
@@ -110,21 +110,21 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().TrackLabel(string.Empty));
 
       var widget = new FacebookLikeButtonWidget();
-      Assert.True(widget.Field("trackLabel") == null);
+      Assert.Null(widget.Field("trackLabel"));
       Assert.True(ReferenceEquals(widget.TrackLabel("trackLabel"), widget));
       Assert.True(widget.Field("trackLabel").To<string>() == "trackLabel");
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.ShowFaces(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.Faces(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void ShowFaces_Method()
+    public void Faces_Method()
     {
       var widget = new FacebookLikeButtonWidget();
-      Assert.True(widget.Field("showFaces") == null);
-      Assert.True(ReferenceEquals(widget.ShowFaces(), widget));
-      Assert.True(widget.Field("showFaces").To<bool>());
+      Assert.Null(widget.Field("faces"));
+      Assert.True(ReferenceEquals(widget.Faces(), widget));
+      Assert.True(widget.Field("faces").To<bool>());
     }
 
     /// <summary>
@@ -137,7 +137,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Width(string.Empty));
 
       var widget = new FacebookLikeButtonWidget();
-      Assert.True(widget.Field("width") == null);
+      Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
       Assert.True(widget.Field("width").To<string>() == "width");
     }
@@ -152,7 +152,7 @@ namespace Catharsis.Web.Widgets
 
       Assert.True(new StringWriter().With(writer => new FacebookLikeButtonWidget().Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new FacebookLikeButtonWidget().Url("url").Write(writer)).ToString() == @"<div class=""fb-like"" data-href=""url""></div>");
-      Assert.True(new StringWriter().With(writer => new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).ColorScheme(FacebookLikeButtonColorScheme.Dark).Url("url").ForKids().Layout(FacebookLikeButtonLayout.BoxCount).TrackLabel("trackLabel").ShowFaces().Width("width").Write(writer)).ToString() == @"<div class=""fb-like"" data-action=""recommend"" data-colorscheme=""dark"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-ref=""trackLabel"" data-show-faces=""true"" data-width=""width""></div>");
+      Assert.True(new StringWriter().With(writer => new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).ColorScheme(FacebookColorScheme.Dark).Url("url").Kids().Layout(FacebookButtonLayout.BoxCount).TrackLabel("trackLabel").Faces().Width("width").Write(writer)).ToString() == @"<div class=""fb-like"" data-action=""recommend"" data-colorscheme=""dark"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-ref=""trackLabel"" data-show-faces=""true"" data-width=""width""></div>");
     }
   }
 }

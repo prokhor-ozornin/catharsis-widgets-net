@@ -8,14 +8,14 @@ namespace Catharsis.Web.Widgets
   public interface IVkontakteVideoWidget : IVideoWidget<IVkontakteVideoWidget>
   {
     /// <summary>
-    ///   <para>Specifies whether to play video in High Definition format. Default is <c>false</c>.</para>
+    ///   <para>Whether to play video in High Definition format. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="hd"><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</param>
     /// <returns>Reference to the current widget.</returns>
     IVkontakteVideoWidget HdQuality(bool hd = true);
 
     /// <summary>
-    ///   <para>Specifies account identifier of video's uploader.</para>
+    ///   <para>Account identifier of video's uploader.</para>
     /// </summary>
     /// <param name="user">User's account.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -24,7 +24,7 @@ namespace Catharsis.Web.Widgets
     IVkontakteVideoWidget User(string user);
 
     /// <summary>
-    ///   <para>Specifies hash code of video.</para>
+    ///   <para>Hash code of video.</para>
     /// </summary>
     /// <param name="hash">Video's hash code.</param>
     /// <returns>Reference to the current widget.</returns>

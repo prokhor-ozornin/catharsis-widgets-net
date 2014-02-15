@@ -18,12 +18,12 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VkontakteVideoWidget();
-      Assert.True(widget.Field("id") == null);
-      Assert.True(widget.Field("width") == null);
-      Assert.True(widget.Field("height") == null);
+      Assert.Null(widget.Field("id"));
+      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Field("height"));
       Assert.False(widget.Field("hd").To<bool>());
-      Assert.True(widget.Field("user") == null);
-      Assert.True(widget.Field("hash") == null);
+      Assert.Null(widget.Field("user"));
+      Assert.Null(widget.Field("hash"));
     }
 
     /// <summary>
@@ -36,7 +36,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Id(string.Empty));
 
       var widget = new VkontakteVideoWidget();
-      Assert.True(widget.Field("id") == null);
+      Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
       Assert.True(widget.Field("id").To<string>() == "id");
     }
@@ -51,7 +51,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Width(string.Empty));
 
       var widget = new VkontakteVideoWidget();
-      Assert.True(widget.Field("width") == null);
+      Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
       Assert.True(widget.Field("width").To<string>() == "width");
     }
@@ -66,7 +66,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Height(string.Empty));
 
       var widget = new VkontakteVideoWidget();
-      Assert.True(widget.Field("height") == null);
+      Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
       Assert.True(widget.Field("height").To<string>() == "height");
     }
@@ -93,7 +93,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().User(string.Empty));
 
       var widget = new VkontakteVideoWidget();
-      Assert.True(widget.Field("user") == null);
+      Assert.Null(widget.Field("user"));
       Assert.True(ReferenceEquals(widget.User("user"), widget));
       Assert.True(widget.Field("user").To<string>() == "user");
     }
@@ -108,7 +108,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Hash(string.Empty));
 
       var widget = new VkontakteVideoWidget();
-      Assert.True(widget.Field("hash") == null);
+      Assert.Null(widget.Field("hash"));
       Assert.True(ReferenceEquals(widget.Hash("hash"), widget));
       Assert.True(widget.Field("hash").To<string>() == "hash");
     }

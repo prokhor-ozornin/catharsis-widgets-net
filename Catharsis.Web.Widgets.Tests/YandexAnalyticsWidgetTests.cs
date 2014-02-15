@@ -19,14 +19,14 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("account").To<string>() == null);
+      Assert.Null(widget.Field("account"));
       Assert.True(widget.Field("webvisor").To<bool>());
       Assert.True(widget.Field("clickmap").To<bool>());
       Assert.True(widget.Field("tracklinks").To<bool>());
       Assert.True(widget.Field("trackhash").To<bool>());
       Assert.True(widget.Field("accurate").To<bool>());
       Assert.False(widget.Field("noindex").To<bool>());
-      Assert.True(widget.Field("language").To<string>() == null);
+      Assert.Null(widget.Field("language"));
     }
 
     /// <summary>
@@ -39,7 +39,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexAnalyticsWidget().Account(string.Empty));
 
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("account") == null);
+      Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
       Assert.True(widget.Field("account").To<string>() == "account");
     }
@@ -105,7 +105,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexAnalyticsWidget().Language(string.Empty));
 
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("language") == null);
+      Assert.Null(widget.Field("language"));
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
       Assert.True(widget.Field("language").To<string>() == "language");
     }

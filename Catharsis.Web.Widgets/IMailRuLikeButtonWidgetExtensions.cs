@@ -11,7 +11,7 @@ namespace Catharsis.Web.Widgets
   public static class IMailRuLikeButtonWidgetExtensions
   {
     /// <summary>
-    ///   <para>Specifies type of button.</para>
+    ///   <para>Type of button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="type">Type of button.</param>
@@ -45,7 +45,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies vertical size of button.</para>
+    ///   <para>Vertical size of button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="size">Vertical size of button.</param>
@@ -60,7 +60,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies vertical size of button.</para>
+    ///   <para>Vertical size of button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="size">Vertical size of button.</param>
@@ -75,7 +75,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies visual layout/appearance of button.</para>
+    ///   <para>Visual layout/appearance of button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="layout">Visual layout of button.</param>
@@ -90,7 +90,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies type of text label to show on button.</para>
+    ///   <para>Type of text label to show on button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="type">Type of text label.</param>
@@ -105,7 +105,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies position of a share counter.</para>
+    ///   <para>Position of a share counter.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="position">Position of a counter.</param>

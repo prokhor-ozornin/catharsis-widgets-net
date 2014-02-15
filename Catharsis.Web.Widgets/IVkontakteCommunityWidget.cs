@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public interface IVkontakteCommunityWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies identifier or VKontakte public group/community.</para>
+    ///   <para>Identifier or VKontakte public group/community.</para>
     /// </summary>
     /// <param name="account">Group identifier.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -20,14 +20,14 @@ namespace Catharsis.Web.Widgets
     IVkontakteCommunityWidget Account(string account);
 
     /// <summary>
-    ///   <para>Specifies type of information to be displayed about given community.</para>
+    ///   <para>Type of information to be displayed about given community.</para>
     /// </summary>
     /// <param name="mode">Community's info type.</param>
     /// <returns>Reference to the current widget.</returns>
     IVkontakteCommunityWidget Mode(byte mode);
 
     /// <summary>
-    ///   <para>Specifies horizontal width of widget.</para>
+    ///   <para>Horizontal width of widget.</para>
     /// </summary>
     /// <param name="width">Width of widget.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -36,7 +36,7 @@ namespace Catharsis.Web.Widgets
     IVkontakteCommunityWidget Width(string width);
 
     /// <summary>
-    ///   <para>Specifies vertical height of widget.</para>
+    ///   <para>Vertical height of widget.</para>
     /// </summary>
     /// <param name="height">Height of widget.</param>
     /// <returns>Reference to the current widget.</returns>

@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new TumblrFollowButtonWidget();
-      Assert.True(widget.Field("account") == null);
+      Assert.Null(widget.Field("account"));
       Assert.True(widget.Field("type").To<TumblrFollowButtonType>() == TumblrFollowButtonType.First);
       Assert.True(widget.Field("colorScheme").To<string>() == TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant());
     }
@@ -33,7 +33,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TumblrFollowButtonWidget().Account(string.Empty));
 
       var widget = new TumblrFollowButtonWidget();
-      Assert.True(widget.Field("account") == null);
+      Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
       Assert.True(widget.Field("account").To<string>() == "account");
     }

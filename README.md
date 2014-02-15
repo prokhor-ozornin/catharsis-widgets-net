@@ -13,7 +13,7 @@ Comments and OAuth Login widgets
 Comments widget
 
 3. [Facebook](http://facebook.com)
-"Like" button, Embedded post, Embedded video, Video hyperlink
+Activity Feed, Recommendations Feed, "Follow" button, "Like" button, Like Box, "Send" button, Comments widget, Facepile widget, Embedded post, Embedded video, Video hyperlink
 
 4. [Google](http://google.com)
 Google Analytics, Google + 1 button
@@ -27,30 +27,29 @@ ICQ On-Site widget, "Like" button (mail.ru/odnoklassniki.ru), Embedded video, Vi
 7. [RuTube](http://rutube.ru)
 Embedded video, Video hyperlink
 
-8. [Share42](http://share42.com)
-Social buttons widget
-
-9. [Surfingbird](http://surfingbird.com)
+8. [Surfingbird](http://surfingbird.com)
 "Like" button
 
-10. [Tumblr](http://tumblr.com)
+9. [Tumblr](http://tumblr.com)
 "Follow" button, "Share" button
 
-11. [Twitter](https://twitter.com)
+10. [Twitter](https://twitter.com)
 "Follow" button, "Tweet" button
 
-12. [Vimeo](https://vimeo.com)
+11. [Vimeo](https://vimeo.com)
 Embedded video, Video hyperlink
 
-13. [VKontakte](http://vk.com)
+12. [VKontakte](http://vk.com)
 Comments widget, Community widget, "Like" button, Subscribe widget, Embedded video, Video hyperlink
 
-14. [Yandex](http://yandex.ru)
+13. [Yandex](http://yandex.ru)
 Yandex Analytics, "Ya" button, "Share" button, Embedded video, Video hyperlink
 
-15. [YouTube](http://youtube.com)
+14. [YouTube](http://youtube.com)
 Embedded video, Video hyperlink
 
+15. VideoJS player (http://www.videojs.com)
+Media player
 
 The list of social tags is ever-growing, and new ones can be included upon request fast.
 
@@ -145,6 +144,58 @@ You must include `WidgetsScriptsBundles.Disqus` JavaScript bundle first to use b
 
 You must include call to `@Html.Facebook().Initialize()` helper first to use below widgets.
 
+> Render Facebook Activity Feed widget
+
+> `@Html.Facebook().ActivityFeed()`
+
+> `@Html.Facebook().ActivityFeed().Domain("yandex.ru")`
+
+> `@Html.Facebook().ActivityFeed().Domain("yandex.ru").Header(false).Recommendations().ColorScheme(FacebookColorScheme.Dark)`
+
+> Render Facebook Recommendations Feed widget
+
+> `@Html.Facebook().RecommendationsFeed()`
+
+> `@Html.Facebook().RecommendationsFeed().Domain("yandex.ru")`
+
+> `@Html.Facebook().RecommendationsFeed().Domain("yandex.ru").Header(false).ColorScheme(FacebookColorScheme.Dark)`
+
+> Render Facebook comments widget
+
+> `<facebook:comments/>`
+
+> `<facebook:comments url="http://yandex.ru"/>`
+
+> `<facebook:comments url="http://yandex.ru" order="${FacebookCommentsOrder.REVERSE_TIME}" posts="1" width="500"/>`
+
+> Render Facebook Facepile widget
+
+> `@Html.Facebook().Comments()`
+
+> `@Html.Facebook().Comments().Url("http://yandex.ru")`
+
+> `@Html.Facebook().Comments().Url("http://yandex.ru").Order(FacebookCommentsOrder.ReverseTime).Posts(1).Width("500")`
+
+> Render Facebook Facepile widget
+
+> `@Html.Facebook().Facepile()`
+
+> `@Html.Facebook().Facepile().Url("http://yandex.ru")`
+
+> `@Html.Facebook().Facepile().Url("http://yandex.ru").MaxRows(5).Size(FacebookFacepileSize.Large).Height("300")`
+
+> Render Facebook "Follow" button
+
+> `@Html.Facebook().Follow().Url("http://www.facebook.com/zuck")`
+
+> `@Html.Facebook().Follow().Url("http://www.facebook.com/zuck").Kids().Faces().Layout(FacebookButtonLayout.BoxCount)`
+
+> Render Facebook Like Box
+
+> `@Html.Facebook().LikeBox().Url("https://www.facebook.com/pages/Clear-Words/515749945120070")`
+
+> `@Html.Facebook().LikeBox().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Header(false).Border(false).Faces(false).Stream().Width("500")`
+
 > Render Facebook "Like" button
 
 > `@Html.Facebook().Like().Url("http://yandex.ru")`
@@ -154,6 +205,14 @@ You must include call to `@Html.Facebook().Initialize()` helper first to use bel
 > Render Facebook embedded post
 
 > `@Html.Facebook().Post().Url("https://www.facebook.com/prokhor.ozornin/posts/10203109769053557").Width(640)`
+
+> Render Facebook "Send" button
+
+> `@Html.Facebook().Send()`
+
+> `@Html.Facebook().Send().Url("http://yandex.ru")`
+
+> `@Html.Facebook().Send().Url("http://yandex.ru").ColorScheme(FacebookColorScheme.Dark).Kids()`
 
 **Google**
 
@@ -342,6 +401,14 @@ You must include `<script src="@WidgetsScripts.YandexShare" type="text/javascrip
 > Render YouTube video hyperlink
 
 > `@Html.YouTube().VideoLink().Id("eYJSlHiXegI").HtmlBody("Watch YouTube video!")`
+
+**VideoJS**
+
+You must include `<script src="@WidgetsScripts.VideoJS" type="text/javascript"></script>` and `<link href="@WidgetsStyles.VideoJS" rel="stylesheet" />` directives in the `<head>` tag to use below widgets.
+
+> Render VideoJS media player
+
+> `@Html.VideoJS().Player().Width("640").Height("480").Videos(new MediaSource("http://vjs.zencdn.net/v/oceans.mp4", VideoContentTypes.MP4), new MediaSource("http://vjs.zencdn.net/v/oceans.webm", VideoContentTypes.WebM)).HtmlBody(@"<track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track>")`
 
 _Note:_ Instead of using different separate JavaScript bundles with `@Scripts.Render` directive for separate social tags, you can use all-in-one module bundle, called "widgets" once :
 

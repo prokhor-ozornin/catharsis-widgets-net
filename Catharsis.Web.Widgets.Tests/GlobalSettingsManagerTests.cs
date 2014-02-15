@@ -31,7 +31,7 @@ namespace Catharsis.Web.Widgets
       const string key= "key";
 
       Assert.False(provider.Keys.Any());
-      Assert.True(provider[key] == null);
+      Assert.Null(provider[key]);
       var value = new object();
       provider[key] = value;
       Assert.True(provider.Keys.Count() == 1);

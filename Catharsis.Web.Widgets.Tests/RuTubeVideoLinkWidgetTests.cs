@@ -19,7 +19,7 @@ namespace Catharsis.Web.Widgets
     {
       var widget = new RuTubeVideoLinkWidget();
       Assert.False(widget.Field("embedded").To<bool>());
-      Assert.True(widget.Field("id") == null);
+      Assert.Null(widget.Field("id"));
     }
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new RuTubeVideoLinkWidget().Id(string.Empty));
 
       var widget = new RuTubeVideoLinkWidget();
-      Assert.True(widget.Field("id") == null);
+      Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
       Assert.True(widget.Field("id").To<string>() == "id");
     }
@@ -44,7 +44,7 @@ namespace Catharsis.Web.Widgets
     public void Embedded_Method()
     {
       var widget = new RuTubeVideoLinkWidget();
-      Assert.False(widget.Field("embedded") == null);
+      Assert.False(widget.Field("embedded").To<bool>());
       Assert.True(ReferenceEquals(widget.Embedded(), widget));
       Assert.True(widget.Field("embedded").To<bool>());
     }

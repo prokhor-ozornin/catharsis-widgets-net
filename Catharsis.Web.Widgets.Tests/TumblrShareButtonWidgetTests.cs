@@ -20,7 +20,7 @@ namespace Catharsis.Web.Widgets
       var widget = new TumblrShareButtonWidget();
       Assert.True(widget.Field("type").To<TumblrShareButtonType>() == TumblrShareButtonType.First);
       Assert.True(widget.Field("type").To<TumblrFollowButtonType>() == TumblrFollowButtonType.First);
-      Assert.True(widget.Field("colorScheme") == null);
+      Assert.Null(widget.Field("colorScheme"));
     }
 
     /// <summary>
@@ -45,7 +45,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TumblrShareButtonWidget().ColorScheme(string.Empty));
 
       var widget = new TumblrShareButtonWidget();
-      Assert.True(widget.Field("colorScheme") == null);
+      Assert.Null(widget.Field("colorScheme"));
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
       Assert.True(widget.Field("colorScheme").To<string>() == "colorScheme");
     }

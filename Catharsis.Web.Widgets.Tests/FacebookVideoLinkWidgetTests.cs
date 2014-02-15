@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new FacebookVideoLinkWidget();
-      Assert.True(widget.Field("id") == null);
+      Assert.Null(widget.Field("id"));
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookVideoLinkWidget().Id(string.Empty));
 
       var widget = new FacebookVideoLinkWidget();
-      Assert.True(widget.Field("id") == null);
+      Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
       Assert.True(widget.Field("id").To<string>() == "id");
     }

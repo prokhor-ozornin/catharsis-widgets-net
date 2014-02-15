@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public interface IFacebookInitWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies identifier of registered Facebook application.</para>
+    ///   <para>Identifier of registered Facebook application.</para>
     /// </summary>
     /// <param name="id">Identifier of Facebook application.</param>
     /// <returns>Reference to the current widget.</returns>

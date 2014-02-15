@@ -10,14 +10,14 @@ namespace Catharsis.Web.Widgets
   public interface ITumblrShareButtonWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies visual layout/appearance of button.</para>
+    ///   <para>Visual layout/appearance of button.</para>
     /// </summary>
     /// <param name="type">Layout of button.</param>
     /// <returns>Reference to the current widget.</returns>
     ITumblrShareButtonWidget Type(byte type);
 
     /// <summary>
-    ///   <para>Specifies visual color scheme of button.</para>
+    ///   <para>Visual color scheme of button.</para>
     /// </summary>
     /// <param name="scheme">Color scheme for button.</param>
     /// <returns>Reference to the current widget.</returns>

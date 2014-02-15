@@ -21,7 +21,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new YandexSharePanelWidget();
-      Assert.True(widget.Field("language") == null);
+      Assert.Null(widget.Field("language"));
       Assert.True(widget.Field("layout").To<string>() == YandexSharePanelLayout.Button.ToString().ToLowerInvariant());
       Assert.True(widget.Field("services").To<IEnumerable<string>>().SequenceEqual(new [] { "yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird" }));
     }
@@ -36,7 +36,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexSharePanelWidget().Language(string.Empty));
 
       var widget = new YandexSharePanelWidget();
-      Assert.True(widget.Field("language") == null);
+      Assert.Null(widget.Field("language"));
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
       Assert.True(widget.Field("language").To<string>() == "language");
     }

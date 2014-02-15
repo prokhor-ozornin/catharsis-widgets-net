@@ -3,7 +3,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para></para>
   /// </summary>
-  public enum FacebookLikeButtonLayout
+  public enum FacebookButtonLayout
   {
     /// <summary>
     ///   <para></para>

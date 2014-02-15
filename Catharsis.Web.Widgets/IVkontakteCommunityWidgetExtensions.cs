@@ -11,7 +11,7 @@ namespace Catharsis.Web.Widgets
   public static class IVkontakteCommunityWidgetExtensions
   {
     /// <summary>
-    ///   <para>Specifies type of information to be displayed about given community.</para>
+    ///   <para>Type of information to be displayed about given community.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="mode">Community's info type.</param>
@@ -26,7 +26,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies horizontal width of widget.</para>
+    ///   <para>Horizontal width of widget.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="width">Width of widget.</param>
@@ -41,7 +41,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies vertical height of widget.</para>
+    ///   <para>Vertical height of widget.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="height">Height of widget.</param>

@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VkontakteInitWidget();
-      Assert.True(widget.Field("apiId") == null);
+      Assert.Null(widget.Field("apiId"));
     }
 
     [Fact]
@@ -28,7 +28,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteInitWidget().ApiId(string.Empty));
 
       var widget = new VkontakteInitWidget();
-      Assert.True(widget.Field("apiId") == null);
+      Assert.Null(widget.Field("apiId"));
       Assert.True(ReferenceEquals(widget.ApiId("apiId"), widget));
       Assert.True(widget.Field("apiId").To<string>() == "apiId");
     }

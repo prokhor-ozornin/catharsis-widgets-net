@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public static class IYandexAnalyticsWidgetExtensions
   {
     /// <summary>
-    ///   <para>Specifies language of visual counter's interface to use. Default is current locale's language/language of the current thread.</para>
+    ///   <para>Language of visual counter's interface to use. Default is current locale's language/language of the current thread.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="culture">Interface language to use.</param>

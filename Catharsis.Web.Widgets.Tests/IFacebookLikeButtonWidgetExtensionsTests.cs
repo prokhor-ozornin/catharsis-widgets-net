@@ -10,16 +10,16 @@ namespace Catharsis.Web.Widgets
   public sealed class IFacebookLikeButtonWidgetExtensionsTests
   {
     /// <summary>
-    ///   <para>Performs testing of <see cref="IFacebookLikeButtonWidgetExtensions.Layout(IFacebookLikeButtonWidget, FacebookLikeButtonLayout)"/> method.</para>
+    ///   <para>Performs testing of <see cref="IFacebookLikeButtonWidgetExtensions.Layout(IFacebookLikeButtonWidget, FacebookButtonLayout)"/> method.</para>
     /// </summary>
     [Fact]
     public void Layout_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.Layout(null, FacebookLikeButtonLayout.Standard));
+      Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.Layout(null, FacebookButtonLayout.Standard));
 
-      Assert.True(new FacebookLikeButtonWidget().Layout(FacebookLikeButtonLayout.BoxCount).Field("layout").To<string>() == "box_count");
-      Assert.True(new FacebookLikeButtonWidget().Layout(FacebookLikeButtonLayout.ButtonCount).Field("layout").To<string>() == "button_count");
-      Assert.True(new FacebookLikeButtonWidget().Layout(FacebookLikeButtonLayout.Standard).Field("layout").To<string>() == "standard");
+      Assert.True(new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.BoxCount).Field("layout").To<string>() == "box_count");
+      Assert.True(new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.ButtonCount).Field("layout").To<string>() == "button_count");
+      Assert.True(new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.Standard).Field("layout").To<string>() == "standard");
     }
 
     /// <summary>
@@ -46,15 +46,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IFacebookLikeButtonWidgetExtensions.ColorScheme(IFacebookLikeButtonWidget, FacebookLikeButtonColorScheme)"/> method.</para>
+    ///   <para>Performs testing of <see cref="IFacebookLikeButtonWidgetExtensions.ColorScheme(IFacebookLikeButtonWidget, FacebookColorScheme)"/> method.</para>
     /// </summary>
     [Fact]
     public void ColorScheme_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.ColorScheme(null, FacebookLikeButtonColorScheme.Light));
+      Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.ColorScheme(null, FacebookColorScheme.Light));
 
-      Assert.True(new FacebookLikeButtonWidget().ColorScheme(FacebookLikeButtonColorScheme.Dark).Field("colorScheme").To<string>() == "dark");
-      Assert.True(new FacebookLikeButtonWidget().ColorScheme(FacebookLikeButtonColorScheme.Light).Field("colorScheme").To<string>() == "light");
+      Assert.True(new FacebookLikeButtonWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>() == "dark");
+      Assert.True(new FacebookLikeButtonWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>() == "light");
     }
   }
 }

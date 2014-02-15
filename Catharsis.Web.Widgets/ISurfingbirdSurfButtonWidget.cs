@@ -19,7 +19,7 @@ namespace Catharsis.Web.Widgets
     ISurfingbirdSurfButtonWidget Url(string url);
 
     /// <summary>
-    ///   <para>Specifies layout/appearance of the button.</para>
+    ///   <para>Layout/appearance of the button.</para>
     /// </summary>
     /// <param name="layout">Layout of button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -28,7 +28,7 @@ namespace Catharsis.Web.Widgets
     ISurfingbirdSurfButtonWidget Layout(string layout);
 
     /// <summary>
-    ///   <para>Specifies horizontal width of the button. Default is 500px.</para>
+    ///   <para>Horizontal width of the button. Default is 500px.</para>
     /// </summary>
     /// <param name="width">Width of button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -37,7 +37,7 @@ namespace Catharsis.Web.Widgets
     ISurfingbirdSurfButtonWidget Width(string width);
 
     /// <summary>
-    ///   <para>Specifies vertical height of the button. Default is 25px.</para>
+    ///   <para>Vertical height of the button. Default is 25px.</para>
     /// </summary>
     /// <param name="height">Height of button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -46,14 +46,14 @@ namespace Catharsis.Web.Widgets
     ISurfingbirdSurfButtonWidget Height(string height);
 
     /// <summary>
-    ///   <para>Specifies whether to render share counter next to a button. Default is <c>false</c>.</para>
+    ///   <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="has"><c>true</c> to show counter, <c>false</c> to hide.</param>
+    /// <param name="counter"><c>true</c> to show counter, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    ISurfingbirdSurfButtonWidget HasCounter(bool has = true);
+    ISurfingbirdSurfButtonWidget Counter(bool counter = true);
 
     /// <summary>
-    ///   <para>Specifies text label to show on button. Default is "Surf".</para>
+    ///   <para>Text label to show on button. Default is "Surf".</para>
     /// </summary>
     /// <param name="label">Text label on button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -62,7 +62,7 @@ namespace Catharsis.Web.Widgets
     ISurfingbirdSurfButtonWidget Label(string label);
 
     /// <summary>
-    ///   <para>Specifies text label's color. If not specified, default color combination is used.</para>
+    ///   <para>Text label's color. If not specified, default color combination is used.</para>
     /// </summary>
     /// <param name="color">Label's color.</param>
     /// <returns>Reference to the current widget.</returns>

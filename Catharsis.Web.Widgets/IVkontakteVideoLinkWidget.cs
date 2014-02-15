@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   public interface IVkontakteVideoLinkWidget : IVideoLinkWidget<IVkontakteVideoLinkWidget>
   {
     /// <summary>
-    ///   <para>Specifies account identifier of video's uploader.</para>
+    ///   <para>Account identifier of video's uploader.</para>
     /// </summary>
     /// <param name="user">User's account.</param>
     /// <returns>Reference to the current widget.</returns>

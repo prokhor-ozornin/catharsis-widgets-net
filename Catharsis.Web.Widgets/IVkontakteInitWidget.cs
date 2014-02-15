@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public interface IVkontakteInitWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies API identifier of registered VKontakte application.</para>
+    ///   <para>API identifier of registered VKontakte application.</para>
     /// </summary>
     /// <param name="apiId">Application API ID.</param>
     /// <returns>Reference to the current widget.</returns>

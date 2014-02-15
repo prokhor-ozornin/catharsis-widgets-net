@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VkontakteSubscriptionWidget();
-      Assert.True(widget.Field("account") == null);
+      Assert.Null(widget.Field("account"));
       Assert.True(widget.Field("layout").To<byte>() == (byte) VkontakteSubscribeButtonLayout.First);
       Assert.False(widget.Field("onlyButton").To<bool>());
     }
@@ -33,7 +33,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteSubscriptionWidget().Account(string.Empty));
 
       var widget = new VkontakteSubscriptionWidget();
-      Assert.True(widget.Field("account") == null);
+      Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
       Assert.True(widget.Field("account").To<string>() == "account");
     }

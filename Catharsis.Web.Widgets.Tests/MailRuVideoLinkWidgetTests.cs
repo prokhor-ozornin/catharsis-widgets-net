@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new MailRuVideoLinkWidget();
-      Assert.True(widget.Property("IdProperty") == null);
+      Assert.Null(widget.Field("id"));
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuVideoLinkWidget().Id(string.Empty));
 
       var widget = new MailRuVideoLinkWidget();
-      Assert.True(widget.Field("id") == null);
+      Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
       Assert.True(widget.Field("id").To<string>() == "id");
     }

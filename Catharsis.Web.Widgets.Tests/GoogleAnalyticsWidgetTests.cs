@@ -18,8 +18,8 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new GoogleAnalyticsWidget();
-      Assert.True(widget.Field("account").To<string>() == null);
-      Assert.True(widget.Field("domain").To<string>() == null);
+      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Field("domain"));
     }
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GoogleAnalyticsWidget().Account(string.Empty));
 
       var widget = new GoogleAnalyticsWidget();
-      Assert.True(widget.Field("account") == null);
+      Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
       Assert.True(widget.Field("account").To<string>() == "account");
     }
@@ -47,7 +47,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GoogleAnalyticsWidget().Domain(string.Empty));
 
       var widget = new GoogleAnalyticsWidget();
-      Assert.True(widget.Field("domain") == null);
+      Assert.Null(widget.Field("domain"));
       Assert.True(ReferenceEquals(widget.Domain("domain"), widget));
       Assert.True(widget.Field("domain").To<string>() == "domain");
     }

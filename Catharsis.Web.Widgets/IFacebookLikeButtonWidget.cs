@@ -20,7 +20,7 @@ namespace Catharsis.Web.Widgets
     IFacebookLikeButtonWidget Url(string url);
 
     /// <summary>
-    ///   <para>Selects one of the different layouts that are available for the button. Default is "standard".</para>
+    ///   <para>One of the different layouts that are available for the button. Default is "standard".</para>
     /// </summary>
     /// <param name="layout">Button layout.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -29,7 +29,7 @@ namespace Catharsis.Web.Widgets
     IFacebookLikeButtonWidget Layout(string layout);
 
     /// <summary>
-    ///   <para>Specifies the width of the button. The layout you choose affects the minimum and default widths you can use.</para>
+    ///   <para>The width of the button. The layout you choose affects the minimum and default widths you can use.</para>
     /// </summary>
     /// <param name="width">Width of button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -38,7 +38,7 @@ namespace Catharsis.Web.Widgets
     IFacebookLikeButtonWidget Width(string width);
 
     /// <summary>
-    ///   <para>Specifies the verb to display on the button. Default is "like".</para>
+    ///   <para>The verb to display on the button. Default is "like".</para>
     /// </summary>
     /// <param name="verb">Verb on the button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -47,7 +47,7 @@ namespace Catharsis.Web.Widgets
     IFacebookLikeButtonWidget Verb(string verb);
 
     /// <summary>
-    ///   <para>Specifies color scheme used by the button. Default is "light".</para>
+    ///   <para>Color scheme used by the button. Default is "light".</para>
     /// </summary>
     /// <param name="scheme">The color scheme for the button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -56,14 +56,14 @@ namespace Catharsis.Web.Widgets
     IFacebookLikeButtonWidget ColorScheme(string scheme);
 
     /// <summary>
-    ///   <para>Specifies whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites. Default is <c>false</c>.</para>
+    ///   <para>Whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="show"><c>true</c> to display profile photos, <c>false</c> to hide.</param>
+    /// <param name="faces"><c>true</c> to display profile photos, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    IFacebookLikeButtonWidget ShowFaces(bool show = true);
+    IFacebookLikeButtonWidget Faces(bool faces = true);
 
     /// <summary>
-    ///   <para>Specifies label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_).</para>
+    ///   <para>Label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_).</para>
     /// </summary>
     /// <param name="label">Label to track referrals.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -72,10 +72,10 @@ namespace Catharsis.Web.Widgets
     IFacebookLikeButtonWidget TrackLabel(string label);
 
     /// <summary>
-    ///   <para>Specifies if your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
+    ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="forKids"><c>true</c> if site is directed to small children, <c>false</c> otherwise.</param>
+    /// <param name="kids"><c>true</c> if site is directed to small children, <c>false</c> otherwise.</param>
     /// <returns>Reference to the current widget.</returns>
-    IFacebookLikeButtonWidget ForKids(bool forKids = true);
+    IFacebookLikeButtonWidget Kids(bool kids = true);
   }
 }

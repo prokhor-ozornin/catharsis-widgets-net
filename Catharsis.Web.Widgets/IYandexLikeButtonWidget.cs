@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   public interface IYandexLikeButtonWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies URL address of web page to share.</para>
+    ///   <para>URL address of web page to share.</para>
     /// </summary>
     /// <param name="url">URL address of web page.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     IYandexLikeButtonWidget Url(string url);
 
     /// <summary>
-    ///   <para>Specifies custom title text for shared page.</para>
+    ///   <para>Custom title text for shared page.</para>
     /// </summary>
     /// <param name="title">Title text.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -27,7 +27,7 @@ namespace Catharsis.Web.Widgets
     IYandexLikeButtonWidget Title(string title);
 
     /// <summary>
-    ///   <para>Specifies size of the button.</para>
+    ///   <para>Size of the button.</para>
     /// </summary>
     /// <param name="size">Size of button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -36,7 +36,7 @@ namespace Catharsis.Web.Widgets
     IYandexLikeButtonWidget Size(string size);
 
     /// <summary>
-    ///   <para>Specifies visual layout/appearance of the button.</para>
+    ///   <para>Visual layout/appearance of the button.</para>
     /// </summary>
     /// <param name="layout">Layout of button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -45,7 +45,7 @@ namespace Catharsis.Web.Widgets
     IYandexLikeButtonWidget Layout(string layout);
 
     /// <summary>
-    ///   <para>Specifies label text to draw on the button.</para>
+    ///   <para>Label text to draw on the button.</para>
     /// </summary>
     /// <param name="text">Label text.</param>
     /// <returns>Reference to the current widget.</returns>

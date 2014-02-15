@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public interface IDisqusCommentsWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies identifier of registered website in the "Disqus" comments system.</para>
+    ///   <para>Identifier of registered website in the "Disqus" comments system.</para>
     /// </summary>
     /// <param name="account">Identifier of website.</param>
     /// <returns>Reference to the current widget.</returns>

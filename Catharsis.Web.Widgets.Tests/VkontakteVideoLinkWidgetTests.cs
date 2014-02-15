@@ -18,8 +18,8 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VkontakteVideoLinkWidget();
-      Assert.True(widget.Field("id") == null);
-      Assert.True(widget.Field("user") == null);
+      Assert.Null(widget.Field("id"));
+      Assert.Null(widget.Field("user"));
     }
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoLinkWidget().Id(string.Empty));
 
       var widget = new VkontakteVideoLinkWidget();
-      Assert.True(widget.Field("id") == null);
+      Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
       Assert.True(widget.Field("id").To<string>() == "id");
     }
@@ -47,7 +47,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoLinkWidget().User(string.Empty));
 
       var widget = new VkontakteVideoLinkWidget();
-      Assert.True(widget.Field("user") == null);
+      Assert.Null(widget.Field("user"));
       Assert.True(ReferenceEquals(widget.User("user"), widget));
       Assert.True(widget.Field("user").To<string>() == "user");
     }

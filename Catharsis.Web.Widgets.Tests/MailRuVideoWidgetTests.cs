@@ -18,9 +18,9 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new MailRuVideoWidgetTests();
-      Assert.True(widget.Field("id") == null);
-      Assert.True(widget.Field("height") == null);
-      Assert.True(widget.Field("width") == null);
+      Assert.Null(widget.Field("id"));
+      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Field("width"));
     }
 
     /// <summary>
@@ -33,7 +33,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuVideoWidget().Id(string.Empty));
 
       var widget = new MailRuVideoWidget();
-      Assert.True(widget.Field("id") == null);
+      Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
       Assert.True(widget.Field("id").To<string>() == "id");
     }
@@ -48,7 +48,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuVideoWidget().Width(string.Empty));
 
       var widget = new MailRuVideoWidget();
-      Assert.True(widget.Field("width") == null);
+      Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
       Assert.True(widget.Field("width").To<string>() == "width");
     }
@@ -63,7 +63,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuVideoWidget().Height(string.Empty));
 
       var widget = new MailRuVideoWidget();
-      Assert.True(widget.Field("height") == null);
+      Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
       Assert.True(widget.Field("height").To<string>() == "height");
     }

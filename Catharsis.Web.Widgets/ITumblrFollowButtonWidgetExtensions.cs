@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public static class ITumblrFollowButtonWidgetExtensions
   {
     /// <summary>
-    ///   <para>Specifies visual layout/appearance of button.</para>
+    ///   <para>Visual layout/appearance of button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="type">Layout of button.</param>
@@ -25,7 +25,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies visual color scheme of button.</para>
+    ///   <para>Visual color scheme of button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="scheme">Color scheme for button.</param>

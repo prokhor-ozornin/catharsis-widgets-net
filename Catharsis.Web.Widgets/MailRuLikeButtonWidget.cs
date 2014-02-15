@@ -9,9 +9,9 @@ namespace Catharsis.Web.Widgets
     private string type = "combo";
     private string size = "20";
     private byte layout = (byte) MailRuLikeButtonLayout.First;
-    private bool hasText = true;
+    private bool text = true;
     private byte textType = (byte) MailRuLikeButtonTextType.First;
-    private bool hasCounter = true;
+    private bool counter = true;
     private string counterPosition = MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant();
 
     public IMailRuLikeButtonWidget Type(string type)
@@ -34,9 +34,9 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
-    public IMailRuLikeButtonWidget HasText(bool has = true)
+    public IMailRuLikeButtonWidget Text(bool text = true)
     {
-      this.hasText = has;
+      this.text = text;
       return this;
     }
 
@@ -46,9 +46,9 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
-    public IMailRuLikeButtonWidget HasCounter(bool has = true)
+    public IMailRuLikeButtonWidget Counter(bool counter = true)
     {
-      this.hasCounter = has;
+      this.counter = counter;
       return this;
     }
 
@@ -66,7 +66,7 @@ namespace Catharsis.Web.Widgets
 
       var config = new Dictionary<string, object> { { "sz", this.size }, { "st", this.layout }, { "tp", this.type } };
       
-      if (!this.hasCounter)
+      if (!this.counter)
       {
         config["nc"] = 1;
       }
@@ -75,7 +75,7 @@ namespace Catharsis.Web.Widgets
         config["vt"] = 1;
       }
 
-      if (!this.hasText)
+      if (!this.text)
       {
         config["nt"] = 1;
       }

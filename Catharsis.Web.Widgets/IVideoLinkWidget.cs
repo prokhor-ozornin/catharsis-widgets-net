@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   public interface IVideoLinkWidget<T> : IHtmlWidget where T : IVideoLinkWidget<T>
   {
     /// <summary>
-    ///   <para>Specifies identifier of video.</para>
+    ///   <para>Identifier of video.</para>
     /// </summary>
     /// <param name="id">Identifier of video.</param>
     /// <returns>Reference to the current widget.</returns>

@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   public interface IMailRuIcqWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies ICQ UIN number of contact person. If specified, "Ask Me" option will be added to the widget.</para>
+    ///   <para>ICQ UIN number of contact person. If specified, "Ask Me" option will be added to the widget.</para>
     /// </summary>
     /// <param name="account">ICQ UIN number.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     IMailRuIcqWidget Account(string account);
 
     /// <summary>
-    ///   <para>Specifies two-letter ISO language code that determines the interface language. Default is "ru".</para>
+    ///   <para>Two-letter ISO language code that determines the interface language. Default is "ru".</para>
     /// </summary>
     /// <param name="language">ISO language code for interface.</param>
     /// <returns>Reference to the current widget.</returns>

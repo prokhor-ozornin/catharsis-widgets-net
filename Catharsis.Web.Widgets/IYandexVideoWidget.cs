@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   public interface IYandexVideoWidget : IVideoWidget<IYandexVideoWidget>
   {
     /// <summary>
-    ///   <para>Specifies account identifier of video's uploader.</para>
+    ///   <para>Account identifier of video's uploader.</para>
     /// </summary>
     /// <param name="user">User's account identifier.</param>
     /// <returns>Reference to the current widget.</returns>

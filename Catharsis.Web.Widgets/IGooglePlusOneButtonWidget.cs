@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public interface IGooglePlusOneButtonWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies URL for the button. Default is current page's URL.</para>
+    ///   <para>URL for the button. Default is current page's URL.</para>
     /// </summary>
     /// <param name="url">URL for the button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -28,7 +28,7 @@ namespace Catharsis.Web.Widgets
     IGooglePlusOneButtonWidget Width(string width);
 
     /// <summary>
-    ///   <para>Specifies size of the button.</para>
+    ///   <para>Size of the button.</para>
     /// </summary>
     /// <param name="size">Size of the button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -37,7 +37,7 @@ namespace Catharsis.Web.Widgets
     IGooglePlusOneButtonWidget Size(string size);
 
     /// <summary>
-    ///   <para>Specifies horizontal alignment of the button assets within its frame.</para>
+    ///   <para>Horizontal alignment of the button assets within its frame.</para>
     /// </summary>
     /// <param name="alignment">Horizontal alignment of the button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -46,7 +46,7 @@ namespace Catharsis.Web.Widgets
     IGooglePlusOneButtonWidget Alignment(string alignment);
 
     /// <summary>
-    ///   <para>Specifies annotation to display next to the button.</para>
+    ///   <para>Annotation to display next to the button.</para>
     /// </summary>
     /// <param name="annotation">Annotation for the button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -55,7 +55,7 @@ namespace Catharsis.Web.Widgets
     IGooglePlusOneButtonWidget Annotation(string annotation);
 
     /// <summary>
-    ///   <para>Specifies callback JavaScript function that is called after the user clicks the +1 button.</para>
+    ///   <para>Callback JavaScript function that is called after the user clicks the +1 button.</para>
     /// </summary>
     /// <param name="callback">Callback JavaScript function.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -64,7 +64,7 @@ namespace Catharsis.Web.Widgets
     IGooglePlusOneButtonWidget Callback(string callback);
 
     /// <summary>
-    ///   <para>Specifies whether to show recommendations within the +1 hover bubble. Default is <c>true</c>.</para>
+    ///   <para>Whether to show recommendations within the +1 hover bubble. Default is <c>true</c>.</para>
     /// </summary>
     /// <param name="recommendations"><c>true</c> to show recommendations, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>

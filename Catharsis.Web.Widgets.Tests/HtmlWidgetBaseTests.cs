@@ -49,7 +49,7 @@ namespace Catharsis.Web.Widgets
     public void HtmlBody_Property()
     {
       var widget = new MockHtmlWidget();
-      Assert.True(widget.HtmlBody == null);
+      Assert.Null(widget.HtmlBody);
       widget.HtmlBody = "html";
       Assert.True(widget.HtmlBody == "html");
     }

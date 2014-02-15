@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public interface IVkontakteLikeButtonWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies text to be published on the wall when "Tell to friends" is pressed. Maximum length is 140 characters. Default value equals to page's title.</para>
+    ///   <para>Text to be published on the wall when "Tell to friends" is pressed. Maximum length is 140 characters. Default value equals to page's title.</para>
     /// </summary>
     /// <param name="text">Text for publishing.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -19,14 +19,14 @@ namespace Catharsis.Web.Widgets
     IVkontakteLikeButtonWidget Text(string text);
 
     /// <summary>
-    ///   <para>Specifies type of text to display on the button.</para>
+    ///   <para>Type of text to display on the button.</para>
     /// </summary>
     /// <param name="verb">Displayed button's verb.</param>
     /// <returns>Reference to the current widget.</returns>
     IVkontakteLikeButtonWidget Verb(byte verb);
 
     /// <summary>
-    ///   <para>Specifies visual layout/appearance of the button.</para>
+    ///   <para>Visual layout/appearance of the button.</para>
     /// </summary>
     /// <param name="layout">Layout of button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -35,7 +35,7 @@ namespace Catharsis.Web.Widgets
     IVkontakteLikeButtonWidget Layout(string layout);
 
     /// <summary>
-    ///   <para>Specifies width of button in pixels (integer value > 200, default value is 350). Parameter value has meaning only for a button with a text counter (layout = "full").</para>
+    ///   <para>Width of button in pixels (integer value > 200, default value is 350). Parameter value has meaning only for a button with a text counter (layout = "full").</para>
     /// </summary>
     /// <param name="width">Width of button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -44,7 +44,7 @@ namespace Catharsis.Web.Widgets
     IVkontakteLikeButtonWidget Width(string width);
 
     /// <summary>
-    ///   <para>Specifies vertical height of the button in pixels. Default value is "22".</para>
+    ///   <para>Vertical height of the button in pixels. Default value is "22".</para>
     /// </summary>
     /// <param name="height">Height of button.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -52,7 +52,7 @@ namespace Catharsis.Web.Widgets
     IVkontakteLikeButtonWidget Height(string height);
 
     /// <summary>
-    ///   <para>Specifies title of the page (to display in preview mode for record on the wall).</para>
+    ///   <para>Title of the page (to display in preview mode for record on the wall).</para>
     /// </summary>
     /// <param name="title">Title of the page.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -61,7 +61,7 @@ namespace Catharsis.Web.Widgets
     IVkontakteLikeButtonWidget PageTitle(string title);
 
     /// <summary>
-    ///   <para>Specifies URL of the page to "like" (this URL will be shown in a record on the wall). Default is URL of the current page.</para>
+    ///   <para>URL of the page to "like" (this URL will be shown in a record on the wall). Default is URL of the current page.</para>
     /// </summary>
     /// <param name="url">URL of target web page.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -70,7 +70,7 @@ namespace Catharsis.Web.Widgets
     IVkontakteLikeButtonWidget PageUrl(string url);
 
     /// <summary>
-    ///   <para>Specifies description of the page (to display in preview mode for record on the wall).</para>
+    ///   <para>Description of the page (to display in preview mode for record on the wall).</para>
     /// </summary>
     /// <param name="description">Description of the page.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -79,7 +79,7 @@ namespace Catharsis.Web.Widgets
     IVkontakteLikeButtonWidget PageDescription(string description);
 
     /// <summary>
-    ///   <para>Specifies URL of the thumbnail image (to display in preview mode for record on the wall).</para>
+    ///   <para>URL of the thumbnail image (to display in preview mode for record on the wall).</para>
     /// </summary>
     /// <param name="url">URL of post's thumbnail image.</param>
     /// <returns>Reference to the current widget.</returns>

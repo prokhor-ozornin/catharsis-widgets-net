@@ -10,14 +10,14 @@ namespace Catharsis.Web.Widgets
   public interface IVkontakteCommentsWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies maximum number of comments to display.</para>
+    ///   <para>Maximum number of comments to display.</para>
     /// </summary>
     /// <param name="limit">Maximum number of comments.</param>
     /// <returns>Reference to the current widget.</returns>
     IVkontakteCommentsWidget Limit(byte limit);
 
     /// <summary>
-    ///   <para>Specifies collection of attachment types, which are allowed in comment posts.</para>
+    ///   <para>Collection of attachment types, which are allowed in comment posts.</para>
     /// </summary>
     /// <param name="attach">Allowed types of post attachments.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -26,7 +26,7 @@ namespace Catharsis.Web.Widgets
     IVkontakteCommentsWidget Attach(params string[] attach);
 
     /// <summary>
-    ///   <para>Specifies horizontal width of comment area.</para>
+    ///   <para>Horizontal width of comment area.</para>
     /// </summary>
     /// <param name="width">Width of comments widget.</param>
     /// <returns>Reference to the current widget.</returns>

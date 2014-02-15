@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new YandexVideoLinkWidget();
-      Assert.True(widget.Field("id") == null);
+      Assert.Null(widget.Field("id"));
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexVideoLinkWidget().Id(string.Empty));
 
       var widget = new YandexVideoLinkWidget();
-      Assert.True(widget.Field("id") == null);
+      Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
       Assert.True(widget.Field("id").To<string>() == "id");
     }
@@ -58,7 +58,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexVideoLinkWidget().User(string.Empty));
 
       var widget = new YandexVideoLinkWidget();
-      Assert.True(widget.Field("user") == null);
+      Assert.Null(widget.Field("user"));
       Assert.True(ReferenceEquals(widget.User("user"), widget));
       Assert.True(widget.Field("user").To<string>() == "user");
     }

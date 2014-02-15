@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
     private string layout = SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant();
     private string width;
     private string height;
-    private bool hasCounter;
+    private bool counter;
     private string label = "Surf";
     private string color;
     
@@ -46,9 +46,9 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
-    public ISurfingbirdSurfButtonWidget HasCounter(bool has = true)
+    public ISurfingbirdSurfButtonWidget Counter(bool counter = true)
     {
-      this.hasCounter = has;
+      this.counter = counter;
       return this;
     }
 
@@ -72,7 +72,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(writer);
 
-      var config = new Dictionary<string, object> { { "layout", "{0}{1}{2}".FormatValue(this.layout, this.hasCounter ? string.Empty : "-nocount", this.color.IsEmpty() ? string.Empty : "-" + this.color) } };
+      var config = new Dictionary<string, object> { { "layout", "{0}{1}{2}".FormatValue(this.layout, this.counter ? string.Empty : "-nocount", this.color.IsEmpty() ? string.Empty : "-" + this.color) } };
       if (!this.url.IsEmpty())
       {
         config["url"] = this.url;

@@ -18,11 +18,11 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new YandexLikeButtonWidget();
-      Assert.True(widget.Field("url") == null);
-      Assert.True(widget.Field("title") == null);
+      Assert.Null(widget.Field("url"));
+      Assert.Null(widget.Field("title"));
       Assert.True(widget.Field("size").To<string>() == YandexLikeButtonSize.Large.ToString().ToLowerInvariant());
       Assert.True(widget.Field("layout").To<string>() == YandexLikeButtonLayout.Button.ToString().ToLowerInvariant());
-      Assert.True(widget.Field("text") == null);
+      Assert.Null(widget.Field("text"));
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexLikeButtonWidget().Url(string.Empty));
 
       var widget = new YandexLikeButtonWidget();
-      Assert.True(widget.Field("url") == null);
+      Assert.Null(widget.Field("url"));
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
       Assert.True(widget.Field("url").To<string>() == "url");
     }
@@ -50,7 +50,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexLikeButtonWidget().Title(string.Empty));
 
       var widget = new YandexLikeButtonWidget();
-      Assert.True(widget.Field("title") == null);
+      Assert.Null(widget.Field("title"));
       Assert.True(ReferenceEquals(widget.Title("title"), widget));
       Assert.True(widget.Field("title").To<string>() == "title");
     }
@@ -95,7 +95,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexLikeButtonWidget().Text(string.Empty));
 
       var widget = new YandexLikeButtonWidget();
-      Assert.True(widget.Field("text") == null);
+      Assert.Null(widget.Field("text"));
       Assert.True(ReferenceEquals(widget.Text("text"), widget));
       Assert.True(widget.Field("text").To<string>() == "text");
     }

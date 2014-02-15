@@ -8,10 +8,10 @@ namespace Catharsis.Web.Widgets
     private string verb;
     private string colorScheme;
     private string url;
-    private bool? forKids;
+    private bool? kids;
     private string layout;
     private string trackLabel;
-    private bool? showFaces;
+    private bool? faces;
     private string width;
 
     public IFacebookLikeButtonWidget Verb(string verb)
@@ -38,9 +38,9 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
-    public IFacebookLikeButtonWidget ForKids(bool forKids = true)
+    public IFacebookLikeButtonWidget Kids(bool kids = true)
     {
-      this.forKids = forKids;
+      this.kids = kids;
       return this;
     }
 
@@ -60,9 +60,9 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
-    public IFacebookLikeButtonWidget ShowFaces(bool show = true)
+    public IFacebookLikeButtonWidget Faces(bool faces = true)
     {
-      this.showFaces = show;
+      this.faces = faces;
       return this;
     }
 
@@ -85,12 +85,12 @@ namespace Catharsis.Web.Widgets
 
       writer.Write(this.ToTag("div", tag => tag
         .Attribute("data-action", this.verb)
-        .Attribute("data-colorscheme", this.colorScheme)
-        .Attribute("data-href", this.url)
-        .Attribute("data-kid-directed-site", this.forKids)
         .Attribute("data-layout", this.layout)
+        .Attribute("data-show-faces", this.faces)
+        .Attribute("data-href", this.url)
+        .Attribute("data-colorscheme", this.colorScheme)
+        .Attribute("data-kid-directed-site", this.kids)
         .Attribute("data-ref", this.trackLabel)
-        .Attribute("data-show-faces", this.showFaces)
         .Attribute("data-width", this.width)
         .AddCssClass("fb-like")));
     }

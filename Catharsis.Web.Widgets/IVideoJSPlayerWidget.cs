@@ -11,7 +11,7 @@ namespace Catharsis.Web.Widgets
   public interface IVideoJSPlayerWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies horizontal width of video.</para>
+    ///   <para>Horizontal width of video.</para>
     /// </summary>
     /// <param name="width">Width of video.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -21,7 +21,7 @@ namespace Catharsis.Web.Widgets
     IVideoJSPlayerWidget Width(string width);
 
     /// <summary>
-    ///   <para>Specifies vertical height of video.</para>
+    ///   <para>Vertical height of video.</para>
     /// </summary>
     /// <param name="height">Height of video.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -31,7 +31,7 @@ namespace Catharsis.Web.Widgets
     IVideoJSPlayerWidget Height(string height);
 
     /// <summary>
-    ///   <para>Specifies collection of video sources to use.</para>
+    ///   <para>Collection of video sources to use.</para>
     /// </summary>
     /// <param name="videos">Collection of videos.</param>
     /// <returns>Reference to the current widget.</returns>

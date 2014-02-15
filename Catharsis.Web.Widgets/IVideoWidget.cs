@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   public interface IVideoWidget<T> : IHtmlWidget where T : IVideoWidget<T>
   {
     /// <summary>
-    ///   <para>Specifies identifier of video.</para>
+    ///   <para>Identifier of video.</para>
     /// </summary>
     /// <param name="id">Identifier of video.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     T Id(string id);
 
     /// <summary>
-    ///   <para>Specifies width of video control.</para>
+    ///   <para>Width of video control.</para>
     /// </summary>
     /// <param name="width">Width of video.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -28,7 +28,7 @@ namespace Catharsis.Web.Widgets
     T Width(string width);
 
     /// <summary>
-    ///   <para>Specifies height of video control.</para>
+    ///   <para>Height of video control.</para>
     /// </summary>
     /// <param name="height">Height of video.</param>
     /// <returns>Reference to the current widget.</returns>

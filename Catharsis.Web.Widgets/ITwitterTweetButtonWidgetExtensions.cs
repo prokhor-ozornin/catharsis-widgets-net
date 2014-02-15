@@ -12,7 +12,7 @@ namespace Catharsis.Web.Widgets
   public static class ITwitterTweetButtonWidgetExtensions
   {
     /// <summary>
-    ///   <para>Specifies language for the "Tweet" button.</para>
+    ///   <para>Language for the "Tweet" button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="culture">Interface language for button.</param>
@@ -28,7 +28,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies the size of the rendered button.</para>
+    ///   <para>The size of the rendered button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="size">Size of button.</param>
@@ -43,7 +43,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies count box position.</para>
+    ///   <para>Count box position.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="position">Count box position.</param>
@@ -58,7 +58,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies collection of hashtags which are to be appended to tweet text.</para>
+    ///   <para>Collection of hashtags which are to be appended to tweet text.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="tags">Collection of tags for post.</param>
@@ -74,7 +74,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies collection of related accounts.</para>
+    ///   <para>Collection of related accounts.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="accounts">Collection of related accounts.</param>

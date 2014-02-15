@@ -12,7 +12,7 @@ namespace Catharsis.Web.Widgets
   public static class IVkontakteCommentsWidgetExtensions
   {
     /// <summary>
-    ///   <para>Specifies maximum number of comments to display.</para>
+    ///   <para>Maximum number of comments to display.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="limit">Maximum number of comments.</param>
@@ -27,7 +27,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies collection of attachment types, which are allowed in comment posts.</para>
+    ///   <para>Collection of attachment types, which are allowed in comment posts.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="attach">Allowed types of post attachments.</param>
@@ -42,7 +42,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies horizontal width of comment area.</para>
+    ///   <para>Horizontal width of comment area.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="width">Width of comments widget.</param>

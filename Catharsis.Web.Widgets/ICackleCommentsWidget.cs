@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   public interface ICackleCommentsWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies identifier of registered website in the "Cackle" comments system.</para>
+    ///   <para>Identifier of registered website in the "Cackle" comments system.</para>
     /// </summary>
     /// <param name="account">Identifier of website.</param>
     /// <returns>Reference to the current widget.</returns>

@@ -18,11 +18,11 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new CackleLatestCommentsWidget();
-      Assert.True(widget.Field("account") == null);
-      Assert.True(widget.Field("max") == null);
-      Assert.True(widget.Field("textSize") == null);
-      Assert.True(widget.Field("titleSize") == null);
-      Assert.True(widget.Field("avatarSize") == null);
+      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Field("max"));
+      Assert.Null(widget.Field("textSize"));
+      Assert.Null(widget.Field("titleSize"));
+      Assert.Null(widget.Field("avatarSize"));
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new CackleLatestCommentsWidget().Account(string.Empty));
 
       var widget = new CackleLatestCommentsWidget();
-      Assert.True(widget.Field("account") == null);
+      Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
       Assert.True(widget.Field("account").To<string>() == "account");
     }
@@ -47,7 +47,7 @@ namespace Catharsis.Web.Widgets
     public void Max_Method()
     {
       var widget = new CackleLatestCommentsWidget();
-      Assert.True(widget.Field("max") == null);
+      Assert.Null(widget.Field("max"));
       Assert.True(ReferenceEquals(widget.Max(1), widget));
       Assert.True(widget.Field("max").To<byte>() == 1);
     }
@@ -59,7 +59,7 @@ namespace Catharsis.Web.Widgets
     public void TextSize_Method()
     {
       var widget = new CackleLatestCommentsWidget();
-      Assert.True(widget.Field("textSize") == null);
+      Assert.Null(widget.Field("textSize"));
       Assert.True(ReferenceEquals(widget.TextSize(1), widget));
       Assert.True(widget.Field("textSize").To<int>() == 1);
     }
@@ -71,7 +71,7 @@ namespace Catharsis.Web.Widgets
     public void TitleSize_Method()
     {
       var widget = new CackleLatestCommentsWidget();
-      Assert.True(widget.Field("titleSize") == null);
+      Assert.Null(widget.Field("titleSize"));
       Assert.True(ReferenceEquals(widget.TitleSize(1), widget));
       Assert.True(widget.Field("titleSize").To<int>() == 1);
     }
@@ -83,7 +83,7 @@ namespace Catharsis.Web.Widgets
     public void AvatarSize_Method()
     {
       var widget = new CackleLatestCommentsWidget();
-      Assert.True(widget.Field("avatarSize") == null);
+      Assert.Null(widget.Field("avatarSize"));
       Assert.True(ReferenceEquals(widget.AvatarSize(1), widget));
       Assert.True(widget.Field("avatarSize").To<short>() == 1);
     }

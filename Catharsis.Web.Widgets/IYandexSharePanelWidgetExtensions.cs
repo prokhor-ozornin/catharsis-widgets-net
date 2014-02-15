@@ -12,10 +12,10 @@ namespace Catharsis.Web.Widgets
   public static class IYandexSharePanelWidgetExtensions
   {
     /// <summary>
-    ///   <para></para>
+    ///   <para>List of included social services.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
-    /// <param name="services"></param>
+    /// <param name="services">List of social services for which to render buttons.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IYandexSharePanelWidget.Services(IEnumerable{string})"/>
@@ -27,10 +27,10 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Button's interface language.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
-    /// <param name="language"></param>
+    /// <param name="language">Interface language.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="widget"/> or <paramref name="language"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IYandexSharePanelWidget.Language(string)"/>
@@ -43,10 +43,10 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Visual layout/appearance of the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
-    /// <param name="layout"></param>
+    /// <param name="layout">Layout of button.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IYandexSharePanelWidget.Layout(string)"/>

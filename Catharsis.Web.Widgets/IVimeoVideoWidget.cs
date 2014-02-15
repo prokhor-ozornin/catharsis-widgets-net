@@ -6,14 +6,14 @@
   public interface IVimeoVideoWidget : IVideoWidget<IVimeoVideoWidget>
   {
     /// <summary>
-    ///   <para>Specifie whether to start playing video automatically. Default is <c>false</c>.</para>
+    ///   <para>Whether to start playing video automatically. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="autoPlay"><c>true</c> to enable autoplay, <c>false</c> to disable.</param>
     /// <returns>Reference to the current widget.</returns>
     IVimeoVideoWidget AutoPlay(bool autoPlay = true);
 
     /// <summary>
-    ///   <para>Specifies whether to replay video when it finishes. Default is <c>false</c>.</para>
+    ///   <para>Whether to replay video when it finishes. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="loop"><c>true</c> to enable looping, <c>false</c> to disable.</param>
     /// <returns>Reference to the current widget.</returns>

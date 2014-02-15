@@ -20,7 +20,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().Account(string.Empty));
 
       var widget = new IntenseDebateCommentsWidget();
-      Assert.True(widget.Field("acoount") == null);
+      Assert.Null(widget.Field("acoount"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
       Assert.True(widget.Field("account").To<string>() == "account");
     }
@@ -35,7 +35,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().PostId(string.Empty));
 
       var widget = new IntenseDebateCommentsWidget();
-      Assert.True(widget.Field("postId") == null);
+      Assert.Null(widget.Field("postId"));
       Assert.True(ReferenceEquals(widget.PostId("postId"), widget));
       Assert.True(widget.Field("postId").To<string>() == "postId");
     }
@@ -50,7 +50,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().PostUrl(string.Empty));
 
       var widget = new IntenseDebateCommentsWidget();
-      Assert.True(widget.Field("postUrl") == null);
+      Assert.Null(widget.Field("postUrl"));
       Assert.True(ReferenceEquals(widget.PostUrl("postUrl"), widget));
       Assert.True(widget.Field("postUrl").To<string>() == "postUrl");
     }
@@ -65,7 +65,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().PostTitle(string.Empty));
 
       var widget = new IntenseDebateCommentsWidget();
-      Assert.True(widget.Field("postTitle") == null);
+      Assert.Null(widget.Field("postTitle"));
       Assert.True(ReferenceEquals(widget.PostTitle("postTitle"), widget));
       Assert.True(widget.Field("postTitle").To<string>() == "postTitle");
     }

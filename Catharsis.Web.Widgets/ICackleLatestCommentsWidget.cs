@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public interface ICackleLatestCommentsWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies identifier of registered website in the "Cackle" comments system.</para>
+    ///   <para>Identifier of registered website in the "Cackle" comments system.</para>
     /// </summary>
     /// <param name="account">Identifier of website.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -20,28 +20,28 @@ namespace Catharsis.Web.Widgets
     ICackleLatestCommentsWidget Account(string account);
 
     /// <summary>
-    ///   <para>Specifies number of comments to display. Maximum 100, default 5.</para>
+    ///   <para>Number of comments to display. Maximum 100, default 5.</para>
     /// </summary>
     /// <param name="max">Number of comments to display.</param>
     /// <returns>Reference to the current widget.</returns>
     ICackleLatestCommentsWidget Max(byte max);
 
     /// <summary>
-    ///   <para>Specifies maximum allowed count of characters in comment (0 - do not cut). Default is 150.</para>
+    ///   <para>Maximum allowed count of characters in comment (0 - do not cut). Default is 150.</para>
     /// </summary>
     /// <param name="size">Maximum count of characters in comment.</param>
     /// <returns>Reference to the current widget.</returns>
     ICackleLatestCommentsWidget TextSize(int size);
 
     /// <summary>
-    ///   <para>Specifies maximum allowed count of characters in title (0 - do not cut). Default is 40.</para>
+    ///   <para>Maximum allowed count of characters in title (0 - do not cut). Default is 40.</para>
     /// </summary>
     /// <param name="size">Maximum count of characters in title.</param>
     /// <returns>Reference to the current widget.</returns>
     ICackleLatestCommentsWidget TitleSize(int size);
 
     /// <summary>
-    ///   <para>Specifies size of user avatars. Default is 32.</para>
+    ///   <para>Size of user avatars. Default is 32.</para>
     /// </summary>
     /// <param name="size">Size of user avatars.</param>
     /// <returns>Reference to the current widget.</returns>

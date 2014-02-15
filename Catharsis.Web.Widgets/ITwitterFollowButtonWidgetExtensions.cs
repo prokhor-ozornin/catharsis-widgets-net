@@ -11,7 +11,7 @@ namespace Catharsis.Web.Widgets
   public static class ITwitterFollowButtonWidgetExtensions
   {
     /// <summary>
-    ///   <para>Specifies language for the "Follow" button.</para>
+    ///   <para>Language for the "Follow" button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="culture">Interface language for button.</param>
@@ -27,7 +27,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies the size of the rendered button.</para>
+    ///   <para>The size of the rendered button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="size">Size of button.</param>
@@ -42,7 +42,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies horizontal alignment of the button.</para>
+    ///   <para>Horizontal alignment of the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="alignment">Horizontal alignment of button.</param>

@@ -22,7 +22,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteCommentsWidget();
       Assert.True(widget.Field("limit").To<byte>() == (byte) VkontakteCommentsLimit.Limit5);
       Assert.False(widget.Field("attach").To<IEnumerable<string>>().Any());
-      Assert.True(widget.Field("width") == null);
+      Assert.Null(widget.Field("width"));
     }
 
     /// <summary>
@@ -59,7 +59,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteCommentsWidget().Width(string.Empty));
 
       var widget = new VkontakteCommentsWidget();
-      Assert.True(widget.Field("width") == null);
+      Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
       Assert.True(widget.Field("width").To<string>() == "width");
     }

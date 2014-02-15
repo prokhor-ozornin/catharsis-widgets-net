@@ -11,7 +11,7 @@ namespace Catharsis.Web.Widgets
   public static class IVkontakteLikeButtonWidgetExtensions
   {
     /// <summary>
-    ///   <para>Specifies type of text to display on the button.</para>
+    ///   <para>Type of text to display on the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="verb">Displayed button's verb.</param>
@@ -26,7 +26,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies visual layout/appearance of the button.</para>
+    ///   <para>Visual layout/appearance of the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="layout">Layout of button.</param>
@@ -41,7 +41,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies width of button in pixels.</para>
+    ///   <para>Width of button in pixels.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="width">Width of button.</param>
@@ -56,7 +56,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies vertical height of the button in pixels.</para>
+    ///   <para>Vertical height of the button in pixels.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="height">Height of button.</param>

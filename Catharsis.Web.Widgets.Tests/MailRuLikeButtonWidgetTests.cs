@@ -21,9 +21,9 @@ namespace Catharsis.Web.Widgets
       Assert.True(widget.Field("type").To<string>() == "combo");
       Assert.True(widget.Field("size").To<string>() == "20");
       Assert.True(widget.Field("layout").To<byte>() == (byte) MailRuLikeButtonLayout.First);
-      Assert.True(widget.Field("hasText").To<bool>());
+      Assert.True(widget.Field("text").To<bool>());
       Assert.True(widget.Field("textType").To<byte>() == (byte) MailRuLikeButtonTextType.First);
-      Assert.True(widget.Field("hasCounter").To<bool>());
+      Assert.True(widget.Field("counter").To<bool>());
       Assert.True(widget.Field("counterPosition").To<string>() == MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant());
     }
 
@@ -67,15 +67,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="MailRuLikeButtonWidget.HasText(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="MailRuLikeButtonWidget.Text(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void HasText_Method()
+    public void Text_Method()
     {
       var widget = new MailRuLikeButtonWidget();
-      Assert.True(widget.Field("hasText").To<bool>());
-      Assert.True(ReferenceEquals(widget.HasText(false), widget));
-      Assert.False(widget.Field("hasText").To<bool>());
+      Assert.True(widget.Field("text").To<bool>());
+      Assert.True(ReferenceEquals(widget.Text(false), widget));
+      Assert.False(widget.Field("text").To<bool>());
     }
 
     /// <summary>
@@ -91,15 +91,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="MailRuLikeButtonWidget.HasCounter(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="MailRuLikeButtonWidget.Counter(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void HasCounter_Method()
+    public void Counter_Method()
     {
       var widget = new MailRuLikeButtonWidget();
-      Assert.True(widget.Field("hasCounter").To<bool>());
-      Assert.True(ReferenceEquals(widget.HasCounter(false), widget));
-      Assert.False(widget.Field("hasCounter").To<bool>());
+      Assert.True(widget.Field("counter").To<bool>());
+      Assert.True(ReferenceEquals(widget.Counter(false), widget));
+      Assert.False(widget.Field("counter").To<bool>());
     }
 
     /// <summary>
@@ -126,7 +126,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new MailRuLikeButtonWidget().Write(null));
 
       Assert.True(new StringWriter().With(writer => new MailRuLikeButtonWidget().Write(writer)).ToString() == @"<a class=""mrc__plugin_uber_like_button"" data-mrc-config=""{&quot;sz&quot;:&quot;20&quot;,&quot;st&quot;:1,&quot;tp&quot;:&quot;combo&quot;,&quot;cm&quot;:1,&quot;ck&quot;:1}"" href=""http://connect.mail.ru/share"" target=""_blank"">Нравится</a>");
-      Assert.True(new StringWriter().With(writer => new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size30).Layout(MailRuLikeButtonLayout.Second).Type(MailRuLikeButtonType.MailRu).HasCounter().CounterPosition(MailRuLikeButtonCounterPosition.Upper).HasText(false).Write(writer)).ToString() == @"<a class=""mrc__plugin_uber_like_button"" data-mrc-config=""{&quot;sz&quot;:&quot;30&quot;,&quot;st&quot;:2,&quot;tp&quot;:&quot;mm&quot;,&quot;vt&quot;:1,&quot;nt&quot;:1}"" href=""http://connect.mail.ru/share"" target=""_blank"">Нравится</a>");
+      Assert.True(new StringWriter().With(writer => new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size30).Layout(MailRuLikeButtonLayout.Second).Type(MailRuLikeButtonType.MailRu).Counter().CounterPosition(MailRuLikeButtonCounterPosition.Upper).Text(false).Write(writer)).ToString() == @"<a class=""mrc__plugin_uber_like_button"" data-mrc-config=""{&quot;sz&quot;:&quot;30&quot;,&quot;st&quot;:2,&quot;tp&quot;:&quot;mm&quot;,&quot;vt&quot;:1,&quot;nt&quot;:1}"" href=""http://connect.mail.ru/share"" target=""_blank"">Нравится</a>");
     }
   }
 }

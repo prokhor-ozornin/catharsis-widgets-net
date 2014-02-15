@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   public interface IGoogleAnalyticsWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies Google Analytics site identifier (UA-*).</para>
+    ///   <para>Google Analytics site identifier (UA-*).</para>
     /// </summary>
     /// <param name="account">Site identifier.</param>
     /// <returns>Reference to the current widget.</returns>

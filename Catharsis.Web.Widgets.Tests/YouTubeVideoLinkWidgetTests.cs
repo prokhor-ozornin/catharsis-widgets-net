@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new YouTubeVideoLinkWidget();
-      Assert.True(widget.Field("id") == null);
+      Assert.Null(widget.Field("id"));
       Assert.False(widget.Field("embedded").To<bool>());
       Assert.False(widget.Field("private").To<bool>());
       Assert.False(widget.Field("secure").To<bool>());

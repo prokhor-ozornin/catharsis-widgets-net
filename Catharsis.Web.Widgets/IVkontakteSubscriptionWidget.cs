@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public interface IVkontakteSubscriptionWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies identifier of user/group to subscribe to.</para>
+    ///   <para>Identifier of user/group to subscribe to.</para>
     /// </summary>
     /// <param name="account">Account to subscribe to.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -20,14 +20,14 @@ namespace Catharsis.Web.Widgets
     IVkontakteSubscriptionWidget Account(string account);
 
     /// <summary>
-    ///   <para>Specifies visual layout/appearance of the button.</para>
+    ///   <para>Visual layout/appearance of the button.</para>
     /// </summary>
     /// <param name="layout">Layout of button.</param>
     /// <returns>Reference to the current widget.</returns>
     IVkontakteSubscriptionWidget Layout(byte layout);
 
     /// <summary>
-    ///   <para>Specifies whether to display both author and button or button only.</para>
+    ///   <para>Whether to display both author and button or button only.</para>
     /// </summary>
     /// <param name="onlyButton"><c>false</c> to display both author/button, <c>true</c> to display only button.</param>
     /// <returns>Reference to the current widget.</returns>

@@ -11,7 +11,7 @@ namespace Catharsis.Web.Widgets
   public static class ISurfingbirdSurfButtonWidgetExtensions
   {
     /// <summary>
-    ///   <para>Specifies layout/appearance of the button.</para>
+    ///   <para>Layout/appearance of the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="layout">Layout of button.</param>
@@ -45,7 +45,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies horizontal width of the button.</para>
+    ///   <para>Horizontal width of the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="width">Width of button.</param>
@@ -60,7 +60,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies vertical height of the button.</para>
+    ///   <para>Vertical height of the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="height">Height of button.</param>
@@ -75,7 +75,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies text label's color.</para>
+    ///   <para>Text label's color.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
     /// <param name="color">Label's color.</param>

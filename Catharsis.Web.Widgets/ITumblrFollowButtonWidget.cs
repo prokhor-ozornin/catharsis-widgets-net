@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   public interface ITumblrFollowButtonWidget : IHtmlWidget
   {
     /// <summary>
-    ///   <para>Specifies name of Tumblr account (blog).</para>
+    ///   <para>Name of Tumblr account (blog).</para>
     /// </summary>
     /// <param name="account">Name of blog.</param>
     /// <returns>Reference to the current widget.</returns>
@@ -20,14 +20,14 @@ namespace Catharsis.Web.Widgets
     ITumblrFollowButtonWidget Account(string account);
 
     /// <summary>
-    ///   <para>Specifies visual layout/appearance of button.</para>
+    ///   <para>Visual layout/appearance of button.</para>
     /// </summary>
     /// <param name="type">Layout of button.</param>
     /// <returns>Reference to the current widget.</returns>
     ITumblrFollowButtonWidget Type(byte type);
 
     /// <summary>
-    ///   <para>Specifies visual color scheme of button.</para>
+    ///   <para>Visual color scheme of button.</para>
     /// </summary>
     /// <param name="scheme">Color scheme for button.</param>
     /// <returns>Reference to the current widget.</returns>

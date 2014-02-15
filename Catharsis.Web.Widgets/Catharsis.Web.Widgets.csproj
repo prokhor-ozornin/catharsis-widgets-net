@@ -104,6 +104,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FacebookActivityFeedWidget.cs" />
+    <Compile Include="FacebookCommentsOrder.cs" />
+    <Compile Include="FacebookCommentsWidget.cs" />
+    <Compile Include="FacebookFacepileSize.cs" />
+    <Compile Include="FacebookFacepileWidget.cs" />
+    <Compile Include="FacebookFollowButtonWidget.cs" />
+    <Compile Include="FacebookLikeBoxWidget.cs" />
+    <Compile Include="FacebookRecommendationsFeedWidget.cs" />
+    <Compile Include="FacebookSendButtonWidget.cs" />
+    <Compile Include="IFacebookActivityFeedWidgetExtensions.cs" />
+    <Compile Include="IFacebookCommentsWidgetExtensions.cs" />
+    <Compile Include="IFacebookFacepileWidget.cs" />
+    <Compile Include="IFacebookActivityFeedWidget.cs" />
+    <Compile Include="IFacebookCommentsWidget.cs" />
+    <Compile Include="IFacebookFacepileWidgetExtensions.cs" />
+    <Compile Include="IFacebookFollowButtonWidget.cs" />
+    <Compile Include="IFacebookFollowButtonWidgetExtensions.cs" />
+    <Compile Include="IFacebookLikeBoxWidget.cs" />
+    <Compile Include="IFacebookLikeBoxWidgetExtensions.cs" />
+    <Compile Include="IFacebookRecommendationsFeedWidget.cs" />
+    <Compile Include="IFacebookRecommendationsFeedWidgetExtensions.cs" />
+    <Compile Include="IFacebookSendButtonWidget.cs" />
+    <Compile Include="IFacebookSendButtonWidgetExtensions.cs" />
     <Compile Include="IVideoJSHtmlHelper.cs" />
     <Compile Include="IVideoJSHtmlHelperExtensions.cs" />
     <Compile Include="IVideoJSPlayerWidget.cs" />
@@ -123,9 +146,9 @@
     <Compile Include="DisqusHtmlHelper.cs" />
     <Compile Include="FacebookHtmlHelper.cs" />
     <Compile Include="FacebookInitWidget.cs" />
-    <Compile Include="FacebookLikeButtonColorScheme.cs" />
+    <Compile Include="FacebookColorScheme.cs" />
     <Compile Include="FacebookLikeButtonFont.cs" />
-    <Compile Include="FacebookLikeButtonLayout.cs" />
+    <Compile Include="FacebookButtonLayout.cs" />
     <Compile Include="FacebookLikeButtonVerb.cs" />
     <Compile Include="FacebookLikeButtonWidget.cs" />
     <Compile Include="FacebookPostWidget.cs" />

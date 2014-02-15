@@ -12,8 +12,8 @@ namespace Catharsis.Web.Widgets
     private string language;
     private string size;
     private string alignment;
-    private bool? showCount;
-    private bool? showScreenName;
+    private bool? count;
+    private bool? screenName;
     private bool? optOut;
     private string width;
 
@@ -49,15 +49,15 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
-    public ITwitterFollowButtonWidget ShowCount(bool show = true)
+    public ITwitterFollowButtonWidget Count(bool count = true)
     {
-      this.showCount = show;
+      this.count = count;
       return this;
     }
 
-    public ITwitterFollowButtonWidget ShowScreenName(bool show = true)
+    public ITwitterFollowButtonWidget ScreenName(bool screenName = true)
     {
-      this.showScreenName = show;
+      this.screenName = screenName;
       return this;
     }
 
@@ -87,11 +87,11 @@ namespace Catharsis.Web.Widgets
       writer.Write(this.ToTag("a", tag => tag
         .Attribute("href", "https://twitter.com/{0}".FormatValue(this.account))
         .Attribute("data-lang", this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
-        .Attribute("data-show-count", this.showCount)
+        .Attribute("data-show-count", this.count)
         .Attribute("data-size", this.size)
         .Attribute("data-width", this.width)
         .Attribute("data-align", this.alignment)
-        .Attribute("data-show-screen-name", this.showScreenName)
+        .Attribute("data-show-screen-name", this.screenName)
         .Attribute("data-dnt", this.optOut)
         .AddCssClass("twitter-follow-button")));
     }
