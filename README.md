@@ -48,7 +48,7 @@ Yandex Analytics, "Ya" button, "Share" button, Embedded video, Video hyperlink
 14. [YouTube](http://youtube.com)
 Embedded video, Video hyperlink
 
-15. VideoJS player (http://www.videojs.com)
+15. [VideoJS player](http://www.videojs.com)
 Media player
 
 The list of social tags is ever-growing, and new ones can be included upon request fast.
@@ -161,14 +161,6 @@ You must include call to `@Html.Facebook().Initialize()` helper first to use bel
 > `@Html.Facebook().RecommendationsFeed().Domain("yandex.ru").Header(false).ColorScheme(FacebookColorScheme.Dark)`
 
 > Render Facebook comments widget
-
-> `<facebook:comments/>`
-
-> `<facebook:comments url="http://yandex.ru"/>`
-
-> `<facebook:comments url="http://yandex.ru" order="${FacebookCommentsOrder.REVERSE_TIME}" posts="1" width="500"/>`
-
-> Render Facebook Facepile widget
 
 > `@Html.Facebook().Comments()`
 
