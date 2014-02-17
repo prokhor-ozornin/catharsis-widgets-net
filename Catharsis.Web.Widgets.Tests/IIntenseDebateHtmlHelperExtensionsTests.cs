@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IIntenseDebateHtmlHelperExtensions.Comments(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new IntenseDebateHtmlHelper().Comments(null));
 
-      Assert.True(new IntenseDebateHtmlHelper().Comments(x => { }) == new IntenseDebateHtmlHelper().Comments().ToHtmlString());
-      Assert.True(new IntenseDebateHtmlHelper().Comments(x => x.Account("account")) == new IntenseDebateHtmlHelper().Comments().Account("account").ToHtmlString());
+      Assert.Equal(new IntenseDebateHtmlHelper().Comments().ToHtmlString(), new IntenseDebateHtmlHelper().Comments(x => { }));
+      Assert.Equal(new IntenseDebateHtmlHelper().Comments().Account("account").ToHtmlString(), new IntenseDebateHtmlHelper().Comments(x => x.Account("account")));
     }
   }
 }

@@ -45,7 +45,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookActivityFeedWidget();
       Assert.Null(widget.Field("domain"));
       Assert.True(ReferenceEquals(widget.Domain("domain"), widget));
-      Assert.True(widget.Field("domain").To<string>() == "domain");
+      Assert.Equal("domain", widget.Field("domain").To<string>());
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookActivityFeedWidget();
       Assert.Null(widget.Field("appId"));
       Assert.True(ReferenceEquals(widget.AppId("appId"), widget));
-      Assert.True(widget.Field("appId").To<string>() == "appId");
+      Assert.Equal("appId", widget.Field("appId").To<string>());
     }
 
     /// <summary>
@@ -89,7 +89,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookActivityFeedWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -104,7 +104,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookActivityFeedWidget();
       Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.True(widget.Field("height").To<string>() == "height");
+      Assert.Equal("height", widget.Field("height").To<string>());
     }
 
     /// <summary>
@@ -119,7 +119,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookActivityFeedWidget();
       Assert.Null(widget.Field("colorScheme"));
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.True(widget.Field("colorScheme").To<string>() == "colorScheme");
+      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
     }
 
     /// <summary>
@@ -146,7 +146,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookActivityFeedWidget();
       Assert.Null(widget.Field("linkTarget"));
       Assert.True(ReferenceEquals(widget.LinkTarget("linkTarget"), widget));
-      Assert.True(widget.Field("linkTarget").To<string>() == "linkTarget");
+      Assert.Equal("linkTarget", widget.Field("linkTarget").To<string>());
     }
 
     /// <summary>
@@ -158,7 +158,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookActivityFeedWidget();
       Assert.Null(widget.Field("maxAge"));
       Assert.True(ReferenceEquals(widget.MaxAge(1), widget));
-      Assert.True(widget.Field("maxAge").To<byte>() == 1);
+      Assert.Equal(1, widget.Field("maxAge").To<byte>());
     }
 
     /// <summary>
@@ -185,7 +185,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookActivityFeedWidget();
       Assert.Null(widget.Field("trackLabel"));
       Assert.True(ReferenceEquals(widget.TrackLabel("trackLabel"), widget));
-      Assert.True(widget.Field("trackLabel").To<string>() == "trackLabel");
+      Assert.Equal("trackLabel", widget.Field("trackLabel").To<string>());
     }
 
     /// <summary>
@@ -196,7 +196,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => new FacebookActivityFeedWidget().Write(null));
 
-      Assert.True(new StringWriter().With(writer => new FacebookActivityFeedWidget().Write(writer)).ToString() == @"<div class=""fb-activity""></div>");
+      Assert.Equal(@"<div class=""fb-activity""></div>", new StringWriter().With(writer => new FacebookActivityFeedWidget().Write(writer)).ToString());
       Assert.Equal(@"<div class=""fb-activity"" data-action=""actions"" data-app-id=""appId"" data-colorscheme=""dark"" data-header=""true"" data-height=""height"" data-linktarget=""linkTarget"" data-max-age=""1"" data-recommendations=""true"" data-ref=""trackLabel"" data-site=""domain"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookActivityFeedWidget().Domain("domain").AppId("appId").Actions("actions").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Header().LinkTarget("linkTarget").MaxAge(1).Recommendations().TrackLabel("trackLabel").Write(writer)).ToString());
     }
   }

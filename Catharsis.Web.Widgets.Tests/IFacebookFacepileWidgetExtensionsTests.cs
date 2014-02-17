@@ -20,7 +20,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookFacepileWidgetExtensions.Actions(null));
 
       Assert.False(new FacebookFacepileWidget().Actions().Field("actions").To<IEnumerable<string>>().Any());
-      Assert.True(new FacebookFacepileWidget().Actions("actions").Field("actions").To<IEnumerable<string>>().Single() == "actions");
+      Assert.Equal("actions", new FacebookFacepileWidget().Actions("actions").Field("actions").To<IEnumerable<string>>().Single());
     }
 
     /// <summary>
@@ -31,9 +31,9 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookFacepileWidgetExtensions.Size(null, FacebookFacepileSize.Large));
 
-      Assert.True(new FacebookFacepileWidget().Size(FacebookFacepileSize.Large).Field("size").To<string>() == "large");
-      Assert.True(new FacebookFacepileWidget().Size(FacebookFacepileSize.Medium).Field("size").To<string>() == "medium");
-      Assert.True(new FacebookFacepileWidget().Size(FacebookFacepileSize.Small).Field("size").To<string>() == "small");
+      Assert.Equal("large", new FacebookFacepileWidget().Size(FacebookFacepileSize.Large).Field("size").To<string>());
+      Assert.Equal("medium", new FacebookFacepileWidget().Size(FacebookFacepileSize.Medium).Field("size").To<string>());
+      Assert.Equal("small", new FacebookFacepileWidget().Size(FacebookFacepileSize.Small).Field("size").To<string>());
     }
 
     /// <summary>
@@ -44,7 +44,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookFacepileWidgetExtensions.Width(null, 0));
 
-      Assert.True(new FacebookFacepileWidget().Width(1).Field("width").To<string>() == "1");
+      Assert.Equal("1", new FacebookFacepileWidget().Width(1).Field("width").To<string>());
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookFacepileWidgetExtensions.Height(null, 0));
 
-      Assert.True(new FacebookFacepileWidget().Height(1).Field("height").To<string>() == "1");
+      Assert.Equal("1", new FacebookFacepileWidget().Height(1).Field("height").To<string>());
     }
 
     /// <summary>
@@ -66,8 +66,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookFacepileWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
 
-      Assert.True(new FacebookFacepileWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>() == "dark");
-      Assert.True(new FacebookFacepileWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>() == "light");
+      Assert.Equal("dark", new FacebookFacepileWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>());
+      Assert.Equal("light", new FacebookFacepileWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>());
     }
   }
 }

@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
 using Catharsis.Commons;
 using Xunit;
@@ -26,8 +25,8 @@ namespace Catharsis.Web.Widgets
       var widget = new MockHtmlWidget();
       Assert.True(ReferenceEquals(widget.HtmlAttributes(new object()), widget));
       Assert.False(widget.HtmlAttributes(new object()).HtmlAttributes.Any());
-      Assert.True(widget.HtmlAttributes(new { MyAttribute = "value" }).HtmlAttributes.Count == 1);
-      Assert.True(widget.HtmlAttributes["MyAttribute"].To<string>() == "value");
+      Assert.Equal(1, widget.HtmlAttributes(new { MyAttribute = "value" }).HtmlAttributes.Count);
+      Assert.Equal("value", widget.HtmlAttributes["MyAttribute"].To<string>());
     }
 
     /// <summary>
@@ -40,7 +39,7 @@ namespace Catharsis.Web.Widgets
 
       var widget = new MockHtmlWidget();
       Assert.True(ReferenceEquals(widget.HtmlBody("html"), widget));
-      Assert.True(widget.HtmlBody == "html");
+      Assert.Equal("html", widget.HtmlBody);
     }
 
     /// <summary>
@@ -56,12 +55,12 @@ namespace Catharsis.Web.Widgets
       new MemoryStream().With(stream =>
       {
         Assert.True(ReferenceEquals(widget.Write(stream), widget));
-        Assert.True(stream.Rewind().Text() == MockHtmlWidget.Contents);
+        Assert.Equal(MockHtmlWidget.Contents, stream.Rewind().Text());
       });
       new MemoryStream().With(stream =>
       {
         widget.Write(stream, Encoding.Unicode);
-        Assert.True(stream.Rewind().Text(encoding: Encoding.Unicode) == MockHtmlWidget.Contents);
+        Assert.Equal(MockHtmlWidget.Contents, stream.Rewind().Text(encoding: Encoding.Unicode));
       });
     }
 
@@ -85,9 +84,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new MockHtmlWidget().ToTag(null));
       Assert.Throws<ArgumentException>(() => new MockHtmlWidget().ToTag(string.Empty));
 
-      new MockHtmlWidget().With(widget => Assert.True(widget.ToTag("tag") == "<tag></tag>"));
-      new MockHtmlWidget().With(widget => Assert.True(widget.HtmlAttributes(new { first = "value1", second = "value2" }).ToTag("tag") == @"<tag first=""value1"" second=""value2""></tag>"));
-      new MockHtmlWidget().With(widget => Assert.True(widget.HtmlAttributes(new { first = "value1", second = "value2" }).ToTag("tag", builder => builder.Attribute("third", "value3")) == @"<tag first=""value1"" second=""value2"" third=""value3""></tag>"));
+      new MockHtmlWidget().With(widget => Assert.Equal("<tag></tag>", widget.ToTag("tag")));
+      new MockHtmlWidget().With(widget => Assert.Equal(@"<tag first=""value1"" second=""value2""></tag>", widget.HtmlAttributes(new { first = "value1", second = "value2" }).ToTag("tag")));
+      new MockHtmlWidget().With(widget => Assert.Equal(@"<tag first=""value1"" second=""value2"" third=""value3""></tag>", widget.HtmlAttributes(new { first = "value1", second = "value2" }).ToTag("tag", builder => builder.Attribute("third", "value3"))));
     }
 
     /// <summary>
@@ -106,8 +105,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new MockHtmlWidget().JavaScript((Uri) null));
       Assert.Throws<ArgumentException>(() => new MockHtmlWidget().JavaScript(string.Empty));
 
-      Assert.True(new MockHtmlWidget().JavaScript("code") == @"<script type=""text/javascript"">code</script>");
-      Assert.True(new MockHtmlWidget().JavaScript("http://localhost".ToUri()) == @"<script src=""http://localhost/"" type=""text/javascript""></script>");
+      Assert.Equal(@"<script type=""text/javascript"">code</script>", new MockHtmlWidget().JavaScript("code"));
+      Assert.Equal(@"<script src=""http://localhost/"" type=""text/javascript""></script>", new MockHtmlWidget().JavaScript("http://localhost".ToUri()));
     }
   }
 }

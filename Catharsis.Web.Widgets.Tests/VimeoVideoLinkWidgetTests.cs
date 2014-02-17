@@ -33,7 +33,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VimeoVideoWidget();
       Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.True(widget.Field("id").To<string>() == "id");
+      Assert.Equal("id", widget.Field("id").To<string>());
     }
 
     /// <summary>
@@ -45,7 +45,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new VimeoVideoLinkWidget().Write(null));
 
       Assert.True(new StringWriter().With(writer => new VimeoVideoLinkWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new VimeoVideoLinkWidget().Id("id").Write(writer)).ToString() == @"<a href=""https://vimeo.com/id""></a>");
+      Assert.Equal(@"<a href=""https://vimeo.com/id""></a>", new StringWriter().With(writer => new VimeoVideoLinkWidget().Id("id").Write(writer)).ToString());
     }
   }
 }

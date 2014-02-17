@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.Initialize(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().Initialize(null));
 
-      Assert.True(new FacebookHtmlHelper().Initialize(x => { }) == new FacebookHtmlHelper().Initialize().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().Initialize(x => x.AppId("appId")) == new FacebookHtmlHelper().Initialize().AppId("appId").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().Initialize().ToHtmlString(), new FacebookHtmlHelper().Initialize(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().Initialize().AppId("appId").ToHtmlString(), new FacebookHtmlHelper().Initialize(x => x.AppId("appId")));
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.ActivityFeed(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().ActivityFeed(null));
 
-      Assert.True(new FacebookHtmlHelper().ActivityFeed(x => { }) == new FacebookHtmlHelper().ActivityFeed().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().ActivityFeed(x => x.Domain("domain")) == new FacebookHtmlHelper().ActivityFeed().Domain("domain").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().ActivityFeed().ToHtmlString(), new FacebookHtmlHelper().ActivityFeed(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().ActivityFeed().Domain("domain").ToHtmlString(), new FacebookHtmlHelper().ActivityFeed(x => x.Domain("domain")));
     }
 
     /// <summary>
@@ -43,8 +43,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.RecommendationsFeed(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().RecommendationsFeed(null));
 
-      Assert.True(new FacebookHtmlHelper().RecommendationsFeed(x => { }) == new FacebookHtmlHelper().RecommendationsFeed().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().RecommendationsFeed(x => x.Domain("domain")) == new FacebookHtmlHelper().RecommendationsFeed().Domain("domain").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().RecommendationsFeed().ToHtmlString(), new FacebookHtmlHelper().RecommendationsFeed(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().RecommendationsFeed().Domain("domain").ToHtmlString(), new FacebookHtmlHelper().RecommendationsFeed(x => x.Domain("domain")));
     }
 
     /// <summary>
@@ -56,8 +56,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.Comments(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().Comments(null));
 
-      Assert.True(new FacebookHtmlHelper().Comments(x => { }) == new FacebookHtmlHelper().Comments().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().Comments(x => x.Url("url")) == new FacebookHtmlHelper().Comments().Url("url").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().Comments().ToHtmlString(), new FacebookHtmlHelper().Comments(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().Comments().Url("url").ToHtmlString(), new FacebookHtmlHelper().Comments(x => x.Url("url")));
     }
 
     /// <summary>
@@ -69,8 +69,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.Facepile(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().Facepile(null));
 
-      Assert.True(new FacebookHtmlHelper().Facepile(x => { }) == new FacebookHtmlHelper().Facepile().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().Facepile(x => x.Url("url")) == new FacebookHtmlHelper().Facepile().Url("url").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().Facepile().ToHtmlString(), new FacebookHtmlHelper().Facepile(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().Facepile().Url("url").ToHtmlString(), new FacebookHtmlHelper().Facepile(x => x.Url("url")));
     }
 
     /// <summary>
@@ -82,8 +82,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.Follow(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().Follow(null));
 
-      Assert.True(new FacebookHtmlHelper().Follow(x => { }) == new FacebookHtmlHelper().Follow().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().Follow(x => x.Url("url")) == new FacebookHtmlHelper().Follow().Url("url").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().Follow().ToHtmlString(), new FacebookHtmlHelper().Follow(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().Follow().Url("url").ToHtmlString(), new FacebookHtmlHelper().Follow(x => x.Url("url")));
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.Like(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().Like(null));
 
-      Assert.True(new FacebookHtmlHelper().Like(x => { }) == new FacebookHtmlHelper().Like().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().Like(x => x.Url("url")) == new FacebookHtmlHelper().Like().Url("url").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().Like().ToHtmlString(), new FacebookHtmlHelper().Like(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().Like().Url("url").ToHtmlString(), new FacebookHtmlHelper().Like(x => x.Url("url")));
     }
 
     /// <summary>
@@ -108,8 +108,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.LikeBox(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().LikeBox(null));
 
-      Assert.True(new FacebookHtmlHelper().LikeBox(x => { }) == new FacebookHtmlHelper().LikeBox().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().LikeBox(x => x.Url("url")) == new FacebookHtmlHelper().LikeBox().Url("url").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().LikeBox().ToHtmlString(), new FacebookHtmlHelper().LikeBox(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().LikeBox().Url("url").ToHtmlString(), new FacebookHtmlHelper().LikeBox(x => x.Url("url")));
     }
 
     /// <summary>
@@ -121,8 +121,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.Post(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().Post(null));
 
-      Assert.True(new FacebookHtmlHelper().Post(x => { }) == new FacebookHtmlHelper().Post().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().Post(x => x.Url("url")) == new FacebookHtmlHelper().Post().Url("url").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().Post().ToHtmlString(), new FacebookHtmlHelper().Post(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().Post().Url("url").ToHtmlString(), new FacebookHtmlHelper().Post(x => x.Url("url")));
     }
 
     /// <summary>
@@ -134,8 +134,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.Send(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().Send(null));
 
-      Assert.True(new FacebookHtmlHelper().Send(x => { }) == new FacebookHtmlHelper().Send().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().Send(x => x.Url("url")) == new FacebookHtmlHelper().Send().Url("url").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().Send().ToHtmlString(), new FacebookHtmlHelper().Send(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().Send().Url("url").ToHtmlString(), new FacebookHtmlHelper().Send(x => x.Url("url")));
     }
 
     /// <summary>
@@ -147,8 +147,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.Video(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().Video(null));
 
-      Assert.True(new FacebookHtmlHelper().Video(x => { }) == new FacebookHtmlHelper().Video().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().Video(x => x.Id("id")) == new FacebookHtmlHelper().Video().Id("id").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().Video().ToHtmlString(), new FacebookHtmlHelper().Video(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().Video().Id("id").ToHtmlString(), new FacebookHtmlHelper().Video(x => x.Id("id")));
     }
 
     /// <summary>
@@ -160,8 +160,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.VideoLink(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().VideoLink(null));
 
-      Assert.True(new FacebookHtmlHelper().VideoLink(x => { }) == new FacebookHtmlHelper().VideoLink().ToHtmlString());
-      Assert.True(new FacebookHtmlHelper().VideoLink(x => x.Id("id")) == new FacebookHtmlHelper().VideoLink().Id("id").ToHtmlString());
+      Assert.Equal(new FacebookHtmlHelper().VideoLink().ToHtmlString(), new FacebookHtmlHelper().VideoLink(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().VideoLink().Id("id").ToHtmlString(), new FacebookHtmlHelper().VideoLink(x => x.Id("id")));
     }
   }
 }

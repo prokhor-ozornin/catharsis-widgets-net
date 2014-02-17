@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IGoogleHtmlHelperExtensions.Analytics(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new GoogleHtmlHelper().Analytics(null));
 
-      Assert.True(new GoogleHtmlHelper().Analytics(x => { }) == new GoogleHtmlHelper().Analytics().ToHtmlString());
-      Assert.True(new GoogleHtmlHelper().Analytics(x => x.Account("account").Domain("domain")) == new GoogleHtmlHelper().Analytics().Account("account").Domain("domain").ToHtmlString());
+      Assert.Equal(new GoogleHtmlHelper().Analytics().ToHtmlString(), new GoogleHtmlHelper().Analytics(x => { }));
+      Assert.Equal(new GoogleHtmlHelper().Analytics().Account("account").Domain("domain").ToHtmlString(), new GoogleHtmlHelper().Analytics(x => x.Account("account").Domain("domain")));
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IGoogleHtmlHelperExtensions.PlusOne(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new GoogleHtmlHelper().PlusOne(null));
 
-      Assert.True(new GoogleHtmlHelper().PlusOne(x => { }) == new GoogleHtmlHelper().PlusOne().ToHtmlString());
-      Assert.True(new GoogleHtmlHelper().PlusOne(x => x.Url("url")) == new GoogleHtmlHelper().PlusOne().Url("url").ToHtmlString());
+      Assert.Equal(new GoogleHtmlHelper().PlusOne().ToHtmlString(), new GoogleHtmlHelper().PlusOne(x => { }));
+      Assert.Equal(new GoogleHtmlHelper().PlusOne().Url("url").ToHtmlString(), new GoogleHtmlHelper().PlusOne(x => x.Url("url")));
     }
   }
 }

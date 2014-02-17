@@ -16,7 +16,7 @@ namespace Catharsis.Web.Widgets
     public void ToHtmlString_Method()
     {
       var widget = new MockHtmlWidget();
-      Assert.True(widget.ToHtmlString() == MockHtmlWidget.Contents);
+      Assert.Equal(MockHtmlWidget.Contents, widget.ToHtmlString());
     }
 
     /// <summary>
@@ -26,8 +26,8 @@ namespace Catharsis.Web.Widgets
     public void ToString_Method()
     {
       var widget = new MockHtmlWidget();
-      Assert.True(widget.ToString() == MockHtmlWidget.Contents);
-      Assert.True(widget.ToString() == widget.ToHtmlString());
+      Assert.Equal(MockHtmlWidget.Contents, widget.ToString());
+      Assert.Equal(widget.ToHtmlString(), widget.ToString());
     }
 
     /// <summary>
@@ -39,7 +39,7 @@ namespace Catharsis.Web.Widgets
       var widget = new MockHtmlWidget();
       Assert.False(widget.HtmlAttributes.Any());
       widget.HtmlAttributes["key"] = string.Empty;
-      Assert.True(widget.HtmlAttributes["key"].To<string>() == string.Empty);
+      Assert.Equal(string.Empty, widget.HtmlAttributes["key"].To<string>());
     }
 
     /// <summary>
@@ -51,7 +51,7 @@ namespace Catharsis.Web.Widgets
       var widget = new MockHtmlWidget();
       Assert.Null(widget.HtmlBody);
       widget.HtmlBody = "html";
-      Assert.True(widget.HtmlBody == "html");
+      Assert.Equal("html", widget.HtmlBody);
     }
   }
 }

@@ -14,7 +14,7 @@ namespace Catharsis.Web.Widgets
     [Fact]
     public void Global_Property()
     {
-      Assert.True(Settings.Global != null);
+      Assert.NotNull(Settings.Global);
       Assert.True(ReferenceEquals(Settings.Global, Settings.Global));
     }
 
@@ -24,7 +24,7 @@ namespace Catharsis.Web.Widgets
     [Fact]
     public void Local_Property()
     {
-      Assert.True(Settings.Local != null);
+      Assert.NotNull(Settings.Local);
       Assert.True(ReferenceEquals(Settings.Local, Settings.Local));
     }
   }

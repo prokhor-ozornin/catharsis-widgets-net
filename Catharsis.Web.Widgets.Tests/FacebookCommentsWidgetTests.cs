@@ -38,7 +38,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookCommentsWidget();
       Assert.Null(widget.Field("url"));
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.True(widget.Field("url").To<string>() == "url");
+      Assert.Equal("url", widget.Field("url").To<string>());
     }
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookCommentsWidget();
       Assert.Null(widget.Field("posts"));
       Assert.True(ReferenceEquals(widget.Posts(1), widget));
-      Assert.True(widget.Field("posts").To<byte>() == 1);
+      Assert.Equal(1, widget.Field("posts").To<byte>());
     }
 
     /// <summary>
@@ -65,7 +65,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookCommentsWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -80,7 +80,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookCommentsWidget();
       Assert.Null(widget.Field("colorScheme"));
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.True(widget.Field("colorScheme").To<string>() == "colorScheme");
+      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
     }
 
     /// <summary>
@@ -107,7 +107,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookCommentsWidget();
       Assert.Null(widget.Field("order"));
       Assert.True(ReferenceEquals(widget.Order("order"), widget));
-      Assert.True(widget.Field("order").To<string>() == "order");
+      Assert.Equal("order", widget.Field("order").To<string>());
     }
 
     /// <summary>
@@ -118,7 +118,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Write(null));
 
-      Assert.True(new StringWriter().With(writer => new FacebookCommentsWidget().Write(writer)).ToString() == @"<div class=""fb-comments""></div>");
+      Assert.Equal(@"<div class=""fb-comments""></div>", new StringWriter().With(writer => new FacebookCommentsWidget().Write(writer)).ToString());
       Assert.Equal(@"<div class=""fb-comments"" data-colorscheme=""dark"" data-href=""url"" data-mobile=""true"" data-num-posts=""1"" data-order-by=""reverse_time"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookCommentsWidget().Url("url").Posts(1).Width("width").ColorScheme(FacebookColorScheme.Dark).Mobile().Order(FacebookCommentsOrder.ReverseTime).Write(writer)).ToString());
     }
   }

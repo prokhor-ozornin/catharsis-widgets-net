@@ -19,11 +19,11 @@ namespace Catharsis.Web.Widgets
     {
       var widget = new SurfingbirdSurfButtonWidget();
       Assert.Null(widget.Field("url"));
-      Assert.True(widget.Field("layout").To<string>() == SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant());
+      Assert.Equal(SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant(), widget.Field("layout").To<string>());
       Assert.Null(widget.Field("width"));
       Assert.Null(widget.Field("height"));
       Assert.False(widget.Field("counter").To<bool>());
-      Assert.True(widget.Field("label").To<string>() == "Surf");
+      Assert.Equal("Surf", widget.Field("label").To<string>());
       Assert.Null(widget.Field("color"));
     }
 
@@ -39,7 +39,7 @@ namespace Catharsis.Web.Widgets
       var widget = new SurfingbirdSurfButtonWidget();
       Assert.Null(widget.Field("url"));
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.True(widget.Field("url").To<string>() == "url");
+      Assert.Equal("url", widget.Field("url").To<string>());
     }
 
     /// <summary>
@@ -52,9 +52,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Layout(string.Empty));
 
       var widget = new SurfingbirdSurfButtonWidget();
-      Assert.True(widget.Field("layout").To<string>() == SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant());
+      Assert.Equal(SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant(), widget.Field("layout").To<string>());
       Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-      Assert.True(widget.Field("layout").To<string>() == "layout");
+      Assert.Equal("layout", widget.Field("layout").To<string>());
     }
 
     /// <summary>
@@ -69,7 +69,7 @@ namespace Catharsis.Web.Widgets
       var widget = new SurfingbirdSurfButtonWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -84,7 +84,7 @@ namespace Catharsis.Web.Widgets
       var widget = new SurfingbirdSurfButtonWidget();
       Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.True(widget.Field("height").To<string>() == "height");
+      Assert.Equal("height", widget.Field("height").To<string>());
     }
 
     /// <summary>
@@ -109,9 +109,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Label(string.Empty));
 
       var widget = new SurfingbirdSurfButtonWidget();
-      Assert.True(widget.Field("label").To<string>() == "Surf");
+      Assert.Equal("Surf", widget.Field("label").To<string>());
       Assert.True(ReferenceEquals(widget.Label("label"), widget));
-      Assert.True(widget.Field("label").To<string>() == "label");
+      Assert.Equal("label", widget.Field("label").To<string>());
     }
 
     /// <summary>
@@ -126,7 +126,7 @@ namespace Catharsis.Web.Widgets
       var widget = new SurfingbirdSurfButtonWidget();
       Assert.Null(widget.Field("color"));
       Assert.True(ReferenceEquals(widget.Color("color"), widget));
-      Assert.True(widget.Field("color").To<string>() == "color");
+      Assert.Equal("color", widget.Field("color").To<string>());
     }
 
     /// <summary>
@@ -137,8 +137,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Write(null));
 
-      Assert.True(new StringWriter().With(writer => new SurfingbirdSurfButtonWidget().Write(writer)).ToString() == @"<a class=""surfinbird__like_button"" data-surf-config=""{&quot;layout&quot;:&quot;common-nocount&quot;}"" href=""http://surfingbird.ru/share"" target=""_blank"">Surf</a>");
-      Assert.True(new StringWriter().With(writer => new SurfingbirdSurfButtonWidget().Color(SurfingbirdSurfButtonColor.Blue).Counter().Label("Share").Url("url").Layout(SurfingbirdSurfButtonLayout.Common).Width("width").Height("height").Write(writer)).ToString() == @"<a class=""surfinbird__like_button"" data-surf-config=""{&quot;layout&quot;:&quot;common-blue&quot;,&quot;url&quot;:&quot;url&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;}"" href=""http://surfingbird.ru/share"" target=""_blank"">Share</a>");
+      Assert.Equal(@"<a class=""surfinbird__like_button"" data-surf-config=""{&quot;layout&quot;:&quot;common-nocount&quot;}"" href=""http://surfingbird.ru/share"" target=""_blank"">Surf</a>", new StringWriter().With(writer => new SurfingbirdSurfButtonWidget().Write(writer)).ToString());
+      Assert.Equal(@"<a class=""surfinbird__like_button"" data-surf-config=""{&quot;layout&quot;:&quot;common-blue&quot;,&quot;url&quot;:&quot;url&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;}"" href=""http://surfingbird.ru/share"" target=""_blank"">Share</a>", new StringWriter().With(writer => new SurfingbirdSurfButtonWidget().Color(SurfingbirdSurfButtonColor.Blue).Counter().Label("Share").Url("url").Layout(SurfingbirdSurfButtonLayout.Common).Width("width").Height("height").Write(writer)).ToString());
     }
   }
 }

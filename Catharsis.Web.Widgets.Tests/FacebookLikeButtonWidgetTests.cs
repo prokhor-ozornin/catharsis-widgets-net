@@ -40,7 +40,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookLikeButtonWidget();
       Assert.Null(widget.Field("verb"));
       Assert.True(ReferenceEquals(widget.Verb("verb"), widget));
-      Assert.True(widget.Field("verb").To<string>() == "verb");
+      Assert.Equal("verb", widget.Field("verb").To<string>());
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookLikeButtonWidget();
       Assert.Null(widget.Field("colorScheme"));
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.True(widget.Field("colorScheme").To<string>() == "colorScheme");
+      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
     }
 
     /// <summary>
@@ -70,7 +70,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookLikeButtonWidget();
       Assert.Null(widget.Field("url"));
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.True(widget.Field("url").To<string>() == "url");
+      Assert.Equal("url", widget.Field("url").To<string>());
     }
 
     /// <summary>
@@ -97,7 +97,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookLikeButtonWidget();
       Assert.Null(widget.Field("layout"));
       Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-      Assert.True(widget.Field("layout").To<string>() == "layout");
+      Assert.Equal("layout", widget.Field("layout").To<string>());
     }
 
     /// <summary>
@@ -112,7 +112,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookLikeButtonWidget();
       Assert.Null(widget.Field("trackLabel"));
       Assert.True(ReferenceEquals(widget.TrackLabel("trackLabel"), widget));
-      Assert.True(widget.Field("trackLabel").To<string>() == "trackLabel");
+      Assert.Equal("trackLabel", widget.Field("trackLabel").To<string>());
     }
 
     /// <summary>
@@ -139,7 +139,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookLikeButtonWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -151,8 +151,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().Write(null));
 
       Assert.True(new StringWriter().With(writer => new FacebookLikeButtonWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new FacebookLikeButtonWidget().Url("url").Write(writer)).ToString() == @"<div class=""fb-like"" data-href=""url""></div>");
-      Assert.True(new StringWriter().With(writer => new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).ColorScheme(FacebookColorScheme.Dark).Url("url").Kids().Layout(FacebookButtonLayout.BoxCount).TrackLabel("trackLabel").Faces().Width("width").Write(writer)).ToString() == @"<div class=""fb-like"" data-action=""recommend"" data-colorscheme=""dark"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-ref=""trackLabel"" data-show-faces=""true"" data-width=""width""></div>");
+      Assert.Equal(@"<div class=""fb-like"" data-href=""url""></div>", new StringWriter().With(writer => new FacebookLikeButtonWidget().Url("url").Write(writer)).ToString());
+      Assert.Equal(@"<div class=""fb-like"" data-action=""recommend"" data-colorscheme=""dark"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-ref=""trackLabel"" data-show-faces=""true"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).ColorScheme(FacebookColorScheme.Dark).Url("url").Kids().Layout(FacebookButtonLayout.BoxCount).TrackLabel("trackLabel").Faces().Width("width").Write(writer)).ToString());
     }
   }
 }

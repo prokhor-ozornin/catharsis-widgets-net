@@ -38,7 +38,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookSendButtonWidget();
       Assert.Null(widget.Field("url"));
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.True(widget.Field("url").To<string>() == "url");
+      Assert.Equal("url", widget.Field("url").To<string>());
     }
 
     /// <summary>
@@ -53,7 +53,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookSendButtonWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -68,7 +68,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookSendButtonWidget();
       Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.True(widget.Field("height").To<string>() == "height");
+      Assert.Equal("height", widget.Field("height").To<string>());
     }
 
     /// <summary>
@@ -83,7 +83,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookSendButtonWidget();
       Assert.Null(widget.Field("colorScheme"));
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.True(widget.Field("colorScheme").To<string>() == "colorScheme");
+      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
     }
 
     /// <summary>
@@ -110,7 +110,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookSendButtonWidget();
       Assert.Null(widget.Field("c"));
       Assert.True(ReferenceEquals(widget.TrackLabel("trackLabel"), widget));
-      Assert.True(widget.Field("trackLabel").To<string>() == "trackLabel");
+      Assert.Equal("trackLabel", widget.Field("trackLabel").To<string>());
     }
 
     /// <summary>

@@ -19,7 +19,7 @@ namespace Catharsis.Web.Widgets
     {
       var widget = new VkontakteSubscriptionWidget();
       Assert.Null(widget.Field("account"));
-      Assert.True(widget.Field("layout").To<byte>() == (byte) VkontakteSubscribeButtonLayout.First);
+      Assert.Equal((byte)VkontakteSubscribeButtonLayout.First, widget.Field("layout").To<byte>());
       Assert.False(widget.Field("onlyButton").To<bool>());
     }
 
@@ -35,7 +35,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteSubscriptionWidget();
       Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.True(widget.Field("account").To<string>() == "account");
+      Assert.Equal("account", widget.Field("account").To<string>());
     }
 
     /// <summary>
@@ -45,9 +45,9 @@ namespace Catharsis.Web.Widgets
     public void Layout_Method()
     {
       var widget = new VkontakteSubscriptionWidget();
-      Assert.True(widget.Field("layout").To<byte>() == (byte)VkontakteSubscribeButtonLayout.First);
+      Assert.Equal((byte)VkontakteSubscribeButtonLayout.First, widget.Field("layout").To<byte>());
       Assert.True(ReferenceEquals(widget.Layout(2), widget));
-      Assert.True(widget.Field("layout").To<byte>() == 2);
+      Assert.Equal(2, widget.Field("layout").To<byte>());
     }
 
     /// <summary>

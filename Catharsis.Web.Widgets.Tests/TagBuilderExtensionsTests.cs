@@ -27,9 +27,9 @@ namespace Catharsis.Web.Widgets
       
       var attribute = new object();
       builder.Attribute("attribute", attribute);
-      Assert.True(builder.Attributes.Count == 1);
-      Assert.True(builder.Attributes.Single().Key == "attribute");
-      Assert.True(builder.Attributes.Single().Value == attribute.ToString());
+      Assert.Equal(1, builder.Attributes.Count);
+      Assert.Equal("attribute", builder.Attributes.Single().Key);
+      Assert.Equal(attribute.ToString(), builder.Attributes.Single().Value);
     }
 
     /// <summary>
@@ -48,11 +48,11 @@ namespace Catharsis.Web.Widgets
       
       var attributes = new { First = "first", Second = "second" };
       builder.Attributes(attributes);
-      Assert.True(builder.Attributes.Count == 2);
-      Assert.True(builder.Attributes.First().Key == "First");
-      Assert.True(builder.Attributes.First().Value == "first");
-      Assert.True(builder.Attributes.Last().Key == "Second");
-      Assert.True(builder.Attributes.Last().Value == "second");
+      Assert.Equal(2, builder.Attributes.Count);
+      Assert.Equal("First", builder.Attributes.First().Key);
+      Assert.Equal("first", builder.Attributes.First().Value);
+      Assert.Equal("Second", builder.Attributes.Last().Key);
+      Assert.Equal("second", builder.Attributes.Last().Value);
     }
 
     /// <summary>
@@ -65,8 +65,8 @@ namespace Catharsis.Web.Widgets
 
       var builder = new TagBuilder("tag");
       Assert.True(ReferenceEquals(builder.InnerHtml(string.Empty), builder));
-      Assert.True(builder.InnerHtml == string.Empty);
-      Assert.True(builder.InnerHtml("html").InnerHtml == "html");
+      Assert.Equal(string.Empty, builder.InnerHtml);
+      Assert.Equal("html", builder.InnerHtml("html").InnerHtml);
     }
   }
 }

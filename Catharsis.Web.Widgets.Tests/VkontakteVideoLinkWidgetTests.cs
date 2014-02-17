@@ -34,7 +34,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteVideoLinkWidget();
       Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.True(widget.Field("id").To<string>() == "id");
+      Assert.Equal("id", widget.Field("id").To<string>());
     }
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteVideoLinkWidget();
       Assert.Null(widget.Field("user"));
       Assert.True(ReferenceEquals(widget.User("user"), widget));
-      Assert.True(widget.Field("user").To<string>() == "user");
+      Assert.Equal("user", widget.Field("user").To<string>());
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ namespace Catharsis.Web.Widgets
       Assert.True(new StringWriter().With(writer => new VkontakteVideoLinkWidget().Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new VkontakteVideoLinkWidget().Id("id").Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new VkontakteVideoLinkWidget().User("user").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new VkontakteVideoLinkWidget().Id("id").User("user").Write(writer)).ToString() == @"<a href=""http://vk.com/videouser_id""></a>");
+      Assert.Equal(@"<a href=""http://vk.com/videouser_id""></a>", new StringWriter().With(writer => new VkontakteVideoLinkWidget().Id("id").User("user").Write(writer)).ToString());
     }
   }
 }

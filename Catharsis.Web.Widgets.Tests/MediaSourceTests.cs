@@ -21,8 +21,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MediaSource("url", string.Empty));
 
       var source = new MediaSource("url", "contentType");
-      Assert.True(source.Url == "url");
-      Assert.True(source.ContentType == "contentType");
+      Assert.Equal("url", source.Url);
+      Assert.Equal("contentType", source.ContentType);
     }
 
     /// <summary>
@@ -36,7 +36,7 @@ namespace Catharsis.Web.Widgets
 
       var source = new MediaSource("url", "contentType");
       source.ContentType = VideoContentTypes.Flash;
-      Assert.True(source.ContentType == VideoContentTypes.Flash);
+      Assert.Equal(VideoContentTypes.Flash, source.ContentType);
     }
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Catharsis.Web.Widgets
 
       var source = new MediaSource("url", "contentType");
       source.Url = "http://yandex.ru";
-      Assert.True(source.Url == "http://yandex.ru");
+      Assert.Equal("http://yandex.ru", source.Url);
     }
 
     /// <summary>
@@ -82,8 +82,8 @@ namespace Catharsis.Web.Widgets
 
       Assert.True(source.GetHashCode() != new object().GetHashCode());
       Assert.True(source.GetHashCode() != new MediaSource("newUrl", "contentType").GetHashCode());
-      Assert.True(source.GetHashCode() == source.GetHashCode());
-      Assert.True(source.GetHashCode() == new MediaSource("url", "newContentType").GetHashCode());
+      Assert.Equal(source.GetHashCode(), source.GetHashCode());
+      Assert.Equal(new MediaSource("url", "newContentType").GetHashCode(), source.GetHashCode());
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ namespace Catharsis.Web.Widgets
     [Fact]
     public void ToHtmlString_Method()
     {
-      Assert.True(new MediaSource("url", "contentType").ToHtmlString() == @"<source src=""url"" type=""contentType""></source>");
+      Assert.Equal(@"<source src=""url"" type=""contentType""></source>", new MediaSource("url", "contentType").ToHtmlString());
     }
 
     /// <summary>
@@ -101,7 +101,7 @@ namespace Catharsis.Web.Widgets
     [Fact]
     public void ToString_Method()
     {
-      Assert.True(new MediaSource("url", "contentType").ToHtmlString() == @"<source src=""url"" type=""contentType""></source>");
+      Assert.Equal(@"<source src=""url"" type=""contentType""></source>", new MediaSource("url", "contentType").ToHtmlString());
     }
   }
 }

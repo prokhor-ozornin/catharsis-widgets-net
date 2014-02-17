@@ -35,7 +35,7 @@ namespace Catharsis.Web.Widgets
       var widget = new MailRuVideoWidget();
       Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.True(widget.Field("id").To<string>() == "id");
+      Assert.Equal("id", widget.Field("id").To<string>());
     }
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Catharsis.Web.Widgets
       var widget = new MailRuVideoWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -65,7 +65,7 @@ namespace Catharsis.Web.Widgets
       var widget = new MailRuVideoWidget();
       Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.True(widget.Field("height").To<string>() == "height");
+      Assert.Equal("height", widget.Field("height").To<string>());
     }
 
     /// <summary>
@@ -80,7 +80,7 @@ namespace Catharsis.Web.Widgets
       Assert.True(new StringWriter().With(writer => new MailRuVideoWidget().Id("id").Height("height").Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new MailRuVideoWidget().Id("id").Width("width").Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new MailRuVideoWidget().Height("height").Width("width").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new MailRuVideoWidget().Id("id").Height("height").Width("width").Write(writer)).ToString() == @"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://api.video.mail.ru/videos/embed/mail/id"" webkitallowfullscreen=""true"" width=""width""></iframe>");
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://api.video.mail.ru/videos/embed/mail/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new MailRuVideoWidget().Id("id").Height("height").Width("width").Write(writer)).ToString());
     }
   }
 }

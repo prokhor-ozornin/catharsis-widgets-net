@@ -20,7 +20,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VkontakteCommentsWidget();
-      Assert.True(widget.Field("limit").To<byte>() == (byte) VkontakteCommentsLimit.Limit5);
+      Assert.Equal((byte)VkontakteCommentsLimit.Limit5, widget.Field("limit").To<byte>());
       Assert.False(widget.Field("attach").To<IEnumerable<string>>().Any());
       Assert.Null(widget.Field("width"));
     }
@@ -32,9 +32,9 @@ namespace Catharsis.Web.Widgets
     public void Limit_Method()
     {
       var widget = new VkontakteCommentsWidget();
-      Assert.True(widget.Field("limit").To<byte>() == (byte) VkontakteCommentsLimit.Limit5);
+      Assert.Equal((byte)VkontakteCommentsLimit.Limit5, widget.Field("limit").To<byte>());
       Assert.True(ReferenceEquals(widget.Limit(1), widget));
-      Assert.True(widget.Field("limit").To<byte>() == 1);
+      Assert.Equal(1, widget.Field("limit").To<byte>());
     }
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteCommentsWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>

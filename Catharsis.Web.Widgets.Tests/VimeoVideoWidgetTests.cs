@@ -37,7 +37,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VimeoVideoWidget();
       Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.True(widget.Field("id").To<string>() == "id");
+      Assert.Equal("id", widget.Field("id").To<string>());
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VimeoVideoWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -67,7 +67,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VimeoVideoWidget();
       Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.True(widget.Field("height").To<string>() == "height");
+      Assert.Equal("height", widget.Field("height").To<string>());
     }
 
     /// <summary>
@@ -106,8 +106,8 @@ namespace Catharsis.Web.Widgets
       Assert.True(new StringWriter().With(writer => new VimeoVideoWidget().Id("id").Height("height").Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new VimeoVideoWidget().Id("id").Width("width").Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new VimeoVideoWidget().Height("height").Width("width").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new VimeoVideoWidget().Id("id").Height("height").Width("width").Write(writer)).ToString() == @"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://player.vimeo.com/video/id?badge=0"" webkitallowfullscreen=""true"" width=""width""></iframe>");
-      Assert.True(new StringWriter().With(writer => new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay().Loop().Write(writer)).ToString() == @"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1"" webkitallowfullscreen=""true"" width=""width""></iframe>");
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://player.vimeo.com/video/id?badge=0"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new VimeoVideoWidget().Id("id").Height("height").Width("width").Write(writer)).ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay().Loop().Write(writer)).ToString());
     }
   }
 }

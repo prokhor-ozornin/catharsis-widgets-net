@@ -24,7 +24,7 @@ namespace Catharsis.Web.Widgets
       new TwitterTweetButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
-        Assert.True(widget.Field("language").To<string>() == CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
+        Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Field("language").To<string>());
       });
     }
 
@@ -39,8 +39,8 @@ namespace Catharsis.Web.Widgets
       new TwitterTweetButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Size(TwitterTweetButtonSize.Large), widget));
-        Assert.True(widget.Field("size").To<string>() == "large");
-        Assert.True(widget.Size(TwitterTweetButtonSize.Medium).Field("size").To<string>() == "medium");
+        Assert.Equal("large", widget.Field("size").To<string>());
+        Assert.Equal("medium", widget.Size(TwitterTweetButtonSize.Medium).Field("size").To<string>());
       });
     }
 
@@ -55,9 +55,9 @@ namespace Catharsis.Web.Widgets
       new TwitterTweetButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.CountPosition(TwitterTweetButtonCountBoxPosition.Horizontal), widget));
-        Assert.True(widget.Field("countPosition").To<string>() == "horizontal");
-        Assert.True(widget.CountPosition(TwitterTweetButtonCountBoxPosition.None).Field("countPosition").To<string>() == "none");
-        Assert.True(widget.CountPosition(TwitterTweetButtonCountBoxPosition.Vertical).Field("countPosition").To<string>() == "vertical");
+        Assert.Equal("horizontal", widget.Field("countPosition").To<string>());
+        Assert.Equal("none", widget.CountPosition(TwitterTweetButtonCountBoxPosition.None).Field("countPosition").To<string>());
+        Assert.Equal("vertical", widget.CountPosition(TwitterTweetButtonCountBoxPosition.Vertical).Field("countPosition").To<string>());
       });
     }
 

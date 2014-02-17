@@ -30,7 +30,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteInitWidget();
       Assert.Null(widget.Field("apiId"));
       Assert.True(ReferenceEquals(widget.ApiId("apiId"), widget));
-      Assert.True(widget.Field("apiId").To<string>() == "apiId");
+      Assert.Equal("apiId", widget.Field("apiId").To<string>());
     }
 
     /// <summary>

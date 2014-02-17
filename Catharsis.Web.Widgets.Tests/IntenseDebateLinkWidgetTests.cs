@@ -22,7 +22,7 @@ namespace Catharsis.Web.Widgets
       var widget = new IntenseDebateLinkWidget();
       Assert.Null(widget.Field("acoount"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.True(widget.Field("account").To<string>() == "account");
+      Assert.Equal("account", widget.Field("account").To<string>());
     }
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Catharsis.Web.Widgets
       var widget = new IntenseDebateLinkWidget();
       Assert.Null(widget.Field("postId"));
       Assert.True(ReferenceEquals(widget.PostId("postId"), widget));
-      Assert.True(widget.Field("postId").To<string>() == "postId");
+      Assert.Equal("postId", widget.Field("postId").To<string>());
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ namespace Catharsis.Web.Widgets
       var widget = new IntenseDebateLinkWidget();
       Assert.Null(widget.Field("postUrl"));
       Assert.True(ReferenceEquals(widget.PostUrl("postUrl"), widget));
-      Assert.True(widget.Field("postUrl").To<string>() == "postUrl");
+      Assert.Equal("postUrl", widget.Field("postUrl").To<string>());
     }
 
     /// <summary>
@@ -67,7 +67,7 @@ namespace Catharsis.Web.Widgets
       var widget = new IntenseDebateLinkWidget();
       Assert.Null(widget.Field("postTitle"));
       Assert.True(ReferenceEquals(widget.PostTitle("postTitle"), widget));
-      Assert.True(widget.Field("postTitle").To<string>() == "postTitle");
+      Assert.Equal("postTitle", widget.Field("postTitle").To<string>());
     }
 
     /// <summary>

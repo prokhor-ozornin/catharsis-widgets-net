@@ -35,7 +35,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookVideoWidget();
       Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.True(widget.Field("id").To<string>() == "id");
+      Assert.Equal("id", widget.Field("id").To<string>());
     }
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookVideoWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -65,7 +65,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookVideoWidget();
       Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.True(widget.Field("height").To<string>() == "height");
+      Assert.Equal("height", widget.Field("height").To<string>());
     }
 
     /// <summary>
@@ -81,7 +81,7 @@ namespace Catharsis.Web.Widgets
       Assert.True(new StringWriter().With(writer => new FacebookVideoWidget().Id("id").Height("height").Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new FacebookVideoWidget().Id("width").Height("height").Write(writer)).ToString().IsEmpty());
 
-      Assert.True(new StringWriter().With(writer => new FacebookVideoWidget().Id("id").Width("width").Height("height").Write(writer)).ToString() == @"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://www.facebook.com/video/embed?video_id=id"" webkitallowfullscreen=""true"" width=""width""></iframe>");
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://www.facebook.com/video/embed?video_id=id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new FacebookVideoWidget().Id("id").Width("width").Height("height").Write(writer)).ToString());
     }
   }
 }

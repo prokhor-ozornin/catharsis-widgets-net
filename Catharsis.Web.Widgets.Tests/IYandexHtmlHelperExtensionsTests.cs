@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.Analytics(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().Analytics(null));
 
-      Assert.True(new YandexHtmlHelper().Analytics(x => { }) == new YandexHtmlHelper().Analytics().ToHtmlString());
-      Assert.True(new YandexHtmlHelper().Analytics(x => x.Account("account")) == new YandexHtmlHelper().Analytics().Account("account").ToHtmlString());
+      Assert.Equal(new YandexHtmlHelper().Analytics().ToHtmlString(), new YandexHtmlHelper().Analytics(x => { }));
+      Assert.Equal(new YandexHtmlHelper().Analytics().Account("account").ToHtmlString(), new YandexHtmlHelper().Analytics(x => x.Account("account")));
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.Like(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().Like(null));
 
-      Assert.True(new YandexHtmlHelper().Like(x => { }) == new YandexHtmlHelper().Like().ToHtmlString());
-      Assert.True(new YandexHtmlHelper().Like(x => x.Url("url")) == new YandexHtmlHelper().Like().Url("url").ToHtmlString());
+      Assert.Equal(new YandexHtmlHelper().Like().ToHtmlString(), new YandexHtmlHelper().Like(x => { }));
+      Assert.Equal(new YandexHtmlHelper().Like().Url("url").ToHtmlString(), new YandexHtmlHelper().Like(x => x.Url("url")));
     }
 
     /// <summary>
@@ -43,8 +43,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.Share(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().Share(null));
 
-      Assert.True(new YandexHtmlHelper().Share(x => { }) == new YandexHtmlHelper().Share().ToHtmlString());
-      Assert.True(new YandexHtmlHelper().Share(x => x.Layout(YandexSharePanelLayout.Button)) == new YandexHtmlHelper().Share().Layout(YandexSharePanelLayout.Button).ToHtmlString());
+      Assert.Equal(new YandexHtmlHelper().Share().ToHtmlString(), new YandexHtmlHelper().Share(x => { }));
+      Assert.Equal(new YandexHtmlHelper().Share().Layout(YandexSharePanelLayout.Button).ToHtmlString(), new YandexHtmlHelper().Share(x => x.Layout(YandexSharePanelLayout.Button)));
     }
 
     /// <summary>
@@ -56,8 +56,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.Video(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().Video(null));
 
-      Assert.True(new YandexHtmlHelper().Video(x => { }) == new YandexHtmlHelper().Video().ToHtmlString());
-      Assert.True(new YandexHtmlHelper().Video(x => x.Id("id").Width("width").Height("height").User("user")) == new YandexHtmlHelper().Video().Id("id").Width("width").Height("height").User("user").ToHtmlString());
+      Assert.Equal(new YandexHtmlHelper().Video().ToHtmlString(), new YandexHtmlHelper().Video(x => { }));
+      Assert.Equal(new YandexHtmlHelper().Video().Id("id").Width("width").Height("height").User("user").ToHtmlString(), new YandexHtmlHelper().Video(x => x.Id("id").Width("width").Height("height").User("user")));
     }
 
     /// <summary>
@@ -69,8 +69,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.VideoLink(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().VideoLink(null));
 
-      Assert.True(new YandexHtmlHelper().VideoLink(x => { }) == new YandexHtmlHelper().VideoLink().ToHtmlString());
-      Assert.True(new YandexHtmlHelper().VideoLink(x => x.Id("id").User("user")) == new YandexHtmlHelper().VideoLink().Id("id").User("user").ToHtmlString());
+      Assert.Equal(new YandexHtmlHelper().VideoLink().ToHtmlString(), new YandexHtmlHelper().VideoLink(x => { }));
+      Assert.Equal(new YandexHtmlHelper().VideoLink().Id("id").User("user").ToHtmlString(), new YandexHtmlHelper().VideoLink(x => x.Id("id").User("user")));
     }
   }
 }

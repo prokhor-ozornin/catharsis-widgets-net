@@ -20,10 +20,10 @@ namespace Catharsis.Web.Widgets
       new VkontakteCommunityWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Mode(VkontakteCommunityMode.Participants), widget));
-        Assert.True(widget.Field("mode").To<byte>() == 0);
+        Assert.Equal(0, widget.Field("mode").To<byte>());
       });
-      new VkontakteCommunityWidget().With(widget => widget.Mode(VkontakteCommunityMode.Title).Field("mode").To<byte>() == 1);
-      new VkontakteCommunityWidget().With(widget => widget.Mode(VkontakteCommunityMode.News).Field("mode").To<byte>() == 2);
+      Assert.Equal(1, new VkontakteCommunityWidget().With(widget => widget.Mode(VkontakteCommunityMode.Title).Field("mode").To<byte>()));
+      Assert.Equal(2, new VkontakteCommunityWidget().With(widget => widget.Mode(VkontakteCommunityMode.News).Field("mode").To<byte>()));
     }
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Catharsis.Web.Widgets
       new VkontakteCommunityWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Width(1), widget));
-        Assert.True(widget.Field("width").To<string>() == "1");
+        Assert.Equal("1", widget.Field("width").To<string>());
       });
     }
 
@@ -52,7 +52,7 @@ namespace Catharsis.Web.Widgets
       new VkontakteCommunityWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Height(1), widget));
-        Assert.True(widget.Field("height").To<string>() == "1");
+        Assert.Equal("1", widget.Field("height").To<string>());
       });
     }
   }

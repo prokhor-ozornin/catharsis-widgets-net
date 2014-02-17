@@ -19,7 +19,7 @@ namespace Catharsis.Web.Widgets
     {
       var widget = new VkontakteCommunityWidget();
       Assert.Null(widget.Field("account"));
-      Assert.True(widget.Field("mode").To<byte>() == (byte) VkontakteCommunityMode.Participants);
+      Assert.Equal((byte)VkontakteCommunityMode.Participants, widget.Field("mode").To<byte>());
       Assert.Null(widget.Field("width"));
       Assert.Null(widget.Field("height"));
     }
@@ -36,7 +36,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteCommunityWidget();
       Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.True(widget.Field("account").To<string>() == "account");
+      Assert.Equal("account", widget.Field("account").To<string>());
     }
 
     /// <summary>
@@ -46,9 +46,9 @@ namespace Catharsis.Web.Widgets
     public void Mode_Method()
     {
       var widget = new VkontakteCommunityWidget();
-      Assert.True(widget.Field("mode").To<byte>() == (byte) VkontakteCommunityMode.Participants);
+      Assert.Equal((byte)VkontakteCommunityMode.Participants, widget.Field("mode").To<byte>());
       Assert.True(ReferenceEquals(widget.Mode(1), widget));
-      Assert.True(widget.Field("mode").To<byte>() == 1);
+      Assert.Equal(1, widget.Field("mode").To<byte>());
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteCommunityWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -78,7 +78,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteCommunityWidget();
       Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.True(widget.Field("height").To<string>() == "height");
+      Assert.Equal("height", widget.Field("height").To<string>());
     }
 
     /// <summary>

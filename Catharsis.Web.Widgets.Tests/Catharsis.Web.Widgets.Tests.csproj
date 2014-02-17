@@ -108,8 +108,6 @@
     <Compile Include="IntenseDebateHtmlHelperTests.cs" />
     <Compile Include="IntenseDebateLinkWidgetTests.cs" />
     <Compile Include="IRuTubeHtmlHelperExtensionsTests.cs" />
-    <Compile Include="IRuTubeVideoLinkWidget.cs" />
-    <Compile Include="IRuTubeVideoWidget.cs" />
     <Compile Include="ISurfingbirdHtmlHelperExtensionsTests.cs" />
     <Compile Include="ISurfingbirdSurfButtonWidgetExtensionsTests.cs" />
     <Compile Include="ITumblrFollowButtonWidgetExtensionsTests.cs" />

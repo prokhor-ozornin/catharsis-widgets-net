@@ -42,7 +42,7 @@ namespace Catharsis.Web.Widgets
       var widget = new TwitterFollowButtonWidget();
       Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.True(widget.Field("account").To<string>() == "account");
+      Assert.Equal("account", widget.Field("account").To<string>());
     }
 
     /// <summary>
@@ -57,7 +57,7 @@ namespace Catharsis.Web.Widgets
       var widget = new TwitterFollowButtonWidget();
       Assert.Null(widget.Field("language"));
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
-      Assert.True(widget.Field("language").To<string>() == "language");
+      Assert.Equal("language", widget.Field("language").To<string>());
     }
 
     /// <summary>
@@ -72,7 +72,7 @@ namespace Catharsis.Web.Widgets
       var widget = new TwitterFollowButtonWidget();
       Assert.Null(widget.Field("size"));
       Assert.True(ReferenceEquals(widget.Size("size"), widget));
-      Assert.True(widget.Field("size").To<string>() == "size");
+      Assert.Equal("size", widget.Field("size").To<string>());
     }
 
     /// <summary>
@@ -87,7 +87,7 @@ namespace Catharsis.Web.Widgets
       var widget = new TwitterFollowButtonWidget();
       Assert.Null(widget.Field("alignment"));
       Assert.True(ReferenceEquals(widget.Alignment("alignment"), widget));
-      Assert.True(widget.Field("alignment").To<string>() == "alignment");
+      Assert.Equal("alignment", widget.Field("alignment").To<string>());
     }
     
     /// <summary>
@@ -135,7 +135,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new TwitterFollowButtonWidget().Write(null));
 
       Assert.True(new StringWriter().With(writer => new TwitterFollowButtonWidget().Account("account").Write(writer)).ToString() == @"<a class=""twitter-follow-button"" data-lang=""{0}"" href=""https://twitter.com/account""></a>".FormatValue(HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName));
-      Assert.True(new StringWriter().With(writer => new TwitterFollowButtonWidget().Account("account").Language("en").Count().Size("size").Width("width").Alignment("align").ScreenName().OptOut().Write(writer)).ToString() == @"<a class=""twitter-follow-button"" data-align=""align"" data-dnt=""true"" data-lang=""en"" data-show-count=""true"" data-show-screen-name=""true"" data-size=""size"" data-width=""width"" href=""https://twitter.com/account""></a>");
+      Assert.Equal(@"<a class=""twitter-follow-button"" data-align=""align"" data-dnt=""true"" data-lang=""en"" data-show-count=""true"" data-show-screen-name=""true"" data-size=""size"" data-width=""width"" href=""https://twitter.com/account""></a>", new StringWriter().With(writer => new TwitterFollowButtonWidget().Account("account").Language("en").Count().Size("size").Width("width").Alignment("align").ScreenName().OptOut().Write(writer)).ToString());
     }
   }
 }

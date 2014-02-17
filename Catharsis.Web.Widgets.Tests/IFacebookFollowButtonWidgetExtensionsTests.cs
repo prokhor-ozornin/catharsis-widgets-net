@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookFollowButtonWidgetExtensions.Width(null, 0));
 
-      Assert.True(new FacebookFollowButtonWidget().Width(1).Field("width").To<string>() == "1");
+      Assert.Equal("1", new FacebookFollowButtonWidget().Width(1).Field("width").To<string>());
     }
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookFollowButtonWidgetExtensions.Height(null, 0));
 
-      Assert.True(new FacebookFollowButtonWidget().Height(1).Field("height").To<string>() == "1");
+      Assert.Equal("1", new FacebookFollowButtonWidget().Height(1).Field("height").To<string>());
     }
 
     /// <summary>
@@ -39,8 +39,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookFollowButtonWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
 
-      Assert.True(new FacebookFollowButtonWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>() == "dark");
-      Assert.True(new FacebookFollowButtonWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>() == "light");
+      Assert.Equal("dark", new FacebookFollowButtonWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>());
+      Assert.Equal("light", new FacebookFollowButtonWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>());
     }
 
     /// <summary>
@@ -51,9 +51,9 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookFollowButtonWidgetExtensions.Layout(null, FacebookButtonLayout.BoxCount));
 
-      Assert.True(new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.BoxCount).Field("layout").To<string>() == "box_count");
-      Assert.True(new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.ButtonCount).Field("layout").To<string>() == "button_count");
-      Assert.True(new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.Standard).Field("layout").To<string>() == "standard");
+      Assert.Equal("box_count", new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.BoxCount).Field("layout").To<string>());
+      Assert.Equal("button_count", new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.ButtonCount).Field("layout").To<string>());
+      Assert.Equal("standard", new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.Standard).Field("layout").To<string>());
     }
   }
 }

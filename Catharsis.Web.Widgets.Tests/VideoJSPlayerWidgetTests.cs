@@ -37,7 +37,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VideoJSPlayerWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VideoJSPlayerWidget();
       Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.True(widget.Field("height").To<string>() == "height");
+      Assert.Equal("height", widget.Field("height").To<string>());
     }
 
     /// <summary>
@@ -86,7 +86,7 @@ namespace Catharsis.Web.Widgets
       Assert.True(new StringWriter().With(writer => new VideoJSPlayerWidget().Videos(videos).Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new VideoJSPlayerWidget().Videos(videos).Width("width").Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new VideoJSPlayerWidget().Videos(videos).Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new VideoJSPlayerWidget().Videos(videos).Width("width").Height("height").HtmlBody(@"<track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track>").Write(writer)).ToString() == @"<video class=""video-js vjs-default-skin"" controls=""controls"" data-setup=""{}"" height=""height"" preload=""auto"" width=""width""><source src=""http://vjs.zencdn.net/v/oceans.mp4"" type=""video/mp4""></source><source src=""http://vjs.zencdn.net/v/oceans.webm"" type=""video/webm""></source><track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track></video>");
+      Assert.Equal(@"<video class=""video-js vjs-default-skin"" controls=""controls"" data-setup=""{}"" height=""height"" preload=""auto"" width=""width""><source src=""http://vjs.zencdn.net/v/oceans.mp4"" type=""video/mp4""></source><source src=""http://vjs.zencdn.net/v/oceans.webm"" type=""video/webm""></source><track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track></video>", new StringWriter().With(writer => new VideoJSPlayerWidget().Videos(videos).Width("width").Height("height").HtmlBody(@"<track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track>").Write(writer)).ToString());
     }
   }
 }

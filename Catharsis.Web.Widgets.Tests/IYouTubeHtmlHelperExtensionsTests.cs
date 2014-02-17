@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IYouTubeHtmlHelperExtensions.Video(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new YouTubeHtmlHelper().Video(null));
 
-      Assert.True(new YouTubeHtmlHelper().Video(x => { }) == new YouTubeHtmlHelper().Video().ToHtmlString());
-      Assert.True(new YouTubeHtmlHelper().Video(x => x.Id("id")) == new YouTubeHtmlHelper().Video().Id("id").ToHtmlString());
+      Assert.Equal(new YouTubeHtmlHelper().Video().ToHtmlString(), new YouTubeHtmlHelper().Video(x => { }));
+      Assert.Equal(new YouTubeHtmlHelper().Video().Id("id").ToHtmlString(), new YouTubeHtmlHelper().Video(x => x.Id("id")));
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IYouTubeHtmlHelperExtensions.VideoLink(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new YouTubeHtmlHelper().VideoLink(null));
 
-      Assert.True(new YouTubeHtmlHelper().VideoLink(x => { }) == new YouTubeHtmlHelper().VideoLink().ToHtmlString());
-      Assert.True(new YouTubeHtmlHelper().VideoLink(x => x.Id("id")) == new YouTubeHtmlHelper().VideoLink().Id("id").ToHtmlString());
+      Assert.Equal(new YouTubeHtmlHelper().VideoLink().ToHtmlString(), new YouTubeHtmlHelper().VideoLink(x => { }));
+      Assert.Equal(new YouTubeHtmlHelper().VideoLink().Id("id").ToHtmlString(), new YouTubeHtmlHelper().VideoLink(x => x.Id("id")));
     }
   }
 }

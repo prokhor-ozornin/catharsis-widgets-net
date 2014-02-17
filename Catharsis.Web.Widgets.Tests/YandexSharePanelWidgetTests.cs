@@ -22,7 +22,7 @@ namespace Catharsis.Web.Widgets
     {
       var widget = new YandexSharePanelWidget();
       Assert.Null(widget.Field("language"));
-      Assert.True(widget.Field("layout").To<string>() == YandexSharePanelLayout.Button.ToString().ToLowerInvariant());
+      Assert.Equal(YandexSharePanelLayout.Button.ToString().ToLowerInvariant(), widget.Field("layout").To<string>());
       Assert.True(widget.Field("services").To<IEnumerable<string>>().SequenceEqual(new [] { "yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird" }));
     }
 
@@ -38,7 +38,7 @@ namespace Catharsis.Web.Widgets
       var widget = new YandexSharePanelWidget();
       Assert.Null(widget.Field("language"));
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
-      Assert.True(widget.Field("language").To<string>() == "language");
+      Assert.Equal("language", widget.Field("language").To<string>());
     }
 
     /// <summary>
@@ -65,9 +65,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexSharePanelWidget().Layout(string.Empty));
 
       var widget = new YandexSharePanelWidget();
-      Assert.True(widget.Field("layout").To<string>() == YandexSharePanelLayout.Button.ToString().ToLowerInvariant());
+      Assert.Equal(YandexSharePanelLayout.Button.ToString().ToLowerInvariant(), widget.Field("layout").To<string>());
       Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-      Assert.True(widget.Field("layout").To<string>() == "layout");
+      Assert.Equal("layout", widget.Field("layout").To<string>());
     }
 
     /// <summary>
@@ -78,8 +78,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => new YandexSharePanelWidget().Write(null));
 
-      Assert.True(new StringWriter().With(writer => new YandexSharePanelWidget().Write(writer)).ToString() == @"<div class=""yashare-auto-init"" data-yashareL10n=""{0}"" data-yashareQuickServices=""yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,pinterest,surfingbird"" data-yashareType=""button""></div>".FormatValue(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName));
-      Assert.True(new StringWriter().With(writer => new YandexSharePanelWidget().Services("yaru").Layout(YandexSharePanelLayout.Link).Language("ru").Write(writer)).ToString() == @"<div class=""yashare-auto-init"" data-yashareL10n=""ru"" data-yashareQuickServices=""yaru"" data-yashareType=""link""></div>");
+      Assert.Equal(@"<div class=""yashare-auto-init"" data-yashareL10n=""{0}"" data-yashareQuickServices=""yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,pinterest,surfingbird"" data-yashareType=""button""></div>".FormatValue(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new StringWriter().With(writer => new YandexSharePanelWidget().Write(writer)).ToString());
+      Assert.Equal(@"<div class=""yashare-auto-init"" data-yashareL10n=""ru"" data-yashareQuickServices=""yaru"" data-yashareType=""link""></div>", new StringWriter().With(writer => new YandexSharePanelWidget().Services("yaru").Layout(YandexSharePanelLayout.Link).Language("ru").Write(writer)).ToString());
     }
   }
 }

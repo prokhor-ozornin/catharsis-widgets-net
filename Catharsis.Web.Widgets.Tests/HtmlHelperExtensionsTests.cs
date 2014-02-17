@@ -19,7 +19,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Cackle(null));
 
-      Assert.True(html.Cackle() != null);
+      Assert.NotNull(html.Cackle());
       Assert.True(ReferenceEquals(html.Cackle(), html.Cackle()));
     }
 
@@ -31,7 +31,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Disqus(null));
 
-      Assert.True(html.Disqus() != null);
+      Assert.NotNull(html.Disqus());
       Assert.True(ReferenceEquals(html.Disqus(), html.Disqus()));
     }
 
@@ -43,7 +43,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Facebook(null));
 
-      Assert.True(html.Facebook() != null);
+      Assert.NotNull(html.Facebook());
       Assert.True(ReferenceEquals(html.Facebook(), html.Facebook()));
     }
 
@@ -55,7 +55,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Google(null));
 
-      Assert.True(html.Google() != null);
+      Assert.NotNull(html.Google());
       Assert.True(ReferenceEquals(html.Google(), html.Google()));
     }
 
@@ -67,9 +67,9 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.InlineImage(null));
 
-      Assert.True(html.InlineImage() != null);
+      Assert.NotNull(html.InlineImage());
       Assert.False(ReferenceEquals(html.InlineImage(), html.InlineImage()));
-      Assert.True(html.InlineImage().ToString() == html.InlineImage().ToString());
+      Assert.Equal(html.InlineImage().ToString(), html.InlineImage().ToString());
     }
 
     /// <summary>
@@ -80,7 +80,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.IntenseDebate(null));
 
-      Assert.True(html.IntenseDebate() != null);
+      Assert.NotNull(html.IntenseDebate());
       Assert.True(ReferenceEquals(html.IntenseDebate(), html.IntenseDebate()));
     }
 
@@ -92,7 +92,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.MailRu(null));
 
-      Assert.True(html.MailRu() != null);
+      Assert.NotNull(html.MailRu());
       Assert.True(ReferenceEquals(html.MailRu(), html.MailRu()));
     }
 
@@ -104,7 +104,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.RuTube(null));
 
-      Assert.True(html.RuTube() != null);
+      Assert.NotNull(html.RuTube());
       Assert.True(ReferenceEquals(html.RuTube(), html.RuTube()));
     }
 
@@ -128,7 +128,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Surfingbird(null));
 
-      Assert.True(html.Surfingbird() != null);
+      Assert.NotNull(html.Surfingbird());
       Assert.True(ReferenceEquals(html.Surfingbird(), html.Surfingbird()));
     }
 
@@ -140,7 +140,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Tumblr(null));
 
-      Assert.True(html.Tumblr() != null);
+      Assert.NotNull(html.Tumblr());
       Assert.True(ReferenceEquals(html.Tumblr(), html.Tumblr()));
     }
 
@@ -152,7 +152,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Twitter(null));
 
-      Assert.True(html.Twitter() != null);
+      Assert.NotNull(html.Twitter());
       Assert.True(ReferenceEquals(html.Twitter(), html.Twitter()));
     }
 
@@ -164,7 +164,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.VideoJS(null));
 
-      Assert.True(html.VideoJS() != null);
+      Assert.NotNull(html.VideoJS());
       Assert.True(ReferenceEquals(html.VideoJS(), html.VideoJS()));
     }
 
@@ -176,7 +176,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Vimeo(null));
 
-      Assert.True(html.Vimeo() != null);
+      Assert.NotNull(html.Vimeo());
       Assert.True(ReferenceEquals(html.Vimeo(), html.Vimeo()));
     }
 
@@ -188,7 +188,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Vkontakte(null));
 
-      Assert.True(html.Vkontakte() != null);
+      Assert.NotNull(html.Vkontakte());
       Assert.True(ReferenceEquals(html.Vkontakte(), html.Vkontakte()));
     }
 
@@ -200,7 +200,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Yandex(null));
 
-      Assert.True(html.Yandex() != null);
+      Assert.NotNull(html.Yandex());
       Assert.True(ReferenceEquals(html.Yandex(), html.Yandex()));
     }
 
@@ -212,7 +212,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.YouTube(null));
 
-      Assert.True(html.YouTube() != null);
+      Assert.NotNull(html.YouTube());
       Assert.True(ReferenceEquals(html.YouTube(), html.YouTube()));
     }
   }

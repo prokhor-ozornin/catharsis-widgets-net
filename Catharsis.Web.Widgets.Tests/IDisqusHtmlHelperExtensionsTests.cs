@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IDisqusHtmlHelperExtensions.Comments(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new DisqusHtmlHelper().Comments(null));
 
-      Assert.True(new DisqusHtmlHelper().Comments(x => { }) == new DisqusHtmlHelper().Comments().ToHtmlString());
-      Assert.True(new DisqusHtmlHelper().Comments(x => x.Account("account")) == new DisqusHtmlHelper().Comments().Account("account").ToHtmlString());
+      Assert.Equal(new DisqusHtmlHelper().Comments().ToHtmlString(), new DisqusHtmlHelper().Comments(x => { }));
+      Assert.Equal(new DisqusHtmlHelper().Comments().Account("account").ToHtmlString(), new DisqusHtmlHelper().Comments(x => x.Account("account")));
     }
   }
 }

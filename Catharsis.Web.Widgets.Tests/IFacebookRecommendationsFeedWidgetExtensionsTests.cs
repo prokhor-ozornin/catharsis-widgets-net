@@ -31,7 +31,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookRecommendationsFeedWidgetExtensions.Width(null, 0));
 
-      Assert.True(new FacebookRecommendationsFeedWidget().Width(1).Field("width").To<string>() == "1");
+      Assert.Equal("1", new FacebookRecommendationsFeedWidget().Width(1).Field("width").To<string>());
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookRecommendationsFeedWidgetExtensions.Height(null, 0));
 
-      Assert.True(new FacebookRecommendationsFeedWidget().Height(1).Field("height").To<string>() == "1");
+      Assert.Equal("1", new FacebookRecommendationsFeedWidget().Height(1).Field("height").To<string>());
     }
 
     /// <summary>
@@ -53,8 +53,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookRecommendationsFeedWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
 
-      Assert.True(new FacebookRecommendationsFeedWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>() == "dark");
-      Assert.True(new FacebookRecommendationsFeedWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>() == "light");
+      Assert.Equal("dark", new FacebookRecommendationsFeedWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>());
+      Assert.Equal("light", new FacebookRecommendationsFeedWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>());
     }
   }
 }

@@ -33,7 +33,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookInitWidget();
       Assert.Null(widget.Field("appId"));
       Assert.True(ReferenceEquals(widget.AppId("appId"), widget));
-      Assert.True(widget.Field("appId").To<string>() == "appId");
+      Assert.Equal("appId", widget.Field("appId").To<string>());
     }
 
     /// <summary>

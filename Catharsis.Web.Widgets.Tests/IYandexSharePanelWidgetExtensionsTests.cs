@@ -41,7 +41,7 @@ namespace Catharsis.Web.Widgets
       new YandexSharePanelWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
-        Assert.True(widget.Field("language").To<string>() == CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
+        Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Field("language").To<string>());
       });
     }
 
@@ -56,11 +56,11 @@ namespace Catharsis.Web.Widgets
       new YandexSharePanelWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Layout(YandexSharePanelLayout.Button), widget));
-        Assert.True(widget.Field("layout").To<string>() == "button");
+        Assert.Equal("button", widget.Field("layout").To<string>());
       });
-      new YandexSharePanelWidget().With(widget => Assert.True(widget.Layout(YandexSharePanelLayout.Icon).Field("layout").To<string>() == "icon"));
-      new YandexSharePanelWidget().With(widget => Assert.True(widget.Layout(YandexSharePanelLayout.Link).Field("layout").To<string>() == "link"));
-      new YandexSharePanelWidget().With(widget => Assert.True(widget.Layout(YandexSharePanelLayout.None).Field("layout").To<string>() == "none"));
+      new YandexSharePanelWidget().With(widget => Assert.Equal("icon", widget.Layout(YandexSharePanelLayout.Icon).Field("layout").To<string>()));
+      new YandexSharePanelWidget().With(widget => Assert.Equal("link", widget.Layout(YandexSharePanelLayout.Link).Field("layout").To<string>()));
+      new YandexSharePanelWidget().With(widget => Assert.Equal("none", widget.Layout(YandexSharePanelLayout.None).Field("layout").To<string>()));
     }
   }
 }

@@ -36,7 +36,7 @@ namespace Catharsis.Web.Widgets
       var widget = new YandexVideoWidget();
       Assert.Null(widget.Field("user"));
       Assert.True(ReferenceEquals(widget.User("user"), widget));
-      Assert.True(widget.Field("user").To<string>() == "user");
+      Assert.Equal("user", widget.Field("user").To<string>());
     }
 
     /// <summary>
@@ -51,7 +51,7 @@ namespace Catharsis.Web.Widgets
       var widget = new YandexVideoWidget();
       Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.True(widget.Field("id").To<string>() == "id");
+      Assert.Equal("id", widget.Field("id").To<string>());
     }
 
     /// <summary>
@@ -66,7 +66,7 @@ namespace Catharsis.Web.Widgets
       var widget = new YandexVideoWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -81,7 +81,7 @@ namespace Catharsis.Web.Widgets
       var widget = new YandexVideoWidget();
       Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.True(widget.Field("height").To<string>() == "height");
+      Assert.Equal("height", widget.Field("height").To<string>());
     }
 
     /// <summary>
@@ -97,7 +97,7 @@ namespace Catharsis.Web.Widgets
       Assert.True(new StringWriter().With(writer => new YandexVideoWidget().Id("id").User("user").Height("height").Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new YandexVideoWidget().Id("id").Width("width").Height("height").Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new YandexVideoWidget().User("user").Width("width").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YandexVideoWidget().Id("id").Height("height").Width("width").User("user").Write(writer)).ToString() == @"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://video.yandex.ru/iframe/user/id"" webkitallowfullscreen=""true"" width=""width""></iframe>");
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://video.yandex.ru/iframe/user/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new YandexVideoWidget().Id("id").Height("height").Width("width").User("user").Write(writer)).ToString());
     }
   }
 }

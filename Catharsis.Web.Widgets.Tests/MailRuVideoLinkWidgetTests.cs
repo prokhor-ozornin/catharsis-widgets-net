@@ -33,7 +33,7 @@ namespace Catharsis.Web.Widgets
       var widget = new MailRuVideoLinkWidget();
       Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.True(widget.Field("id").To<string>() == "id");
+      Assert.Equal("id", widget.Field("id").To<string>());
     }
 
     /// <summary>
@@ -45,7 +45,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new MailRuVideoLinkWidget().Write(null));
 
       Assert.True(new StringWriter().With(writer => new MailRuVideoLinkWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new MailRuVideoLinkWidget().Id("id").Write(writer)).ToString() == @"<a href=""http://my.mail.ru/video/mail/id""></a>");
+      Assert.Equal(@"<a href=""http://my.mail.ru/video/mail/id""></a>", new StringWriter().With(writer => new MailRuVideoLinkWidget().Id("id").Write(writer)).ToString());
     }
   }
 }

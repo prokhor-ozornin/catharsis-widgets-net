@@ -34,7 +34,7 @@ namespace Catharsis.Web.Widgets
       var widget = new MailRuIcqWidget();
       Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.True(widget.Field("account").To<string>() == "account");
+      Assert.Equal("account", widget.Field("account").To<string>());
     }
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Catharsis.Web.Widgets
       var widget = new MailRuIcqWidget();
       Assert.Null(widget.Field("language"));
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
-      Assert.True(widget.Field("language").To<string>() == "language");
+      Assert.Equal("language", widget.Field("language").To<string>());
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => new MailRuIcqWidget().Write(null));
 
-      Assert.True(new StringWriter().With(writer => new MailRuIcqWidget().Write(writer)).ToString() == @"<script src=""http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"" type=""text/javascript""></script>");
+      Assert.Equal(@"<script src=""http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"" type=""text/javascript""></script>", new StringWriter().With(writer => new MailRuIcqWidget().Write(writer)).ToString());
       new StringWriter().With(writer =>
       {
         new MailRuIcqWidget().Account("account").Language("en").Write(writer);

@@ -23,7 +23,7 @@ namespace Catharsis.Web.Widgets
       new VideoJSPlayerWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Width(1), widget));
-        Assert.True(widget.Field("width").To<string>() == "1");
+        Assert.Equal("1", widget.Field("width").To<string>());
       });
     }
 
@@ -38,7 +38,7 @@ namespace Catharsis.Web.Widgets
       new VideoJSPlayerWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Height(1), widget));
-        Assert.True(widget.Field("height").To<string>() == "1");
+        Assert.Equal("1", widget.Field("height").To<string>());
       });
     }
 

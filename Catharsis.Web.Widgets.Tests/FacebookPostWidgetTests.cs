@@ -34,7 +34,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookPostWidget();
       Assert.Null(widget.Field("url"));
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.True(widget.Field("url").To<string>() == "url");
+      Assert.Equal("url", widget.Field("url").To<string>());
     }
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookPostWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new FacebookPostWidget().Write(null));
 
       Assert.True(new StringWriter().With(writer => new FacebookPostWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new FacebookPostWidget().Url("url").Width("width").Write(writer)).ToString() == @"<div class=""fb-post"" data-href=""url"" data-width=""width""></div>");
+      Assert.Equal(@"<div class=""fb-post"" data-href=""url"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookPostWidget().Url("url").Width("width").Write(writer)).ToString());
     }
   }
 }

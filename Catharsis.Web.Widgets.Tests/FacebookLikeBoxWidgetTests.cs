@@ -41,7 +41,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookLikeBoxWidget();
       Assert.Null(widget.Field("url"));
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.True(widget.Field("url").To<string>() == "url");
+      Assert.Equal("url", widget.Field("url").To<string>());
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookLikeBoxWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -71,7 +71,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookLikeBoxWidget();
       Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.True(widget.Field("height").To<string>() == "height");
+      Assert.Equal("height", widget.Field("height").To<string>());
     }
 
     /// <summary>
@@ -86,7 +86,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookLikeBoxWidget();
       Assert.Null(widget.Field("colorScheme"));
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.True(widget.Field("colorScheme").To<string>() == "colorScheme");
+      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
     }
 
     /// <summary>
@@ -158,8 +158,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new FacebookLikeBoxWidget().Write(null));
 
       Assert.True(new StringWriter().With(writer => new FacebookLikeBoxWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Write(writer)).ToString() == @"<div class=""fb-like-box"" data-href=""https://www.facebook.com/pages/Clear-Words/515749945120070""></div>");
-      Assert.True(new StringWriter().With(writer => new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Wall().Header().Border().Faces().Stream().Write(writer)).ToString() == @"<div class=""fb-like-box"" data-colorscheme=""dark"" data-force-wall=""true"" data-header=""true"" data-height=""height"" data-href=""https://www.facebook.com/pages/Clear-Words/515749945120070"" data-show-border=""true"" data-show-faces=""true"" data-stream=""true"" data-width=""width""></div>");
+      Assert.Equal(@"<div class=""fb-like-box"" data-href=""https://www.facebook.com/pages/Clear-Words/515749945120070""></div>", new StringWriter().With(writer => new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Write(writer)).ToString());
+      Assert.Equal(@"<div class=""fb-like-box"" data-colorscheme=""dark"" data-force-wall=""true"" data-header=""true"" data-height=""height"" data-href=""https://www.facebook.com/pages/Clear-Words/515749945120070"" data-show-border=""true"" data-show-faces=""true"" data-stream=""true"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Wall().Header().Border().Faces().Stream().Write(writer)).ToString());
     }
   }
 }

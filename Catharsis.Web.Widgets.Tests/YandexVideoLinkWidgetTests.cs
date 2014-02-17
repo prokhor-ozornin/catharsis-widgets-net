@@ -33,7 +33,7 @@ namespace Catharsis.Web.Widgets
       var widget = new YandexVideoLinkWidget();
       Assert.Null(widget.Field("id"));
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.True(widget.Field("id").To<string>() == "id");
+      Assert.Equal("id", widget.Field("id").To<string>());
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ namespace Catharsis.Web.Widgets
       var widget = new YandexVideoLinkWidget();
       Assert.Null(widget.Field("user"));
       Assert.True(ReferenceEquals(widget.User("user"), widget));
-      Assert.True(widget.Field("user").To<string>() == "user");
+      Assert.Equal("user", widget.Field("user").To<string>());
     }
 
     /// <summary>
@@ -74,8 +74,8 @@ namespace Catharsis.Web.Widgets
       Assert.True(new StringWriter().With(writer => new YandexVideoLinkWidget().Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new YandexVideoLinkWidget().Id("id").Write(writer)).ToString().IsEmpty());
       Assert.True(new StringWriter().With(writer => new YandexVideoLinkWidget().User("user").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YandexVideoLinkWidget().Id("id").User("user").Write(writer)).ToString() == @"<a href=""http://video.yandex.ru/users/user/view/id/#""></a>");
-      Assert.True(new StringWriter().With(writer => new YandexVideoLinkWidget().Id("id").User("user").HighQuality().Write(writer)).ToString() == @"<a href=""http://video.yandex.ru/users/user/view/id/#hq""></a>");
+      Assert.Equal(@"<a href=""http://video.yandex.ru/users/user/view/id/#""></a>", new StringWriter().With(writer => new YandexVideoLinkWidget().Id("id").User("user").Write(writer)).ToString());
+      Assert.Equal(@"<a href=""http://video.yandex.ru/users/user/view/id/#hq""></a>", new StringWriter().With(writer => new YandexVideoLinkWidget().Id("id").User("user").HighQuality().Write(writer)).ToString());
     }
   }
 }

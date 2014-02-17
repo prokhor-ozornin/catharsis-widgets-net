@@ -20,9 +20,9 @@ namespace Catharsis.Web.Widgets
       new TumblrFollowButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Type(TumblrFollowButtonType.First), widget));
-        Assert.True(widget.Field("type").To<byte>() == 1);
-        Assert.True(widget.Type(TumblrFollowButtonType.Second).Field("type").To<byte>() == 2);
-        Assert.True(widget.Type(TumblrFollowButtonType.Third).Field("type").To<byte>() == 3);
+        Assert.Equal(1, widget.Field("type").To<byte>());
+        Assert.Equal(2, widget.Type(TumblrFollowButtonType.Second).Field("type").To<byte>());
+        Assert.Equal(3, widget.Type(TumblrFollowButtonType.Third).Field("type").To<byte>());
       });
     }
 
@@ -37,8 +37,8 @@ namespace Catharsis.Web.Widgets
       new TumblrFollowButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.ColorScheme(TumblrFollowButtonColorScheme.Dark), widget));
-        Assert.True(widget.Field("colorScheme").To<string>() == "dark");
-        Assert.True(widget.ColorScheme(TumblrFollowButtonColorScheme.Light).Field("colorScheme").To<string>() == "light");
+        Assert.Equal("dark", widget.Field("colorScheme").To<string>());
+        Assert.Equal("light", widget.ColorScheme(TumblrFollowButtonColorScheme.Light).Field("colorScheme").To<string>());
       });
     }
   }

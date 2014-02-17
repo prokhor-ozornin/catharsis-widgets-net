@@ -17,9 +17,9 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.Layout(null, FacebookButtonLayout.Standard));
 
-      Assert.True(new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.BoxCount).Field("layout").To<string>() == "box_count");
-      Assert.True(new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.ButtonCount).Field("layout").To<string>() == "button_count");
-      Assert.True(new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.Standard).Field("layout").To<string>() == "standard");
+      Assert.Equal("box_count", new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.BoxCount).Field("layout").To<string>());
+      Assert.Equal("button_count", new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.ButtonCount).Field("layout").To<string>());
+      Assert.Equal("standard", new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.Standard).Field("layout").To<string>());
     }
 
     /// <summary>
@@ -30,7 +30,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.Width(null, 0));
 
-      Assert.True(new FacebookLikeButtonWidget().Width(1).Field("width").To<string>() == "1");
+      Assert.Equal("1", new FacebookLikeButtonWidget().Width(1).Field("width").To<string>());
     }
 
     /// <summary>
@@ -41,8 +41,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.Verb(null, FacebookLikeButtonVerb.Like));
 
-      Assert.True(new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Like).Field("verb").To<string>() == "like");
-      Assert.True(new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).Field("verb").To<string>() == "recommend");
+      Assert.Equal("like", new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Like).Field("verb").To<string>());
+      Assert.Equal("recommend", new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).Field("verb").To<string>());
     }
 
     /// <summary>
@@ -53,8 +53,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.ColorScheme(null, FacebookColorScheme.Light));
 
-      Assert.True(new FacebookLikeButtonWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>() == "dark");
-      Assert.True(new FacebookLikeButtonWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>() == "light");
+      Assert.Equal("dark", new FacebookLikeButtonWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>());
+      Assert.Equal("light", new FacebookLikeButtonWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>());
     }
   }
 }

@@ -33,8 +33,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new YouTubeVideoLinkWidget().Write(null));
 
       Assert.True(new StringWriter().With(writer => new YouTubeVideoLinkWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YouTubeVideoLinkWidget().Id("id").Write(writer)).ToString() == @"<a href=""http://www.youtube.com/watch?v=id""></a>");
-      Assert.True(new StringWriter().With(writer => new YouTubeVideoLinkWidget().Id("id").Embedded().Private().Secure().Write(writer)).ToString() == @"<a href=""https://www.youtube-nocookie.com/embed/id""></a>");
+      Assert.Equal(@"<a href=""http://www.youtube.com/watch?v=id""></a>", new StringWriter().With(writer => new YouTubeVideoLinkWidget().Id("id").Write(writer)).ToString());
+      Assert.Equal(@"<a href=""https://www.youtube-nocookie.com/embed/id""></a>", new StringWriter().With(writer => new YouTubeVideoLinkWidget().Id("id").Embedded().Private().Secure().Write(writer)).ToString());
     }
   }
 }

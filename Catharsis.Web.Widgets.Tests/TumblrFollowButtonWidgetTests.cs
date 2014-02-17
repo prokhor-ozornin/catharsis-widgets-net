@@ -19,8 +19,8 @@ namespace Catharsis.Web.Widgets
     {
       var widget = new TumblrFollowButtonWidget();
       Assert.Null(widget.Field("account"));
-      Assert.True(widget.Field("type").To<TumblrFollowButtonType>() == TumblrFollowButtonType.First);
-      Assert.True(widget.Field("colorScheme").To<string>() == TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant());
+      Assert.Equal(TumblrFollowButtonType.First, widget.Field("type").To<TumblrFollowButtonType>());
+      Assert.Equal(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant(), widget.Field("colorScheme").To<string>());
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ namespace Catharsis.Web.Widgets
       var widget = new TumblrFollowButtonWidget();
       Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.True(widget.Field("account").To<string>() == "account");
+      Assert.Equal("account", widget.Field("account").To<string>());
     }
 
     /// <summary>
@@ -45,9 +45,9 @@ namespace Catharsis.Web.Widgets
     public void Type_Method()
     {
       var widget = new TumblrFollowButtonWidget();
-      Assert.True(widget.Field("type").To<byte>() == (byte) TumblrFollowButtonType.First);
+      Assert.Equal((byte)TumblrFollowButtonType.First, widget.Field("type").To<byte>());
       Assert.True(ReferenceEquals(widget.Type(1), widget));
-      Assert.True(widget.Field("type").To<byte>() == 1);
+      Assert.Equal(1, widget.Field("type").To<byte>());
     }
 
     /// <summary>
@@ -60,9 +60,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TumblrFollowButtonWidget().ColorScheme(string.Empty));
 
       var widget = new TumblrFollowButtonWidget();
-      Assert.True(widget.Field("colorScheme").To<string>() == TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant());
+      Assert.Equal(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant(), widget.Field("colorScheme").To<string>());
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.True(widget.Field("colorScheme").To<string>() == "colorScheme");
+      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
     }
 
     /// <summary>
@@ -74,8 +74,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new TumblrFollowButtonWidget().Write(null));
 
       Assert.True(new StringWriter().With(writer => new TumblrFollowButtonWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new TumblrFollowButtonWidget().Account("account").Write(writer)).ToString() == @"<iframe allowtransparency=""true"" border=""0"" class=""btn"" frameborder=""0"" height=""25"" scrolling=""no"" src=""http://platform.tumblr.com/v1/follow_button.html?button_type=1&amp;tumblelog=account&amp;color_scheme=light"" width=""189""></iframe>");
-      Assert.True(new StringWriter().With(writer => new TumblrFollowButtonWidget().Account("account").Type(TumblrFollowButtonType.Second).ColorScheme(TumblrFollowButtonColorScheme.Dark).Write(writer)).ToString() == @"<iframe allowtransparency=""true"" border=""0"" class=""btn"" frameborder=""0"" height=""25"" scrolling=""no"" src=""http://platform.tumblr.com/v1/follow_button.html?button_type=2&amp;tumblelog=account&amp;color_scheme=dark"" width=""113""></iframe>");
+      Assert.Equal(@"<iframe allowtransparency=""true"" border=""0"" class=""btn"" frameborder=""0"" height=""25"" scrolling=""no"" src=""http://platform.tumblr.com/v1/follow_button.html?button_type=1&amp;tumblelog=account&amp;color_scheme=light"" width=""189""></iframe>", new StringWriter().With(writer => new TumblrFollowButtonWidget().Account("account").Write(writer)).ToString());
+      Assert.Equal(@"<iframe allowtransparency=""true"" border=""0"" class=""btn"" frameborder=""0"" height=""25"" scrolling=""no"" src=""http://platform.tumblr.com/v1/follow_button.html?button_type=2&amp;tumblelog=account&amp;color_scheme=dark"" width=""113""></iframe>", new StringWriter().With(writer => new TumblrFollowButtonWidget().Account("account").Type(TumblrFollowButtonType.Second).ColorScheme(TumblrFollowButtonColorScheme.Dark).Write(writer)).ToString());
     }
   }
 }

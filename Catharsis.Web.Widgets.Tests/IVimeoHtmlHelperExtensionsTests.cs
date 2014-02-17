@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IVimeoHtmlHelperExtensions.Video(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new VimeoHtmlHelper().Video(null));
 
-      Assert.True(new VimeoHtmlHelper().Video(x => { }) == new VimeoHtmlHelper().Video().ToHtmlString());
-      Assert.True(new VimeoHtmlHelper().Video(x => x.Id("id")) == new VimeoHtmlHelper().Video().Id("id").ToHtmlString());
+      Assert.Equal(new VimeoHtmlHelper().Video().ToHtmlString(), new VimeoHtmlHelper().Video(x => { }));
+      Assert.Equal(new VimeoHtmlHelper().Video().Id("id").ToHtmlString(), new VimeoHtmlHelper().Video(x => x.Id("id")));
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IVimeoHtmlHelperExtensions.VideoLink(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new VimeoHtmlHelper().VideoLink(null));
 
-      Assert.True(new VimeoHtmlHelper().VideoLink(x => { }) == new VimeoHtmlHelper().VideoLink().ToHtmlString());
-      Assert.True(new VimeoHtmlHelper().VideoLink(x => x.Id("id")) == new VimeoHtmlHelper().VideoLink().Id("id").ToHtmlString());
+      Assert.Equal(new VimeoHtmlHelper().VideoLink().ToHtmlString(), new VimeoHtmlHelper().VideoLink(x => { }));
+      Assert.Equal(new VimeoHtmlHelper().VideoLink().Id("id").ToHtmlString(), new VimeoHtmlHelper().VideoLink(x => x.Id("id")));
     }
   }
 }

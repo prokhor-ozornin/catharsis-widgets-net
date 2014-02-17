@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookLikeBoxWidgetExtensions.Width(null, 0));
 
-      Assert.True(new FacebookLikeBoxWidget().Width(1).Field("width").To<string>() == "1");
+      Assert.Equal("1", new FacebookLikeBoxWidget().Width(1).Field("width").To<string>());
     }
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookLikeBoxWidgetExtensions.Height(null, 0));
 
-      Assert.True(new FacebookLikeBoxWidget().Height(1).Field("height").To<string>() == "1");
+      Assert.Equal("1", new FacebookLikeBoxWidget().Height(1).Field("height").To<string>());
     }
 
     /// <summary>
@@ -39,8 +39,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookLikeBoxWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
 
-      Assert.True(new FacebookLikeBoxWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>() == "dark");
-      Assert.True(new FacebookLikeBoxWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>() == "light");
+      Assert.Equal("dark", new FacebookLikeBoxWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>());
+      Assert.Equal("light", new FacebookLikeBoxWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>());
     }
   }
 }

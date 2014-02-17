@@ -17,9 +17,9 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.Type(null, MailRuLikeButtonType.All));
 
-      Assert.True(new MailRuLikeButtonWidget().Type(MailRuLikeButtonType.All).Field("type").To<string>() == "combo");
-      Assert.True(new MailRuLikeButtonWidget().Type(MailRuLikeButtonType.MailRu).Field("type").To<string>() == "mm");
-      Assert.True(new MailRuLikeButtonWidget().Type(MailRuLikeButtonType.Odnoklassniki).Field("type").To<string>() == "ok");
+      Assert.Equal("combo", new MailRuLikeButtonWidget().Type(MailRuLikeButtonType.All).Field("type").To<string>());
+      Assert.Equal("mm", new MailRuLikeButtonWidget().Type(MailRuLikeButtonType.MailRu).Field("type").To<string>());
+      Assert.Equal("ok", new MailRuLikeButtonWidget().Type(MailRuLikeButtonType.Odnoklassniki).Field("type").To<string>());
     }
 
     /// <summary>
@@ -35,14 +35,14 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.Size(null, (short) 0));
       Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.Size(null, MailRuLikeButtonSize.Size100));
 
-      Assert.True(new MailRuLikeButtonWidget().Size(1).Field("size").To<string>() == "1");
-      Assert.True(new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size100).Field("size").To<string>() == "100");
-      Assert.True(new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size12).Field("size").To<string>() == "12");
-      Assert.True(new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size150).Field("size").To<string>() == "150");
-      Assert.True(new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size20).Field("size").To<string>() == "20");
-      Assert.True(new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size30).Field("size").To<string>() == "30");
-      Assert.True(new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size45).Field("size").To<string>() == "45");
-      Assert.True(new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size70).Field("size").To<string>() == "70");
+      Assert.Equal("1", new MailRuLikeButtonWidget().Size(1).Field("size").To<string>());
+      Assert.Equal("100", new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size100).Field("size").To<string>());
+      Assert.Equal("12", new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size12).Field("size").To<string>());
+      Assert.Equal("150", new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size150).Field("size").To<string>());
+      Assert.Equal("20", new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size20).Field("size").To<string>());
+      Assert.Equal("30", new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size30).Field("size").To<string>());
+      Assert.Equal("45", new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size45).Field("size").To<string>());
+      Assert.Equal("70", new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size70).Field("size").To<string>());
     }
 
     /// <summary>
@@ -53,9 +53,9 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.Layout(null, MailRuLikeButtonLayout.First));
 
-      Assert.True(new MailRuLikeButtonWidget().Layout(MailRuLikeButtonLayout.First).Field("layout").To<byte>() == 1);
-      Assert.True(new MailRuLikeButtonWidget().Layout(MailRuLikeButtonLayout.Second).Field("layout").To<byte>() == 2);
-      Assert.True(new MailRuLikeButtonWidget().Layout(MailRuLikeButtonLayout.Third).Field("layout").To<byte>() == 3);
+      Assert.Equal(1, new MailRuLikeButtonWidget().Layout(MailRuLikeButtonLayout.First).Field("layout").To<byte>());
+      Assert.Equal(2, new MailRuLikeButtonWidget().Layout(MailRuLikeButtonLayout.Second).Field("layout").To<byte>());
+      Assert.Equal(3, new MailRuLikeButtonWidget().Layout(MailRuLikeButtonLayout.Third).Field("layout").To<byte>());
     }
 
     /// <summary>
@@ -64,12 +64,12 @@ namespace Catharsis.Web.Widgets
     [Fact]
     public void TextType_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.TextType(null, (byte) 0));
+      Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.TextType(null, 0));
 
-      Assert.True(new MailRuLikeButtonWidget().TextType(1).Field("textType").To<byte>() == 1);
-      Assert.True(new MailRuLikeButtonWidget().TextType(MailRuLikeButtonTextType.First).Field("textType").To<byte>() == 1);
-      Assert.True(new MailRuLikeButtonWidget().TextType(MailRuLikeButtonTextType.Second).Field("textType").To<byte>() == 2);
-      Assert.True(new MailRuLikeButtonWidget().TextType(MailRuLikeButtonTextType.Third).Field("textType").To<byte>() == 3);
+      Assert.Equal(1, new MailRuLikeButtonWidget().TextType(1).Field("textType").To<byte>());
+      Assert.Equal(1, new MailRuLikeButtonWidget().TextType(MailRuLikeButtonTextType.First).Field("textType").To<byte>());
+      Assert.Equal(2, new MailRuLikeButtonWidget().TextType(MailRuLikeButtonTextType.Second).Field("textType").To<byte>());
+      Assert.Equal(3, new MailRuLikeButtonWidget().TextType(MailRuLikeButtonTextType.Third).Field("textType").To<byte>());
     }
 
     /// <summary>
@@ -80,8 +80,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.CounterPosition(null, MailRuLikeButtonCounterPosition.Right));
 
-      Assert.True(new MailRuLikeButtonWidget().CounterPosition(MailRuLikeButtonCounterPosition.Right).Field("counterPosition").To<string>() == "right");
-      Assert.True(new MailRuLikeButtonWidget().CounterPosition(MailRuLikeButtonCounterPosition.Upper).Field("counterPosition").To<string>() == "upper");
+      Assert.Equal("right", new MailRuLikeButtonWidget().CounterPosition(MailRuLikeButtonCounterPosition.Right).Field("counterPosition").To<string>());
+      Assert.Equal("upper", new MailRuLikeButtonWidget().CounterPosition(MailRuLikeButtonCounterPosition.Upper).Field("counterPosition").To<string>());
     }
   }
 }

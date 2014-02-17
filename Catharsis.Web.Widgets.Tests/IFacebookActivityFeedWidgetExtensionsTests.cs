@@ -31,7 +31,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookActivityFeedWidgetExtensions.Width(null, 0));
 
-      Assert.True(new FacebookActivityFeedWidget().Width(1).Field("width").To<string>() == "1");
+      Assert.Equal("1", new FacebookActivityFeedWidget().Width(1).Field("width").To<string>());
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookActivityFeedWidgetExtensions.Height(null, 0));
 
-      Assert.True(new FacebookActivityFeedWidget().Height(1).Field("height").To<string>() == "1");
+      Assert.Equal("1", new FacebookActivityFeedWidget().Height(1).Field("height").To<string>());
     }
 
     /// <summary>
@@ -53,8 +53,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookActivityFeedWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
 
-      Assert.True(new FacebookActivityFeedWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>() == "dark");
-      Assert.True(new FacebookActivityFeedWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>() == "light");
+      Assert.Equal("dark", new FacebookActivityFeedWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>());
+      Assert.Equal("light", new FacebookActivityFeedWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>());
     }
   }
 }

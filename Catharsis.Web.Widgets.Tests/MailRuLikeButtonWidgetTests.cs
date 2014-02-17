@@ -18,13 +18,13 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new MailRuLikeButtonWidget();
-      Assert.True(widget.Field("type").To<string>() == "combo");
-      Assert.True(widget.Field("size").To<string>() == "20");
-      Assert.True(widget.Field("layout").To<byte>() == (byte) MailRuLikeButtonLayout.First);
+      Assert.Equal("combo", widget.Field("type").To<string>());
+      Assert.Equal("20", widget.Field("size").To<string>());
+      Assert.Equal((byte)MailRuLikeButtonLayout.First, widget.Field("layout").To<byte>());
       Assert.True(widget.Field("text").To<bool>());
-      Assert.True(widget.Field("textType").To<byte>() == (byte) MailRuLikeButtonTextType.First);
+      Assert.Equal((byte)MailRuLikeButtonTextType.First, widget.Field("textType").To<byte>());
       Assert.True(widget.Field("counter").To<bool>());
-      Assert.True(widget.Field("counterPosition").To<string>() == MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant());
+      Assert.Equal(MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant(), widget.Field("counterPosition").To<string>());
     }
 
     /// <summary>
@@ -37,9 +37,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuLikeButtonWidget().Type(string.Empty));
 
       var widget = new MailRuLikeButtonWidget();
-      Assert.True(widget.Field("type").To<string>() == "combo");
+      Assert.Equal("combo", widget.Field("type").To<string>());
       Assert.True(ReferenceEquals(widget.Type("type"), widget));
-      Assert.True(widget.Field("type").To<string>() == "type");
+      Assert.Equal("type", widget.Field("type").To<string>());
     }
 
     /// <summary>
@@ -49,9 +49,9 @@ namespace Catharsis.Web.Widgets
     public void Size_Method()
     {
       var widget = new MailRuLikeButtonWidget();
-      Assert.True(widget.Field("size").To<string>() == "20");
+      Assert.Equal("20", widget.Field("size").To<string>());
       Assert.True(ReferenceEquals(widget.Size("1"), widget));
-      Assert.True(widget.Field("size").To<string>() == "1");
+      Assert.Equal("1", widget.Field("size").To<string>());
     }
 
     /// <summary>
@@ -61,9 +61,9 @@ namespace Catharsis.Web.Widgets
     public void Layout_Method()
     {
       var widget = new MailRuLikeButtonWidget();
-      Assert.True(widget.Field("layout").To<byte>() == (byte) MailRuLikeButtonLayout.First);
+      Assert.Equal((byte)MailRuLikeButtonLayout.First, widget.Field("layout").To<byte>());
       Assert.True(ReferenceEquals(widget.Layout(1), widget));
-      Assert.True(widget.Field("layout").To<byte>() == 1);
+      Assert.Equal(1, widget.Field("layout").To<byte>());
     }
 
     /// <summary>
@@ -85,9 +85,9 @@ namespace Catharsis.Web.Widgets
     public void TextType_Method()
     {
       var widget = new MailRuLikeButtonWidget();
-      Assert.True(widget.Field("textType").To<byte>() == (byte)MailRuLikeButtonTextType.First);
+      Assert.Equal((byte)MailRuLikeButtonTextType.First, widget.Field("textType").To<byte>());
       Assert.True(ReferenceEquals(widget.TextType(2), widget));
-      Assert.True(widget.Field("textType").To<byte>() == 2);
+      Assert.Equal(2, widget.Field("textType").To<byte>());
     }
 
     /// <summary>
@@ -112,9 +112,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new MailRuLikeButtonWidget().CounterPosition(null));
 
       var widget = new MailRuLikeButtonWidget();
-      Assert.True(widget.Field("counterPosition").To<string>() == MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant());
+      Assert.Equal(MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant(), widget.Field("counterPosition").To<string>());
       Assert.True(ReferenceEquals(widget.CounterPosition("counterPosition"), widget));
-      Assert.True(widget.Field("counterPosition").To<string>() == "counterPosition");
+      Assert.Equal("counterPosition", widget.Field("counterPosition").To<string>());
     }
 
     /// <summary>
@@ -125,8 +125,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => new MailRuLikeButtonWidget().Write(null));
 
-      Assert.True(new StringWriter().With(writer => new MailRuLikeButtonWidget().Write(writer)).ToString() == @"<a class=""mrc__plugin_uber_like_button"" data-mrc-config=""{&quot;sz&quot;:&quot;20&quot;,&quot;st&quot;:1,&quot;tp&quot;:&quot;combo&quot;,&quot;cm&quot;:1,&quot;ck&quot;:1}"" href=""http://connect.mail.ru/share"" target=""_blank"">Нравится</a>");
-      Assert.True(new StringWriter().With(writer => new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size30).Layout(MailRuLikeButtonLayout.Second).Type(MailRuLikeButtonType.MailRu).Counter().CounterPosition(MailRuLikeButtonCounterPosition.Upper).Text(false).Write(writer)).ToString() == @"<a class=""mrc__plugin_uber_like_button"" data-mrc-config=""{&quot;sz&quot;:&quot;30&quot;,&quot;st&quot;:2,&quot;tp&quot;:&quot;mm&quot;,&quot;vt&quot;:1,&quot;nt&quot;:1}"" href=""http://connect.mail.ru/share"" target=""_blank"">Нравится</a>");
+      Assert.Equal(@"<a class=""mrc__plugin_uber_like_button"" data-mrc-config=""{&quot;sz&quot;:&quot;20&quot;,&quot;st&quot;:1,&quot;tp&quot;:&quot;combo&quot;,&quot;cm&quot;:1,&quot;ck&quot;:1}"" href=""http://connect.mail.ru/share"" target=""_blank"">Нравится</a>", new StringWriter().With(writer => new MailRuLikeButtonWidget().Write(writer)).ToString());
+      Assert.Equal(@"<a class=""mrc__plugin_uber_like_button"" data-mrc-config=""{&quot;sz&quot;:&quot;30&quot;,&quot;st&quot;:2,&quot;tp&quot;:&quot;mm&quot;,&quot;vt&quot;:1,&quot;nt&quot;:1}"" href=""http://connect.mail.ru/share"" target=""_blank"">Нравится</a>", new StringWriter().With(writer => new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size30).Layout(MailRuLikeButtonLayout.Second).Type(MailRuLikeButtonType.MailRu).Counter().CounterPosition(MailRuLikeButtonCounterPosition.Upper).Text(false).Write(writer)).ToString());
     }
   }
 }

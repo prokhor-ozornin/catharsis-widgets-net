@@ -41,7 +41,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookFacepileWidget();
       Assert.Null(widget.Field("url"));
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.True(widget.Field("url").To<string>() == "url");
+      Assert.Equal("url", widget.Field("url").To<string>());
     }
 
     /// <summary>
@@ -70,7 +70,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookFacepileWidget();
       Assert.Null(widget.Field("size"));
       Assert.True(ReferenceEquals(widget.Size("size"), widget));
-      Assert.True(widget.Field("size").To<string>() == "size");
+      Assert.Equal("size", widget.Field("size").To<string>());
     }
 
     /// <summary>
@@ -85,7 +85,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookFacepileWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -96,8 +96,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => new FacebookFacepileWidget().Write(null));
 
-      Assert.True(new StringWriter().With(writer => new FacebookFacepileWidget().Write(writer)).ToString() == @"<div class=""fb-facepile""></div>");
-      Assert.True(new StringWriter().With(writer => new FacebookFacepileWidget().Url("url").Actions("actions").Size(FacebookFacepileSize.Large).Width("width").Height("height").MaxRows(10).ColorScheme(FacebookColorScheme.Dark).Write(writer)).ToString() == @"<div class=""fb-facepile"" data-action=""actions"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-max-rows=""10"" data-size=""large"" data-width=""width""></div>");
+      Assert.Equal(@"<div class=""fb-facepile""></div>", new StringWriter().With(writer => new FacebookFacepileWidget().Write(writer)).ToString());
+      Assert.Equal(@"<div class=""fb-facepile"" data-action=""actions"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-max-rows=""10"" data-size=""large"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookFacepileWidget().Url("url").Actions("actions").Size(FacebookFacepileSize.Large).Width("width").Height("height").MaxRows(10).ColorScheme(FacebookColorScheme.Dark).Write(writer)).ToString());
     }
   }
 }

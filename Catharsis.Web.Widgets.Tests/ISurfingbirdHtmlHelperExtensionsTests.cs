@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => ISurfingbirdHtmlHelperExtensions.Surf(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new SurfingbirdHtmlHelper().Surf(null));
 
-      Assert.True(new SurfingbirdHtmlHelper().Surf(x => { }) == new SurfingbirdHtmlHelper().Surf().ToHtmlString());
-      Assert.True(new SurfingbirdHtmlHelper().Surf(x => x.Url("url")) == new SurfingbirdHtmlHelper().Surf().Url("url").ToHtmlString());
+      Assert.Equal(new SurfingbirdHtmlHelper().Surf().ToHtmlString(), new SurfingbirdHtmlHelper().Surf(x => { }));
+      Assert.Equal(new SurfingbirdHtmlHelper().Surf().Url("url").ToHtmlString(), new SurfingbirdHtmlHelper().Surf(x => x.Url("url")));
     }
   }
 }

@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookSendButtonWidgetExtensions.Width(null, 0));
 
-      Assert.True(new FacebookSendButtonWidget().Width(1).Field("width").To<string>() == "1");
+      Assert.Equal("1", new FacebookSendButtonWidget().Width(1).Field("width").To<string>());
     }
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookSendButtonWidgetExtensions.Height(null, 0));
 
-      Assert.True(new FacebookSendButtonWidget().Height(1).Field("height").To<string>() == "1");
+      Assert.Equal("1", new FacebookSendButtonWidget().Height(1).Field("height").To<string>());
     }
 
     /// <summary>
@@ -39,8 +39,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookSendButtonWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
 
-      Assert.True(new FacebookSendButtonWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>() == "dark");
-      Assert.True(new FacebookSendButtonWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>() == "light");
+      Assert.Equal("dark", new FacebookSendButtonWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>());
+      Assert.Equal("light", new FacebookSendButtonWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>());
     }
   }
 }

@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => ITwitterHtmlHelperExtensions.Follow(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new TwitterHtmlHelper().Follow(null));
 
-      Assert.True(new TwitterHtmlHelper().Follow(x => { }) == new TwitterHtmlHelper().Follow().ToHtmlString());
-      Assert.True(new TwitterHtmlHelper().Follow(x => x.Account("account")) == new TwitterHtmlHelper().Follow().Account("account").ToHtmlString());
+      Assert.Equal(new TwitterHtmlHelper().Follow().ToHtmlString(), new TwitterHtmlHelper().Follow(x => { }));
+      Assert.Equal(new TwitterHtmlHelper().Follow().Account("account").ToHtmlString(), new TwitterHtmlHelper().Follow(x => x.Account("account")));
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => ITwitterHtmlHelperExtensions.Tweet(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new TwitterHtmlHelper().Tweet(null));
 
-      Assert.True(new TwitterHtmlHelper().Tweet(x => { }) == new TwitterHtmlHelper().Tweet().ToHtmlString());
-      Assert.True(new TwitterHtmlHelper().Tweet(x => x.Text("text")) == new TwitterHtmlHelper().Tweet().Text("text").ToHtmlString());
+      Assert.Equal(new TwitterHtmlHelper().Tweet().ToHtmlString(), new TwitterHtmlHelper().Tweet(x => { }));
+      Assert.Equal(new TwitterHtmlHelper().Tweet().Text("text").ToHtmlString(), new TwitterHtmlHelper().Tweet(x => x.Text("text")));
     }
   }
 }

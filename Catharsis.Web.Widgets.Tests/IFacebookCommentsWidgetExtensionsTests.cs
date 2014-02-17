@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookCommentsWidgetExtensions.Width(null, 0));
 
-      Assert.True(new FacebookCommentsWidget().Width(1).Field("width").To<string>() == "1");
+      Assert.Equal("1", new FacebookCommentsWidget().Width(1).Field("width").To<string>());
     }
 
     /// <summary>
@@ -28,8 +28,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookCommentsWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
 
-      Assert.True(new FacebookCommentsWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>() == "dark");
-      Assert.True(new FacebookCommentsWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>() == "light");
+      Assert.Equal("dark", new FacebookCommentsWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>());
+      Assert.Equal("light", new FacebookCommentsWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>());
     }
 
     /// <summary>
@@ -40,9 +40,9 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookCommentsWidgetExtensions.Order(null, FacebookCommentsOrder.Social));
 
-      Assert.True(new FacebookCommentsWidget().Order(FacebookCommentsOrder.ReverseTime).Field("order").To<string>() == "reverse_time");
-      Assert.True(new FacebookCommentsWidget().Order(FacebookCommentsOrder.Social).Field("order").To<string>() == "social");
-      Assert.True(new FacebookCommentsWidget().Order(FacebookCommentsOrder.Time).Field("order").To<string>() == "time");
+      Assert.Equal("reverse_time", new FacebookCommentsWidget().Order(FacebookCommentsOrder.ReverseTime).Field("order").To<string>());
+      Assert.Equal("social", new FacebookCommentsWidget().Order(FacebookCommentsOrder.Social).Field("order").To<string>());
+      Assert.Equal("time", new FacebookCommentsWidget().Order(FacebookCommentsOrder.Time).Field("order").To<string>());
     }
   }
 }

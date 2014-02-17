@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IMailRuHtmlHelperExtensions.Icq(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().Icq(null));
 
-      Assert.True(new MailRuHtmlHelper().Icq(x => { }) == new MailRuHtmlHelper().Icq().ToHtmlString());
-      Assert.True(new MailRuHtmlHelper().Icq(x => x.Account("account")) == new MailRuHtmlHelper().Icq().Account("account").ToHtmlString());
+      Assert.Equal(new MailRuHtmlHelper().Icq().ToHtmlString(), new MailRuHtmlHelper().Icq(x => { }));
+      Assert.Equal(new MailRuHtmlHelper().Icq().Account("account").ToHtmlString(), new MailRuHtmlHelper().Icq(x => x.Account("account")));
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IMailRuHtmlHelperExtensions.Like(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().Like(null));
 
-      Assert.True(new MailRuHtmlHelper().Like(x => { }) == new MailRuHtmlHelper().Like().ToHtmlString());
-      Assert.True(new MailRuHtmlHelper().Like(x => x.Type(MailRuLikeButtonType.All)) == new MailRuHtmlHelper().Like().Type(MailRuLikeButtonType.All).ToHtmlString());
+      Assert.Equal(new MailRuHtmlHelper().Like().ToHtmlString(), new MailRuHtmlHelper().Like(x => { }));
+      Assert.Equal(new MailRuHtmlHelper().Like().Type(MailRuLikeButtonType.All).ToHtmlString(), new MailRuHtmlHelper().Like(x => x.Type(MailRuLikeButtonType.All)));
     }
 
     /// <summary>
@@ -43,8 +43,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IMailRuHtmlHelperExtensions.Video(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().Video(null));
 
-      Assert.True(new MailRuHtmlHelper().Video(x => { }) == new MailRuHtmlHelper().Video().ToHtmlString());
-      Assert.True(new MailRuHtmlHelper().Video(x => x.Id("id")) == new MailRuHtmlHelper().Video().Id("id").ToHtmlString());
+      Assert.Equal(new MailRuHtmlHelper().Video().ToHtmlString(), new MailRuHtmlHelper().Video(x => { }));
+      Assert.Equal(new MailRuHtmlHelper().Video().ToHtmlString(), new MailRuHtmlHelper().Video(x => x.Id("id")));
     }
 
     /// <summary>
@@ -56,8 +56,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IMailRuHtmlHelperExtensions.VideoLink(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().VideoLink(null));
 
-      Assert.True(new MailRuHtmlHelper().VideoLink(x => { }) == new MailRuHtmlHelper().VideoLink().ToHtmlString());
-      Assert.True(new MailRuHtmlHelper().VideoLink(x => x.Id("id")) == new MailRuHtmlHelper().VideoLink().Id("id").ToHtmlString());
+      Assert.Equal(new MailRuHtmlHelper().VideoLink().ToHtmlString(), new MailRuHtmlHelper().VideoLink(x => { }));
+      Assert.Equal(new MailRuHtmlHelper().VideoLink().Id("id").ToHtmlString(), new MailRuHtmlHelper().VideoLink(x => x.Id("id")));
     }
   }
 }

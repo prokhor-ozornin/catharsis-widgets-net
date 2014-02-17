@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IVideoJSHtmlHelperExtensions.Player(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new VideoJSHtmlHelper().Player(null));
 
-      Assert.True(new VideoJSHtmlHelper().Player(x => { }) == new VideoJSHtmlHelper().Player().ToHtmlString());
-      Assert.True(new VideoJSHtmlHelper().Player(x => x.Videos(new MediaSource("url", "contentType")).Width("width").Height("height")) == new VideoJSHtmlHelper().Player().Videos(new MediaSource("url", "contentType")).Width("width").Height("height").ToHtmlString());
+      Assert.Equal(new VideoJSHtmlHelper().Player().ToHtmlString(), new VideoJSHtmlHelper().Player(x => { }));
+      Assert.Equal(new VideoJSHtmlHelper().Player().Videos(new MediaSource("url", "contentType")).Width("width").Height("height").ToHtmlString(), new VideoJSHtmlHelper().Player(x => x.Videos(new MediaSource("url", "contentType")).Width("width").Height("height")));
     }
   }
 }

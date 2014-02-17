@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IRuTubeHtmlHelperExtensions.Video(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new RuTubeHtmlHelper().Video(null));
 
-      Assert.True(new RuTubeHtmlHelper().Video(x => { }) == new RuTubeHtmlHelper().Video().ToHtmlString());
-      Assert.True(new RuTubeHtmlHelper().Video(x => x.Id("id")) == new RuTubeHtmlHelper().Video().Id("id").ToHtmlString());
+      Assert.Equal(new RuTubeHtmlHelper().Video().ToHtmlString(), new RuTubeHtmlHelper().Video(x => { }));
+      Assert.Equal(new RuTubeHtmlHelper().Video().Id("id").ToHtmlString(), new RuTubeHtmlHelper().Video(x => x.Id("id")));
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => IRuTubeHtmlHelperExtensions.VideoLink(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new RuTubeHtmlHelper().VideoLink(null));
 
-      Assert.True(new RuTubeHtmlHelper().VideoLink(x => { }) == new RuTubeHtmlHelper().VideoLink().ToHtmlString());
-      Assert.True(new RuTubeHtmlHelper().VideoLink(x => x.Id("id")) == new RuTubeHtmlHelper().VideoLink().Id("id").ToHtmlString());
+      Assert.Equal(new RuTubeHtmlHelper().VideoLink().ToHtmlString(), new RuTubeHtmlHelper().VideoLink(x => { }));
+      Assert.Equal(new RuTubeHtmlHelper().VideoLink().Id("id").ToHtmlString(), new RuTubeHtmlHelper().VideoLink(x => x.Id("id")));
     }
   }
 }

@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IGooglePlusOneButtonWidgetExtensions.Width(null, 0));
 
-      Assert.True(new GooglePlusOneButtonWidget().Width(1).Field("width").To<string>() == "1");
+      Assert.Equal("1", new GooglePlusOneButtonWidget().Width(1).Field("width").To<string>());
     }
 
     /// <summary>
@@ -28,10 +28,10 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IGooglePlusOneButtonWidgetExtensions.Size(null, GooglePlusOneButtonSize.Standard));
 
-      Assert.True(new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Medium).Field("size").To<string>() == "medium");
-      Assert.True(new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Small).Field("size").To<string>() == "small");
-      Assert.True(new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Standard).Field("size").To<string>() == "standard");
-      Assert.True(new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Tall).Field("size").To<string>() == "tall");
+      Assert.Equal("medium", new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Medium).Field("size").To<string>());
+      Assert.Equal("small", new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Small).Field("size").To<string>());
+      Assert.Equal("standard", new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Standard).Field("size").To<string>());
+      Assert.Equal("tall", new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Tall).Field("size").To<string>());
     }
 
     /// <summary>
@@ -42,8 +42,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IGooglePlusOneButtonWidgetExtensions.Alignment(null, GooglePlusOneButtonAlignment.Left));
 
-      Assert.True(new GooglePlusOneButtonWidget().Alignment(GooglePlusOneButtonAlignment.Left).Field("alignment").To<string>() == "left");
-      Assert.True(new GooglePlusOneButtonWidget().Alignment(GooglePlusOneButtonAlignment.Right).Field("alignment").To<string>() == "right");
+      Assert.Equal("left", new GooglePlusOneButtonWidget().Alignment(GooglePlusOneButtonAlignment.Left).Field("alignment").To<string>());
+      Assert.Equal("right", new GooglePlusOneButtonWidget().Alignment(GooglePlusOneButtonAlignment.Right).Field("alignment").To<string>());
     }
 
     /// <summary>
@@ -54,9 +54,9 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IGooglePlusOneButtonWidgetExtensions.Annotation(null, GooglePlusOneButtonAnnotation.None));
 
-      Assert.True(new GooglePlusOneButtonWidget().Annotation(GooglePlusOneButtonAnnotation.Bubble).Field("annotation").To<string>() == "bubble");
-      Assert.True(new GooglePlusOneButtonWidget().Annotation(GooglePlusOneButtonAnnotation.Inline).Field("annotation").To<string>() == "inline");
-      Assert.True(new GooglePlusOneButtonWidget().Annotation(GooglePlusOneButtonAnnotation.None).Field("annotation").To<string>() == "none");
+      Assert.Equal("bubble", new GooglePlusOneButtonWidget().Annotation(GooglePlusOneButtonAnnotation.Bubble).Field("annotation").To<string>());
+      Assert.Equal("inline", new GooglePlusOneButtonWidget().Annotation(GooglePlusOneButtonAnnotation.Inline).Field("annotation").To<string>());
+      Assert.Equal("none", new GooglePlusOneButtonWidget().Annotation(GooglePlusOneButtonAnnotation.None).Field("annotation").To<string>());
     }
   }
 }

@@ -17,8 +17,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.Comments(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().Comments(null));
 
-      Assert.True(new CackleHtmlHelper().Comments(x => { }) == new CackleHtmlHelper().Comments().ToHtmlString());
-      Assert.True(new CackleHtmlHelper().Comments(x => x.Account("account")) == new CackleHtmlHelper().Comments().Account("account").ToHtmlString());
+      Assert.Equal(new CackleHtmlHelper().Comments().ToHtmlString(), new CackleHtmlHelper().Comments(x => { }));
+      Assert.Equal(new CackleHtmlHelper().Comments().Account("account").ToHtmlString(), new CackleHtmlHelper().Comments(x => x.Account("account")));
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.CommentsCount(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().CommentsCount(null));
 
-      Assert.True(new CackleHtmlHelper().CommentsCount(x => { }) == new CackleHtmlHelper().CommentsCount().ToHtmlString());
-      Assert.True(new CackleHtmlHelper().CommentsCount(x => x.Account("account")) == new CackleHtmlHelper().CommentsCount().Account("account").ToHtmlString());
+      Assert.Equal(new CackleHtmlHelper().CommentsCount().ToHtmlString(), new CackleHtmlHelper().CommentsCount(x => { }));
+      Assert.Equal(new CackleHtmlHelper().CommentsCount().Account("account").ToHtmlString(), new CackleHtmlHelper().CommentsCount(x => x.Account("account")));
     }
 
     /// <summary>
@@ -43,8 +43,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.LatestComments(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().LatestComments(null));
 
-      Assert.True(new CackleHtmlHelper().LatestComments(x => { }) == new CackleHtmlHelper().LatestComments().ToHtmlString());
-      Assert.True(new CackleHtmlHelper().LatestComments(x => x.Account("account")) == new CackleHtmlHelper().LatestComments().Account("account").ToHtmlString());
+      Assert.Equal(new CackleHtmlHelper().LatestComments().ToHtmlString(), new CackleHtmlHelper().LatestComments(x => { }));
+      Assert.Equal(new CackleHtmlHelper().LatestComments().Account("account").ToHtmlString(), new CackleHtmlHelper().LatestComments(x => x.Account("account")));
     }
 
     /// <summary>
@@ -56,8 +56,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.Login(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().Login(null));
 
-      Assert.True(new CackleHtmlHelper().Login(x => { }) == new CackleHtmlHelper().Login().ToHtmlString());
-      Assert.True(new CackleHtmlHelper().Login(x => x.Account("account")) == new CackleHtmlHelper().Login().Account("account").ToHtmlString());
+      Assert.Equal(new CackleHtmlHelper().Login().ToHtmlString(), new CackleHtmlHelper().Login(x => { }));
+      Assert.Equal(new CackleHtmlHelper().Login().Account("account").ToHtmlString(), new CackleHtmlHelper().Login(x => x.Account("account")));
     }
   }
 }

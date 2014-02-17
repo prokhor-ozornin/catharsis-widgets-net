@@ -16,7 +16,7 @@ namespace Catharsis.Web.Widgets
     [Fact(Skip = "Tests must run in context of web application")]
     public void Application_Property()
     {
-      Assert.True(Settings.Global.Application != null);
+      Assert.NotNull(Settings.Global.Application);
       Assert.True(ReferenceEquals(Settings.Global.Application, Settings.Global.Application));
 
       TestSettingsProvider(Settings.Global.Application);
@@ -34,8 +34,8 @@ namespace Catharsis.Web.Widgets
       Assert.Null(provider[key]);
       var value = new object();
       provider[key] = value;
-      Assert.True(provider.Keys.Count() == 1);
-      Assert.True(provider.Keys.Single() == key);
+      Assert.Equal(1, provider.Keys.Count());
+      Assert.Equal(key, provider.Keys.Single());
       Assert.True(ReferenceEquals(provider[key], value));
       Assert.True(ReferenceEquals(provider.Remove(key), provider));
       Assert.False(provider.Keys.Any());

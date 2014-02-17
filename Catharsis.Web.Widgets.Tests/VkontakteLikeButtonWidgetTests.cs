@@ -41,7 +41,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteLikeButtonWidget();
       Assert.Null(widget.Field("text"));
       Assert.True(ReferenceEquals(widget.Text("text"), widget));
-      Assert.True(widget.Field("text").To<string>() == "text");
+      Assert.Equal("text", widget.Field("text").To<string>());
     }
 
     /// <summary>
@@ -53,7 +53,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteLikeButtonWidget();
       Assert.Null(widget.Field("verb"));
       Assert.True(ReferenceEquals(widget.Verb(1), widget));
-      Assert.True(widget.Field("verb").To<byte>() == 1);
+      Assert.Equal(1, widget.Field("verb").To<byte>());
     }
 
     /// <summary>
@@ -68,7 +68,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteLikeButtonWidget();
       Assert.Null(widget.Field("layout"));
       Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-      Assert.True(widget.Field("layout").To<string>() == "layout");
+      Assert.Equal("layout", widget.Field("layout").To<string>());
     }
 
     /// <summary>
@@ -83,7 +83,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteLikeButtonWidget();
       Assert.Null(widget.Field("width"));
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.True(widget.Field("width").To<string>() == "width");
+      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -98,7 +98,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteLikeButtonWidget();
       Assert.Null(widget.Field("height"));
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.True(widget.Field("height").To<string>() == "height");
+      Assert.Equal("height", widget.Field("height").To<string>());
     }
 
     /// <summary>
@@ -113,7 +113,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteLikeButtonWidget();
       Assert.Null(widget.Field("pageTitle"));
       Assert.True(ReferenceEquals(widget.PageTitle("pageTitle"), widget));
-      Assert.True(widget.Field("pageTitle").To<string>() == "pageTitle");
+      Assert.Equal("pageTitle", widget.Field("pageTitle").To<string>());
     }
 
     /// <summary>
@@ -128,7 +128,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteLikeButtonWidget();
       Assert.Null(widget.Field("pageUrl"));
       Assert.True(ReferenceEquals(widget.PageUrl("pageUrl"), widget));
-      Assert.True(widget.Field("pageUrl").To<string>() == "pageUrl");
+      Assert.Equal("pageUrl", widget.Field("pageUrl").To<string>());
     }
 
     /// <summary>
@@ -143,7 +143,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteLikeButtonWidget();
       Assert.Null(widget.Field("pageDescription"));
       Assert.True(ReferenceEquals(widget.PageDescription("pageDescription"), widget));
-      Assert.True(widget.Field("pageDescription").To<string>() == "pageDescription");
+      Assert.Equal("pageDescription", widget.Field("pageDescription").To<string>());
     }
 
     /// <summary>
@@ -158,7 +158,7 @@ namespace Catharsis.Web.Widgets
       var widget = new VkontakteLikeButtonWidget();
       Assert.Null(widget.Field("pageImageUrl"));
       Assert.True(ReferenceEquals(widget.PageImageUrl("pageImageUrl"), widget));
-      Assert.True(widget.Field("pageImageUrl").To<string>() == "pageImageUrl");
+      Assert.Equal("pageImageUrl", widget.Field("pageImageUrl").To<string>());
     }
 
     /// <summary>

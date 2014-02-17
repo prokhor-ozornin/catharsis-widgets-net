@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookPostWidgetExtensions.Width(null, 0));
 
-      Assert.True(new FacebookPostWidget().Width(1).Field("width").To<string>() == "1");
+      Assert.Equal("1", new FacebookPostWidget().Width(1).Field("width").To<string>());
     }
   }
 }

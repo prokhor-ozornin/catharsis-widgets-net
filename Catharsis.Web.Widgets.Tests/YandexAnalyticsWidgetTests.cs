@@ -41,9 +41,12 @@ namespace Catharsis.Web.Widgets
       var widget = new YandexAnalyticsWidget();
       Assert.Null(widget.Field("account"));
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.True(widget.Field("account").To<string>() == "account");
+      Assert.Equal("account", widget.Field("account").To<string>());
     }
 
+    /// <summary>
+    ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.WebVisor(bool)"/> method.</para>
+    /// </summary>
     [Fact]
     public void WebVisor_Method()
     {
@@ -53,6 +56,9 @@ namespace Catharsis.Web.Widgets
       Assert.False(widget.Field("webvisor").To<bool>());
     }
 
+    /// <summary>
+    ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.ClickMap(bool)"/> method.</para>
+    /// </summary>
     [Fact]
     public void ClickMap_Method()
     {
@@ -62,6 +68,9 @@ namespace Catharsis.Web.Widgets
       Assert.False(widget.Field("clickmap").To<bool>());
     }
 
+    /// <summary>
+    ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.TrackLinks(bool)"/> method.</para>
+    /// </summary>
     [Fact]
     public void TrackLinks_Method()
     {
@@ -71,6 +80,9 @@ namespace Catharsis.Web.Widgets
       Assert.False(widget.Field("tracklinks").To<bool>());
     }
 
+    /// <summary>
+    ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.TrackHash(bool)"/> method.</para>
+    /// </summary>
     [Fact]
     public void TrackHash_Method()
     {
@@ -80,6 +92,9 @@ namespace Catharsis.Web.Widgets
       Assert.False(widget.Field("trackhash").To<bool>());
     }
 
+    /// <summary>
+    ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.Accurate(bool)"/> method.</para>
+    /// </summary>
     [Fact]
     public void Accurate_Method()
     {
@@ -89,6 +104,9 @@ namespace Catharsis.Web.Widgets
       Assert.False(widget.Field("accurate").To<bool>());
     }
 
+    /// <summary>
+    ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.NoIndex(bool)"/> method.</para>
+    /// </summary>
     [Fact]
     public void NoIndex_Method()
     {
@@ -98,6 +116,9 @@ namespace Catharsis.Web.Widgets
       Assert.True(widget.Field("noindex").To<bool>());
     }
 
+    /// <summary>
+    ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.Language(string)"/> method.</para>
+    /// </summary>
     [Fact]
     public void Language_Method()
     {
@@ -107,9 +128,12 @@ namespace Catharsis.Web.Widgets
       var widget = new YandexAnalyticsWidget();
       Assert.Null(widget.Field("language"));
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
-      Assert.True(widget.Field("language").To<string>() == "language");
+      Assert.Equal("language", widget.Field("language").To<string>());
     }
 
+    /// <summary>
+    ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.Write(TextWriter)"/> method.</para>
+    /// </summary>
     [Fact]
     public void Write_Method()
     {

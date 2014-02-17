@@ -49,7 +49,7 @@ namespace Catharsis.Web.Widgets
       var widget = new InlineImageWidget();
       Assert.Null(widget.Field("format"));
       Assert.True(ReferenceEquals(widget.Format("format"), widget));
-      Assert.True(widget.Field("format").To<string>() == "format");
+      Assert.Equal("format", widget.Field("format").To<string>());
     }
 
     /// <summary>
@@ -61,8 +61,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new InlineImageWidget().Write(null));
 
       Assert.True(new StringWriter().With(new InlineImageWidget().Write).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Write(writer)).ToString() == @"<img src=""data:image;base64,{0}""></img>".FormatValue(System.Convert.ToBase64String(Guid.Empty.ToByteArray())));
-      Assert.True(new StringWriter().With(writer => new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg").Write(writer)).ToString() == @"<img src=""data:jpg;base64,{0}""></img>".FormatValue(System.Convert.ToBase64String(Guid.Empty.ToByteArray())));
+      Assert.Equal(@"<img src=""data:image;base64,{0}""></img>".FormatValue(System.Convert.ToBase64String(Guid.Empty.ToByteArray())), new StringWriter().With(writer => new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Write(writer)).ToString());
+      Assert.Equal(@"<img src=""data:jpg;base64,{0}""></img>".FormatValue(System.Convert.ToBase64String(Guid.Empty.ToByteArray())), new StringWriter().With(writer => new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg").Write(writer)).ToString());
     }
   }
 }
