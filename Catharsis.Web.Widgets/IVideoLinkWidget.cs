@@ -3,7 +3,7 @@ using System;
 namespace Catharsis.Web.Widgets
 {
   /// <summary>
-  ///   <para></para>
+  ///   <para>Represents hyperlink widget to custom video.</para>
   /// </summary>
   public interface IVideoLinkWidget<T> : IHtmlWidget where T : IVideoLinkWidget<T>
   {

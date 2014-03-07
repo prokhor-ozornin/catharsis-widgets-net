@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Surfingbird "Surf" button.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.Surfingbird"/> script to be included.</para>
+  ///   <para>Requires <see cref="WidgetsScripts.SurfingbirdSurf"/> script to be included.</para>
   ///   <seealso cref="http://surfingbird.ru/publishers/surfbutton"/>
   /// </summary>
   public interface ISurfingbirdSurfButtonWidget : IHtmlWidget

@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Tumblr "Follow" button.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.Tumblr"/> script to be included.</para>
+  ///   <para>Requires <see cref="WidgetsScripts.TumblrShare"/> script to be included.</para>
   ///   <seealso cref="http://www.tumblr.com/buttons"/>
   /// </summary>
   public interface ITumblrFollowButtonWidget : IHtmlWidget

@@ -29,6 +29,10 @@ namespace Catharsis.Web.Widgets
 
     public string HtmlBody { get; set; }
 
+    /// <summary>
+    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    /// </summary>
+    /// <param name="writer">Text writer to use as output destination.</param>
     public abstract void Write(TextWriter writer);
   }
 }

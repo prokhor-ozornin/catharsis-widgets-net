@@ -1,8 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
+  /// <summary>
+  ///   <para>Renders embedded VKontakte video on web page.</para>
+  /// </summary>
   public sealed class VkontakteVideoWidget : HtmlWidgetBase<IVkontakteVideoWidget>, IVkontakteVideoWidget
   {
     private string id;
@@ -12,6 +16,14 @@ namespace Catharsis.Web.Widgets
     private string user;
     private string hash;
 
+    /// <summary>
+    ///   <para>Identifier of video.</para>
+    /// </summary>
+    /// <param name="id">Identifier of video.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+    /// <remarks>This attribute is required.</remarks>
     public IVkontakteVideoWidget Id(string id)
     {
       Assertion.NotEmpty(id);
@@ -20,6 +32,14 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
+    /// <summary>
+    ///   <para>Width of video control.</para>
+    /// </summary>
+    /// <param name="width">Width of video.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
+    /// <remarks>This attribute is required.</remarks>
     public IVkontakteVideoWidget Width(string width)
     {
       Assertion.NotEmpty(width);
@@ -28,6 +48,14 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
+    /// <summary>
+    ///   <para>Height of video control.</para>
+    /// </summary>
+    /// <param name="height">Height of video.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
+    /// <remarks>This attribute is required.</remarks>
     public IVkontakteVideoWidget Height(string height)
     {
       Assertion.NotEmpty(height);
@@ -36,12 +64,24 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
+    /// <summary>
+    ///   <para>Whether to play video in High Definition format. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <param name="hd"><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</param>
+    /// <returns>Reference to the current widget.</returns>
     public IVkontakteVideoWidget HdQuality(bool hd = true)
     {
       this.hd = hd;
       return this;
     }
 
+    /// <summary>
+    ///   <para>Account identifier of video's uploader.</para>
+    /// </summary>
+    /// <param name="user">User's account.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="user"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="user"/> is <see cref="string.Empty"/> string.</exception>
     public IVkontakteVideoWidget User(string user)
     {
       Assertion.NotEmpty(user);
@@ -50,6 +90,13 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
+    /// <summary>
+    ///   <para>Hash code of video.</para>
+    /// </summary>
+    /// <param name="hash">Video's hash code.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="hash"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="hash"/> is <see cref="string.Empty"/> string.</exception>
     public IVkontakteVideoWidget Hash(string hash)
     {
       Assertion.NotEmpty(hash);
@@ -58,6 +105,10 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
+    /// <summary>
+    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    /// </summary>
+    /// <param name="writer">Text writer to use as output destination.</param>
     public override void Write(TextWriter writer)
     {
       Assertion.NotNull(writer);

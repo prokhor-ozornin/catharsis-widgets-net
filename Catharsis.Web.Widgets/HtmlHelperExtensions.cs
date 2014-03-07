@@ -5,8 +5,9 @@ using Catharsis.Commons;
 namespace Catharsis.Web.Widgets
 {
   /// <summary>
-  ///   <para></para>
+  ///   <para>Set of extension methods for class <see cref="HtmlHelper"/>.</para>
   /// </summary>
+  /// <seealso cref="HtmlHelper"/>
   public static class HtmlHelperExtensions
   {
     private static ICackleHtmlHelper cackle;

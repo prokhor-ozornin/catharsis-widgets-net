@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Web.Mvc;
 using Catharsis.Commons;
 
@@ -7,8 +6,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for class <see cref="TagBuilder"/>.</para>
-  ///   <seealso cref="TagBuilder"/>
   /// </summary>
+  /// <seealso cref="TagBuilder"/>
   public static class TagBuilderExtensions
   {
     /// <summary>

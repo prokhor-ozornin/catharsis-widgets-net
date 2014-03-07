@@ -4,7 +4,6 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Yandex "Like" button.</para>
-  ///   <para>Requires <see cref="WidgetsScriptsBundles.Yandex"/> scripts bundle to be included.</para>
   /// </summary>
   public interface IYandexLikeButtonWidget : IHtmlWidget
   {
