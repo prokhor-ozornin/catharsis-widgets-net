@@ -85,7 +85,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("a", tag => tag
-        .Attribute("href", "https://twitter.com/{0}".FormatValue(this.account))
+        .Attribute("href", "https://twitter.com/{0}".FormatSelf(this.account))
         .Attribute("data-lang", this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
         .Attribute("data-show-count", this.count)
         .Attribute("data-size", this.size)

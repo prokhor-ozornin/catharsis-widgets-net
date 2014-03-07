@@ -14,8 +14,8 @@ namespace Catharsis.Web.Widgets
   {
     /// <summary>
     ///   <para>Performs testing of class constructor(s).</para>
-    ///   <seealso cref="FacebookRecommendationsFeedWidget()"/>
     /// </summary>
+    /// <seealso cref="FacebookRecommendationsFeedWidget()"/>
     [Fact]
     public void Constructors()
     {

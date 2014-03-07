@@ -12,8 +12,8 @@ namespace Catharsis.Web.Widgets
   {
     /// <summary>
     ///   <para>Performs testing of class constructor(s).</para>
-    ///   <seealso cref="FacebookInitWidget()"/>
     /// </summary>
+    /// <seealso cref="FacebookInitWidget()"/>
     [Fact]
     public void Constructors()
     {
@@ -50,7 +50,7 @@ namespace Catharsis.Web.Widgets
         new FacebookInitWidget().AppId("appId").Write(writer);
         var html = writer.ToString();
         Assert.True(html.Contains(@"<div id=""fb-root""></div>"));
-        Assert.True(html.Contains(@"//connect.facebook.net/en_US/all.js#xfbml=1&appId={0}".FormatValue("appId")));
+        Assert.True(html.Contains(@"//connect.facebook.net/en_US/all.js#xfbml=1&appId={0}".FormatSelf("appId")));
       });
     }
   }

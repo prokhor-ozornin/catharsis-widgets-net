@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Cackle social user login widget for registered website.</para>
   ///   <para>Requires <see cref="WidgetsScriptsBundles.Cackle"/> scripts bundle to be included.</para>
-  ///   <seealso cref="http://ru.cackle.me/help/widget-api"/>
   /// </summary>
+  /// <seealso cref="http://ru.cackle.me/help/widget-api"/>
   public interface ICackleLoginWidget : IHtmlWidget
   {
     /// <summary>

@@ -12,8 +12,8 @@ namespace Catharsis.Web.Widgets
   {
     /// <summary>
     ///   <para>Performs testing of class constructor(s).</para>
-    ///   <seealso cref="SurfingbirdSurfButtonWidget()"/>
     /// </summary>
+    /// <seealso cref="SurfingbirdSurfButtonWidget()"/>
     [Fact]
     public void Constructors()
     {

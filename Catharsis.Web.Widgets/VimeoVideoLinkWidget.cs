@@ -25,7 +25,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("a", tag => tag
-        .Attribute("href", "https://vimeo.com/{0}".FormatValue(this.id))
+        .Attribute("href", "https://vimeo.com/{0}".FormatSelf(this.id))
         .InnerHtml(this.HtmlBody)));
     }
   }

@@ -33,7 +33,7 @@ namespace Catharsis.Web.Widgets
         return;
       }
 
-      writer.Write(resources.google_analytics.FormatValue(this.account, this.domain));
+      writer.Write(resources.google_analytics.FormatSelf(this.account, this.domain));
     }
   }
 }

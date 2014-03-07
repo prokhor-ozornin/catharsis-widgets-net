@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IMailRuHtmlHelper"/>.</para>
-  ///   <seealso cref="IMailRuHtmlHelper"/>
   /// </summary>
+  /// <seealso cref="IMailRuHtmlHelper"/>
   public static class IMailRuHtmlHelperExtensions
   {
     /// <summary>

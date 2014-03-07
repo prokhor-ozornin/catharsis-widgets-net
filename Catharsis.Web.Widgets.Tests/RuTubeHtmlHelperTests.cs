@@ -1,13 +1,12 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Tests set for class <see cref="RuTubeHtmlHelper"/>.</para>
-  ///   <seealso cref="RuTubeHtmlHelper"/>
   /// </summary>
+  /// <seealso cref="RuTubeHtmlHelper"/>
   public sealed class RuTubeHtmlHelperTests
   {
     private readonly HtmlHelper html = new MockHtmlHelper();

@@ -10,8 +10,8 @@ namespace Catharsis.Web.Widgets
   {
     /// <summary>
     ///   <para>Performs testing of class constructor(s).</para>
-    ///   <seealso cref="MediaSource(string, string)"/>
     /// </summary>
+    /// <seealso cref="MediaSource(string, string)"/>
     [Fact]
     public void Constructors()
     {

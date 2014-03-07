@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Facebook comments widget.</para>
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
-  ///   <seealso cref="https://developers.facebook.com/docs/plugins/comments"/>
   /// </summary>
+  /// <seealso cref="https://developers.facebook.com/docs/plugins/comments"/>
   public interface IFacebookCommentsWidget : IHtmlWidget
   {
     /// <summary>

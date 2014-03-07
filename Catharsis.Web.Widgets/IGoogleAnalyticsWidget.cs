@@ -4,8 +4,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Includes Google Analytics JavaScript code into web page.</para>
-  ///   <seealso cref="http://www.google.com/analytics"/>
   /// </summary>
+  /// <seealso cref="http://www.google.com/analytics"/>
   public interface IGoogleAnalyticsWidget : IHtmlWidget
   {
     /// <summary>

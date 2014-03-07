@@ -92,7 +92,7 @@ namespace Catharsis.Web.Widgets
         config["ut"] = "noindex";
       }
 
-      writer.Write(resources.yandex_analytics.FormatValue(this.account, this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), config.Json()));
+      writer.Write(resources.yandex_analytics.FormatSelf(this.account, this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), config.Json()));
     }
   }
 }

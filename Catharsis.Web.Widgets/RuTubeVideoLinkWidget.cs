@@ -32,7 +32,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("a", tag => tag
-        .Attribute("href", "http://rutube.ru/{1}/{0}".FormatValue(id, this.embedded ? "embed" : "video"))
+        .Attribute("href", "http://rutube.ru/{1}/{0}".FormatSelf(id, this.embedded ? "embed" : "video"))
         .InnerHtml(this.HtmlBody)));
     }
   }

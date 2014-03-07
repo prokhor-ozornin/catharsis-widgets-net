@@ -55,7 +55,7 @@ namespace Catharsis.Web.Widgets
       writer.Write(this.ToTag("iframe", tag => tag
         .Attribute("border", 0)
         .Attribute("allowtransparency", true)
-        .Attribute("src", "http://platform.tumblr.com/v1/follow_button.html?button_type={1}&tumblelog={0}&color_scheme={2}".FormatValue(this.account, this.type, this.colorScheme))
+        .Attribute("src", "http://platform.tumblr.com/v1/follow_button.html?button_type={1}&tumblelog={0}&color_scheme={2}".FormatSelf(this.account, this.type, this.colorScheme))
         .Attribute("frameborder", 0)
         .Attribute("height", 25)
         .Attribute("scrolling", "no")

@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IDisqusHtmlHelper"/>.</para>
-  ///   <seealso cref="IDisqusHtmlHelper"/>
   /// </summary>
+  /// <seealso cref="IDisqusHtmlHelper"/>
   public static class IDisqusHtmlHelperExtensions
   {
     /// <summary>

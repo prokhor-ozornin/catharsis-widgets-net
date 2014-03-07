@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IFacebookLikeBoxWidget"/>.</para>
-  ///   <seealso cref="IFacebookLikeBoxWidget"/>
   /// </summary>
+  /// <seealso cref="IFacebookLikeBoxWidget"/>
   public static class IFacebookLikeBoxWidgetExtensions
   {
     /// <summary>

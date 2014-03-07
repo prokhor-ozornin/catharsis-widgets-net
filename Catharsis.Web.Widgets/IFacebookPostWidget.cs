@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded Facebook post on web page.</para>
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
-  ///   <seealso cref="https://developers.facebook.com/docs/plugins/embedded-posts"/>
   /// </summary>
+  /// <seealso cref="https://developers.facebook.com/docs/plugins/embedded-posts"/>
   public interface IFacebookPostWidget : IHtmlWidget
   {
     /// <summary>

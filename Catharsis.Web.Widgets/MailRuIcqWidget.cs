@@ -28,10 +28,10 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(writer);
 
-      writer.Write(this.JavaScript("http://c.icq.com/siteim/icqbar/js/partners/initbar_{0}.js".FormatValue(this.language ?? "ru") .ToUri()));
+      writer.Write(this.JavaScript("http://c.icq.com/siteim/icqbar/js/partners/initbar_{0}.js".FormatSelf(this.language ?? "ru") .ToUri()));
       if (!this.account.IsEmpty())
       {
-        writer.Write(this.JavaScript("window.ICQ = {{siteOwner:'{0}'}};".FormatValue(this.account)));
+        writer.Write(this.JavaScript("window.ICQ = {{siteOwner:'{0}'}};".FormatSelf(this.account)));
       }
     }
   }

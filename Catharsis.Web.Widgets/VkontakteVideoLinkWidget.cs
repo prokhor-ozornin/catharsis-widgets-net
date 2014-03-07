@@ -34,7 +34,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("a", tag => tag
-        .Attribute("href", "http://vk.com/video{0}_{1}".FormatValue(this.user, this.id))
+        .Attribute("href", "http://vk.com/video{0}_{1}".FormatSelf(this.user, this.id))
         .InnerHtml(this.HtmlBody)));
     }
   }

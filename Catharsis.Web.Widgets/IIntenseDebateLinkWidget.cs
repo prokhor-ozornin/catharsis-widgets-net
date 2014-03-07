@@ -4,8 +4,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders IntenseDebate hyperlink with current comment count for registered website.</para>
-  ///   <seealso cref="http://intensedebate.com"/>
   /// </summary>
+  /// <seealso cref="http://intensedebate.com"/>
   public interface IIntenseDebateLinkWidget : IHtmlWidget
   {
     /// <summary>

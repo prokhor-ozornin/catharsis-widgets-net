@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Facebook Like Box.</para>
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
-  ///   <seealso cref="https://developers.facebook.com/docs/plugins/like-box-for-pages"/>
   /// </summary>
+  /// <seealso cref="https://developers.facebook.com/docs/plugins/like-box-for-pages"/>
   public interface IFacebookLikeBoxWidget : IHtmlWidget
   {
     /// <summary>

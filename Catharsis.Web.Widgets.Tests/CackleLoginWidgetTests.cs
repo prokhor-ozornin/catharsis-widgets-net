@@ -12,8 +12,8 @@ namespace Catharsis.Web.Widgets
   {
     /// <summary>
     ///   <para>Performs testing of class constructor(s).</para>
-    ///   <seealso cref="CackleLoginWidget()"/>
     /// </summary>
+    /// <seealso cref="CackleLoginWidget()"/>
     [Fact]
     public void Constructors()
     {

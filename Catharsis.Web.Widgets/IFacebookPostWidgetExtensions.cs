@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IFacebookPostWidget"/>.</para>
-  ///   <seealso cref="IFacebookPostWidget"/>
   /// </summary>
+  /// <seealso cref="IFacebookPostWidget"/>
   public static class IFacebookPostWidgetExtensions
   {
     /// <summary>

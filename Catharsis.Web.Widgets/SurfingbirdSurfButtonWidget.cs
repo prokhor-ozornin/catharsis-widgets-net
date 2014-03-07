@@ -72,7 +72,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(writer);
 
-      var config = new Dictionary<string, object> { { "layout", "{0}{1}{2}".FormatValue(this.layout, this.counter ? string.Empty : "-nocount", this.color.IsEmpty() ? string.Empty : "-" + this.color) } };
+      var config = new Dictionary<string, object> { { "layout", "{0}{1}{2}".FormatSelf(this.layout, this.counter ? string.Empty : "-nocount", this.color.IsEmpty() ? string.Empty : "-" + this.color) } };
       if (!this.url.IsEmpty())
       {
         config["url"] = this.url;

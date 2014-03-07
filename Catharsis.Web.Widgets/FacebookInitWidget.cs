@@ -25,7 +25,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("div", tag => tag.Attribute("id", "fb-root")));
-      writer.Write(resources.facebook_initialize.FormatValue(this.appId));
+      writer.Write(resources.facebook_initialize.FormatSelf(this.appId));
     }
   }
 }

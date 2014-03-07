@@ -63,7 +63,7 @@ namespace Catharsis.Web.Widgets
       };
 
       writer.Write(@"<div id=""mc-last""></div>");
-      writer.Write(this.JavaScript("cackle_widget = window.cackle_widget || [];cackle_widget.push({0});".FormatValue(config.Json())));
+      writer.Write(this.JavaScript("cackle_widget = window.cackle_widget || [];cackle_widget.push({0});".FormatSelf(config.Json())));
       writer.Write(@"<a id=""mc-link"" href=""http://cackle.me"">Социальные комментарии <b style=""color:#4FA3DA"">Cackl</b><b style=""color:#F65077"">e</b></a>");
     }
   }

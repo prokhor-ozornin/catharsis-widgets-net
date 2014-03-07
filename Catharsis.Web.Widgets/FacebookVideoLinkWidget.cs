@@ -25,7 +25,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("a", tag => tag
-        .Attribute("href", "https://www.facebook.com/photo.php?v={0}".FormatValue(id))
+        .Attribute("href", "https://www.facebook.com/photo.php?v={0}".FormatSelf(id))
         .InnerHtml(this.HtmlBody)));
     }
   }

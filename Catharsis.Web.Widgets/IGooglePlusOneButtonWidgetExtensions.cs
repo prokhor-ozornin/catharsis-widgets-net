@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IGooglePlusOneButtonWidget"/>.</para>
-  ///   <seealso cref="IGooglePlusOneButtonWidget"/>
   /// </summary>
+  /// <seealso cref="IGooglePlusOneButtonWidget"/>
   public static class IGooglePlusOneButtonWidgetExtensions
   {
     /// <summary>

@@ -27,7 +27,7 @@ namespace Catharsis.Web.Widgets
       var config = new { widget = "Login", id = this.account };
 
       writer.Write(@"<div id=""mc-login""></div>");
-      writer.Write(this.JavaScript("cackle_widget = window.cackle_widget || [];cackle_widget.push({0});".FormatValue(config.Json())));
+      writer.Write(this.JavaScript("cackle_widget = window.cackle_widget || [];cackle_widget.push({0});".FormatSelf(config.Json())));
     }
   }
 }

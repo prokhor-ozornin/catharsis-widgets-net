@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Facebook Facepile widget.</para>
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
-  ///   <seealso cref="https://developers.facebook.com/docs/plugins/facepile"/>
   /// </summary>
+  /// <seealso cref="https://developers.facebook.com/docs/plugins/facepile"/>
   public interface IFacebookFacepileWidget : IHtmlWidget
   {
     /// <summary>

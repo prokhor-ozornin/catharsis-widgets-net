@@ -51,7 +51,7 @@ namespace Catharsis.Web.Widgets
         return;
       }
 
-      writer.Write(resources.intensedebate_comments.FormatValue(this.account, this.postId, this.postUrl, this.postTitle));
+      writer.Write(resources.intensedebate_comments.FormatSelf(this.account, this.postId, this.postUrl, this.postTitle));
     }
   }
 }

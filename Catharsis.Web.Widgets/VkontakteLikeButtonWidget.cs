@@ -129,7 +129,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("div", tag => tag.Attribute("id", "vk_like")));
-      writer.Write(this.JavaScript(@"VK.Widgets.Like(""vk_like"", {0});".FormatValue(config.Json())));
+      writer.Write(this.JavaScript(@"VK.Widgets.Like(""vk_like"", {0});".FormatSelf(config.Json())));
     }
   }
 }

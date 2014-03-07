@@ -37,7 +37,7 @@ namespace Catharsis.Web.Widgets
         return;
       }
 
-      writer.Write(this.ToTag("img", tag => tag.Attribute("src", "data:{1};base64,{0}".FormatValue(Convert.ToBase64String(this.contents), this.format.IsEmpty() ? "image" : this.format))));
+      writer.Write(this.ToTag("img", tag => tag.Attribute("src", "data:{1};base64,{0}".FormatSelf(Convert.ToBase64String(this.contents), this.format.IsEmpty() ? "image" : this.format))));
     }
   }
 }

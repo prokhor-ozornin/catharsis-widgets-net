@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Facebook Activity Feed.</para>
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
-  ///   <seealso cref="https://developers.facebook.com/docs/plugins/activity"/>
   /// </summary>
+  /// <seealso cref="https://developers.facebook.com/docs/plugins/activity"/>
   public interface IFacebookActivityFeedWidget : IHtmlWidget
   {
     /// <summary>

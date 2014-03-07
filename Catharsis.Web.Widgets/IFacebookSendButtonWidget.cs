@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Facebook "Send" button.</para>
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
-  ///   <seealso cref="https://developers.facebook.com/docs/plugins/send-button"/>
   /// </summary>
+  /// <seealso cref="https://developers.facebook.com/docs/plugins/send-button"/>
   public interface IFacebookSendButtonWidget : IHtmlWidget
   {
     /// <summary>

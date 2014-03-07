@@ -50,7 +50,7 @@ namespace Catharsis.Web.Widgets
         .Attribute("scrolling", "no")
         .Attribute("height", this.height)
         .Attribute("width", this.width)
-        .Attribute("src", "http://rutube.ru/embed/{0}".FormatValue(id))));
+        .Attribute("src", "http://rutube.ru/embed/{0}".FormatSelf(id))));
     }
   }
 }

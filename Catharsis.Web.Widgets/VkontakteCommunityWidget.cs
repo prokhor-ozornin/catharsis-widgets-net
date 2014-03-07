@@ -65,7 +65,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("div", tag => tag.Attribute("id", "vk_groups")));
-      writer.Write(this.JavaScript(@"VK.Widgets.Group(""vk_groups"", {0}, ""{1}"");".FormatValue(config.Json(), this.account)));
+      writer.Write(this.JavaScript(@"VK.Widgets.Group(""vk_groups"", {0}, ""{1}"");".FormatSelf(config.Json(), this.account)));
     }
   }
 }

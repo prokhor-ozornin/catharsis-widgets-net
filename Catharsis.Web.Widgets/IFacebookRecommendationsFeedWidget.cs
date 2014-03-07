@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Facebook Recommendations Feed.</para>
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
-  ///   <seealso cref="https://developers.facebook.com/docs/plugins/recommendations"/>
   /// </summary>
+  /// <seealso cref="https://developers.facebook.com/docs/plugins/recommendations"/>
   public interface IFacebookRecommendationsFeedWidget : IHtmlWidget
   {
     /// <summary>

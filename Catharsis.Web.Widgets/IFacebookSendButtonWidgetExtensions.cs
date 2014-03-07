@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IFacebookSendButtonWidget"/>.</para>
-  ///   <seealso cref="IFacebookSendButtonWidget"/>
   /// </summary>
+  /// <seealso cref="IFacebookSendButtonWidget"/>
   public static class IFacebookSendButtonWidgetExtensions
   {
     /// <summary>

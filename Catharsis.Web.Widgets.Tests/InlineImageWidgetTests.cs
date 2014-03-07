@@ -13,8 +13,8 @@ namespace Catharsis.Web.Widgets
   {
     /// <summary>
     ///   <para>Performs testing of class constructor(s).</para>
-    ///   <seealso cref="InlineImageWidget()"/>
     /// </summary>
+    /// <seealso cref="InlineImageWidget()"/>
     [Fact]
     public void Constructors()
     {
@@ -61,8 +61,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new InlineImageWidget().Write(null));
 
       Assert.True(new StringWriter().With(new InlineImageWidget().Write).ToString().IsEmpty());
-      Assert.Equal(@"<img src=""data:image;base64,{0}""></img>".FormatValue(System.Convert.ToBase64String(Guid.Empty.ToByteArray())), new StringWriter().With(writer => new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Write(writer)).ToString());
-      Assert.Equal(@"<img src=""data:jpg;base64,{0}""></img>".FormatValue(System.Convert.ToBase64String(Guid.Empty.ToByteArray())), new StringWriter().With(writer => new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg").Write(writer)).ToString());
+      Assert.Equal(@"<img src=""data:image;base64,{0}""></img>".FormatSelf(System.Convert.ToBase64String(Guid.Empty.ToByteArray())), new StringWriter().With(writer => new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Write(writer)).ToString());
+      Assert.Equal(@"<img src=""data:jpg;base64,{0}""></img>".FormatSelf(System.Convert.ToBase64String(Guid.Empty.ToByteArray())), new StringWriter().With(writer => new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg").Write(writer)).ToString());
     }
   }
 }

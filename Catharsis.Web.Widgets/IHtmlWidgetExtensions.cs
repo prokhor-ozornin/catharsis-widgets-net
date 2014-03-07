@@ -9,8 +9,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IHtmlWidget"/>.</para>
-  ///   <seealso cref="IHtmlWidget"/>
   /// </summary>
+  /// <seealso cref="IHtmlWidget"/>
   public static class IHtmlWidgetExtensions
   {
     /// <summary>

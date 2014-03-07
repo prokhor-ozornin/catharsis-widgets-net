@@ -52,7 +52,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("div", tag => tag.Attribute("id", "vk_comments")));
-      writer.Write(this.JavaScript(@"VK.Widgets.Comments(""vk_comments"", {0});".FormatValue(config.Json())));
+      writer.Write(this.JavaScript(@"VK.Widgets.Comments(""vk_comments"", {0});".FormatSelf(config.Json())));
     }
   }
 }

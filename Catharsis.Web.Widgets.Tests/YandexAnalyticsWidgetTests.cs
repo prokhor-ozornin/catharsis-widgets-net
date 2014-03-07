@@ -13,8 +13,8 @@ namespace Catharsis.Web.Widgets
   {
     /// <summary>
     ///   <para>Performs testing of class constructor(s).</para>
-    ///   <seealso cref="YandexAnalyticsWidget()"/>
     /// </summary>
+    /// <seealso cref="YandexAnalyticsWidget()"/>
     [Fact]
     public void Constructors()
     {
@@ -144,7 +144,7 @@ namespace Catharsis.Web.Widgets
       {
         new YandexAnalyticsWidget().Account("account").Write(writer);
         var html = writer.ToString();
-        Assert.True(html.Contains("Ya.Metrika.informer({{i: this, id: account, lang: '{0}'}})".FormatValue(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)));
+        Assert.True(html.Contains("Ya.Metrika.informer({{i: this, id: account, lang: '{0}'}})".FormatSelf(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)));
         Assert.True(html.Contains("yaCounteraccount"));
         Assert.True(html.Contains(@"""webvisor"":true"));
         Assert.True(html.Contains(@"""clickmap"":true"));

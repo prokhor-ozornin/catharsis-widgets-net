@@ -57,7 +57,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("iframe", tag => tag
-        .Attribute("src", "{2}://{1}/embed/{0}".FormatValue(this.id, this.@private ? "www.youtube-nocookie.com" : "www.youtube.com", this.secure ? "https" : "http"))
+        .Attribute("src", "{2}://{1}/embed/{0}".FormatSelf(this.id, this.@private ? "www.youtube-nocookie.com" : "www.youtube.com", this.secure ? "https" : "http"))
         .Attribute("width", this.width)
         .Attribute("height", this.height)
         .Attribute("frameborder", 0)

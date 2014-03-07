@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="ICackleHtmlHelper"/>.</para>
-  ///   <seealso cref="ICackleHtmlHelper"/>
   /// </summary>
+  /// <seealso cref="ICackleHtmlHelper"/>
   public static class ICackleHtmlHelperExtensions
   {
     /// <summary>

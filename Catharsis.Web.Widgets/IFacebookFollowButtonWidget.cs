@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Facebook "Follow" button.</para>
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
-  ///   <seealso cref="https://developers.facebook.com/docs/plugins/follow-button"/>
   /// </summary>
+  /// <seealso cref="https://developers.facebook.com/docs/plugins/follow-button"/>
   public interface IFacebookFollowButtonWidget : IHtmlWidget
   {
     /// <summary>

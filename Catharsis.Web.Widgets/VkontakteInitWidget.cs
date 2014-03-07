@@ -24,7 +24,7 @@ namespace Catharsis.Web.Widgets
         return;
       }
 
-      writer.Write(this.JavaScript("VK.init({{apiId:{0}, onlyWidgets:true}});".FormatValue(this.apiId)));
+      writer.Write(this.JavaScript("VK.init({{apiId:{0}, onlyWidgets:true}});".FormatSelf(this.apiId)));
     }
   }
 }

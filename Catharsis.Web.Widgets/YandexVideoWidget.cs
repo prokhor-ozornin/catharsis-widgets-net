@@ -52,7 +52,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("iframe", tag => tag
-        .Attribute("src", "http://video.yandex.ru/iframe/{1}/{0}".FormatValue(this.id, this.user))
+        .Attribute("src", "http://video.yandex.ru/iframe/{1}/{0}".FormatSelf(this.id, this.user))
         .Attribute("width", this.width)
         .Attribute("height", this.height)
         .Attribute("frameborder", 0)

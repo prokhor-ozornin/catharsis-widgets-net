@@ -15,8 +15,8 @@ namespace Catharsis.Web.Widgets
   {
     /// <summary>
     ///   <para>Performs testing of class constructor(s).</para>
-    ///   <seealso cref="YandexSharePanelWidget()"/>
     /// </summary>
+    /// <seealso cref="YandexSharePanelWidget()"/>
     [Fact]
     public void Constructors()
     {
@@ -78,7 +78,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => new YandexSharePanelWidget().Write(null));
 
-      Assert.Equal(@"<div class=""yashare-auto-init"" data-yashareL10n=""{0}"" data-yashareQuickServices=""yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,pinterest,surfingbird"" data-yashareType=""button""></div>".FormatValue(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new StringWriter().With(writer => new YandexSharePanelWidget().Write(writer)).ToString());
+      Assert.Equal(@"<div class=""yashare-auto-init"" data-yashareL10n=""{0}"" data-yashareQuickServices=""yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,pinterest,surfingbird"" data-yashareType=""button""></div>".FormatSelf(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new StringWriter().With(writer => new YandexSharePanelWidget().Write(writer)).ToString());
       Assert.Equal(@"<div class=""yashare-auto-init"" data-yashareL10n=""ru"" data-yashareQuickServices=""yaru"" data-yashareType=""link""></div>", new StringWriter().With(writer => new YandexSharePanelWidget().Services("yaru").Layout(YandexSharePanelLayout.Link).Language("ru").Write(writer)).ToString());
     }
   }

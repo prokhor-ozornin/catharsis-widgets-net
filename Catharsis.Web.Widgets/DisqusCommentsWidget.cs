@@ -24,7 +24,7 @@ namespace Catharsis.Web.Widgets
         return;
       }
 
-      writer.Write(resources.disqus_comments.FormatValue(this.account));
+      writer.Write(resources.disqus_comments.FormatSelf(this.account));
     }
   }
 }

@@ -63,7 +63,7 @@ namespace Catharsis.Web.Widgets
         .Attribute("mozallowfullscreen", true)
         .Attribute("height", this.height)
         .Attribute("width", this.width)
-        .Attribute("src", "https://player.vimeo.com/video/{0}?badge=0{1}{2}".FormatValue(this.id, this.autoPlay ? "&autoplay=1" : string.Empty, this.loop ? "&loop=1" : string.Empty))));
+        .Attribute("src", "https://player.vimeo.com/video/{0}?badge=0{1}{2}".FormatSelf(this.id, this.autoPlay ? "&autoplay=1" : string.Empty, this.loop ? "&loop=1" : string.Empty))));
     }
   }
 }

@@ -25,7 +25,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("a", tag => tag
-        .Attribute("href","http://my.mail.ru/video/mail/{0}".FormatValue(this.id))
+        .Attribute("href","http://my.mail.ru/video/mail/{0}".FormatSelf(this.id))
         .InnerHtml(this.HtmlBody)));
     }
   }

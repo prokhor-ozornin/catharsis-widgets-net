@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IFacebookHtmlHelper"/>.</para>
-  ///   <seealso cref="IFacebookHtmlHelper"/>
   /// </summary>
+  /// <seealso cref="IFacebookHtmlHelper"/>
   public static class IFacebookHtmlHelperExtensions
   {
     /// <summary>

@@ -16,8 +16,8 @@ namespace Catharsis.Web.Widgets
   {
     /// <summary>
     ///   <para>Performs testing of class constructor(s).</para>
-    ///   <seealso cref="TwitterTweetButtonWidget()"/>
     /// </summary>
+    /// <seealso cref="TwitterTweetButtonWidget()"/>
     [Fact]
     public void Constructors()
     {
@@ -189,7 +189,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().Write(null));
 
-      Assert.Equal(@"<a class=""twitter-share-button"" data-lang=""{0}"" href=""https://twitter.com/share""></a>".FormatValue(HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new StringWriter().With(writer => new TwitterTweetButtonWidget().Write(writer)).ToString());
+      Assert.Equal(@"<a class=""twitter-share-button"" data-lang=""{0}"" href=""https://twitter.com/share""></a>".FormatSelf(HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new StringWriter().With(writer => new TwitterTweetButtonWidget().Write(writer)).ToString());
       Assert.Equal(@"<a class=""twitter-hashtag-button"" data-count=""count"" data-counturl=""countUrl"" data-dnt=""true"" data-hashtags=""tags"" data-lang=""en"" data-related=""related"" data-size=""size"" data-text=""text"" data-url=""url"" data-via=""via"" href=""https://twitter.com/share""></a>", new StringWriter().With(writer => new TwitterTweetButtonWidget().Language("en").Url("url").Via("via").Text("text").RelatedAccounts("related").CountPosition("count").CountUrl("countUrl").HashTags("tags").Size("size").OptOut().Write(writer)).ToString());
     }
   }

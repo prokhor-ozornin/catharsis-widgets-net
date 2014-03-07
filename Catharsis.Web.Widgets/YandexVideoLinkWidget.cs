@@ -41,7 +41,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("a", tag => tag
-        .Attribute("href", "http://video.yandex.ru/users/{1}/view/{0}/#{2}".FormatValue(this.id, this.user, this.highQuality ? "hq" : string.Empty))
+        .Attribute("href", "http://video.yandex.ru/users/{1}/view/{0}/#{2}".FormatSelf(this.id, this.user, this.highQuality ? "hq" : string.Empty))
         .InnerHtml(this.HtmlBody)));
     }
   }

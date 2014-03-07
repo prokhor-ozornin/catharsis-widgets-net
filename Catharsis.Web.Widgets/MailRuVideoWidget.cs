@@ -43,7 +43,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("iframe", tag => tag
-        .Attribute("src", "http://api.video.mail.ru/videos/embed/mail/{0}".FormatValue(this.id))
+        .Attribute("src", "http://api.video.mail.ru/videos/embed/mail/{0}".FormatSelf(this.id))
         .Attribute("width", this.width)
         .Attribute("height", this.height)
         .Attribute("frameborder", 0)

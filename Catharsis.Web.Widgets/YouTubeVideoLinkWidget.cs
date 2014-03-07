@@ -46,7 +46,7 @@ namespace Catharsis.Web.Widgets
       }
 
       writer.Write(this.ToTag("a", tag => tag
-        .Attribute("href", "{2}://{1}/{0}".FormatValue((this.embedded ? "embed/{0}" : "watch?v={0}").FormatValue(this.id), this.@private ? "www.youtube-nocookie.com" : "www.youtube.com", this.secure ? "https" : "http"))
+        .Attribute("href", "{2}://{1}/{0}".FormatSelf((this.embedded ? "embed/{0}" : "watch?v={0}").FormatSelf(this.id), this.@private ? "www.youtube-nocookie.com" : "www.youtube.com", this.secure ? "https" : "http"))
         .InnerHtml(this.HtmlBody)));
     }
   }

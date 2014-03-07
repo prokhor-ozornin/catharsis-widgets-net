@@ -74,7 +74,7 @@ namespace Catharsis.Web.Widgets
         .Attribute("mozallowfullscreen", true)
         .Attribute("width", this.width)
         .Attribute("height", this.height)
-        .Attribute("src", "http://vk.com/video_ext.php?oid={1}&id={0}&hash={2}&hd={3}".FormatValue(this.id, this.user, this.hash, this.hd ? 1 : 0))));
+        .Attribute("src", "http://vk.com/video_ext.php?oid={1}&id={0}&hash={2}&hd={3}".FormatSelf(this.id, this.user, this.hash, this.hd ? 1 : 0))));
     }
   }
 }

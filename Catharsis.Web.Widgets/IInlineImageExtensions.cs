@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IInlineImageWidget"/>.</para>
-  ///   <seealso cref="IInlineImageWidget"/>
   /// </summary>
+  /// <seealso cref="IInlineImageWidget"/>
   public static class IInlineImageExtensions
   {
     /// <summary>

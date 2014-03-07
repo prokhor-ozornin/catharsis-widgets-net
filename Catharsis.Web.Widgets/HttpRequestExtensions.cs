@@ -8,8 +8,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for class <see cref="HttpRequest"/>.</para>
-  ///   <seealso cref="HttpRequest"/>
   /// </summary>
+  /// <seealso cref="HttpRequest"/>
   public static class HttpRequestExtensions
   {
     /// <summary>
