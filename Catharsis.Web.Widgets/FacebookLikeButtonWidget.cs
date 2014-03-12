@@ -101,7 +101,7 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentException">If <paramref name="label"/> is <see cref="string.Empty"/> string.</exception>
     public IFacebookLikeButtonWidget TrackLabel(string label)
     {
-      Assertion.NotEmpty(trackLabel);
+      Assertion.NotEmpty(label);
 
       this.trackLabel = label;
       return this;
