@@ -37,7 +37,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.Size(Enum.GetName(typeof(GooglePlusOneButtonSize), size).ToLowerInvariant());
+      return widget.Size(size.ToString().ToLowerInvariant());
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.Alignment(Enum.GetName(typeof(GooglePlusOneButtonAlignment), alignment).ToLowerInvariant());
+      return widget.Alignment(alignment.ToString().ToLowerInvariant());
     }
 
     /// <summary>
@@ -67,7 +67,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.Annotation(Enum.GetName(typeof(GooglePlusOneButtonAnnotation), annotation).ToLowerInvariant());
+      return widget.Annotation(annotation.ToString().ToLowerInvariant());
     }
   }
 }

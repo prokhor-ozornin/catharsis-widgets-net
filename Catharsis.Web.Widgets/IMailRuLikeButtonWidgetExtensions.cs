@@ -22,26 +22,17 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
       
-      string typeName;
       switch (type)
       {
-        case MailRuLikeButtonType.All :
-          typeName = "combo";
-        break;
-
         case MailRuLikeButtonType.MailRu :
-          typeName = "mm";
-        break;
+          return widget.Type("mm");
 
         case MailRuLikeButtonType.Odnoklassniki :
-          typeName = "ok";
-        break;
+          return widget.Type("ok");
 
         default :
-          throw new NotSupportedException();
+          return widget.Type("combo");
       }
-
-      return widget.Type(typeName);
     }
 
     /// <summary>
@@ -116,7 +107,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.CounterPosition(Enum.GetName(typeof(MailRuLikeButtonCounterPosition), position).ToLowerInvariant());
+      return widget.CounterPosition(position.ToString().ToLowerInvariant());
     }
   }
 }

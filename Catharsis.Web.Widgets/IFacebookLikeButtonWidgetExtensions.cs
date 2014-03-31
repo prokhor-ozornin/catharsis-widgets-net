@@ -22,26 +22,17 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      string layoutName;
       switch (layout)
       {
         case FacebookButtonLayout.BoxCount :
-          layoutName = "box_count";
-        break;
+          return widget.Layout("box_count");
 
         case FacebookButtonLayout.ButtonCount :
-          layoutName = "button_count";
-        break;
+          return widget.Layout("button_count");
 
-        case FacebookButtonLayout.Standard :
-          layoutName = "standard";
-        break;
-
-        default :
-          throw new NotSupportedException();
+        default:
+          return widget.Layout("standard");
       }
-
-      return widget.Layout(layoutName);
     }
 
     /// <summary>
@@ -71,7 +62,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.Verb(Enum.GetName(typeof(FacebookLikeButtonVerb), verb).ToLowerInvariant());
+      return widget.Verb(verb.ToString().ToLowerInvariant());
     }
 
     /// <summary>
@@ -86,7 +77,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.ColorScheme(Enum.GetName(typeof(FacebookColorScheme), scheme).ToLowerInvariant());
+      return widget.ColorScheme(scheme.ToString().ToLowerInvariant());
     }
   }
 }

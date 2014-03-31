@@ -52,23 +52,17 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      var orderType = "social";
       switch (order)
       {
         case FacebookCommentsOrder.ReverseTime :
-          orderType = "reverse_time";
-        break;
-
-        case FacebookCommentsOrder.Social :
-          orderType = "social";
-        break;
+          return widget.Order("reverse_time");
 
         case FacebookCommentsOrder.Time :
-          orderType = "time";
-        break;
-      }
+          return widget.Order("time");
 
-      return widget.Order(orderType);
+        default:
+          return widget.Order("social");
+      }
     }
   }
 }

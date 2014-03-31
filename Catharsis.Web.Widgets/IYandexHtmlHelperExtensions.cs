@@ -46,6 +46,57 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Creates new Yandex.Money button widget.</para>
+    /// </summary>
+    /// <param name="html">Helper object to call method on.</param>
+    /// <param name="builder">Delegate that performs configuration of the widget.</param>
+    /// <returns>HTML contents of configured and rendered widget.</returns>
+    /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
+    public static string MoneyButton(this IYandexHtmlHelper html, Action<IYandexMoneyButtonWidget> builder)
+    {
+      Assertion.NotNull(html);
+      Assertion.NotNull(builder);
+
+      var widget = html.MoneyButton();
+      builder(widget);
+      return widget.ToHtmlString();
+    }
+
+    /// <summary>
+    ///   <para>Creates new Yandex.Money donation form widget.</para>
+    /// </summary>
+    /// <param name="html">Helper object to call method on.</param>
+    /// <param name="builder">Delegate that performs configuration of the widget.</param>
+    /// <returns>HTML contents of configured and rendered widget.</returns>
+    /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
+    public static string MoneyDonateForm(this IYandexHtmlHelper html, Action<IYandexMoneyDonateFormWidget> builder)
+    {
+      Assertion.NotNull(html);
+      Assertion.NotNull(builder);
+
+      var widget = html.MoneyDonateForm();
+      builder(widget);
+      return widget.ToHtmlString();
+    }
+
+    /// <summary>
+    ///   <para>Creates new Yandex.Money payment form widget.</para>
+    /// </summary>
+    /// <param name="html">Helper object to call method on.</param>
+    /// <param name="builder">Delegate that performs configuration of the widget.</param>
+    /// <returns>HTML contents of configured and rendered widget.</returns>
+    /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
+    public static string MoneyPaymentForm(this IYandexHtmlHelper html, Action<IYandexMoneyPaymentFormWidget> builder)
+    {
+      Assertion.NotNull(html);
+      Assertion.NotNull(builder);
+
+      var widget = html.MoneyPaymentForm();
+      builder(widget);
+      return widget.ToHtmlString();
+    }
+
+    /// <summary>
     ///   <para>Creates new Yandex "Share" button widget.</para>
     /// </summary>
     /// <param name="html">Helper object to call method on.</param>

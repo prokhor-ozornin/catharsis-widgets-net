@@ -127,6 +127,9 @@
     <Compile Include="IVkontakteSubscriptionWidgetExtensionsTests.cs" />
     <Compile Include="IYandexAnalyticsWidgetExtensionsTests.cs" />
     <Compile Include="IYandexHtmlHelperExtensionsTests.cs" />
+    <Compile Include="IYandexMoneyButtonWidgetExtensionsTests.cs" />
+    <Compile Include="IYandexMoneyDonateFormWidgetExtensionsTests.cs" />
+    <Compile Include="IYandexMoneyPaymentFormWidgetExtensionsTests.cs" />
     <Compile Include="IYandexSharePanelWidgetExtensionsTests.cs" />
     <Compile Include="IYandexYaButtonWidgetExtensionsTests.cs" />
     <Compile Include="IYouTubeHtmlHelperExtensionsTests.cs" />
@@ -172,6 +175,9 @@
     <Compile Include="VkontakteVideoWidgetTests.cs" />
     <Compile Include="YandexAnalyticsWidgetTests.cs" />
     <Compile Include="YandexHtmlHelperTests.cs" />
+    <Compile Include="YandexMoneyButtonWidgetTests.cs" />
+    <Compile Include="YandexMoneyDonateFormWidgetTests.cs" />
+    <Compile Include="YandexMoneyPaymentFormWidgetTests.cs" />
     <Compile Include="YandexSharePanelWidgetTests.cs" />
     <Compile Include="YandexVideoLinkWidgetTests.cs" />
     <Compile Include="YandexVideoWidgetTests.cs" />

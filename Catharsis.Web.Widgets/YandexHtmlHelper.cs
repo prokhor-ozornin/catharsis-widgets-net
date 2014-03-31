@@ -12,6 +12,21 @@ namespace Catharsis.Web.Widgets
       return new YandexLikeButtonWidget();
     }
 
+    public IYandexMoneyButtonWidget MoneyButton()
+    {
+      return new YandexMoneyButtonWidget();
+    }
+
+    public IYandexMoneyDonateFormWidget MoneyDonateForm()
+    {
+      return new YandexMoneyDonateFormWidget();
+    }
+
+    public IYandexMoneyPaymentFormWidget MoneyPaymentForm()
+    {
+      return new YandexMoneyPaymentFormWidget();
+    }
+
     public IYandexSharePanelWidget Share()
     {
       return new YandexSharePanelWidget();

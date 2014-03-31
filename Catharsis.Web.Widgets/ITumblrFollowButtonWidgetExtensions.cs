@@ -36,7 +36,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.ColorScheme(Enum.GetName(typeof(TumblrFollowButtonColorScheme), scheme).ToLowerInvariant());
+      return widget.ColorScheme(scheme.ToString().ToLowerInvariant());
     }
   }
 }

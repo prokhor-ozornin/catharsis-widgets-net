@@ -13,7 +13,7 @@ namespace Catharsis.Web.Widgets
     ///   <para>Size of the button.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
-    /// <param name="size"></param>
+    /// <param name="size">Size of button.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IYandexLikeButtonWidget.Size(string)"/>
@@ -21,7 +21,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.Size(Enum.GetName(typeof(YandexLikeButtonSize), size).ToLowerInvariant());
+      return widget.Size(size.ToString().ToLowerInvariant());
     }
 
     /// <summary>
@@ -36,7 +36,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.Layout(Enum.GetName(typeof(YandexLikeButtonLayout), layout).ToLowerInvariant());
+      return widget.Layout(layout.ToString().ToLowerInvariant());
     }
   }
 }

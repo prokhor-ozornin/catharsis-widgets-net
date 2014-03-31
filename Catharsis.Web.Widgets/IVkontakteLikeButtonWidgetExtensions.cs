@@ -37,7 +37,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.Layout(Enum.GetName(typeof(VkontakteLikeButtonLayout), layout).ToLowerInvariant());
+      return widget.Layout(layout.ToString().ToLowerInvariant());
     }
 
     /// <summary>

@@ -35,6 +35,45 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Performs testing of <see cref="IYandexHtmlHelperExtensions.MoneyButton(IYandexHtmlHelper, Action{IYandexMoneyButtonWidget})"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void MoneyButton_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.MoneyButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().MoneyButton(null));
+
+      Assert.Equal(new YandexHtmlHelper().MoneyButton().ToHtmlString(), new YandexHtmlHelper().MoneyButton(x => { }));
+      Assert.Equal(new YandexHtmlHelper().MoneyButton().Account("account").Description("description").Sum(1).ToHtmlString(), new YandexHtmlHelper().MoneyButton(x => x.Account("account").Description("description").Sum(1)));
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="IYandexHtmlHelperExtensions.MoneyDonateForm(IYandexHtmlHelper, Action{IYandexMoneyDonateFormWidget})"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void MoneyDonateForm_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.MoneyDonateForm(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().MoneyDonateForm(null));
+
+      Assert.Equal(new YandexHtmlHelper().MoneyDonateForm().ToHtmlString(), new YandexHtmlHelper().MoneyDonateForm(x => { }));
+      Assert.Equal(new YandexHtmlHelper().MoneyDonateForm().Account("account").Description("description").ToHtmlString(), new YandexHtmlHelper().MoneyDonateForm(x => x.Account("account").Description("description")));
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="IYandexHtmlHelperExtensions.MoneyPaymentForm(IYandexHtmlHelper, Action{IYandexMoneyPaymentFormWidget})"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void MoneyPaymentForm_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.MoneyPaymentForm(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().MoneyPaymentForm(null));
+
+      Assert.Equal(new YandexHtmlHelper().MoneyPaymentForm().ToHtmlString(), new YandexHtmlHelper().MoneyPaymentForm(x => { }));
+      Assert.Equal(new YandexHtmlHelper().MoneyPaymentForm().Account("account").ToHtmlString(), new YandexHtmlHelper().MoneyPaymentForm(x => x.Account("account")));
+    }
+
+    /// <summary>
     ///   <para>Performs testing of <see cref="IYandexHtmlHelperExtensions.Share(IYandexHtmlHelper, Action{IYandexSharePanelWidget})"/> method.</para>
     /// </summary>
     [Fact]

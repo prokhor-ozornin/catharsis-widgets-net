@@ -24,6 +24,24 @@ namespace Catharsis.Web.Widgets
     IYandexLikeButtonWidget Like();
 
     /// <summary>
+    ///   <para>Creates new Yandex.Money button widget.</para>
+    /// </summary>
+    /// <returns>Initialized widget with default options.</returns>
+    IYandexMoneyButtonWidget MoneyButton();
+
+    /// <summary>
+    ///   <para>Creates new Yandex.Money donation form widget.</para>
+    /// </summary>
+    /// <returns>Initialized widget with default options.</returns>
+    IYandexMoneyDonateFormWidget MoneyDonateForm();
+
+    /// <summary>
+    ///   <para>Creates new Yandex.Money payment form widget.</para>
+    /// </summary>
+    /// <returns>Initialized widget with default options.</returns>
+    IYandexMoneyPaymentFormWidget MoneyPaymentForm();
+
+    /// <summary>
     ///   <para>Creates new Yandex embedded video widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
@@ -34,5 +52,7 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
     IYandexVideoLinkWidget VideoLink();
+
+
   }
 }

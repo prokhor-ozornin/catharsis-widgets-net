@@ -38,7 +38,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.Size(Enum.GetName(typeof(TwitterFollowButtonSize), size).ToLowerInvariant());
+      return widget.Size(size.ToString().ToLowerInvariant());
     }
 
     /// <summary>
@@ -53,7 +53,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.Alignment(Enum.GetName(typeof(TwitterFollowButtonAlignment), alignment).ToLowerInvariant());
+      return widget.Alignment(alignment.ToString().ToLowerInvariant());
     }
   }
 }

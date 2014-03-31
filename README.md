@@ -53,6 +53,8 @@ Media player
 
 The list of social tags is ever-growing, and new ones can be included upon request fast.
 
+[![Image](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=APHM8MU9N76V8 "Donate")
+
 ***
 
 **Installation and usage**
@@ -384,6 +386,24 @@ You must include `<script src="@WidgetsScripts.YandexShare" type="text/javascrip
 
 > `@Html.Yandex().Share().Services("facebook").Language("en")`
 
+> Render Yandex.Money payment button
+
+> `@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment")`
+
+> `@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment").Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Buy).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).PayerAddress().PayerEmail().PayerFullName().PayerPhone()`
+
+> Render Yandex.Money donation form
+
+> `@Html.Yandex().MoneyDonateForm().Account("41001577953208").Description("Test Donation")`
+
+> `@Html.Yandex().MoneyDonateForm().Account("41001577953208").Description("Test Donation").ShowDescription().Sum(15.5).Cards().ProjectName("Yandex").ProjectSite("http://yandex.ru").Text(YandexMoneyDonateFormText.Give).PayerPhone().PayerFullName().PayerComment().PayerEmail()`
+
+> Render Yandex.Money payment form
+
+> `@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment")`
+
+> `@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment").Sum(15.5).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).PayerComment().PayerEmail().PayerFullName().PayerAddress().PayerPhone().PayerPurpose()`
+
 **YouTube**
 
 > Render YouTube embedded video
@@ -409,5 +429,3 @@ _Note:_ Instead of using different separate JavaScript bundles with `@Scripts.Re
   `@Scripts.Render(WidgetsScriptsBundles.Widgets)`
 
 `</head>`
-
-[![Image](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=APHM8MU9N76V8 "Donate")

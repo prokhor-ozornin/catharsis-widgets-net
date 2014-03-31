@@ -38,7 +38,7 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      return widget.Attach(attach.Select(item => item == VkontakteCommentsAttach.All ? "*" : Enum.GetName(typeof(VkontakteCommentsAttach), item).ToLowerInvariant()).ToArray());
+      return widget.Attach(attach.Select(item => item == VkontakteCommentsAttach.All ? "*" : item.ToString().ToLowerInvariant()).ToArray());
     }
 
     /// <summary>

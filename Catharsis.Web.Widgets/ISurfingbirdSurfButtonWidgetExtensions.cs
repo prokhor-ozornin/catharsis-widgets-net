@@ -22,26 +22,17 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      string layoutName;
       switch (layout)
       {
-        case SurfingbirdSurfButtonLayout.Common :
-          layoutName = "common";
-        break;
-
         case SurfingbirdSurfButtonLayout.Micro :
-          layoutName = "micro";
-        break;
+          return widget.Layout("micro");
 
         case SurfingbirdSurfButtonLayout.Vertical :
-          layoutName = "vert";
-        break;
+          return widget.Layout("vert");
 
-        default :
-          throw new NotSupportedException();
+        default:
+          return widget.Layout("common");
       }
-
-      return widget.Layout(layoutName);
     }
 
     /// <summary>

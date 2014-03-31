@@ -67,23 +67,17 @@ namespace Catharsis.Web.Widgets
     {
       Assertion.NotNull(widget);
 
-      var layoutType = "standard";
       switch (layout)
       {
         case FacebookButtonLayout.BoxCount :
-          layoutType = "box_count";
-        break;
+          return widget.Layout("box_count");
 
         case FacebookButtonLayout.ButtonCount :
-          layoutType = "button_count";
-        break;
+          return widget.Layout("button_count");
 
-        case FacebookButtonLayout.Standard :
-          layoutType = "standard";
-        break;
+        default :
+          return widget.Layout("standard");
       }
-
-      return widget.Layout(layoutType);
     }
   }
 }
