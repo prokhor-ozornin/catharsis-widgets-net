@@ -2,7 +2,7 @@
 
 namespace Catharsis.Web.Widgets
 {
-  internal sealed class MockVideoWidget : HtmlWidgetBase<MockVideoWidget>, IVideoWidget<MockVideoWidget>
+  internal sealed class MockVideoWidget : HtmlWidgetBase, IVideoWidget<MockVideoWidget>
   {
     public override void Write(TextWriter writer)
     {

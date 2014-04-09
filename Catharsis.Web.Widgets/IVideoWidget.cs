@@ -16,6 +16,16 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
     /// <remarks>This attribute is required.</remarks>
     T Id(string id);
+    
+    /// <summary>
+    ///   <para>Height of video control.</para>
+    /// </summary>
+    /// <param name="height">Height of video.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
+    /// <remarks>This attribute is required.</remarks>
+    T Height(string height);
 
     /// <summary>
     ///   <para>Width of video control.</para>
@@ -26,15 +36,5 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
     /// <remarks>This attribute is required.</remarks>
     T Width(string width);
-
-    /// <summary>
-    ///   <para>Height of video control.</para>
-    /// </summary>
-    /// <param name="height">Height of video.</param>
-    /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-    /// <remarks>This attribute is required.</remarks>
-    T Height(string height);
   }
 }

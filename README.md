@@ -73,6 +73,9 @@ As of the latest version, the following areas are covered :
 * Share Button
 * Embedded Video
 * Video Hyperlink
+* Yandex.Money Payment Button
+* Yandex.Money Donate Form
+* Yandex.Money Payment Form
 
 [YouTube](http://youtube.com)
 * Embedded Video
@@ -144,6 +147,7 @@ You must include `WidgetsScriptsBundles.Cackle` JavaScript bundle first to use b
 > Render Cackle list of latest comments
 
 > `@Html.Cackle().LatestComments().Account("20049")`
+
 > `@Html.Cackle().LatestComments().Account("20049").Max(15).AvatarSize(32).TitleSize(50).TextSize(255)`
 
 > Render Cackle OAuth login widget
@@ -165,10 +169,6 @@ You must include `WidgetsScriptsBundles.Disqus` JavaScript bundle first to use b
 > Render Facebook embedded video
 
 > `@Html.Facebook().Video().Height("480").Width("640").Id("10203121281421359")`
-
-> Render Facebook video hyperlink
-
-> `@Html.Facebook().VideoLink().Id("10203121281421359").HtmlBody("Watch a Facebook video !")`
 
 > Performs Facebook JavaScript API initialization
 
@@ -292,10 +292,6 @@ You must include `<script src="@WidgetsScripts.MailRuLike" type="text/javascript
 
 > `@Html.RuTube().Video().Id("6785018").Height("480").Width("640")`
 
-> Render RuTube video hyperlink
-
-> `@Html.RuTube().VideoLink().Id("4c5fe858f0013ea73188a3534af12f2b").HtmlBody("Watch RuTube video !")`
-
 **Surfingbird**
 
 You must include `<script src="@WidgetsScripts.SurfingbirdSurf" type="text/javascript"></script>` directive in the end of the `<body>` tag to use below widgets.
@@ -354,10 +350,6 @@ You must include `WidgetsScriptsBundles.Twitter` JavaScript bundle first to use 
 
 > `@Html.Vkontakte().Video().Id("167533148").Hash("7a0cdf6ef7a69e67").User("5707198").Width("607").Height("360").HdQuality()`
 
-> Render VKontakte video hyperlink
-
-> `@Html.Vkontakte().VideoLink().Id("167533148").User("5707198").HtmlBody("Watch VKontakte video !")`
-
 You must include `<script src="@WidgetsScripts.Vkontakte" type="text/javascript"></script>` directive in the `<head>` tag to use below widgets.
 
 > Performs initialization of VKontakte API
@@ -404,10 +396,6 @@ You must include `<script src="@WidgetsScripts.Vkontakte" type="text/javascript"
 
 > `@Html.Yandex().Video().Id("6ea0ugstkx.2528").User("leonevskiy").Width("450").Height("253")`
 
-> Render Yandex video hyperlink
-
-> `@Html.Yandex().VideoLink().Id("1").User("leonevskiy").HtmlBody("Watch Yandex video!")`
-
 You must include `<script src="@WidgetsScripts.YandexShare" type="text/javascript"></script>` directive in the `<head>` tag to use below widgets.
 
 > Render Yandex "Share" button
@@ -439,10 +427,6 @@ You must include `<script src="@WidgetsScripts.YandexShare" type="text/javascrip
 > Render YouTube embedded video
 
 > `@Html.YouTube().Video().Id("eYJSlHiXegI").Width("100%").Height("480")`
-
-> Render YouTube video hyperlink
-
-> `@Html.YouTube().VideoLink().Id("eYJSlHiXegI").HtmlBody("Watch YouTube video!")`
 
 **VideoJS**
 

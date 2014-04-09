@@ -2,7 +2,7 @@
 
 namespace Catharsis.Web.Widgets
 {
-  internal sealed class MockHtmlWidget : HtmlWidgetBase<IHtmlWidget>
+  internal sealed class MockHtmlWidget : HtmlWidgetBase
   {
     public const string Contents = "Widget text content";
 

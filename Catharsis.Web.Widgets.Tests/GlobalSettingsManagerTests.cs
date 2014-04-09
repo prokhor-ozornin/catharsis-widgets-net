@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Web;
 using Catharsis.Commons;
 using Xunit;
 
