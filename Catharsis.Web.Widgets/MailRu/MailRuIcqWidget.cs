@@ -1,5 +1,6 @@
 ﻿using System;
-using System.IO;
+using System.Text;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -8,7 +9,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Adds "ICQ On-Site" widget to web page.</para>
   /// </summary>
   /// <seealso cref="http://api.mail.ru/sites/plugins/icq-on-site"/>
-  public sealed class MailRuIcqWidget : HtmlWidgetBase, IMailRuIcqWidget
+  public class MailRuIcqWidget : HtmlWidgetBase, IMailRuIcqWidget
   {
     private string account;
     private string language;
@@ -44,18 +45,22 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
-      writer.Write(this.JavaScript("http://c.icq.com/siteim/icqbar/js/partners/initbar_{0}.js".FormatSelf(this.language ?? "ru") .ToUri()));
+      var builder = new StringBuilder()
+        .Append(new TagBuilder("script")
+          .Attribute("type", "text/javascript")
+          .Attribute("src", "http://c.icq.com/siteim/icqbar/js/partners/initbar_{0}.js".FormatSelf(this.language ?? "ru")));
+      
       if (!this.account.IsEmpty())
       {
-        writer.Write(this.JavaScript("window.ICQ = {{siteOwner:'{0}'}};".FormatSelf(this.account)));
+        builder.Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml("window.ICQ = {{siteOwner:'{0}'}};".FormatSelf(this.account)));
       }
+
+      return builder.ToString();
     }
   }
 }

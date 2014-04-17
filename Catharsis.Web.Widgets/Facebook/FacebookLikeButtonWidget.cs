@@ -1,5 +1,5 @@
 using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -9,15 +9,15 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/like-button"/>
-  public sealed class FacebookLikeButtonWidget : HtmlWidgetBase, IFacebookLikeButtonWidget
+  public class FacebookLikeButtonWidget : HtmlWidgetBase, IFacebookLikeButtonWidget
   {
-    private string verb;
     private string colorScheme;
-    private string url;
+    private bool? faces;
     private bool? kids;
     private string layout;
     private string trackLabel;
-    private bool? faces;
+    private string url;
+    private string verb;
     private string width;
 
     /// <summary>
@@ -134,19 +134,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.url.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("div", tag => tag
+      return new TagBuilder("div")
         .Attribute("data-action", this.verb)
         .Attribute("data-layout", this.layout)
         .Attribute("data-show-faces", this.faces)
@@ -155,7 +153,8 @@ namespace Catharsis.Web.Widgets
         .Attribute("data-kid-directed-site", this.kids)
         .Attribute("data-ref", this.trackLabel)
         .Attribute("data-width", this.width)
-        .AddCssClass("fb-like")));
+        .CssClass("fb-like")
+        .ToString();
     }
   }
 }

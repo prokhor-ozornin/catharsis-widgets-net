@@ -1,5 +1,5 @@
 using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScripts.TumblrShare"/> script to be included.</para>
   /// </summary>
   /// <seealso cref="http://www.tumblr.com/buttons"/>
-  public sealed class TumblrFollowButtonWidget : HtmlWidgetBase, ITumblrFollowButtonWidget
+  public class TumblrFollowButtonWidget : HtmlWidgetBase, ITumblrFollowButtonWidget
   {
     private string account;
     private byte type = (byte) TumblrFollowButtonType.First;
@@ -58,31 +58,29 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.account.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
       byte width = 189;
-      switch ((TumblrFollowButtonType) this.type)
+      switch ((TumblrFollowButtonType)this.type)
       {
-        case TumblrFollowButtonType.Second :
+        case TumblrFollowButtonType.Second:
           width = 113;
         break;
 
-        case TumblrFollowButtonType.Third :
+        case TumblrFollowButtonType.Third:
           width = 18;
         break;
       }
 
-      writer.Write(this.ToTag("iframe", tag => tag
+      return new TagBuilder("iframe")
         .Attribute("border", 0)
         .Attribute("allowtransparency", true)
         .Attribute("src", "http://platform.tumblr.com/v1/follow_button.html?button_type={1}&tumblelog={0}&color_scheme={2}".FormatSelf(this.account, this.type, this.colorScheme))
@@ -90,7 +88,8 @@ namespace Catharsis.Web.Widgets
         .Attribute("height", 25)
         .Attribute("scrolling", "no")
         .Attribute("width", width)
-        .AddCssClass("btn")));
+        .CssClass("btn")
+        .ToString();
     }
   }
 }

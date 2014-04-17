@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -53,23 +52,18 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="GoogleAnalyticsWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="GoogleAnalyticsWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new GoogleAnalyticsWidget().Write(null));
+      Assert.Equal(string.Empty, new GoogleAnalyticsWidget().ToString());
+      Assert.Equal(string.Empty, new GoogleAnalyticsWidget().Account("account").ToString());
+      Assert.Equal(string.Empty, new GoogleAnalyticsWidget().Domain("domain").ToString());
 
-      Assert.True(new StringWriter().With(writer => new GoogleAnalyticsWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new GoogleAnalyticsWidget().Account("account").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new GoogleAnalyticsWidget().Domain("domain").Write(writer)).ToString().IsEmpty());
-      new StringWriter().With(writer =>
-      {
-        new GoogleAnalyticsWidget().Account("account").Domain("domain").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains("//www.google-analytics.com/analytics.js"));
-        Assert.True(html.Contains(@"ga(""create"", ""account"", ""domain"");"));
-      });
+      var html = new GoogleAnalyticsWidget().Account("account").Domain("domain").ToString();
+      Assert.True(html.Contains("//www.google-analytics.com/analytics.js"));
+      Assert.True(html.Contains(@"ga(""create"", ""account"", ""domain"");"));
     }
   }
 }

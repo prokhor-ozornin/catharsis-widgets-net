@@ -2,7 +2,7 @@ namespace Catharsis.Web.Widgets
 {
   internal sealed class MailRuHtmlHelper : IMailRuHtmlHelper
   {
-    /*public IMailRuFacesWidget Faces()
+    public IMailRuFacesWidget Faces()
     {
       return new MailRuFacesWidget();
     }
@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
     public IMailRuGroupsWidget Groups()
     {
       return new MailRuGroupsWidget();
-    }*/
+    }
 
     public IMailRuIcqWidget Icq()
     {

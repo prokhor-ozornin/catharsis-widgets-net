@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -8,7 +7,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Includes Google Analytics JavaScript code into web page.</para>
   /// </summary>
   /// <seealso cref="http://www.google.com/analytics"/>
-  public sealed class GoogleAnalyticsWidget : HtmlWidgetBase, IGoogleAnalyticsWidget
+  public class GoogleAnalyticsWidget : HtmlWidgetBase, IGoogleAnalyticsWidget
   {
     private string account;
     private string domain;
@@ -46,19 +45,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.account.IsEmpty() || this.domain.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(resources.google_analytics.FormatSelf(this.account, this.domain));
+      return resources.google_analytics.FormatSelf(this.account, this.domain);
     }
   }
 }

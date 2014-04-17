@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using Catharsis.Commons;
 using Xunit;
@@ -53,16 +52,14 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="InlineImageWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="InlineImageWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new InlineImageWidget().Write(null));
-
-      Assert.True(new StringWriter().With(new InlineImageWidget().Write).ToString().IsEmpty());
-      Assert.Equal(@"<img src=""data:image;base64,{0}""></img>".FormatSelf(System.Convert.ToBase64String(Guid.Empty.ToByteArray())), new StringWriter().With(writer => new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Write(writer)).ToString());
-      Assert.Equal(@"<img src=""data:jpg;base64,{0}""></img>".FormatSelf(System.Convert.ToBase64String(Guid.Empty.ToByteArray())), new StringWriter().With(writer => new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg").Write(writer)).ToString());
+      Assert.Equal(string.Empty, new InlineImageWidget().ToString());
+      Assert.Equal(@"<img src=""data:image;base64,{0}""></img>".FormatSelf(System.Convert.ToBase64String(Guid.Empty.ToByteArray())), new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).ToString());
+      Assert.Equal(@"<img src=""data:jpg;base64,{0}""></img>".FormatSelf(System.Convert.ToBase64String(Guid.Empty.ToByteArray())), new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg").ToString());
     }
   }
 }

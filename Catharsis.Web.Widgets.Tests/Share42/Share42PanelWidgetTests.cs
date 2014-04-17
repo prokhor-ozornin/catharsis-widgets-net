@@ -12,8 +12,8 @@ namespace Catharsis.Web.Widgets
   {
     /// <summary>
     ///   <para>Performs testing of class constructor(s).</para>
-    ///   <seealso cref="Share42PanelWidget()"/>
     /// </summary>
+    /// <seealso cref="Share42PanelWidget()"/>
     [Fact]
     public void Constructors()
     {

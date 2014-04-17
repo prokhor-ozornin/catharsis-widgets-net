@@ -12,16 +12,16 @@ namespace Catharsis.Web.Widgets
     IYandexAnalyticsWidget Analytics();
 
     /// <summary>
-    ///   <para>Creates new Yandex "Share" button widget.</para>
-    /// </summary>
-    /// <returns>Initialized widget with default options.</returns>
-    IYandexSharePanelWidget Share();
-
-    /// <summary>
     ///   <para>Creates new Yandex "Like" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
     IYandexLikeButtonWidget Like();
+
+    /*/// <summary>
+    ///   <para>Creates new Yandex Map widget.</para>
+    /// </summary>
+    /// <returns>Initialized widget with default options.</returns>
+    IYandexMapWidget Map();*/
 
     /// <summary>
     ///   <para>Creates new Yandex.Money button widget.</para>
@@ -40,6 +40,12 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
     IYandexMoneyPaymentFormWidget MoneyPaymentForm();
+
+    /// <summary>
+    ///   <para>Creates new Yandex "Share" button widget.</para>
+    /// </summary>
+    /// <returns>Initialized widget with default options.</returns>
+    IYandexSharePanelWidget Share();
 
     /// <summary>
     ///   <para>Creates new Yandex embedded video widget.</para>

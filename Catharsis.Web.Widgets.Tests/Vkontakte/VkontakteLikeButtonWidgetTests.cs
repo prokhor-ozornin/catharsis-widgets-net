@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -162,40 +161,20 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Write(null));
+      var html = new VkontakteLikeButtonWidget().ToString();
+      Assert.True(html.Contains(@"<div id=""vk_like""></div>"));
+      Assert.True(html.Contains(@"<script type=""text/javascript"">"));
+      Assert.True(html.Contains(@"VK.Widgets.Like(""vk_like"", {});"));
 
-      new StringWriter().With(writer =>
-      {
-        new VkontakteLikeButtonWidget().Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""vk_like""></div>"));
-        Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-        Assert.True(html.Contains(@"VK.Widgets.Like(""vk_like"", {});"));
-      });
-
-      new StringWriter().With(writer =>
-      {
-        new VkontakteLikeButtonWidget()
-          .Layout(VkontakteLikeButtonLayout.Button)
-          .Width("width")
-          .PageTitle("pageTitle")
-          .PageDescription("pageDescription")
-          .PageUrl("pageUrl")
-          .PageImageUrl("pageImageUrl")
-          .Text("text")
-          .Height("height")
-          .Verb(1)
-          .Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""vk_like""></div>"));
-        Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-        Assert.True(html.Contains(@"VK.Widgets.Like(""vk_like"", {""type"":""button"",""width"":""width"",""pageTitle"":""pageTitle"",""pageDescription"":""pageDescription"",""pageUrl"":""pageUrl"",""pageImage"":""pageImageUrl"",""text"":""text"",""height"":""height"",""verb"":1});"));
-      });
+      html = new VkontakteLikeButtonWidget().Layout(VkontakteLikeButtonLayout.Button).Width("width").PageTitle("pageTitle").PageDescription("pageDescription").PageUrl("pageUrl").PageImageUrl("pageImageUrl").Text("text").Height("height").Verb(1).ToString();
+      Assert.True(html.Contains(@"<div id=""vk_like""></div>"));
+      Assert.True(html.Contains(@"<script type=""text/javascript"">"));
+      Assert.True(html.Contains(@"VK.Widgets.Like(""vk_like"", {""type"":""button"",""width"":""width"",""pageTitle"":""pageTitle"",""pageDescription"":""pageDescription"",""pageUrl"":""pageUrl"",""pageImage"":""pageImageUrl"",""text"":""text"",""height"":""height"",""verb"":1});"));
     }
   }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -66,16 +65,14 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="TumblrFollowButtonWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="TumblrFollowButtonWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void WriteTo_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new TumblrFollowButtonWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new TumblrFollowButtonWidget().Write(writer)).ToString().IsEmpty());
-      Assert.Equal(@"<iframe allowtransparency=""true"" border=""0"" class=""btn"" frameborder=""0"" height=""25"" scrolling=""no"" src=""http://platform.tumblr.com/v1/follow_button.html?button_type=1&amp;tumblelog=account&amp;color_scheme=light"" width=""189""></iframe>", new StringWriter().With(writer => new TumblrFollowButtonWidget().Account("account").Write(writer)).ToString());
-      Assert.Equal(@"<iframe allowtransparency=""true"" border=""0"" class=""btn"" frameborder=""0"" height=""25"" scrolling=""no"" src=""http://platform.tumblr.com/v1/follow_button.html?button_type=2&amp;tumblelog=account&amp;color_scheme=dark"" width=""113""></iframe>", new StringWriter().With(writer => new TumblrFollowButtonWidget().Account("account").Type(TumblrFollowButtonType.Second).ColorScheme(TumblrFollowButtonColorScheme.Dark).Write(writer)).ToString());
+      Assert.Equal(string.Empty, new TumblrFollowButtonWidget().ToString());
+      Assert.Equal(@"<iframe allowtransparency=""true"" border=""0"" class=""btn"" frameborder=""0"" height=""25"" scrolling=""no"" src=""http://platform.tumblr.com/v1/follow_button.html?button_type=1&amp;tumblelog=account&amp;color_scheme=light"" width=""189""></iframe>", new TumblrFollowButtonWidget().Account("account").ToString());
+      Assert.Equal(@"<iframe allowtransparency=""true"" border=""0"" class=""btn"" frameborder=""0"" height=""25"" scrolling=""no"" src=""http://platform.tumblr.com/v1/follow_button.html?button_type=2&amp;tumblelog=account&amp;color_scheme=dark"" width=""113""></iframe>", new TumblrFollowButtonWidget().Account("account").Type(TumblrFollowButtonType.Second).ColorScheme(TumblrFollowButtonColorScheme.Dark).ToString());
     }
   }
 }

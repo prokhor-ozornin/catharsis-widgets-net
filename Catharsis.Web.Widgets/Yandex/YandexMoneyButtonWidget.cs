@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Renders button for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
   /// </summary>
   /// <seealso cref="https://money.yandex.ru/embed/quickpay/small.xml"/>
-  public sealed class YandexMoneyButtonWidget : HtmlWidgetBase, IYandexMoneyButtonWidget
+  public class YandexMoneyButtonWidget : HtmlWidgetBase, IYandexMoneyButtonWidget
   {
     private string account;
     private string color = YandexMoneyButtonColor.Orange.ToString().ToLowerInvariant();
@@ -167,57 +167,56 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.account.IsEmpty() || this.sum == null || this.description.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
       int width;
       switch ((YandexMoneyButtonText)this.text)
       {
-        case YandexMoneyButtonText.Pay :
+        case YandexMoneyButtonText.Pay:
           width = 229;
-        break;
+          break;
 
-        case YandexMoneyButtonText.Buy :
+        case YandexMoneyButtonText.Buy:
           width = 197;
-        break;
+          break;
 
-        case YandexMoneyButtonText.Transfer :
+        case YandexMoneyButtonText.Transfer:
           width = 242;
-        break;
+          break;
 
-        case YandexMoneyButtonText.Donate :
+        case YandexMoneyButtonText.Donate:
           width = 283;
-        break;
+          break;
 
-        case YandexMoneyButtonText.Give :
+        case YandexMoneyButtonText.Give:
           width = 231;
-        break;
+          break;
 
-        case YandexMoneyButtonText.Support :
+        case YandexMoneyButtonText.Support:
           width = 262;
-        break;
+          break;
 
-        default :
+        default:
           width = 283;
-        break;
+          break;
       }
 
-      writer.Write(this.ToTag("iframe", tag => tag
-        .Attribute("src", "https://money.yandex.ru/embed/small.xml?account={0}&quickpay=small&{1}=on&button-text={2}&button-size={3}&button-color={4}&targets={5}&default-sum={6}{7}{8}{9}{10}".FormatSelf(this.account, this.type, "0{0}".FormatSelf(this.text), this.size, this.color, this.description, this.sum, this.payerFullName ? "&fio=on" : string.Empty, this.payerEmail ? "&mail=on" : string.Empty, this.payerPhone ? "&phone=on" : string.Empty, this.payerAddress ? "&address=on" : string.Empty))
+      return new TagBuilder("iframe")
+        .Attribute("src", "https://money.yandex.ru/embed/small.xml?account={0}&quickpay=small&{1}=on&button-text=0{2}&button-size={3}&button-color={4}&targets={5}&default-sum={6}{7}{8}{9}{10}".FormatSelf(this.account, this.type, this.text, this.size, this.color, this.description, this.sum, this.payerFullName ? "&fio=on" : string.Empty, this.payerEmail ? "&mail=on" : string.Empty, this.payerPhone ? "&phone=on" : string.Empty, this.payerAddress ? "&address=on" : string.Empty))
         .Attribute("frameborder", 0)
         .Attribute("allowtransparency", true)
         .Attribute("scrolling", "no")
         .Attribute("width", width)
-        .Attribute("height", 54)));
+        .Attribute("height", 54)
+        .ToString();
     }
   }
 }

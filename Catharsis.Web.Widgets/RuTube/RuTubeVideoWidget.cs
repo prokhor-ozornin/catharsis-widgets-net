@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded RuTube video on web page.</para>
   /// </summary>
-  public sealed class RuTubeVideoWidget : HtmlWidgetBase, IRuTubeVideoWidget
+  public class RuTubeVideoWidget : HtmlWidgetBase, IRuTubeVideoWidget
   {
     private string id;
     private string height;
@@ -62,19 +62,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.id.IsEmpty() || this.height.IsEmpty() || this.width.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("iframe", tag => tag
+      return new TagBuilder("iframe")
         .Attribute("frameborder", 0)
         .Attribute("allowfullscreen", true)
         .Attribute("webkitallowfullscreen", true)
@@ -82,7 +80,8 @@ namespace Catharsis.Web.Widgets
         .Attribute("scrolling", "no")
         .Attribute("height", this.height)
         .Attribute("width", this.width)
-        .Attribute("src", "http://rutube.ru/embed/{0}".FormatSelf(id))));
+        .Attribute("src", "http://rutube.ru/embed/{0}".FormatSelf(id))
+        .ToString();
     }
   }
 }

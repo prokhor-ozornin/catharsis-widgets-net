@@ -1,5 +1,6 @@
 using System;
-using System.IO;
+using System.Text;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -7,7 +8,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Yandex "Like" button.</para>
   /// </summary>
-  public sealed class YandexLikeButtonWidget : HtmlWidgetBase, IYandexLikeButtonWidget
+  public class YandexLikeButtonWidget : HtmlWidgetBase, IYandexLikeButtonWidget
   {
     private string url;
     private string title;
@@ -91,21 +92,21 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
-      writer.Write(this.ToTag("a", tag => tag
-        .Attribute("name", "ya-share")
-        .Attribute("type", this.layout)
-        .Attribute("size", this.size)
-        .Attribute("share_text", this.text)
-        .Attribute("share_url", this.url)
-        .Attribute("share_title", this.title)));
-      writer.Write(resources.yandex_like);
+      return new StringBuilder()
+        .Append(new TagBuilder("a")
+          .Attribute("name", "ya-share")
+          .Attribute("type", this.layout)
+          .Attribute("size", this.size)
+          .Attribute("share_text", this.text)
+          .Attribute("share_url", this.url)
+          .Attribute("share_title", this.title))
+        .Append(resources.yandex_like)
+        .ToString();
     }
   }
 }

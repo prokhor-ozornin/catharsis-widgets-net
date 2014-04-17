@@ -46,8 +46,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -131,19 +130,46 @@
     <Compile Include="Facebook\IFacebookRecommendationsFeedWidgetExtensions.cs" />
     <Compile Include="Facebook\IFacebookSendButtonWidget.cs" />
     <Compile Include="Facebook\IFacebookSendButtonWidgetExtensions.cs" />
+    <Compile Include="Gravatar\GravatarDefaultImage.cs" />
+    <Compile Include="Gravatar\GravatarHtmlHelper.cs" />
+    <Compile Include="Gravatar\GravatarImageRating.cs" />
+    <Compile Include="Gravatar\GravatarImageUrlWidget.cs" />
+    <Compile Include="Gravatar\GravatarProfileUrlWidget.cs" />
+    <Compile Include="Gravatar\HtmlHelperExtensions.cs" />
+    <Compile Include="Gravatar\IGravatarHtmlHelper.cs" />
+    <Compile Include="Gravatar\IGravatarHtmlHelperExtensions.cs" />
+    <Compile Include="Gravatar\IGravatarImageUrlWidget.cs" />
+    <Compile Include="Gravatar\IGravatarImageUrlWidgetExtensions.cs" />
+    <Compile Include="Gravatar\IGravatarProfileUrlWidget.cs" />
+    <Compile Include="Gravatar\IGravatarProfileUrlWidgetExtensions.cs" />
+    <Compile Include="IDictionaryExtensions.cs" />
     <Compile Include="InlineImage\HtmlHelperExtensions.cs" />
     <Compile Include="IntenseDebate\HtmlHelperExtensions.cs" />
+    <Compile Include="LiveJournal\HtmlHelperExtensions.cs" />
+    <Compile Include="LiveJournal\ILiveJournalHtmlHelper.cs" />
+    <Compile Include="LiveJournal\ILiveJournalHtmlHelperExtensions.cs" />
+    <Compile Include="LiveJournal\ILiveJournalLikeButtonWidget.cs" />
+    <Compile Include="LiveJournal\ILiveJournalRepostButtonWidget.cs" />
+    <Compile Include="LiveJournal\LiveJournalHtmlHelper.cs" />
+    <Compile Include="LiveJournal\LiveJournalLikeButtonWidget.cs" />
+    <Compile Include="LiveJournal\LiveJournalRepostButtonWidget.cs" />
     <Compile Include="MailRu\HtmlHelperExtensions.cs" />
+    <Compile Include="MailRu\IMailRuFacesWidget.cs" />
+    <Compile Include="MailRu\IMailRuFacesWidgetExtensions.cs" />
+    <Compile Include="MailRu\IMailRuGroupsWidget.cs" />
+    <Compile Include="MailRu\IMailRuGroupsWidgetExtensions.cs" />
+    <Compile Include="MailRu\MailRuFacesFont.cs" />
+    <Compile Include="MailRu\MailRuFacesWidget.cs" />
+    <Compile Include="MailRu\MailRuGroupsWidget.cs" />
     <Compile Include="RuTube\HtmlHelperExtensions.cs" />
-    <Compile Include="Share42\Share42HtmlHelper.cs" />
-    <Compile Include="Share42\Share42PanelDirection.cs" />
-    <Compile Include="Share42\Share42PanelSize.cs" />
-    <Compile Include="Share42\Share42PanelWidget.cs" />
-    <Compile Include="Share42\HtmlHelperExtensions.cs" />
-    <Compile Include="Share42\IShare42HtmlHelper.cs" />
-    <Compile Include="Share42\IShare42HtmlHelperExtensions.cs" />
-    <Compile Include="Share42\IShare42PanelWidget.cs" />
-    <Compile Include="Share42\IShare42PanelWidgetExtensions.cs" />
+    <Compile Include="SoundCloud\HtmlHelperExtensions.cs" />
+    <Compile Include="SoundCloud\ISoundCloudHtmlHelper.cs" />
+    <Compile Include="SoundCloud\ISoundCloudHtmlHelperExtensions.cs" />
+    <Compile Include="SoundCloud\ISoundCloudProfileIconWidget.cs" />
+    <Compile Include="SoundCloud\ISoundCloudProfileIconWidgetExtensions.cs" />
+    <Compile Include="SoundCloud\SoundCloudHtmlHelper.cs" />
+    <Compile Include="SoundCloud\SoundCloudProfileIconSize.cs" />
+    <Compile Include="SoundCloud\SoundCloudProfileIconWidget.cs" />
     <Compile Include="Surfingbird\HtmlHelperExtensions.cs" />
     <Compile Include="Tumblr\HtmlHelperExtensions.cs" />
     <Compile Include="Twitter\HtmlHelperExtensions.cs" />

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -21,6 +20,9 @@ namespace Catharsis.Web.Widgets
       Assert.Null(widget.Field("apiId"));
     }
 
+    /// <summary>
+    ///   <para>Performs testing of <see cref="VkontakteInitWidget.ApiId(string)"/> method.</para>
+    /// </summary>
     [Fact]
     public void ApiId_Method()
     {
@@ -34,21 +36,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteInitWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteInitWidget.ToHtmlString()"/> method.</para>
     /// </summary>
-    public void Write_Method()
+    [Fact]
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new VkontakteInitWidget().Write(null));
+      Assert.Equal(string.Empty, new VkontakteInitWidget().ToString());
 
-      Assert.True(new StringWriter().With(writer => new VkontakteInitWidget().Write(writer)).ToString().IsEmpty());
-      new StringWriter().With(writer =>
-      {
-        new VkontakteInitWidget().ApiId("id").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-        Assert.True(html.Contains(@"VK.init({apiId:id, onlyWidgets:true});"));
-        Assert.True(html.Contains(@"<script src=""http://vk.com/js/api/openapi.jsopenapi.js"" type=""text/javascript""></script>"));
-      });
+      var html = new VkontakteInitWidget().ApiId("id").ToString();
+      Assert.True(html.Contains(@"<script type=""text/javascript"">"));
+      Assert.True(html.Contains(@"VK.init({apiId:id, onlyWidgets:true});"));
     }
   }
 }

@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   /// </summary>
   public sealed class IMailRuHtmlHelperExtensionsTests
   {
-    /*/// <summary>
+    /// <summary>
     ///   <para>Performs testing of <see cref="IMailRuHtmlHelperExtensions.Faces(IMailRuHtmlHelper, Action{IMailRuFacesWidget})"/> method.</para>
     /// </summary>
     [Fact]
@@ -18,8 +18,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().Faces(null));
 
       Assert.Equal(new MailRuHtmlHelper().Faces().ToHtmlString(), new MailRuHtmlHelper().Faces(x => { }));
-
-      throw new NotImplementedException();
+      Assert.Equal(new MailRuHtmlHelper().Faces().Domain("domain").ToHtmlString(), new MailRuHtmlHelper().Faces(x => x.Domain("domain")));
     }
 
     /// <summary>
@@ -32,9 +31,8 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().Groups(null));
 
       Assert.Equal(new MailRuHtmlHelper().Groups().ToHtmlString(), new MailRuHtmlHelper().Groups(x => { }));
-
-      throw new NotImplementedException();
-    }*/
+      Assert.Equal(new MailRuHtmlHelper().Groups().Account("account").ToHtmlString(), new MailRuHtmlHelper().Groups(x => x.Account("account")));
+    }
 
     /// <summary>
     ///   <para>Performs testing of <see cref="IMailRuHtmlHelperExtensions.Icq(IMailRuHtmlHelper, Action{IMailRuIcqWidget})"/> method.</para>

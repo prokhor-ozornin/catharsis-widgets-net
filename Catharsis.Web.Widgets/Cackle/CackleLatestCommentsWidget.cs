@@ -1,5 +1,6 @@
 using System;
-using System.IO;
+using System.Text;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -9,13 +10,13 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScriptsBundles.Cackle"/> scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://ru.cackle.me/help/widget-api"/>
-  public sealed class CackleLatestCommentsWidget : HtmlWidgetBase, ICackleLatestCommentsWidget
+  public class CackleLatestCommentsWidget : HtmlWidgetBase, ICackleLatestCommentsWidget
   {
     private string account;
+    private short? avatarSize;
     private byte? max;
     private int? textSize;
     private int? titleSize;
-    private short? avatarSize;
 
     /// <summary>
     ///   <para>Identifier of registered website in the "Cackle" comments system.</para>
@@ -78,16 +79,14 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.account.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
       var config = new
@@ -100,9 +99,11 @@ namespace Catharsis.Web.Widgets
         titleSize = this.titleSize.GetValueOrDefault(40)
       };
 
-      writer.Write(@"<div id=""mc-last""></div>");
-      writer.Write(this.JavaScript("cackle_widget = window.cackle_widget || [];cackle_widget.push({0});".FormatSelf(config.Json())));
-      writer.Write(@"<a id=""mc-link"" href=""http://cackle.me"">Социальные комментарии <b style=""color:#4FA3DA"">Cackl</b><b style=""color:#F65077"">e</b></a>");
+      return new StringBuilder()
+        .Append(@"<div id=""mc-last""></div>")
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml("cackle_widget = window.cackle_widget || [];cackle_widget.push({0});".FormatSelf(config.Json())))
+        .Append(@"<a id=""mc-link"" href=""http://cackle.me"">Социальные комментарии <b style=""color:#4FA3DA"">Cackl</b><b style=""color:#F65077"">e</b></a>")
+        .ToString();
     }
   }
 }

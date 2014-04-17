@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded Vimeo video on web page.</para>
   /// </summary>
-  public sealed class VimeoVideoWidget : HtmlWidgetBase, IVimeoVideoWidget
+  public class VimeoVideoWidget : HtmlWidgetBase, IVimeoVideoWidget
   {
     private bool autoPlay;
     private string height;
@@ -86,26 +86,25 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.id.IsEmpty() || this.width.IsEmpty() || this.height.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("iframe", tag => tag
+      return new TagBuilder("iframe")
         .Attribute("frameborder", 0)
         .Attribute("allowfullscreen", true)
         .Attribute("webkitallowfullscreen", true)
         .Attribute("mozallowfullscreen", true)
         .Attribute("height", this.height)
         .Attribute("width", this.width)
-        .Attribute("src", "https://player.vimeo.com/video/{0}?badge=0{1}{2}".FormatSelf(this.id, this.autoPlay ? "&autoplay=1" : string.Empty, this.loop ? "&loop=1" : string.Empty))));
+        .Attribute("src", "https://player.vimeo.com/video/{0}?badge=0{1}{2}".FormatSelf(this.id, this.autoPlay ? "&autoplay=1" : string.Empty, this.loop ? "&loop=1" : string.Empty))
+        .ToString();
     }
   }
 }

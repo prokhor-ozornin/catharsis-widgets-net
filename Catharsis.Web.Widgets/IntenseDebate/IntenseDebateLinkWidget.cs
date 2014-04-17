@@ -1,9 +1,8 @@
-﻿using System.IO;
-using Catharsis.Commons;
+﻿using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  public sealed class IntenseDebateLinkWidget : HtmlWidgetBase, IIntenseDebateLinkWidget
+  public class IntenseDebateLinkWidget : HtmlWidgetBase, IIntenseDebateLinkWidget
   {
     private string account;
     private string postId;
@@ -43,19 +42,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.account.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(resources.intensedebate_link.FormatSelf(this.account, this.postId, this.postUrl, this.postTitle));
+      return resources.intensedebate_link.FormatSelf(this.account, this.postId, this.postUrl, this.postTitle);
     }
   }
 }

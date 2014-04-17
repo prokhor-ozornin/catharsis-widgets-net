@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading;
 using System.Web;
 using Catharsis.Commons;
@@ -11,7 +10,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Renders Yandex.Metrika web counter's JavaScript code.</para>
   /// </summary>
   /// <seealso cref="https://metrika.yandex.ru"/>
-  public sealed class YandexAnalyticsWidget : HtmlWidgetBase, IYandexAnalyticsWidget
+  public class YandexAnalyticsWidget : HtmlWidgetBase, IYandexAnalyticsWidget
   {
     private string account;
     private bool webvisor = true;
@@ -120,16 +119,14 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.account.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
       var config = new Dictionary<string, object>
@@ -139,14 +136,14 @@ namespace Catharsis.Web.Widgets
         { "clickmap", this.clickmap },
         { "trackLinks", this.tracklinks },
         { "accurateTrackBounce", this.accurate },
-        { "trackHash",  this.trackhash }
+        { "trackHash", this.trackhash }
       };
       if (this.noindex)
       {
         config["ut"] = "noindex";
       }
 
-      writer.Write(resources.yandex_analytics.FormatSelf(this.account, this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), config.Json()));
+      return resources.yandex_analytics.FormatSelf(this.account, this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), config.Json());
     }
   }
 }

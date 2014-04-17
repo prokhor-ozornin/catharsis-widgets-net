@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -179,19 +178,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new YandexMoneyButtonWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new YandexMoneyButtonWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YandexMoneyButtonWidget().Description("description").Sum(1).Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YandexMoneyButtonWidget().Account("account").Sum(1).Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YandexMoneyButtonWidget().Account("account").Description("description").Write(writer)).ToString().IsEmpty());
-      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""54"" scrolling=""no"" src=""https://money.yandex.ru/embed/small.xml?account=account&amp;quickpay=small&amp;yamoney-payment-type=on&amp;button-text=01&amp;button-size=l&amp;button-color=orange&amp;targets=description&amp;default-sum=1"" width=""229""></iframe>", new StringWriter().With(writer => new YandexMoneyButtonWidget().Account("account").Description("description").Sum(1).Write(writer)).ToString());
-      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""54"" scrolling=""no"" src=""https://money.yandex.ru/embed/small.xml?account=account&amp;quickpay=small&amp;any-card-payment-type=on&amp;button-text=03&amp;button-size=m&amp;button-color=white&amp;targets=description&amp;default-sum=1&amp;fio=on&amp;mail=on&amp;phone=on&amp;address=on"" width=""242""></iframe>", new StringWriter().With(writer => new YandexMoneyButtonWidget().Account("account").Description("description").Sum(1).Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Transfer).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).PayerFullName().PayerEmail().PayerPhone().PayerAddress().Write(writer)).ToString());
+      Assert.Equal(string.Empty, new YandexMoneyButtonWidget().ToString());
+      Assert.Equal(string.Empty, new YandexMoneyButtonWidget().Description("description").Sum(1).ToString());
+      Assert.Equal(string.Empty, new YandexMoneyButtonWidget().Account("account").Sum(1).ToString());
+      Assert.Equal(string.Empty, new YandexMoneyButtonWidget().Account("account").Description("description").ToString());
+      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""54"" scrolling=""no"" src=""https://money.yandex.ru/embed/small.xml?account=account&amp;quickpay=small&amp;yamoney-payment-type=on&amp;button-text=01&amp;button-size=l&amp;button-color=orange&amp;targets=description&amp;default-sum=1"" width=""229""></iframe>", new YandexMoneyButtonWidget().Account("account").Description("description").Sum(1).ToString());
+      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""54"" scrolling=""no"" src=""https://money.yandex.ru/embed/small.xml?account=account&amp;quickpay=small&amp;any-card-payment-type=on&amp;button-text=03&amp;button-size=m&amp;button-color=white&amp;targets=description&amp;default-sum=1&amp;fio=on&amp;mail=on&amp;phone=on&amp;address=on"" width=""242""></iframe>", new YandexMoneyButtonWidget().Account("account").Description("description").Sum(1).Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Transfer).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).PayerFullName().PayerEmail().PayerPhone().PayerAddress().ToString());
     }
   }
 }

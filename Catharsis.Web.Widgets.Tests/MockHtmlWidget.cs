@@ -1,14 +1,12 @@
-﻿using System.IO;
-
-namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets
 {
   internal sealed class MockHtmlWidget : HtmlWidgetBase
   {
     public const string Contents = "Widget text content";
 
-    public override void Write(TextWriter writer)
+    public override string ToHtmlString()
     {
-      writer.Write(Contents);
+      return Contents;
     }
   }
 }

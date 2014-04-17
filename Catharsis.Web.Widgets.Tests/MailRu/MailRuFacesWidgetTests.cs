@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -19,15 +18,15 @@ namespace Catharsis.Web.Widgets
     {
       var widget = new MailRuFacesWidget();
       Assert.Null(widget.Field("backgroundColor"));
+      Assert.Null(widget.Field("borderColor"));
       Assert.Null(widget.Field("domain"));
-      Assert.Null(widget.Field("font"));
-      Assert.Null(widget.Field("frameColor"));
+      Assert.Equal(MailRuFacesFont.Arial.ToString(), widget.Field("font").To<string>());
       Assert.Null(widget.Field("height"));
       Assert.Null(widget.Field("hyperlinkColor"));
       Assert.True(widget.Field("showTitle").To<bool>());
       Assert.Null(widget.Field("textColor"));
       Assert.Null(widget.Field("title"));
-      Assert.Null(widget.Field("titleBackgroundColor"));
+      Assert.Null(widget.Field("titleColor"));
       Assert.Null(widget.Field("width"));
     }
 
@@ -44,6 +43,21 @@ namespace Catharsis.Web.Widgets
       Assert.Null(widget.Field("backgroundColor"));
       Assert.True(ReferenceEquals(widget.BackgroundColor("backgroundColor"), widget));
       Assert.Equal("backgroundColor", widget.Field("backgroundColor").To<string>());
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="MailRuFacesWidget.BorderColor(string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void BorderColor_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().BorderColor(null));
+      Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().BorderColor(string.Empty));
+
+      var widget = new MailRuFacesWidget();
+      Assert.Null(widget.Field("borderColor"));
+      Assert.True(ReferenceEquals(widget.BorderColor("borderColor"), widget));
+      Assert.Equal("borderColor", widget.Field("borderColor").To<string>());
     }
 
     /// <summary>
@@ -71,24 +85,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().Font(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("font"));
+      Assert.Equal(MailRuFacesFont.Arial.ToString(), widget.Field("font").To<string>());
       Assert.True(ReferenceEquals(widget.Font("font"), widget));
       Assert.Equal("font", widget.Field("font").To<string>());
-    }
-
-    /// <summary>
-    ///   <para>Performs testing of <see cref="MailRuFacesWidget.FrameColor(string)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void FrameColor_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().FrameColor(null));
-      Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().FrameColor(string.Empty));
-
-      var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("frameColor"));
-      Assert.True(ReferenceEquals(widget.FrameColor("frameColor"), widget));
-      Assert.Equal("frameColor", widget.Field("frameColor").To<string>());
     }
 
     /// <summary>
@@ -164,18 +163,18 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="MailRuFacesWidget.TitleBackgroundColor(string)"/> method.</para>
+    ///   <para>Performs testing of <see cref="MailRuFacesWidget.TitleColor(string)"/> method.</para>
     /// </summary>
     [Fact]
-    public void TitleBackgroundColor_Method()
+    public void TitleColor_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().TitleBackgroundColor(null));
-      Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().TitleBackgroundColor(string.Empty));
+      Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().TitleColor(null));
+      Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().TitleColor(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("titleBackgroundColor"));
-      Assert.True(ReferenceEquals(widget.TitleBackgroundColor("titleBackgroundColor"), widget));
-      Assert.Equal("titleBackgroundColor", widget.Field("titleBackgroundColor").To<string>());
+      Assert.Null(widget.Field("titleColor"));
+      Assert.True(ReferenceEquals(widget.TitleColor("titleColor"), widget));
+      Assert.Equal("titleColor", widget.Field("titleColor").To<string>());
     }
 
     /// <summary>
@@ -194,14 +193,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="MailRuFacesWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="MailRuFacesWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().Write(null));
-
-      throw new NotImplementedException();
+      Assert.Equal(string.Empty, new MailRuFacesWidget().ToString());
+      Assert.Equal(string.Empty, new MailRuFacesWidget().Domain("domain").Width("width").ToString());
+      Assert.Equal(string.Empty, new MailRuFacesWidget().Domain("domain").Height("height").ToString());
+      Assert.Equal(string.Empty, new MailRuFacesWidget().Width("width").Height("height").ToString());
+      Assert.Equal(@"<a class=""mrc__plugin_share_friends"" href=""http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height"" rel=""{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;}"">Друзья</a>", new MailRuFacesWidget().Domain("domain").Width("width").Height("height").ToString());
+      Assert.Equal(@"<a class=""mrc__plugin_share_friends"" href=""http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height&amp;title=title&amp;notitle=true&amp;title-color=titleColor&amp;background=backgroundColor&amp;border=borderColor&amp;color=textColor&amp;link-color=hyperlinkColor"" rel=""{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;,&quot;title&quot;:&quot;title&quot;,&quot;notitle&quot;:true,&quot;title-color&quot;:&quot;titleColor&quot;,&quot;background&quot;:&quot;backgroundColor&quot;,&quot;border&quot;:&quot;borderColor&quot;,&quot;color&quot;:&quot;textColor&quot;,&quot;link-color&quot;:&quot;hyperlinkColor&quot;}"">Друзья</a>", new MailRuFacesWidget().Domain("domain").Width("width").Height("height").Title("title").ShowTitle(false).TitleColor("titleColor").BackgroundColor("backgroundColor").BorderColor("borderColor").TextColor("textColor").HyperlinkColor("hyperlinkColor").ToString());
     }
   }
 }

@@ -2,19 +2,9 @@ namespace Catharsis.Web.Widgets
 {
   internal sealed class FacebookHtmlHelper : IFacebookHtmlHelper
   {
-    public IFacebookInitWidget Initialize()
-    {
-      return new FacebookInitWidget();
-    }
-
     public IFacebookActivityFeedWidget ActivityFeed()
     {
       return new FacebookActivityFeedWidget();
-    }
-
-    public IFacebookRecommendationsFeedWidget RecommendationsFeed()
-    {
-      return new FacebookRecommendationsFeedWidget();
     }
 
     public IFacebookCommentsWidget Comments()
@@ -32,6 +22,11 @@ namespace Catharsis.Web.Widgets
       return new FacebookFollowButtonWidget();
     }
 
+    public IFacebookInitWidget Initialize()
+    {
+      return new FacebookInitWidget();
+    }
+
     public IFacebookLikeButtonWidget Like()
     {
       return new FacebookLikeButtonWidget();
@@ -45,6 +40,11 @@ namespace Catharsis.Web.Widgets
     public IFacebookPostWidget Post()
     {
       return new FacebookPostWidget();
+    }
+
+    public IFacebookRecommendationsFeedWidget RecommendationsFeed()
+    {
+      return new FacebookRecommendationsFeedWidget();
     }
 
     public IFacebookSendButtonWidget Send()

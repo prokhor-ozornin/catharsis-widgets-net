@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -114,15 +113,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookSendButtonWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookSendButtonWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new FacebookSendButtonWidget().Write(null));
-
-      Assert.Equal(@"<div class=""fb-send""></div>", new StringWriter().With(writer => new FacebookSendButtonWidget().Write(writer)).ToString());
-      Assert.Equal(@"<div class=""fb-send"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-ref=""trackLabel"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookSendButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).Kids().Width("width").Height("height").TrackLabel("trackLabel").Write(writer)).ToString());
+      Assert.Equal(@"<div class=""fb-send""></div>", new FacebookSendButtonWidget().ToString());
+      Assert.Equal(@"<div class=""fb-send"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-ref=""trackLabel"" data-width=""width""></div>", new FacebookSendButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).Kids().Width("width").Height("height").TrackLabel("trackLabel").ToString());
     }
   }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Text;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -10,7 +11,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
   /// </summary>
   /// <seealso cref="http://vk.com/dev/Like"/>
-  public sealed class VkontakteLikeButtonWidget : HtmlWidgetBase, IVkontakteLikeButtonWidget
+  public class VkontakteLikeButtonWidget : HtmlWidgetBase, IVkontakteLikeButtonWidget
   {
     private string text;
     private byte? verb;
@@ -153,14 +154,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       var config = new Dictionary<string, object>();
+      
       if (!this.layout.IsEmpty())
       {
         config["type"] = this.layout;
@@ -198,8 +198,10 @@ namespace Catharsis.Web.Widgets
         config["verb"] = this.verb;
       }
 
-      writer.Write(this.ToTag("div", tag => tag.Attribute("id", "vk_like")));
-      writer.Write(this.JavaScript(@"VK.Widgets.Like(""vk_like"", {0});".FormatSelf(config.Json())));
+      return new StringBuilder()
+        .Append(new TagBuilder("div").Attribute("id", "vk_like"))
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Like(""vk_like"", {0});".FormatSelf(config.Json())))
+        .ToString();
     }
   }
 }

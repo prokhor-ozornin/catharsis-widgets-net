@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -37,21 +36,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookInitWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookInitWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new FacebookInitWidget().Write(null));
+      Assert.Equal(string.Empty, new FacebookInitWidget().ToString());
 
-      Assert.True(new StringWriter().With(writer => new FacebookInitWidget().Write(writer)).ToString().IsEmpty());
-      new StringWriter().With(writer =>
-      {
-        new FacebookInitWidget().AppId("appId").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""fb-root""></div>"));
-        Assert.True(html.Contains(@"//connect.facebook.net/en_US/all.js#xfbml=1&appId={0}".FormatSelf("appId")));
-      });
+      var html = new FacebookInitWidget().AppId("appId").ToString();
+      Assert.True(html.Contains(@"<div id=""fb-root""></div>"));
+      Assert.True(html.Contains(@"//connect.facebook.net/en_US/all.js#xfbml=1&appId=appId"));
     }
   }
 }

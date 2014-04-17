@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -11,18 +11,32 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/recommendations"/>
-  public sealed class FacebookRecommendationsFeedWidget : HtmlWidgetBase, IFacebookRecommendationsFeedWidget
+  public class FacebookRecommendationsFeedWidget : HtmlWidgetBase, IFacebookRecommendationsFeedWidget
   {
-    private string domain;
-    private string appId;
     private IEnumerable<string> actions = Enumerable.Empty<string>();
-    private string width;
-    private string height;
+    private string appId;
     private string colorScheme;
+    private string domain;
     private bool? header;
+    private string height;
     private string linkTarget;
     private byte? maxAge;
     private string trackLabel;
+    private string width;
+
+    /// <summary>
+    ///   <para>Collection of Open Graph action types to show in the feed.</para>
+    /// </summary>
+    /// <param name="actions">Collection of Facebook action types.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="actions"/> is a <c>null</c> reference.</exception>
+    public IFacebookRecommendationsFeedWidget Actions(IEnumerable<string> actions)
+    {
+      Assertion.NotNull(actions);
+
+      this.actions = actions;
+      return this;
+    }
 
     /// <summary>
     ///   <para>Display all actions associated with this app ID. This is usually inferred from the app ID you use to initiate the JavaScript SDK.</para>
@@ -36,20 +50,6 @@ namespace Catharsis.Web.Widgets
       Assertion.NotEmpty(appId);
 
       this.appId = appId;
-      return this;
-    }
-
-    /// <summary>
-    ///   <para>Collection of Open Graph action types to show in the feed.</para>
-    /// </summary>
-    /// <param name="actions">Collection of Facebook action types.</param>
-    /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="actions"/> is a <c>null</c> reference.</exception>
-    public IFacebookRecommendationsFeedWidget Actions(IEnumerable<string> actions)
-    {
-      Assertion.NotNull(actions);
-
-      this.actions = actions;
       return this;
     }
 
@@ -166,14 +166,12 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
-      writer.Write(this.ToTag("div", tag => tag
+      return new TagBuilder("div")
         .Attribute("data-site", this.domain)
         .Attribute("data-app-id", this.appId)
         .Attribute("data-action", this.actions.Any() ? this.actions.Join(",") : null)
@@ -184,7 +182,8 @@ namespace Catharsis.Web.Widgets
         .Attribute("data-linktarget", this.linkTarget)
         .Attribute("data-max-age", this.maxAge)
         .Attribute("data-ref", this.trackLabel)
-        .AddCssClass("fb-recommendations")));
+        .CssClass("fb-recommendations")
+        .ToString();
     }
   }
 }

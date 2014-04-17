@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -18,13 +17,82 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("url"));
-      Assert.Null(widget.Field("width"));
-      Assert.Null(widget.Field("height"));
       Assert.Null(widget.Field("colorScheme"));
+      Assert.Null(widget.Field("faces"));
+      Assert.Null(widget.Field("height"));
       Assert.Null(widget.Field("kids"));
       Assert.Null(widget.Field("layout"));
+      Assert.Null(widget.Field("url"));
+      Assert.Null(widget.Field("width"));
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.ColorScheme(string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void ColorScheme_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().ColorScheme(null));
+      Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().ColorScheme(string.Empty));
+
+      var widget = new FacebookFollowButtonWidget();
+      Assert.Null(widget.Field("colorScheme"));
+      Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
+      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.Faces(bool)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void Faces_Method()
+    {
+      var widget = new FacebookFollowButtonWidget();
       Assert.Null(widget.Field("faces"));
+      Assert.True(ReferenceEquals(widget.Faces(), widget));
+      Assert.True(widget.Field("faces").To<bool>());
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.Height(string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void Height_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().Height(null));
+      Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Height(string.Empty));
+
+      var widget = new FacebookFollowButtonWidget();
+      Assert.Null(widget.Field("height"));
+      Assert.True(ReferenceEquals(widget.Height("height"), widget));
+      Assert.Equal("height", widget.Field("height").To<string>());
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.Kids"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void Kids_Method()
+    {
+      var widget = new FacebookFollowButtonWidget();
+      Assert.Null(widget.Field("kids"));
+      Assert.True(ReferenceEquals(widget.Kids(), widget));
+      Assert.True(widget.Field("kids").To<bool>());
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.Layout(string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void Layout_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().Layout(null));
+      Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Layout(string.Empty));
+
+      var widget = new FacebookFollowButtonWidget();
+      Assert.Null(widget.Field("layout"));
+      Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
+      Assert.Equal("layout", widget.Field("layout").To<string>());
     }
 
     /// <summary>
@@ -58,85 +126,14 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.Height(string)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Height_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().Height(null));
-      Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Height(string.Empty));
-
-      var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("height"));
-      Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
-    }
-
-    /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.ColorScheme(string)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void ColorScheme_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().ColorScheme(null));
-      Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().ColorScheme(string.Empty));
-
-      var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("colorScheme"));
-      Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
-    }
-
-    /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.Kids"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Kids_Method()
-    {
-      var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("kids"));
-      Assert.True(ReferenceEquals(widget.Kids(), widget));
-      Assert.True(widget.Field("kids").To<bool>());
-    }
-
-    /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.Layout(string)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Layout_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().Layout(null));
-      Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Layout(string.Empty));
-
-      var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("layout"));
-      Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-      Assert.Equal("layout", widget.Field("layout").To<string>());
-    }
-
-    /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.Faces(bool)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Faces_Method()
-    {
-      var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("faces"));
-      Assert.True(ReferenceEquals(widget.Faces(), widget));
-      Assert.True(widget.Field("faces").To<bool>());
-    }
-
-    /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.Write(TextWriter)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Write_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new FacebookFollowButtonWidget().Write(writer)).ToString().IsEmpty());
-      Assert.Equal(@"<div class=""fb-follow"" data-href=""url""></div>", new StringWriter().With(writer => new FacebookFollowButtonWidget().Url("url").Write(writer)).ToString());
-      Assert.Equal(@"<div class=""fb-follow"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-show-faces=""true"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookFollowButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).Kids().Layout(FacebookButtonLayout.BoxCount).Faces().Width("width").Height("height").Write(writer)).ToString());
+      Assert.Equal(string.Empty, new FacebookFollowButtonWidget().ToString());
+      Assert.Equal(@"<div class=""fb-follow"" data-href=""url""></div>", new FacebookFollowButtonWidget().Url("url").ToString());
+      Assert.Equal(@"<div class=""fb-follow"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-show-faces=""true"" data-width=""width""></div>", new FacebookFollowButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).Kids().Layout(FacebookButtonLayout.BoxCount).Faces().Width("width").Height("height").ToString());
     }
   }
 }

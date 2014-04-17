@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -53,15 +52,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookPostWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookPostWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new FacebookPostWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new FacebookPostWidget().Write(writer)).ToString().IsEmpty());
-      Assert.Equal(@"<div class=""fb-post"" data-href=""url"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookPostWidget().Url("url").Width("width").Write(writer)).ToString());
+      Assert.Equal(string.Empty, new FacebookPostWidget().ToString());
+      Assert.Equal(@"<div class=""fb-post"" data-href=""url"" data-width=""width""></div>", new FacebookPostWidget().Url("url").Width("width").ToString());
     }
   }
 }

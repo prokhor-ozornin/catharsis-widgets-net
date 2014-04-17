@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -9,17 +9,17 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/like-box-for-pages"/>
-  public sealed class FacebookLikeBoxWidget : HtmlWidgetBase, IFacebookLikeBoxWidget
+  public class FacebookLikeBoxWidget : HtmlWidgetBase, IFacebookLikeBoxWidget
   {
-    private string url;
-    private string width;
-    private string height;
-    private string colorScheme;
-    private bool? wall;
-    private bool? header;
     private bool? border;
+    private string colorScheme;
     private bool? faces;
+    private bool? header;
+    private string height;
     private bool? stream;
+    private string url;
+    private bool? wall;
+    private string width;
 
     /// <summary>
     ///   <para>Specifies whether or not to show a border around the plugin. Default is <c>true</c>.</para>
@@ -138,19 +138,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.url.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("div", tag => tag
+      return new TagBuilder("div")
         .Attribute("data-href", this.url)
         .Attribute("data-width", this.width)
         .Attribute("data-height", this.height)
@@ -160,7 +158,8 @@ namespace Catharsis.Web.Widgets
         .Attribute("data-show-border", this.border)
         .Attribute("data-show-faces", this.faces)
         .Attribute("data-stream", this.stream)
-        .AddCssClass("fb-like-box")));
+        .CssClass("fb-like-box")
+        .ToString();
     }
   }
 }

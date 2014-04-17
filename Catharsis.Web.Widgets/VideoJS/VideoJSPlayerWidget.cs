@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -11,11 +11,27 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScripts.VideoJS"/> script and <see cref="WidgetsStyles.VideoJS"/> style to be included.</para>
   /// </summary>
   /// <seealso cref="http://www.videojs.com"/>
-  public sealed class VideoJSPlayerWidget : HtmlWidgetBase, IVideoJSPlayerWidget
+  public class VideoJSPlayerWidget : HtmlWidgetBase, IVideoJSPlayerWidget
   {
+    private string extra;
     private string width;
     private string height;
     private IEnumerable<IMediaSource> videos = Enumerable.Empty<IMediaSource>();
+
+    /// <summary>
+    ///   <para>Custom HTML code to be part of <c>video</c> tag.</para>
+    /// </summary>
+    /// <param name="extra">Additional HTML code fragment.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="extra"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="extra"/> is <see cref="string.Empty"/> string.</exception>
+    public IVideoJSPlayerWidget Extra(string extra)
+    {
+      Assertion.NotEmpty(extra);
+
+      this.extra = extra;
+      return this;
+    }
 
     /// <summary>
     ///   <para>Vertical height of video.</para>
@@ -65,26 +81,25 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (!this.videos.Any() || this.width.IsEmpty() || this.height.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("video", tag => tag
+      return new TagBuilder("video")
         .Attribute("class", "video-js vjs-default-skin")
         .Attribute("controls", "controls")
         .Attribute("preload", "auto")
         .Attribute("data-setup", "{}")
         .Attribute("height", this.height)
         .Attribute("width", this.width)
-        .InnerHtml(this.videos.Join(string.Empty) + this.HtmlBody)));
+        .InnerHtml(this.videos.Join(string.Empty) + this.extra)
+        .ToString();
     }
   }
 }

@@ -56,6 +56,36 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Performs testing of <see cref="TagBuilderExtensions.CssClass(TagBuilder, string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void CssClass_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new TagBuilder("tag").CssClass(null));
+      Assert.Throws<ArgumentException>(() => new TagBuilder("tag").CssClass(string.Empty));
+
+      var attributes = new TagBuilder("tag").CssClass("cssClass").Attributes;
+      Assert.Equal(1, attributes.Count);
+      Assert.Equal("class", attributes.Single().Key);
+      Assert.Equal("cssClass", attributes.Single().Value);
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="TagBuilderExtensions.CssStyle(TagBuilder, string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void CssStyle_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new TagBuilder("tag").CssStyle(null));
+      Assert.Throws<ArgumentException>(() => new TagBuilder("tag").CssStyle(string.Empty));
+
+      var attributes = new TagBuilder("tag").CssStyle("cssStyle").Attributes;
+      Assert.Equal(1, attributes.Count);
+      Assert.Equal("style", attributes.Single().Key);
+      Assert.Equal("cssStyle", attributes.Single().Value);
+    }
+
+    /// <summary>
     ///   <para>Performs testing of <see cref="TagBuilderExtensions.InnerHtml(TagBuilder, string)"/> method.</para>
     /// </summary>
     [Fact]

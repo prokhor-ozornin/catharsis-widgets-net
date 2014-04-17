@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -37,21 +36,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="DisqusCommentsWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="DisqusCommentsWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new DisqusCommentsWidget().Write(null));
+      Assert.Equal(string.Empty, new DisqusCommentsWidget().ToString());
 
-      Assert.True(new StringWriter().With(new DisqusCommentsWidget().Write).ToString().IsEmpty());
-      new StringWriter().With(writer =>
-      {
-        new DisqusCommentsWidget().Account("account").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""disqus_thread""></div>"));
-        Assert.True(html.Contains(@"var disqus_shortname = ""account"""));
-      });
+      var html = new DisqusCommentsWidget().Account("account").ToString();
+      Assert.True(html.Contains(@"<div id=""disqus_thread""></div>"));
+      Assert.True(html.Contains(@"var disqus_shortname = ""account"""));
     }
   }
 }

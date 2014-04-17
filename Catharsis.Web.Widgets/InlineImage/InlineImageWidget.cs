@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using System.Web.Mvc;
 using Catharsis.Commons;
 using Convert = System.Convert;
 
@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para></para>
   /// </summary>
-  public sealed class InlineImageWidget : HtmlWidgetBase, IInlineImageWidget
+  public class InlineImageWidget : HtmlWidgetBase, IInlineImageWidget
   {
     private byte[] contents;
     private string format;
@@ -29,19 +29,19 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (contents == null)
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("img", tag => tag.Attribute("src", "data:{1};base64,{0}".FormatSelf(Convert.ToBase64String(this.contents), this.format.IsEmpty() ? "image" : this.format))));
+      return new TagBuilder("img")
+        .Attribute("src", "data:{1};base64,{0}".FormatSelf(Convert.ToBase64String(this.contents), this.format.IsEmpty() ? "image" : this.format))
+        .ToString();
     }
   }
 }

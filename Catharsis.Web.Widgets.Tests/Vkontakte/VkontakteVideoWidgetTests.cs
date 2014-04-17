@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -114,22 +113,20 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteVideoWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteVideoWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new VkontakteVideoWidget().Write(null));
+      Assert.Equal(string.Empty, new VkontakteVideoWidget().ToString());
+      Assert.Equal(string.Empty, new VkontakteVideoWidget().User("oid").Hash("hash").Width("width").Height("height").ToString());
+      Assert.Equal(string.Empty, new VkontakteVideoWidget().Id("id").Hash("hash").Width("width").Height("height").ToString());
+      Assert.Equal(string.Empty, new VkontakteVideoWidget().Id("id").User("user").Width("width").Height("height").ToString());
+      Assert.Equal(string.Empty, new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Height("height").ToString());
+      Assert.Equal(string.Empty, new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").ToString());
 
-      Assert.True(new StringWriter().With(writer => new VkontakteVideoWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new VkontakteVideoWidget().User("oid").Hash("hash").Width("width").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new VkontakteVideoWidget().Id("id").Hash("hash").Width("width").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new VkontakteVideoWidget().Id("id").User("user").Width("width").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Write(writer)).ToString().IsEmpty());
-
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=0"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").Write(writer)).ToString());
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=1"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").HdQuality().Write(writer)).ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=0"" webkitallowfullscreen=""true"" width=""width""></iframe>", new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=1"" webkitallowfullscreen=""true"" width=""width""></iframe>", new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").HdQuality().ToString());
     }
   }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -12,15 +12,15 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/facepile"/>
-  public sealed class FacebookFacepileWidget : HtmlWidgetBase, IFacebookFacepileWidget
+  public class FacebookFacepileWidget : HtmlWidgetBase, IFacebookFacepileWidget
   {
-    private string url;
     private IEnumerable<string> actions = Enumerable.Empty<string>();
-    private string size;
-    private string width;
+    private string colorScheme;
     private string height;
     private byte? maxRows;
-    private string colorScheme;
+    private string size;
+    private string url;
+    private string width;
 
     /// <summary>
     ///   <para>Collection of Open Graph action types.</para>
@@ -123,14 +123,12 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
-      writer.Write(this.ToTag("div", tag => tag
+      return new TagBuilder("div")
         .Attribute("data-href", this.url ?? (HttpContext.Current != null ? HttpContext.Current.Request.Url.ToString() : null))
         .Attribute("data-action", this.actions.Any() ? this.actions.Join(",") : null)
         .Attribute("data-size", this.size)
@@ -138,7 +136,8 @@ namespace Catharsis.Web.Widgets
         .Attribute("data-height", this.height)
         .Attribute("data-max-rows", this.maxRows)
         .Attribute("data-colorscheme", this.colorScheme)
-        .AddCssClass("fb-facepile")));
+        .CssClass("fb-facepile")
+        .ToString();
     }
   }
 }

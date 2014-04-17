@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Threading;
 using Catharsis.Commons;
 using Xunit;
@@ -132,40 +131,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new YandexAnalyticsWidget().Write(null));
+      Assert.Equal(string.Empty, new YandexAnalyticsWidget().ToString());
+      
+      var html = new YandexAnalyticsWidget().Account("account").ToString();
+      Assert.True(html.Contains("Ya.Metrika.informer({{i: this, id: account, lang: '{0}'}})".FormatSelf(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)));
+      Assert.True(html.Contains("yaCounteraccount"));
+      Assert.True(html.Contains(@"""webvisor"":true"));
+      Assert.True(html.Contains(@"""clickmap"":true"));
+      Assert.True(html.Contains(@"""trackLinks"":true"));
+      Assert.True(html.Contains(@"""accurateTrackBounce"":true"));
+      Assert.True(html.Contains(@"""trackHash"":true"));
+      Assert.False(html.Contains(@"""ut"":""noindex"""));
 
-      Assert.True(new StringWriter().With(writer => new YandexAnalyticsWidget().Write(writer)).ToString().IsEmpty());
-      new StringWriter().With(writer =>
-      {
-        new YandexAnalyticsWidget().Account("account").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains("Ya.Metrika.informer({{i: this, id: account, lang: '{0}'}})".FormatSelf(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)));
-        Assert.True(html.Contains("yaCounteraccount"));
-        Assert.True(html.Contains(@"""webvisor"":true"));
-        Assert.True(html.Contains(@"""clickmap"":true"));
-        Assert.True(html.Contains(@"""trackLinks"":true"));
-        Assert.True(html.Contains(@"""accurateTrackBounce"":true"));
-        Assert.True(html.Contains(@"""trackHash"":true"));
-        Assert.False(html.Contains(@"""ut"":""noindex"""));
-      });
-      new StringWriter().With(writer =>
-      {
-        new YandexAnalyticsWidget().Account("account").Language("language").WebVisor(false).ClickMap(false).TrackLinks(false).Accurate(false).TrackHash(false).NoIndex().Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains("Ya.Metrika.informer({i: this, id: account, lang: 'language'})"));
-        Assert.True(html.Contains("yaCounteraccount"));
-        Assert.True(html.Contains(@"""webvisor"":false"));
-        Assert.True(html.Contains(@"""clickmap"":false"));
-        Assert.True(html.Contains(@"""trackLinks"":false"));
-        Assert.True(html.Contains(@"""accurateTrackBounce"":false"));
-        Assert.True(html.Contains(@"""trackHash"":false"));
-        Assert.True(html.Contains(@"""ut"":""noindex"""));
-      });
+      html = new YandexAnalyticsWidget().Account("account").Language("language").WebVisor(false).ClickMap(false).TrackLinks(false).Accurate(false).TrackHash(false).NoIndex().ToString();
+      Assert.True(html.Contains("Ya.Metrika.informer({i: this, id: account, lang: 'language'})"));
+      Assert.True(html.Contains("yaCounteraccount"));
+      Assert.True(html.Contains(@"""webvisor"":false"));
+      Assert.True(html.Contains(@"""clickmap"":false"));
+      Assert.True(html.Contains(@"""trackLinks"":false"));
+      Assert.True(html.Contains(@"""accurateTrackBounce"":false"));
+      Assert.True(html.Contains(@"""trackHash"":false"));
+      Assert.True(html.Contains(@"""ut"":""noindex"""));
     }
   }
 }

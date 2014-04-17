@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
   /// </summary>
   /// <seealso cref="http://vk.com/dev/sites"/>
-  public sealed class VkontakteInitWidget : HtmlWidgetBase, IVkontakteInitWidget
+  public class VkontakteInitWidget : HtmlWidgetBase, IVkontakteInitWidget
   {
     private string apiId;
 
@@ -30,19 +30,20 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.apiId.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.JavaScript("VK.init({{apiId:{0}, onlyWidgets:true}});".FormatSelf(this.apiId)));
+      return new TagBuilder("script")
+        .Attribute("type", "text/javascript")
+        .InnerHtml("VK.init({{apiId:{0}, onlyWidgets:true}});".FormatSelf(this.apiId))
+        .ToString();
     }
   }
 }

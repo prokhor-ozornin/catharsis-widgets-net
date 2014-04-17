@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -18,54 +17,12 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new FacebookCommentsWidget();
-      Assert.Null(widget.Field("url"));
-      Assert.Null(widget.Field("posts"));
-      Assert.Null(widget.Field("width"));
       Assert.Null(widget.Field("colorScheme"));
       Assert.Null(widget.Field("mobile"));
       Assert.Null(widget.Field("order"));
-    }
-
-    /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookCommentsWidget.Url(string)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Url_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Url(null));
-      Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().Url(string.Empty));
-
-      var widget = new FacebookCommentsWidget();
-      Assert.Null(widget.Field("url"));
-      Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.Equal("url", widget.Field("url").To<string>());
-    }
-
-    /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookCommentsWidget.Posts(byte)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Posts_Method()
-    {
-      var widget = new FacebookCommentsWidget();
       Assert.Null(widget.Field("posts"));
-      Assert.True(ReferenceEquals(widget.Posts(1), widget));
-      Assert.Equal(1, widget.Field("posts").To<byte>());
-    }
-
-    /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookCommentsWidget.Width(string)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Width_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Width(null));
-      Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().Width(string.Empty));
-
-      var widget = new FacebookCommentsWidget();
+      Assert.Null(widget.Field("url"));
       Assert.Null(widget.Field("width"));
-      Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
     }
 
     /// <summary>
@@ -111,15 +68,55 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookCommentsWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookCommentsWidget.Posts(byte)"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void Posts_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Write(null));
+      var widget = new FacebookCommentsWidget();
+      Assert.Null(widget.Field("posts"));
+      Assert.True(ReferenceEquals(widget.Posts(1), widget));
+      Assert.Equal(1, widget.Field("posts").To<byte>());
+    }
 
-      Assert.Equal(@"<div class=""fb-comments""></div>", new StringWriter().With(writer => new FacebookCommentsWidget().Write(writer)).ToString());
-      Assert.Equal(@"<div class=""fb-comments"" data-colorscheme=""dark"" data-href=""url"" data-mobile=""true"" data-num-posts=""1"" data-order-by=""reverse_time"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookCommentsWidget().Url("url").Posts(1).Width("width").ColorScheme(FacebookColorScheme.Dark).Mobile().Order(FacebookCommentsOrder.ReverseTime).Write(writer)).ToString());
+    /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookCommentsWidget.Url(string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void Url_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Url(null));
+      Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().Url(string.Empty));
+
+      var widget = new FacebookCommentsWidget();
+      Assert.Null(widget.Field("url"));
+      Assert.True(ReferenceEquals(widget.Url("url"), widget));
+      Assert.Equal("url", widget.Field("url").To<string>());
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookCommentsWidget.Width(string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void Width_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Width(null));
+      Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().Width(string.Empty));
+
+      var widget = new FacebookCommentsWidget();
+      Assert.Null(widget.Field("width"));
+      Assert.True(ReferenceEquals(widget.Width("width"), widget));
+      Assert.Equal("width", widget.Field("width").To<string>());
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookCommentsWidget.ToHtmlString()"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void ToHtmlString_Method()
+    {
+      Assert.Equal(@"<div class=""fb-comments""></div>", new FacebookCommentsWidget().ToString());
+      Assert.Equal(@"<div class=""fb-comments"" data-colorscheme=""dark"" data-href=""url"" data-mobile=""true"" data-num-posts=""1"" data-order-by=""reverse_time"" data-width=""width""></div>", new FacebookCommentsWidget().Url("url").Posts(1).Width("width").ColorScheme(FacebookColorScheme.Dark).Mobile().Order(FacebookCommentsOrder.ReverseTime).ToString());
     }
   }
 }

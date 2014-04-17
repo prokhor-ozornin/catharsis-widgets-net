@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Text;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -11,7 +12,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
   ///   <seealso cref="http://vk.com/dev/Comments"/>
   /// </summary>
-  public sealed class VkontakteCommentsWidget : HtmlWidgetBase, IVkontakteCommentsWidget
+  public class VkontakteCommentsWidget : HtmlWidgetBase, IVkontakteCommentsWidget
   {
     private byte limit = (byte) VkontakteCommentsLimit.Limit5;
     private IEnumerable<string> attach = Enumerable.Empty<string>();
@@ -59,14 +60,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
-      var config = new Dictionary<string, object> { { "limit", this.limit }};
+      var config = new Dictionary<string, object> { { "limit", this.limit } };
+      
       if (this.attach.Any())
       {
         config["attach"] = this.attach.Join(",");
@@ -80,8 +80,10 @@ namespace Catharsis.Web.Widgets
         config["width"] = this.width;
       }
 
-      writer.Write(this.ToTag("div", tag => tag.Attribute("id", "vk_comments")));
-      writer.Write(this.JavaScript(@"VK.Widgets.Comments(""vk_comments"", {0});".FormatSelf(config.Json())));
+      return new StringBuilder()
+        .Append(new TagBuilder("div").Attribute("id", "vk_comments"))
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Comments(""vk_comments"", {0});".FormatSelf(config.Json())))
+        .ToString();
     }
   }
 }

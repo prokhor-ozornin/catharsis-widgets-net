@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Threading;
 using System.Web;
 using Catharsis.Commons;
@@ -127,15 +126,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="TwitterFollowButtonWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="TwitterFollowButtonWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new TwitterFollowButtonWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new TwitterFollowButtonWidget().Account("account").Write(writer)).ToString() == @"<a class=""twitter-follow-button"" data-lang=""{0}"" href=""https://twitter.com/account""></a>".FormatSelf(HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName));
-      Assert.Equal(@"<a class=""twitter-follow-button"" data-align=""align"" data-dnt=""true"" data-lang=""en"" data-show-count=""true"" data-show-screen-name=""true"" data-size=""size"" data-width=""width"" href=""https://twitter.com/account""></a>", new StringWriter().With(writer => new TwitterFollowButtonWidget().Account("account").Language("en").Count().Size("size").Width("width").Alignment("align").ScreenName().OptOut().Write(writer)).ToString());
+      Assert.Equal(@"<a class=""twitter-follow-button"" data-lang=""{0}"" href=""https://twitter.com/account""></a>".FormatSelf(HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new TwitterFollowButtonWidget().Account("account").ToString());
+      Assert.Equal(@"<a class=""twitter-follow-button"" data-align=""align"" data-dnt=""true"" data-lang=""en"" data-show-count=""true"" data-show-screen-name=""true"" data-size=""size"" data-width=""width"" href=""https://twitter.com/account""></a>", new TwitterFollowButtonWidget().Account("account").Language("en").Count().Size("size").Width("width").Alignment("align").ScreenName().OptOut().ToString());
     }
   }
 }

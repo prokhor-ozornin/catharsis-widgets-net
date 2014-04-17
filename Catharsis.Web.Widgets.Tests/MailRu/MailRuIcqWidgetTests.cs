@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -53,21 +52,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="MailRuIcqWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="MailRuIcqWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new MailRuIcqWidget().Write(null));
+      Assert.Equal(@"<script src=""http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"" type=""text/javascript""></script>", new MailRuIcqWidget().ToString());
 
-      Assert.Equal(@"<script src=""http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"" type=""text/javascript""></script>", new StringWriter().With(writer => new MailRuIcqWidget().Write(writer)).ToString());
-      new StringWriter().With(writer =>
-      {
-        new MailRuIcqWidget().Account("account").Language("en").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains("window.ICQ = {siteOwner:'account'};"));
-        Assert.True(html.Contains(@"<script src=""http://c.icq.com/siteim/icqbar/js/partners/initbar_en.js"" type=""text/javascript""></script>"));
-      });
+      var html = new MailRuIcqWidget().Account("account").Language("en").ToString();
+      Assert.True(html.Contains("window.ICQ = {siteOwner:'account'};"));
+      Assert.True(html.Contains(@"<script src=""http://c.icq.com/siteim/icqbar/js/partners/initbar_en.js"" type=""text/javascript""></script>"));
     }
   }
 }

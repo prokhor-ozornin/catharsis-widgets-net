@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Text;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -10,7 +11,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
   /// </summary>
   /// <seealso cref="http://vk.com/dev/Community"/>
-  public sealed class VkontakteCommunityWidget : HtmlWidgetBase, IVkontakteCommunityWidget
+  public class VkontakteCommunityWidget : HtmlWidgetBase, IVkontakteCommunityWidget
   {
     private string account;
     private byte mode = (byte) VkontakteCommunityMode.Participants;
@@ -75,20 +76,19 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.account.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
       var config = new Dictionary<string, object> { { "mode", this.mode } };
-      if (this.mode == (byte) VkontakteCommunityMode.News)
+      
+      if (this.mode == (byte)VkontakteCommunityMode.News)
       {
         config["wide"] = 1;
       }
@@ -101,8 +101,10 @@ namespace Catharsis.Web.Widgets
         config["height"] = this.height;
       }
 
-      writer.Write(this.ToTag("div", tag => tag.Attribute("id", "vk_groups")));
-      writer.Write(this.JavaScript(@"VK.Widgets.Group(""vk_groups"", {0}, ""{1}"");".FormatSelf(config.Json(), this.account)));
+      return new StringBuilder()
+        .Append(new TagBuilder("div").Attribute("id", "vk_groups"))
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Group(""vk_groups"", {0}, ""{1}"");".FormatSelf(config.Json(), this.account)))
+        .ToString();
     }
   }
 }

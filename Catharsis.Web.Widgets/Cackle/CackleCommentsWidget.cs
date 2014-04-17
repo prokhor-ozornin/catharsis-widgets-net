@@ -1,5 +1,6 @@
 using System;
-using System.IO;
+using System.Text;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -9,7 +10,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScriptsBundles.Cackle"/> scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://ru.cackle.me/help/widget-api"/>
-  public sealed class CackleCommentsWidget : HtmlWidgetBase, ICackleCommentsWidget
+  public class CackleCommentsWidget : HtmlWidgetBase, ICackleCommentsWidget
   {
     private string account;
 
@@ -30,23 +31,23 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (account.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
       var config = new { widget = "Comment", id = this.account };
 
-      writer.Write(@"<div id=""mc-container""></div>");
-      writer.Write(this.JavaScript("cackle_widget = window.cackle_widget || [];cackle_widget.push({0});".FormatSelf(config.Json())));
-      writer.Write(@"<a id=""mc-link"" href=""http://cackle.me"">Социальные комментарии <b style=""color:#4FA3DA"">Cackl</b><b style=""color:#F65077"">e</b></a>");
+      return new StringBuilder()
+        .Append(@"<div id=""mc-container""></div>")
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml("cackle_widget = window.cackle_widget || [];cackle_widget.push({0});".FormatSelf(config.Json())))
+        .Append(@"<a id=""mc-link"" href=""http://cackle.me"">Социальные комментарии <b style=""color:#4FA3DA"">Cackl</b><b style=""color:#F65077"">e</b></a>")
+        .ToString();
     }
   }
 }

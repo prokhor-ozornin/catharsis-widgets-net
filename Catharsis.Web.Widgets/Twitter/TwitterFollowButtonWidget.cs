@@ -1,7 +1,7 @@
 using System;
-using System.IO;
 using System.Threading;
 using System.Web;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -11,7 +11,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScriptsBundles.Twitter"/> scripts bundle to be included.</para>
   ///   <seealso cref="https://dev.twitter.com/docs/follow-button"/>
   /// </summary>
-  public sealed class TwitterFollowButtonWidget : HtmlWidgetBase, ITwitterFollowButtonWidget
+  public class TwitterFollowButtonWidget : HtmlWidgetBase, ITwitterFollowButtonWidget
   {
     private string account;
     private string language;
@@ -132,19 +132,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.account.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("a", tag => tag
+      return new TagBuilder("a")
         .Attribute("href", "https://twitter.com/{0}".FormatSelf(this.account))
         .Attribute("data-lang", this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
         .Attribute("data-show-count", this.count)
@@ -153,7 +151,8 @@ namespace Catharsis.Web.Widgets
         .Attribute("data-align", this.alignment)
         .Attribute("data-show-screen-name", this.screenName)
         .Attribute("data-dnt", this.optOut)
-        .AddCssClass("twitter-follow-button")));
+        .CssClass("twitter-follow-button")
+        .ToString();
     }
   }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -63,30 +62,20 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteSubscriptionWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteSubscriptionWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new VkontakteSubscriptionWidget().Write(null));
+      Assert.Equal(string.Empty, new VkontakteSubscriptionWidget().ToString());
 
-      Assert.True(new StringWriter().With(writer => new VkontakteSubscriptionWidget().Write(writer)).ToString().IsEmpty());
-      
-      new StringWriter().With(writer =>
-      {
-        new VkontakteSubscriptionWidget().Account("account").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""vk_subscribe""></div>"));
-        Assert.True(html.Contains(@"VK.Widgets.Subscribe(""vk_subscribe"", {""mode"":1}, ""account"""));
-      });
+      var html = new VkontakteSubscriptionWidget().Account("account").ToString();
+      Assert.True(html.Contains(@"<div id=""vk_subscribe""></div>"));
+      Assert.True(html.Contains(@"VK.Widgets.Subscribe(""vk_subscribe"", {""mode"":1}, ""account"""));
 
-      new StringWriter().With(writer =>
-      {
-        new VkontakteSubscriptionWidget().Account("account").Layout(VkontakteSubscribeButtonLayout.Second).OnlyButton().Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""vk_subscribe""></div>"));
-        Assert.True(html.Contains(@"VK.Widgets.Subscribe(""vk_subscribe"", {""mode"":2,""soft"":1}, ""account"""));
-      });
+      html = new VkontakteSubscriptionWidget().Account("account").Layout(VkontakteSubscribeButtonLayout.Second).OnlyButton().ToString();
+      Assert.True(html.Contains(@"<div id=""vk_subscribe""></div>"));
+      Assert.True(html.Contains(@"VK.Widgets.Subscribe(""vk_subscribe"", {""mode"":2,""soft"":1}, ""account"""));
     }
   }
 }

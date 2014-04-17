@@ -1,4 +1,5 @@
 ﻿using System;
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -16,7 +17,11 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IMailRuFacesWidgetExtensions.Font(null, MailRuFacesFont.Arial));
 
-      throw new NotImplementedException();
+      new MailRuFacesWidget().With(widget =>
+      {
+        Assert.True(ReferenceEquals(widget.Font(MailRuFacesFont.Tahoma), widget));
+        Assert.Equal("Tahoma", widget.Field("font").To<string>());
+      });
     }
 
     /// <summary>
@@ -27,7 +32,11 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IMailRuFacesWidgetExtensions.Height(null, 0));
 
-      throw new NotImplementedException();
+      new MailRuFacesWidget().With(widget =>
+      {
+        Assert.True(ReferenceEquals(widget.Height(1), widget));
+        Assert.Equal("1", widget.Field("height").To<string>());
+      });
     }
 
     /// <summary>
@@ -38,7 +47,11 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IMailRuFacesWidgetExtensions.Width(null, 0));
 
-      throw new NotImplementedException();
+      new MailRuFacesWidget().With(widget =>
+      {
+        Assert.True(ReferenceEquals(widget.Width(1), widget));
+        Assert.Equal("1", widget.Field("width").To<string>());
+      });
     }
   }
 }

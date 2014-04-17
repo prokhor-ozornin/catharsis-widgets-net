@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Catharsis.Commons;
 using Xunit;
@@ -65,30 +64,20 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteCommentsWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteCommentsWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new VkontakteCommentsWidget().Write(null));
+      var html = new VkontakteCommentsWidget().ToString();
+      Assert.True(html.Contains(@"<div id=""vk_comments""></div>"));
+      Assert.True(html.Contains(@"<script type=""text/javascript"">"));
+      Assert.True(html.Contains(@"VK.Widgets.Comments(""vk_comments"", {""limit"":5,""attach"":false});"));
 
-      new StringWriter().With(writer =>
-      {
-        new VkontakteCommentsWidget().Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""vk_comments""></div>"));
-        Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-        Assert.True(html.Contains(@"VK.Widgets.Comments(""vk_comments"", {""limit"":5,""attach"":false});"));
-      });
-
-      new StringWriter().With(writer =>
-      {
-        new VkontakteCommentsWidget().Limit(10).Attach(VkontakteCommentsAttach.All).Width("width").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""vk_comments""></div>"));
-        Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-        Assert.True(html.Contains(@"VK.Widgets.Comments(""vk_comments"", {""limit"":10,""attach"":""*"",""width"":""width""});"));
-      });
+      html = new VkontakteCommentsWidget().Limit(10).Attach(VkontakteCommentsAttach.All).Width("width").ToString();
+      Assert.True(html.Contains(@"<div id=""vk_comments""></div>"));
+      Assert.True(html.Contains(@"<script type=""text/javascript"">"));
+      Assert.True(html.Contains(@"VK.Widgets.Comments(""vk_comments"", {""limit"":10,""attach"":""*"",""width"":""width""});"));
     }
   }
 }

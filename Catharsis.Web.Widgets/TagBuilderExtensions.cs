@@ -55,6 +55,39 @@ namespace Catharsis.Web.Widgets
     ///   <para></para>
     /// </summary>
     /// <param name="builder"></param>
+    /// <param name="css"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If either <paramref name="builder"/> or <paramref name="css"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="css"/> is <see cref="string.Empty"/> string.</exception>
+    public static TagBuilder CssClass(this TagBuilder builder, string css)
+    {
+      Assertion.NotNull(builder);
+      Assertion.NotEmpty(css);
+
+      builder.AddCssClass(css);
+      return builder;
+    }
+
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <param name="builder"></param>
+    /// <param name="css"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If either <paramref name="builder"/> or <paramref name="css"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="css"/> is <see cref="string.Empty"/> string.</exception>
+    public static TagBuilder CssStyle(this TagBuilder builder, string css)
+    {
+      Assertion.NotNull(builder);
+      Assertion.NotEmpty(css);
+
+      return builder.Attribute("style", css);
+    }
+
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <param name="builder"></param>
     /// <param name="html"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is a <c>null</c> reference.</exception>

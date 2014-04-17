@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -37,22 +36,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="CackleLoginWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="CackleLoginWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void WriteTo_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new CackleLoginWidget().Write(null));
+      Assert.Equal(string.Empty, new CackleLoginWidget().ToString());
 
-      Assert.True(new StringWriter().With(new CackleLoginWidget().Write).ToString().IsEmpty());
-      
-      new StringWriter().With(writer =>
-      {
-        new CackleLoginWidget().Account("account").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""mc-login""></div>"));
-        Assert.True(html.Contains(@"{""widget"":""Login"",""id"":""account""}"));
-      });
+      var html = new CackleLoginWidget().Account("account").ToString();
+      Assert.True(html.Contains(@"<div id=""mc-login""></div>"));
+      Assert.True(html.Contains(@"{""widget"":""Login"",""id"":""account""}"));
     }
   }
 }

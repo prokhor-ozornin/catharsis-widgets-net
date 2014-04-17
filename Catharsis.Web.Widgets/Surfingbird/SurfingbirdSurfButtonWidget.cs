@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScripts.SurfingbirdSurf"/> script to be included.</para>
   ///   <seealso cref="http://surfingbird.ru/publishers/surfbutton"/>
   /// </summary>
-  public sealed class SurfingbirdSurfButtonWidget : HtmlWidgetBase, ISurfingbirdSurfButtonWidget
+  public class SurfingbirdSurfButtonWidget : HtmlWidgetBase, ISurfingbirdSurfButtonWidget
   {
     private string url;
     private string layout = SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant();
@@ -122,14 +122,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       var config = new Dictionary<string, object> { { "layout", "{0}{1}{2}".FormatSelf(this.layout, this.counter ? string.Empty : "-nocount", this.color.IsEmpty() ? string.Empty : "-" + this.color) } };
+
       if (!this.url.IsEmpty())
       {
         config["url"] = this.url;
@@ -143,12 +142,13 @@ namespace Catharsis.Web.Widgets
         config["height"] = this.height;
       }
 
-      writer.Write(this.ToTag("a", tag => tag
+      return new TagBuilder("a")
         .Attribute("target", "_blank")
         .Attribute("href", "http://surfingbird.ru/share")
         .Attribute("data-surf-config", config.Json())
+        .CssClass("surfinbird__like_button")
         .InnerHtml(this.label)
-        .AddCssClass("surfinbird__like_button")));
+        .ToString();
     }
   }
 }

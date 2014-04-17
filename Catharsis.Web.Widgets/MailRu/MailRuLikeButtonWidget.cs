@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Mail.ru "Like" button on web page.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.MailRuLike"/> script to be included.</para>
+  ///   <para>Requires <see cref="WidgetsScripts.MailRu"/> script to be included.</para>
   /// </summary>
   /// <seealso cref="http://api.mail.ru/sites/plugins/share"/>
-  public sealed class MailRuLikeButtonWidget : HtmlWidgetBase, IMailRuLikeButtonWidget
+  public class MailRuLikeButtonWidget : HtmlWidgetBase, IMailRuLikeButtonWidget
   {
     private string type = "combo";
     private string size = "20";
@@ -110,15 +110,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       var config = new Dictionary<string, object> { { "sz", this.size }, { "st", this.layout }, { "tp", this.type } };
-      
+
       if (!this.counter)
       {
         config["nc"] = 1;
@@ -138,13 +136,13 @@ namespace Catharsis.Web.Widgets
         config["ck"] = this.textType;
       }
 
-      writer.Write(this.ToTag("a", tag => tag
+      return new TagBuilder("a")
         .Attribute("target", "_blank")
         .Attribute("href", "http://connect.mail.ru/share")
         .Attribute("data-mrc-config", config.Json())
+        .CssClass("mrc__plugin_uber_like_button")
         .InnerHtml("Нравится")
-        .AddCssClass("mrc__plugin_uber_like_button")));
-
+        .ToString();
     }
   }
 }

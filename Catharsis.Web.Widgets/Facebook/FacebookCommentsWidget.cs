@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -9,14 +9,14 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/comments"/>
-  public sealed class FacebookCommentsWidget : HtmlWidgetBase, IFacebookCommentsWidget
+  public class FacebookCommentsWidget : HtmlWidgetBase, IFacebookCommentsWidget
   {
-    private string url;
-    private byte? posts;
-    private string width;
     private string colorScheme;
     private bool? mobile;
     private string order;
+    private byte? posts;
+    private string url;
+    private string width;
 
     /// <summary>
     ///   <para>The color scheme used by the widget.</para>
@@ -101,21 +101,20 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
-      writer.Write(this.ToTag("div", tag => tag
+      return new TagBuilder("div")
         .Attribute("data-href", this.url)
         .Attribute("data-num-posts", this.posts)
         .Attribute("data-width", this.width)
         .Attribute("data-colorscheme", this.colorScheme)
         .Attribute("data-mobile", this.mobile)
         .Attribute("data-order-by", this.order)
-        .AddCssClass("fb-comments")));
+        .CssClass("fb-comments")
+        .ToString();
     }
   }
 }

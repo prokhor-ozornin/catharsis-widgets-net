@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -82,32 +81,22 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteCommunityWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteCommunityWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().Write(null));
+      Assert.Equal(string.Empty, new VkontakteCommunityWidget().ToString());
 
-      Assert.True(new StringWriter().With(writer => new VkontakteCommunityWidget().Write(writer)).ToString().IsEmpty());
+      var html = new VkontakteCommunityWidget().Account("account").ToString();
+      Assert.True(html.Contains(@"<div id=""vk_groups""></div>"));
+      Assert.True(html.Contains(@"<script type=""text/javascript"">"));
+      Assert.True(html.Contains(@"VK.Widgets.Group(""vk_groups"", {""mode"":0}, ""account"");"));
 
-      new StringWriter().With(writer =>
-      {
-        new VkontakteCommunityWidget().Account("account").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""vk_groups""></div>"));
-        Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-        Assert.True(html.Contains(@"VK.Widgets.Group(""vk_groups"", {""mode"":0}, ""account"");"));
-      });
-
-      new StringWriter().With(writer =>
-      {
-        new VkontakteCommunityWidget().Account("account").Width("width").Height("height").Mode(VkontakteCommunityMode.News).Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""vk_groups""></div>"));
-        Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-        Assert.True(html.Contains(@"VK.Widgets.Group(""vk_groups"", {""mode"":2,""wide"":1,""width"":""width"",""height"":""height""}, ""account"");"));
-      });
+      html = new VkontakteCommunityWidget().Account("account").Width("width").Height("height").Mode(VkontakteCommunityMode.News).ToString();
+      Assert.True(html.Contains(@"<div id=""vk_groups""></div>"));
+      Assert.True(html.Contains(@"<script type=""text/javascript"">"));
+      Assert.True(html.Contains(@"VK.Widgets.Group(""vk_groups"", {""mode"":2,""wide"":1,""width"":""width"",""height"":""height""}, ""account"");"));
     }
   }
 }

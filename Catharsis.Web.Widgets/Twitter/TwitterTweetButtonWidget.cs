@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Web;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -13,7 +13,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScriptsBundles.Twitter"/> scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="https://dev.twitter.com/docs/tweet-button"/>
-  public sealed class TwitterTweetButtonWidget : HtmlWidgetBase, ITwitterTweetButtonWidget
+  public class TwitterTweetButtonWidget : HtmlWidgetBase, ITwitterTweetButtonWidget
   {
     private string url;
     private string language;
@@ -171,25 +171,25 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
-      writer.Write(this.ToTag("a", tag => tag.Attribute("href", "https://twitter.com/share")
-              .Attribute("data-lang", this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
-              .Attribute("data-url", this.url)
-              .Attribute("data-via", this.via)
-              .Attribute("data-text", this.text)
-              .Attribute("data-related", this.accounts.Any() ? this.accounts.Join(",") : null)
-              .Attribute("data-count", this.countPosition)
-              .Attribute("data-counturl", this.countUrl)
-              .Attribute("data-hashtags", this.tags.Any() ? this.tags.Join(" ") : null)
-              .Attribute("data-size", this.size)
-              .Attribute("data-dnt", this.optOut)
-              .AddCssClass(this.tags.Any() ? "twitter-hashtag-button" : "twitter-share-button")));
+      return new TagBuilder("a")
+        .Attribute("href", "https://twitter.com/share")
+        .Attribute("data-lang", this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
+        .Attribute("data-url", this.url)
+        .Attribute("data-via", this.via)
+        .Attribute("data-text", this.text)
+        .Attribute("data-related", this.accounts.Any() ? this.accounts.Join(",") : null)
+        .Attribute("data-count", this.countPosition)
+        .Attribute("data-counturl", this.countUrl)
+        .Attribute("data-hashtags", this.tags.Any() ? this.tags.Join(" ") : null)
+        .Attribute("data-size", this.size)
+        .Attribute("data-dnt", this.optOut)
+        .CssClass(this.tags.Any() ? "twitter-hashtag-button" : "twitter-share-button")
+        .ToString();
     }
   }
 }

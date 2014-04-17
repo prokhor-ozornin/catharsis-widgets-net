@@ -11,7 +11,7 @@ namespace Catharsis.Web.Widgets
   public static partial class HtmlHelperExtensions
   {
     /// <summary>
-    ///   <para>Initializes inline image widget.</para>
+    ///   <para>Creates new inline image widget.</para>
     /// </summary>
     /// <param name="html">Helper object to call method on.</param>
     /// <returns>Widget instance.</returns>
@@ -21,6 +21,24 @@ namespace Catharsis.Web.Widgets
       Assertion.NotNull(html);
 
       return new InlineImageWidget();
+    }
+
+    /// <summary>
+    ///   <para>Creates new inline image widget.</para>
+    /// </summary>
+    /// <param name="html">Helper object to call method on.</param>
+    /// <param name="builder">Delegate that performs configuration of the widget.</param>
+    /// <returns>HTML contents of configured and rendered widget.</returns>
+    /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="InlineImage(HtmlHelper)"/>
+    public static string InlineImage(this HtmlHelper html, Action<IInlineImageWidget> builder)
+    {
+      Assertion.NotNull(html);
+      Assertion.NotNull(builder);
+
+      var widget = html.InlineImage();
+      builder(widget);
+      return widget.ToHtmlString();
     }
   }
 }

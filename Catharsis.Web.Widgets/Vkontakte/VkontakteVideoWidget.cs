@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded VKontakte video on web page.</para>
   /// </summary>
-  public sealed class VkontakteVideoWidget : HtmlWidgetBase, IVkontakteVideoWidget
+  public class VkontakteVideoWidget : HtmlWidgetBase, IVkontakteVideoWidget
   {
     private string id;
     private string width;
@@ -106,26 +106,25 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.id.IsEmpty() || this.user.IsEmpty() || this.hash.IsEmpty() || this.width.IsEmpty() || this.height.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("iframe", tag => tag
+      return new TagBuilder("iframe")
         .Attribute("frameborder", 0)
         .Attribute("allowfullscreen", true)
         .Attribute("webkitallowfullscreen", true)
         .Attribute("mozallowfullscreen", true)
         .Attribute("width", this.width)
         .Attribute("height", this.height)
-        .Attribute("src", "http://vk.com/video_ext.php?oid={1}&id={0}&hash={2}&hd={3}".FormatSelf(this.id, this.user, this.hash, this.hd ? 1 : 0))));
+        .Attribute("src", "http://vk.com/video_ext.php?oid={1}&id={0}&hash={2}&hd={3}".FormatSelf(this.id, this.user, this.hash, this.hd ? 1 : 0))
+        .ToString();
     }
   }
 }

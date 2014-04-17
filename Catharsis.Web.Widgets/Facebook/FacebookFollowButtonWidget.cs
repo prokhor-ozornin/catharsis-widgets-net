@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -9,15 +9,15 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/follow-button"/>
-  public sealed class FacebookFollowButtonWidget : HtmlWidgetBase, IFacebookFollowButtonWidget
+  public class FacebookFollowButtonWidget : HtmlWidgetBase, IFacebookFollowButtonWidget
   {
-    private string url;
-    private string width;
-    private string height;
     private string colorScheme;
+    private bool? faces;
+    private string height;
     private bool? kids;
     private string layout;
-    private bool? faces;
+    private string url;
+    private string width;
 
     /// <summary>
     ///   <para>The color scheme used by the button. Default is "light".</para>
@@ -118,19 +118,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.url.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("div", tag => tag
+      return new TagBuilder("div")
         .Attribute("data-layout", this.layout)
         .Attribute("data-show-faces", this.faces)
         .Attribute("data-href", this.url)
@@ -138,7 +136,8 @@ namespace Catharsis.Web.Widgets
         .Attribute("data-kid-directed-site", this.kids)
         .Attribute("data-width", this.width)
         .Attribute("data-height", this.height)
-        .AddCssClass("fb-follow")));
+        .CssClass("fb-follow")
+        .ToString();
     }
   }
 }

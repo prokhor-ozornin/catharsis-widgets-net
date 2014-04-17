@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -95,19 +94,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YouTubeVideoWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YouTubeVideoWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new YouTubeVideoWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new YouTubeVideoWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YouTubeVideoWidget().Id("id").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YouTubeVideoWidget().Id("id").Width("width").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YouTubeVideoWidget().Height("height").Width("width").Write(writer)).ToString().IsEmpty());
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://www.youtube.com/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new YouTubeVideoWidget().Id("id").Height("height").Width("width").Write(writer)).ToString());
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://www.youtube-nocookie.com/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new YouTubeVideoWidget().Id("id").Height("height").Width("width").Private().Secure().Write(writer)).ToString());
+      Assert.Equal(string.Empty, new YouTubeVideoWidget().ToString());
+      Assert.Equal(string.Empty, new YouTubeVideoWidget().Id("id").Height("height").ToString());
+      Assert.Equal(string.Empty, new YouTubeVideoWidget().Id("id").Width("width").ToString());
+      Assert.Equal(string.Empty, new YouTubeVideoWidget().Height("height").Width("width").ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://www.youtube.com/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new YouTubeVideoWidget().Id("id").Height("height").Width("width").ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://www.youtube-nocookie.com/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new YouTubeVideoWidget().Id("id").Height("height").Width("width").Private().Secure().ToString());
     }
   }
 }

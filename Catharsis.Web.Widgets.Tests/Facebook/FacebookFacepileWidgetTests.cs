@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Catharsis.Commons;
 using Xunit;
@@ -20,28 +19,13 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new FacebookFacepileWidget();
-      Assert.Null(widget.Field("url"));
       Assert.False(widget.Field("actions").To<IEnumerable<string>>().Any());
-      Assert.Null(widget.Field("size"));
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Field("colorScheme"));
       Assert.Null(widget.Field("height"));
       Assert.Null(widget.Field("maxRows"));
-      Assert.Null(widget.Field("colorScheme"));
-    }
-
-    /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookFacepileWidget.Url(string)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Url_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => new FacebookFacepileWidget().Url(null));
-      Assert.Throws<ArgumentException>(() => new FacebookFacepileWidget().Url(string.Empty));
-
-      var widget = new FacebookFacepileWidget();
+      Assert.Null(widget.Field("size"));
       Assert.Null(widget.Field("url"));
-      Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.Equal("url", widget.Field("url").To<string>());
+      Assert.Null(widget.Field("width"));
     }
 
     /// <summary>
@@ -54,8 +38,50 @@ namespace Catharsis.Web.Widgets
 
       var widget = new FacebookFacepileWidget();
       Assert.False(widget.Field("actions").To<IEnumerable<string>>().Any());
-      Assert.True(ReferenceEquals(widget.Actions(new [] { "first", "second" }), widget));
-      Assert.True(widget.Field("actions").To<IEnumerable<string>>().SequenceEqual(new [] { "first", "second" }));
+      Assert.True(ReferenceEquals(widget.Actions(new[] { "first", "second" }), widget));
+      Assert.True(widget.Field("actions").To<IEnumerable<string>>().SequenceEqual(new[] { "first", "second" }));
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookFacepileWidget.ColorScheme(string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void ColorScheme_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new FacebookFacepileWidget().ColorScheme(null));
+      Assert.Throws<ArgumentException>(() => new FacebookFacepileWidget().ColorScheme(string.Empty));
+
+      var widget = new FacebookFacepileWidget();
+      Assert.Null(widget.Field("colorScheme"));
+      Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
+      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookFacepileWidget.Height(string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void Height_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new FacebookFacepileWidget().Height(null));
+      Assert.Throws<ArgumentException>(() => new FacebookFacepileWidget().Height(string.Empty));
+
+      var widget = new FacebookFacepileWidget();
+      Assert.Null(widget.Field("height"));
+      Assert.True(ReferenceEquals(widget.Height("height"), widget));
+      Assert.Equal("height", widget.Field("height").To<string>());
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookFacepileWidget.MaxRows(byte)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void MaxRows_Method()
+    {
+      var widget = new FacebookFacepileWidget();
+      Assert.Null(widget.Field("maxRows"));
+      Assert.True(ReferenceEquals(widget.MaxRows(1), widget));
+      Assert.Equal(1, widget.Field("maxRows").To<byte>());
     }
 
     /// <summary>
@@ -74,6 +100,21 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Performs testing of <see cref="FacebookFacepileWidget.Url(string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void Url_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new FacebookFacepileWidget().Url(null));
+      Assert.Throws<ArgumentException>(() => new FacebookFacepileWidget().Url(string.Empty));
+
+      var widget = new FacebookFacepileWidget();
+      Assert.Null(widget.Field("url"));
+      Assert.True(ReferenceEquals(widget.Url("url"), widget));
+      Assert.Equal("url", widget.Field("url").To<string>());
+    }
+
+    /// <summary>
     ///   <para>Performs testing of <see cref="FacebookFacepileWidget.Width(string)"/> method.</para>
     /// </summary>
     [Fact]
@@ -89,15 +130,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookFacepileWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookFacepileWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new FacebookFacepileWidget().Write(null));
-
-      Assert.Equal(@"<div class=""fb-facepile""></div>", new StringWriter().With(writer => new FacebookFacepileWidget().Write(writer)).ToString());
-      Assert.Equal(@"<div class=""fb-facepile"" data-action=""actions"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-max-rows=""10"" data-size=""large"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookFacepileWidget().Url("url").Actions("actions").Size(FacebookFacepileSize.Large).Width("width").Height("height").MaxRows(10).ColorScheme(FacebookColorScheme.Dark).Write(writer)).ToString());
+      Assert.Equal(@"<div class=""fb-facepile""></div>", new FacebookFacepileWidget().ToString());
+      Assert.Equal(@"<div class=""fb-facepile"" data-action=""actions"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-max-rows=""10"" data-size=""large"" data-width=""width""></div>", new FacebookFacepileWidget().Url("url").Actions("actions").Size(FacebookFacepileSize.Large).Width("width").Height("height").MaxRows(10).ColorScheme(FacebookColorScheme.Dark).ToString());
     }
   }
 }

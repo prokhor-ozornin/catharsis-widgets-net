@@ -1,22 +1,22 @@
 ﻿namespace Catharsis.Web.Widgets
 {
   /// <summary>
-  ///   <para></para>
+  ///   <para>Type of font, used by <see cref="IMailRuFacesWidget"/> widget.</para>
   /// </summary>
   public enum MailRuFacesFont
   {
     /// <summary>
-    ///   <para></para>
+    ///   <para>Arial.</para>
     /// </summary>
     Arial,
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Tahoma.</para>
     /// </summary>
     Tahoma,
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Georgia.</para>
     /// </summary>
     Georgia
   }

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Renders payment form for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
   /// </summary>
   /// <seealso cref="https://money.yandex.ru/embed/quickpay/shop.xml"/>
-  public sealed class YandexMoneyPaymentFormWidget : HtmlWidgetBase, IYandexMoneyPaymentFormWidget
+  public class YandexMoneyPaymentFormWidget : HtmlWidgetBase, IYandexMoneyPaymentFormWidget
   {
     private string account;
     private string description;
@@ -153,25 +153,24 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.account.IsEmpty() || this.description.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("iframe", tag => tag
-        .Attribute("src", "https://money.yandex.ru/embed/shop.xml?account={0}&quickpay=shop{1}&writer={2}&{3}={4}&default-sum={5}&button-text={6}{7}{8}{9}{10}{11}".FormatSelf(this.account, this.cards ? "&payment-type-choice=on" : string.Empty, this.payerPurpose ? "buyer" : "seller", this.payerPurpose ? "targets-hint" : "targets", this.description, this.sum, "0{0}".FormatSelf(this.text), this.payerComment ? "&comment=on" : string.Empty, this.payerFullName ? "&fio=on" : string.Empty, this.payerEmail ? "&mail=on" : string.Empty, this.payerPhone ? "&phone=on" : string.Empty, this.payerAddress ? "&address=on" : string.Empty))
+      return new TagBuilder("iframe")
+        .Attribute("src", "https://money.yandex.ru/embed/shop.xml?account={0}&quickpay=shop{1}&writer={2}&{3}={4}&default-sum={5}&button-text=0{6}{7}{8}{9}{10}{11}".FormatSelf(this.account, this.cards ? "&payment-type-choice=on" : string.Empty, this.payerPurpose ? "buyer" : "seller", this.payerPurpose ? "targets-hint" : "targets", this.description, this.sum, this.text, this.payerComment ? "&comment=on" : string.Empty, this.payerFullName ? "&fio=on" : string.Empty, this.payerEmail ? "&mail=on" : string.Empty, this.payerPhone ? "&phone=on" : string.Empty, this.payerAddress ? "&address=on" : string.Empty))
         .Attribute("frameborder", 0)
         .Attribute("allowtransparency", true)
         .Attribute("scrolling", "no")
         .Attribute("width", 450)
-        .Attribute("height", this.payerComment ? 255 : 200)));
+        .Attribute("height", this.payerComment ? 255 : 200)
+        .ToString();
     }
   }
 }

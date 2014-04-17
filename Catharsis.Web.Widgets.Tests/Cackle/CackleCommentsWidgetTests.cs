@@ -37,21 +37,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="CackleCommentsWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="CackleCommentsWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
-    { 
-      Assert.Throws<ArgumentNullException>(() => new CackleCommentsWidget().Write(null));
+    public void ToHtmlString_Method()
+    {
+      Assert.Equal(string.Empty, new CackleCommentsWidget().ToString());
 
-      Assert.True(new StringWriter().With(new CackleCommentsWidget().Write).ToString().IsEmpty());
-      new StringWriter().With(writer =>
-      {
-        new CackleCommentsWidget().Account("account").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<div id=""mc-container""></div>"));
-        Assert.True(html.Contains(@"{""widget"":""Comment"",""id"":""account""}"));
-      });
+      var html = new CackleCommentsWidget().Account("account").ToString();
+       Assert.True(html.Contains(@"<div id=""mc-container""></div>"));
+      Assert.True(html.Contains(@"{""widget"":""Comment"",""id"":""account""}"));
     }
   }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
-using System.IO;
+using System.Text;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -9,7 +10,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScriptsBundles.Facebook"/> scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/javascript"/>
-  public sealed class FacebookInitWidget : HtmlWidgetBase, IFacebookInitWidget
+  public class FacebookInitWidget : HtmlWidgetBase, IFacebookInitWidget
   {
     private string appId;
 
@@ -30,20 +31,20 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.appId.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("div", tag => tag.Attribute("id", "fb-root")));
-      writer.Write(resources.facebook_initialize.FormatSelf(this.appId));
+      return new StringBuilder()
+        .Append(new TagBuilder("div").Attribute("id", "fb-root"))
+        .Append(resources.facebook_initialize.FormatSelf(this.appId))
+        .ToString();
     }
   }
 }

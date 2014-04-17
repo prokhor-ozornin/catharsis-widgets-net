@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded Facebook video on web page.</para>
   /// </summary>
-  public sealed class FacebookVideoWidget : HtmlWidgetBase, IFacebookVideoWidget
+  public class FacebookVideoWidget : HtmlWidgetBase, IFacebookVideoWidget
   {
     private string id;
     private string width;
@@ -62,26 +62,25 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.id.IsEmpty() || this.width.IsEmpty() || this.height.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
-      writer.Write(this.ToTag("iframe", tag => tag
+      return new TagBuilder("iframe")
         .Attribute("src", "http://www.facebook.com/video/embed?video_id={0}".FormatSelf(id))
         .Attribute("width", this.width)
         .Attribute("height", this.height)
         .Attribute("frameborder", 0)
         .Attribute("allowfullscreen", true)
         .Attribute("webkitallowfullscreen", true)
-        .Attribute("mozallowfullscreen", true)));
+        .Attribute("mozallowfullscreen", true)
+        .ToString();
     }
   }
 }

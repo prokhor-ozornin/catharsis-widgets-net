@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Text;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -10,7 +11,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
   /// </summary>
   /// <seealso cref="http://vk.com/dev/Subscribe"/>
-  public sealed class VkontakteSubscriptionWidget : HtmlWidgetBase, IVkontakteSubscriptionWidget
+  public class VkontakteSubscriptionWidget : HtmlWidgetBase, IVkontakteSubscriptionWidget
   {
     private string account;
     private byte layout = (byte) VkontakteSubscribeButtonLayout.First;
@@ -55,16 +56,14 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.account.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
       var config = new Dictionary<string, object> { { "mode", this.layout } };
@@ -73,8 +72,10 @@ namespace Catharsis.Web.Widgets
         config["soft"] = 1;
       }
 
-      writer.Write(this.ToTag("div", tag => tag.Attribute("id", "vk_subscribe")));
-      writer.Write(this.JavaScript(@"VK.Widgets.Subscribe(""vk_subscribe"", {0}, ""{1}"");".FormatSelf(config.Json(), this.account)));
+      return new StringBuilder()
+        .Append(new TagBuilder("div").Attribute("id", "vk_subscribe"))
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Subscribe(""vk_subscribe"", {0}, ""{1}"");".FormatSelf(config.Json(), this.account)))
+        .ToString();
     }
   }
 }

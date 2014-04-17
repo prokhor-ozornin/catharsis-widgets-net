@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Renders donation form for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
   /// </summary>
   /// <seealso cref="https://money.yandex.ru/embed/quickpay/donate.xml"/>
-  public sealed class YandexMoneyDonateFormWidget : HtmlWidgetBase, IYandexMoneyDonateFormWidget
+  public class YandexMoneyDonateFormWidget : HtmlWidgetBase, IYandexMoneyDonateFormWidget
   {
     private string account;
     private string description;
@@ -190,57 +190,56 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
       if (this.account.IsEmpty() || this.description.IsEmpty())
       {
-        return;
+        return string.Empty;
       }
 
       int width;
-      switch ((YandexMoneyDonateFormText) this.text)
+      switch ((YandexMoneyDonateFormText)this.text)
       {
-        case YandexMoneyDonateFormText.Donate :
+        case YandexMoneyDonateFormText.Donate:
           width = 523;
-        break;
+          break;
 
-        case YandexMoneyDonateFormText.Give :
+        case YandexMoneyDonateFormText.Give:
           width = 487;
-        break;
+          break;
 
-        case YandexMoneyDonateFormText.Transfer :
+        case YandexMoneyDonateFormText.Transfer:
           width = 495;
-        break;
+          break;
 
-        case YandexMoneyDonateFormText.Send :
+        case YandexMoneyDonateFormText.Send:
           width = 494;
-        break;
+          break;
 
-        case YandexMoneyDonateFormText.Support :
+        case YandexMoneyDonateFormText.Support:
           width = 507;
-        break;
+          break;
 
-        default :
+        default:
           width = 523;
-        break;
+          break;
       }
       if (!this.cards)
       {
         width -= 69;
       }
 
-      writer.Write(this.ToTag("iframe", tag => tag
-        .Attribute("src", "https://money.yandex.ru/embed/donate.xml?account={0}&quickpay=donate{1}&default-sum={2}&targets={3}{4}&project-name={5}&project-site={6}&button-text={7}{8}{9}{10}{11}".FormatSelf(this.account, this.cards ? "&payment-type-choice=on" : string.Empty, this.sum, this.description, this.showDescription ? "&target-visibility=on" : string.Empty, this.projectName, this.projectSite, "0{0}".FormatSelf(this.text), this.payerComment ? "&comment=on&hint={0}".FormatSelf(this.payerCommentHint) : string.Empty, this.payerFullName ? "&fio=on" : string.Empty, this.payerEmail ? "&mail=on" : string.Empty, this.payerPhone ? "&phone=on" : string.Empty))
+      return new TagBuilder("iframe")
+        .Attribute("src", "https://money.yandex.ru/embed/donate.xml?account={0}&quickpay=donate{1}&default-sum={2}&targets={3}{4}&project-name={5}&project-site={6}&button-text=0{7}{8}{9}{10}{11}".FormatSelf(this.account, this.cards ? "&payment-type-choice=on" : string.Empty, this.sum, this.description, this.showDescription ? "&target-visibility=on" : string.Empty, this.projectName, this.projectSite, this.text, this.payerComment ? "&comment=on&hint={0}".FormatSelf(this.payerCommentHint) : string.Empty, this.payerFullName ? "&fio=on" : string.Empty, this.payerEmail ? "&mail=on" : string.Empty, this.payerPhone ? "&phone=on" : string.Empty))
         .Attribute("frameborder", 0)
         .Attribute("allowtransparency", true)
         .Attribute("scrolling", "no")
         .Attribute("width", width)
-        .Attribute("height", this.payerComment ? 210 : 133)));
+        .Attribute("height", this.payerComment ? 210 : 133)
+        .ToString();
     }
   }
 }

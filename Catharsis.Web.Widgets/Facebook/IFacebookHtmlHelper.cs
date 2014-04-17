@@ -6,22 +6,10 @@ namespace Catharsis.Web.Widgets
   public interface IFacebookHtmlHelper
   {
     /// <summary>
-    ///   <para>Creates new Facebook JavaScript API initialization widget.</para>
-    /// </summary>
-    /// <returns>Initialized widget with default options.</returns>
-    IFacebookInitWidget Initialize();
-
-    /// <summary>
     ///   <para>Creates new Facebook Activity Feed widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
     IFacebookActivityFeedWidget ActivityFeed();
-
-    /// <summary>
-    ///   <para>Creates new Facebook Recommendations Feed widget.</para>
-    /// </summary>
-    /// <returns>Initialized widget with default options.</returns>
-    IFacebookRecommendationsFeedWidget RecommendationsFeed();
 
     /// <summary>
     ///   <para>Creates new Facebook comments widget.</para>
@@ -42,6 +30,12 @@ namespace Catharsis.Web.Widgets
     IFacebookFollowButtonWidget Follow();
 
     /// <summary>
+    ///   <para>Creates new Facebook JavaScript API initialization widget.</para>
+    /// </summary>
+    /// <returns>Initialized widget with default options.</returns>
+    IFacebookInitWidget Initialize();
+
+    /// <summary>
     ///   <para>Creates new Facebook "Like" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
@@ -58,6 +52,12 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
     IFacebookPostWidget Post();
+
+    /// <summary>
+    ///   <para>Creates new Facebook Recommendations Feed widget.</para>
+    /// </summary>
+    /// <returns>Initialized widget with default options.</returns>
+    IFacebookRecommendationsFeedWidget RecommendationsFeed();
 
     /// <summary>
     ///   <para>Creates new Facebook "Send" button widget.</para>

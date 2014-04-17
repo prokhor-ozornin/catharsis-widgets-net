@@ -5,17 +5,17 @@ namespace Catharsis.Web.Widgets
   /// </summary>
   public interface IMailRuHtmlHelper
   {
-    /*/// <summary>
-    ///   <para></para>
+    /// <summary>
+    ///   <para>Creates new Mail.ru Faces (People On Site) widget.</para>
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Initialized widget with default options.</returns>
     IMailRuFacesWidget Faces();
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Creates new Mail.ru Group (People In Group) widget.</para>
     /// </summary>
-    /// <returns></returns>
-    IMailRuGroupsWidget Groups();*/
+    /// <returns>Initialized widget with default options.</returns>
+    IMailRuGroupsWidget Groups();
 
     /// <summary>
     ///   <para>Creates new Mail.ru ICQ On-Site widget.</para>

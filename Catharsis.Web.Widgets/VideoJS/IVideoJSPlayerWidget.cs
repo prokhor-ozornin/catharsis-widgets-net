@@ -11,6 +11,15 @@ namespace Catharsis.Web.Widgets
   public interface IVideoJSPlayerWidget : IHtmlWidget
   {
     /// <summary>
+    ///   <para>Custom HTML code to be part of <c>video</c> tag.</para>
+    /// </summary>
+    /// <param name="extra">Additional HTML code fragment.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="extra"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="extra"/> is <see cref="string.Empty"/> string.</exception>
+    IVideoJSPlayerWidget Extra(string extra);
+
+    /// <summary>
     ///   <para>Vertical height of video.</para>
     /// </summary>
     /// <param name="height">Height of video.</param>

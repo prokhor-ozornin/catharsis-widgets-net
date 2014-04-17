@@ -6,12 +6,6 @@ namespace Catharsis.Web.Widgets
   public interface IVkontakteHtmlHelper
   {
     /// <summary>
-    ///   <para>Creates new VKontakte JavaScript API initialization widget.</para>
-    /// </summary>
-    /// <returns>Initialized widget with default options.</returns>
-    IVkontakteInitWidget Initialize();
-
-    /// <summary>
     ///   <para>Creates new VKontakte comments widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
@@ -22,6 +16,12 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
     IVkontakteCommunityWidget Community();
+
+    /// <summary>
+    ///   <para>Creates new VKontakte JavaScript API initialization widget.</para>
+    /// </summary>
+    /// <returns>Initialized widget with default options.</returns>
+    IVkontakteInitWidget Initialize();
 
     /// <summary>
     ///   <para>Creates new VKontakte "Like" button widget.</para>

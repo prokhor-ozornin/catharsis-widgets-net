@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -69,18 +68,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="MailRuVideoWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="MailRuVideoWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new MailRuVideoWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new MailRuVideoWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new MailRuVideoWidget().Id("id").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new MailRuVideoWidget().Id("id").Width("width").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new MailRuVideoWidget().Height("height").Width("width").Write(writer)).ToString().IsEmpty());
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://api.video.mail.ru/videos/embed/mail/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new MailRuVideoWidget().Id("id").Height("height").Width("width").Write(writer)).ToString());
+      Assert.Equal(string.Empty, new MailRuVideoWidget().ToString());
+      Assert.Equal(string.Empty, new MailRuVideoWidget().Id("id").Height("height").ToString());
+      Assert.Equal(string.Empty, new MailRuVideoWidget().Id("id").Width("width").ToString());
+      Assert.Equal(string.Empty, new MailRuVideoWidget().Height("height").Width("width").ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://api.video.mail.ru/videos/embed/mail/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new MailRuVideoWidget().Id("id").Height("height").Width("width").ToString());
     }
   }
 }

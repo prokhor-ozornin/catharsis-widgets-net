@@ -1,90 +1,12 @@
-**Catharsis.NET.Web.Widgets** is ASP.NET MVC library, which provides useful social media widgets to include on web pages of your site. 
+This library is a .NET port of [Catharsis Social Web Widgets](https://github.com/prokhor-ozornin/Catharsis-Social-Web-Widgets) library for ASP.NET MVC platform.
 
-This library is basically a port of [Grails 2](http://grails.org) [Catharsis.Grails.Widgets](https://github.com/prokhor-ozornin/Catharsis.Grails.Widgets) library to ASP.NET MVC web framework.
+It provides useful social media widgets to include on web pages of your site. 
 
 Web widgets are implemented as C# POCO objects that implement `System.Web.IHtmlString` and provide convenient fluent interface to work with. Extension methods for `System.Web.Mvc.HtmlHelper` for easiness of rendering are also provided as well.
 
-As of the latest version, the following areas are covered :
+***
 
-[Cackle](http://cackle.me)
-* Comments
-* OAuth Login
-
-[Disqus](http://disqus.com)
-* Comments
-
-[Facebook](http://facebook.com)
-* Activity Feed
-* Recommendations Feed
-* Follow Button
-* Like Button
-* Like Box
-* Send Button
-* Comments
-* Facepile
-* Embedded Post
-* Embedded Video
-* Video Hyperlink
-
-[Google](http://google.com)
-* Google Analytics
-* Google "+1" Button
-
-[IntenseDebate](http://intensedebate.com)
-* Comments
-* Comments Count Hyperlink
-
-[Mail.ru](http://mail.ru)
-* ICQ On-Site
-* Like Button
-* Embedded Video
-* Video Hyperlink
-
-[RuTube](http://rutube.ru)
-* Embedded Video
-* Video Hyperlink
-
-[Surfingbird](http://surfingbird.com)
-* Like Button
-
-[Tumblr](http://tumblr.com)
-* Follow Button
-* Share Button
-
-[Twitter](https://twitter.com)
-* Follow Button
-* Tweet Button
-
-[Vimeo](https://vimeo.com)
-* Embedded Video
-* Video Hyperlink
-
-[VKontakte](http://vk.com)
-* Comments
-* Community
-* Like Button
-* Subscribe
-* Embedded Video
-* Video Hyperlink
-
-[Yandex](http://yandex.ru)
-* Yandex Analytics
-* Ya Button
-* Share Button
-* Embedded Video
-* Video Hyperlink
-* Yandex.Money Payment Button
-* Yandex.Money Donate Form
-* Yandex.Money Payment Form
-
-[YouTube](http://youtube.com)
-* Embedded Video
-* Video Hyperlink
-
-[VideoJS player](http://www.videojs.com)
-* Media Player
-
-The list of social tags is ever-growing, and new ones can be included upon request fast.
+This project requires your support. Please donate !
 
 [![Image](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=APHM8MU9N76V8 "Donate")
 
@@ -252,6 +174,20 @@ You must include `WidgetsScriptsBundles.Google` JavaScript bundle first to use b
 
 > `@Html.Google().PlusOne().Url("http://yandex.ru").Alignment(GooglePlusOneButtonAlignment.Right).Size(GooglePlusOneButtonSize.Tall).Annotation(GooglePlusOneButtonAnnotation.Inline).Recommendations(false)`
 
+**Gravatar**
+
+> Render Gravatar's avatar image URL.
+
+> `@Html.Gravatar().ImageUrl().Email("prokhor.ozornin@yandex.ru")`
+
+> `@Html.Gravatar().ImageUrl().Email("prokhor.ozornin@yandex.ru").Extension("jpg").ForceDefault().Size(320)`
+
+> Render Gravatar's user profile URL.
+
+> `@Html.Gravatar().ProfileUrl().Email("prokhor.ozornin@yandex.ru")`
+
+> `@Html.Gravatar().ProfileUrl().Email("prokhor.ozornin@yandex.ru").Xml()`
+
 **IntenseDebate**
 
 > Render IntenseDebate comments widget
@@ -261,6 +197,18 @@ You must include `WidgetsScriptsBundles.Google` JavaScript bundle first to use b
 > Render IntenseDebate hyperlink with comments count
 
 > `@Html.IntenseDebate().Link().Account("a639ec3507d53023d4f213666651b6c2")`
+
+**LiveJournal**
+
+> Renders LiveJournal "Like" button
+
+> `@Html.LiveJournal().Like()`
+
+> Renders LiveJournal "Repost" button
+
+> `@Html.LiveJournal().Repost()`
+
+> `@Html.LiveJournal().Repost().Title("title").Text("text")`
 
 **Mail.ru**
 
@@ -278,7 +226,7 @@ You must include `WidgetsScriptsBundles.Google` JavaScript bundle first to use b
 
 > `@Html.MailRu().VideoLink().Id("i.v.sosnin62/3023/3027.html").HtmlBody("Watch Mail.ru video !")`
 
-You must include `<script src="@WidgetsScripts.MailRuLike" type="text/javascript"></script>` directive in the end of the `<body>` tag to use below widgets.
+You must include `<script src="@WidgetsScripts.MailRu" type="text/javascript"></script>` directive in the end of the `<body>` tag to use below widgets.
 
 > Render Mail.ru + Odnoklassniki.ru "Like" buttons pair
 
@@ -286,11 +234,31 @@ You must include `<script src="@WidgetsScripts.MailRuLike" type="text/javascript
 
 > `@Html.MailRu().Like().Layout(MailRuLikeButtonLayout.Second).HasText(false).CounterPosition(MailRuLikeButtonCounterPosition.Upper).Size(30)`
 
+> Renders Mail.ru Faces (People On Site) widget.
+
+> `@Html.MailRu().Faces().Domain("mail.ru").Width(640).Height(480)`
+
+> `@Html.MailRu().Faces().Domain("mail.ru").Width(640).Height(480).Font(MailRuFacesFont.Tahoma).ShowTitle(false).BackgroundColor("aaffaa").HyperlinkColor("ffaaff").BorderColor("aaaaaa")`
+
+> Renders Mail.ru Group (People In Group) widget.
+
+> `@Html.MailRu().Groups().Account("mail_ru").Width(640).Height(480)`
+
+> `@Html.MailRu().Groups().Account("mail_ru").Width(640).Height(480).BackgroundColor("aaffaa").ButtonColor("ffaaff").Subscribers(false).TextColor("aaaadd")`
+
 **RuTube**
 
 > Render RuTube embedded video
 
 > `@Html.RuTube().Video().Id("6785018").Height("480").Width("640")`
+
+**SoundCloud**
+
+> Renders SoundCloud user's profile icon
+
+> `@Html.SoundCloud().ProfileIcon().Account("prokhor-ozornin")`
+
+> `@Html.SoundCloud().ProfileIcon().Account("prokhor-ozornin").BlackWhite().Size(SoundCloudProfileIconSize.Size64)`
 
 **Surfingbird**
 
@@ -356,7 +324,7 @@ You must include `<script src="@WidgetsScripts.Vkontakte" type="text/javascript"
 
 > `@Html.Vkontakte().Initialize().ApiId("3816272")`
 
-You must include `<script src="@WidgetsScripts.Vkontakte" type="text/javascript"></script>` directive in the `<head>` tag to use below widgets, as well as make a call to `@Html.Vkontakte().Initialize()` method.
+You must include `<script src="@WidgetsScripts.VKontakte" type="text/javascript"></script>` directive in the `<head>` tag to use below widgets, as well as make a call to `@Html.Vkontakte().Initialize()` method.
 
 > Render VKontakte comments widget
 

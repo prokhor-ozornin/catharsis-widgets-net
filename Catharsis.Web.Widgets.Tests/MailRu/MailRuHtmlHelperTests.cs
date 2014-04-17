@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   {
     private readonly HtmlHelper html = new MockHtmlHelper();
 
-    /*/// <summary>
+    /// <summary>
     ///   <para>Performs testing of <see cref="MailRuHtmlHelper.Faces()"/> method.</para>
     /// </summary>
     [Fact]
@@ -28,7 +28,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.False(ReferenceEquals(this.html.MailRu().Groups(), this.html.MailRu().Groups()));
       Assert.True(this.html.MailRu().Groups() is MailRuGroupsWidget);
-    }*/
+    }
 
     /// <summary>
     ///   <para>Performs testing of <see cref="MailRuHtmlHelper.Icq()"/> method.</para>

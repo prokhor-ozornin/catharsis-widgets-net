@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Catharsis.Commons;
 using Xunit;
@@ -176,15 +175,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookRecommendationsFeedWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookRecommendationsFeedWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new FacebookRecommendationsFeedWidget().Write(null));
-
-      Assert.Equal(@"<div class=""fb-recommendations""></div>", new StringWriter().With(writer => new FacebookRecommendationsFeedWidget().Write(writer)).ToString());
-      Assert.Equal(@"<div class=""fb-recommendations"" data-action=""actions"" data-app-id=""appId"" data-colorscheme=""dark"" data-header=""true"" data-height=""height"" data-linktarget=""linkTarget"" data-max-age=""1"" data-ref=""trackLabel"" data-site=""domain"" data-width=""width""></div>", new StringWriter().With(writer => new FacebookRecommendationsFeedWidget().Domain("domain").AppId("appId").Actions("actions").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Header().LinkTarget("linkTarget").MaxAge(1).TrackLabel("trackLabel").Write(writer)).ToString());
+      Assert.Equal(@"<div class=""fb-recommendations""></div>", new FacebookRecommendationsFeedWidget().ToString());
+      Assert.Equal(@"<div class=""fb-recommendations"" data-action=""actions"" data-app-id=""appId"" data-colorscheme=""dark"" data-header=""true"" data-height=""height"" data-linktarget=""linkTarget"" data-max-age=""1"" data-ref=""trackLabel"" data-site=""domain"" data-width=""width""></div>", new FacebookRecommendationsFeedWidget().Domain("domain").AppId("appId").Actions("actions").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Header().LinkTarget("linkTarget").MaxAge(1).TrackLabel("trackLabel").ToString());
     }
   }
 }

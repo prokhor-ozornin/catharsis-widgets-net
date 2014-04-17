@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -71,35 +70,26 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IntenseDebateLinkWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="IntenseDebateLinkWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new IntenseDebateLinkWidget().Write(null));
+      Assert.Equal(string.Empty, new IntenseDebateLinkWidget().ToString());
 
-      Assert.True(new StringWriter().With(writer => new IntenseDebateLinkWidget().Write(writer)).ToString().IsEmpty());
+      var html = new IntenseDebateLinkWidget().Account("account").ToString();
+      Assert.True(html.Contains(@"<script type=""text/javascript"">"));
+      Assert.True(html.Contains(@"var idcomments_acct = ""account"";"));
+      Assert.True(html.Contains(@"var idcomments_post_id = """""));
+      Assert.True(html.Contains(@"var idcomments_post_url = """""));
+      Assert.True(html.Contains(@"var idcomments_post_title = """""));
 
-      new StringWriter().With(writer =>
-      {
-        new IntenseDebateLinkWidget().Account("account").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-        Assert.True(html.Contains(@"var idcomments_acct = ""account"";"));
-        Assert.True(html.Contains(@"var idcomments_post_id = """""));
-        Assert.True(html.Contains(@"var idcomments_post_url = """""));
-        Assert.True(html.Contains(@"var idcomments_post_title = """""));
-      });
-      new StringWriter().With(writer =>
-      {
-        new IntenseDebateLinkWidget().Account("account").PostId("postId").PostUrl("postUrl").PostTitle("postTitle").Write(writer);
-        var html = writer.ToString();
-        Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-        Assert.True(html.Contains(@"var idcomments_acct = ""account"";"));
-        Assert.True(html.Contains(@"var idcomments_post_id = ""postId"""));
-        Assert.True(html.Contains(@"var idcomments_post_url = ""postUrl"""));
-        Assert.True(html.Contains(@"var idcomments_post_title = ""postTitle"""));
-      });
+      html = new IntenseDebateLinkWidget().Account("account").PostId("postId").PostUrl("postUrl").PostTitle("postTitle").ToString();
+      Assert.True(html.Contains(@"<script type=""text/javascript"">"));
+      Assert.True(html.Contains(@"var idcomments_acct = ""account"";"));
+      Assert.True(html.Contains(@"var idcomments_post_id = ""postId"""));
+      Assert.True(html.Contains(@"var idcomments_post_url = ""postUrl"""));
+      Assert.True(html.Contains(@"var idcomments_post_title = ""postTitle"""));
     }
   }
 }

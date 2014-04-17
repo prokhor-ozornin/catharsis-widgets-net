@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/send-button"/>
-  public sealed class FacebookSendButtonWidget : HtmlWidgetBase, IFacebookSendButtonWidget
+  public class FacebookSendButtonWidget : HtmlWidgetBase, IFacebookSendButtonWidget
   {
     private string url;
     private string width;
@@ -105,21 +105,20 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
-      writer.Write(this.ToTag("div", tag => tag
+      return new TagBuilder("div")
         .Attribute("data-href", this.url)
         .Attribute("data-colorscheme", this.colorScheme)
         .Attribute("data-kid-directed-site", this.kids)
         .Attribute("data-width", this.width)
         .Attribute("data-height", this.height)
         .Attribute("data-ref", this.trackLabel)
-        .AddCssClass("fb-send")));
+        .CssClass("fb-send")
+        .ToString();
     }
   }
 }

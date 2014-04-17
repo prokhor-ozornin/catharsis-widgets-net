@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -37,15 +36,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="CackleCommentsCountWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="CackleCommentsCountWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new CackleCommentsCountWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new CackleCommentsCountWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new CackleCommentsCountWidget().Account("account").Write(writer)).ToString().Contains(@"{""widget"":""CommentCount"",""id"":""account""}"));
+      Assert.Equal(string.Empty, new CackleCommentsCountWidget().ToString());
+      Assert.True(new CackleCommentsCountWidget().Account("account").ToString().Contains(@"{""widget"":""CommentCount"",""id"":""account""}"));
     }
   }
 }

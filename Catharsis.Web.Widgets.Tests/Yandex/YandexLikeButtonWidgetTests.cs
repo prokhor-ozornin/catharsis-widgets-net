@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -101,15 +100,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YandexLikeButtonWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YandexLikeButtonWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new YandexLikeButtonWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new YandexLikeButtonWidget().Write(writer)).ToString().Contains(@"<a name=""ya-share"" size=""large"" type=""button""></a>"));
-      Assert.True(new StringWriter().With(writer => new YandexLikeButtonWidget().Layout("icon").Size("small").Text("text").Url("url").Title("title").Write(writer)).ToString().Contains(@"<a name=""ya-share"" share_text=""text"" share_title=""title"" share_url=""url"" size=""small"" type=""icon""></a>"));
+      Assert.True(new YandexLikeButtonWidget().ToString().Contains(@"<a name=""ya-share"" size=""large"" type=""button""></a>"));
+      Assert.True(new YandexLikeButtonWidget().Layout("icon").Size("small").Text("text").Url("url").Title("title").ToString().Contains(@"<a name=""ya-share"" share_text=""text"" share_title=""title"" share_url=""url"" size=""small"" type=""icon""></a>"));
     }
   }
 }

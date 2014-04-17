@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -131,15 +130,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="GooglePlusOneButtonWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="GooglePlusOneButtonWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new GooglePlusOneButtonWidget().Write(null));
-
-      Assert.Equal("<g:plusone></g:plusone>", new StringWriter().With(writer => new GooglePlusOneButtonWidget().Write(writer)).ToString());
-      Assert.Equal(@"<g:plusone align=""left"" annotation=""none"" data-callback=""callback"" data-recommendations=""true"" href=""url"" size=""small"" width=""width""></g:plusone>", new StringWriter().With(writer => new GooglePlusOneButtonWidget().Url("url").Size(GooglePlusOneButtonSize.Small).Annotation(GooglePlusOneButtonAnnotation.None).Width("width").Alignment(GooglePlusOneButtonAlignment.Left).Callback("callback").Recommendations().Write(writer)).ToString());
+      Assert.Equal("<g:plusone></g:plusone>", new GooglePlusOneButtonWidget().ToString());
+      Assert.Equal(@"<g:plusone align=""left"" annotation=""none"" data-callback=""callback"" data-recommendations=""true"" href=""url"" size=""small"" width=""width""></g:plusone>", new GooglePlusOneButtonWidget().Url("url").Size(GooglePlusOneButtonSize.Small).Annotation(GooglePlusOneButtonAnnotation.None).Width("width").Alignment(GooglePlusOneButtonAlignment.Left).Callback("callback").Recommendations().ToString());
     }
   }
 }

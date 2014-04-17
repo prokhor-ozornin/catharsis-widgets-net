@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -67,18 +66,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="RuTubeVideoWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="RuTubeVideoWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new RuTubeVideoWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new RuTubeVideoWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new RuTubeVideoWidget().Id("id").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new RuTubeVideoWidget().Id("id").Width("width").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new RuTubeVideoWidget().Height("height").Width("width").Write(writer)).ToString().IsEmpty());
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" scrolling=""no"" src=""http://rutube.ru/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new RuTubeVideoWidget().Id("id").Height("height").Width("width").Write(writer)).ToString());
+      Assert.Equal(string.Empty, new RuTubeVideoWidget().ToString());
+      Assert.Equal(string.Empty, new RuTubeVideoWidget().Id("id").Height("height").ToString());
+      Assert.Equal(string.Empty, new RuTubeVideoWidget().Id("id").Width("width").ToString());
+      Assert.Equal(string.Empty, new RuTubeVideoWidget().Height("height").Width("width").ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" scrolling=""no"" src=""http://rutube.ru/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new RuTubeVideoWidget().Id("id").Height("height").Width("width").ToString());
     }
   }
 }

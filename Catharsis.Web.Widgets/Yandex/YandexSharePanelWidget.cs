@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading;
 using System.Web;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Yandex social "Share" button.</para>
   /// </summary>
-  public sealed class YandexSharePanelWidget : HtmlWidgetBase, IYandexSharePanelWidget
+  public class YandexSharePanelWidget : HtmlWidgetBase, IYandexSharePanelWidget
   {
     private string language;
     private string layout = YandexSharePanelLayout.Button.ToString().ToLowerInvariant();
@@ -61,18 +61,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
-      writer.Write(this.ToTag("div", tag => tag
+      return new TagBuilder("div")
         .Attribute("data-yashareL10n", this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
         .Attribute("data-yashareType", this.layout)
         .Attribute("data-yashareQuickServices", this.services.Join(","))
-        .AddCssClass("yashare-auto-init")));
+        .CssClass("yashare-auto-init")
+        .ToString();
     }
   }
 }

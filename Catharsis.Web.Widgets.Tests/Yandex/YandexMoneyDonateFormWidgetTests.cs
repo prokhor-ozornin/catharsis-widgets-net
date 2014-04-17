@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -205,18 +204,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YandexMoneyDonateFormWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YandexMoneyDonateFormWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new YandexMoneyDonateFormWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new YandexMoneyDonateFormWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YandexMoneyDonateFormWidget().Description("description").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YandexMoneyDonateFormWidget().Account("account").Write(writer)).ToString().IsEmpty());
-      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""133"" scrolling=""no"" src=""https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;payment-type-choice=on&amp;default-sum=&amp;targets=description&amp;project-name=&amp;project-site=&amp;button-text=01"" width=""523""></iframe>", new StringWriter().With(writer => new YandexMoneyDonateFormWidget().Account("account").Description("description").Write(writer)).ToString());
-      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""210"" scrolling=""no"" src=""https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;default-sum=1&amp;targets=description&amp;target-visibility=on&amp;project-name=projectName&amp;project-site=projectSite&amp;button-text=03&amp;comment=on&amp;hint=payerCommentHint&amp;fio=on&amp;mail=on&amp;phone=on"" width=""426""></iframe>", new StringWriter().With(writer => new YandexMoneyDonateFormWidget().Account("account").Description("description").ShowDescription().Sum(1).Cards(false).Text(YandexMoneyDonateFormText.Transfer).ProjectName("projectName").ProjectSite("projectSite").PayerComment().PayerCommentHint("payerCommentHint").PayerFullName().PayerEmail().PayerPhone().Write(writer)).ToString());
+      Assert.Equal(string.Empty, new YandexMoneyDonateFormWidget().ToString());
+      Assert.Equal(string.Empty, new YandexMoneyDonateFormWidget().Description("description").ToString());
+      Assert.Equal(string.Empty, new YandexMoneyDonateFormWidget().Account("account").ToString());
+      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""133"" scrolling=""no"" src=""https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;payment-type-choice=on&amp;default-sum=&amp;targets=description&amp;project-name=&amp;project-site=&amp;button-text=01"" width=""523""></iframe>", new YandexMoneyDonateFormWidget().Account("account").Description("description").ToString());
+      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""210"" scrolling=""no"" src=""https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;default-sum=1&amp;targets=description&amp;target-visibility=on&amp;project-name=projectName&amp;project-site=projectSite&amp;button-text=03&amp;comment=on&amp;hint=payerCommentHint&amp;fio=on&amp;mail=on&amp;phone=on"" width=""426""></iframe>", new YandexMoneyDonateFormWidget().Account("account").Description("description").ShowDescription().Sum(1).Cards(false).Text(YandexMoneyDonateFormText.Transfer).ProjectName("projectName").ProjectSite("projectSite").PayerComment().PayerCommentHint("payerCommentHint").PayerFullName().PayerEmail().PayerPhone().ToString());
     }
   }
 }

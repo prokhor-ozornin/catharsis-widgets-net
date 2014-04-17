@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -130,15 +129,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="SurfingbirdSurfButtonWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="SurfingbirdSurfButtonWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Write(null));
-
-      Assert.Equal(@"<a class=""surfinbird__like_button"" data-surf-config=""{&quot;layout&quot;:&quot;common-nocount&quot;}"" href=""http://surfingbird.ru/share"" target=""_blank"">Surf</a>", new StringWriter().With(writer => new SurfingbirdSurfButtonWidget().Write(writer)).ToString());
-      Assert.Equal(@"<a class=""surfinbird__like_button"" data-surf-config=""{&quot;layout&quot;:&quot;common-blue&quot;,&quot;url&quot;:&quot;url&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;}"" href=""http://surfingbird.ru/share"" target=""_blank"">Share</a>", new StringWriter().With(writer => new SurfingbirdSurfButtonWidget().Color(SurfingbirdSurfButtonColor.Blue).Counter().Label("Share").Url("url").Layout(SurfingbirdSurfButtonLayout.Common).Width("width").Height("height").Write(writer)).ToString());
+      Assert.Equal(@"<a class=""surfinbird__like_button"" data-surf-config=""{&quot;layout&quot;:&quot;common-nocount&quot;}"" href=""http://surfingbird.ru/share"" target=""_blank"">Surf</a>", new SurfingbirdSurfButtonWidget().ToString());
+      Assert.Equal(@"<a class=""surfinbird__like_button"" data-surf-config=""{&quot;layout&quot;:&quot;common-blue&quot;,&quot;url&quot;:&quot;url&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;}"" href=""http://surfingbird.ru/share"" target=""_blank"">Share</a>", new SurfingbirdSurfButtonWidget().Color(SurfingbirdSurfButtonColor.Blue).Counter().Label("Share").Url("url").Layout(SurfingbirdSurfButtonLayout.Common).Width("width").Height("height").ToString());
     }
   }
 }

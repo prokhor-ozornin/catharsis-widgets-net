@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -85,19 +84,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YandexVideoWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YandexVideoWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new YandexVideoWidget().Write(null));
-
-      Assert.True(new StringWriter().With(writer => new YandexVideoWidget().Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YandexVideoWidget().Id("id").User("user").Width("width").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YandexVideoWidget().Id("id").User("user").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YandexVideoWidget().Id("id").Width("width").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new YandexVideoWidget().User("user").Width("width").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://video.yandex.ru/iframe/user/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new YandexVideoWidget().Id("id").Height("height").Width("width").User("user").Write(writer)).ToString());
+      Assert.Equal(string.Empty, new YandexVideoWidget().ToString());
+      Assert.Equal(string.Empty, new YandexVideoWidget().Id("id").User("user").Width("width").ToString());
+      Assert.Equal(string.Empty, new YandexVideoWidget().Id("id").User("user").Height("height").ToString());
+      Assert.Equal(string.Empty, new YandexVideoWidget().Id("id").Width("width").Height("height").ToString());
+      Assert.Equal(string.Empty, new YandexVideoWidget().User("user").Width("width").Height("height").ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://video.yandex.ru/iframe/user/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new YandexVideoWidget().Id("id").Height("height").Width("width").User("user").ToString());
     }
   }
 }

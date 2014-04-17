@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -69,19 +68,17 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookVideoWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookVideoWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Write_Method()
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new FacebookVideoWidget().Write(null));
+      Assert.Equal(string.Empty, new FacebookVideoWidget().ToString());
+      Assert.Equal(string.Empty, new FacebookVideoWidget().Id("id").Width("width").ToString());
+      Assert.Equal(string.Empty, new FacebookVideoWidget().Id("id").Height("height").ToString());
+      Assert.Equal(string.Empty, new FacebookVideoWidget().Id("width").Height("height").ToString());
 
-      Assert.True(new StringWriter().With(new FacebookVideoWidget().Write).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new FacebookVideoWidget().Id("id").Width("width").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new FacebookVideoWidget().Id("id").Height("height").Write(writer)).ToString().IsEmpty());
-      Assert.True(new StringWriter().With(writer => new FacebookVideoWidget().Id("width").Height("height").Write(writer)).ToString().IsEmpty());
-
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://www.facebook.com/video/embed?video_id=id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new StringWriter().With(writer => new FacebookVideoWidget().Id("id").Width("width").Height("height").Write(writer)).ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://www.facebook.com/video/embed?video_id=id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new FacebookVideoWidget().Id("id").Width("width").Height("height").ToString());
     }
   }
 }

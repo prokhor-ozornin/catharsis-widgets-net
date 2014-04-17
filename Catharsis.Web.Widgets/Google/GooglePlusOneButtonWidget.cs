@@ -1,5 +1,5 @@
 using System;
-using System.IO;
+using System.Web.Mvc;
 using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScriptsBundles.Cackle"/> scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="https://developers.google.com/+/web/+1button/?hl=en"/>
-  public sealed class GooglePlusOneButtonWidget : HtmlWidgetBase, IGooglePlusOneButtonWidget
+  public class GooglePlusOneButtonWidget : HtmlWidgetBase, IGooglePlusOneButtonWidget
   {
     private string url;
     private string width;
@@ -121,21 +121,20 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
+    ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
-      writer.Write(this.ToTag("g:plusone", tag => tag
+      return new TagBuilder("g:plusone")
         .Attribute("href", this.url)
         .Attribute("size", this.size)
         .Attribute("annotation", this.annotation)
         .Attribute("width", this.width)
         .Attribute("align", this.alignment)
         .Attribute("data-callback", this.callback)
-        .Attribute("data-recommendations", this.recommendations)));
+        .Attribute("data-recommendations", this.recommendations)
+        .ToString();
     }
   }
 }

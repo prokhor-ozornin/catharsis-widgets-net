@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Mail.ru "Like" button on web page.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.MailRuLike"/> script to be included.</para>
+  ///   <para>Requires <see cref="WidgetsScripts.MailRu"/> script to be included.</para>
   /// </summary>
   /// <seealso cref="http://api.mail.ru/sites/plugins/share"/>
   public interface IMailRuLikeButtonWidget : IHtmlWidget
