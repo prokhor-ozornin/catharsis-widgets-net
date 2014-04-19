@@ -1,5 +1,4 @@
-using System.IO;
-using Catharsis.Commons;
+using System;
 
 namespace Catharsis.Web.Widgets
 {
@@ -20,21 +19,25 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
-    public override void Write(TextWriter writer)
+    /// <summary>
+    ///   <para>Returns HTML markup text of widget.</para>
+    /// </summary>
+    /// <returns>Widget's HTML markup.</returns>
+    public override string ToHtmlString()
     {
-      Assertion.NotNull(writer);
-
-      writer.Write(this.ToTag("div", tag => tag.AddCssClass("share42init")));
+      /*writer.Write(this.ToTag("div", tag => tag.AddCssClass("share42init")));
       switch (this.direction)
       {
-        case Share42PanelDirection.Vertical :
+        case Share42PanelDirection.Vertical:
           //writer.Write(this.JavaScript(resources.share42_panel_vertical.FormatValue(this.size)));
-        break;
+          break;
 
-        default :
+        default:
           //writer.Write(this.JavaScript(resources.share42_panel_horizontal.FormatValue(this.size)));
-        break;
-      }
+          break;
+      }*/
+
+      throw new NotImplementedException();
     }
   }
 }

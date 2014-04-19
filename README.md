@@ -6,9 +6,15 @@ Web widgets are implemented as C# POCO objects that implement `System.Web.IHtmlS
 
 ***
 
-This project requires your support. Please donate !
+**Support**
 
-[![Image](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=APHM8MU9N76V8 "Donate")
+This project needs your support ! Please donate.
+
+- _Yandex.Money_ : 41001577953208
+
+- _WebMoney (WMR)_ : R399275865890
+
+[image:Donate|https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif|https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=APHM8MU9N76V8]
 
 ***
 
@@ -246,6 +252,38 @@ You must include `<script src="@WidgetsScripts.MailRu" type="text/javascript"></
 
 > `@Html.MailRu().Groups().Account("mail_ru").Width(640).Height(480).BackgroundColor("aaffaa").ButtonColor("ffaaff").Subscribers(false).TextColor("aaaadd")`
 
+**Pinterest**
+
+You must include `<script src="@WidgetsScripts.Pinterest" type="text/javascript"></script>` directive in the end of the `<body>` tag to use below widgets.
+
+> Renders Pinterest "Follow Me" button
+
+> `@Html.Pinterest().FollowButton().Account("pinterest")`
+
+> `@Html.Pinterest().FollowButton().Account("pinterest").Label("Pinterest")`
+
+> Renders Pinterest embedded pin widget.
+
+> `@Html.Pinterest().Pin().Id("99360735500167749")`
+
+> Renders Pinterest Board widget with latest pins.
+
+> `@Html.Pinterest().Board().Account("pinterest").Id("pin-pets")`
+
+> `@Html.Pinterest().Board().Account("pinterest").Id("pin-pets").Sidebar()`
+
+> Renders Pinterest Profile widget with user's latest pins.
+
+> `@Html.Pinterest().Profile().Account("pinterest")`
+
+> `@Html.Pinterest().Profile().Account("pinterest").Sidebar()`
+
+> Renders Pinterest "Pin It" button widget.
+
+> `@Html.Pinterest().PinItButton().Url("http://www.flickr.com/photos/kentbrew/6851755809").Image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg").Description("Next stop: Pinterest")`
+
+> `@Html.Pinterest().PinItButton().Url("http://www.flickr.com/photos/kentbrew/6851755809").Image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg").Description("Next stop: Pinterest").CounterPosition(PinterestPinItButtonPinCountPosition.None).Size(PinterestPinItButtonSize.Large).Red().Shape(PinterestPinItButtonShape.Rectangular).Language("ja")`
+
 **RuTube**
 
 > Render RuTube embedded video
@@ -307,10 +345,6 @@ You must include `WidgetsScriptsBundles.Twitter` JavaScript bundle first to use 
 > Render Vimeo embedded video
 
 > `@Html.Vimeo().Video().Id("55456906").Width("640").Height("480")`
-
-> Render Vimeo video hyperlink
-
-> `@Html.Vimeo().VideoLink().Id("55456906").HtmlBody("Watch Vimeo video!")`
 
 **VKontakte**
 

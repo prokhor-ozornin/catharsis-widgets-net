@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Catharsis.Commons;
 using Xunit;
 
@@ -47,14 +46,12 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="Share42PanelWidget.Write(TextWriter)"/> method.</para>
+    ///   <para>Performs testing of <see cref="Share42PanelWidget.ToHtmlString()"/> method.</para>
     /// </summary>
-    [Fact(Skip = "Will be impleted once Share42 widget is completed")]
-    public void Write_Method()
+    [Fact]
+    public void ToHtmlString_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new Share42PanelWidget().Write(null));
-
-      new StringWriter().With(writer =>
+      /*new StringWriter().With(writer =>
       {
         new Share42PanelWidget().Write(writer);
         var html = writer.ToString();
@@ -64,6 +61,9 @@ namespace Catharsis.Web.Widgets
         Assert.True(html.Contains("width:24px;height:24px"));
       });
       Assert.True(new StringWriter().With(writer => new Share42PanelWidget().Direction(Share42PanelDirection.Horizontal).Size(Share42PanelSize.Size16).Write(writer)).ToString().Contains("width:16px;height:16px"));
+      */
+
+      throw new NotImplementedException();
     }
   }
 }
