@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for itnerface <see cref="IYouTubeHtmlHelper"/>.</para>
-  ///   <seealso cref="IYouTubeHtmlHelper"/>
   /// </summary>
+  /// <seealso cref="IYouTubeHtmlHelper"/>
   public static class IYouTubeHtmlHelperExtensions
   {
     /// <summary>

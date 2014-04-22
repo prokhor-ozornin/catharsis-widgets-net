@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Tumblr "Share" button.</para>
   ///   <para>Requires <see cref="WidgetsScripts.TumblrShare"/> scripts bundle to be included.</para>
-  ///   <seealso cref="http://www.tumblr.com/buttons"/>
   /// </summary>
+  /// <seealso cref="http://www.tumblr.com/buttons"/>
   public interface ITumblrShareButtonWidget : IHtmlWidget
   {
     /// <summary>

@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders VKontakte community widget.</para>
   ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
-  ///   <seealso cref="http://vk.com/dev/Community"/>
   /// </summary>
+  /// <seealso cref="http://vk.com/dev/Community"/>
   public interface IVkontakteCommunityWidget : IHtmlWidget
   {
     /// <summary>

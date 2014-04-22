@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="ISurfingbirdSurfButtonWidget"/>.</para>
-  ///   <seealso cref="ISurfingbirdSurfButtonWidget"/>
   /// </summary>
+  /// <seealso cref="ISurfingbirdSurfButtonWidget"/>
   public static class ISurfingbirdSurfButtonWidgetExtensions
   {
     /// <summary>

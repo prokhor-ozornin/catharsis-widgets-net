@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="ITumblrHtmlHelper"/>.</para>
-  ///   <seealso cref="ITumblrHtmlHelper"/>
   /// </summary>
+  /// <seealso cref="ITumblrHtmlHelper"/>
   public static class ITumblrHtmlHelperExtensions
   {
     /// <summary>

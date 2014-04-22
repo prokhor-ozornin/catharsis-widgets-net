@@ -94,7 +94,6 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
-    /// <remarks>This attribute is required.</remarks>
     public IFacebookLikeButtonWidget Url(string url)
     {
       Assertion.NotEmpty(url);
@@ -139,11 +138,6 @@ namespace Catharsis.Web.Widgets
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.url.IsEmpty())
-      {
-        return string.Empty;
-      }
-
       return new TagBuilder("div")
         .Attribute("data-action", this.verb)
         .Attribute("data-layout", this.layout)

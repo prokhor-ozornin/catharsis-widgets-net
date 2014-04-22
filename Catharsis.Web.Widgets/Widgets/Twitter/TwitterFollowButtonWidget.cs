@@ -8,9 +8,9 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Twitter "Follow" button.</para>
-  ///   <para>Requires <see cref="WidgetsScriptsBundles.Twitter"/> scripts bundle to be included.</para>
-  ///   <seealso cref="https://dev.twitter.com/docs/follow-button"/>
+  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Twitter"/> scripts bundle to be included.</para>
   /// </summary>
+  /// <seealso cref="https://dev.twitter.com/docs/follow-button"/>
   public class TwitterFollowButtonWidget : HtmlWidgetBase, ITwitterFollowButtonWidget
   {
     private string account;

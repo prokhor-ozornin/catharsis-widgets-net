@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Google "+1" button.</para>
-  ///   <para>Requires <see cref="WidgetsScriptsBundles.Cackle"/> scripts bundle to be included.</para>
+  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Cackle"/> scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="https://developers.google.com/+/web/+1button"/>
   public interface IGooglePlusOneButtonWidget : IHtmlWidget

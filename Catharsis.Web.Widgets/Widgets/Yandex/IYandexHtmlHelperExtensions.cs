@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IYandexHtmlHelper"/>.</para>
-  ///   <seealso cref="IYandexHtmlHelper"/>
   /// </summary>
+  /// <seealso cref="IYandexHtmlHelper"/>
   public static class IYandexHtmlHelperExtensions
   {
     /// <summary>

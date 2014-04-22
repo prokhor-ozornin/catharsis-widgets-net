@@ -7,8 +7,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IVideoJSPlayerWidget"/>.</para>
-  ///   <seealso cref="IVideoJSPlayerWidget"/>
   /// </summary>
+  /// <seealso cref="IVideoJSPlayerWidget"/>
   public static class IVideoJSPlayerWidgetExtensions
   {
     /// <summary>

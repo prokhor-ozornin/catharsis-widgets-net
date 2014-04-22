@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IMailRuLikeButtonWidget"/>.</para>
-  ///   <seealso cref="IMailRuLikeButtonWidget"/>
   /// </summary>
+  /// <seealso cref="IMailRuLikeButtonWidget"/>
   public static class IMailRuLikeButtonWidgetExtensions
   {
     /// <summary>

@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="ISurfingbirdHtmlHelper"/>.</para>
-  ///   <seealso cref="ISurfingbirdHtmlHelper"/>
   /// </summary>
+  /// <seealso cref="ISurfingbirdHtmlHelper"/>
   public static class ISurfingbirdHtmlHelperExtensions
   {
     /// <summary>

@@ -103,8 +103,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Widgets\IWidgetsStylesRenderer.cs" />
+    <Compile Include="Widgets\IWidgetsScriptsRenderer.cs" />
+    <Compile Include="Widgets\WebWidgetsScripts.cs" />
+    <Compile Include="Widgets\WebWidgetsStyles.cs" />
     <Compile Include="Widgets\Cackle\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Cackle\IWidgetsScriptsRendererExtensions.cs" />
     <Compile Include="Widgets\Disqus\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Disqus\IWidgetsScriptsRendererExtensions.cs" />
     <Compile Include="Widgets\Facebook\FacebookActivityFeedWidget.cs" />
     <Compile Include="Widgets\Facebook\FacebookCommentsOrder.cs" />
     <Compile Include="Widgets\Facebook\FacebookCommentsWidget.cs" />
@@ -130,6 +136,7 @@
     <Compile Include="Widgets\Facebook\IFacebookRecommendationsFeedWidgetExtensions.cs" />
     <Compile Include="Widgets\Facebook\IFacebookSendButtonWidget.cs" />
     <Compile Include="Widgets\Facebook\IFacebookSendButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Google\IWidgetsScriptsRendererExtensions.cs" />
     <Compile Include="Widgets\Gravatar\GravatarDefaultImage.cs" />
     <Compile Include="Widgets\Gravatar\GravatarHtmlHelper.cs" />
     <Compile Include="Widgets\Gravatar\GravatarImageRating.cs" />
@@ -158,6 +165,7 @@
     <Compile Include="Widgets\MailRu\IMailRuFacesWidgetExtensions.cs" />
     <Compile Include="Widgets\MailRu\IMailRuGroupsWidget.cs" />
     <Compile Include="Widgets\MailRu\IMailRuGroupsWidgetExtensions.cs" />
+    <Compile Include="Widgets\MailRu\IWidgetsScriptsRendererExtensions.cs" />
     <Compile Include="Widgets\MailRu\MailRuFacesFont.cs" />
     <Compile Include="Widgets\MailRu\MailRuFacesWidget.cs" />
     <Compile Include="Widgets\MailRu\MailRuGroupsWidget.cs" />
@@ -172,6 +180,7 @@
     <Compile Include="Widgets\Pinterest\IPinterestPinWidget.cs" />
     <Compile Include="Widgets\Pinterest\IPinterestProfileWidget.cs" />
     <Compile Include="Widgets\Pinterest\IPinterestProfileWidgetExtensions.cs" />
+    <Compile Include="Widgets\Pinterest\IWidgetsScriptsRendererExtensions.cs" />
     <Compile Include="Widgets\Pinterest\PinterestBoardWidget.cs" />
     <Compile Include="Widgets\Pinterest\PinterestFollowButtonWidget.cs" />
     <Compile Include="Widgets\Pinterest\PinterestHtmlHelper.cs" />
@@ -191,17 +200,24 @@
     <Compile Include="Widgets\SoundCloud\SoundCloudProfileIconSize.cs" />
     <Compile Include="Widgets\SoundCloud\SoundCloudProfileIconWidget.cs" />
     <Compile Include="Widgets\Surfingbird\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Surfingbird\IWidgetsScriptsRendererExtensions.cs" />
     <Compile Include="Widgets\Tumblr\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Tumblr\IWidgetsScriptsRendererExtensions.cs" />
     <Compile Include="Widgets\Twitter\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Twitter\IWidgetsScriptsRendererExtensions.cs" />
     <Compile Include="Widgets\VideoJS\HtmlHelperExtensions.cs" />
     <Compile Include="Widgets\VideoJS\IVideoJSHtmlHelper.cs" />
     <Compile Include="Widgets\VideoJS\IVideoJSHtmlHelperExtensions.cs" />
     <Compile Include="Widgets\VideoJS\IVideoJSPlayerWidget.cs" />
     <Compile Include="IMediaSource.cs" />
     <Compile Include="Widgets\VideoJS\IVideoJSPlayerWidgetExtensions.cs" />
+    <Compile Include="Widgets\VideoJS\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\VideoJS\IWidgetsStylesRendererExtensions.cs" />
     <Compile Include="Widgets\Vimeo\HtmlHelperExtensions.cs" />
     <Compile Include="Widgets\Vkontakte\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IWidgetsScriptsRendererExtensions.cs" />
     <Compile Include="Widgets\Yandex\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Yandex\IWidgetsScriptsRendererExtensions.cs" />
     <Compile Include="Widgets\Yandex\IYandexMoneyButtonWidget.cs" />
     <Compile Include="Widgets\Yandex\IYandexMoneyButtonWidgetExtensions.cs" />
     <Compile Include="Widgets\Yandex\IYandexMoneyDonateFormWidget.cs" />
@@ -212,7 +228,7 @@
     <Compile Include="Widgets\VideoJS\VideoJSHtmlHelper.cs" />
     <Compile Include="Widgets\VideoJS\VideoJSPlayerWidget.cs" />
     <Compile Include="MediaSource.cs" />
-    <Compile Include="Widgets\WidgetsBundleConfig.cs" />
+    <Compile Include="Widgets\WebWidgetsBundleConfig.cs" />
     <Compile Include="Widgets\Cackle\CackleCommentsCountWidget.cs" />
     <Compile Include="Widgets\Cackle\CackleCommentsWidget.cs" />
     <Compile Include="Widgets\Cackle\CackleHtmlHelper.cs" />
@@ -381,9 +397,6 @@
     <Compile Include="Widgets\Vkontakte\VkontakteSubscribeButtonLayout.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteSubscriptionWidget.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteVideoWidget.cs" />
-    <Compile Include="Widgets\WidgetsStyles.cs" />
-    <Compile Include="Widgets\WidgetsScripts.cs" />
-    <Compile Include="Widgets\WidgetsScriptsBundles.cs" />
     <Compile Include="Widgets\Yandex\YandexAnalyticsWidget.cs" />
     <Compile Include="Widgets\Yandex\YandexHtmlHelper.cs" />
     <Compile Include="Widgets\Yandex\YandexMoneyButtonColor.cs" />
@@ -407,12 +420,11 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Scripts\widgets\cackle.js" />
-    <Content Include="Scripts\widgets\disqus.js" />
-    <Content Include="Scripts\widgets\facebook.js" />
-    <Content Include="Scripts\widgets\google_analytics.js" />
-    <Content Include="Scripts\widgets\google_plusone.js" />
-    <Content Include="Scripts\widgets\twitter_initialize.js" />
+    <Content Include="Scripts\WebWidgets\cackle.js" />
+    <Content Include="Scripts\WebWidgets\disqus.js" />
+    <Content Include="Scripts\WebWidgets\google_analytics.js" />
+    <Content Include="Scripts\WebWidgets\google_plusone.js" />
+    <Content Include="Scripts\WebWidgets\twitter_initialize.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="resources.resx">

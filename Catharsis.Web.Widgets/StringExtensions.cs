@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for class <see cref="string"/>.</para>
-  ///   <seealso cref="string"/>
   /// </summary>
+  /// <seealso cref="string"/>
   public static class StringExtensions
   {
     /// <summary>

@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Cackle latest comments widget for registered website.</para>
-  ///   <para>Requires <see cref="WidgetsScriptsBundles.Cackle"/> scripts bundle to be included.</para>
+  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Cackle"/> scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://ru.cackle.me/help/widget-api"/>
   public interface ICackleLatestCommentsWidget : IHtmlWidget

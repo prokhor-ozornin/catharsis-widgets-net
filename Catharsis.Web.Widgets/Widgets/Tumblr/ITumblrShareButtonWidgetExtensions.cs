@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="ITumblrShareButtonWidget"/>.</para>
-  ///   <seealso cref="ITumblrShareButtonWidget"/>
   /// </summary>
+  /// <seealso cref="ITumblrShareButtonWidget"/>
   public static class ITumblrShareButtonWidgetExtensions
   {
     /// <summary>

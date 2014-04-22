@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IVideoJSHtmlHelper"/>.</para>
-  ///   <seealso cref="IVideoJSHtmlHelper"/>
   /// </summary>
+  /// <seealso cref="IVideoJSHtmlHelper"/>
   public static class IVideoJSHtmlHelperExtensions
   {
     /// <summary>

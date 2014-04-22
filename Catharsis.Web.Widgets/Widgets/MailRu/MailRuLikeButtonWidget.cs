@@ -121,7 +121,7 @@ namespace Catharsis.Web.Widgets
       {
         config["nc"] = 1;
       }
-      else if (this.counterPosition != null && this.counterPosition.ToLowerInvariant() == MailRuLikeButtonCounterPosition.Upper.ToString().ToLowerInvariant())
+      else if (this.counterPosition != null && string.Equals(this.counterPosition, MailRuLikeButtonCounterPosition.Upper.ToString(), StringComparison.InvariantCultureIgnoreCase))
       {
         config["vt"] = 1;
       }

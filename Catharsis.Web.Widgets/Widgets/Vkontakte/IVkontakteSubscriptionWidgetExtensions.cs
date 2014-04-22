@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IVkontakteSubscriptionWidget"/>.</para>
-  ///   <seealso cref="IVkontakteSubscriptionWidget"/>
   /// </summary>
+  /// <seealso cref="IVkontakteSubscriptionWidget"/>
   public static class IVkontakteSubscriptionWidgetExtensions
   {
     /// <summary>

@@ -7,8 +7,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for class <see cref="TextWriter"/>.</para>
-  ///   <seealso cref="TextWriter"/>
   /// </summary>
+  /// <seealso cref="TextWriter"/>
   public static class TextWriterExtensions
   {
     /// <summary>

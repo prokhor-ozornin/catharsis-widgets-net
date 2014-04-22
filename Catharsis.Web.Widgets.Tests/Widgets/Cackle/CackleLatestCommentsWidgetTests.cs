@@ -18,10 +18,10 @@ namespace Catharsis.Web.Widgets
     {
       var widget = new CackleLatestCommentsWidget();
       Assert.Null(widget.Field("account"));
-      Assert.Null(widget.Field("avatarSize"));
-      Assert.Null(widget.Field("max"));
-      Assert.Null(widget.Field("textSize"));
-      Assert.Null(widget.Field("titleSize"));
+      Assert.Equal((short) 32, widget.Field("avatarSize").To<short>());
+      Assert.Equal((byte) 5, widget.Field("max").To<byte>());
+      Assert.Equal(150, widget.Field("textSize").To<int>());
+      Assert.Equal(40, widget.Field("titleSize").To<int>());
     }
 
     /// <summary>
@@ -46,7 +46,7 @@ namespace Catharsis.Web.Widgets
     public void AvatarSize_Method()
     {
       var widget = new CackleLatestCommentsWidget();
-      Assert.Null(widget.Field("avatarSize"));
+      Assert.Equal((short)32, widget.Field("avatarSize").To<short>());
       Assert.True(ReferenceEquals(widget.AvatarSize(1), widget));
       Assert.Equal(1, widget.Field("avatarSize").To<short>());
     }
@@ -58,7 +58,7 @@ namespace Catharsis.Web.Widgets
     public void Max_Method()
     {
       var widget = new CackleLatestCommentsWidget();
-      Assert.Null(widget.Field("max"));
+      Assert.Equal((byte)5, widget.Field("max").To<byte>());
       Assert.True(ReferenceEquals(widget.Max(1), widget));
       Assert.Equal(1, widget.Field("max").To<byte>());
     }
@@ -70,7 +70,7 @@ namespace Catharsis.Web.Widgets
     public void TextSize_Method()
     {
       var widget = new CackleLatestCommentsWidget();
-      Assert.Null(widget.Field("textSize"));
+      Assert.Equal(150, widget.Field("textSize").To<int>());
       Assert.True(ReferenceEquals(widget.TextSize(1), widget));
       Assert.Equal(1, widget.Field("textSize").To<int>());
     }
@@ -82,7 +82,7 @@ namespace Catharsis.Web.Widgets
     public void TitleSize_Method()
     {
       var widget = new CackleLatestCommentsWidget();
-      Assert.Null(widget.Field("titleSize"));
+      Assert.Equal(40, widget.Field("titleSize").To<int>());
       Assert.True(ReferenceEquals(widget.TitleSize(1), widget));
       Assert.Equal(1, widget.Field("titleSize").To<int>());
     }

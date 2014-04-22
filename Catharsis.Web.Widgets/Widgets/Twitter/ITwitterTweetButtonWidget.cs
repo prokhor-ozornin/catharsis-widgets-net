@@ -5,9 +5,9 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Twitter "Tweet" button.</para>
-  ///   <para>Requires <see cref="WidgetsScriptsBundles.Twitter"/> scripts bundle to be included.</para>
-  ///   <seealso cref="https://dev.twitter.com/docs/tweet-button"/>
+  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Twitter"/> scripts bundle to be included.</para>
   /// </summary>
+  /// <seealso cref="https://dev.twitter.com/docs/tweet-button"/>
   public interface ITwitterTweetButtonWidget : IHtmlWidget
   {
     /// <summary>

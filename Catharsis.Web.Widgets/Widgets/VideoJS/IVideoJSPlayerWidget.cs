@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Video.JS web player widget.</para>
   ///   <para>Requires <see cref="WidgetsScripts.VideoJS"/> script and <see cref="WidgetsStyles.VideoJS"/> style to be included.</para>
-  ///   <seealso cref="http://www.videojs.com"/>
   /// </summary>
+  /// <seealso cref="http://www.videojs.com"/>
   public interface IVideoJSPlayerWidget : IHtmlWidget
   {
     /// <summary>

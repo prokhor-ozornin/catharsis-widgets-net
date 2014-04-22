@@ -4,8 +4,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Yandex.Metrika web counter's JavaScript code.</para>
-  ///   <seealso cref="https://metrika.yandex.ru"/>
   /// </summary>
+  /// <seealso cref="https://metrika.yandex.ru"/>
   public interface IYandexAnalyticsWidget : IHtmlWidget
   {
     /// <summary>

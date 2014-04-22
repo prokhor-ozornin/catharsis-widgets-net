@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Performs initialization of Facebook JavaScript API. Initialization must be performed before rendering Facebook widgets on the page.</para>
-  ///   <para>Requires <see cref="WidgetsScriptsBundles.Facebook"/> scripts bundle to be included.</para>
+  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Facebook"/> scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/javascript"/>
   public interface IFacebookInitWidget : IHtmlWidget

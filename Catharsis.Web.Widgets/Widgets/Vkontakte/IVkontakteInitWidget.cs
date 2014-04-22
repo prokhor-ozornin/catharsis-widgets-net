@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Performs initialization of VKontakte JavaScript API. Initialization must be performed before render any VKontakte widgets on web pages.</para>
   ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
-  ///   <seealso cref="http://vk.com/dev/sites"/>
   /// </summary>
+  /// <seealso cref="http://vk.com/dev/sites"/>
   public interface IVkontakteInitWidget : IHtmlWidget
   {
     /// <summary>

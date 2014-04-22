@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IYandexLikeButtonWidget"/>.</para>
-  ///   <seealso cref="IYandexLikeButtonWidget"/>
   /// </summary>
+  /// <seealso cref="IYandexLikeButtonWidget"/>
   public static class IYandexLikeButtonWidgetExtensions
   {
     /// <summary>

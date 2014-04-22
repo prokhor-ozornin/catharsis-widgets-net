@@ -7,8 +7,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IYandexSharePanelWidget"/>.</para>
-  ///   <seealso cref="IYandexSharePanelWidget"/>
   /// </summary>
+  /// <seealso cref="IYandexSharePanelWidget"/>
   public static class IYandexSharePanelWidgetExtensions
   {
     /// <summary>

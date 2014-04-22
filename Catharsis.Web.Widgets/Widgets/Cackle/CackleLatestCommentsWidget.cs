@@ -7,16 +7,16 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Cackle latest comments widget for registered website.</para>
-  ///   <para>Requires <see cref="WidgetsScriptsBundles.Cackle"/> scripts bundle to be included.</para>
+  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Cackle"/> scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://ru.cackle.me/help/widget-api"/>
   public class CackleLatestCommentsWidget : HtmlWidgetBase, ICackleLatestCommentsWidget
   {
     private string account;
-    private short? avatarSize;
-    private byte? max;
-    private int? textSize;
-    private int? titleSize;
+    private short avatarSize = 32;
+    private byte max = 5;
+    private int textSize = 150;
+    private int titleSize = 40;
 
     /// <summary>
     ///   <para>Identifier of registered website in the "Cackle" comments system.</para>
@@ -93,10 +93,10 @@ namespace Catharsis.Web.Widgets
       {
         widget = "CommentRecent",
         id = this.account,
-        size = this.max.GetValueOrDefault(5),
-        avatarSize = this.avatarSize.GetValueOrDefault(32),
-        textSize = this.textSize.GetValueOrDefault(150),
-        titleSize = this.titleSize.GetValueOrDefault(40)
+        size = this.max,
+        avatarSize = this.avatarSize,
+        textSize = this.textSize,
+        titleSize = this.titleSize
       };
 
       return new StringBuilder()

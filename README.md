@@ -20,31 +20,13 @@ This project needs your support for further developments ! Please consider donat
 
 **Installation and usage**
 
-To include this library in your web application, do the following :
+1. Make sure _~/Scripts/WebWidgets_ directory with necessary JavaScript files is copied to the _~/Scripts_ directory of your ASP.NET MVC project.
 
-* Make sure _~/Scripts/widgets_ directory with necessary JavaScript files is copied to the _~/Scripts_ directory of your ASP.NET MVC project.
-
-* Register required JavaScript bundles within your web application in `Global.asax.cs` file (`Application_Start` method) :
+2. Register required JavaScript bundles within your web application in `Global.asax.cs` file (`Application_Start` method) :
 
 `Catharsis.Web.Widgets.WidgetsBundleConfig.RegisterBundles(BundleTable.Bundles);`
 
-* Add JavaScript bundles to the `<head>` section of your web pages when required as described below. For a typical ASP.NET MVC project this should be placed inside `_Layout.cshtml` file :
-
-`<head>`
-
-  `@Scripts.Render(Catharsis.Web.Widgets.WidgetsScripts.Cackle)`
-
-`</head>`
-
-* Add external JavaScript links to the `<head>` section of your web pages when required as described below. For a typical ASP.NET MVC project this should be placed inside `_Layout.cshtml` file :
-
-`<head>`
-
-  `<script src="@WidgetsScripts.VKontakte" type="text/javascript"></script>`
-
-`</head>`
-
-* Use extension methods for `System.Web.Mvc.HtmlHelper` class to render web widgets where required, using fluent interface syntax :
+3. Use extension methods for `System.Web.Mvc.HtmlHelper` class to render web widgets where required, using fluent interface syntax :
 
 `@Html.YouTube().Video().Id("eYJSlHiXegI").Width("320").Height("240")`
 
@@ -58,390 +40,610 @@ Or create and render widgets directly :
 
 ***
 
-**Usage examples**
+**Code Example**
+
+The simplest .cshtml file (ASP.NET MVC view) that makes use of the library may look like the following :
+
+`@using Catharsis.Web.Widgets`
+
+`<html>`
+
+  `<head></head>`
+
+  `<body>`
+
+    `@RenderBody()`
+
+    `@Html.Cackle().Comments().Account("20049") @* Render HTML code for Cackle Comments widget. *@`
+
+    `@WebWidgetsScripts.Render().Cackle() @* Include required local Cackle javascript file from ~/Scripts/WebWidgets directory. Note : not all widgets require JavaScript files.` *@`
+
+  `</body>`
+
+`</html>`
+
+***
+
+**API examples**
 
 **Cackle**
 
-You must include `WidgetsScriptsBundles.Cackle` JavaScript bundle first to use below widgets.
+**1. Comments**
 
-> Render Cackle comments widget
+_Requirements:_ `WebWidgetsScripts.Render().Cackle()` JavaScript bundle (_head_ or _body_ section)
 
-> `@Html.Cackle().Comments().Account("20049")`
+_Code:_
 
-> Render required JavaScript to display number of comments next to hyperlinks. Hyperlinks must have a specific CSS class for this to work, as described in Cackle documentation.
+`@Html.Cackle().Comments().Account("20049")`
 
-> `@Html.Cackle().CommentsCount().Account("20049")`
+**2. Comments count hyperlink**
 
-> Render Cackle list of latest comments
+_Requirements:_ `WebWidgetsScripts.Render().Cackle()` JavaScript bundle (_head_ or _body_ section)
 
-> `@Html.Cackle().LatestComments().Account("20049")`
+_Note:_ Hyperlinks must have a specific CSS class for this to work, as described in Cackle documentation.
 
-> `@Html.Cackle().LatestComments().Account("20049").Max(15).AvatarSize(32).TitleSize(50).TextSize(255)`
+_Code:_
 
-> Render Cackle OAuth login widget
+`@Html.Cackle().CommentsCount().Account("20049")`
 
-> `@Html.Cackle().Login().Account("20049")`
+**3. Latest comments**
+
+_Requirements:_ `WebWidgetsScripts.Render().Cackle()` JavaScript bundle (_head_ or _body_ section)
+
+_Code:_
+
+`@Html.Cackle().LatestComments().Account("20049")`
+
+`@Html.Cackle().LatestComments().Account("20049").Max(15).AvatarSize(32).TitleSize(50).TextSize(255)`
+
+**4. OAuth login**
+
+_Requirements:_ `WebWidgetsScripts.Render().Cackle()` JavaScript bundle (_head_ or _body_ section)
+
+_Code:_
+
+`@Html.Cackle().Login().Account("20049")`
 
 **Disqus**
 
-You must include `WidgetsScriptsBundles.Disqus` JavaScript bundle first to use below widgets.
+**1. Comments**
 
-> Render Disqus comments widget
+_Requirements:_ `WebWidgetsScripts.Render().Disqus()` JavaScript bundle (_head_ or _body_ section)
 
-> `@Html.Disqus().Comments().Account("v-svete-snov")`
+_Code:_
 
-> `@Scripts.Render(WidgetsScriptsBundles.Disqus)`
+`@Html.Disqus().Comments().Account("v-svete-snov")`
 
 **Facebook**
 
-> Render Facebook embedded video
+**1. JS API initialization**
 
-> `@Html.Facebook().Video().Height("480").Width("640").Id("10203121281421359")`
+_Requirements:_ None
 
-> Performs Facebook JavaScript API initialization
+_Code:_
 
-> `@Html.Facebook().Initialize().AppId("1437917246425293")`
+`@Html.Facebook().Initialize().AppId("1437917246425293")`
 
-You must include call to `@Html.Facebook().Initialize()` helper first to use below widgets.
+**2. Activity Feed**
 
-> Render Facebook Activity Feed widget
+_Requirements:_ Call to `Html.Facebook().Initialize()`
 
-> `@Html.Facebook().ActivityFeed()`
+_Code:_
 
-> `@Html.Facebook().ActivityFeed().Domain("yandex.ru")`
+`@Html.Facebook().ActivityFeed()`
 
-> `@Html.Facebook().ActivityFeed().Domain("yandex.ru").Header(false).Recommendations().ColorScheme(FacebookColorScheme.Dark)`
+`@Html.Facebook().ActivityFeed().Domain("yandex.ru")`
 
-> Render Facebook Recommendations Feed widget
+`@Html.Facebook().ActivityFeed().Domain("yandex.ru").Header(false).Recommendations().ColorScheme(FacebookColorScheme.Dark)`
 
-> `@Html.Facebook().RecommendationsFeed()`
+**3. Recommendations Feed**
 
-> `@Html.Facebook().RecommendationsFeed().Domain("yandex.ru")`
+_Requirements:_ Call to `Html.Facebook().Initialize()`
 
-> `@Html.Facebook().RecommendationsFeed().Domain("yandex.ru").Header(false).ColorScheme(FacebookColorScheme.Dark)`
+_Code:_
 
-> Render Facebook comments widget
+`@Html.Facebook().RecommendationsFeed()`
 
-> `@Html.Facebook().Comments()`
+`@Html.Facebook().RecommendationsFeed().Domain("yandex.ru")`
 
-> `@Html.Facebook().Comments().Url("http://yandex.ru")`
+`@Html.Facebook().RecommendationsFeed().Domain("yandex.ru").Header(false).ColorScheme(FacebookColorScheme.Dark)`
 
-> `@Html.Facebook().Comments().Url("http://yandex.ru").Order(FacebookCommentsOrder.ReverseTime).Posts(1).Width("500")`
+**4. Comments**
 
-> Render Facebook Facepile widget
+_Requirements:_ Call to `Html.Facebook().Initialize()`
 
-> `@Html.Facebook().Facepile()`
+_Code:_
 
-> `@Html.Facebook().Facepile().Url("http://yandex.ru")`
+`@Html.Facebook().Comments()`
 
-> `@Html.Facebook().Facepile().Url("http://yandex.ru").MaxRows(5).Size(FacebookFacepileSize.Large).Height("300")`
+`@Html.Facebook().Comments().Url("http://yandex.ru")`
 
-> Render Facebook "Follow" button
+`@Html.Facebook().Comments().Url("http://yandex.ru").Order(FacebookCommentsOrder.ReverseTime).Posts(1).Width("500")`
 
-> `@Html.Facebook().Follow().Url("http://www.facebook.com/zuck")`
+**5. Facepile**
 
-> `@Html.Facebook().Follow().Url("http://www.facebook.com/zuck").Kids().Faces().Layout(FacebookButtonLayout.BoxCount)`
+_Requirements:_ Call to `Html.Facebook().Initialize()`
 
-> Render Facebook Like Box
+_Code:_
 
-> `@Html.Facebook().LikeBox().Url("https://www.facebook.com/pages/Clear-Words/515749945120070")`
+`@Html.Facebook().Facepile()`
 
-> `@Html.Facebook().LikeBox().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Header(false).Border(false).Faces(false).Stream().Width("500")`
+`@Html.Facebook().Facepile().Url("http://yandex.ru")`
 
-> Render Facebook "Like" button
+`@Html.Facebook().Facepile().Url("http://yandex.ru").MaxRows(5).Size(FacebookFacepileSize.Large).Height("300")`
 
-> `@Html.Facebook().Like().Url("http://yandex.ru")`
+**6. Follow Button**
 
-> `@Html.Facebook().Like().Url("http://yandex.ru").Layout(FacebookLikeButtonLayout.BoxCount).ShowFaces().Verb(FacebookLikeButtonVerb.Recommend)`
+_Requirements:_ Call to `Html.Facebook().Initialize()`
 
-> Render Facebook embedded post
+_Code:_
 
-> `@Html.Facebook().Post().Url("https://www.facebook.com/prokhor.ozornin/posts/10203109769053557").Width(640)`
+`@Html.Facebook().Follow().Url("http://www.facebook.com/zuck")`
 
-> Render Facebook "Send" button
+`@Html.Facebook().Follow().Url("http://www.facebook.com/zuck").Kids().Faces().Layout(FacebookButtonLayout.BoxCount)`
 
-> `@Html.Facebook().Send()`
+**7. Like Box**
 
-> `@Html.Facebook().Send().Url("http://yandex.ru")`
+_Requirements:_ Call to `Html.Facebook().Initialize()`
 
-> `@Html.Facebook().Send().Url("http://yandex.ru").ColorScheme(FacebookColorScheme.Dark).Kids()`
+_Code:_
+
+`@Html.Facebook().LikeBox().Url("https://www.facebook.com/pages/Clear-Words/515749945120070")`
+
+`@Html.Facebook().LikeBox().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Header(false).Border(false).Faces(false).Stream().Width("500")`
+
+**8. Like Button**
+
+_Requirements:_ Call to `Html.Facebook().Initialize()`
+
+_Code:_
+
+`@Html.Facebook().Like()`
+
+`@Html.Facebook().Like().Url("http://yandex.ru")`
+
+`@Html.Facebook().Like().Url("http://yandex.ru").Layout(FacebookLikeButtonLayout.BoxCount).Faces().Verb(FacebookLikeButtonVerb.Recommend)`
+
+**9. Embedded post**
+
+_Requirements:_ Call to `Html.Facebook().Initialize()`
+
+_Code:_
+
+`@Html.Facebook().Post().Url("https://www.facebook.com/prokhor.ozornin/posts/10203109769053557").Width(640)`
+
+**10. Send Button**
+
+_Requirements:_ Call to `Html.Facebook().Initialize()`
+
+_Code:_
+
+`@Html.Facebook().Send()`
+
+`@Html.Facebook().Send().Url("http://yandex.ru")`
+
+`@Html.Facebook().Send().Url("http://yandex.ru").ColorScheme(FacebookColorScheme.Dark).Kids()`
+
+**11. Embedded video**
+
+_Requirements:_ None
+
+_Code:_
+
+`@Html.Facebook().Video().Height("480").Width("640").Id("10203121281421359")`
 
 **Google**
 
-> Render Google Analytics tracking code
+**1. Analytics**
 
-> `@Html.Google().Analytics().Domain("v-svete-snov.ru").Account("UA-27123759-16")`
+_Requirements:_ None
 
-You must include `WidgetsScriptsBundles.Google` JavaScript bundle first to use below widgets.
+_Code:_
 
-> Render Google "+1" button
+`@Html.Google().Analytics().Domain("v-svete-snov.ru").Account("UA-27123759-16")`
 
-> `@Html.Google().PlusOne()`
+**2. +1 Button**
 
-> `@Html.Google().PlusOne().Url("http://yandex.ru").Alignment(GooglePlusOneButtonAlignment.Right).Size(GooglePlusOneButtonSize.Tall).Annotation(GooglePlusOneButtonAnnotation.Inline).Recommendations(false)`
+_Requirements:_ `WebWidgetsScripts.Render().Google()` JavaScript bundle (_head_ or _body_ section)
+
+_Code:_
+
+`@Html.Google().PlusOne()`
+
+`@Html.Google().PlusOne().Url("http://yandex.ru").Alignment(GooglePlusOneButtonAlignment.Right).Size(GooglePlusOneButtonSize.Tall).Annotation(GooglePlusOneButtonAnnotation.Inline).Recommendations(false)`
 
 **Gravatar**
 
-> Render Gravatar's avatar image URL.
+**1. Avatar image URL**
 
-> `@Html.Gravatar().ImageUrl().Email("prokhor.ozornin@yandex.ru")`
+_Requirements:_ None
 
-> `@Html.Gravatar().ImageUrl().Email("prokhor.ozornin@yandex.ru").Extension("jpg").ForceDefault().Size(320)`
+_Code:_
 
-> Render Gravatar's user profile URL.
+`@Html.Gravatar().ImageUrl().Email("prokhor.ozornin@yandex.ru")`
 
-> `@Html.Gravatar().ProfileUrl().Email("prokhor.ozornin@yandex.ru")`
+`@Html.Gravatar().ImageUrl().Email("prokhor.ozornin@yandex.ru").Extension("jpg").ForceDefault().Size(320)`
 
-> `@Html.Gravatar().ProfileUrl().Email("prokhor.ozornin@yandex.ru").Xml()`
+**2. User profile URL**
+
+_Requirements:_ None
+
+_Code:_
+
+`@Html.Gravatar().ProfileUrl().Email("prokhor.ozornin@yandex.ru")`
+
+`@Html.Gravatar().ProfileUrl().Email("prokhor.ozornin@yandex.ru").Xml()`
 
 **IntenseDebate**
 
-> Render IntenseDebate comments widget
+**1. Comments**
 
-> `@Html.IntenseDebate().Comments().Account("a639ec3507d53023d4f213666651b6c2")`
+_Requirements:_ None
 
-> Render IntenseDebate hyperlink with comments count
+_Code:_
 
-> `@Html.IntenseDebate().Link().Account("a639ec3507d53023d4f213666651b6c2")`
+`@Html.IntenseDebate().Comments().Account("a639ec3507d53023d4f213666651b6c2")`
+
+**2. Comments count hyperlink**
+
+_Requirements:_ None
+
+_Code:_
+
+`@Html.IntenseDebate().Link().Account("a639ec3507d53023d4f213666651b6c2")`
 
 **LiveJournal**
 
-> Renders LiveJournal "Like" button
+**1. Like Button**
 
-> `@Html.LiveJournal().Like()`
+_Requirements:_ None
 
-> Renders LiveJournal "Repost" button
+_Code:_
 
-> `@Html.LiveJournal().Repost()`
+`@Html.LiveJournal().Like()`
 
-> `@Html.LiveJournal().Repost().Title("title").Text("text")`
+**2. Repost Button**
+
+_Requirements:_ None
+
+_Code:_
+
+`@Html.LiveJournal().Repost()`
+
+`@Html.LiveJournal().Repost().Title("title").Text("text")`
 
 **Mail.ru**
 
-> Render ICQ On-Site widget
+**1. ICQ On-Site**
 
-> `@Html.MailRu().Icq()`
+_Requirements:_ None
 
-> `@Html.MailRu().Icq().Account("12345678").Language("en")`
+_Code:_
 
-> Render Mail.ru embedded video
+`@Html.MailRu().Icq()`
 
-> `@Html.MailRu().Video().Id("i.v.sosnin62/3023/3027.html").Height("480").Width("640")`
+`@Html.MailRu().Icq().Account("12345678").Language("en")`
 
-> Render Mail.ru video hyperlink
+**2. Embedded video**
 
-> `@Html.MailRu().VideoLink().Id("i.v.sosnin62/3023/3027.html").HtmlBody("Watch Mail.ru video !")`
+_Requirements:_ None
 
-You must include `<script src="@WidgetsScripts.MailRu" type="text/javascript"></script>` directive in the end of the `<body>` tag to use below widgets.
+_Code:_
 
-> Render Mail.ru + Odnoklassniki.ru "Like" buttons pair
+`@Html.MailRu().Video().Id("i.v.sosnin62/3023/3027.html").Height("480").Width("640")`
 
-> `@Html.MailRu().Like()`
+**3. Like Button**
 
-> `@Html.MailRu().Like().Layout(MailRuLikeButtonLayout.Second).HasText(false).CounterPosition(MailRuLikeButtonCounterPosition.Upper).Size(30)`
+_Requirements:_ `WebWidgetsScripts.Render().MailRu()` JavaScript bundle (_body_ section)
 
-> Renders Mail.ru Faces (People On Site) widget.
+_Code:_
 
-> `@Html.MailRu().Faces().Domain("mail.ru").Width(640).Height(480)`
+`@Html.MailRu().Like()`
 
-> `@Html.MailRu().Faces().Domain("mail.ru").Width(640).Height(480).Font(MailRuFacesFont.Tahoma).ShowTitle(false).BackgroundColor("aaffaa").HyperlinkColor("ffaaff").BorderColor("aaaaaa")`
+`@Html.MailRu().Like().Layout(MailRuLikeButtonLayout.Second).Text(false).CounterPosition(MailRuLikeButtonCounterPosition.Upper).Size(30)`
 
-> Renders Mail.ru Group (People In Group) widget.
+**4. Faces**
 
-> `@Html.MailRu().Groups().Account("mail_ru").Width(640).Height(480)`
+_Requirements:_ `WebWidgetsScripts.Render().MailRu()` JavaScript bundle (_body_ section)
 
-> `@Html.MailRu().Groups().Account("mail_ru").Width(640).Height(480).BackgroundColor("aaffaa").ButtonColor("ffaaff").Subscribers(false).TextColor("aaaadd")`
+_Code:_
+
+`@Html.MailRu().Faces().Domain("mail.ru").Width(640).Height(480)`
+
+`@Html.MailRu().Faces().Domain("mail.ru").Width(640).Height(480).Font(MailRuFacesFont.Tahoma).ShowTitle(false).BackgroundColor("aaffaa").HyperlinkColor("ffaaff").BorderColor("aaaaaa")`
+
+**5. Groups**
+
+_Requirements:_ `WebWidgetsScripts.Render().MailRu()` JavaScript bundle (_body_ section)
+
+_Code:_
+
+`@Html.MailRu().Groups().Account("mail_ru").Width(640).Height(480)`
+
+`@Html.MailRu().Groups().Account("mail_ru").Width(640).Height(480).BackgroundColor("aaffaa").ButtonColor("ffaaff").Subscribers(false).TextColor("aaaadd")`
 
 **Pinterest**
 
-You must include `<script src="@WidgetsScripts.Pinterest" type="text/javascript"></script>` directive in the end of the `<body>` tag to use below widgets.
+**1. Follow Button**
 
-> Renders Pinterest "Follow Me" button
+_Requirements:_ `WebWidgetsScripts.Render().Pinterest()` JavaScript bundle (_head_ or _body_ section)
 
-> `@Html.Pinterest().FollowButton().Account("pinterest")`
+_Code:_
 
-> `@Html.Pinterest().FollowButton().Account("pinterest").Label("Pinterest")`
+`@Html.Pinterest().FollowButton().Account("pinterest")`
 
-> Renders Pinterest embedded pin widget.
+`@Html.Pinterest().FollowButton().Account("pinterest").Label("Pinterest")`
 
-> `@Html.Pinterest().Pin().Id("99360735500167749")`
+**2. Embedded Pin**
 
-> Renders Pinterest Board widget with latest pins.
+_Requirements:_ `WebWidgetsScripts.Render().Pinterest()` JavaScript bundle (_head_ or _body_ section)
 
-> `@Html.Pinterest().Board().Account("pinterest").Id("pin-pets")`
+_Code:_
 
-> `@Html.Pinterest().Board().Account("pinterest").Id("pin-pets").Sidebar()`
+`@Html.Pinterest().Pin().Id("99360735500167749")`
 
-> Renders Pinterest Profile widget with user's latest pins.
+**3. Board**
 
-> `@Html.Pinterest().Profile().Account("pinterest")`
+_Requirements:_ `WebWidgetsScripts.Render().Pinterest()` JavaScript bundle (_head_ or _body_ section)
 
-> `@Html.Pinterest().Profile().Account("pinterest").Sidebar()`
+_Code:_
 
-> Renders Pinterest "Pin It" button widget.
+`@Html.Pinterest().Board().Account("pinterest").Id("pin-pets")`
 
-> `@Html.Pinterest().PinItButton().Url("http://www.flickr.com/photos/kentbrew/6851755809").Image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg").Description("Next stop: Pinterest")`
+`@Html.Pinterest().Board().Account("pinterest").Id("pin-pets").Sidebar()`
 
-> `@Html.Pinterest().PinItButton().Url("http://www.flickr.com/photos/kentbrew/6851755809").Image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg").Description("Next stop: Pinterest").CounterPosition(PinterestPinItButtonPinCountPosition.None).Size(PinterestPinItButtonSize.Large).Red().Shape(PinterestPinItButtonShape.Rectangular).Language("ja")`
+**4. Profile**
+
+_Requirements:_ `WebWidgetsScripts.Render().Pinterest()` JavaScript bundle (_head_ or _body_ section)
+
+_Code:_
+
+`@Html.Pinterest().Profile().Account("pinterest")`
+
+`@Html.Pinterest().Profile().Account("pinterest").Sidebar()`
+
+**5. Pin It Button**
+
+_Requirements:_ `WebWidgetsScripts.Render().Pinterest()` JavaScript bundle (_head_ or _body_ section)
+
+_Code:_
+
+`@Html.Pinterest().PinItButton().Url("http://www.flickr.com/photos/kentbrew/6851755809").Image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg").Description("Next stop: Pinterest")`
+
+`@Html.Pinterest().PinItButton().Url("http://www.flickr.com/photos/kentbrew/6851755809").Image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg").Description("Next stop: Pinterest").CounterPosition(PinterestPinItButtonPinCountPosition.None).Size(PinterestPinItButtonSize.Large).Red().Shape(PinterestPinItButtonShape.Rectangular).Language("ja")`
 
 **RuTube**
 
-> Render RuTube embedded video
+**1. Embedded video**
 
-> `@Html.RuTube().Video().Id("6785018").Height("480").Width("640")`
+_Requirements:_ None
+
+_Code:_
+
+`@Html.RuTube().Video().Id("6785018").Height("480").Width("640")`
 
 **SoundCloud**
 
-> Renders SoundCloud user's profile icon
+**1. User's profile icon**
 
-> `@Html.SoundCloud().ProfileIcon().Account("prokhor-ozornin")`
+_Requirements:_ None
 
-> `@Html.SoundCloud().ProfileIcon().Account("prokhor-ozornin").BlackWhite().Size(SoundCloudProfileIconSize.Size64)`
+_Code:_
+
+`@Html.SoundCloud().ProfileIcon().Account("prokhor-ozornin")`
+
+`@Html.SoundCloud().ProfileIcon().Account("prokhor-ozornin").BlackWhite().Size(SoundCloudProfileIconSize.Size64)`
 
 **Surfingbird**
 
-You must include `<script src="@WidgetsScripts.SurfingbirdSurf" type="text/javascript"></script>` directive in the end of the `<body>` tag to use below widgets.
+**1. Surf Button**
 
-> Render Surfingbird "Surf" button
+_Requirements:_ `WebWidgetsScripts.Render().Surfingbird()` JavaScript bundle (_head_ or _body_ section)
 
-> `@Html.Surfingbird().Surf()`
+_Code:_
 
-> `@Html.Surfingbird().Surf().Color(SurfingbirdSurfButtonColor.Blue).HasCounter().Label("Share").Url("http://yandex.ru").Layout(SurfingbirdSurfButtonLayout.Common)`
+`@Html.Surfingbird().Surf()`
+
+`@Html.Surfingbird().Surf().Color(SurfingbirdSurfButtonColor.Blue).Counter().Label("Share").Url("http://yandex.ru").Layout(SurfingbirdSurfButtonLayout.Common)`
 
 **Tumblr**
 
-> Render Tumblr "Follow" button
+**1. Follow Button**
 
-> `@Html.Tumblr().Follow().Account("clear-words-en")`
+_Requirements:_ None
 
-> `@Html.Tumblr().Follow().Account("clear-words-en").ColorScheme(TumblrFollowButtonColorScheme.Dark).Type(TumblrFollowButtonType.Second)`
+_Code:_
 
-You must include `<script src="@WidgetsScripts.TumblrShare" type="text/javascript"></script>` directive in the end of the `<body>` tag to use below widgets.
+`@Html.Tumblr().Follow().Account("clear-words-en")`
 
-> Render Tumblr "Share" button
+`@Html.Tumblr().Follow().Account("clear-words-en").ColorScheme(TumblrFollowButtonColorScheme.Dark).Type(TumblrFollowButtonType.Second)`
 
-> `@Html.Tumblr().Share()`
+**2. Share Button**
 
-> `@Html.Tumblr().Share().ColorScheme(TumblrShareButtonColorScheme.Gray).Type(TumblrShareButtonType.Third)`
+_Requirements:_ `WebWidgetsScripts.Render().Tumblr()` JavaScript bundle (_head_ or _body_ section)
+
+_Code:_
+
+`@Html.Tumblr().Share()`
+
+`@Html.Tumblr().Share().ColorScheme(TumblrShareButtonColorScheme.Gray).Type(TumblrShareButtonType.Third)`
 
 **Twitter**
 
-You must include `WidgetsScriptsBundles.Twitter` JavaScript bundle first to use below widgets.
+**1. Tweet Button**
 
-> Render Twitter "Tweet" button
+_Requirements:_ `WebWidgetsScripts.Render().Twitter()` JavaScript bundle (_head_ or _body_ section)
 
-> `@Html.Twitter().Tweet()`
+_Code:_
 
-> `@Html.Twitter().Tweet().HashTags("first", "second", "third").Url("http://yandex.ru").Text("Let's share it !").Via("Prokhor").OptOut()`
+`@Html.Twitter().Tweet()`
 
-> Render Twitter "Follow" button
+`@Html.Twitter().Tweet().HashTags("first", "second", "third").Url("http://yandex.ru").Text("Let's share it !").Via("Prokhor").OptOut()`
 
-> `@Html.Twitter().Follow().Account("prokhor_ozornin")`
+**2. Follow Button**
 
-> `@Html.Twitter().Follow().Account("prokhor_ozornin").OptOut(false).ShowCount(false).ShowScreenName(false)`
+_Requirements:_ `WebWidgetsScripts.Render().Twitter()` JavaScript bundle (_head_ or _body_ section)
+
+_Code:_
+
+`@Html.Twitter().Follow().Account("prokhor_ozornin")`
+
+`@Html.Twitter().Follow().Account("prokhor_ozornin").OptOut(false).Count(false).ScreenName(false)`
 
 **Vimeo**
 
-> Render Vimeo embedded video
+**1. Embedded video**
 
-> `@Html.Vimeo().Video().Id("55456906").Width("640").Height("480")`
+_Requirements:_ None
 
-**VKontakte**
+_Code:_
 
-> Render VKontakte embedded video
+`@Html.Vimeo().Video().Id("55456906").Width("640").Height("480")`
 
-> `@Html.Vkontakte().Video().Id("167533148").Hash("7a0cdf6ef7a69e67").User("5707198").Width("607").Height("360").HdQuality()`
+**Vkontakte**
 
-You must include `<script src="@WidgetsScripts.Vkontakte" type="text/javascript"></script>` directive in the `<head>` tag to use below widgets.
+**1. Embedded video**
 
-> Performs initialization of VKontakte API
+_Requirements:_ None
 
-> `@Html.Vkontakte().Initialize().ApiId("3816272")`
+_Code:_
 
-You must include `<script src="@WidgetsScripts.VKontakte" type="text/javascript"></script>` directive in the `<head>` tag to use below widgets, as well as make a call to `@Html.Vkontakte().Initialize()` method.
+`@Html.Vkontakte().Video().Id("167533148").Hash("7a0cdf6ef7a69e67").User("5707198").Width("607").Height("360").HdQuality()`
 
-> Render VKontakte comments widget
+**2. JS API initialization**
 
-> `@Html.Vkontakte().Comments()`
+_Requirements:_ `WebWidgetsScripts.Render().Vkontakte()` JavaScript bundle (_head_ section)
 
-> `@Html.Vkontakte().Comments().Attach(VkontakteCommentsAttach.All).Limit(VkontakteCommentsLimit.Limit15)`
+_Code:_
 
-> Render VKontakte community widget
+`@Html.Vkontakte().Initialize().ApiId("3816272")`
 
-> `@Html.Vkontakte().Community().Account("44545550")`
+**3. Comments**
 
-> `@Html.Vkontakte().Community().Account("44545550").Mode(VkontakteCommunityMode.News).Height(400).Width(600)`
+_Requirements:_ Call to `Html.Vkontakte().Initialize()`
 
-> Render VKontakte "Like" button
+_Code:_
 
-> `@Html.Vkontakte().Like()`
+`@Html.Vkontakte().Comments()`
 
-> Render VKontakte Subscribe widget
+`@Html.Vkontakte().Comments().Attach(VkontakteCommentsAttach.All).Limit(VkontakteCommentsLimit.Limit15)`
 
-> `@Html.Vkontakte().Subscribe().Account("5707198")`
+**4. Community**
 
-> `@Html.Vkontakte().Subscribe().Account("5707198").OnlyButton()`
+_Requirements:_ Call to `Html.Vkontakte().Initialize()`
+
+_Code:_
+
+`@Html.Vkontakte().Community().Account("44545550")`
+
+`@Html.Vkontakte().Community().Account("44545550").Mode(VkontakteCommunityMode.News).Height(400).Width(600)`
+
+**5. Like Button**
+
+_Requirements:_ Call to `Html.Vkontakte().Initialize()`
+
+_Code:_
+
+`@Html.Vkontakte().Like()`
+
+**6. Subscription**
+
+_Requirements:_ Call to `Html.Vkontakte().Initialize()`
+
+_Code:_
+
+`@Html.Vkontakte().Subscribe().Account("5707198")`
+
+`@Html.Vkontakte().Subscribe().Account("5707198").OnlyButton()`
 
 **Yandex**
 
-> Render Yandex.Metrika analytics web counter
+**1. Metrika**
 
-> `@Html.Yandex().Analytics().Account("12066574")`
+_Requirements:_ None
 
-> Render Yandex "Like" button
+_Code:_
 
-> `@Html.Yandex().Like()`
+`@Html.Yandex().Analytics().Account("12066574")`
 
-> `@Html.Yandex().Like().Title("Yandex Main Page").Text("Share").Url("http://yandex.ru").Size(YandexLikeButtonSize.Small)`
+**2. Like Button**
 
-> Render Yandex embedded video
+_Requirements:_ None
 
-> `@Html.Yandex().Video().Id("6ea0ugstkx.2528").User("leonevskiy").Width("450").Height("253")`
+_Code:_
 
-You must include `<script src="@WidgetsScripts.YandexShare" type="text/javascript"></script>` directive in the `<head>` tag to use below widgets.
+`@Html.Yandex().Like()`
 
-> Render Yandex "Share" button
+`@Html.Yandex().Like().Title("Yandex Main Page").Text("Share").Url("http://yandex.ru").Size(YandexLikeButtonSize.Small)`
 
-> `@Html.Yandex().Share()`
+**3. Embedded video**
 
-> `@Html.Yandex().Share().Services("facebook").Language("en")`
+_Requirements:_ None
 
-> Render Yandex.Money payment button
+_Code:_
 
-> `@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment")`
+`@Html.Yandex().Video().Id("6ea0ugstkx.2528").User("leonevskiy").Width("450").Height("253")`
 
-> `@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment").Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Buy).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).PayerAddress().PayerEmail().PayerFullName().PayerPhone()`
+**4. Yandex.Money payment button**
 
-> Render Yandex.Money donation form
+_Requirements:_ None
 
-> `@Html.Yandex().MoneyDonateForm().Account("41001577953208").Description("Test Donation")`
+_Code:_
 
-> `@Html.Yandex().MoneyDonateForm().Account("41001577953208").Description("Test Donation").ShowDescription().Sum(15.5).Cards().ProjectName("Yandex").ProjectSite("http://yandex.ru").Text(YandexMoneyDonateFormText.Give).PayerPhone().PayerFullName().PayerComment().PayerEmail()`
+`@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment")`
 
-> Render Yandex.Money payment form
+`@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment").Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Buy).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).PayerAddress().PayerEmail().PayerFullName().PayerPhone()`
 
-> `@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment")`
+**5. Yandex.Money donation form**
 
-> `@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment").Sum(15.5).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).PayerComment().PayerEmail().PayerFullName().PayerAddress().PayerPhone().PayerPurpose()`
+_Requirements:_ None
+
+_Code:_
+
+`@Html.Yandex().MoneyDonateForm().Account("41001577953208").Description("Test Donation")`
+
+`@Html.Yandex().MoneyDonateForm().Account("41001577953208").Description("Test Donation").ShowDescription().Sum(15.5).Cards().ProjectName("Yandex").ProjectSite("http://yandex.ru").Text(YandexMoneyDonateFormText.Give).PayerPhone().PayerFullName().PayerComment().PayerEmail()`
+
+**6. Yandex.Money payment form**
+
+_Requirements:_ None
+
+_Code:_
+
+`@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment")`
+
+`@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment").Sum(15.5).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).PayerComment().PayerEmail().PayerFullName().PayerAddress().PayerPhone().PayerPurpose()`
+
+**7. Share Button**
+
+_Requirements:_ `WebWidgetsScripts.Render().Yandex()` JavaScript bundle (_head_ or _body_ section)
+
+_Code:_
+
+`@Html.Yandex().Share()`
+
+`@Html.Yandex().Share().Services("facebook").Language("en")`
 
 **YouTube**
 
-> Render YouTube embedded video
+**1. Embedded video**
 
-> `@Html.YouTube().Video().Id("eYJSlHiXegI").Width("100%").Height("480")`
+_Requirements:_ None
+
+_Code:_
+
+`@Html.YouTube().Video().Id("eYJSlHiXegI").Width("100%").Height("480")`
 
 **VideoJS**
 
-You must include `<script src="@WidgetsScripts.VideoJS" type="text/javascript"></script>` and `<link href="@WidgetsStyles.VideoJS" rel="stylesheet" />` directives in the `<head>` tag to use below widgets.
+**1. Media Player**
 
-> Render VideoJS media player
+_Requirements:_ 
 
-> `@Html.VideoJS().Player().Width("640").Height("480").Videos(new MediaSource("http://vjs.zencdn.net/v/oceans.mp4", VideoContentTypes.MP4), new MediaSource("http://vjs.zencdn.net/v/oceans.webm", VideoContentTypes.WebM)).HtmlBody(@"<track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track>")`
+- `WebWidgetsScripts.Render().VideoJS()` JavaScript bundle (_head_ or _body_ section)
 
-_Note:_ Instead of using different separate JavaScript bundles with `@Scripts.Render` directive for separate social tags, you can use all-in-one module bundle, called "widgets" once :
+- `WebWidgetsStyles.Render().VideoJS()` CSS bundle (_head_ section)
 
-`<head>`
+_Code:_
 
-  `@Scripts.Render(WidgetsScriptsBundles.Widgets)`
-
-`</head>`
+`@Html.VideoJS().Player().Width("640").Height("480").Videos(new MediaSource("http://vjs.zencdn.net/v/oceans.mp4", VideoContentTypes.MP4), new MediaSource("http://vjs.zencdn.net/v/oceans.webm", VideoContentTypes.WebM)).HtmlBody(@"<track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track>")`

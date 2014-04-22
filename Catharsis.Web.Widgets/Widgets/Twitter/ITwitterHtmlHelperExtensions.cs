@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="ITwitterHtmlHelper"/>.</para>
-  ///   <seealso cref="ITwitterHtmlHelper"/>
   /// </summary>
+  /// <seealso cref="ITwitterHtmlHelper"/>
   public static class ITwitterHtmlHelperExtensions
   {
     /// <summary>

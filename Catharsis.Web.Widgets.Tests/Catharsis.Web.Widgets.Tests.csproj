@@ -171,6 +171,8 @@
     <Compile Include="Widgets\Vkontakte\IVkontakteHtmlHelperExtensionsTests.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteLikeButtonWidgetExtensionsTests.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteSubscriptionWidgetExtensionsTests.cs" />
+    <Compile Include="Widgets\WebWidgetsScriptsTests.cs" />
+    <Compile Include="Widgets\WebWidgetsStylesTests.cs" />
     <Compile Include="Widgets\Yandex\HtmlHelperExtensionsTests.cs" />
     <Compile Include="Widgets\Yandex\IYandexAnalyticsWidgetExtensionsTests.cs" />
     <Compile Include="Widgets\Yandex\IYandexHtmlHelperExtensionsTests.cs" />

@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders VKontakte "Like" button widget.</para>
   ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
-  ///   <seealso cref="http://vk.com/dev/Like"/>
   /// </summary>
+  /// <seealso cref="http://vk.com/dev/Like"/>
   public interface IVkontakteLikeButtonWidget : IHtmlWidget
   {
     /// <summary>

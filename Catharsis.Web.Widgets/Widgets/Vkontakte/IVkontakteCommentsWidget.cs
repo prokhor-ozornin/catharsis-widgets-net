@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders VKontakte comments widget.</para>
   ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
-  ///   <seealso cref="http://vk.com/dev/Comments"/>
   /// </summary>
+  /// <seealso cref="http://vk.com/dev/Comments"/>
   public interface IVkontakteCommentsWidget : IHtmlWidget
   {
     /// <summary>

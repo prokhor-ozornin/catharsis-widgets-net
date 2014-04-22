@@ -57,7 +57,6 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
-    /// <remarks>This attribute is required.</remarks>
     IFacebookLikeButtonWidget Url(string url);
 
     /// <summary>

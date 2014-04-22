@@ -5,6 +5,7 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Yandex social "Share" button.</para>
+  ///   <para>Requires <see cref="WidgetsScripts.YandexShare"/> script to be included.</para>
   /// </summary>
   public interface IYandexSharePanelWidget : IHtmlWidget
   {
