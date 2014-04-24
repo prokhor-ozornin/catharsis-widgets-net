@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded Facebook video on web page.</para>
   /// </summary>
-  public class FacebookVideoWidget : HtmlWidgetBase, IFacebookVideoWidget
+  public class FacebookVideoWidget : HtmlWidget, IFacebookVideoWidget
   {
     private string id;
     private string width;

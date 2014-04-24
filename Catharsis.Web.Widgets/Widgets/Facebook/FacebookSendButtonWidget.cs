@@ -9,13 +9,13 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/send-button"/>
-  public class FacebookSendButtonWidget : HtmlWidgetBase, IFacebookSendButtonWidget
+  public class FacebookSendButtonWidget : HtmlWidget, IFacebookSendButtonWidget
   {
     private string url;
     private string width;
     private string height;
     private string colorScheme;
-    private bool? kids;
+    private bool? kidsMode;
     private string trackLabel;
 
     /// <summary>
@@ -51,26 +51,26 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="kids"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
+    /// <param name="enabled"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookSendButtonWidget Kids(bool kids = true)
+    public IFacebookSendButtonWidget KidsMode(bool enabled = true)
     {
-      this.kids = kids;
+      this.kidsMode = enabled;
       return this;
     }
 
     /// <summary>
     ///   <para>A label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_).</para>
     /// </summary>
-    /// <param name="trackLabel">Label to track referrals.</param>
+    /// <param name="label">Label to track referrals.</param>
     /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="trackLabel"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="trackLabel"/> is <see cref="string.Empty"/> string.</exception>
-    public IFacebookSendButtonWidget TrackLabel(string trackLabel)
+    /// <exception cref="ArgumentNullException">If <paramref name="label"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="label"/> is <see cref="string.Empty"/> string.</exception>
+    public IFacebookSendButtonWidget TrackLabel(string label)
     {
-      Assertion.NotEmpty(trackLabel);
+      Assertion.NotEmpty(label);
 
-      this.trackLabel = trackLabel;
+      this.trackLabel = label;
       return this;
     }
 
@@ -113,7 +113,7 @@ namespace Catharsis.Web.Widgets
       return new TagBuilder("div")
         .Attribute("data-href", this.url)
         .Attribute("data-colorscheme", this.colorScheme)
-        .Attribute("data-kid-directed-site", this.kids)
+        .Attribute("data-kid-directed-site", this.kidsMode)
         .Attribute("data-width", this.width)
         .Attribute("data-height", this.height)
         .Attribute("data-ref", this.trackLabel)

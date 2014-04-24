@@ -9,12 +9,12 @@ namespace Catharsis.Web.Widgets
     ///   <para>Creates new Tumblr "Follow" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    ITumblrFollowButtonWidget Follow();
+    ITumblrFollowButtonWidget FollowButton();
 
     /// <summary>
     ///   <para>Creates new Tumblr "Share" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    ITumblrShareButtonWidget Share();
+    ITumblrShareButtonWidget ShareButton();
   }
 }

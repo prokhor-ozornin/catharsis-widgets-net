@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Adds "ICQ On-Site" widget to web page.</para>
   /// </summary>
   /// <seealso cref="http://api.mail.ru/sites/plugins/icq-on-site"/>
-  public class MailRuIcqWidget : HtmlWidgetBase, IMailRuIcqWidget
+  public class MailRuIcqWidget : HtmlWidget, IMailRuIcqWidget
   {
     private string account;
     private string language;

@@ -4,9 +4,10 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Pinterest Profile widget with user's latest pins.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.Pinterest"/> script to be included.</para>
+  ///   <para>Requires Pinterest scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://business.pinterest.com/widget-builder/#do_embed_user"/>
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
   public interface IPinterestProfileWidget : IHtmlWidget
   {
     /// <summary>
@@ -47,6 +48,6 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
     /// <remarks>Min: 60; leave blank for 92.</remarks>
-    IPinterestProfileWidget ImageWidth(string width);
+    IPinterestProfileWidget Image(string width);
   }
 }

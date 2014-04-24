@@ -21,19 +21,19 @@ namespace Catharsis.Web.Widgets
     ///   <para>Creates new VKontakte JavaScript API initialization widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    IVkontakteInitWidget Initialize();
+    IVkontakteInitializationWidget Initialize();
 
     /// <summary>
     ///   <para>Creates new VKontakte "Like" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    IVkontakteLikeButtonWidget Like();
+    IVkontakteLikeButtonWidget LikeButton();
 
     /// <summary>
     ///   <para>Creates new VKontakte subscription widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    IVkontakteSubscriptionWidget Subscribe();
+    IVkontakteSubscriptionWidget Subscription();
 
     /// <summary>
     ///   <para>Creates new VKontakte embedded video widget.</para>

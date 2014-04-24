@@ -48,16 +48,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IMailRuHtmlHelperExtensions.Like(IMailRuHtmlHelper, Action{IMailRuLikeButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="IMailRuHtmlHelperExtensions.LikeButton(IMailRuHtmlHelper, Action{IMailRuLikeButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
-    public void Like_Method()
+    public void LikeButton_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IMailRuHtmlHelperExtensions.Like(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().Like(null));
+      Assert.Throws<ArgumentNullException>(() => IMailRuHtmlHelperExtensions.LikeButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().LikeButton(null));
 
-      Assert.Equal(new MailRuHtmlHelper().Like().ToHtmlString(), new MailRuHtmlHelper().Like(x => { }));
-      Assert.Equal(new MailRuHtmlHelper().Like().Type(MailRuLikeButtonType.All).ToHtmlString(), new MailRuHtmlHelper().Like(x => x.Type(MailRuLikeButtonType.All)));
+      Assert.Equal(new MailRuHtmlHelper().LikeButton().ToHtmlString(), new MailRuHtmlHelper().LikeButton(x => { }));
+      Assert.Equal(new MailRuHtmlHelper().LikeButton().Type(MailRuLikeButtonType.All).ToHtmlString(), new MailRuHtmlHelper().LikeButton(x => x.Type(MailRuLikeButtonType.All)));
     }
 
     /// <summary>

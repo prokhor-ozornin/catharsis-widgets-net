@@ -12,13 +12,13 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/facepile"/>
-  public class FacebookFacepileWidget : HtmlWidgetBase, IFacebookFacepileWidget
+  public class FacebookFacepileWidget : HtmlWidget, IFacebookFacepileWidget
   {
     private IEnumerable<string> actions = Enumerable.Empty<string>();
     private string colorScheme;
     private string height;
     private byte? maxRows;
-    private string size;
+    private string photoSize;
     private string url;
     private string width;
 
@@ -84,11 +84,11 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="size"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="size"/> is <see cref="string.Empty"/> string.</exception>
-    public IFacebookFacepileWidget Size(string size)
+    public IFacebookFacepileWidget PhotoSize(string size)
     {
       Assertion.NotEmpty(size);
 
-      this.size = size;
+      this.photoSize = size;
       return this;
     }
 
@@ -131,7 +131,7 @@ namespace Catharsis.Web.Widgets
       return new TagBuilder("div")
         .Attribute("data-href", this.url ?? (HttpContext.Current != null ? HttpContext.Current.Request.Url.ToString() : null))
         .Attribute("data-action", this.actions.Any() ? this.actions.Join(",") : null)
-        .Attribute("data-size", this.size)
+        .Attribute("data-size", this.photoSize)
         .Attribute("data-width", this.width)
         .Attribute("data-height", this.height)
         .Attribute("data-max-rows", this.maxRows)

@@ -6,10 +6,9 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Tumblr "Follow" button.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.TumblrShare"/> script to be included.</para>
   /// </summary>
   /// <seealso cref="http://www.tumblr.com/buttons"/>
-  public class TumblrFollowButtonWidget : HtmlWidgetBase, ITumblrFollowButtonWidget
+  public class TumblrFollowButtonWidget : HtmlWidget, ITumblrFollowButtonWidget
   {
     private string account;
     private byte type = (byte) TumblrFollowButtonType.First;

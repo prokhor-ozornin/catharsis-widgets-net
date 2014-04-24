@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded Vimeo video on web page.</para>
   /// </summary>
-  public class VimeoVideoWidget : HtmlWidgetBase, IVimeoVideoWidget
+  public class VimeoVideoWidget : HtmlWidget, IVimeoVideoWidget
   {
     private bool autoPlay;
     private string height;
@@ -18,11 +18,11 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to start playing video automatically. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="autoPlay"><c>true</c> to enable autoplay, <c>false</c> to disable.</param>
+    /// <param name="enabled"><c>true</c> to enable autoplay, <c>false</c> to disable.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IVimeoVideoWidget AutoPlay(bool autoPlay = true)
+    public IVimeoVideoWidget AutoPlay(bool enabled = true)
     {
-      this.autoPlay = autoPlay;
+      this.autoPlay = enabled;
       return this;
     }
 
@@ -61,11 +61,11 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to replay video when it finishes. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="loop"><c>true</c> to enable looping, <c>false</c> to disable.</param>
+    /// <param name="enabled"><c>true</c> to enable looping, <c>false</c> to disable.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IVimeoVideoWidget Loop(bool loop = true)
+    public IVimeoVideoWidget Loop(bool enabled = true)
     {
-      this.loop = loop;
+      this.loop = enabled;
       return this;
     }
 

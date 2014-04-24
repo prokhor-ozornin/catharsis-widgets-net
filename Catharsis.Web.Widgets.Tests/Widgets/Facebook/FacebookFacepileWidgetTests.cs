@@ -23,7 +23,7 @@ namespace Catharsis.Web.Widgets
       Assert.Null(widget.Field("colorScheme"));
       Assert.Null(widget.Field("height"));
       Assert.Null(widget.Field("maxRows"));
-      Assert.Null(widget.Field("size"));
+      Assert.Null(widget.Field("photoSize"));
       Assert.Null(widget.Field("url"));
       Assert.Null(widget.Field("width"));
     }
@@ -85,18 +85,18 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookFacepileWidget.Size(string)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookFacepileWidget.PhotoSize(string)"/> method.</para>
     /// </summary>
     [Fact]
-    public void Size_Method()
+    public void PhotoSize_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new FacebookFacepileWidget().Size(null));
-      Assert.Throws<ArgumentException>(() => new FacebookFacepileWidget().Size(string.Empty));
+      Assert.Throws<ArgumentNullException>(() => new FacebookFacepileWidget().PhotoSize(null));
+      Assert.Throws<ArgumentException>(() => new FacebookFacepileWidget().PhotoSize(string.Empty));
 
       var widget = new FacebookFacepileWidget();
-      Assert.Null(widget.Field("size"));
-      Assert.True(ReferenceEquals(widget.Size("size"), widget));
-      Assert.Equal("size", widget.Field("size").To<string>());
+      Assert.Null(widget.Field("photoSize"));
+      Assert.True(ReferenceEquals(widget.PhotoSize("photoSize"), widget));
+      Assert.Equal("photoSize", widget.Field("photoSize").To<string>());
     }
 
     /// <summary>
@@ -136,7 +136,7 @@ namespace Catharsis.Web.Widgets
     public void ToHtmlString_Method()
     {
       Assert.Equal(@"<div class=""fb-facepile""></div>", new FacebookFacepileWidget().ToString());
-      Assert.Equal(@"<div class=""fb-facepile"" data-action=""actions"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-max-rows=""10"" data-size=""large"" data-width=""width""></div>", new FacebookFacepileWidget().Url("url").Actions("actions").Size(FacebookFacepileSize.Large).Width("width").Height("height").MaxRows(10).ColorScheme(FacebookColorScheme.Dark).ToString());
+      Assert.Equal(@"<div class=""fb-facepile"" data-action=""actions"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-max-rows=""10"" data-size=""large"" data-width=""width""></div>", new FacebookFacepileWidget().Url("url").Actions("actions").PhotoSize(FacebookFacepilePhotoSize.Large).Width("width").Height("height").MaxRows(10).ColorScheme(FacebookColorScheme.Dark).ToString());
     }
   }
 }

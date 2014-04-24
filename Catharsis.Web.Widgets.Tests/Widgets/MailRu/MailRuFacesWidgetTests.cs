@@ -23,10 +23,10 @@ namespace Catharsis.Web.Widgets
       Assert.Equal(MailRuFacesFont.Arial.ToString(), widget.Field("font").To<string>());
       Assert.Null(widget.Field("height"));
       Assert.Null(widget.Field("hyperlinkColor"));
-      Assert.True(widget.Field("showTitle").To<bool>());
       Assert.Null(widget.Field("textColor"));
-      Assert.Null(widget.Field("title"));
+      Assert.True(widget.Field("title").To<bool>());
       Assert.Null(widget.Field("titleColor"));
+      Assert.Null(widget.Field("titleText"));
       Assert.Null(widget.Field("width"));
     }
 
@@ -121,18 +121,6 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="MailRuFacesWidget.ShowTitle(bool)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void ShowTitle_Method()
-    {
-      var widget = new MailRuFacesWidget();
-      Assert.True(widget.Field("showTitle").To<bool>());
-      Assert.True(ReferenceEquals(widget.ShowTitle(false), widget));
-      Assert.False(widget.Field("showTitle").To<bool>());
-    }
-
-    /// <summary>
     ///   <para>Performs testing of <see cref="MailRuFacesWidget.TextColor(string)"/> method.</para>
     /// </summary>
     [Fact]
@@ -148,18 +136,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="MailRuFacesWidget.Title(string)"/> method.</para>
+    ///   <para>Performs testing of <see cref="MailRuFacesWidget.Title(bool)"/> method.</para>
     /// </summary>
     [Fact]
     public void Title_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().Title(null));
-      Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().Title(string.Empty));
-
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("title"));
-      Assert.True(ReferenceEquals(widget.Title("title"), widget));
-      Assert.Equal("title", widget.Field("title").To<string>());
+      Assert.True(widget.Field("title").To<bool>());
+      Assert.True(ReferenceEquals(widget.Title(false), widget));
+      Assert.False(widget.Field("title").To<bool>());
     }
 
     /// <summary>
@@ -175,6 +160,21 @@ namespace Catharsis.Web.Widgets
       Assert.Null(widget.Field("titleColor"));
       Assert.True(ReferenceEquals(widget.TitleColor("titleColor"), widget));
       Assert.Equal("titleColor", widget.Field("titleColor").To<string>());
+    }
+    
+    /// <summary>
+    ///   <para>Performs testing of <see cref="MailRuFacesWidget.TitleText(string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void TitleText_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().TitleText(null));
+      Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().TitleText(string.Empty));
+
+      var widget = new MailRuFacesWidget();
+      Assert.Null(widget.Field("titleText"));
+      Assert.True(ReferenceEquals(widget.TitleText("titleText"), widget));
+      Assert.Equal("titleText", widget.Field("titleText").To<string>());
     }
 
     /// <summary>
@@ -203,7 +203,7 @@ namespace Catharsis.Web.Widgets
       Assert.Equal(string.Empty, new MailRuFacesWidget().Domain("domain").Height("height").ToString());
       Assert.Equal(string.Empty, new MailRuFacesWidget().Width("width").Height("height").ToString());
       Assert.Equal(@"<a class=""mrc__plugin_share_friends"" href=""http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height"" rel=""{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;}"">Друзья</a>", new MailRuFacesWidget().Domain("domain").Width("width").Height("height").ToString());
-      Assert.Equal(@"<a class=""mrc__plugin_share_friends"" href=""http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height&amp;title=title&amp;notitle=true&amp;title-color=titleColor&amp;background=backgroundColor&amp;border=borderColor&amp;color=textColor&amp;link-color=hyperlinkColor"" rel=""{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;,&quot;title&quot;:&quot;title&quot;,&quot;notitle&quot;:true,&quot;title-color&quot;:&quot;titleColor&quot;,&quot;background&quot;:&quot;backgroundColor&quot;,&quot;border&quot;:&quot;borderColor&quot;,&quot;color&quot;:&quot;textColor&quot;,&quot;link-color&quot;:&quot;hyperlinkColor&quot;}"">Друзья</a>", new MailRuFacesWidget().Domain("domain").Width("width").Height("height").Title("title").ShowTitle(false).TitleColor("titleColor").BackgroundColor("backgroundColor").BorderColor("borderColor").TextColor("textColor").HyperlinkColor("hyperlinkColor").ToString());
+      Assert.Equal(@"<a class=""mrc__plugin_share_friends"" href=""http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height&amp;title=title&amp;notitle=true&amp;title-color=titleColor&amp;background=backgroundColor&amp;border=borderColor&amp;color=textColor&amp;link-color=hyperlinkColor"" rel=""{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;,&quot;title&quot;:&quot;title&quot;,&quot;notitle&quot;:true,&quot;title-color&quot;:&quot;titleColor&quot;,&quot;background&quot;:&quot;backgroundColor&quot;,&quot;border&quot;:&quot;borderColor&quot;,&quot;color&quot;:&quot;textColor&quot;,&quot;link-color&quot;:&quot;hyperlinkColor&quot;}"">Друзья</a>", new MailRuFacesWidget().Domain("domain").Width("width").Height("height").TitleText("title").Title(false).TitleColor("titleColor").BackgroundColor("backgroundColor").BorderColor("borderColor").TextColor("textColor").HyperlinkColor("hyperlinkColor").ToString());
     }
   }
 }

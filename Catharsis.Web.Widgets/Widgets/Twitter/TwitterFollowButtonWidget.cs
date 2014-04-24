@@ -8,18 +8,19 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Twitter "Follow" button.</para>
-  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Twitter"/> scripts bundle to be included.</para>
+  ///   <para>Requires Twitter scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="https://dev.twitter.com/docs/follow-button"/>
-  public class TwitterFollowButtonWidget : HtmlWidgetBase, ITwitterFollowButtonWidget
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Twitter(IWidgetsScriptsRenderer)"/>
+  public class TwitterFollowButtonWidget : HtmlWidget, ITwitterFollowButtonWidget
   {
     private string account;
     private string language;
     private string size;
     private string alignment;
-    private bool? count;
+    private bool? counter;
     private bool? screenName;
-    private bool? optOut;
+    private bool? suggestions;
     private string width;
 
     /// <summary>
@@ -56,11 +57,11 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to display user's followers count. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="count"><c>true</c> to show followers count, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show followers count, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public ITwitterFollowButtonWidget Count(bool count = true)
+    public ITwitterFollowButtonWidget Counter(bool show = true)
     {
-      this.count = count;
+      this.counter = show;
       return this;
     }
 
@@ -76,17 +77,6 @@ namespace Catharsis.Web.Widgets
       Assertion.NotEmpty(language);
 
       this.language = language;
-      return this;
-    }
-
-    /// <summary>
-    ///   <para>Whether to opt-out of twitter suggestions. Default is <c>false</c>.</para>
-    /// </summary>
-    /// <param name="optOut"><c>true</c> to opt-out, <c>false</c> to opt-in.</param>
-    /// <returns>Reference to the current widget.</returns>
-    public ITwitterFollowButtonWidget OptOut(bool optOut = true)
-    {
-      this.optOut = optOut;
       return this;
     }
 
@@ -113,6 +103,17 @@ namespace Catharsis.Web.Widgets
       Assertion.NotEmpty(size);
 
       this.size = size;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <param name="enabled"><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</param>
+    /// <returns>Reference to the current widget.</returns>
+    public ITwitterFollowButtonWidget Suggestions(bool enabled = true)
+    {
+      this.suggestions = enabled;
       return this;
     }
 
@@ -145,12 +146,12 @@ namespace Catharsis.Web.Widgets
       return new TagBuilder("a")
         .Attribute("href", "https://twitter.com/{0}".FormatSelf(this.account))
         .Attribute("data-lang", this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
-        .Attribute("data-show-count", this.count)
+        .Attribute("data-show-count", this.counter)
         .Attribute("data-size", this.size)
         .Attribute("data-width", this.width)
         .Attribute("data-align", this.alignment)
         .Attribute("data-show-screen-name", this.screenName)
-        .Attribute("data-dnt", this.optOut)
+        .Attribute("data-dnt", this.suggestions == null ? null : !this.suggestions)
         .CssClass("twitter-follow-button")
         .ToString();
     }

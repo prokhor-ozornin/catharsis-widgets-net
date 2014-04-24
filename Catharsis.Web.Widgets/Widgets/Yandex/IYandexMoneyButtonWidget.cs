@@ -40,30 +40,30 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    IYandexMoneyButtonWidget PayerFullName(bool require = true);
+    IYandexMoneyButtonWidget AskPayerFullName(bool ask = true);
 
     /// <summary>
     ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    IYandexMoneyButtonWidget PayerEmail(bool require = true);
+    IYandexMoneyButtonWidget AskPayerEmail(bool ask = true);
 
     /// <summary>
     ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    IYandexMoneyButtonWidget PayerPhone(bool require = true);
+    IYandexMoneyButtonWidget AskPayerPhone(bool ask = true);
 
     /// <summary>
     ///   <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    IYandexMoneyButtonWidget PayerAddress(bool require = true);
+    IYandexMoneyButtonWidget AskPayerAddress(bool ask = true);
 
     /// <summary>
     ///   <para>Size of button. Default is "l" (large)</para>

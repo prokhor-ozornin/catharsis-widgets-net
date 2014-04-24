@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
       return new YandexAnalyticsWidget();
     }
 
-    public IYandexLikeButtonWidget Like()
+    public IYandexLikeButtonWidget LikeButton()
     {
       return new YandexLikeButtonWidget();
     }
@@ -27,7 +27,7 @@ namespace Catharsis.Web.Widgets
       return new YandexMoneyPaymentFormWidget();
     }
 
-    public IYandexSharePanelWidget Share()
+    public IYandexSharePanelWidget SharePanel()
     {
       return new YandexSharePanelWidget();
     }

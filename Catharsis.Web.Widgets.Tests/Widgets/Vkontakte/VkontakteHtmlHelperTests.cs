@@ -27,7 +27,7 @@ namespace Catharsis.Web.Widgets
     public void Initialize_Method()
     {
       Assert.False(ReferenceEquals(this.html.Vkontakte().Initialize(), this.html.Vkontakte().Initialize()));
-      Assert.True(this.html.Vkontakte().Initialize() is VkontakteInitWidget);
+      Assert.True(this.html.Vkontakte().Initialize() is VkontakteInitializationWidget);
     }
 
     /// <summary>
@@ -51,23 +51,23 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Like()"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.LikeButton()"/> method.</para>
     /// </summary>
     [Fact]
     public void Like_Method()
     {
-      Assert.False(ReferenceEquals(this.html.Vkontakte().Like(), this.html.Vkontakte().Like()));
-      Assert.True(this.html.Vkontakte().Like() is VkontakteLikeButtonWidget);
+      Assert.False(ReferenceEquals(this.html.Vkontakte().LikeButton(), this.html.Vkontakte().LikeButton()));
+      Assert.True(this.html.Vkontakte().LikeButton() is VkontakteLikeButtonWidget);
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Subscribe()"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Subscription()"/> method.</para>
     /// </summary>
     [Fact]
     public void Subscribe_Method()
     {
-      Assert.False(ReferenceEquals(this.html.Vkontakte().Subscribe(), this.html.Vkontakte().Subscribe()));
-      Assert.True(this.html.Vkontakte().Subscribe() is VkontakteSubscriptionWidget);
+      Assert.False(ReferenceEquals(this.html.Vkontakte().Subscription(), this.html.Vkontakte().Subscription()));
+      Assert.True(this.html.Vkontakte().Subscription() is VkontakteSubscriptionWidget);
     }
   }
 }

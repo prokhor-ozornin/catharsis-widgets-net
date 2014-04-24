@@ -50,7 +50,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="size"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="size"/> is <see cref="string.Empty"/> string.</exception>
-    IFacebookFacepileWidget Size(string size);
+    IFacebookFacepileWidget PhotoSize(string size);
 
     /// <summary>
     ///   <para>Display photos of the people who have liked this absolute URL. Default is current page URL.</para>

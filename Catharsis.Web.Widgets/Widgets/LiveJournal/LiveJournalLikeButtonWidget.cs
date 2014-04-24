@@ -3,7 +3,7 @@
   /// <summary>
   ///   <para>Renders LiveJournal "Like" button.</para>
   /// </summary>
-  public class LiveJournalLikeButtonWidget : HtmlWidgetBase, ILiveJournalLikeButtonWidget
+  public class LiveJournalLikeButtonWidget : HtmlWidget, ILiveJournalLikeButtonWidget
   {
     private const string html = @"<lj-like buttons=""repost""/>";
 

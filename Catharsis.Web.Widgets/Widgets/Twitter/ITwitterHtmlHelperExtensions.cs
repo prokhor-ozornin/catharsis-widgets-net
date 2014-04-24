@@ -16,13 +16,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="ITwitterHtmlHelper.Follow()"/>
-    public static string Follow(this ITwitterHtmlHelper html, Action<ITwitterFollowButtonWidget> builder)
+    /// <seealso cref="ITwitterHtmlHelper.FollowButton()"/>
+    public static string FollowButton(this ITwitterHtmlHelper html, Action<ITwitterFollowButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Follow();
+      var widget = html.FollowButton();
       builder(widget);
       return widget.ToHtmlString();
     }
@@ -34,13 +34,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="ITwitterHtmlHelper.Tweet()"/>
-    public static string Tweet(this ITwitterHtmlHelper html, Action<ITwitterTweetButtonWidget> builder)
+    /// <seealso cref="ITwitterHtmlHelper.TweetButton()"/>
+    public static string TweetButton(this ITwitterHtmlHelper html, Action<ITwitterTweetButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Tweet();
+      var widget = html.TweetButton();
       builder(widget);
       return widget.ToHtmlString();
     }

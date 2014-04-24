@@ -9,10 +9,10 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders VKontakte comments widget.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
+  ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="http://vk.com/dev/Comments"/>
-  public class VkontakteCommentsWidget : HtmlWidgetBase, IVkontakteCommentsWidget
+  public class VkontakteCommentsWidget : HtmlWidget, IVkontakteCommentsWidget
   {
     private byte limit = (byte) VkontakteCommentsLimit.Limit5;
     private IEnumerable<string> attach = Enumerable.Empty<string>();
@@ -21,15 +21,14 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Collection of attachment types, which are allowed in comment posts.</para>
     /// </summary>
-    /// <param name="attach">Allowed types of post attachments.</param>
+    /// <param name="types">Allowed types of post attachments.</param>
     /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="attach"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="attach"/> is <see cref="string.Empty"/> string.</exception>
-    public IVkontakteCommentsWidget Attach(params string[] attach)
+    /// <exception cref="ArgumentNullException">If <paramref name="types"/> is a <c>null</c> reference.</exception>
+    public IVkontakteCommentsWidget Attach(params string[] types)
     {
       Assertion.NotNull(attach);
 
-      this.attach = attach;
+      this.attach = types;
       return this;
     }
 

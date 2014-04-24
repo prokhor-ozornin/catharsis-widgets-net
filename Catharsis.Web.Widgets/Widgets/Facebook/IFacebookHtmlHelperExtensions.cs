@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IFacebookHtmlHelper.Initialize()"/>
-    public static string Initialize(this IFacebookHtmlHelper html, Action<IFacebookInitWidget> builder)
+    public static string Initialize(this IFacebookHtmlHelper html, Action<IFacebookInitializationWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
@@ -107,12 +107,12 @@ namespace Catharsis.Web.Widgets
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IFacebookHtmlHelper.Facepile()"/>
-    public static string Follow(this IFacebookHtmlHelper html, Action<IFacebookFollowButtonWidget> builder)
+    public static string FollowButton(this IFacebookHtmlHelper html, Action<IFacebookFollowButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Follow();
+      var widget = html.FollowButton();
       builder(widget);
       return widget.ToHtmlString();
     }
@@ -124,13 +124,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IFacebookHtmlHelper.Like()"/>
-    public static string Like(this IFacebookHtmlHelper html, Action<IFacebookLikeButtonWidget> builder)
+    /// <seealso cref="IFacebookHtmlHelper.LikeButton()"/>
+    public static string LikeButton(this IFacebookHtmlHelper html, Action<IFacebookLikeButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Like();
+      var widget = html.LikeButton();
       builder(widget);
       return widget.ToHtmlString();
     }
@@ -178,13 +178,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IFacebookHtmlHelper.Send()"/>
-    public static string Send(this IFacebookHtmlHelper html, Action<IFacebookSendButtonWidget> builder)
+    /// <seealso cref="IFacebookHtmlHelper.SendButton()"/>
+    public static string SendButton(this IFacebookHtmlHelper html, Action<IFacebookSendButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Send();
+      var widget = html.SendButton();
       builder(widget);
       return widget.ToHtmlString();
     }

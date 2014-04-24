@@ -22,16 +22,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IYandexHtmlHelperExtensions.Like(IYandexHtmlHelper, Action{IYandexLikeButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="IYandexHtmlHelperExtensions.LikeButton(IYandexHtmlHelper, Action{IYandexLikeButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
-    public void Like_Method()
+    public void LikeButton_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.Like(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().Like(null));
+      Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.LikeButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().LikeButton(null));
 
-      Assert.Equal(new YandexHtmlHelper().Like().ToHtmlString(), new YandexHtmlHelper().Like(x => { }));
-      Assert.Equal(new YandexHtmlHelper().Like().Url("url").ToHtmlString(), new YandexHtmlHelper().Like(x => x.Url("url")));
+      Assert.Equal(new YandexHtmlHelper().LikeButton().ToHtmlString(), new YandexHtmlHelper().LikeButton(x => { }));
+      Assert.Equal(new YandexHtmlHelper().LikeButton().Url("url").ToHtmlString(), new YandexHtmlHelper().LikeButton(x => x.Url("url")));
     }
 
     /// <summary>
@@ -57,7 +57,7 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().MoneyDonateForm(null));
 
       Assert.Equal(new YandexHtmlHelper().MoneyDonateForm().ToHtmlString(), new YandexHtmlHelper().MoneyDonateForm(x => { }));
-      Assert.Equal(new YandexHtmlHelper().MoneyDonateForm().Account("account").Description("description").ToHtmlString(), new YandexHtmlHelper().MoneyDonateForm(x => x.Account("account").Description("description")));
+      Assert.Equal(new YandexHtmlHelper().MoneyDonateForm().Account("account").DescriptionText("description").ToHtmlString(), new YandexHtmlHelper().MoneyDonateForm(x => x.Account("account").DescriptionText("description")));
     }
 
     /// <summary>
@@ -74,16 +74,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IYandexHtmlHelperExtensions.Share(IYandexHtmlHelper, Action{IYandexSharePanelWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="IYandexHtmlHelperExtensions.SharePanel(IYandexHtmlHelper, Action{IYandexSharePanelWidget})"/> method.</para>
     /// </summary>
     [Fact]
-    public void Share_Method()
+    public void SharePanel_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.Share(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().Share(null));
+      Assert.Throws<ArgumentNullException>(() => IYandexHtmlHelperExtensions.SharePanel(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new YandexHtmlHelper().SharePanel(null));
 
-      Assert.Equal(new YandexHtmlHelper().Share().ToHtmlString(), new YandexHtmlHelper().Share(x => { }));
-      Assert.Equal(new YandexHtmlHelper().Share().Layout(YandexSharePanelLayout.Button).ToHtmlString(), new YandexHtmlHelper().Share(x => x.Layout(YandexSharePanelLayout.Button)));
+      Assert.Equal(new YandexHtmlHelper().SharePanel().ToHtmlString(), new YandexHtmlHelper().SharePanel(x => { }));
+      Assert.Equal(new YandexHtmlHelper().SharePanel().Layout(YandexSharePanelLayout.Button).ToHtmlString(), new YandexHtmlHelper().SharePanel(x => x.Layout(YandexSharePanelLayout.Button)));
     }
 
     /// <summary>

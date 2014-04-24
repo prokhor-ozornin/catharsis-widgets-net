@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Gravatar's user profile URL.</para>
   /// </summary>
   /// <seealso cref="http://gravatar.com/site/implement/profiles"/>
-  public class GravatarProfileUrlWidget : HtmlWidgetBase, IGravatarProfileUrlWidget
+  public class GravatarProfileUrlWidget : HtmlWidget, IGravatarProfileUrlWidget
   {
     private string format;
     private string hash;

@@ -9,8 +9,10 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Yandex social "Share" button.</para>
+  ///   <para>Requires Yandex scripts bundle to be included.</para>
   /// </summary>
-  public class YandexSharePanelWidget : HtmlWidgetBase, IYandexSharePanelWidget
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Yandex(IWidgetsScriptsRenderer)"/>
+  public class YandexSharePanelWidget : HtmlWidget, IYandexSharePanelWidget
   {
     private string language;
     private string layout = YandexSharePanelLayout.Button.ToString().ToLowerInvariant();

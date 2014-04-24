@@ -10,10 +10,11 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Twitter "Tweet" button.</para>
-  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Twitter"/> scripts bundle to be included.</para>
+  ///   <para>Requires Twitter scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="https://dev.twitter.com/docs/tweet-button"/>
-  public class TwitterTweetButtonWidget : HtmlWidgetBase, ITwitterTweetButtonWidget
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Twitter(IWidgetsScriptsRenderer)"/>
+  public class TwitterTweetButtonWidget : HtmlWidget, ITwitterTweetButtonWidget
   {
     private string url;
     private string language;
@@ -21,7 +22,7 @@ namespace Catharsis.Web.Widgets
     private string via;
     private string size;
     private string countUrl;
-    private string countPosition;
+    private string counterPosition;
     private bool? optOut;
     private IEnumerable<string> accounts = Enumerable.Empty<string>();
     private IEnumerable<string> tags = Enumerable.Empty<string>();
@@ -33,11 +34,11 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="position"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="position"/> is <see cref="string.Empty"/> string.</exception>
-    public ITwitterTweetButtonWidget CountPosition(string position)
+    public ITwitterTweetButtonWidget CounterPosition(string position)
     {
       Assertion.NotEmpty(position);
 
-      this.countPosition = position;
+      this.counterPosition = position;
       return this;
     }
 
@@ -183,7 +184,7 @@ namespace Catharsis.Web.Widgets
         .Attribute("data-via", this.via)
         .Attribute("data-text", this.text)
         .Attribute("data-related", this.accounts.Any() ? this.accounts.Join(",") : null)
-        .Attribute("data-count", this.countPosition)
+        .Attribute("data-count", this.counterPosition)
         .Attribute("data-counturl", this.countUrl)
         .Attribute("data-hashtags", this.tags.Any() ? this.tags.Join(" ") : null)
         .Attribute("data-size", this.size)

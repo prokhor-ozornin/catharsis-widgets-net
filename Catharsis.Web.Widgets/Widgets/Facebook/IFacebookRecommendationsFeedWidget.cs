@@ -48,9 +48,9 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to show the "Recent Activity" header above the feed or not. Default is <c>true</c>.</para>
     /// </summary>
-    /// <param name="header"><c>true</c> to show header, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show header, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    IFacebookRecommendationsFeedWidget Header(bool header = true);
+    IFacebookRecommendationsFeedWidget Header(bool show = true);
 
     /// <summary>
     ///   <para>The height of the widget in pixels. Default is 300.</para>
@@ -64,11 +64,11 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Determines what happens when people click on the links in the feed. Can be any of the standard HTML target values. Default is "_blank".</para>
     /// </summary>
-    /// <param name="linkTarget">Hyperlinks HTML target attribute.</param>
+    /// <param name="target">Hyperlinks HTML target attribute.</param>
     /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="linkTarget"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="linkTarget"/> is <see cref="string.Empty"/> string.</exception>
-    IFacebookRecommendationsFeedWidget LinkTarget(string linkTarget);
+    /// <exception cref="ArgumentNullException">If <paramref name="target"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="target"/> is <see cref="string.Empty"/> string.</exception>
+    IFacebookRecommendationsFeedWidget LinkTarget(string target);
 
     /// <summary>
     ///   <para>Limit the created time of articles that are shown in the feed. Valid values are 1-180, which represents the age in days to limit to. Default is 0 (no limit).</para>
@@ -80,11 +80,11 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>A label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_).</para>
     /// </summary>
-    /// <param name="trackLabel">Label for tracking referrals.</param>
+    /// <param name="label">Label for tracking referrals.</param>
     /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="trackLabel"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="trackLabel"/> is <see cref="string.Empty"/> string.</exception>
-    IFacebookRecommendationsFeedWidget TrackLabel(string trackLabel);
+    /// <exception cref="ArgumentNullException">If <paramref name="label"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="label"/> is <see cref="string.Empty"/> string.</exception>
+    IFacebookRecommendationsFeedWidget TrackLabel(string label);
 
     /// <summary>
     ///   <para>The width of the widget in pixels. Default is 300.</para>

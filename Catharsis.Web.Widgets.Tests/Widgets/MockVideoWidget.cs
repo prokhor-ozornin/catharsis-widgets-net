@@ -1,6 +1,6 @@
 ﻿namespace Catharsis.Web.Widgets
 {
-  internal sealed class MockVideoWidget : HtmlWidgetBase, IVideoWidget<MockVideoWidget>
+  internal sealed class MockVideoWidget : HtmlWidget, IVideoWidget<MockVideoWidget>
   {
     public MockVideoWidget Id(string id)
     {

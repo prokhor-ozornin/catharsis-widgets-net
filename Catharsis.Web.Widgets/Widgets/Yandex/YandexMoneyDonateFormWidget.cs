@@ -8,21 +8,21 @@ namespace Catharsis.Web.Widgets
   ///   <para>Renders donation form for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
   /// </summary>
   /// <seealso cref="https://money.yandex.ru/embed/quickpay/donate.xml"/>
-  public class YandexMoneyDonateFormWidget : HtmlWidgetBase, IYandexMoneyDonateFormWidget
+  public class YandexMoneyDonateFormWidget : HtmlWidget, IYandexMoneyDonateFormWidget
   {
     private string account;
-    private string description;
+    private bool description;
     private decimal? sum;
     private bool cards = true;
     private byte text = (byte) YandexMoneyDonateFormText.Donate;
     private string projectName;
     private string projectSite;
-    private bool payerComment;
-    private string payerCommentHint;
-    private bool payerFullName;
-    private bool payerEmail;
-    private bool payerPhone;
-    private bool showDescription;
+    private bool askPayerComment;
+    private string commentHint;
+    private bool askPayerFullName;
+    private bool askPayerEmail;
+    private bool askPayerPhone;
+    private string descriptionText;
 
     /// <summary>
     ///   <para>Identifier of account in the Yandex.Money payment system which is to receive money.</para>
@@ -59,22 +59,22 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentNullException">If <paramref name="description"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="description"/> is <see cref="string.Empty"/> string.</exception>
     /// <remarks>This attribute is required.</remarks>
-    public IYandexMoneyDonateFormWidget Description(string description)
+    public IYandexMoneyDonateFormWidget DescriptionText(string description)
     {
       Assertion.NotEmpty(description);
 
-      this.description = description;
+      this.descriptionText = description;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyDonateFormWidget PayerComment(bool require = true)
+    public IYandexMoneyDonateFormWidget AskPayerComment(bool ask = true)
     {
-      this.payerComment = require;
+      this.askPayerComment = ask;
       return this;
     }
 
@@ -85,44 +85,44 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="hint"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="hint"/> is <see cref="string.Empty"/> string.</exception>
-    public IYandexMoneyDonateFormWidget PayerCommentHint(string hint)
+    public IYandexMoneyDonateFormWidget CommentHint(string hint)
     {
       Assertion.NotEmpty(hint);
 
-      this.payerCommentHint = hint;
+      this.commentHint = hint;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyDonateFormWidget PayerEmail(bool require = true)
+    public IYandexMoneyDonateFormWidget AskPayerEmail(bool ask = true)
     {
-      this.payerEmail = require;
+      this.askPayerEmail = ask;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyDonateFormWidget PayerFullName(bool require = true)
+    public IYandexMoneyDonateFormWidget AskPayerFullName(bool ask = true)
     {
-      this.payerFullName = require;
+      this.askPayerFullName = ask;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyDonateFormWidget PayerPhone(bool require = true)
+    public IYandexMoneyDonateFormWidget AskPayerPhone(bool ask = true)
     {
-      this.payerPhone = require;
+      this.askPayerPhone = ask;
       return this;
     }
 
@@ -161,9 +161,9 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="show"><c>true</c> to show payment purpose text on the form, <c>false</c> to hide it.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyDonateFormWidget ShowDescription(bool show = true)
+    public IYandexMoneyDonateFormWidget Description(bool show = true)
     {
-      this.showDescription = show;
+      this.description = show;
       return this;
     }
 
@@ -195,7 +195,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty() || this.description.IsEmpty())
+      if (this.account.IsEmpty() || this.descriptionText.IsEmpty())
       {
         return string.Empty;
       }
@@ -233,12 +233,12 @@ namespace Catharsis.Web.Widgets
       }
 
       return new TagBuilder("iframe")
-        .Attribute("src", "https://money.yandex.ru/embed/donate.xml?account={0}&quickpay=donate{1}&default-sum={2}&targets={3}{4}&project-name={5}&project-site={6}&button-text=0{7}{8}{9}{10}{11}".FormatSelf(this.account, this.cards ? "&payment-type-choice=on" : string.Empty, this.sum, this.description, this.showDescription ? "&target-visibility=on" : string.Empty, this.projectName, this.projectSite, this.text, this.payerComment ? "&comment=on&hint={0}".FormatSelf(this.payerCommentHint) : string.Empty, this.payerFullName ? "&fio=on" : string.Empty, this.payerEmail ? "&mail=on" : string.Empty, this.payerPhone ? "&phone=on" : string.Empty))
+        .Attribute("src", "https://money.yandex.ru/embed/donate.xml?account={0}&quickpay=donate{1}&default-sum={2}&targets={3}{4}&project-name={5}&project-site={6}&button-text=0{7}{8}{9}{10}{11}".FormatSelf(this.account, this.cards ? "&payment-type-choice=on" : string.Empty, this.sum, this.descriptionText, this.description ? "&target-visibility=on" : string.Empty, this.projectName, this.projectSite, this.text, this.askPayerComment ? "&comment=on&hint={0}".FormatSelf(this.commentHint) : string.Empty, this.askPayerFullName ? "&fio=on" : string.Empty, this.askPayerEmail ? "&mail=on" : string.Empty, this.askPayerPhone ? "&phone=on" : string.Empty))
         .Attribute("frameborder", 0)
         .Attribute("allowtransparency", true)
         .Attribute("scrolling", "no")
         .Attribute("width", width)
-        .Attribute("height", this.payerComment ? 210 : 133)
+        .Attribute("height", this.askPayerComment ? 210 : 133)
         .ToString();
     }
   }

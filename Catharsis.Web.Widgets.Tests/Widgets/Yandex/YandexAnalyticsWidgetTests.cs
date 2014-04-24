@@ -19,12 +19,12 @@ namespace Catharsis.Web.Widgets
     {
       var widget = new YandexAnalyticsWidget();
       Assert.Null(widget.Field("account"));
-      Assert.True(widget.Field("webvisor").To<bool>());
-      Assert.True(widget.Field("clickmap").To<bool>());
-      Assert.True(widget.Field("tracklinks").To<bool>());
-      Assert.True(widget.Field("trackhash").To<bool>());
+      Assert.True(widget.Field("webVisor").To<bool>());
+      Assert.True(widget.Field("clickMap").To<bool>());
+      Assert.True(widget.Field("trackLinks").To<bool>());
+      Assert.True(widget.Field("trackHash").To<bool>());
       Assert.True(widget.Field("accurate").To<bool>());
-      Assert.False(widget.Field("noindex").To<bool>());
+      Assert.False(widget.Field("noIndex").To<bool>());
       Assert.Null(widget.Field("language"));
     }
 
@@ -50,9 +50,9 @@ namespace Catharsis.Web.Widgets
     public void WebVisor_Method()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("webvisor").To<bool>());
+      Assert.True(widget.Field("webVisor").To<bool>());
       Assert.True(ReferenceEquals(widget.WebVisor(false), widget));
-      Assert.False(widget.Field("webvisor").To<bool>());
+      Assert.False(widget.Field("webVisor").To<bool>());
     }
 
     /// <summary>
@@ -62,9 +62,9 @@ namespace Catharsis.Web.Widgets
     public void ClickMap_Method()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("clickmap").To<bool>());
+      Assert.True(widget.Field("clickMap").To<bool>());
       Assert.True(ReferenceEquals(widget.ClickMap(false), widget));
-      Assert.False(widget.Field("clickmap").To<bool>());
+      Assert.False(widget.Field("clickMap").To<bool>());
     }
 
     /// <summary>
@@ -74,9 +74,9 @@ namespace Catharsis.Web.Widgets
     public void TrackLinks_Method()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("tracklinks").To<bool>());
+      Assert.True(widget.Field("trackLinks").To<bool>());
       Assert.True(ReferenceEquals(widget.TrackLinks(false), widget));
-      Assert.False(widget.Field("tracklinks").To<bool>());
+      Assert.False(widget.Field("trackLinks").To<bool>());
     }
 
     /// <summary>
@@ -86,9 +86,9 @@ namespace Catharsis.Web.Widgets
     public void TrackHash_Method()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("trackhash").To<bool>());
+      Assert.True(widget.Field("trackHash").To<bool>());
       Assert.True(ReferenceEquals(widget.TrackHash(false), widget));
-      Assert.False(widget.Field("trackhash").To<bool>());
+      Assert.False(widget.Field("trackHash").To<bool>());
     }
 
     /// <summary>
@@ -110,9 +110,9 @@ namespace Catharsis.Web.Widgets
     public void NoIndex_Method()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.False(widget.Field("noindex").To<bool>());
+      Assert.False(widget.Field("noIndex").To<bool>());
       Assert.True(ReferenceEquals(widget.NoIndex(), widget));
-      Assert.True(widget.Field("noindex").To<bool>());
+      Assert.True(widget.Field("noIndex").To<bool>());
     }
 
     /// <summary>

@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Gravatar's avatar image URL.</para>
   /// </summary>
   /// <seealso cref="http://gravatar.com/site/implement/images"/>
-  public class GravatarImageUrlWidget : HtmlWidgetBase, IGravatarImageUrlWidget
+  public class GravatarImageUrlWidget : HtmlWidget, IGravatarImageUrlWidget
   {
     private string extension;
     private string hash;

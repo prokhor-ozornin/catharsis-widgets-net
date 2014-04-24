@@ -7,13 +7,13 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded YouTube video on web page.</para>
   /// </summary>
-  public class YouTubeVideoWidget : HtmlWidgetBase, IYouTubeVideoWidget
+  public class YouTubeVideoWidget : HtmlWidget, IYouTubeVideoWidget
   {
     private string id;
     private string width;
     private string height;
-    private bool @private;
-    private bool secure;
+    private bool privateMode;
+    private bool secureMode;
 
     /// <summary>
     ///   <para>Identifier of video.</para>
@@ -50,22 +50,22 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to keep track of user cookies or not (default is <c>false)</c>.</para>
     /// </summary>
-    /// <param name="private"><c>true</c> to set cookies, <c>false</c> to not.</param>
+    /// <param name="enabled"><c>true</c> to set cookies, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYouTubeVideoWidget Private(bool @private = true)
+    public IYouTubeVideoWidget PrivateMode(bool enabled = true)
     {
-      this.@private = @private;
+      this.privateMode = enabled;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to access video through secure HTTPS protocol or unsecure HTTP (default is <c>false</c>).</para>
     /// </summary>
-    /// <param name="secure"><c>true</c> to use HTTPS protocol, <c>false</c> to use HTTP.</param>
+    /// <param name="enabled"><c>true</c> to use HTTPS protocol, <c>false</c> to use HTTP.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYouTubeVideoWidget Secure(bool secure = true)
+    public IYouTubeVideoWidget SecureMode(bool enabled = true)
     {
-      this.secure = secure;
+      this.secureMode = enabled;
       return this;
     }
 
@@ -97,7 +97,7 @@ namespace Catharsis.Web.Widgets
       }
 
       return new TagBuilder("iframe")
-        .Attribute("src", "{2}://{1}/embed/{0}".FormatSelf(this.id, this.@private ? "www.youtube-nocookie.com" : "www.youtube.com", this.secure ? "https" : "http"))
+        .Attribute("src", "{2}://{1}/embed/{0}".FormatSelf(this.id, this.privateMode ? "www.youtube-nocookie.com" : "www.youtube.com", this.secureMode ? "https" : "http"))
         .Attribute("width", this.width)
         .Attribute("height", this.height)
         .Attribute("frameborder", 0)

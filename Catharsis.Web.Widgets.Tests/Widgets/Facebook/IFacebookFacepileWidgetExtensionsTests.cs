@@ -24,16 +24,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IFacebookFacepileWidgetExtensions.Size(IFacebookFacepileWidget, FacebookFacepileSize)"/> method.</para>
+    ///   <para>Performs testing of <see cref="IFacebookFacepileWidgetExtensions.PhotoSize(IFacebookFacepileWidget, FacebookFacepilePhotoSize)"/> method.</para>
     /// </summary>
     [Fact]
-    public void Size_Method()
+    public void PhotoSize_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IFacebookFacepileWidgetExtensions.Size(null, FacebookFacepileSize.Large));
+      Assert.Throws<ArgumentNullException>(() => IFacebookFacepileWidgetExtensions.PhotoSize(null, FacebookFacepilePhotoSize.Large));
 
-      Assert.Equal("large", new FacebookFacepileWidget().Size(FacebookFacepileSize.Large).Field("size").To<string>());
-      Assert.Equal("medium", new FacebookFacepileWidget().Size(FacebookFacepileSize.Medium).Field("size").To<string>());
-      Assert.Equal("small", new FacebookFacepileWidget().Size(FacebookFacepileSize.Small).Field("size").To<string>());
+      Assert.Equal("large", new FacebookFacepileWidget().PhotoSize(FacebookFacepilePhotoSize.Large).Field("photoSize").To<string>());
+      Assert.Equal("medium", new FacebookFacepileWidget().PhotoSize(FacebookFacepilePhotoSize.Medium).Field("photoSize").To<string>());
+      Assert.Equal("small", new FacebookFacepileWidget().PhotoSize(FacebookFacepilePhotoSize.Small).Field("photoSize").To<string>());
     }
 
     /// <summary>

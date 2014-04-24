@@ -18,12 +18,12 @@ namespace Catharsis.Web.Widgets
     {
       var widget = new YandexMoneyButtonWidget();
       Assert.Null(widget.Field("account"));
-      Assert.Equal("orange",widget.Field("color").To<string>());
+      Assert.False(widget.Field("askPayerFullName").To<bool>());
+      Assert.False(widget.Field("askPayerEmail").To<bool>());
+      Assert.False(widget.Field("askPayerPhone").To<bool>());
+      Assert.False(widget.Field("askPayerAddress").To<bool>());
+      Assert.Equal("orange", widget.Field("color").To<string>());
       Assert.Null(widget.Field("description"));
-      Assert.False(widget.Field("payerFullName").To<bool>());
-      Assert.False(widget.Field("payerEmail").To<bool>());
-      Assert.False(widget.Field("payerPhone").To<bool>());
-      Assert.False(widget.Field("payerAddress").To<bool>());
       Assert.Equal("l", widget.Field("size").To<string>());
       Assert.Null(widget.Field("sum"));
       Assert.Equal((byte)YandexMoneyButtonText.Pay, widget.Field("text").To<byte>());
@@ -76,51 +76,51 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.PayerFullName(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.AskPayerFullName(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void PayerFullName_Method()
+    public void AskPayerFullName_Method()
     {
       var widget = new YandexMoneyButtonWidget();
-      Assert.False(widget.Field("payerFullName").To<bool>());
-      Assert.True(ReferenceEquals(widget.PayerFullName(), widget));
-      Assert.True(widget.Field("payerFullName").To<bool>());
+      Assert.False(widget.Field("askPayerFullName").To<bool>());
+      Assert.True(ReferenceEquals(widget.AskPayerFullName(), widget));
+      Assert.True(widget.Field("askPayerFullName").To<bool>());
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.PayerEmail(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.AskPayerEmail(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void PayerEmail_Method()
+    public void AskPayerEmail_Method()
     {
       var widget = new YandexMoneyButtonWidget();
-      Assert.False(widget.Field("payerEmail").To<bool>());
-      Assert.True(ReferenceEquals(widget.PayerEmail(), widget));
-      Assert.True(widget.Field("payerEmail").To<bool>());
+      Assert.False(widget.Field("askPayerEmail").To<bool>());
+      Assert.True(ReferenceEquals(widget.AskPayerEmail(), widget));
+      Assert.True(widget.Field("askPayerEmail").To<bool>());
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.PayerPhone(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.AskPayerPhone(bool)"/> method.</para>
     /// </summary>
     [Fact]
     public void PayerPhone_Method()
     {
       var widget = new YandexMoneyButtonWidget();
-      Assert.False(widget.Field("payerPhone").To<bool>());
-      Assert.True(ReferenceEquals(widget.PayerPhone(), widget));
-      Assert.True(widget.Field("payerPhone").To<bool>());
+      Assert.False(widget.Field("askPayerPhone").To<bool>());
+      Assert.True(ReferenceEquals(widget.AskPayerPhone(), widget));
+      Assert.True(widget.Field("askPayerPhone").To<bool>());
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.PayerAddress(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.AskPayerAddress(bool)"/> method.</para>
     /// </summary>
     [Fact]
     public void PayerAddress_Method()
     {
       var widget = new YandexMoneyButtonWidget();
-      Assert.False(widget.Field("payerAddress").To<bool>());
-      Assert.True(ReferenceEquals(widget.PayerAddress(), widget));
-      Assert.True(widget.Field("payerAddress").To<bool>());
+      Assert.False(widget.Field("askPayerAddress").To<bool>());
+      Assert.True(ReferenceEquals(widget.AskPayerAddress(), widget));
+      Assert.True(widget.Field("askPayerAddress").To<bool>());
     }
 
     /// <summary>
@@ -188,7 +188,7 @@ namespace Catharsis.Web.Widgets
       Assert.Equal(string.Empty, new YandexMoneyButtonWidget().Account("account").Sum(1).ToString());
       Assert.Equal(string.Empty, new YandexMoneyButtonWidget().Account("account").Description("description").ToString());
       Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""54"" scrolling=""no"" src=""https://money.yandex.ru/embed/small.xml?account=account&amp;quickpay=small&amp;yamoney-payment-type=on&amp;button-text=01&amp;button-size=l&amp;button-color=orange&amp;targets=description&amp;default-sum=1"" width=""229""></iframe>", new YandexMoneyButtonWidget().Account("account").Description("description").Sum(1).ToString());
-      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""54"" scrolling=""no"" src=""https://money.yandex.ru/embed/small.xml?account=account&amp;quickpay=small&amp;any-card-payment-type=on&amp;button-text=03&amp;button-size=m&amp;button-color=white&amp;targets=description&amp;default-sum=1&amp;fio=on&amp;mail=on&amp;phone=on&amp;address=on"" width=""242""></iframe>", new YandexMoneyButtonWidget().Account("account").Description("description").Sum(1).Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Transfer).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).PayerFullName().PayerEmail().PayerPhone().PayerAddress().ToString());
+      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""54"" scrolling=""no"" src=""https://money.yandex.ru/embed/small.xml?account=account&amp;quickpay=small&amp;any-card-payment-type=on&amp;button-text=03&amp;button-size=m&amp;button-color=white&amp;targets=description&amp;default-sum=1&amp;fio=on&amp;mail=on&amp;phone=on&amp;address=on"" width=""242""></iframe>", new YandexMoneyButtonWidget().Account("account").Description("description").Sum(1).Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Transfer).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).AskPayerFullName().AskPayerEmail().AskPayerPhone().AskPayerAddress().ToString());
     }
   }
 }

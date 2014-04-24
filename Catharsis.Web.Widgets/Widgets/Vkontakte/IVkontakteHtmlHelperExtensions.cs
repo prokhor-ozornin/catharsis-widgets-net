@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IVkontakteHtmlHelper.Initialize()"/>
-    public static string Initialize(this IVkontakteHtmlHelper html, Action<IVkontakteInitWidget> builder)
+    public static string Initialize(this IVkontakteHtmlHelper html, Action<IVkontakteInitializationWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
@@ -70,13 +70,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IVkontakteHtmlHelper.Like()"/>
-    public static string Like(this IVkontakteHtmlHelper html, Action<IVkontakteLikeButtonWidget> builder)
+    /// <seealso cref="IVkontakteHtmlHelper.LikeButton()"/>
+    public static string LikeButton(this IVkontakteHtmlHelper html, Action<IVkontakteLikeButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Like();
+      var widget = html.LikeButton();
       builder(widget);
       return widget.ToHtmlString();
     }
@@ -88,13 +88,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IVkontakteHtmlHelper.Subscribe()"/>
-    public static string Subscribe(this IVkontakteHtmlHelper html, Action<IVkontakteSubscriptionWidget> builder)
+    /// <seealso cref="IVkontakteHtmlHelper.Subscription()"/>
+    public static string Subscription(this IVkontakteHtmlHelper html, Action<IVkontakteSubscriptionWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Subscribe();
+      var widget = html.Subscription();
       builder(widget);
       return widget.ToHtmlString();
     }

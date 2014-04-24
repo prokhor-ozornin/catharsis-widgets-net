@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     /// <param name="height">Areas's height.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IPinterestProfileWidget.Height"/>
+    /// <seealso cref="IPinterestProfileWidget.Height(string)"/>
     public static IPinterestProfileWidget Height(this IPinterestProfileWidget widget, short height)
     {
       Assertion.NotNull(widget);
@@ -32,7 +32,7 @@ namespace Catharsis.Web.Widgets
     /// <param name="width">Area's width.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IPinterestProfileWidget.Width"/>
+    /// <seealso cref="IPinterestProfileWidget.Width(string)"/>
     public static IPinterestProfileWidget Width(this IPinterestProfileWidget widget, short width)
     {
       Assertion.NotNull(widget);
@@ -46,14 +46,14 @@ namespace Catharsis.Web.Widgets
     /// <param name="widget">Widget to call method on.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IPinterestProfileWidget.ImageWidth(string)"/>
-    /// <seealso cref="IPinterestProfileWidget.Height"/>
-    /// <seealso cref="IPinterestProfileWidget.Width"/>
+    /// <seealso cref="IPinterestProfileWidget.Image(string)"/>
+    /// <seealso cref="IPinterestProfileWidget.Height(string)"/>
+    /// <seealso cref="IPinterestProfileWidget.Width(string)"/>
     public static IPinterestProfileWidget Header(this IPinterestProfileWidget widget)
     {
       Assertion.NotNull(widget);
 
-      return widget.ImageWidth(115).Height(120).Width(900);
+      return widget.Image(115).Height(120).Width(900);
     }
 
     /// <summary>
@@ -63,12 +63,12 @@ namespace Catharsis.Web.Widgets
     /// <param name="width">Area's image width.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IPinterestProfileWidget.ImageWidth(string)"/>
-    public static IPinterestProfileWidget ImageWidth(this IPinterestProfileWidget widget, short width)
+    /// <seealso cref="IPinterestProfileWidget.Image(string)"/>
+    public static IPinterestProfileWidget Image(this IPinterestProfileWidget widget, short width)
     {
       Assertion.NotNull(widget);
 
-      return widget.ImageWidth(width.ToString(CultureInfo.InvariantCulture));
+      return widget.Image(width.ToString(CultureInfo.InvariantCulture));
     }
 
     /// <summary>
@@ -77,14 +77,14 @@ namespace Catharsis.Web.Widgets
     /// <param name="widget">Widget to call method on.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IPinterestProfileWidget.ImageWidth(string)"/>
-    /// <seealso cref="IPinterestProfileWidget.Height"/>
-    /// <seealso cref="IPinterestProfileWidget.Width"/>
+    /// <seealso cref="IPinterestProfileWidget.Image(string)"/>
+    /// <seealso cref="IPinterestProfileWidget.Height(string)"/>
+    /// <seealso cref="IPinterestProfileWidget.Width(string)"/>
     public static IPinterestProfileWidget Sidebar(this IPinterestProfileWidget widget)
     {
       Assertion.NotNull(widget);
 
-      return widget.ImageWidth(60).Height(800).Width(150);
+      return widget.Image(60).Height(800).Width(150);
     }
 
     /// <summary>
@@ -93,14 +93,14 @@ namespace Catharsis.Web.Widgets
     /// <param name="widget">Widget to call method on.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IPinterestProfileWidget.ImageWidth(string)"/>
-    /// <seealso cref="IPinterestProfileWidget.Height"/>
-    /// <seealso cref="IPinterestProfileWidget.Width"/>
+    /// <seealso cref="IPinterestProfileWidget.Image(string)"/>
+    /// <seealso cref="IPinterestProfileWidget.Height(string)"/>
+    /// <seealso cref="IPinterestProfileWidget.Width(string)"/>
     public static IPinterestProfileWidget Square(this IPinterestProfileWidget widget)
     {
       Assertion.NotNull(widget);
 
-      return widget.ImageWidth(80).Height(320).Width(400);
+      return widget.Image(80).Height(320).Width(400);
     }
   }
 }

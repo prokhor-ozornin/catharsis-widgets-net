@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Includes Google Analytics JavaScript code into web page.</para>
   /// </summary>
   /// <seealso cref="http://www.google.com/analytics"/>
-  public class GoogleAnalyticsWidget : HtmlWidgetBase, IGoogleAnalyticsWidget
+  public class GoogleAnalyticsWidget : HtmlWidget, IGoogleAnalyticsWidget
   {
     private string account;
     private string domain;

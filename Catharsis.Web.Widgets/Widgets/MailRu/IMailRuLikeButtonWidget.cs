@@ -4,17 +4,18 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Mail.ru "Like" button on web page.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.MailRu"/> script to be included.</para>
+  ///   <para>Requires MailRu scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://api.mail.ru/sites/plugins/share"/>
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.MailRu(IWidgetsScriptsRenderer)"/>
   public interface IMailRuLikeButtonWidget : IHtmlWidget
   {
     /// <summary>
     ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
     /// </summary>
-    /// <param name="counter"><c>true</c> to show share counter, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show share counter, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    IMailRuLikeButtonWidget Counter(bool counter = true);
+    IMailRuLikeButtonWidget Counter(bool show = true);
 
     /// <summary>
     ///   <para>Position of a share counter.</para>

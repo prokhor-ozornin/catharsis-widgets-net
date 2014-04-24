@@ -9,29 +9,29 @@ namespace Catharsis.Web.Widgets
   public sealed class ITumblrHtmlHelperExtensionsTests
   {
     /// <summary>
-    ///   <para>Performs testing of <see cref="ITumblrHtmlHelperExtensions.Follow(ITumblrHtmlHelper, Action{ITumblrFollowButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="ITumblrHtmlHelperExtensions.FollowButton(ITumblrHtmlHelper, Action{ITumblrFollowButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
-    public void Follow_Method()
+    public void FollowButton_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => ITumblrHtmlHelperExtensions.Follow(null, widget => {}));
-      Assert.Throws<ArgumentNullException>(() => new TumblrHtmlHelper().Follow(null));
+      Assert.Throws<ArgumentNullException>(() => ITumblrHtmlHelperExtensions.FollowButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new TumblrHtmlHelper().FollowButton(null));
 
-      Assert.Equal(new TumblrHtmlHelper().Follow().ToHtmlString(), new TumblrHtmlHelper().Follow(x => { }));
-      Assert.Equal(new TumblrHtmlHelper().Follow().Account("account").ToHtmlString(), new TumblrHtmlHelper().Follow(x => x.Account("account")));
+      Assert.Equal(new TumblrHtmlHelper().FollowButton().ToHtmlString(), new TumblrHtmlHelper().FollowButton(x => { }));
+      Assert.Equal(new TumblrHtmlHelper().FollowButton().Account("account").ToHtmlString(), new TumblrHtmlHelper().FollowButton(x => x.Account("account")));
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="ITumblrHtmlHelperExtensions.Share(ITumblrHtmlHelper, Action{ITumblrShareButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="ITumblrHtmlHelperExtensions.ShareButton(ITumblrHtmlHelper, Action{ITumblrShareButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
     public void Share_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => ITumblrHtmlHelperExtensions.Share(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new TumblrHtmlHelper().Share(null));
+      Assert.Throws<ArgumentNullException>(() => ITumblrHtmlHelperExtensions.ShareButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new TumblrHtmlHelper().ShareButton(null));
 
-      Assert.Equal(new TumblrHtmlHelper().Share().ToHtmlString(), new TumblrHtmlHelper().Share(x => { }));
-      Assert.Equal(new TumblrHtmlHelper().Share().Type(TumblrShareButtonType.First).ToHtmlString(), new TumblrHtmlHelper().Share(x => x.Type(TumblrShareButtonType.First)));
+      Assert.Equal(new TumblrHtmlHelper().ShareButton().ToHtmlString(), new TumblrHtmlHelper().ShareButton(x => { }));
+      Assert.Equal(new TumblrHtmlHelper().ShareButton().Type(TumblrShareButtonType.First).ToHtmlString(), new TumblrHtmlHelper().ShareButton(x => x.Type(TumblrShareButtonType.First)));
     }
   }
 }

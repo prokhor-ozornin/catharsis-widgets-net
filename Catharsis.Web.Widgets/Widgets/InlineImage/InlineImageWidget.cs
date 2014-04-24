@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders inline HTML image with BASE64-encoded binary data.</para>
   /// </summary>
-  public class InlineImageWidget : HtmlWidgetBase, IInlineImageWidget
+  public class InlineImageWidget : HtmlWidget, IInlineImageWidget
   {
     private byte[] contents;
     private string format;

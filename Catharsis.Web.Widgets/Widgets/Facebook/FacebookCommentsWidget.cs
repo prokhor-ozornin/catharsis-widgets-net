@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/comments"/>
-  public class FacebookCommentsWidget : HtmlWidgetBase, IFacebookCommentsWidget
+  public class FacebookCommentsWidget : HtmlWidget, IFacebookCommentsWidget
   {
     private string colorScheme;
     private bool? mobile;

@@ -31,16 +31,16 @@ namespace Catharsis.Web.Widgets
     }*/
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IGoogleHtmlHelperExtensions.PlusOne(IGoogleHtmlHelper, Action{IGooglePlusOneButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="IGoogleHtmlHelperExtensions.PlusOneButton(IGoogleHtmlHelper, Action{IGooglePlusOneButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
-    public void PlusOne_Method()
+    public void PlusOneButton_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IGoogleHtmlHelperExtensions.PlusOne(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new GoogleHtmlHelper().PlusOne(null));
+      Assert.Throws<ArgumentNullException>(() => IGoogleHtmlHelperExtensions.PlusOneButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new GoogleHtmlHelper().PlusOneButton(null));
 
-      Assert.Equal(new GoogleHtmlHelper().PlusOne().ToHtmlString(), new GoogleHtmlHelper().PlusOne(x => { }));
-      Assert.Equal(new GoogleHtmlHelper().PlusOne().Url("url").ToHtmlString(), new GoogleHtmlHelper().PlusOne(x => x.Url("url")));
+      Assert.Equal(new GoogleHtmlHelper().PlusOneButton().ToHtmlString(), new GoogleHtmlHelper().PlusOneButton(x => { }));
+      Assert.Equal(new GoogleHtmlHelper().PlusOneButton().Url("url").ToHtmlString(), new GoogleHtmlHelper().PlusOneButton(x => x.Url("url")));
     }
   }
 }

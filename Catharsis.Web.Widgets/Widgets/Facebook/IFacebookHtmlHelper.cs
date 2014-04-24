@@ -27,19 +27,19 @@ namespace Catharsis.Web.Widgets
     ///   <para>Creates new Facebook "Follow" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    IFacebookFollowButtonWidget Follow();
+    IFacebookFollowButtonWidget FollowButton();
 
     /// <summary>
     ///   <para>Creates new Facebook JavaScript API initialization widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    IFacebookInitWidget Initialize();
+    IFacebookInitializationWidget Initialize();
 
     /// <summary>
     ///   <para>Creates new Facebook "Like" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    IFacebookLikeButtonWidget Like();
+    IFacebookLikeButtonWidget LikeButton();
 
     /// <summary>
     ///   <para>Creates new Facebook Likebox widget.</para>
@@ -63,7 +63,7 @@ namespace Catharsis.Web.Widgets
     ///   <para>Creates new Facebook "Send" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    IFacebookSendButtonWidget Send();
+    IFacebookSendButtonWidget SendButton();
 
     /// <summary>
     ///   <para>Creates new Facebook embedded video widget.</para>

@@ -9,11 +9,11 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/like-button"/>
-  public class FacebookLikeButtonWidget : HtmlWidgetBase, IFacebookLikeButtonWidget
+  public class FacebookLikeButtonWidget : HtmlWidget, IFacebookLikeButtonWidget
   {
     private string colorScheme;
     private bool? faces;
-    private bool? kids;
+    private bool? kidsMode;
     private string layout;
     private string trackLabel;
     private string url;
@@ -38,22 +38,22 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="faces"><c>true</c> to display profile photos, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to display profile photos, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeButtonWidget Faces(bool faces = true)
+    public IFacebookLikeButtonWidget Faces(bool show = true)
     {
-      this.faces = faces;
+      this.faces = show;
       return this;
     }
 
     /// <summary>
     ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="kids"><c>true</c> if site is directed to small children, <c>false</c> otherwise.</param>
+    /// <param name="enabled"><c>true</c> if site is directed to small children, <c>false</c> otherwise.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeButtonWidget Kids(bool kids = true)
+    public IFacebookLikeButtonWidget KidsMode(bool enabled = true)
     {
-      this.kids = kids;
+      this.kidsMode = enabled;
       return this;
     }
 
@@ -144,7 +144,7 @@ namespace Catharsis.Web.Widgets
         .Attribute("data-show-faces", this.faces)
         .Attribute("data-href", this.url)
         .Attribute("data-colorscheme", this.colorScheme)
-        .Attribute("data-kid-directed-site", this.kids)
+        .Attribute("data-kid-directed-site", this.kidsMode)
         .Attribute("data-ref", this.trackLabel)
         .Attribute("data-width", this.width)
         .CssClass("fb-like")

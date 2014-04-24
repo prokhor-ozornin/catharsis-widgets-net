@@ -5,10 +5,11 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Disqus comments widget for registered website.</para>
-  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Disqus"/> scripts bundle to be included.</para>
+  ///   <para>Requires Disqus scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://disqus.com/websites"/>
-  public class DisqusCommentsWidget : HtmlWidgetBase, IDisqusCommentsWidget
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Disqus(IWidgetsScriptsRenderer)"/>
+  public class DisqusCommentsWidget : HtmlWidget, IDisqusCommentsWidget
   {
     private string account;
 

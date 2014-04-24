@@ -7,10 +7,11 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Surfingbird "Surf" button.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.SurfingbirdSurf"/> script to be included.</para>
+  ///   <para>Requires Surfingbird scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://surfingbird.ru/publishers/surfbutton"/>
-  public class SurfingbirdSurfButtonWidget : HtmlWidgetBase, ISurfingbirdSurfButtonWidget
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Surfingbird(IWidgetsScriptsRenderer)"/>
+  public class SurfingbirdSurfButtonWidget : HtmlWidget, ISurfingbirdSurfButtonWidget
   {
     private string url;
     private string layout = SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant();
@@ -38,11 +39,11 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="counter"><c>true</c> to show counter, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show counter, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public ISurfingbirdSurfButtonWidget Counter(bool counter = true)
+    public ISurfingbirdSurfButtonWidget Counter(bool show = true)
     {
-      this.counter = counter;
+      this.counter = show;
       return this;
     }
 

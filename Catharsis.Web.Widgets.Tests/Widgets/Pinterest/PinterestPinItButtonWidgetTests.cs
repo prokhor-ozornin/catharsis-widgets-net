@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     {
       var widget = new PinterestPinItButtonWidget();
       Assert.Equal("gray", widget.Field("color").To<string>());
-      Assert.Equal(PinterestPinItButtonPinCountPosition.None, widget.Field("counterPosition").To<PinterestPinItButtonPinCountPosition>());
+      Assert.Equal(PinterestPinItButtonPinCountPosition.None, widget.Field("counter").To<PinterestPinItButtonPinCountPosition>());
       Assert.Null(widget.Field("description"));
       Assert.Null(widget.Field("image"));
       Assert.Equal("en", widget.Field("language").To<string>());
@@ -40,6 +40,18 @@ namespace Catharsis.Web.Widgets
       Assert.Equal("gray", widget.Field("color").To<string>());
       Assert.True(ReferenceEquals(widget.Color("color"), widget));
       Assert.Equal("color", widget.Field("color").To<string>());
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="PinterestPinItButtonWidget.Counter(PinterestPinItButtonPinCountPosition)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void Counter_Method()
+    {
+      var widget = new PinterestPinItButtonWidget();
+      Assert.Equal(PinterestPinItButtonPinCountPosition.None, widget.Field("counter").To<PinterestPinItButtonPinCountPosition>());
+      Assert.True(ReferenceEquals(widget.Counter(PinterestPinItButtonPinCountPosition.Above), widget));
+      Assert.Equal(PinterestPinItButtonPinCountPosition.Above, widget.Field("counter").To<PinterestPinItButtonPinCountPosition>());
     }
 
     /// <summary>
@@ -137,7 +149,7 @@ namespace Catharsis.Web.Widgets
       Assert.Equal(string.Empty, new PinterestPinItButtonWidget().Url("url").Description("description").ToString());
       Assert.Equal(string.Empty, new PinterestPinItButtonWidget().Image("image").Description("description").ToString());
       Assert.Equal(@"<a data-pin-color=""gray"" data-pin-config=""none"" data-pin-do=""buttonPin"" data-pin-height=""20"" data-pin-lang=""en"" data-pin-shape=""rect"" href=""http://www.pinterest.com/pin/create/button/?url=url&amp;media=image&amp;description=description""><img src=""http://assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png""/></a>", new PinterestPinItButtonWidget().Url("url").Image("image").Description("description").ToString());
-      Assert.Equal(@"<a data-pin-color=""color"" data-pin-config=""above"" data-pin-do=""buttonPin"" data-pin-height=""28"" data-pin-lang=""language"" data-pin-shape=""rect"" href=""http://www.pinterest.com/pin/create/button/?url=url&amp;media=image&amp;description=description""><img src=""http://assets.pinterest.com/images/pidgets/pinit_fg_language_rect_color_28.png""/></a>", new PinterestPinItButtonWidget().Url("url").Image("image").Description("description").Color("color").CounterPosition(PinterestPinItButtonPinCountPosition.Above).Language("language").Size(PinterestPinItButtonSize.Large).ToString());
+      Assert.Equal(@"<a data-pin-color=""color"" data-pin-config=""above"" data-pin-do=""buttonPin"" data-pin-height=""28"" data-pin-lang=""language"" data-pin-shape=""rect"" href=""http://www.pinterest.com/pin/create/button/?url=url&amp;media=image&amp;description=description""><img src=""http://assets.pinterest.com/images/pidgets/pinit_fg_language_rect_color_28.png""/></a>", new PinterestPinItButtonWidget().Url("url").Image("image").Description("description").Color("color").Counter(PinterestPinItButtonPinCountPosition.Above).Language("language").Size(PinterestPinItButtonSize.Large).ToString());
     }
   }
 }

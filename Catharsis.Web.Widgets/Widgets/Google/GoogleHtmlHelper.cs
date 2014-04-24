@@ -12,7 +12,7 @@ namespace Catharsis.Web.Widgets
       return new GoogleMapWidget();
     }*/
 
-    public IGooglePlusOneButtonWidget PlusOne()
+    public IGooglePlusOneButtonWidget PlusOneButton()
     {
       return new GooglePlusOneButtonWidget();
     }

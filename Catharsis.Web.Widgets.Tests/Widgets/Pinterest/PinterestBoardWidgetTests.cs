@@ -21,7 +21,7 @@ namespace Catharsis.Web.Widgets
       Assert.Null(widget.Field("height"));
       Assert.Null(widget.Field("width"));
       Assert.Null(widget.Field("id"));
-      Assert.Null(widget.Field("imageWidth"));
+      Assert.Null(widget.Field("image"));
     }
 
     /// <summary>
@@ -85,18 +85,18 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="PinterestBoardWidget.ImageWidth(string)"/> method.</para>
+    ///   <para>Performs testing of <see cref="PinterestBoardWidget.Image(string)"/> method.</para>
     /// </summary>
     [Fact]
-    public void ImageWidth_Method()
+    public void Image_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new PinterestBoardWidget().ImageWidth(null));
-      Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().ImageWidth(string.Empty));
+      Assert.Throws<ArgumentNullException>(() => new PinterestBoardWidget().Image(null));
+      Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().Image(string.Empty));
 
       var widget = new PinterestBoardWidget();
-      Assert.Null(widget.Field("imageWidth"));
-      Assert.True(ReferenceEquals(widget.ImageWidth("imageWidth"), widget));
-      Assert.Equal("imageWidth", widget.Field("imageWidth").To<string>());
+      Assert.Null(widget.Field("image"));
+      Assert.True(ReferenceEquals(widget.Image("image"), widget));
+      Assert.Equal("image", widget.Field("image").To<string>());
     }
 
     /// <summary>
@@ -109,7 +109,7 @@ namespace Catharsis.Web.Widgets
       Assert.Equal(string.Empty, new PinterestBoardWidget().Account("account").ToString());
       Assert.Equal(string.Empty, new PinterestBoardWidget().Id("id").ToString());
       Assert.Equal(@"<a data-pin-do=""embedBoard"" href=""http://www.pinterest.com/account/id""></a>", new PinterestBoardWidget().Account("account").Id("id").ToString());
-      Assert.Equal(@"<a data-pin-board-width=""width"" data-pin-do=""embedBoard"" data-pin-scale-height=""height"" data-pin-scale-width=""imageWidth"" href=""http://www.pinterest.com/account/id""></a>", new PinterestBoardWidget().Account("account").Id("id").Width("width").Height("height").ImageWidth("imageWidth").ToString());
+      Assert.Equal(@"<a data-pin-board-width=""width"" data-pin-do=""embedBoard"" data-pin-scale-height=""height"" data-pin-scale-width=""image"" href=""http://www.pinterest.com/account/id""></a>", new PinterestBoardWidget().Account("account").Id("id").Width("width").Height("height").Image("image").ToString());
     }
   }
 }

@@ -11,13 +11,13 @@ namespace Catharsis.Web.Widgets
     private readonly HtmlHelper html = new MockHtmlHelper();
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YandexHtmlHelper.Like()"/> method.</para>
+    ///   <para>Performs testing of <see cref="YandexHtmlHelper.LikeButton()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Like_Method()
+    public void LikeButton_Method()
     {
-      Assert.False(ReferenceEquals(this.html.Yandex().Like(), this.html.Yandex().Like()));
-      Assert.True(this.html.Yandex().Like() is YandexLikeButtonWidget);
+      Assert.False(ReferenceEquals(this.html.Yandex().LikeButton(), this.html.Yandex().LikeButton()));
+      Assert.True(this.html.Yandex().LikeButton() is YandexLikeButtonWidget);
     }
 
     /// <summary>
@@ -51,13 +51,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YandexHtmlHelper.Share()"/> method.</para>
+    ///   <para>Performs testing of <see cref="YandexHtmlHelper.SharePanel()"/> method.</para>
     /// </summary>
     [Fact]
     public void Share_Method()
     {
-      Assert.False(ReferenceEquals(this.html.Yandex().Share(), this.html.Yandex().Share()));
-      Assert.True(this.html.Yandex().Share() is YandexSharePanelWidget);
+      Assert.False(ReferenceEquals(this.html.Yandex().SharePanel(), this.html.Yandex().SharePanel()));
+      Assert.True(this.html.Yandex().SharePanel() is YandexSharePanelWidget);
     }
 
     /// <summary>

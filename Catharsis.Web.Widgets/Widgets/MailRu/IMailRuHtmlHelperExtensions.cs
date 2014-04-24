@@ -70,13 +70,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IMailRuHtmlHelper.Like()"/>
-    public static string Like(this IMailRuHtmlHelper html, Action<IMailRuLikeButtonWidget> builder)
+    /// <seealso cref="IMailRuHtmlHelper.LikeButton()"/>
+    public static string LikeButton(this IMailRuHtmlHelper html, Action<IMailRuLikeButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Like();
+      var widget = html.LikeButton();
       builder(widget);
       return widget.ToHtmlString();
     }

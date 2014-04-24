@@ -20,7 +20,7 @@ namespace Catharsis.Web.Widgets
       Assert.Null(widget.Field("colorScheme"));
       Assert.Null(widget.Field("faces"));
       Assert.Null(widget.Field("height"));
-      Assert.Null(widget.Field("kids"));
+      Assert.Null(widget.Field("kidsMode"));
       Assert.Null(widget.Field("layout"));
       Assert.Null(widget.Field("url"));
       Assert.Null(widget.Field("width"));
@@ -69,15 +69,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.Kids"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.KidsMode(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void Kids_Method()
+    public void KidsMode_Method()
     {
       var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("kids"));
-      Assert.True(ReferenceEquals(widget.Kids(), widget));
-      Assert.True(widget.Field("kids").To<bool>());
+      Assert.Null(widget.Field("kidsMode"));
+      Assert.True(ReferenceEquals(widget.KidsMode(), widget));
+      Assert.True(widget.Field("kidsMode").To<bool>());
     }
 
     /// <summary>
@@ -133,7 +133,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Equal(string.Empty, new FacebookFollowButtonWidget().ToString());
       Assert.Equal(@"<div class=""fb-follow"" data-href=""url""></div>", new FacebookFollowButtonWidget().Url("url").ToString());
-      Assert.Equal(@"<div class=""fb-follow"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-show-faces=""true"" data-width=""width""></div>", new FacebookFollowButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).Kids().Layout(FacebookButtonLayout.BoxCount).Faces().Width("width").Height("height").ToString());
+      Assert.Equal(@"<div class=""fb-follow"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-show-faces=""true"" data-width=""width""></div>", new FacebookFollowButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).KidsMode().Layout(FacebookButtonLayout.BoxCount).Faces().Width("width").Height("height").ToString());
     }
   }
 }

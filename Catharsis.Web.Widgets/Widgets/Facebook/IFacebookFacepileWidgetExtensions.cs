@@ -33,12 +33,12 @@ namespace Catharsis.Web.Widgets
     /// <param name="size">Size of photos.</param>
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IFacebookFacepileWidget.Size(string)"/>
-    public static IFacebookFacepileWidget Size(this IFacebookFacepileWidget widget, FacebookFacepileSize size)
+    /// <seealso cref="IFacebookFacepileWidget.PhotoSize(string)"/>
+    public static IFacebookFacepileWidget PhotoSize(this IFacebookFacepileWidget widget, FacebookFacepilePhotoSize size)
     {
       Assertion.NotNull(widget);
 
-      return widget.Size(size.ToString().ToLowerInvariant());
+      return widget.PhotoSize(size.ToString().ToLowerInvariant());
     }
 
     /// <summary>

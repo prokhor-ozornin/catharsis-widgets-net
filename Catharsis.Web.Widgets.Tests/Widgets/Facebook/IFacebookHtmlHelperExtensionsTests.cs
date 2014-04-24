@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   public sealed class IFacebookHtmlHelperExtensionsTests
   {
     /// <summary>
-    ///   <para>Performs testing of <see cref="IFacebookHtmlHelperExtensions.Initialize(IFacebookHtmlHelper, Action{IFacebookInitWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="IFacebookHtmlHelperExtensions.Initialize(IFacebookHtmlHelper, Action{IFacebookInitializationWidget})"/> method.</para>
     /// </summary>
     [Fact]
     public void Initialize_Method()
@@ -74,29 +74,29 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IFacebookHtmlHelperExtensions.Follow(IFacebookHtmlHelper, Action{IFacebookFollowButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="IFacebookHtmlHelperExtensions.FollowButton(IFacebookHtmlHelper, Action{IFacebookFollowButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
-    public void Follow_Method()
+    public void FollowButton_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.Follow(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().Follow(null));
+      Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.FollowButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().FollowButton(null));
 
-      Assert.Equal(new FacebookHtmlHelper().Follow().ToHtmlString(), new FacebookHtmlHelper().Follow(x => { }));
-      Assert.Equal(new FacebookHtmlHelper().Follow().Url("url").ToHtmlString(), new FacebookHtmlHelper().Follow(x => x.Url("url")));
+      Assert.Equal(new FacebookHtmlHelper().FollowButton().ToHtmlString(), new FacebookHtmlHelper().FollowButton(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().FollowButton().Url("url").ToHtmlString(), new FacebookHtmlHelper().FollowButton(x => x.Url("url")));
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IFacebookHtmlHelperExtensions.Like(IFacebookHtmlHelper, Action{IFacebookLikeButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="IFacebookHtmlHelperExtensions.LikeButton(IFacebookHtmlHelper, Action{IFacebookLikeButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
-    public void Like_Method()
+    public void LikeButton_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.Like(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().Like(null));
+      Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.LikeButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().LikeButton(null));
 
-      Assert.Equal(new FacebookHtmlHelper().Like().ToHtmlString(), new FacebookHtmlHelper().Like(x => { }));
-      Assert.Equal(new FacebookHtmlHelper().Like().Url("url").ToHtmlString(), new FacebookHtmlHelper().Like(x => x.Url("url")));
+      Assert.Equal(new FacebookHtmlHelper().LikeButton().ToHtmlString(), new FacebookHtmlHelper().LikeButton(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().LikeButton().Url("url").ToHtmlString(), new FacebookHtmlHelper().LikeButton(x => x.Url("url")));
     }
 
     /// <summary>
@@ -126,16 +126,16 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IFacebookHtmlHelperExtensions.Send(IFacebookHtmlHelper, Action{IFacebookSendButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="IFacebookHtmlHelperExtensions.SendButton(IFacebookHtmlHelper, Action{IFacebookSendButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
     public void Send_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.Send(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().Send(null));
+      Assert.Throws<ArgumentNullException>(() => IFacebookHtmlHelperExtensions.SendButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new FacebookHtmlHelper().SendButton(null));
 
-      Assert.Equal(new FacebookHtmlHelper().Send().ToHtmlString(), new FacebookHtmlHelper().Send(x => { }));
-      Assert.Equal(new FacebookHtmlHelper().Send().Url("url").ToHtmlString(), new FacebookHtmlHelper().Send(x => x.Url("url")));
+      Assert.Equal(new FacebookHtmlHelper().SendButton().ToHtmlString(), new FacebookHtmlHelper().SendButton(x => { }));
+      Assert.Equal(new FacebookHtmlHelper().SendButton().Url("url").ToHtmlString(), new FacebookHtmlHelper().SendButton(x => x.Url("url")));
     }
 
     /// <summary>

@@ -9,6 +9,6 @@ namespace Catharsis.Web.Widgets
     ///   <para>Creates new Surfingbird "Surf" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    ISurfingbirdSurfButtonWidget Surf();
+    ISurfingbirdSurfButtonWidget SurfButton();
   }
 }

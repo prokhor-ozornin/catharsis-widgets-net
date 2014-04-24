@@ -4,9 +4,10 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Surfingbird "Surf" button.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.SurfingbirdSurf"/> script to be included.</para>
+  ///   <para>Requires Surfingbird scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://surfingbird.ru/publishers/surfbutton"/>
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Surfingbird(IWidgetsScriptsRenderer)"/>
   public interface ISurfingbirdSurfButtonWidget : IHtmlWidget
   {
     /// <summary>
@@ -21,9 +22,9 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="counter"><c>true</c> to show counter, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show counter, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    ISurfingbirdSurfButtonWidget Counter(bool counter = true);
+    ISurfingbirdSurfButtonWidget Counter(bool show = true);
 
     /// <summary>
     ///   <para>Vertical height of the button. Default is 25px.</para>

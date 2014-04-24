@@ -3,7 +3,7 @@
   /// <summary>
   ///   <para></para>
   /// </summary>
-  public enum FacebookFacepileSize
+  public enum FacebookFacepilePhotoSize
   {
     /// <summary>
     ///   <para></para>

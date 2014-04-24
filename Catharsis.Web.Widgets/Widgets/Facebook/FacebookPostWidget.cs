@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/embedded-posts"/>
-  public class FacebookPostWidget : HtmlWidgetBase, IFacebookPostWidget
+  public class FacebookPostWidget : HtmlWidget, IFacebookPostWidget
   {
     private string url;
     private string width;

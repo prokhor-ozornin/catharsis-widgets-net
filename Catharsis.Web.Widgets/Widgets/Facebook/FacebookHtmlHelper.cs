@@ -17,17 +17,17 @@ namespace Catharsis.Web.Widgets
       return new FacebookFacepileWidget();
     }
 
-    public IFacebookFollowButtonWidget Follow()
+    public IFacebookFollowButtonWidget FollowButton()
     {
       return new FacebookFollowButtonWidget();
     }
 
-    public IFacebookInitWidget Initialize()
+    public IFacebookInitializationWidget Initialize()
     {
-      return new FacebookInitWidget();
+      return new FacebookInitializationWidget();
     }
 
-    public IFacebookLikeButtonWidget Like()
+    public IFacebookLikeButtonWidget LikeButton()
     {
       return new FacebookLikeButtonWidget();
     }
@@ -47,7 +47,7 @@ namespace Catharsis.Web.Widgets
       return new FacebookRecommendationsFeedWidget();
     }
 
-    public IFacebookSendButtonWidget Send()
+    public IFacebookSendButtonWidget SendButton()
     {
       return new FacebookSendButtonWidget();
     }

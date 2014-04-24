@@ -170,7 +170,7 @@ _Code:_
 
 `@Html.Facebook().Facepile().Url("http://yandex.ru")`
 
-`@Html.Facebook().Facepile().Url("http://yandex.ru").MaxRows(5).Size(FacebookFacepileSize.Large).Height("300")`
+`@Html.Facebook().Facepile().Url("http://yandex.ru").MaxRows(5).PhotoSize(FacebookFacepilePhotoSize.Large).Height("300")`
 
 **6. Follow Button**
 
@@ -178,9 +178,9 @@ _Requirements:_ Call to `Html.Facebook().Initialize()`
 
 _Code:_
 
-`@Html.Facebook().Follow().Url("http://www.facebook.com/zuck")`
+`@Html.Facebook().FollowButton().Url("http://www.facebook.com/zuck")`
 
-`@Html.Facebook().Follow().Url("http://www.facebook.com/zuck").Kids().Faces().Layout(FacebookButtonLayout.BoxCount)`
+`@Html.Facebook().FollowButton().Url("http://www.facebook.com/zuck").KidsMode().Faces().Layout(FacebookButtonLayout.BoxCount)`
 
 **7. Like Box**
 
@@ -198,11 +198,11 @@ _Requirements:_ Call to `Html.Facebook().Initialize()`
 
 _Code:_
 
-`@Html.Facebook().Like()`
+`@Html.Facebook().LikeButton()`
 
-`@Html.Facebook().Like().Url("http://yandex.ru")`
+`@Html.Facebook().LikeButton().Url("http://yandex.ru")`
 
-`@Html.Facebook().Like().Url("http://yandex.ru").Layout(FacebookLikeButtonLayout.BoxCount).Faces().Verb(FacebookLikeButtonVerb.Recommend)`
+`@Html.Facebook().LikeButton().Url("http://yandex.ru").Layout(FacebookLikeButtonLayout.BoxCount).Faces().Verb(FacebookLikeButtonVerb.Recommend)`
 
 **9. Embedded post**
 
@@ -218,11 +218,11 @@ _Requirements:_ Call to `Html.Facebook().Initialize()`
 
 _Code:_
 
-`@Html.Facebook().Send()`
+`@Html.Facebook().SendButton()`
 
-`@Html.Facebook().Send().Url("http://yandex.ru")`
+`@Html.Facebook().SendButton().Url("http://yandex.ru")`
 
-`@Html.Facebook().Send().Url("http://yandex.ru").ColorScheme(FacebookColorScheme.Dark).Kids()`
+`@Html.Facebook().SendButton().Url("http://yandex.ru").ColorScheme(FacebookColorScheme.Dark).KidsMode()`
 
 **11. Embedded video**
 
@@ -248,9 +248,9 @@ _Requirements:_ `WebWidgetsScripts.Render().Google()` JavaScript bundle (_head_ 
 
 _Code:_
 
-`@Html.Google().PlusOne()`
+`@Html.Google().PlusOneButton()`
 
-`@Html.Google().PlusOne().Url("http://yandex.ru").Alignment(GooglePlusOneButtonAlignment.Right).Size(GooglePlusOneButtonSize.Tall).Annotation(GooglePlusOneButtonAnnotation.Inline).Recommendations(false)`
+`@Html.Google().PlusOneButton().Url("http://yandex.ru").Alignment(GooglePlusOneButtonAlignment.Right).Size(GooglePlusOneButtonSize.Tall).Annotation(GooglePlusOneButtonAnnotation.Inline).Recommendations(false)`
 
 **Gravatar**
 
@@ -300,7 +300,7 @@ _Requirements:_ None
 
 _Code:_
 
-`@Html.LiveJournal().Like()`
+`@Html.LiveJournal().LikeButton()`
 
 **2. Repost Button**
 
@@ -308,9 +308,9 @@ _Requirements:_ None
 
 _Code:_
 
-`@Html.LiveJournal().Repost()`
+`@Html.LiveJournal().RepostButton()`
 
-`@Html.LiveJournal().Repost().Title("title").Text("text")`
+`@Html.LiveJournal().RepostButton().Title("title").Text("text")`
 
 **Mail.ru**
 
@@ -338,9 +338,9 @@ _Requirements:_ `WebWidgetsScripts.Render().MailRu()` JavaScript bundle (_body_ 
 
 _Code:_
 
-`@Html.MailRu().Like()`
+`@Html.MailRu().LikeButton()`
 
-`@Html.MailRu().Like().Layout(MailRuLikeButtonLayout.Second).Text(false).CounterPosition(MailRuLikeButtonCounterPosition.Upper).Size(30)`
+`@Html.MailRu().LikeButton().Layout(MailRuLikeButtonLayout.Second).Text(false).CounterPosition(MailRuLikeButtonCounterPosition.Upper).Size(30)`
 
 **4. Faces**
 
@@ -350,7 +350,7 @@ _Code:_
 
 `@Html.MailRu().Faces().Domain("mail.ru").Width(640).Height(480)`
 
-`@Html.MailRu().Faces().Domain("mail.ru").Width(640).Height(480).Font(MailRuFacesFont.Tahoma).ShowTitle(false).BackgroundColor("aaffaa").HyperlinkColor("ffaaff").BorderColor("aaaaaa")`
+`@Html.MailRu().Faces().Domain("mail.ru").Width(640).Height(480).Font(MailRuFacesFont.Tahoma).Title(false).BackgroundColor("aaffaa").HyperlinkColor("ffaaff").BorderColor("aaaaaa")`
 
 **5. Groups**
 
@@ -410,7 +410,7 @@ _Code:_
 
 `@Html.Pinterest().PinItButton().Url("http://www.flickr.com/photos/kentbrew/6851755809").Image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg").Description("Next stop: Pinterest")`
 
-`@Html.Pinterest().PinItButton().Url("http://www.flickr.com/photos/kentbrew/6851755809").Image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg").Description("Next stop: Pinterest").CounterPosition(PinterestPinItButtonPinCountPosition.None).Size(PinterestPinItButtonSize.Large).Red().Shape(PinterestPinItButtonShape.Rectangular).Language("ja")`
+`@Html.Pinterest().PinItButton().Url("http://www.flickr.com/photos/kentbrew/6851755809").Image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg").Description("Next stop: Pinterest").Counter(PinterestPinItButtonPinCountPosition.None).Size(PinterestPinItButtonSize.Large).Red().Shape(PinterestPinItButtonShape.Rectangular).Language("ja")`
 
 **RuTube**
 
@@ -442,9 +442,9 @@ _Requirements:_ `WebWidgetsScripts.Render().Surfingbird()` JavaScript bundle (_h
 
 _Code:_
 
-`@Html.Surfingbird().Surf()`
+`@Html.Surfingbird().SurfButton()`
 
-`@Html.Surfingbird().Surf().Color(SurfingbirdSurfButtonColor.Blue).Counter().Label("Share").Url("http://yandex.ru").Layout(SurfingbirdSurfButtonLayout.Common)`
+`@Html.Surfingbird().SurfButton().Color(SurfingbirdSurfButtonColor.Blue).Counter().Label("Share").Url("http://yandex.ru").Layout(SurfingbirdSurfButtonLayout.Common)`
 
 **Tumblr**
 
@@ -454,9 +454,9 @@ _Requirements:_ None
 
 _Code:_
 
-`@Html.Tumblr().Follow().Account("clear-words-en")`
+`@Html.Tumblr().FollowButton().Account("clear-words-en")`
 
-`@Html.Tumblr().Follow().Account("clear-words-en").ColorScheme(TumblrFollowButtonColorScheme.Dark).Type(TumblrFollowButtonType.Second)`
+`@Html.Tumblr().FollowButton().Account("clear-words-en").ColorScheme(TumblrFollowButtonColorScheme.Dark).Type(TumblrFollowButtonType.Second)`
 
 **2. Share Button**
 
@@ -464,9 +464,9 @@ _Requirements:_ `WebWidgetsScripts.Render().Tumblr()` JavaScript bundle (_head_ 
 
 _Code:_
 
-`@Html.Tumblr().Share()`
+`@Html.Tumblr().ShareButton()`
 
-`@Html.Tumblr().Share().ColorScheme(TumblrShareButtonColorScheme.Gray).Type(TumblrShareButtonType.Third)`
+`@Html.Tumblr().ShareButton().ColorScheme(TumblrShareButtonColorScheme.Gray).Type(TumblrShareButtonType.Third)`
 
 **Twitter**
 
@@ -476,9 +476,9 @@ _Requirements:_ `WebWidgetsScripts.Render().Twitter()` JavaScript bundle (_head_
 
 _Code:_
 
-`@Html.Twitter().Tweet()`
+`@Html.Twitter().TweetButton()`
 
-`@Html.Twitter().Tweet().HashTags("first", "second", "third").Url("http://yandex.ru").Text("Let's share it !").Via("Prokhor").OptOut()`
+`@Html.Twitter().TweetButton().HashTags("first", "second", "third").Url("http://yandex.ru").Text("Let's share it !").Via("Prokhor").Suggestions(false)`
 
 **2. Follow Button**
 
@@ -486,9 +486,9 @@ _Requirements:_ `WebWidgetsScripts.Render().Twitter()` JavaScript bundle (_head_
 
 _Code:_
 
-`@Html.Twitter().Follow().Account("prokhor_ozornin")`
+`@Html.Twitter().FollowButton().Account("prokhor_ozornin")`
 
-`@Html.Twitter().Follow().Account("prokhor_ozornin").OptOut(false).Count(false).ScreenName(false)`
+`@Html.Twitter().FollowButton().Account("prokhor_ozornin").Suggestions().Counter(false).ScreenName(false)`
 
 **Vimeo**
 
@@ -508,7 +508,7 @@ _Requirements:_ None
 
 _Code:_
 
-`@Html.Vkontakte().Video().Id("167533148").Hash("7a0cdf6ef7a69e67").User("5707198").Width("607").Height("360").HdQuality()`
+`@Html.Vkontakte().Video().Id("167533148").Hash("7a0cdf6ef7a69e67").User("5707198").Width("607").Height("360").Hd()`
 
 **2. JS API initialization**
 
@@ -544,7 +544,7 @@ _Requirements:_ Call to `Html.Vkontakte().Initialize()`
 
 _Code:_
 
-`@Html.Vkontakte().Like()`
+`@Html.Vkontakte().LikeButton()`
 
 **6. Subscription**
 
@@ -552,9 +552,9 @@ _Requirements:_ Call to `Html.Vkontakte().Initialize()`
 
 _Code:_
 
-`@Html.Vkontakte().Subscribe().Account("5707198")`
+`@Html.Vkontakte().Subscription().Account("5707198")`
 
-`@Html.Vkontakte().Subscribe().Account("5707198").OnlyButton()`
+`@Html.Vkontakte().Subscription().Account("5707198").OnlyButton()`
 
 **Yandex**
 
@@ -572,9 +572,9 @@ _Requirements:_ None
 
 _Code:_
 
-`@Html.Yandex().Like()`
+`@Html.Yandex().LikeButton()`
 
-`@Html.Yandex().Like().Title("Yandex Main Page").Text("Share").Url("http://yandex.ru").Size(YandexLikeButtonSize.Small)`
+`@Html.Yandex().LikeButton().Title("Yandex Main Page").Text("Share").Url("http://yandex.ru").Size(YandexLikeButtonSize.Small)`
 
 **3. Embedded video**
 
@@ -592,7 +592,7 @@ _Code:_
 
 `@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment")`
 
-`@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment").Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Buy).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).PayerAddress().PayerEmail().PayerFullName().PayerPhone()`
+`@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment").Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Buy).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).AskPayerAddress().AskPayerEmail().AskPayerFullName().AskPayerPhone()`
 
 **5. Yandex.Money donation form**
 
@@ -600,9 +600,9 @@ _Requirements:_ None
 
 _Code:_
 
-`@Html.Yandex().MoneyDonateForm().Account("41001577953208").Description("Test Donation")`
+`@Html.Yandex().MoneyDonateForm().Account("41001577953208").DescriptionText("Test Donation")`
 
-`@Html.Yandex().MoneyDonateForm().Account("41001577953208").Description("Test Donation").ShowDescription().Sum(15.5).Cards().ProjectName("Yandex").ProjectSite("http://yandex.ru").Text(YandexMoneyDonateFormText.Give).PayerPhone().PayerFullName().PayerComment().PayerEmail()`
+`@Html.Yandex().MoneyDonateForm().Account("41001577953208").DescriptionText("Test Donation").Description().Sum(15.5).Cards().ProjectName("Yandex").ProjectSite("http://yandex.ru").Text(YandexMoneyDonateFormText.Give).AskPayerPhone().AskPayerFullName().AskPayerComment().AskPayerEmail()`
 
 **6. Yandex.Money payment form**
 
@@ -612,7 +612,7 @@ _Code:_
 
 `@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment")`
 
-`@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment").Sum(15.5).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).PayerComment().PayerEmail().PayerFullName().PayerAddress().PayerPhone().PayerPurpose()`
+`@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment").Sum(15.5).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).PayerComment().AskPayerEmail().AskPayerFullName().AskPayerAddress().AskPayerPhone().AskPayerPurpose()`
 
 **7. Share Button**
 
@@ -620,9 +620,9 @@ _Requirements:_ `WebWidgetsScripts.Render().Yandex()` JavaScript bundle (_head_ 
 
 _Code:_
 
-`@Html.Yandex().Share()`
+`@Html.Yandex().SharePanel()`
 
-`@Html.Yandex().Share().Services("facebook").Language("en")`
+`@Html.Yandex().SharePanel().Services("facebook").Language("en")`
 
 **YouTube**
 

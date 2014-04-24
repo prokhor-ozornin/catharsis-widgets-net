@@ -11,7 +11,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires <see cref="WidgetsScripts.VideoJS"/> script and <see cref="WidgetsStyles.VideoJS"/> style to be included.</para>
   /// </summary>
   /// <seealso cref="http://www.videojs.com"/>
-  public class VideoJSPlayerWidget : HtmlWidgetBase, IVideoJSPlayerWidget
+  public class VideoJSPlayerWidget : HtmlWidget, IVideoJSPlayerWidget
   {
     private string extra;
     private string width;

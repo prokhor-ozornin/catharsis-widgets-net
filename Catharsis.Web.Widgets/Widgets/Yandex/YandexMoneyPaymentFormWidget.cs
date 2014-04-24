@@ -8,19 +8,19 @@ namespace Catharsis.Web.Widgets
   ///   <para>Renders payment form for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
   /// </summary>
   /// <seealso cref="https://money.yandex.ru/embed/quickpay/shop.xml"/>
-  public class YandexMoneyPaymentFormWidget : HtmlWidgetBase, IYandexMoneyPaymentFormWidget
+  public class YandexMoneyPaymentFormWidget : HtmlWidget, IYandexMoneyPaymentFormWidget
   {
     private string account;
     private string description;
     private decimal? sum;
     private bool cards = true;
     private byte text = (byte) YandexMoneyPaymentFormText.Pay;
-    private bool payerPurpose;
-    private bool payerComment;
-    private bool payerFullName;
-    private bool payerEmail;
-    private bool payerPhone;
-    private bool payerAddress;
+    private bool askPayerPurpose;
+    private bool askPayerComment;
+    private bool askPayerFullName;
+    private bool askPayerEmail;
+    private bool askPayerPhone;
+    private bool askPayerAddress;
 
     /// <summary>
     ///   <para>Identifier of account in the Yandex.Money payment system which is to receive money.</para>
@@ -67,66 +67,66 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyPaymentFormWidget PayerAddress(bool require = true)
+    public IYandexMoneyPaymentFormWidget AskPayerAddress(bool ask = true)
     {
-      this.payerAddress = require;
+      this.askPayerAddress = ask;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyPaymentFormWidget PayerComment(bool require = true)
+    public IYandexMoneyPaymentFormWidget AskPayerComment(bool ask = true)
     {
-      this.payerComment = require;
+      this.askPayerComment = ask;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyPaymentFormWidget PayerEmail(bool require = true)
+    public IYandexMoneyPaymentFormWidget AskPayerEmail(bool ask = true)
     {
-      this.payerEmail = require;
+      this.askPayerEmail = ask;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyPaymentFormWidget PayerFullName(bool require = true)
+    public IYandexMoneyPaymentFormWidget AskPayerFullName(bool ask = true)
     {
-      this.payerFullName = require;
+      this.askPayerFullName = ask;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyPaymentFormWidget PayerPhone(bool require = true)
+    public IYandexMoneyPaymentFormWidget AskPayerPhone(bool ask = true)
     {
-      this.payerPhone = require;
+      this.askPayerPhone = ask;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to allow payer specify custom payment purpose text (<c>true</c>) or use predefined purpose text (<c>false</c>). Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="allow"><c>true</c> to allow payer specify payment purpose, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to allow payer specify payment purpose, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyPaymentFormWidget PayerPurpose(bool allow = true)
+    public IYandexMoneyPaymentFormWidget AskPayerPurpose(bool ask = true)
     {
-      this.payerPurpose = allow;
+      this.askPayerPurpose = ask;
       return this;
     }
 
@@ -164,12 +164,12 @@ namespace Catharsis.Web.Widgets
       }
 
       return new TagBuilder("iframe")
-        .Attribute("src", "https://money.yandex.ru/embed/shop.xml?account={0}&quickpay=shop{1}&writer={2}&{3}={4}&default-sum={5}&button-text=0{6}{7}{8}{9}{10}{11}".FormatSelf(this.account, this.cards ? "&payment-type-choice=on" : string.Empty, this.payerPurpose ? "buyer" : "seller", this.payerPurpose ? "targets-hint" : "targets", this.description, this.sum, this.text, this.payerComment ? "&comment=on" : string.Empty, this.payerFullName ? "&fio=on" : string.Empty, this.payerEmail ? "&mail=on" : string.Empty, this.payerPhone ? "&phone=on" : string.Empty, this.payerAddress ? "&address=on" : string.Empty))
+        .Attribute("src", "https://money.yandex.ru/embed/shop.xml?account={0}&quickpay=shop{1}&writer={2}&{3}={4}&default-sum={5}&button-text=0{6}{7}{8}{9}{10}{11}".FormatSelf(this.account, this.cards ? "&payment-type-choice=on" : string.Empty, this.askPayerPurpose ? "buyer" : "seller", this.askPayerPurpose ? "targets-hint" : "targets", this.description, this.sum, this.text, this.askPayerComment ? "&comment=on" : string.Empty, this.askPayerFullName ? "&fio=on" : string.Empty, this.askPayerEmail ? "&mail=on" : string.Empty, this.askPayerPhone ? "&phone=on" : string.Empty, this.askPayerAddress ? "&address=on" : string.Empty))
         .Attribute("frameborder", 0)
         .Attribute("allowtransparency", true)
         .Attribute("scrolling", "no")
         .Attribute("width", 450)
-        .Attribute("height", this.payerComment ? 255 : 200)
+        .Attribute("height", this.askPayerComment ? 255 : 200)
         .ToString();
     }
   }

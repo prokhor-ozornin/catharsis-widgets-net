@@ -8,20 +8,20 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders VKontakte "Like" button widget.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
+  ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="http://vk.com/dev/Like"/>
-  public class VkontakteLikeButtonWidget : HtmlWidgetBase, IVkontakteLikeButtonWidget
+  public class VkontakteLikeButtonWidget : HtmlWidget, IVkontakteLikeButtonWidget
   {
     private string text;
     private byte? verb;
     private string layout;
     private string width;
     private string height;
-    private string pageTitle;
-    private string pageUrl;
-    private string pageDescription;
-    private string pageImageUrl;
+    private string title;
+    private string url;
+    private string description;
+    private string image;
 
     /// <summary>
     ///   <para>Vertical height of the button in pixels. Default value is "22".</para>
@@ -59,11 +59,11 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="description"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="description"/> is <see cref="string.Empty"/> string.</exception>
-    public IVkontakteLikeButtonWidget PageDescription(string description)
+    public IVkontakteLikeButtonWidget Description(string description)
     {
       Assertion.NotEmpty(description);
 
-      this.pageDescription = description;
+      this.description = description;
       return this;
     }
 
@@ -74,11 +74,11 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
-    public IVkontakteLikeButtonWidget PageImageUrl(string url)
+    public IVkontakteLikeButtonWidget Image(string url)
     {
       Assertion.NotEmpty(url);
 
-      this.pageImageUrl = url;
+      this.image = url;
       return this;
     }
 
@@ -89,11 +89,11 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
-    public IVkontakteLikeButtonWidget PageTitle(string title)
+    public IVkontakteLikeButtonWidget Title(string title)
     {
       Assertion.NotEmpty(title);
 
-      this.pageTitle = title;
+      this.title = title;
       return this;
     }
 
@@ -104,11 +104,11 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
-    public IVkontakteLikeButtonWidget PageUrl(string url)
+    public IVkontakteLikeButtonWidget Url(string url)
     {
       Assertion.NotEmpty(url);
 
-      this.pageUrl = url;
+      this.url = url;
       return this;
     }
 
@@ -169,21 +169,21 @@ namespace Catharsis.Web.Widgets
       {
         config["width"] = this.width;
       }
-      if (!this.pageTitle.IsEmpty())
+      if (!this.title.IsEmpty())
       {
-        config["pageTitle"] = this.pageTitle;
+        config["pageTitle"] = this.title;
       }
-      if (!this.pageDescription.IsEmpty())
+      if (!this.description.IsEmpty())
       {
-        config["pageDescription"] = this.pageDescription;
+        config["pageDescription"] = this.description;
       }
-      if (!this.pageUrl.IsEmpty())
+      if (!this.url.IsEmpty())
       {
-        config["pageUrl"] = this.pageUrl;
+        config["pageUrl"] = this.url;
       }
-      if (!this.pageImageUrl.IsEmpty())
+      if (!this.image.IsEmpty())
       {
-        config["pageImage"] = this.pageImageUrl;
+        config["pageImage"] = this.image;
       }
       if (!this.text.IsEmpty())
       {

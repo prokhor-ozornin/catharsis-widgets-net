@@ -7,10 +7,11 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Cackle latest comments widget for registered website.</para>
-  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Cackle"/> scripts bundle to be included.</para>
+  ///   <para>Requires Cackle scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://ru.cackle.me/help/widget-api"/>
-  public class CackleLatestCommentsWidget : HtmlWidgetBase, ICackleLatestCommentsWidget
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Cackle(IWidgetsScriptsRenderer)"/>
+  public class CackleLatestCommentsWidget : HtmlWidget, ICackleLatestCommentsWidget
   {
     private string account;
     private short avatarSize = 32;

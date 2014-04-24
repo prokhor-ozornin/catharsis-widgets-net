@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     public void Initialize_Method()
     {
       Assert.False(ReferenceEquals(this.html.Facebook().Initialize(), this.html.Facebook().Initialize()));
-      Assert.True(this.html.Facebook().Initialize() is FacebookInitWidget);
+      Assert.True(this.html.Facebook().Initialize() is FacebookInitializationWidget);
     }
 
     /// <summary>
@@ -61,23 +61,23 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookHtmlHelper.Follow()"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookHtmlHelper.FollowButton()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Follow_Method()
+    public void FollowButton_Method()
     {
-      Assert.False(ReferenceEquals(this.html.Facebook().Follow(), this.html.Facebook().Follow()));
-      Assert.True(this.html.Facebook().Follow() is FacebookFollowButtonWidget);
+      Assert.False(ReferenceEquals(this.html.Facebook().FollowButton(), this.html.Facebook().FollowButton()));
+      Assert.True(this.html.Facebook().FollowButton() is FacebookFollowButtonWidget);
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookHtmlHelper.Like()"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookHtmlHelper.LikeButton()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Like_Method()
+    public void LikeButton_Method()
     {
-      Assert.False(ReferenceEquals(this.html.Facebook().Like(), this.html.Facebook().Like()));
-      Assert.True(this.html.Facebook().Like() is FacebookLikeButtonWidget);
+      Assert.False(ReferenceEquals(this.html.Facebook().LikeButton(), this.html.Facebook().LikeButton()));
+      Assert.True(this.html.Facebook().LikeButton() is FacebookLikeButtonWidget);
     }
 
     /// <summary>
@@ -101,13 +101,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookHtmlHelper.Send()"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookHtmlHelper.SendButton()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Send_Method()
+    public void SendButton_Method()
     {
-      Assert.False(ReferenceEquals(this.html.Facebook().Send(), this.html.Facebook().Send()));
-      Assert.True(this.html.Facebook().Send() is FacebookSendButtonWidget);
+      Assert.False(ReferenceEquals(this.html.Facebook().SendButton(), this.html.Facebook().SendButton()));
+      Assert.True(this.html.Facebook().SendButton() is FacebookSendButtonWidget);
     }
 
     /// <summary>

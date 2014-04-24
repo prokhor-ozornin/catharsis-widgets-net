@@ -49,12 +49,12 @@ namespace Catharsis.Web.Widgets
     /// <param name="position">Count box position.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="ITwitterTweetButtonWidget.CountPosition(string)"/>
-    public static ITwitterTweetButtonWidget CountPosition(this ITwitterTweetButtonWidget widget, TwitterTweetButtonCountBoxPosition position)
+    /// <seealso cref="ITwitterTweetButtonWidget.CounterPosition(string)"/>
+    public static ITwitterTweetButtonWidget CounterPosition(this ITwitterTweetButtonWidget widget, TwitterTweetButtonCountBoxPosition position)
     {
       Assertion.NotNull(widget);
 
-      return widget.CountPosition(position.ToString().ToLowerInvariant());
+      return widget.CounterPosition(position.ToString().ToLowerInvariant());
     }
 
     /// <summary>

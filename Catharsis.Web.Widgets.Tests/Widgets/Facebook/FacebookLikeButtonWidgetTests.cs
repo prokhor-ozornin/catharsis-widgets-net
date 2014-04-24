@@ -19,7 +19,7 @@ namespace Catharsis.Web.Widgets
       var widget = new FacebookLikeButtonWidget();
       Assert.Null(widget.Field("colorScheme"));
       Assert.Null(widget.Field("faces"));
-      Assert.Null(widget.Field("kids"));
+      Assert.Null(widget.Field("kidsMode"));
       Assert.Null(widget.Field("layout"));
       Assert.Null(widget.Field("trackLabel"));
       Assert.Null(widget.Field("url"));
@@ -55,15 +55,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.Kids(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.KidsMode(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void Kids_Method()
+    public void KidsMode_Method()
     {
       var widget = new FacebookLikeButtonWidget();
-      Assert.Null(widget.Field("kids"));
-      Assert.True(ReferenceEquals(widget.Kids(), widget));
-      Assert.True(widget.Field("kids").To<bool>());
+      Assert.Null(widget.Field("kidsMode"));
+      Assert.True(ReferenceEquals(widget.KidsMode(), widget));
+      Assert.True(widget.Field("kidsMode").To<bool>());
     }
 
     /// <summary>
@@ -149,7 +149,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Equal(@"<div class=""fb-like""></div>", new FacebookLikeButtonWidget().ToString());
       Assert.Equal(@"<div class=""fb-like"" data-href=""url""></div>", new FacebookLikeButtonWidget().Url("url").ToString());
-      Assert.Equal(@"<div class=""fb-like"" data-action=""recommend"" data-colorscheme=""dark"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-ref=""trackLabel"" data-show-faces=""true"" data-width=""width""></div>", new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).ColorScheme(FacebookColorScheme.Dark).Url("url").Kids().Layout(FacebookButtonLayout.BoxCount).TrackLabel("trackLabel").Faces().Width("width").ToString());
+      Assert.Equal(@"<div class=""fb-like"" data-action=""recommend"" data-colorscheme=""dark"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-ref=""trackLabel"" data-show-faces=""true"" data-width=""width""></div>", new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).ColorScheme(FacebookColorScheme.Dark).Url("url").KidsMode().Layout(FacebookButtonLayout.BoxCount).TrackLabel("trackLabel").Faces().Width("width").ToString());
     }
   }
 }

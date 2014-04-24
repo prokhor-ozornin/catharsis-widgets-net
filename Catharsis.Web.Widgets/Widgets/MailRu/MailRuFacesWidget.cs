@@ -7,10 +7,11 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Mail.ru Faces (People On Site) widget.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.MailRu"/> script to be included.</para>
+  ///   <para>Requires MailRu scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://api.mail.ru/sites/plugins/faces"/>
-  public class MailRuFacesWidget : HtmlWidgetBase, IMailRuFacesWidget
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.MailRu(IWidgetsScriptsRenderer)"/>
+  public class MailRuFacesWidget : HtmlWidget, IMailRuFacesWidget
   {
     private string backgroundColor;
     private string borderColor;
@@ -18,10 +19,10 @@ namespace Catharsis.Web.Widgets
     private string font = MailRuFacesFont.Arial.ToString();
     private string height;
     private string hyperlinkColor;
-    private bool showTitle = true;
     private string textColor;
-    private string title;
+    private bool title = true;
     private string titleColor;
+    private string titleText;
     private string width;
 
     /// <summary>
@@ -117,17 +118,6 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Whether to show or hide Faces box title.</para>
-    /// </summary>
-    /// <param name="show"><c>true</c> to show title, <c>false</c> to hide.</param>
-    /// <returns>Reference to the current widget.</returns>
-    public IMailRuFacesWidget ShowTitle(bool show = true)
-    {
-      this.showTitle = show;
-      return this;
-    }
-
-    /// <summary>
     ///   <para>Color of Faces box text labels.</para>
     /// </summary>
     /// <param name="color">Text color.</param>
@@ -143,17 +133,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Title text label of Faces box.</para>
+    ///   <para>Whether to show or hide Faces box title.</para>
     /// </summary>
-    /// <param name="title">Title text.</param>
+    /// <param name="show"><c>true</c> to show title, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
-    public IMailRuFacesWidget Title(string title)
+    public IMailRuFacesWidget Title(bool show = true)
     {
-      Assertion.NotEmpty(title);
-
-      this.title = title;
+      this.title = show;
       return this;
     }
 
@@ -169,6 +155,21 @@ namespace Catharsis.Web.Widgets
       Assertion.NotEmpty(color);
 
       this.titleColor = color;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Title text label of Faces box.</para>
+    /// </summary>
+    /// <param name="title">Title text.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
+    public IMailRuFacesWidget TitleText(string title)
+    {
+      Assertion.NotEmpty(title);
+
+      this.titleText = title;
       return this;
     }
 
@@ -201,11 +202,11 @@ namespace Catharsis.Web.Widgets
 
       var config = new Dictionary<string, object> { { "domain", this.domain }, { "font", this.font }, { "width", this.width }, { "height", this.height } };
       
-      if (!this.title.IsEmpty())
+      if (!this.titleText.IsEmpty())
       {
-        config["title"] = this.title;
+        config["title"] = this.titleText;
       }
-      if (!this.showTitle)
+      if (!this.title)
       {
         config["notitle"] = true;
       }

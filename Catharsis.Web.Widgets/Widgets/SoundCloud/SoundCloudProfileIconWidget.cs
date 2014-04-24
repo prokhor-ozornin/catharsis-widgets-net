@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Renders SoundCloud user's profile icon.</para>
   /// </summary>
   /// <seealso cref="https://soundcloud.com/pages/embed"/>
-  public class SoundCloudProfileIconWidget : HtmlWidgetBase, ISoundCloudProfileIconWidget
+  public class SoundCloudProfileIconWidget : HtmlWidget, ISoundCloudProfileIconWidget
   {
     private string account;
     private string color = "orange_white";

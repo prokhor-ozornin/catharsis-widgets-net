@@ -41,13 +41,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="MailRuHtmlHelper.Like()"/> method.</para>
+    ///   <para>Performs testing of <see cref="MailRuHtmlHelper.LikeButton()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Like_Method()
+    public void LikeButton_Method()
     {
-      Assert.False(ReferenceEquals(this.html.MailRu().Like(), this.html.MailRu().Like()));
-      Assert.True(this.html.MailRu().Like() is MailRuLikeButtonWidget);
+      Assert.False(ReferenceEquals(this.html.MailRu().LikeButton(), this.html.MailRu().LikeButton()));
+      Assert.True(this.html.MailRu().LikeButton() is MailRuLikeButtonWidget);
     }
 
     /// <summary>

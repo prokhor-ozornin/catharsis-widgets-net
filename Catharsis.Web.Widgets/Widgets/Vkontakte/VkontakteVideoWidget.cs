@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded VKontakte video on web page.</para>
   /// </summary>
-  public class VkontakteVideoWidget : HtmlWidgetBase, IVkontakteVideoWidget
+  public class VkontakteVideoWidget : HtmlWidget, IVkontakteVideoWidget
   {
     private string id;
     private string width;
@@ -34,11 +34,11 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to play video in High Definition format. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="hd"><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</param>
+    /// <param name="enabled"><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IVkontakteVideoWidget HdQuality(bool hd = true)
+    public IVkontakteVideoWidget Hd(bool enabled = true)
     {
-      this.hd = hd;
+      this.hd = enabled;
       return this;
     }
 

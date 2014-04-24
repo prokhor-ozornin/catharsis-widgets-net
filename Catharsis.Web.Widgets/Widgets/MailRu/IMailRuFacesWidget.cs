@@ -4,9 +4,10 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Mail.ru Faces (People On Site) widget.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.MailRu"/> script to be included.</para>
+  ///   <para>Requires MailRu scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://api.mail.ru/sites/plugins/faces"/>
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.MailRu(IWidgetsScriptsRenderer)"/>
   public interface IMailRuFacesWidget : IHtmlWidget
   {
     /// <summary>
@@ -66,13 +67,6 @@ namespace Catharsis.Web.Widgets
     IMailRuFacesWidget HyperlinkColor(string color);
 
     /// <summary>
-    ///   <para>Whether to show or hide Faces box title.</para>
-    /// </summary>
-    /// <param name="show"><c>true</c> to show title, <c>false</c> to hide.</param>
-    /// <returns>Reference to the current widget.</returns>
-    IMailRuFacesWidget ShowTitle(bool show = true);
-
-    /// <summary>
     ///   <para>Color of Faces box text labels.</para>
     /// </summary>
     /// <param name="color">Text color.</param>
@@ -82,13 +76,11 @@ namespace Catharsis.Web.Widgets
     IMailRuFacesWidget TextColor(string color);
 
     /// <summary>
-    ///   <para>Title text label of Faces box.</para>
+    ///   <para>Whether to show or hide Faces box title.</para>
     /// </summary>
-    /// <param name="title">Title text.</param>
+    /// <param name="show"><c>true</c> to show title, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
-    IMailRuFacesWidget Title(string title);
+    IMailRuFacesWidget Title(bool show = true);
 
     /// <summary>
     ///   <para>Color of Faces box title.</para>
@@ -98,6 +90,15 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
     IMailRuFacesWidget TitleColor(string color);
+
+    /// <summary>
+    ///   <para>Title text label of Faces box.</para>
+    /// </summary>
+    /// <param name="title">Title text.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
+    IMailRuFacesWidget TitleText(string title);
 
     /// <summary>
     ///   <para>Width of Faces box area.</para>

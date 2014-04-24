@@ -72,7 +72,7 @@
     <Compile Include="Widgets\Facebook\FacebookFacepileWidgetTests.cs" />
     <Compile Include="Widgets\Facebook\FacebookFollowButtonWidgetTests.cs" />
     <Compile Include="Widgets\Facebook\FacebookHtmlHelperTests.cs" />
-    <Compile Include="Widgets\Facebook\FacebookInitWidgetTests.cs" />
+    <Compile Include="Widgets\Facebook\FacebookInitializationWidgetTests.cs" />
     <Compile Include="Widgets\Facebook\FacebookLikeBoxWidgetTests.cs" />
     <Compile Include="Widgets\Facebook\FacebookLikeButtonWidgetTests.cs" />
     <Compile Include="Widgets\Facebook\FacebookPostWidgetTests.cs" />
@@ -215,7 +215,7 @@
     <Compile Include="Widgets\Vkontakte\VkontakteCommentsWidgetTests.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteCommunityWidgetTests.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteHtmlHelperTests.cs" />
-    <Compile Include="Widgets\Vkontakte\VkontakteInitWidgetTests.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteInitializationWidgetTests.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteLikeButtonWidgetTests.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteSubscriptionWidgetTests.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteVideoWidgetTests.cs" />

@@ -22,10 +22,10 @@ namespace Catharsis.Web.Widgets
       Assert.Null(widget.Field("layout"));
       Assert.Null(widget.Field("width"));
       Assert.Null(widget.Field("height"));
-      Assert.Null(widget.Field("pageTitle"));
-      Assert.Null(widget.Field("pageUrl"));
-      Assert.Null(widget.Field("pageDescription"));
-      Assert.Null(widget.Field("pageImageUrl"));
+      Assert.Null(widget.Field("title"));
+      Assert.Null(widget.Field("url"));
+      Assert.Null(widget.Field("description"));
+      Assert.Null(widget.Field("image"));
     }
 
     /// <summary>
@@ -101,63 +101,63 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.PageTitle(string)"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.Title(string)"/> method.</para>
     /// </summary>
     [Fact]
-    public void PageTitle_Method()
+    public void Title_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().PageTitle(null));
-      Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().PageTitle(string.Empty));
+      Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Title(null));
+      Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Title(string.Empty));
 
       var widget = new VkontakteLikeButtonWidget();
-      Assert.Null(widget.Field("pageTitle"));
-      Assert.True(ReferenceEquals(widget.PageTitle("pageTitle"), widget));
-      Assert.Equal("pageTitle", widget.Field("pageTitle").To<string>());
+      Assert.Null(widget.Field("title"));
+      Assert.True(ReferenceEquals(widget.Title("title"), widget));
+      Assert.Equal("title", widget.Field("title").To<string>());
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.PageUrl(string)"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.Url(string)"/> method.</para>
     /// </summary>
     [Fact]
-    public void PageUrl_Method()
+    public void Url_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().PageUrl(null));
-      Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().PageUrl(string.Empty));
+      Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Url(null));
+      Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Url(string.Empty));
 
       var widget = new VkontakteLikeButtonWidget();
-      Assert.Null(widget.Field("pageUrl"));
-      Assert.True(ReferenceEquals(widget.PageUrl("pageUrl"), widget));
-      Assert.Equal("pageUrl", widget.Field("pageUrl").To<string>());
+      Assert.Null(widget.Field("url"));
+      Assert.True(ReferenceEquals(widget.Url("url"), widget));
+      Assert.Equal("url", widget.Field("url").To<string>());
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.PageDescription(string)"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.Description(string)"/> method.</para>
     /// </summary>
     [Fact]
-    public void PageDescription_Method()
+    public void Description_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().PageDescription(null));
-      Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().PageDescription(string.Empty));
+      Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Description(null));
+      Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Description(string.Empty));
 
       var widget = new VkontakteLikeButtonWidget();
-      Assert.Null(widget.Field("pageDescription"));
-      Assert.True(ReferenceEquals(widget.PageDescription("pageDescription"), widget));
-      Assert.Equal("pageDescription", widget.Field("pageDescription").To<string>());
+      Assert.Null(widget.Field("description"));
+      Assert.True(ReferenceEquals(widget.Description("description"), widget));
+      Assert.Equal("description", widget.Field("description").To<string>());
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.PageImageUrl(string)"/> method.</para>
+    ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.Image(string)"/> method.</para>
     /// </summary>
     [Fact]
-    public void PageImageUrl_Method()
+    public void Image_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().PageImageUrl(null));
-      Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().PageImageUrl(string.Empty));
+      Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Image(null));
+      Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Image(string.Empty));
 
       var widget = new VkontakteLikeButtonWidget();
-      Assert.Null(widget.Field("pageImageUrl"));
-      Assert.True(ReferenceEquals(widget.PageImageUrl("pageImageUrl"), widget));
-      Assert.Equal("pageImageUrl", widget.Field("pageImageUrl").To<string>());
+      Assert.Null(widget.Field("image"));
+      Assert.True(ReferenceEquals(widget.Image("image"), widget));
+      Assert.Equal("image", widget.Field("image").To<string>());
     }
 
     /// <summary>
@@ -171,10 +171,10 @@ namespace Catharsis.Web.Widgets
       Assert.True(html.Contains(@"<script type=""text/javascript"">"));
       Assert.True(html.Contains(@"VK.Widgets.Like(""vk_like"", {});"));
 
-      html = new VkontakteLikeButtonWidget().Layout(VkontakteLikeButtonLayout.Button).Width("width").PageTitle("pageTitle").PageDescription("pageDescription").PageUrl("pageUrl").PageImageUrl("pageImageUrl").Text("text").Height("height").Verb(1).ToString();
+      html = new VkontakteLikeButtonWidget().Layout(VkontakteLikeButtonLayout.Button).Width("width").Title("title").Description("description").Url("url").Image("image").Text("text").Height("height").Verb(1).ToString();
       Assert.True(html.Contains(@"<div id=""vk_like""></div>"));
       Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-      Assert.True(html.Contains(@"VK.Widgets.Like(""vk_like"", {""type"":""button"",""width"":""width"",""pageTitle"":""pageTitle"",""pageDescription"":""pageDescription"",""pageUrl"":""pageUrl"",""pageImage"":""pageImageUrl"",""text"":""text"",""height"":""height"",""verb"":1});"));
+      Assert.True(html.Contains(@"VK.Widgets.Like(""vk_like"", {""type"":""button"",""width"":""width"",""pageTitle"":""title"",""pageDescription"":""description"",""pageUrl"":""url"",""pageImage"":""image"",""text"":""text"",""height"":""height"",""verb"":1});"));
     }
   }
 }

@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   public sealed class IVkontakteHtmlHelperExtensionsTests
   {
     /// <summary>
-    ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.Initialize(IVkontakteHtmlHelper, Action{IVkontakteInitWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.Initialize(IVkontakteHtmlHelper, Action{IVkontakteInitializationWidget})"/> method.</para>
     /// </summary>
     [Fact]
     public void Initialize_Method()
@@ -48,29 +48,29 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.Like(IVkontakteHtmlHelper, Action{IVkontakteLikeButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.LikeButton(IVkontakteHtmlHelper, Action{IVkontakteLikeButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
-    public void Like_Method()
+    public void LikeButton_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Like(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Like(null));
+      Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.LikeButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().LikeButton(null));
 
-      Assert.Equal(new VkontakteHtmlHelper().Like().ToHtmlString(), new VkontakteHtmlHelper().Like(x => { }));
-      Assert.Equal(new VkontakteHtmlHelper().Like().Text("text").ToHtmlString(), new VkontakteHtmlHelper().Like(x => x.Text("text")));
+      Assert.Equal(new VkontakteHtmlHelper().LikeButton().ToHtmlString(), new VkontakteHtmlHelper().LikeButton(x => { }));
+      Assert.Equal(new VkontakteHtmlHelper().LikeButton().Text("text").ToHtmlString(), new VkontakteHtmlHelper().LikeButton(x => x.Text("text")));
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.Subscribe(IVkontakteHtmlHelper, Action{IVkontakteSubscriptionWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.Subscription(IVkontakteHtmlHelper, Action{IVkontakteSubscriptionWidget})"/> method.</para>
     /// </summary>
     [Fact]
-    public void Subscribe_Method()
+    public void Subscription_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Subscribe(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Subscribe(null));
+      Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Subscription(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Subscription(null));
 
-      Assert.Equal(new VkontakteHtmlHelper().Subscribe().ToHtmlString(), new VkontakteHtmlHelper().Subscribe(x => { }));
-      Assert.Equal(new VkontakteHtmlHelper().Subscribe().Account("account").ToHtmlString(), new VkontakteHtmlHelper().Subscribe(x => x.Account("account")));
+      Assert.Equal(new VkontakteHtmlHelper().Subscription().ToHtmlString(), new VkontakteHtmlHelper().Subscription(x => { }));
+      Assert.Equal(new VkontakteHtmlHelper().Subscription().Account("account").ToHtmlString(), new VkontakteHtmlHelper().Subscription(x => x.Account("account")));
     }
 
     /// <summary>

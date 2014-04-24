@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded Yandex video on web page.</para>
   /// </summary>
-  public class YandexVideoWidget : HtmlWidgetBase, IYandexVideoWidget
+  public class YandexVideoWidget : HtmlWidget, IYandexVideoWidget
   {
     private string id;
     private string width;

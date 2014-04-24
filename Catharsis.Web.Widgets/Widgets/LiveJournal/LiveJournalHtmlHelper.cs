@@ -2,12 +2,12 @@
 {
   internal sealed class LiveJournalHtmlHelper : ILiveJournalHtmlHelper
   {
-    public ILiveJournalLikeButtonWidget Like()
+    public ILiveJournalLikeButtonWidget LikeButton()
     {
       return new LiveJournalLikeButtonWidget();
     }
 
-    public ILiveJournalRepostButtonWidget Repost()
+    public ILiveJournalRepostButtonWidget RepostButton()
     {
       return new LiveJournalRepostButtonWidget();
     }

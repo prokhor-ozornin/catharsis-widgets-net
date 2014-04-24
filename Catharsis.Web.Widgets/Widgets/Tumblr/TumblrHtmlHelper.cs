@@ -2,12 +2,12 @@ namespace Catharsis.Web.Widgets
 {
   internal sealed class TumblrHtmlHelper : ITumblrHtmlHelper
   {
-    public ITumblrFollowButtonWidget Follow()
+    public ITumblrFollowButtonWidget FollowButton()
     {
       return new TumblrFollowButtonWidget();
     }
 
-    public ITumblrShareButtonWidget Share()
+    public ITumblrShareButtonWidget ShareButton()
     {
       return new TumblrShareButtonWidget();
     }

@@ -6,10 +6,11 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Google "+1" button.</para>
-  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Google"/> scripts bundle to be included.</para>
+  ///   <para>Requires Google scripts bundle to be included.</para>
   /// </summary>
-  /// <seealso cref="https://developers.google.com/+/web/+1button/?hl=en"/>
-  public class GooglePlusOneButtonWidget : HtmlWidgetBase, IGooglePlusOneButtonWidget
+  /// <seealso cref="https://developers.google.com/+/web/+1button"/>
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Google(IWidgetsScriptsRenderer)"/>
+  public class GooglePlusOneButtonWidget : HtmlWidget, IGooglePlusOneButtonWidget
   {
     private string url;
     private string width;
@@ -67,11 +68,11 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to show recommendations within the +1 hover bubble. Default is <c>true</c>.</para>
     /// </summary>
-    /// <param name="recommendations"><c>true</c> to show recommendations, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show recommendations, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IGooglePlusOneButtonWidget Recommendations(bool recommendations = true)
+    public IGooglePlusOneButtonWidget Recommendations(bool show = true)
     {
-      this.recommendations = recommendations;
+      this.recommendations = show;
       return this;
     }
 

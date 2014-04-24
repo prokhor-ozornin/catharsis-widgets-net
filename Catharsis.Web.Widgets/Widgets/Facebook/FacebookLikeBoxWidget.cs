@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/like-box-for-pages"/>
-  public class FacebookLikeBoxWidget : HtmlWidgetBase, IFacebookLikeBoxWidget
+  public class FacebookLikeBoxWidget : HtmlWidget, IFacebookLikeBoxWidget
   {
     private bool? border;
     private string colorScheme;
@@ -50,22 +50,22 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Specifies whether to display profile photos of people who like the page. Default is <c>true</c>.</para>
     /// </summary>
-    /// <param name="faces"><c>true</c> to show profile photos, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show profile photos, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeBoxWidget Faces(bool faces = true)
+    public IFacebookLikeBoxWidget Faces(bool show = true)
     {
-      this.faces = faces;
+      this.faces = show;
       return this;
     }
 
     /// <summary>
     ///   <para>Specifies whether to display the Facebook header at the top of the widget. Default is <c>true</c>.</para>
     /// </summary>
-    /// <param name="header"><c>true</c> to show header, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show header, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeBoxWidget Header(bool header = true)
+    public IFacebookLikeBoxWidget Header(bool show = true)
     {
-      this.header = header;
+      this.header = show;
       return this;
     }
 
@@ -87,11 +87,11 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Specifies whether to display a stream of the latest posts by the Page. Default is <c>true</c>.</para>
     /// </summary>
-    /// <param name="stream"><c>true</c> to show stream of posts, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show stream of posts, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeBoxWidget Stream(bool stream = true)
+    public IFacebookLikeBoxWidget Stream(bool show = true)
     {
-      this.stream = stream;
+      this.stream = show;
       return this;
     }
 
@@ -114,11 +114,11 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>For "place" Pages (Pages that have a physical location that can be used with check-ins), this specifies whether the stream contains posts by the Page or just check-ins from friends. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="wall"><c>true</c> to include page's posts in the stream, <c>false</c> to exclude.</param>
+    /// <param name="include"><c>true</c> to include page's posts in the stream, <c>false</c> to exclude.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeBoxWidget Wall(bool wall = true)
+    public IFacebookLikeBoxWidget Wall(bool include = true)
     {
-      this.wall = wall;
+      this.wall = include;
       return this;
     }
 

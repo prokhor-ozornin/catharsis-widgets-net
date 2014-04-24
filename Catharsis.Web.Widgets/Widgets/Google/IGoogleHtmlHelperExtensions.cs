@@ -52,13 +52,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IGoogleHtmlHelper.PlusOne()"/>
-    public static string PlusOne(this IGoogleHtmlHelper html, Action<IGooglePlusOneButtonWidget> builder)
+    /// <seealso cref="IGoogleHtmlHelper.PlusOneButton()"/>
+    public static string PlusOneButton(this IGoogleHtmlHelper html, Action<IGooglePlusOneButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.PlusOne();
+      var widget = html.PlusOneButton();
       builder(widget);
       return widget.ToHtmlString();
     }

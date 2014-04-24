@@ -50,24 +50,24 @@ namespace Catharsis.Web.Widgets
       new PinterestProfileWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Header(), widget));
-        Assert.Equal("115", widget.Field("imageWidth").To<string>());
+        Assert.Equal("115", widget.Field("image").To<string>());
         Assert.Equal("120", widget.Field("height").To<string>());
         Assert.Equal("900", widget.Field("width").To<string>());
       });
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="IPinterestProfileWidgetExtensions.ImageWidth(IPinterestProfileWidget, short)"/> method.</para>
+    ///   <para>Performs testing of <see cref="IPinterestProfileWidgetExtensions.Image(IPinterestProfileWidget, short)"/> method.</para>
     /// </summary>
     [Fact]
-    public void ImageWidth_Method()
+    public void Image_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => IPinterestProfileWidgetExtensions.ImageWidth(null, 0));
+      Assert.Throws<ArgumentNullException>(() => IPinterestProfileWidgetExtensions.Image(null, 0));
 
       new PinterestProfileWidget().With(widget =>
       {
-        Assert.True(ReferenceEquals(widget.ImageWidth(1), widget));
-        Assert.Equal("1", widget.Field("imageWidth").To<string>());
+        Assert.True(ReferenceEquals(widget.Image(1), widget));
+        Assert.Equal("1", widget.Field("image").To<string>());
       });
     }
 
@@ -82,7 +82,7 @@ namespace Catharsis.Web.Widgets
       new PinterestProfileWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Sidebar(), widget));
-        Assert.Equal("60", widget.Field("imageWidth").To<string>());
+        Assert.Equal("60", widget.Field("image").To<string>());
         Assert.Equal("800", widget.Field("height").To<string>());
         Assert.Equal("150", widget.Field("width").To<string>());
       });
@@ -99,7 +99,7 @@ namespace Catharsis.Web.Widgets
       new PinterestProfileWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Square(), widget));
-        Assert.Equal("80", widget.Field("imageWidth").To<string>());
+        Assert.Equal("80", widget.Field("image").To<string>());
         Assert.Equal("320", widget.Field("height").To<string>());
         Assert.Equal("400", widget.Field("width").To<string>());
       });

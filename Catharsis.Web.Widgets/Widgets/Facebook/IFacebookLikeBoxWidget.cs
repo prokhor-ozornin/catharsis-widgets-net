@@ -35,9 +35,9 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Specifies whether to display the Facebook header at the top of the widget. Default is <c>true</c>.</para>
     /// </summary>
-    /// <param name="header"><c>true</c> to show header, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show header, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    IFacebookLikeBoxWidget Header(bool header = true);
+    IFacebookLikeBoxWidget Header(bool show = true);
 
     /// <summary>
     ///   <para>The height of the widget in pixels. The default height varies based on number of faces to display, and whether the stream is displayed. With stream set to true and 10 photos displayed (via showFaces) the default height is 556px. With stream and show_faces both false, the default height is 63px.</para>
@@ -51,9 +51,9 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Specifies whether to display a stream of the latest posts by the Page. Default is <c>true</c>.</para>
     /// </summary>
-    /// <param name="stream"><c>true</c> to show stream of posts, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show stream of posts, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    IFacebookLikeBoxWidget Stream(bool stream = true);
+    IFacebookLikeBoxWidget Stream(bool show = true);
 
     /// <summary>
     ///   <para>The absolute URL of the Facebook Page that will be liked.</para>
@@ -68,9 +68,9 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>For "place" Pages (Pages that have a physical location that can be used with check-ins), this specifies whether the stream contains posts by the Page or just check-ins from friends. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="wall"><c>true</c> to include page's posts in the stream, <c>false</c> to exclude.</param>
+    /// <param name="include"><c>true</c> to include page's posts in the stream, <c>false</c> to exclude.</param>
     /// <returns>Reference to the current widget.</returns>
-    IFacebookLikeBoxWidget Wall(bool wall = true);
+    IFacebookLikeBoxWidget Wall(bool include = true);
 
     /// <summary>
     ///   <para>The width of the widget in pixels. Minimum is 292. Default is 300.</para>

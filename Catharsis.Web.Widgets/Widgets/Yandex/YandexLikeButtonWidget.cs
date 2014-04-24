@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders Yandex "Like" button.</para>
   /// </summary>
-  public class YandexLikeButtonWidget : HtmlWidgetBase, IYandexLikeButtonWidget
+  public class YandexLikeButtonWidget : HtmlWidget, IYandexLikeButtonWidget
   {
     private string url;
     private string title;

@@ -4,9 +4,10 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Twitter "Follow" button.</para>
-  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Twitter"/> scripts bundle to be included.</para>
+  ///   <para>Requires Twitter scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="https://dev.twitter.com/docs/follow-button"/>
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Twitter(IWidgetsScriptsRenderer)"/>
   public interface ITwitterFollowButtonWidget : IHtmlWidget
   {
     /// <summary>
@@ -31,9 +32,9 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to display user's followers count. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="count"><c>true</c> to show followers count, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show followers count, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    ITwitterFollowButtonWidget Count(bool count = true);
+    ITwitterFollowButtonWidget Counter(bool show = true);
 
     /// <summary>
     ///   <para>Language for the "Follow" button. Default is either request locale's language or language of the current thread.</para>
@@ -43,13 +44,6 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentNullException">If <paramref name="language"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="language"/> is <see cref="string.Empty"/> string.</exception>
     ITwitterFollowButtonWidget Language(string language);
-
-    /// <summary>
-    ///   <para>Whether to opt-out of twitter suggestions. Default is <c>false</c>.</para>
-    /// </summary>
-    /// <param name="optOut"><c>true</c> to opt-out, <c>false</c> to opt-in.</param>
-    /// <returns>Reference to the current widget.</returns>
-    ITwitterFollowButtonWidget OptOut(bool optOut = true);
 
     /// <summary>
     ///   <para>Whether to show user's screen name. Default is <c>true</c>.</para>
@@ -66,6 +60,13 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentNullException">If <paramref name="size"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="size"/> is <see cref="string.Empty"/> string.</exception>
     ITwitterFollowButtonWidget Size(string size);
+
+    /// <summary>
+    ///   <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <param name="enabled"><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</param>
+    /// <returns>Reference to the current widget.</returns>
+    ITwitterFollowButtonWidget Suggestions(bool enabled = true);
 
     /// <summary>
     ///   <para>Width of the button.</para>

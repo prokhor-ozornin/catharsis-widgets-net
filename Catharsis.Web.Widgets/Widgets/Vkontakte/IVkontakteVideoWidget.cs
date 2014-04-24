@@ -19,9 +19,9 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to play video in High Definition format. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="hd"><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</param>
+    /// <param name="enabled"><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</param>
     /// <returns>Reference to the current widget.</returns>
-    IVkontakteVideoWidget HdQuality(bool hd = true);
+    IVkontakteVideoWidget Hd(bool enabled = true);
 
     /// <summary>
     ///   <para>Account identifier of video's uploader.</para>

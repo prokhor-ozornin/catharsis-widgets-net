@@ -9,29 +9,29 @@ namespace Catharsis.Web.Widgets
   public sealed class ITwitterHtmlHelperExtensionsTests
   {
     /// <summary>
-    ///   <para>Performs testing of <see cref="ITwitterHtmlHelperExtensions.Follow(ITwitterHtmlHelper, Action{ITwitterFollowButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="ITwitterHtmlHelperExtensions.FollowButton(ITwitterHtmlHelper, Action{ITwitterFollowButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
-    public void Follow_Method()
+    public void FollowButton_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => ITwitterHtmlHelperExtensions.Follow(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new TwitterHtmlHelper().Follow(null));
+      Assert.Throws<ArgumentNullException>(() => ITwitterHtmlHelperExtensions.FollowButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new TwitterHtmlHelper().FollowButton(null));
 
-      Assert.Equal(new TwitterHtmlHelper().Follow().ToHtmlString(), new TwitterHtmlHelper().Follow(x => { }));
-      Assert.Equal(new TwitterHtmlHelper().Follow().Account("account").ToHtmlString(), new TwitterHtmlHelper().Follow(x => x.Account("account")));
+      Assert.Equal(new TwitterHtmlHelper().FollowButton().ToHtmlString(), new TwitterHtmlHelper().FollowButton(x => { }));
+      Assert.Equal(new TwitterHtmlHelper().FollowButton().Account("account").ToHtmlString(), new TwitterHtmlHelper().FollowButton(x => x.Account("account")));
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="ITwitterHtmlHelperExtensions.Tweet(ITwitterHtmlHelper, Action{ITwitterTweetButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="ITwitterHtmlHelperExtensions.TweetButton(ITwitterHtmlHelper, Action{ITwitterTweetButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
-    public void Tweet_Method()
+    public void TweetButton_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => ITwitterHtmlHelperExtensions.Tweet(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new TwitterHtmlHelper().Tweet(null));
+      Assert.Throws<ArgumentNullException>(() => ITwitterHtmlHelperExtensions.TweetButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new TwitterHtmlHelper().TweetButton(null));
 
-      Assert.Equal(new TwitterHtmlHelper().Tweet().ToHtmlString(), new TwitterHtmlHelper().Tweet(x => { }));
-      Assert.Equal(new TwitterHtmlHelper().Tweet().Text("text").ToHtmlString(), new TwitterHtmlHelper().Tweet(x => x.Text("text")));
+      Assert.Equal(new TwitterHtmlHelper().TweetButton().ToHtmlString(), new TwitterHtmlHelper().TweetButton(x => { }));
+      Assert.Equal(new TwitterHtmlHelper().TweetButton().Text("text").ToHtmlString(), new TwitterHtmlHelper().TweetButton(x => x.Text("text")));
     }
   }
 }

@@ -45,19 +45,19 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="ITwitterTweetButtonWidgetExtensions.CountPosition(ITwitterTweetButtonWidget, TwitterTweetButtonCountBoxPosition)"/> method.</para>
+    ///   <para>Performs testing of <see cref="ITwitterTweetButtonWidgetExtensions.CounterPosition(ITwitterTweetButtonWidget, TwitterTweetButtonCountBoxPosition)"/> method.</para>
     /// </summary>
     [Fact]
-    public void CountPosition_Method()
+    public void CounterPosition_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.CountPosition(null, TwitterTweetButtonCountBoxPosition.Horizontal));
+      Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.CounterPosition(null, TwitterTweetButtonCountBoxPosition.Horizontal));
 
       new TwitterTweetButtonWidget().With(widget =>
       {
-        Assert.True(ReferenceEquals(widget.CountPosition(TwitterTweetButtonCountBoxPosition.Horizontal), widget));
-        Assert.Equal("horizontal", widget.Field("countPosition").To<string>());
-        Assert.Equal("none", widget.CountPosition(TwitterTweetButtonCountBoxPosition.None).Field("countPosition").To<string>());
-        Assert.Equal("vertical", widget.CountPosition(TwitterTweetButtonCountBoxPosition.Vertical).Field("countPosition").To<string>());
+        Assert.True(ReferenceEquals(widget.CounterPosition(TwitterTweetButtonCountBoxPosition.Horizontal), widget));
+        Assert.Equal("horizontal", widget.Field("counterPosition").To<string>());
+        Assert.Equal("none", widget.CounterPosition(TwitterTweetButtonCountBoxPosition.None).Field("counterPosition").To<string>());
+        Assert.Equal("vertical", widget.CounterPosition(TwitterTweetButtonCountBoxPosition.Vertical).Field("counterPosition").To<string>());
       });
     }
 

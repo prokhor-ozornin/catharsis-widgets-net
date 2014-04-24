@@ -8,15 +8,15 @@
     /// <summary>
     ///   <para>Whether to keep track of user cookies or not (default is <c>false)</c>.</para>
     /// </summary>
-    /// <param name="@private"><c>true</c> to set cookies, <c>false</c> to not.</param>
+    /// <param name="enabled"><c>true</c> to set cookies, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    IYouTubeVideoWidget Private(bool @private = true);
+    IYouTubeVideoWidget PrivateMode(bool enabled = true);
 
     /// <summary>
     ///   <para>Whether to access video through secure HTTPS protocol or unsecure HTTP (default is <c>false</c>).</para>
     /// </summary>
-    /// <param name="secure"><c>true</c> to use HTTPS protocol, <c>false</c> to use HTTP.</param>
+    /// <param name="enabled"><c>true</c> to use HTTPS protocol, <c>false</c> to use HTTP.</param>
     /// <returns>Reference to the current widget.</returns>
-    IYouTubeVideoWidget Secure(bool secure = true);
+    IYouTubeVideoWidget SecureMode(bool enabled = true);
   }
 }

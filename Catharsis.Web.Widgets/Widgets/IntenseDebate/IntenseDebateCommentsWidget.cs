@@ -2,7 +2,7 @@ using Catharsis.Commons;
 
 namespace Catharsis.Web.Widgets
 {
-  public class IntenseDebateCommentsWidget : HtmlWidgetBase, IIntenseDebateCommentsWidget
+  public class IntenseDebateCommentsWidget : HtmlWidget, IIntenseDebateCommentsWidget
   {
     private string account;
     private string postId;

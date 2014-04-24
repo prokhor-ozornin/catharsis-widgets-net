@@ -2,12 +2,12 @@ namespace Catharsis.Web.Widgets
 {
   internal sealed class TwitterHtmlHelper : ITwitterHtmlHelper
   {
-    public ITwitterFollowButtonWidget Follow()
+    public ITwitterFollowButtonWidget FollowButton()
     {
       return new TwitterFollowButtonWidget();
     }
 
-    public ITwitterTweetButtonWidget Tweet()
+    public ITwitterTweetButtonWidget TweetButton()
     {
       return new TwitterTweetButtonWidget();
     }

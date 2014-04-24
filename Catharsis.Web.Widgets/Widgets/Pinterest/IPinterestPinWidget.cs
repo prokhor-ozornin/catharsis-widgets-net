@@ -4,9 +4,10 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Pinterest embedded pin widget.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.Pinterest"/> script to be included.</para>
+  ///   <para>Requires Pinterest scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://business.pinterest.com/widget-builder/#do_embed_pin"/>
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
   public interface IPinterestPinWidget : IHtmlWidget
   {
     /// <summary>

@@ -1,6 +1,6 @@
 ﻿namespace Catharsis.Web.Widgets
 {
-  public abstract class HtmlWidgetBase : IHtmlWidget
+  public abstract class HtmlWidget : IHtmlWidget
   {
     public abstract string ToHtmlString();
 

@@ -7,13 +7,14 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Pinterest "Pin It" button widget.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.Pinterest"/> script to be included.</para>
+  ///   <para>Requires Pinterest scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://business.pinterest.com/widget-builder/#do_pin_it_button"/>
-  public sealed class PinterestPinItButtonWidget : HtmlWidgetBase, IPinterestPinItButtonWidget
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
+  public sealed class PinterestPinItButtonWidget : HtmlWidget, IPinterestPinItButtonWidget
   {
     private string color = "gray";
-    private PinterestPinItButtonPinCountPosition counterPosition = PinterestPinItButtonPinCountPosition.None;
+    private PinterestPinItButtonPinCountPosition counter = PinterestPinItButtonPinCountPosition.None;
     private string description;
     private string image;
     private string language = "en";
@@ -41,9 +42,9 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="position">Pin counter's position.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IPinterestPinItButtonWidget CounterPosition(PinterestPinItButtonPinCountPosition position)
+    public IPinterestPinItButtonWidget Counter(PinterestPinItButtonPinCountPosition position)
     {
-      this.counterPosition = position;
+      this.counter = position;
 
       return this;
     }
@@ -193,7 +194,7 @@ namespace Catharsis.Web.Widgets
         .Attribute("href", "http://www.pinterest.com/pin/create/button/?url={0}&media={1}&description={2}".FormatSelf(HttpUtility.UrlEncode(this.url), HttpUtility.UrlEncode(this.image), HttpUtility.UrlEncode(this.description)))
         .Attribute("data-pin-do", "buttonPin")
         .Attribute("data-pin-lang", this.shape == PinterestPinItButtonShape.Rectangular ? this.language : null)
-        .Attribute("data-pin-config", this.shape == PinterestPinItButtonShape.Rectangular ? this.counterPosition.ToString().ToLowerInvariant() : null)
+        .Attribute("data-pin-config", this.shape == PinterestPinItButtonShape.Rectangular ? this.counter.ToString().ToLowerInvariant() : null)
         .Attribute("data-pin-color", this.shape == PinterestPinItButtonShape.Rectangular ? this.color : null)
         .Attribute("data-pin-height", height)
         .Attribute("data-pin-shape", shape)

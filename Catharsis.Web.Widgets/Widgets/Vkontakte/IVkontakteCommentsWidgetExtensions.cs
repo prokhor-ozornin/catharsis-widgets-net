@@ -30,15 +30,15 @@ namespace Catharsis.Web.Widgets
     ///   <para>Collection of attachment types, which are allowed in comment posts.</para>
     /// </summary>
     /// <param name="widget">Widget to call method on.</param>
-    /// <param name="attach">Allowed types of post attachments.</param>
+    /// <param name="types">Allowed types of post attachments.</param>
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IVkontakteCommentsWidget.Attach(string[])"/>
-    public static IVkontakteCommentsWidget Attach(this IVkontakteCommentsWidget widget, params VkontakteCommentsAttach[] attach)
+    public static IVkontakteCommentsWidget Attach(this IVkontakteCommentsWidget widget, params VkontakteCommentsAttach[] types)
     {
       Assertion.NotNull(widget);
 
-      return widget.Attach(attach.Select(item => item == VkontakteCommentsAttach.All ? "*" : item.ToString().ToLowerInvariant()).ToArray());
+      return widget.Attach(types.Select(item => item == VkontakteCommentsAttach.All ? "*" : item.ToString().ToLowerInvariant()).ToArray());
     }
 
     /// <summary>

@@ -11,23 +11,23 @@ namespace Catharsis.Web.Widgets
     private readonly HtmlHelper html = new MockHtmlHelper();
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="TumblrHtmlHelper.Follow()"/> method.</para>
+    ///   <para>Performs testing of <see cref="TumblrHtmlHelper.FollowButton()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Follow_Method()
+    public void FollowButton_Method()
     {
-      Assert.False(ReferenceEquals(this.html.Tumblr().Follow(), this.html.Tumblr().Follow()));
-      Assert.True(this.html.Tumblr().Follow() is TumblrFollowButtonWidget);
+      Assert.False(ReferenceEquals(this.html.Tumblr().FollowButton(), this.html.Tumblr().FollowButton()));
+      Assert.True(this.html.Tumblr().FollowButton() is TumblrFollowButtonWidget);
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="TumblrHtmlHelper.Share()"/> method.</para>
+    ///   <para>Performs testing of <see cref="TumblrHtmlHelper.ShareButton()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Share_Method()
+    public void ShareButton_Method()
     {
-      Assert.False(ReferenceEquals(this.html.Tumblr().Share(), this.html.Tumblr().Share()));
-      Assert.True(this.html.Tumblr().Share() is TumblrShareButtonWidget);
+      Assert.False(ReferenceEquals(this.html.Tumblr().ShareButton(), this.html.Tumblr().ShareButton()));
+      Assert.True(this.html.Tumblr().ShareButton() is TumblrShareButtonWidget);
     }
   }
 }

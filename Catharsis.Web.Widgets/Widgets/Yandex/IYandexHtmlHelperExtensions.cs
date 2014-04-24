@@ -34,13 +34,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IYandexHtmlHelper.Like()"/>
-    public static string Like(this IYandexHtmlHelper html, Action<IYandexLikeButtonWidget> builder)
+    /// <seealso cref="IYandexHtmlHelper.LikeButton()"/>
+    public static string LikeButton(this IYandexHtmlHelper html, Action<IYandexLikeButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Like();
+      var widget = html.LikeButton();
       builder(widget);
       return widget.ToHtmlString();
     }
@@ -103,13 +103,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IYandexHtmlHelper.Share()"/>
-    public static string Share(this IYandexHtmlHelper html, Action<IYandexSharePanelWidget> builder)
+    /// <seealso cref="IYandexHtmlHelper.SharePanel()"/>
+    public static string SharePanel(this IYandexHtmlHelper html, Action<IYandexSharePanelWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Share();
+      var widget = html.SharePanel();
       builder(widget);
       return widget.ToHtmlString();
     }

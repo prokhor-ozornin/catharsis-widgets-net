@@ -9,12 +9,12 @@ namespace Catharsis.Web.Widgets
     ///   <para>Creates new Twitter "Follow" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    ITwitterFollowButtonWidget Follow();
+    ITwitterFollowButtonWidget FollowButton();
 
     /// <summary>
     ///   <para>Creates new Twitter "Tweet" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    ITwitterTweetButtonWidget Tweet();
+    ITwitterTweetButtonWidget TweetButton();
   }
 }

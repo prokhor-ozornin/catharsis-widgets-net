@@ -114,7 +114,7 @@
     <Compile Include="Widgets\Facebook\FacebookActivityFeedWidget.cs" />
     <Compile Include="Widgets\Facebook\FacebookCommentsOrder.cs" />
     <Compile Include="Widgets\Facebook\FacebookCommentsWidget.cs" />
-    <Compile Include="Widgets\Facebook\FacebookFacepileSize.cs" />
+    <Compile Include="Widgets\Facebook\FacebookFacepilePhotoSize.cs" />
     <Compile Include="Widgets\Facebook\FacebookFacepileWidget.cs" />
     <Compile Include="Widgets\Facebook\FacebookFollowButtonWidget.cs" />
     <Compile Include="Widgets\Facebook\FacebookLikeBoxWidget.cs" />
@@ -237,7 +237,7 @@
     <Compile Include="Widgets\Disqus\DisqusCommentsWidget.cs" />
     <Compile Include="Widgets\Disqus\DisqusHtmlHelper.cs" />
     <Compile Include="Widgets\Facebook\FacebookHtmlHelper.cs" />
-    <Compile Include="Widgets\Facebook\FacebookInitWidget.cs" />
+    <Compile Include="Widgets\Facebook\FacebookInitializationWidget.cs" />
     <Compile Include="Widgets\Facebook\FacebookColorScheme.cs" />
     <Compile Include="Widgets\Facebook\FacebookButtonLayout.cs" />
     <Compile Include="Widgets\Facebook\FacebookLikeButtonVerb.cs" />
@@ -250,7 +250,7 @@
     <Compile Include="Widgets\Google\GooglePlusOneButtonAnnotation.cs" />
     <Compile Include="Widgets\Google\GooglePlusOneButtonSize.cs" />
     <Compile Include="Widgets\Google\GooglePlusOneButtonWidget.cs" />
-    <Compile Include="Widgets\HtmlWidgetBase.cs" />
+    <Compile Include="Widgets\HtmlWidget.cs" />
     <Compile Include="HttpRequestExtensions.cs" />
     <Compile Include="Widgets\Cackle\ICackleCommentsCountWidget.cs" />
     <Compile Include="Widgets\Cackle\ICackleCommentsWidget.cs" />
@@ -263,7 +263,7 @@
     <Compile Include="Widgets\Disqus\IDisqusHtmlHelperExtensions.cs" />
     <Compile Include="Widgets\Facebook\IFacebookHtmlHelper.cs" />
     <Compile Include="Widgets\Facebook\IFacebookHtmlHelperExtensions.cs" />
-    <Compile Include="Widgets\Facebook\IFacebookInitWidget.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookInitializationWidget.cs" />
     <Compile Include="Widgets\Facebook\IFacebookLikeButtonWidget.cs" />
     <Compile Include="Widgets\Facebook\IFacebookLikeButtonWidgetExtensions.cs" />
     <Compile Include="Widgets\Facebook\IFacebookPostWidget.cs" />
@@ -321,7 +321,7 @@
     <Compile Include="Widgets\Vkontakte\IVkontakteCommunityWidgetExtensions.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteHtmlHelper.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteHtmlHelperExtensions.cs" />
-    <Compile Include="Widgets\Vkontakte\IVkontakteInitWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteInitializationWidget.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteLikeButtonWidget.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteLikeButtonWidgetExtensions.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteSubscriptionWidget.cs" />
@@ -389,7 +389,7 @@
     <Compile Include="Widgets\Vkontakte\VkontakteCommunityMode.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteCommunityWidget.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteHtmlHelper.cs" />
-    <Compile Include="Widgets\Vkontakte\VkontakteInitWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteInitializationWidget.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteLikeButtonHeight.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteLikeButtonLayout.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteLikeButtonVerb.cs" />

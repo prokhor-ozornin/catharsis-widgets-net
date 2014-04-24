@@ -21,9 +21,9 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Specifies whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites.</para>
     /// </summary>
-    /// <param name="faces"><c>true</c> to show profiles photos, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show profiles photos, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    IFacebookFollowButtonWidget Faces(bool faces = true);
+    IFacebookFollowButtonWidget Faces(bool show = true);
 
     /// <summary>
     ///   <para>The height of the button.</para>
@@ -37,9 +37,9 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="kids"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
+    /// <param name="enabled"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
     /// <returns>Reference to the current widget.</returns>
-    IFacebookFollowButtonWidget Kids(bool kids = true);
+    IFacebookFollowButtonWidget KidsMode(bool enabled = true);
 
     /// <summary>
     ///   <para>Selects one of the different layouts that are available for the button. Default is "standard".</para>

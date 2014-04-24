@@ -31,13 +31,13 @@ namespace Catharsis.Web.Widgets
     }*/
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="GoogleHtmlHelper.PlusOne()"/> method.</para>
+    ///   <para>Performs testing of <see cref="GoogleHtmlHelper.PlusOneButton()"/> method.</para>
     /// </summary>
     [Fact]
-    public void PlusOne_Method()
+    public void PlusOneButton_Method()
     {
-      Assert.False(ReferenceEquals(this.html.Google().PlusOne(), this.html.Google().PlusOne()));
-      Assert.True(this.html.Google().PlusOne() is GooglePlusOneButtonWidget);
+      Assert.False(ReferenceEquals(this.html.Google().PlusOneButton(), this.html.Google().PlusOneButton()));
+      Assert.True(this.html.Google().PlusOneButton() is GooglePlusOneButtonWidget);
     }
   }
 }

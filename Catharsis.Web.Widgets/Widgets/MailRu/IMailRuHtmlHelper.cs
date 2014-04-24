@@ -27,7 +27,7 @@ namespace Catharsis.Web.Widgets
     ///   <para>Creates new Mail.ru "Like" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    IMailRuLikeButtonWidget Like();
+    IMailRuLikeButtonWidget LikeButton();
 
     /// <summary>
     ///   <para>Creates new Mail.ru embedded video widget.</para>

@@ -5,9 +5,10 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Twitter "Tweet" button.</para>
-  ///   <para>Requires <see cref="WebWidgetsScriptsBundles.Twitter"/> scripts bundle to be included.</para>
+  ///   <para>Requires Twitter scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="https://dev.twitter.com/docs/tweet-button"/>
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Twitter(IWidgetsScriptsRenderer)"/>
   public interface ITwitterTweetButtonWidget : IHtmlWidget
   {
     /// <summary>
@@ -17,7 +18,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="position"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="position"/> is <see cref="string.Empty"/> string.</exception>
-    ITwitterTweetButtonWidget CountPosition(string position);
+    ITwitterTweetButtonWidget CounterPosition(string position);
 
     /// <summary>
     ///   <para>The URL to which your shared URL resolves. Default is the URL being shared.</para>

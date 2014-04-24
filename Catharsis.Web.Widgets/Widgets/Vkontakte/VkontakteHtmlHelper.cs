@@ -12,17 +12,17 @@ namespace Catharsis.Web.Widgets
       return new VkontakteCommunityWidget();
     }
 
-    public IVkontakteInitWidget Initialize()
+    public IVkontakteInitializationWidget Initialize()
     {
-      return new VkontakteInitWidget();
+      return new VkontakteInitializationWidget();
     }
 
-    public IVkontakteLikeButtonWidget Like()
+    public IVkontakteLikeButtonWidget LikeButton()
     {
       return new VkontakteLikeButtonWidget();
     }
 
-    public IVkontakteSubscriptionWidget Subscribe()
+    public IVkontakteSubscriptionWidget Subscription()
     {
       return new VkontakteSubscriptionWidget();
     }

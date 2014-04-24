@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Renders LiveJournal "Repost" button.</para>
   /// </summary>
   /// <seealso cref="http://www.livejournal.com/support/faq/313.html"/>
-  public class LiveJournalRepostButtonWidget : HtmlWidgetBase, ILiveJournalRepostButtonWidget
+  public class LiveJournalRepostButtonWidget : HtmlWidget, ILiveJournalRepostButtonWidget
   {
     private string text;
     private string title;

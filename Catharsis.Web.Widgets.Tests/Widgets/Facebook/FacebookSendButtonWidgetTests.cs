@@ -21,7 +21,7 @@ namespace Catharsis.Web.Widgets
       Assert.Null(widget.Field("width"));
       Assert.Null(widget.Field("height"));
       Assert.Null(widget.Field("colorScheme"));
-      Assert.Null(widget.Field("kids"));
+      Assert.Null(widget.Field("kidsMode"));
       Assert.Null(widget.Field("trackLabel"));
     }
 
@@ -86,15 +86,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="FacebookSendButtonWidget.Kids"/> method.</para>
+    ///   <para>Performs testing of <see cref="FacebookSendButtonWidget.KidsMode(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void Kids_Method()
+    public void KidsMode_Method()
     {
       var widget = new FacebookSendButtonWidget();
-      Assert.Null(widget.Field("kids"));
-      Assert.True(ReferenceEquals(widget.Kids(), widget));
-      Assert.True(widget.Field("kids").To<bool>());
+      Assert.Null(widget.Field("kidsMode"));
+      Assert.True(ReferenceEquals(widget.KidsMode(), widget));
+      Assert.True(widget.Field("kidsMode").To<bool>());
     }
 
     /// <summary>
@@ -119,7 +119,7 @@ namespace Catharsis.Web.Widgets
     public void ToHtmlString_Method()
     {
       Assert.Equal(@"<div class=""fb-send""></div>", new FacebookSendButtonWidget().ToString());
-      Assert.Equal(@"<div class=""fb-send"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-ref=""trackLabel"" data-width=""width""></div>", new FacebookSendButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).Kids().Width("width").Height("height").TrackLabel("trackLabel").ToString());
+      Assert.Equal(@"<div class=""fb-send"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-ref=""trackLabel"" data-width=""width""></div>", new FacebookSendButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).KidsMode().Width("width").Height("height").TrackLabel("trackLabel").ToString());
     }
   }
 }

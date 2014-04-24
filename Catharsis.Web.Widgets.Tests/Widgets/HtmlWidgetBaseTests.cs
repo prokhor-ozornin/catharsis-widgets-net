@@ -3,12 +3,12 @@
 namespace Catharsis.Web.Widgets
 {
   /// <summary>
-  ///   <para>Tests set for class <see cref="HtmlWidgetBase"/>.</para>
+  ///   <para>Tests set for class <see cref="HtmlWidget"/>.</para>
   /// </summary>
-  public sealed class HtmlWidgetBaseTests
+  public sealed class HtmlWidgetTests
   {
     /// <summary>
-    ///   <para>Performs testing of <see cref="HtmlWidgetBase.ToHtmlString()"/> method.</para>
+    ///   <para>Performs testing of <see cref="HtmlWidget.ToHtmlString()"/> method.</para>
     /// </summary>
     [Fact]
     public void ToHtmlString_Method()
@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="HtmlWidgetBase.ToString()"/> method.</para>
+    ///   <para>Performs testing of <see cref="HtmlWidget.ToString()"/> method.</para>
     /// </summary>
     [Fact]
     public void ToString_Method()

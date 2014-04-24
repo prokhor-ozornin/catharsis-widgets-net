@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded RuTube video on web page.</para>
   /// </summary>
-  public class RuTubeVideoWidget : HtmlWidgetBase, IRuTubeVideoWidget
+  public class RuTubeVideoWidget : HtmlWidget, IRuTubeVideoWidget
   {
     private string id;
     private string height;

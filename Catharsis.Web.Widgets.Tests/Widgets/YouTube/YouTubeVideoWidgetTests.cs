@@ -20,8 +20,8 @@ namespace Catharsis.Web.Widgets
       Assert.Null(widget.Field("id"));
       Assert.Null(widget.Field("width"));
       Assert.Null(widget.Field("height"));
-      Assert.False(widget.Field("private").To<bool>());
-      Assert.False(widget.Field("secure").To<bool>());
+      Assert.False(widget.Field("privateMode").To<bool>());
+      Assert.False(widget.Field("secureMode").To<bool>());
     }
 
     /// <summary>
@@ -70,27 +70,27 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YouTubeVideoWidget.Private(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YouTubeVideoWidget.PrivateMode(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void Private_Method()
+    public void PrivateMode_Method()
     {
       var widget = new YouTubeVideoWidget();
-      Assert.False(widget.Field("private").To<bool>());
-      Assert.True(ReferenceEquals(widget.Private(), widget));
-      Assert.True(widget.Field("private").To<bool>());
+      Assert.False(widget.Field("privateMode").To<bool>());
+      Assert.True(ReferenceEquals(widget.PrivateMode(), widget));
+      Assert.True(widget.Field("privateMode").To<bool>());
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="YouTubeVideoWidget.Secure(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="YouTubeVideoWidget.SecureMode(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void Secure_Method()
+    public void SecureMode_Method()
     {
       var widget = new YouTubeVideoWidget();
-      Assert.False(widget.Field("secure").To<bool>());
-      Assert.True(ReferenceEquals(widget.Secure(), widget));
-      Assert.True(widget.Field("secure").To<bool>());
+      Assert.False(widget.Field("secureMode").To<bool>());
+      Assert.True(ReferenceEquals(widget.SecureMode(), widget));
+      Assert.True(widget.Field("secureMode").To<bool>());
     }
 
     /// <summary>
@@ -104,7 +104,7 @@ namespace Catharsis.Web.Widgets
       Assert.Equal(string.Empty, new YouTubeVideoWidget().Id("id").Width("width").ToString());
       Assert.Equal(string.Empty, new YouTubeVideoWidget().Height("height").Width("width").ToString());
       Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://www.youtube.com/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new YouTubeVideoWidget().Id("id").Height("height").Width("width").ToString());
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://www.youtube-nocookie.com/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new YouTubeVideoWidget().Id("id").Height("height").Width("width").Private().Secure().ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://www.youtube-nocookie.com/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new YouTubeVideoWidget().Id("id").Height("height").Width("width").PrivateMode().SecureMode().ToString());
     }
   }
 }

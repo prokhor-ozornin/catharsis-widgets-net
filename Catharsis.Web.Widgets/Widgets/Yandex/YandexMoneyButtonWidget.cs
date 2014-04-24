@@ -8,15 +8,15 @@ namespace Catharsis.Web.Widgets
   ///   <para>Renders button for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
   /// </summary>
   /// <seealso cref="https://money.yandex.ru/embed/quickpay/small.xml"/>
-  public class YandexMoneyButtonWidget : HtmlWidgetBase, IYandexMoneyButtonWidget
+  public class YandexMoneyButtonWidget : HtmlWidget, IYandexMoneyButtonWidget
   {
     private string account;
     private string color = YandexMoneyButtonColor.Orange.ToString().ToLowerInvariant();
     private string description;
-    private bool payerFullName;
-    private bool payerEmail;
-    private bool payerPhone;
-    private bool payerAddress;
+    private bool askPayerFullName;
+    private bool askPayerEmail;
+    private bool askPayerPhone;
+    private bool askPayerAddress;
     private string size = "l";
     private decimal? sum;
     private byte text = (byte) YandexMoneyButtonText.Pay;
@@ -72,44 +72,44 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyButtonWidget PayerFullName(bool require = true)
+    public IYandexMoneyButtonWidget AskPayerFullName(bool ask = true)
     {
-      this.payerFullName = require;
+      this.askPayerFullName = ask;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyButtonWidget PayerEmail(bool require = true)
+    public IYandexMoneyButtonWidget AskPayerEmail(bool ask = true)
     {
-      this.payerEmail = require;
+      this.askPayerEmail = ask;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyButtonWidget PayerPhone(bool require = true)
+    public IYandexMoneyButtonWidget AskPayerPhone(bool ask = true)
     {
-      this.payerPhone = require;
+      this.askPayerPhone = ask;
       return this;
     }
 
     /// <summary>
     ///   <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="require"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
+    /// <param name="ask"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyButtonWidget PayerAddress(bool require = true)
+    public IYandexMoneyButtonWidget AskPayerAddress(bool ask = true)
     {
-      this.payerAddress = require;
+      this.askPayerAddress = ask;
       return this;
     }
 
@@ -210,7 +210,7 @@ namespace Catharsis.Web.Widgets
       }
 
       return new TagBuilder("iframe")
-        .Attribute("src", "https://money.yandex.ru/embed/small.xml?account={0}&quickpay=small&{1}=on&button-text=0{2}&button-size={3}&button-color={4}&targets={5}&default-sum={6}{7}{8}{9}{10}".FormatSelf(this.account, this.type, this.text, this.size, this.color, this.description, this.sum, this.payerFullName ? "&fio=on" : string.Empty, this.payerEmail ? "&mail=on" : string.Empty, this.payerPhone ? "&phone=on" : string.Empty, this.payerAddress ? "&address=on" : string.Empty))
+        .Attribute("src", "https://money.yandex.ru/embed/small.xml?account={0}&quickpay=small&{1}=on&button-text=0{2}&button-size={3}&button-color={4}&targets={5}&default-sum={6}{7}{8}{9}{10}".FormatSelf(this.account, this.type, this.text, this.size, this.color, this.description, this.sum, this.askPayerFullName ? "&fio=on" : string.Empty, this.askPayerEmail ? "&mail=on" : string.Empty, this.askPayerPhone ? "&phone=on" : string.Empty, this.askPayerAddress ? "&address=on" : string.Empty))
         .Attribute("frameborder", 0)
         .Attribute("allowtransparency", true)
         .Attribute("scrolling", "no")

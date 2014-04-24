@@ -30,18 +30,18 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="kids"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
+    /// <param name="enabled"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
     /// <returns>Reference to the current widget.</returns>
-    IFacebookSendButtonWidget Kids(bool kids = true);
+    IFacebookSendButtonWidget KidsMode(bool enabled = true);
 
     /// <summary>
     ///   <para>A label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_).</para>
     /// </summary>
-    /// <param name="trackLabel">>Label to track referrals.</param>
+    /// <param name="label">>Label to track referrals.</param>
     /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="trackLabel"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="trackLabel"/> is <see cref="string.Empty"/> string.</exception>
-    IFacebookSendButtonWidget TrackLabel(string trackLabel);
+    /// <exception cref="ArgumentNullException">If <paramref name="label"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="label"/> is <see cref="string.Empty"/> string.</exception>
+    IFacebookSendButtonWidget TrackLabel(string label);
 
     /// <summary>
     ///   <para>The absolute URL of the page that will be sent. Default is current page URL.</para>

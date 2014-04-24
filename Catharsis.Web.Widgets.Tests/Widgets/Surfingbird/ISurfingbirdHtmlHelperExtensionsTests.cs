@@ -9,16 +9,16 @@ namespace Catharsis.Web.Widgets
   public sealed class ISurfingbirdHtmlHelperExtensionsTests
   {
     /// <summary>
-    ///   <para>Performs testing of <see cref="ISurfingbirdHtmlHelperExtensions.Surf(ISurfingbirdHtmlHelper, Action{ISurfingbirdSurfButtonWidget})"/> method.</para>
+    ///   <para>Performs testing of <see cref="ISurfingbirdHtmlHelperExtensions.SurfButton(ISurfingbirdHtmlHelper, Action{ISurfingbirdSurfButtonWidget})"/> method.</para>
     /// </summary>
     [Fact]
     public void Like_Method()
     {
-      Assert.Throws<ArgumentNullException>(() => ISurfingbirdHtmlHelperExtensions.Surf(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new SurfingbirdHtmlHelper().Surf(null));
+      Assert.Throws<ArgumentNullException>(() => ISurfingbirdHtmlHelperExtensions.SurfButton(null, widget => { }));
+      Assert.Throws<ArgumentNullException>(() => new SurfingbirdHtmlHelper().SurfButton(null));
 
-      Assert.Equal(new SurfingbirdHtmlHelper().Surf().ToHtmlString(), new SurfingbirdHtmlHelper().Surf(x => { }));
-      Assert.Equal(new SurfingbirdHtmlHelper().Surf().Url("url").ToHtmlString(), new SurfingbirdHtmlHelper().Surf(x => x.Url("url")));
+      Assert.Equal(new SurfingbirdHtmlHelper().SurfButton().ToHtmlString(), new SurfingbirdHtmlHelper().SurfButton(x => { }));
+      Assert.Equal(new SurfingbirdHtmlHelper().SurfButton().Url("url").ToHtmlString(), new SurfingbirdHtmlHelper().SurfButton(x => x.Url("url")));
     }
   }
 }

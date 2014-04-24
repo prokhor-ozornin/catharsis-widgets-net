@@ -4,9 +4,10 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Pinterest "Pin It" button widget.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.Pinterest"/> script to be included.</para>
+  ///   <para>Requires Pinterest scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://business.pinterest.com/widget-builder/#do_pin_it_button"/>
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
   public interface IPinterestPinItButtonWidget : IHtmlWidget
   {
     /// <summary>
@@ -23,7 +24,7 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="position">Pin counter's position.</param>
     /// <returns>Reference to the current widget.</returns>
-    IPinterestPinItButtonWidget CounterPosition(PinterestPinItButtonPinCountPosition position);
+    IPinterestPinItButtonWidget Counter(PinterestPinItButtonPinCountPosition position);
 
     /// <summary>
     ///   <para>Description of the "pinned" image.</para>

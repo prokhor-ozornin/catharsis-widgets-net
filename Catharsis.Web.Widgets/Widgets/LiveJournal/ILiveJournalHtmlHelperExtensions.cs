@@ -16,13 +16,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="ILiveJournalHtmlHelper.Like()"/>
-    public static string Like(this ILiveJournalHtmlHelper html, Action<ILiveJournalLikeButtonWidget> builder)
+    /// <seealso cref="ILiveJournalHtmlHelper.LikeButton()"/>
+    public static string LikeButton(this ILiveJournalHtmlHelper html, Action<ILiveJournalLikeButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Like();
+      var widget = html.LikeButton();
       builder(widget);
       return widget.ToHtmlString();
     }
@@ -34,13 +34,13 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="ILiveJournalHtmlHelper.Repost()"/>
-    public static string Repost(this ILiveJournalHtmlHelper html, Action<ILiveJournalRepostButtonWidget> builder)
+    /// <seealso cref="ILiveJournalHtmlHelper.RepostButton()"/>
+    public static string RepostButton(this ILiveJournalHtmlHelper html, Action<ILiveJournalRepostButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
 
-      var widget = html.Repost();
+      var widget = html.RepostButton();
       builder(widget);
       return widget.ToHtmlString();
     }

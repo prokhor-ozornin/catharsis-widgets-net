@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
       return new MailRuIcqWidget();
     }
 
-    public IMailRuLikeButtonWidget Like()
+    public IMailRuLikeButtonWidget LikeButton()
     {
       return new MailRuLikeButtonWidget();
     }

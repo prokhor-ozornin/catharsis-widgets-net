@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders VKontakte "Like" button widget.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.VKontakte"/> script to be included.</para>
+  ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="http://vk.com/dev/Like"/>
   public interface IVkontakteLikeButtonWidget : IHtmlWidget
@@ -33,7 +33,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="description"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="description"/> is <see cref="string.Empty"/> string.</exception>
-    IVkontakteLikeButtonWidget PageDescription(string description);
+    IVkontakteLikeButtonWidget Description(string description);
 
     /// <summary>
     ///   <para>URL of the thumbnail image (to display in preview mode for record on the wall).</para>
@@ -42,7 +42,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
-    IVkontakteLikeButtonWidget PageImageUrl(string url);
+    IVkontakteLikeButtonWidget Image(string url);
 
     /// <summary>
     ///   <para>Title of the page (to display in preview mode for record on the wall).</para>
@@ -51,7 +51,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
-    IVkontakteLikeButtonWidget PageTitle(string title);
+    IVkontakteLikeButtonWidget Title(string title);
 
     /// <summary>
     ///   <para>URL of the page to "like" (this URL will be shown in a record on the wall). Default is URL of the current page.</para>
@@ -60,7 +60,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
-    IVkontakteLikeButtonWidget PageUrl(string url);
+    IVkontakteLikeButtonWidget Url(string url);
 
     /// <summary>
     ///   <para>Text to be published on the wall when "Tell to friends" is pressed. Maximum length is 140 characters. Default value equals to page's title.</para>

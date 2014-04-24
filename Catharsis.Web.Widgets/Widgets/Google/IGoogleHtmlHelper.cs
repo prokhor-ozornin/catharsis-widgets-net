@@ -21,6 +21,6 @@ namespace Catharsis.Web.Widgets
     ///   <para>Creates new Google "+1" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    IGooglePlusOneButtonWidget PlusOne();
+    IGooglePlusOneButtonWidget PlusOneButton();
   }
 }

@@ -7,10 +7,11 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Mail.ru Group (People In Group) widget.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.MailRu"/> script to be included.</para>
+  ///   <para>Requires MailRu scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://api.mail.ru/sites/plugins/groups"/>
-  public class MailRuGroupsWidget : HtmlWidgetBase, IMailRuGroupsWidget
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.MailRu(IWidgetsScriptsRenderer)"/>
+  public class MailRuGroupsWidget : HtmlWidget, IMailRuGroupsWidget
   {
     private string account;
     private string backgroundColor;

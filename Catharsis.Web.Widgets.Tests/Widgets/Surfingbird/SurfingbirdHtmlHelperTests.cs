@@ -11,13 +11,13 @@ namespace Catharsis.Web.Widgets
     private readonly HtmlHelper html = new MockHtmlHelper();
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="SurfingbirdHtmlHelper.Surf()"/> method.</para>
+    ///   <para>Performs testing of <see cref="SurfingbirdHtmlHelper.SurfButton()"/> method.</para>
     /// </summary>
     [Fact]
-    public void Like_Method()
+    public void SurfButton_Method()
     {
-      Assert.False(ReferenceEquals(this.html.Surfingbird().Surf(), this.html.Surfingbird().Surf()));
-      Assert.True(this.html.Surfingbird().Surf() is SurfingbirdSurfButtonWidget);
+      Assert.False(ReferenceEquals(this.html.Surfingbird().SurfButton(), this.html.Surfingbird().SurfButton()));
+      Assert.True(this.html.Surfingbird().SurfButton() is SurfingbirdSurfButtonWidget);
     }
   }
 }

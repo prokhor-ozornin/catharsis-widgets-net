@@ -6,15 +6,16 @@ namespace Catharsis.Web.Widgets
 {
   /// <summary>
   ///   <para>Renders Pinterest Profile widget with user's latest pins.</para>
-  ///   <para>Requires <see cref="WidgetsScripts.Pinterest"/> script to be included.</para>
+  ///   <para>Requires Pinterest scripts bundle to be included.</para>
   /// </summary>
   /// <seealso cref="http://business.pinterest.com/widget-builder/#do_embed_user"/>
-  public sealed class PinterestProfileWidget : HtmlWidgetBase, IPinterestProfileWidget
+  /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
+  public sealed class PinterestProfileWidget : HtmlWidget, IPinterestProfileWidget
   {
     private string account;
     private string height;
     private string width;
-    private string imageWidth;
+    private string image;
 
     /// <summary>
     ///   <para>Pinterest user account.</para>
@@ -72,11 +73,11 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
     /// <remarks>Min: 60; leave blank for 92.</remarks>
-    public IPinterestProfileWidget ImageWidth(string width)
+    public IPinterestProfileWidget Image(string width)
     {
       Assertion.NotEmpty(width);
 
-      this.imageWidth = width;
+      this.image = width;
       return this;
     }
 
@@ -94,7 +95,7 @@ namespace Catharsis.Web.Widgets
       return new TagBuilder("a")
         .Attribute("data-pin-do", "embedUser")
         .Attribute("href", "http://www.pinterest.com/{0}".FormatSelf(this.account))
-        .Attribute("data-pin-scale-width", this.imageWidth)
+        .Attribute("data-pin-scale-width", this.image)
         .Attribute("data-pin-scale-height", this.height)
         .Attribute("data-pin-board-width", this.width)
         .ToString();

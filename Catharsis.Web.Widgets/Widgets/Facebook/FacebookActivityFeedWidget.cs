@@ -11,7 +11,7 @@ namespace Catharsis.Web.Widgets
   ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
   /// </summary>
   /// <seealso cref="https://developers.facebook.com/docs/plugins/activity"/>
-  public class FacebookActivityFeedWidget : HtmlWidgetBase, IFacebookActivityFeedWidget
+  public class FacebookActivityFeedWidget : HtmlWidget, IFacebookActivityFeedWidget
   {
     private IEnumerable<string> actions = Enumerable.Empty<string>();
     private string appId;
@@ -87,11 +87,11 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Whether to show the "Recent Activity" header above the feed or not. Default is <c>true</c>.</para>
     /// </summary>
-    /// <param name="header"><c>true</c> to show header, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show header, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookActivityFeedWidget Header(bool header = true)
+    public IFacebookActivityFeedWidget Header(bool show = true)
     {
-      this.header = header;
+      this.header = show;
       return this;
     }
 
@@ -113,15 +113,15 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Determines what happens when people click on the links in the feed. Can be any of the standard HTML target values. Default is "_blank".</para>
     /// </summary>
-    /// <param name="linkTarget">Hyperlinks HTML target attribute.</param>
+    /// <param name="target">Hyperlinks HTML target attribute.</param>
     /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="linkTarget"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="linkTarget"/> is <see cref="string.Empty"/> string.</exception>
-    public IFacebookActivityFeedWidget LinkTarget(string linkTarget)
+    /// <exception cref="ArgumentNullException">If <paramref name="target"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="target"/> is <see cref="string.Empty"/> string.</exception>
+    public IFacebookActivityFeedWidget LinkTarget(string target)
     {
-      Assertion.NotEmpty(linkTarget);
+      Assertion.NotEmpty(target);
 
-      this.linkTarget = linkTarget;
+      this.linkTarget = target;
       return this;
     }
 
@@ -139,26 +139,26 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Specifies whether to always show recommendations (Articles liked by a high amount of people) in the bottom half of the feed. Default is <c>false</c>.</para>
     /// </summary>
-    /// <param name="recommendations"><c>true</c> to show recommendations, <c>false</c> to hide.</param>
+    /// <param name="show"><c>true</c> to show recommendations, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookActivityFeedWidget Recommendations(bool recommendations = true)
+    public IFacebookActivityFeedWidget Recommendations(bool show = true)
     {
-      this.recommendations = recommendations;
+      this.recommendations = show;
       return this;
     }
 
     /// <summary>
     ///   <para>A label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_).</para>
     /// </summary>
-    /// <param name="trackLabel">Label for tracking referrals.</param>
+    /// <param name="label">Label for tracking referrals.</param>
     /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="trackLabel"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="trackLabel"/> is <see cref="string.Empty"/> string.</exception>
-    public IFacebookActivityFeedWidget TrackLabel(string trackLabel)
+    /// <exception cref="ArgumentNullException">If <paramref name="label"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="label"/> is <see cref="string.Empty"/> string.</exception>
+    public IFacebookActivityFeedWidget TrackLabel(string label)
     {
-      Assertion.NotEmpty(trackLabel);
+      Assertion.NotEmpty(label);
 
-      this.trackLabel = trackLabel;
+      this.trackLabel = label;
       return this;
     }
 

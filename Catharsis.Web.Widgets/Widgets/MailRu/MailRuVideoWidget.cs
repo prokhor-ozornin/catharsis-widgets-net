@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets
   /// <summary>
   ///   <para>Renders embedded Mail.ru video on web page.</para>
   /// </summary>
-  public class MailRuVideoWidget : HtmlWidgetBase, IMailRuVideoWidget
+  public class MailRuVideoWidget : HtmlWidget, IMailRuVideoWidget
   {
     private string id;
     private string height;

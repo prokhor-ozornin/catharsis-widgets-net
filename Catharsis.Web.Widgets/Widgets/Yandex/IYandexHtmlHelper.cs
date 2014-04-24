@@ -15,7 +15,7 @@ namespace Catharsis.Web.Widgets
     ///   <para>Creates new Yandex "Like" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    IYandexLikeButtonWidget Like();
+    IYandexLikeButtonWidget LikeButton();
 
     /*/// <summary>
     ///   <para>Creates new Yandex Map widget.</para>
@@ -45,7 +45,7 @@ namespace Catharsis.Web.Widgets
     ///   <para>Creates new Yandex "Share" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    IYandexSharePanelWidget Share();
+    IYandexSharePanelWidget SharePanel();
 
     /// <summary>
     ///   <para>Creates new Yandex embedded video widget.</para>

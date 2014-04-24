@@ -9,12 +9,12 @@
     ///   <para>Creates new LiveJournal "Like" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    ILiveJournalLikeButtonWidget Like();
+    ILiveJournalLikeButtonWidget LikeButton();
 
     /// <summary>
     ///   <para>Creates new LiveJournal "Repost" button widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
-    ILiveJournalRepostButtonWidget Repost();
+    ILiveJournalRepostButtonWidget RepostButton();
   }
 }

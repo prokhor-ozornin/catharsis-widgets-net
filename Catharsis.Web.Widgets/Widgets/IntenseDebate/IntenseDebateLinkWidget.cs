@@ -2,7 +2,7 @@
 
 namespace Catharsis.Web.Widgets
 {
-  public class IntenseDebateLinkWidget : HtmlWidgetBase, IIntenseDebateLinkWidget
+  public class IntenseDebateLinkWidget : HtmlWidget, IIntenseDebateLinkWidget
   {
     private string account;
     private string postId;
