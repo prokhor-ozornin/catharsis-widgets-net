@@ -23,7 +23,7 @@ namespace Catharsis.Web.Widgets
     private string size;
     private string countUrl;
     private string counterPosition;
-    private bool? optOut;
+    private bool? suggestions;
     private IEnumerable<string> accounts = Enumerable.Empty<string>();
     private IEnumerable<string> tags = Enumerable.Empty<string>();
 
@@ -87,13 +87,13 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Whether to opt-out of twitter suggestions. Default is <c>false</c>.</para>
+    ///   <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
     /// </summary>
-    /// <param name="optOut"><c>true</c> to opt-out, <c>false</c> to opt-in.</param>
+    /// <param name="enabled"><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</param>
     /// <returns>Reference to the current widget.</returns>
-    public ITwitterTweetButtonWidget OptOut(bool optOut = true)
+    public ITwitterTweetButtonWidget Suggestions(bool enabled = true)
     {
-      this.optOut = optOut;
+      this.suggestions = enabled;
       return this;
     }
 
@@ -188,7 +188,7 @@ namespace Catharsis.Web.Widgets
         .Attribute("data-counturl", this.countUrl)
         .Attribute("data-hashtags", this.tags.Any() ? this.tags.Join(" ") : null)
         .Attribute("data-size", this.size)
-        .Attribute("data-dnt", this.optOut)
+        .Attribute("data-dnt", this.suggestions == null ? null : !this.suggestions)
         .CssClass(this.tags.Any() ? "twitter-hashtag-button" : "twitter-share-button")
         .ToString();
     }

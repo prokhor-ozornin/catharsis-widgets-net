@@ -28,7 +28,7 @@ namespace Catharsis.Web.Widgets
       Assert.Null(widget.Field("size"));
       Assert.Null(widget.Field("countUrl"));
       Assert.Null(widget.Field("counterPosition"));
-      Assert.Null(widget.Field("optOut"));
+      Assert.Null(widget.Field("suggestions"));
       Assert.False(widget.Field("tags").To<IEnumerable<string>>().Any());
       Assert.False(widget.Field("accounts").To<IEnumerable<string>>().Any());
     }
@@ -139,15 +139,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="TwitterTweetButtonWidget.OptOut(bool)"/> method.</para>
+    ///   <para>Performs testing of <see cref="TwitterTweetButtonWidget.Suggestions(bool)"/> method.</para>
     /// </summary>
     [Fact]
-    public void OptOut_Method()
+    public void Suggestions_Method()
     {
       var widget = new TwitterTweetButtonWidget();
-      Assert.Null(widget.Field("opOut"));
-      Assert.True(ReferenceEquals(widget.OptOut(), widget));
-      Assert.True(widget.Field("optOut").To<bool>());
+      Assert.Null(widget.Field("suggestions"));
+      Assert.True(ReferenceEquals(widget.Suggestions(), widget));
+      Assert.True(widget.Field("suggestions").To<bool>());
     }
 
     /// <summary>
@@ -187,7 +187,7 @@ namespace Catharsis.Web.Widgets
     public void ToHtmlString_Method()
     {
       Assert.Equal(@"<a class=""twitter-share-button"" data-lang=""{0}"" href=""https://twitter.com/share""></a>".FormatSelf(HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new TwitterTweetButtonWidget().ToString());
-      Assert.Equal(@"<a class=""twitter-hashtag-button"" data-count=""counterPosition"" data-counturl=""countUrl"" data-dnt=""true"" data-hashtags=""tags"" data-lang=""en"" data-related=""related"" data-size=""size"" data-text=""text"" data-url=""url"" data-via=""via"" href=""https://twitter.com/share""></a>", new TwitterTweetButtonWidget().Language("en").Url("url").Via("via").Text("text").RelatedAccounts("related").CounterPosition("counterPosition").CountUrl("countUrl").HashTags("tags").Size("size").OptOut().ToString());
+      Assert.Equal(@"<a class=""twitter-hashtag-button"" data-count=""counterPosition"" data-counturl=""countUrl"" data-dnt=""true"" data-hashtags=""tags"" data-lang=""en"" data-related=""related"" data-size=""size"" data-text=""text"" data-url=""url"" data-via=""via"" href=""https://twitter.com/share""></a>", new TwitterTweetButtonWidget().Language("en").Url("url").Via("via").Text("text").RelatedAccounts("related").CounterPosition("counterPosition").CountUrl("countUrl").HashTags("tags").Size("size").Suggestions(false).ToString());
     }
   }
 }

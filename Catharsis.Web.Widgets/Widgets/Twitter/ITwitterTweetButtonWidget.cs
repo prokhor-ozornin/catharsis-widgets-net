@@ -47,11 +47,11 @@ namespace Catharsis.Web.Widgets
     ITwitterTweetButtonWidget Language(string language);
 
     /// <summary>
-    ///   <para>Whether to opt-out of twitter suggestions. Default is <c>false</c>.</para>
+    ///   <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
     /// </summary>
-    /// <param name="optOut"><c>true</c> to opt-out, <c>false</c> to opt-in.</param>
+    /// <param name="enabled"><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</param>
     /// <returns>Reference to the current widget.</returns>
-    ITwitterTweetButtonWidget OptOut(bool optOut = true);
+    ITwitterTweetButtonWidget Suggestions(bool enabled = true);
 
     /// <summary>
     ///   <para>Collection of related accounts.</para>

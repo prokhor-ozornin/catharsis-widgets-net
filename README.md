@@ -20,13 +20,13 @@ This project needs your support for further developments ! Please consider donat
 
 **Installation and usage**
 
-1. Make sure _~/Scripts/WebWidgets_ directory with necessary JavaScript files is copied to the _~/Scripts_ directory of your ASP.NET MVC project.
+* Make sure _~/Scripts/WebWidgets_ directory with necessary JavaScript files is copied to the _~/Scripts_ directory of your ASP.NET MVC project.
 
-2. Register required JavaScript bundles within your web application in `Global.asax.cs` file (`Application_Start` method) :
+* Register required JavaScript bundles within your web application in `Global.asax.cs` file (`Application_Start` method) :
 
 `Catharsis.Web.Widgets.WidgetsBundleConfig.RegisterBundles(BundleTable.Bundles);`
 
-3. Use extension methods for `System.Web.Mvc.HtmlHelper` class to render web widgets where required, using fluent interface syntax :
+* Use extension methods for `System.Web.Mvc.HtmlHelper` class to render web widgets where required, using fluent interface syntax :
 
 `@Html.YouTube().Video().Id("eYJSlHiXegI").Width("320").Height("240")`
 
@@ -76,6 +76,8 @@ _Code:_
 
 `@Html.Cackle().Comments().Account("20049")`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dece_4254dc0d_orig)
+
 **2. Comments count hyperlink**
 
 _Requirements:_ `WebWidgetsScripts.Render().Cackle()` JavaScript bundle (_head_ or _body_ section)
@@ -114,6 +116,8 @@ _Code:_
 
 `@Html.Disqus().Comments().Account("v-svete-snov")`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8decd_52c79adf_orig)
+
 **Facebook**
 
 **1. JS API initialization**
@@ -136,6 +140,8 @@ _Code:_
 
 `@Html.Facebook().ActivityFeed().Domain("yandex.ru").Header(false).Recommendations().ColorScheme(FacebookColorScheme.Dark)`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8decf_7b4f254a_orig)
+
 **3. Recommendations Feed**
 
 _Requirements:_ Call to `Html.Facebook().Initialize()`
@@ -148,6 +154,8 @@ _Code:_
 
 `@Html.Facebook().RecommendationsFeed().Domain("yandex.ru").Header(false).ColorScheme(FacebookColorScheme.Dark)`
 
+![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8ded5_c2a1df46_orig)
+
 **4. Comments**
 
 _Requirements:_ Call to `Html.Facebook().Initialize()`
@@ -159,6 +167,8 @@ _Code:_
 `@Html.Facebook().Comments().Url("http://yandex.ru")`
 
 `@Html.Facebook().Comments().Url("http://yandex.ru").Order(FacebookCommentsOrder.ReverseTime).Posts(1).Width("500")`
+
+![](http://img-fotki.yandex.ru/get/9822/80185211.1d/0_8ded0_864544eb_orig)
 
 **5. Facepile**
 
@@ -182,6 +192,8 @@ _Code:_
 
 `@Html.Facebook().FollowButton().Url("http://www.facebook.com/zuck").KidsMode().Faces().Layout(FacebookButtonLayout.BoxCount)`
 
+![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8ded1_e4885846_orig)
+
 **7. Like Box**
 
 _Requirements:_ Call to `Html.Facebook().Initialize()`
@@ -191,6 +203,8 @@ _Code:_
 `@Html.Facebook().LikeBox().Url("https://www.facebook.com/pages/Clear-Words/515749945120070")`
 
 `@Html.Facebook().LikeBox().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Header(false).Border(false).Faces(false).Stream().Width("500")`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8ded2_e76aa4ec_orig)
 
 **8. Like Button**
 
@@ -204,6 +218,8 @@ _Code:_
 
 `@Html.Facebook().LikeButton().Url("http://yandex.ru").Layout(FacebookLikeButtonLayout.BoxCount).Faces().Verb(FacebookLikeButtonVerb.Recommend)`
 
+![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8ded3_38a5cbe9_orig)
+
 **9. Embedded post**
 
 _Requirements:_ Call to `Html.Facebook().Initialize()`
@@ -211,6 +227,8 @@ _Requirements:_ Call to `Html.Facebook().Initialize()`
 _Code:_
 
 `@Html.Facebook().Post().Url("https://www.facebook.com/prokhor.ozornin/posts/10203109769053557").Width(640)`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8ded4_d52c9373_orig)
 
 **10. Send Button**
 
@@ -224,6 +242,8 @@ _Code:_
 
 `@Html.Facebook().SendButton().Url("http://yandex.ru").ColorScheme(FacebookColorScheme.Dark).KidsMode()`
 
+![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8ded6_4da589ba_orig)
+
 **11. Embedded video**
 
 _Requirements:_ None
@@ -231,6 +251,8 @@ _Requirements:_ None
 _Code:_
 
 `@Html.Facebook().Video().Height("480").Width("640").Id("10203121281421359")`
+
+![](http://img-fotki.yandex.ru/get/9491/80185211.1e/0_8df01_d86a4cce_orig)
 
 **Google**
 
@@ -242,6 +264,8 @@ _Code:_
 
 `@Html.Google().Analytics().Domain("v-svete-snov.ru").Account("UA-27123759-16")`
 
+![](http://img-fotki.yandex.ru/get/9822/80185211.1d/0_8ded7_a5f7153d_orig)
+
 **2. +1 Button**
 
 _Requirements:_ `WebWidgetsScripts.Render().Google()` JavaScript bundle (_head_ or _body_ section)
@@ -251,6 +275,8 @@ _Code:_
 `@Html.Google().PlusOneButton()`
 
 `@Html.Google().PlusOneButton().Url("http://yandex.ru").Alignment(GooglePlusOneButtonAlignment.Right).Size(GooglePlusOneButtonSize.Tall).Annotation(GooglePlusOneButtonAnnotation.Inline).Recommendations(false)`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8ded8_426fde9_orig)
 
 **Gravatar**
 
@@ -264,6 +290,8 @@ _Code:_
 
 `@Html.Gravatar().ImageUrl().Email("prokhor.ozornin@yandex.ru").Extension("jpg").ForceDefault().Size(320)`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8ded9_af2ee96e_orig)
+
 **2. User profile URL**
 
 _Requirements:_ None
@@ -274,6 +302,8 @@ _Code:_
 
 `@Html.Gravatar().ProfileUrl().Email("prokhor.ozornin@yandex.ru").Xml()`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8deda_4837ca1b_orig)
+
 **IntenseDebate**
 
 **1. Comments**
@@ -283,6 +313,8 @@ _Requirements:_ None
 _Code:_
 
 `@Html.IntenseDebate().Comments().Account("a639ec3507d53023d4f213666651b6c2")`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dedb_af15dfff_orig)
 
 **2. Comments count hyperlink**
 
@@ -312,6 +344,8 @@ _Code:_
 
 `@Html.LiveJournal().RepostButton().Title("title").Text("text")`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dedc_e64cb946_orig)
+
 **Mail.ru**
 
 **1. ICQ On-Site**
@@ -323,6 +357,8 @@ _Code:_
 `@Html.MailRu().Icq()`
 
 `@Html.MailRu().Icq().Account("12345678").Language("en")`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dedf_48c0f729_orig)
 
 **2. Embedded video**
 
@@ -342,6 +378,8 @@ _Code:_
 
 `@Html.MailRu().LikeButton().Layout(MailRuLikeButtonLayout.Second).Text(false).CounterPosition(MailRuLikeButtonCounterPosition.Upper).Size(30)`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dee0_ab70e64f_orig)
+
 **4. Faces**
 
 _Requirements:_ `WebWidgetsScripts.Render().MailRu()` JavaScript bundle (_body_ section)
@@ -352,6 +390,8 @@ _Code:_
 
 `@Html.MailRu().Faces().Domain("mail.ru").Width(640).Height(480).Font(MailRuFacesFont.Tahoma).Title(false).BackgroundColor("aaffaa").HyperlinkColor("ffaaff").BorderColor("aaaaaa")`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dedd_1e4bea58_orig)
+
 **5. Groups**
 
 _Requirements:_ `WebWidgetsScripts.Render().MailRu()` JavaScript bundle (_body_ section)
@@ -361,6 +401,8 @@ _Code:_
 `@Html.MailRu().Groups().Account("mail_ru").Width(640).Height(480)`
 
 `@Html.MailRu().Groups().Account("mail_ru").Width(640).Height(480).BackgroundColor("aaffaa").ButtonColor("ffaaff").Subscribers(false).TextColor("aaaadd")`
+
+![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8dede_dcf4ba5a_orig)
 
 **Pinterest**
 
@@ -374,6 +416,8 @@ _Code:_
 
 `@Html.Pinterest().FollowButton().Account("pinterest").Label("Pinterest")`
 
+![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8dee2_b4b37dac_orig)
+
 **2. Embedded Pin**
 
 _Requirements:_ `WebWidgetsScripts.Render().Pinterest()` JavaScript bundle (_head_ or _body_ section)
@@ -381,6 +425,8 @@ _Requirements:_ `WebWidgetsScripts.Render().Pinterest()` JavaScript bundle (_hea
 _Code:_
 
 `@Html.Pinterest().Pin().Id("99360735500167749")`
+
+![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8dee3_be322660_orig)
 
 **3. Board**
 
@@ -392,6 +438,8 @@ _Code:_
 
 `@Html.Pinterest().Board().Account("pinterest").Id("pin-pets").Sidebar()`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dee1_71b1ce7d_orig)
+
 **4. Profile**
 
 _Requirements:_ `WebWidgetsScripts.Render().Pinterest()` JavaScript bundle (_head_ or _body_ section)
@@ -401,6 +449,8 @@ _Code:_
 `@Html.Pinterest().Profile().Account("pinterest")`
 
 `@Html.Pinterest().Profile().Account("pinterest").Sidebar()`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dee5_6a6520e5_orig)
 
 **5. Pin It Button**
 
@@ -412,6 +462,8 @@ _Code:_
 
 `@Html.Pinterest().PinItButton().Url("http://www.flickr.com/photos/kentbrew/6851755809").Image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg").Description("Next stop: Pinterest").Counter(PinterestPinItButtonPinCountPosition.None).Size(PinterestPinItButtonSize.Large).Red().Shape(PinterestPinItButtonShape.Rectangular).Language("ja")`
 
+![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8dee4_3a2af139_orig)
+
 **RuTube**
 
 **1. Embedded video**
@@ -421,6 +473,8 @@ _Requirements:_ None
 _Code:_
 
 `@Html.RuTube().Video().Id("6785018").Height("480").Width("640")`
+
+![](http://img-fotki.yandex.ru/get/9822/80185211.1d/0_8dee6_43358fbd_orig)
 
 **SoundCloud**
 
@@ -434,6 +488,8 @@ _Code:_
 
 `@Html.SoundCloud().ProfileIcon().Account("prokhor-ozornin").BlackWhite().Size(SoundCloudProfileIconSize.Size64)`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8deed_d181e855_orig)
+
 **Surfingbird**
 
 **1. Surf Button**
@@ -445,6 +501,8 @@ _Code:_
 `@Html.Surfingbird().SurfButton()`
 
 `@Html.Surfingbird().SurfButton().Color(SurfingbirdSurfButtonColor.Blue).Counter().Label("Share").Url("http://yandex.ru").Layout(SurfingbirdSurfButtonLayout.Common)`
+
+![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8dee7_74e3c86c_orig)
 
 **Tumblr**
 
@@ -458,6 +516,8 @@ _Code:_
 
 `@Html.Tumblr().FollowButton().Account("clear-words-en").ColorScheme(TumblrFollowButtonColorScheme.Dark).Type(TumblrFollowButtonType.Second)`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8deea_60c1333d_orig)
+
 **2. Share Button**
 
 _Requirements:_ `WebWidgetsScripts.Render().Tumblr()` JavaScript bundle (_head_ or _body_ section)
@@ -467,6 +527,8 @@ _Code:_
 `@Html.Tumblr().ShareButton()`
 
 `@Html.Tumblr().ShareButton().ColorScheme(TumblrShareButtonColorScheme.Gray).Type(TumblrShareButtonType.Third)`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dee8_5fd0a553_orig)
 
 **Twitter**
 
@@ -480,6 +542,8 @@ _Code:_
 
 `@Html.Twitter().TweetButton().HashTags("first", "second", "third").Url("http://yandex.ru").Text("Let's share it !").Via("Prokhor").Suggestions(false)`
 
+![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8deeb_cd475dfc_orig)
+
 **2. Follow Button**
 
 _Requirements:_ `WebWidgetsScripts.Render().Twitter()` JavaScript bundle (_head_ or _body_ section)
@@ -489,6 +553,8 @@ _Code:_
 `@Html.Twitter().FollowButton().Account("prokhor_ozornin")`
 
 `@Html.Twitter().FollowButton().Account("prokhor_ozornin").Suggestions().Counter(false).ScreenName(false)`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dee9_39fe8a8c_orig)
 
 **Vimeo**
 
@@ -500,6 +566,8 @@ _Code:_
 
 `@Html.Vimeo().Video().Id("55456906").Width("640").Height("480")`
 
+![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8deec_a89cc026_orig)
+
 **Vkontakte**
 
 **1. Embedded video**
@@ -509,6 +577,8 @@ _Requirements:_ None
 _Code:_
 
 `@Html.Vkontakte().Video().Id("167533148").Hash("7a0cdf6ef7a69e67").User("5707198").Width("607").Height("360").Hd()`
+
+![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8def8_8c281838_orig)
 
 **2. JS API initialization**
 
@@ -528,6 +598,8 @@ _Code:_
 
 `@Html.Vkontakte().Comments().Attach(VkontakteCommentsAttach.All).Limit(VkontakteCommentsLimit.Limit15)`
 
+![](http://img-fotki.yandex.ru/get/9822/80185211.1d/0_8deef_1d93c587_orig)
+
 **4. Community**
 
 _Requirements:_ Call to `Html.Vkontakte().Initialize()`
@@ -538,6 +610,8 @@ _Code:_
 
 `@Html.Vkontakte().Community().Account("44545550").Mode(VkontakteCommunityMode.News).Height(400).Width(600)`
 
+![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8def1_155d6ab8_orig)
+
 **5. Like Button**
 
 _Requirements:_ Call to `Html.Vkontakte().Initialize()`
@@ -545,6 +619,8 @@ _Requirements:_ Call to `Html.Vkontakte().Initialize()`
 _Code:_
 
 `@Html.Vkontakte().LikeButton()`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def2_6a491b94_orig)
 
 **6. Subscription**
 
@@ -556,6 +632,8 @@ _Code:_
 
 `@Html.Vkontakte().Subscription().Account("5707198").OnlyButton()`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def7_62688243_orig)
+
 **Yandex**
 
 **1. Metrika**
@@ -565,6 +643,8 @@ _Requirements:_ None
 _Code:_
 
 `@Html.Yandex().Analytics().Account("12066574")`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8defa_a0bc72d8_orig)
 
 **2. Like Button**
 
@@ -576,6 +656,8 @@ _Code:_
 
 `@Html.Yandex().LikeButton().Title("Yandex Main Page").Text("Share").Url("http://yandex.ru").Size(YandexLikeButtonSize.Small)`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def9_dcb28653_orig)
+
 **3. Embedded video**
 
 _Requirements:_ None
@@ -583,6 +665,8 @@ _Requirements:_ None
 _Code:_
 
 `@Html.Yandex().Video().Id("6ea0ugstkx.2528").User("leonevskiy").Width("450").Height("253")`
+
+![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8deff_387a5ec2_orig)
 
 **4. Yandex.Money payment button**
 
@@ -594,6 +678,8 @@ _Code:_
 
 `@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment").Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Buy).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).AskPayerAddress().AskPayerEmail().AskPayerFullName().AskPayerPhone()`
 
+![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8defb_508fd66c_orig)
+
 **5. Yandex.Money donation form**
 
 _Requirements:_ None
@@ -603,6 +689,8 @@ _Code:_
 `@Html.Yandex().MoneyDonateForm().Account("41001577953208").DescriptionText("Test Donation")`
 
 `@Html.Yandex().MoneyDonateForm().Account("41001577953208").DescriptionText("Test Donation").Description().Sum(15.5).Cards().ProjectName("Yandex").ProjectSite("http://yandex.ru").Text(YandexMoneyDonateFormText.Give).AskPayerPhone().AskPayerFullName().AskPayerComment().AskPayerEmail()`
+
+![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8defc_3a3f4bf0_orig)
 
 **6. Yandex.Money payment form**
 
@@ -614,6 +702,8 @@ _Code:_
 
 `@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment").Sum(15.5).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).PayerComment().AskPayerEmail().AskPayerFullName().AskPayerAddress().AskPayerPhone().AskPayerPurpose()`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8defd_154be7bd_orig)
+
 **7. Share Button**
 
 _Requirements:_ `WebWidgetsScripts.Render().Yandex()` JavaScript bundle (_head_ or _body_ section)
@@ -624,6 +714,8 @@ _Code:_
 
 `@Html.Yandex().SharePanel().Services("facebook").Language("en")`
 
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8defe_9ec5f03a_orig)
+
 **YouTube**
 
 **1. Embedded video**
@@ -633,6 +725,8 @@ _Requirements:_ None
 _Code:_
 
 `@Html.YouTube().Video().Id("eYJSlHiXegI").Width("100%").Height("480")`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8df00_839c0d10_orig)
 
 **VideoJS**
 
@@ -647,3 +741,5 @@ _Requirements:_
 _Code:_
 
 `@Html.VideoJS().Player().Width("640").Height("480").Videos(new MediaSource("http://vjs.zencdn.net/v/oceans.mp4", VideoContentTypes.MP4), new MediaSource("http://vjs.zencdn.net/v/oceans.webm", VideoContentTypes.WebM)).HtmlBody(@"<track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track>")`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8deee_352bf71e_orig)
