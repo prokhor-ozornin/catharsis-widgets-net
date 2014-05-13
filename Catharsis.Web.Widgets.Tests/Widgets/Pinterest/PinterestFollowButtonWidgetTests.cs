@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,8 +16,8 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new PinterestFollowButtonWidget();
-      Assert.Null(widget.Field("account"));
-      Assert.Equal("Follow", widget.Field("label").To<string>());
+      Assert.Null(widget.Account());
+      Assert.Equal("Follow", widget.Label());
     }
 
     /// <summary>
@@ -31,9 +30,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestFollowButtonWidget().Account(string.Empty));
 
       var widget = new PinterestFollowButtonWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -46,9 +45,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestFollowButtonWidget().Label(string.Empty));
 
       var widget = new PinterestFollowButtonWidget();
-      Assert.Equal("Follow", widget.Field("label").To<string>());
+      Assert.Equal("Follow", widget.Label());
       Assert.True(ReferenceEquals(widget.Label("label"), widget));
-      Assert.Equal("label", widget.Field("label").To<string>());
+      Assert.Equal("label", widget.Label());
     }
 
     /// <summary>

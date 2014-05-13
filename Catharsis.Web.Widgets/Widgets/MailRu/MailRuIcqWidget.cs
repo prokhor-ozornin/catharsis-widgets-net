@@ -30,6 +30,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>ICQ UIN number of contact person. If specified, "Ask Me" option will be added to the widget.</para>
+    /// </summary>
+    /// <returns>ICQ UIN number.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Two-letter ISO language code that determines the interface language. Default is "ru".</para>
     /// </summary>
     /// <param name="language">ISO language code for interface.</param>
@@ -45,6 +54,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Two-letter ISO language code that determines the interface language. Default is "ru".</para>
+    /// </summary>
+    /// <returns>ISO language code for interface.</returns>
+    public string Language()
+    {
+      return this.language;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
@@ -53,11 +71,11 @@ namespace Catharsis.Web.Widgets
       var builder = new StringBuilder()
         .Append(new TagBuilder("script")
           .Attribute("type", "text/javascript")
-          .Attribute("src", "http://c.icq.com/siteim/icqbar/js/partners/initbar_{0}.js".FormatSelf(this.language ?? "ru")));
+          .Attribute("src", "http://c.icq.com/siteim/icqbar/js/partners/initbar_{0}.js".FormatSelf(this.Language() ?? "ru")));
       
-      if (!this.account.IsEmpty())
+      if (!this.Account().IsEmpty())
       {
-        builder.Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml("window.ICQ = {{siteOwner:'{0}'}};".FormatSelf(this.account)));
+        builder.Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml("window.ICQ = {{siteOwner:'{0}'}};".FormatSelf(this.Account())));
       }
 
       return builder.ToString();

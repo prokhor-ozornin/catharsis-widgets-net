@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using Catharsis.Commons;
 using Xunit;
@@ -23,7 +21,7 @@ namespace Catharsis.Web.Widgets
       new VideoJSPlayerWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Width(1), widget));
-        Assert.Equal("1", widget.Field("width").To<string>());
+        Assert.Equal("1", widget.Width());
       });
     }
 
@@ -38,7 +36,7 @@ namespace Catharsis.Web.Widgets
       new VideoJSPlayerWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Height(1), widget));
-        Assert.Equal("1", widget.Field("height").To<string>());
+        Assert.Equal("1", widget.Height());
       });
     }
 
@@ -53,11 +51,11 @@ namespace Catharsis.Web.Widgets
 
       new VideoJSPlayerWidget().With(widget =>
       {
-        Assert.True(ReferenceEquals(widget.Videos(), widget));
-        Assert.False(widget.Field("videos").To<IEnumerable<IMediaSource>>().Any());
+        Assert.True(ReferenceEquals(widget.Videos(Enumerable.Empty<IMediaSource>()), widget));
+        Assert.False(widget.Videos().Any());
       });
 
-      new VideoJSPlayerWidget().With(widget => Assert.True(widget.Videos(new[] { new MediaSource("url", "contentType") }).Field("videos").To<IEnumerable<IMediaSource>>().SequenceEqual(new[] { new MediaSource("url", "contentType") })));
+      new VideoJSPlayerWidget().With(widget => Assert.True(widget.Videos(new[] { new MediaSource("url", "contentType") }).Videos().SequenceEqual(new[] { new MediaSource("url", "contentType") })));
     }
   }
 }

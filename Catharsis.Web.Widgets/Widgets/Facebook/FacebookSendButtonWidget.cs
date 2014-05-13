@@ -34,6 +34,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The color scheme used by the button. Default is "light".</para>
+    /// </summary>
+    /// <returns>Color scheme of button.</returns>
+    public string ColorScheme()
+    {
+      return this.colorScheme;
+    }
+
+    /// <summary>
     ///   <para>The height of the button.</para>
     /// </summary>
     /// <param name="height">Height of button.</param>
@@ -49,14 +58,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The height of the button.</para>
+    /// </summary>
+    /// <returns>Height of button.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="enabled"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookSendButtonWidget KidsMode(bool enabled = true)
+    public IFacebookSendButtonWidget KidsMode(bool enabled)
     {
       this.kidsMode = enabled;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</returns>
+    public bool? KidsMode()
+    {
+      return this.kidsMode;
     }
 
     /// <summary>
@@ -75,6 +102,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>A label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_).</para>
+    /// </summary>
+    /// <returns>Label to track referrals.</returns>
+    public string TrackLabel()
+    {
+      return this.trackLabel;
+    }
+
+    /// <summary>
     ///   <para>The absolute URL of the page that will be sent. Default is current page URL.</para>
     /// </summary>
     /// <param name="url">URL of the page to send.</param>
@@ -87,6 +123,15 @@ namespace Catharsis.Web.Widgets
 
       this.url = url;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>The absolute URL of the page that will be sent. Default is current page URL.</para>
+    /// </summary>
+    /// <returns>URL of the page to send.</returns>
+    public string Url()
+    {
+      return this.url;
     }
 
     /// <summary>
@@ -105,18 +150,27 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The width of the button.</para>
+    /// </summary>
+    /// <returns>Width of button.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
       return new TagBuilder("div")
-        .Attribute("data-href", this.url)
-        .Attribute("data-colorscheme", this.colorScheme)
-        .Attribute("data-kid-directed-site", this.kidsMode)
-        .Attribute("data-width", this.width)
-        .Attribute("data-height", this.height)
-        .Attribute("data-ref", this.trackLabel)
+        .Attribute("data-href", this.Url())
+        .Attribute("data-colorscheme", this.ColorScheme())
+        .Attribute("data-kid-directed-site", this.KidsMode())
+        .Attribute("data-width", this.Width())
+        .Attribute("data-height", this.Height())
+        .Attribute("data-ref", this.TrackLabel())
         .CssClass("fb-send")
         .ToString();
     }

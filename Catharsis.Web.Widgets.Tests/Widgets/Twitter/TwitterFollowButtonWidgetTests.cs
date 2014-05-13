@@ -19,14 +19,14 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new TwitterFollowButtonWidget();
-      Assert.Null(widget.Field("account"));
-      Assert.Null(widget.Field("language"));
-      Assert.Null(widget.Field("size"));
-      Assert.Null(widget.Field("alignment"));
-      Assert.Null(widget.Field("counter"));
-      Assert.Null(widget.Field("screenName"));
-      Assert.Null(widget.Field("suggestions"));
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Account());
+      Assert.Null(widget.Language());
+      Assert.Null(widget.Size());
+      Assert.Null(widget.Alignment());
+      Assert.Null(widget.Counter());
+      Assert.Null(widget.ScreenName());
+      Assert.Null(widget.Suggestions());
+      Assert.Null(widget.Width());
     }
 
     /// <summary>
@@ -39,9 +39,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterFollowButtonWidget().Account(string.Empty));
 
       var widget = new TwitterFollowButtonWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -54,9 +54,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterFollowButtonWidget().Language(string.Empty));
 
       var widget = new TwitterFollowButtonWidget();
-      Assert.Null(widget.Field("language"));
+      Assert.Null(widget.Language());
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
-      Assert.Equal("language", widget.Field("language").To<string>());
+      Assert.Equal("language", widget.Language());
     }
 
     /// <summary>
@@ -69,9 +69,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterFollowButtonWidget().Size(string.Empty));
 
       var widget = new TwitterFollowButtonWidget();
-      Assert.Null(widget.Field("size"));
+      Assert.Null(widget.Size());
       Assert.True(ReferenceEquals(widget.Size("size"), widget));
-      Assert.Equal("size", widget.Field("size").To<string>());
+      Assert.Equal("size", widget.Size());
     }
 
     /// <summary>
@@ -84,9 +84,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterFollowButtonWidget().Alignment(string.Empty));
 
       var widget = new TwitterFollowButtonWidget();
-      Assert.Null(widget.Field("alignment"));
+      Assert.Null(widget.Alignment());
       Assert.True(ReferenceEquals(widget.Alignment("alignment"), widget));
-      Assert.Equal("alignment", widget.Field("alignment").To<string>());
+      Assert.Equal("alignment", widget.Alignment());
     }
     
     /// <summary>
@@ -96,9 +96,9 @@ namespace Catharsis.Web.Widgets
     public void Counter_Method()
     {
       var widget = new TwitterFollowButtonWidget();
-      Assert.Null(widget.Field("counter"));
-      Assert.True(ReferenceEquals(widget.Counter(), widget));
-      Assert.True(widget.Field("counter").To<bool>());
+      Assert.Null(widget.Counter());
+      Assert.True(ReferenceEquals(widget.Counter(true), widget));
+      Assert.True(widget.Counter().Value);
     }
 
     /// <summary>
@@ -108,9 +108,9 @@ namespace Catharsis.Web.Widgets
     public void ScreenName_Method()
     {
       var widget = new TwitterFollowButtonWidget();
-      Assert.Null(widget.Field("screenName"));
-      Assert.True(ReferenceEquals(widget.ScreenName(), widget));
-      Assert.True(widget.Field("screenName").To<bool>());
+      Assert.Null(widget.ScreenName());
+      Assert.True(ReferenceEquals(widget.ScreenName(true), widget));
+      Assert.True(widget.ScreenName().Value);
     }
 
     /// <summary>
@@ -120,9 +120,9 @@ namespace Catharsis.Web.Widgets
     public void Suggestions_Method()
     {
       var widget = new TwitterFollowButtonWidget();
-      Assert.Null(widget.Field("suggestions"));
-      Assert.True(ReferenceEquals(widget.Suggestions(), widget));
-      Assert.True(widget.Field("suggestions").To<bool>());
+      Assert.Null(widget.Suggestions());
+      Assert.True(ReferenceEquals(widget.Suggestions(true), widget));
+      Assert.True(widget.Suggestions().Value);
     }
 
     /// <summary>
@@ -132,7 +132,7 @@ namespace Catharsis.Web.Widgets
     public void ToHtmlString_Method()
     {
       Assert.Equal(@"<a class=""twitter-follow-button"" data-lang=""{0}"" href=""https://twitter.com/account""></a>".FormatSelf(HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new TwitterFollowButtonWidget().Account("account").ToString());
-      Assert.Equal(@"<a class=""twitter-follow-button"" data-align=""align"" data-dnt=""true"" data-lang=""en"" data-show-count=""true"" data-show-screen-name=""true"" data-size=""size"" data-width=""width"" href=""https://twitter.com/account""></a>", new TwitterFollowButtonWidget().Account("account").Language("en").Counter().Size("size").Width("width").Alignment("align").ScreenName().Suggestions(false).ToString());
+      Assert.Equal(@"<a class=""twitter-follow-button"" data-align=""align"" data-dnt=""true"" data-lang=""en"" data-show-count=""true"" data-show-screen-name=""true"" data-size=""size"" data-width=""width"" href=""https://twitter.com/account""></a>", new TwitterFollowButtonWidget().Account("account").Language("en").Counter(true).Size("size").Width("width").Alignment("align").ScreenName(true).Suggestions(false).ToString());
     }
   }
 }

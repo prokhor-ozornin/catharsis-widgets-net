@@ -36,14 +36,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Color scheme used by the button. Default is "light".</para>
+    /// </summary>
+    /// <returns>The color scheme for the button.</returns>
+    public string ColorScheme()
+    {
+      return this.colorScheme;
+    }
+
+    /// <summary>
     ///   <para>Whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="show"><c>true</c> to display profile photos, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeButtonWidget Faces(bool show = true)
+    public IFacebookLikeButtonWidget Faces(bool show)
     {
       this.faces = show;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to display profile photos, <c>false</c> to hide.</returns>
+    public bool? Faces()
+    {
+      return this.faces;
     }
 
     /// <summary>
@@ -51,10 +69,19 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="enabled"><c>true</c> if site is directed to small children, <c>false</c> otherwise.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeButtonWidget KidsMode(bool enabled = true)
+    public IFacebookLikeButtonWidget KidsMode(bool enabled)
     {
       this.kidsMode = enabled;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> if site is directed to small children, <c>false</c> otherwise.</returns>
+    public bool? KidsMode()
+    {
+      return this.kidsMode;
     }
 
     /// <summary>
@@ -73,6 +100,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>One of the different layouts that are available for the button. Default is "standard".</para>
+    /// </summary>
+    /// <returns>Button layout.</returns>
+    public string Layout()
+    {
+      return this.layout;
+    }
+
+    /// <summary>
     ///   <para>Label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_).</para>
     /// </summary>
     /// <param name="label">Label to track referrals.</param>
@@ -85,6 +121,15 @@ namespace Catharsis.Web.Widgets
 
       this.trackLabel = label;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_).</para>
+    /// </summary>
+    /// <returns>Label to track referrals.</returns>
+    public string TrackLabel()
+    {
+      return this.trackLabel;
     }
 
     /// <summary>
@@ -103,6 +148,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Specifies absolute URL of the page that will be liked.</para>
+    /// </summary>
+    /// <returns>URL of the page to "like".</returns>
+    public string Url()
+    {
+      return this.url;
+    }
+
+    /// <summary>
     ///   <para>The verb to display on the button. Default is "like".</para>
     /// </summary>
     /// <param name="verb">Verb on the button.</param>
@@ -115,6 +169,15 @@ namespace Catharsis.Web.Widgets
 
       this.verb = verb;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>The verb to display on the button. Default is "like".</para>
+    /// </summary>
+    /// <returns>Verb on the button.</returns>
+    public string Verb()
+    {
+      return this.verb;
     }
 
     /// <summary>
@@ -133,20 +196,29 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The width of the button. The layout you choose affects the minimum and default widths you can use.</para>
+    /// </summary>
+    /// <returns>Width of button.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
       return new TagBuilder("div")
-        .Attribute("data-action", this.verb)
-        .Attribute("data-layout", this.layout)
-        .Attribute("data-show-faces", this.faces)
-        .Attribute("data-href", this.url)
-        .Attribute("data-colorscheme", this.colorScheme)
-        .Attribute("data-kid-directed-site", this.kidsMode)
-        .Attribute("data-ref", this.trackLabel)
-        .Attribute("data-width", this.width)
+        .Attribute("data-action", this.Verb())
+        .Attribute("data-layout", this.Layout())
+        .Attribute("data-show-faces", this.Faces())
+        .Attribute("data-href", this.Url())
+        .Attribute("data-colorscheme", this.ColorScheme())
+        .Attribute("data-kid-directed-site", this.KidsMode())
+        .Attribute("data-ref", this.TrackLabel())
+        .Attribute("data-width", this.Width())
         .CssClass("fb-like")
         .ToString();
     }

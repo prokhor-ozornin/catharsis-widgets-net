@@ -31,6 +31,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of registered website in the "Cackle" comments system.</para>
+    /// </summary>
+    /// <returns>Identifier of website.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
@@ -41,7 +50,12 @@ namespace Catharsis.Web.Widgets
         return string.Empty;
       }
 
-      var config = new { widget = "CommentCount", id = this.account };
+      var config = new
+      {
+        widget = "CommentCount",
+        id = this.Account()
+      };
+
       return new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml("cackle_widget = window.cackle_widget || [];cackle_widget.push({0});".FormatSelf(config.Json())).ToString();
     }
   }

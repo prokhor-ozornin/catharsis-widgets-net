@@ -30,19 +30,28 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of registered Facebook application.</para>
+    /// </summary>
+    /// <returns>Identifier of Facebook application.</returns>
+    public string AppId()
+    {
+      return this.appId;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.appId.IsEmpty())
+      if (this.AppId().IsEmpty())
       {
         return string.Empty;
       }
 
       return new StringBuilder()
         .Append(new TagBuilder("div").Attribute("id", "fb-root"))
-        .Append(resources.facebook_initialize.FormatSelf(this.appId))
+        .Append(resources.facebook_initialize.FormatSelf(this.AppId()))
         .ToString();
     }
   }

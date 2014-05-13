@@ -138,7 +138,7 @@ _Code:_
 
 `@Html.Facebook().ActivityFeed().Domain("yandex.ru")`
 
-`@Html.Facebook().ActivityFeed().Domain("yandex.ru").Header(false).Recommendations().ColorScheme(FacebookColorScheme.Dark)`
+`@Html.Facebook().ActivityFeed().Domain("yandex.ru").Header(false).Recommendations(true).ColorScheme(FacebookColorScheme.Dark)`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8decf_7b4f254a_orig)
 
@@ -190,7 +190,7 @@ _Code:_
 
 `@Html.Facebook().FollowButton().Url("http://www.facebook.com/zuck")`
 
-`@Html.Facebook().FollowButton().Url("http://www.facebook.com/zuck").KidsMode().Faces().Layout(FacebookButtonLayout.BoxCount)`
+`@Html.Facebook().FollowButton().Url("http://www.facebook.com/zuck").KidsMode(true).Faces(true).Layout(FacebookButtonLayout.BoxCount)`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8ded1_e4885846_orig)
 
@@ -202,7 +202,7 @@ _Code:_
 
 `@Html.Facebook().LikeBox().Url("https://www.facebook.com/pages/Clear-Words/515749945120070")`
 
-`@Html.Facebook().LikeBox().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Header(false).Border(false).Faces(false).Stream().Width("500")`
+`@Html.Facebook().LikeBox().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Header(false).Border(false).Faces(false).Stream(true).Width("500")`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8ded2_e76aa4ec_orig)
 
@@ -216,7 +216,7 @@ _Code:_
 
 `@Html.Facebook().LikeButton().Url("http://yandex.ru")`
 
-`@Html.Facebook().LikeButton().Url("http://yandex.ru").Layout(FacebookLikeButtonLayout.BoxCount).Faces().Verb(FacebookLikeButtonVerb.Recommend)`
+`@Html.Facebook().LikeButton().Url("http://yandex.ru").Layout(FacebookLikeButtonLayout.BoxCount).Faces(true).Verb(FacebookLikeButtonVerb.Recommend)`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8ded3_38a5cbe9_orig)
 
@@ -240,7 +240,7 @@ _Code:_
 
 `@Html.Facebook().SendButton().Url("http://yandex.ru")`
 
-`@Html.Facebook().SendButton().Url("http://yandex.ru").ColorScheme(FacebookColorScheme.Dark).KidsMode()`
+`@Html.Facebook().SendButton().Url("http://yandex.ru").ColorScheme(FacebookColorScheme.Dark).KidsMode(true)`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8ded6_4da589ba_orig)
 
@@ -288,7 +288,7 @@ _Code:_
 
 `@Html.Gravatar().ImageUrl().Email("prokhor.ozornin@yandex.ru")`
 
-`@Html.Gravatar().ImageUrl().Email("prokhor.ozornin@yandex.ru").Extension("jpg").ForceDefault().Size(320)`
+`@Html.Gravatar().ImageUrl().Email("prokhor.ozornin@yandex.ru").Extension("jpg").ForceDefault(true).Size(320)`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8ded9_af2ee96e_orig)
 
@@ -500,7 +500,7 @@ _Code:_
 
 `@Html.Surfingbird().SurfButton()`
 
-`@Html.Surfingbird().SurfButton().Color(SurfingbirdSurfButtonColor.Blue).Counter().Label("Share").Url("http://yandex.ru").Layout(SurfingbirdSurfButtonLayout.Common)`
+`@Html.Surfingbird().SurfButton().Color(SurfingbirdSurfButtonColor.Blue).Counter(true).Label("Share").Url("http://yandex.ru").Layout(SurfingbirdSurfButtonLayout.Common)`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8dee7_74e3c86c_orig)
 
@@ -552,7 +552,7 @@ _Code:_
 
 `@Html.Twitter().FollowButton().Account("prokhor_ozornin")`
 
-`@Html.Twitter().FollowButton().Account("prokhor_ozornin").Suggestions().Counter(false).ScreenName(false)`
+`@Html.Twitter().FollowButton().Account("prokhor_ozornin").Suggestions(true).Counter(false).ScreenName(false)`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dee9_39fe8a8c_orig)
 
@@ -576,7 +576,7 @@ _Requirements:_ None
 
 _Code:_
 
-`@Html.Vkontakte().Video().Id("167533148").Hash("7a0cdf6ef7a69e67").User("5707198").Width("607").Height("360").Hd()`
+`@Html.Vkontakte().Video().Id("167533148").Hash("7a0cdf6ef7a69e67").User("5707198").Width("607").Height("360").Hd(true)`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8def8_8c281838_orig)
 
@@ -630,7 +630,7 @@ _Code:_
 
 `@Html.Vkontakte().Subscription().Account("5707198")`
 
-`@Html.Vkontakte().Subscription().Account("5707198").OnlyButton()`
+`@Html.Vkontakte().Subscription().Account("5707198").OnlyButton(true)`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def7_62688243_orig)
 
@@ -676,7 +676,7 @@ _Code:_
 
 `@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment")`
 
-`@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment").Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Buy).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).AskPayerAddress().AskPayerEmail().AskPayerFullName().AskPayerPhone()`
+`@Html.Yandex().MoneyButton().Account("41001577953208").Sum(15.5).Description("Test Payment").Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Buy).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).AskPayerAddress(true).AskPayerEmail(true).AskPayerFullName(true).AskPayerPhone(true)`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8defb_508fd66c_orig)
 
@@ -688,7 +688,7 @@ _Code:_
 
 `@Html.Yandex().MoneyDonateForm().Account("41001577953208").DescriptionText("Test Donation")`
 
-`@Html.Yandex().MoneyDonateForm().Account("41001577953208").DescriptionText("Test Donation").Description().Sum(15.5).Cards().ProjectName("Yandex").ProjectSite("http://yandex.ru").Text(YandexMoneyDonateFormText.Give).AskPayerPhone().AskPayerFullName().AskPayerComment().AskPayerEmail()`
+`@Html.Yandex().MoneyDonateForm().Account("41001577953208").DescriptionText("Test Donation").Description().Sum(15.5).Cards(true).ProjectName("Yandex").ProjectSite("http://yandex.ru").Text(YandexMoneyDonateFormText.Give).AskPayerPhone(true).AskPayerFullName(true).AskPayerComment(true).AskPayerEmail(true)`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8defc_3a3f4bf0_orig)
 
@@ -700,7 +700,7 @@ _Code:_
 
 `@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment")`
 
-`@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment").Sum(15.5).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).PayerComment().AskPayerEmail().AskPayerFullName().AskPayerAddress().AskPayerPhone().AskPayerPurpose()`
+`@Html.Yandex().MoneyPaymentForm().Account("41001577953208").Description("Test Payment").Sum(15.5).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).PayerComment(true).AskPayerEmail(true).AskPayerFullName(true).AskPayerAddress(true).AskPayerPhone(true).AskPayerPurpose(true)`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8defd_154be7bd_orig)
 

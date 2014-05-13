@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,8 +16,8 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new FacebookPostWidget();
-      Assert.Null(widget.Field("url"));
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Url());
+      Assert.Null(widget.Width());
     }
 
     /// <summary>
@@ -31,9 +30,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookPostWidget().Url(string.Empty));
 
       var widget = new FacebookPostWidget();
-      Assert.Null(widget.Field("url"));
+      Assert.Null(widget.Url());
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.Equal("url", widget.Field("url").To<string>());
+      Assert.Equal("url", widget.Url());
     }
 
     /// <summary>
@@ -46,9 +45,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookPostWidget().Width(string.Empty));
 
       var widget = new FacebookPostWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>

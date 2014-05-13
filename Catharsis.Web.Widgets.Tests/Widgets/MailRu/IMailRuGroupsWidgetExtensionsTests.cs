@@ -20,7 +20,7 @@ namespace Catharsis.Web.Widgets
       new MailRuGroupsWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Height(1), widget));
-        Assert.Equal("1", widget.Field("height").To<string>());
+        Assert.Equal("1", widget.Height());
       });
     }
 
@@ -35,7 +35,7 @@ namespace Catharsis.Web.Widgets
       new MailRuGroupsWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Width(1), widget));
-        Assert.Equal("1", widget.Field("width").To<string>());
+        Assert.Equal("1", widget.Width());
       });
     }
   }

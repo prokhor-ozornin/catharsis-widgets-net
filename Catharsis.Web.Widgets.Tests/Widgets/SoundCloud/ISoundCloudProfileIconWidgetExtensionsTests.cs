@@ -20,7 +20,7 @@ namespace Catharsis.Web.Widgets
       new SoundCloudProfileIconWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.OrangeWhite(), widget));
-        Assert.Equal("orange_white", widget.Field("color").To<string>());
+        Assert.Equal("orange_white", widget.Color());
       });
     }
 
@@ -35,7 +35,7 @@ namespace Catharsis.Web.Widgets
       new SoundCloudProfileIconWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.WhiteOrange(), widget));
-        Assert.Equal("white_orange", widget.Field("color").To<string>());
+        Assert.Equal("white_orange", widget.Color());
       });
     }
 
@@ -50,7 +50,7 @@ namespace Catharsis.Web.Widgets
       new SoundCloudProfileIconWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.BlackWhite(), widget));
-        Assert.Equal("black_white", widget.Field("color").To<string>());
+        Assert.Equal("black_white", widget.Color());
       });
     }
 
@@ -65,7 +65,7 @@ namespace Catharsis.Web.Widgets
       new SoundCloudProfileIconWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.WhiteTransparent(), widget));
-        Assert.Equal("white_transparent", widget.Field("color").To<string>());
+        Assert.Equal("white_transparent", widget.Color());
       });
     }
 
@@ -80,7 +80,7 @@ namespace Catharsis.Web.Widgets
       new SoundCloudProfileIconWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.OrangeTransparent(), widget));
-        Assert.Equal("orange_transparent", widget.Field("color").To<string>());
+        Assert.Equal("orange_transparent", widget.Color());
       });
     }
 
@@ -95,7 +95,7 @@ namespace Catharsis.Web.Widgets
       new SoundCloudProfileIconWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Size(SoundCloudProfileIconSize.Size16), widget));
-        Assert.Equal((short) 16, widget.Field("size").To<short>());
+        Assert.Equal((short) 16, widget.Size());
       });
     }
   }

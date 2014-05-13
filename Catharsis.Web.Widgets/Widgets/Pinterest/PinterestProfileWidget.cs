@@ -34,6 +34,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Pinterest user account.</para>
+    /// </summary>
+    /// <returns>Account name.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Total height of profile area in pixels.</para>
     /// </summary>
     /// <param name="height">Areas's height.</param>
@@ -47,6 +56,15 @@ namespace Catharsis.Web.Widgets
 
       this.height = height;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Total height of profile area in pixels.</para>
+    /// </summary>
+    /// <returns>Areas's height.</returns>
+    public string Height()
+    {
+      return this.height;
     }
 
     /// <summary>
@@ -66,6 +84,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Total width of profile area in pixels.</para>
+    /// </summary>
+    /// <returns>Area's width.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Width of profile area's image in pixels.</para>
     /// </summary>
     /// <param name="width">Area's image width.</param>
@@ -82,22 +109,31 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Width of profile area's image in pixels.</para>
+    /// </summary>
+    /// <returns>Area's image width.</returns>
+    public string Image()
+    {
+      return this.image;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty())
+      if (this.Account().IsEmpty())
       {
         return string.Empty;
       }
 
       return new TagBuilder("a")
         .Attribute("data-pin-do", "embedUser")
-        .Attribute("href", "http://www.pinterest.com/{0}".FormatSelf(this.account))
-        .Attribute("data-pin-scale-width", this.image)
-        .Attribute("data-pin-scale-height", this.height)
-        .Attribute("data-pin-board-width", this.width)
+        .Attribute("href", "http://www.pinterest.com/{0}".FormatSelf(this.Account()))
+        .Attribute("data-pin-scale-width", this.Image())
+        .Attribute("data-pin-scale-height", this.Height())
+        .Attribute("data-pin-board-width", this.Width())
         .ToString();
     }
   }

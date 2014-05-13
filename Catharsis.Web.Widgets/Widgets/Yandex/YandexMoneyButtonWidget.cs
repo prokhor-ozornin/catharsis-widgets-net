@@ -39,6 +39,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of account in the Yandex.Money payment system which is to receive money.</para>
+    /// </summary>
+    /// <returns>Identifier of account.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Color of button. Default is "orange".</para>
     /// </summary>
     /// <param name="color">Button's color.</param>
@@ -51,6 +60,15 @@ namespace Catharsis.Web.Widgets
 
       this.color = color;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Color of button. Default is "orange".</para>
+    /// </summary>
+    /// <returns>Button's color.</returns>
+    public string Color()
+    {
+      return this.color;
     }
 
     /// <summary>
@@ -70,14 +88,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Description of payment goal/purpose.</para>
+    /// </summary>
+    /// <returns>Description of purpose.</returns>
+    public string Description()
+    {
+      return this.description;
+    }
+
+    /// <summary>
     ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="ask"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyButtonWidget AskPayerFullName(bool ask = true)
+    public IYandexMoneyButtonWidget AskPayerFullName(bool ask)
     {
       this.askPayerFullName = ask;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to make payer's full name required, <c>false</c> to not.</returns>
+    public bool AskPayerFullName()
+    {
+      return this.askPayerFullName;
     }
 
     /// <summary>
@@ -85,10 +121,19 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="ask"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyButtonWidget AskPayerEmail(bool ask = true)
+    public IYandexMoneyButtonWidget AskPayerEmail(bool ask)
     {
       this.askPayerEmail = ask;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to make payer's email required, <c>false</c> to not.</returns>
+    public bool AskPayerEmail()
+    {
+      return this.askPayerEmail;
     }
 
     /// <summary>
@@ -96,10 +141,19 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="ask"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyButtonWidget AskPayerPhone(bool ask = true)
+    public IYandexMoneyButtonWidget AskPayerPhone(bool ask)
     {
       this.askPayerPhone = ask;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to make payer's phone required, <c>false</c> to not.</returns>
+    public bool AskPayerPhone()
+    {
+      return this.askPayerPhone;
     }
 
     /// <summary>
@@ -107,10 +161,19 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="ask"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyButtonWidget AskPayerAddress(bool ask = true)
+    public IYandexMoneyButtonWidget AskPayerAddress(bool ask)
     {
       this.askPayerAddress = ask;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to make payer's address required, <c>false</c> to not.</returns>
+    public bool AskPayerAddress()
+    {
+      return this.askPayerAddress;
     }
 
     /// <summary>
@@ -129,6 +192,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Size of button. Default is "l" (large).</para>
+    /// </summary>
+    /// <returns>Button's size.</returns>
+    public string Size()
+    {
+      return this.size;
+    }
+
+    /// <summary>
     ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
     /// </summary>
     /// <param name="sum">Payment sum.</param>
@@ -141,6 +213,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
+    /// </summary>
+    /// <returns>Payment sum.</returns>
+    public decimal? Sum()
+    {
+      return this.sum;
+    }
+
+    /// <summary>
     ///   <para>Text to display on button. Default is 1 ("pay").</para>
     /// </summary>
     /// <param name="text">Numeric text type to display.</param>
@@ -149,6 +230,15 @@ namespace Catharsis.Web.Widgets
     {
       this.text = text;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Text to display on button. Default is 1 ("pay").</para>
+    /// </summary>
+    /// <returns>Numeric text type to display.</returns>
+    public byte Text()
+    {
+      return this.text;
     }
 
     /// <summary>
@@ -167,18 +257,27 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Type of payment option. Default is "yamoney-payment-type" (pay from Yandex.Money wallet balance).</para>
+    /// </summary>
+    /// <returns>Payment source.</returns>
+    public string Type()
+    {
+      return this.type;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty() || this.sum == null || this.description.IsEmpty())
+      if (this.Account().IsEmpty() || this.Sum() == null || this.Description().IsEmpty())
       {
         return string.Empty;
       }
 
       int width;
-      switch ((YandexMoneyButtonText)this.text)
+      switch ((YandexMoneyButtonText)this.Text())
       {
         case YandexMoneyButtonText.Pay:
           width = 229;
@@ -210,7 +309,7 @@ namespace Catharsis.Web.Widgets
       }
 
       return new TagBuilder("iframe")
-        .Attribute("src", "https://money.yandex.ru/embed/small.xml?account={0}&quickpay=small&{1}=on&button-text=0{2}&button-size={3}&button-color={4}&targets={5}&default-sum={6}{7}{8}{9}{10}".FormatSelf(this.account, this.type, this.text, this.size, this.color, this.description, this.sum, this.askPayerFullName ? "&fio=on" : string.Empty, this.askPayerEmail ? "&mail=on" : string.Empty, this.askPayerPhone ? "&phone=on" : string.Empty, this.askPayerAddress ? "&address=on" : string.Empty))
+        .Attribute("src", "https://money.yandex.ru/embed/small.xml?account={0}&quickpay=small&{1}=on&button-text=0{2}&button-size={3}&button-color={4}&targets={5}&default-sum={6}{7}{8}{9}{10}".FormatSelf(this.Account(), this.Type(), this.Text(), this.Size(), this.Color(), this.Description(), this.Sum(), this.AskPayerFullName() ? "&fio=on" : string.Empty, this.AskPayerEmail() ? "&mail=on" : string.Empty, this.AskPayerPhone() ? "&phone=on" : string.Empty, this.AskPayerAddress() ? "&address=on" : string.Empty))
         .Attribute("frameborder", 0)
         .Attribute("allowtransparency", true)
         .Attribute("scrolling", "no")

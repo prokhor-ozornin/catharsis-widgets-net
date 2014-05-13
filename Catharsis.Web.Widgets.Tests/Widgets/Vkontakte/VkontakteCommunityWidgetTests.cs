@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,10 +16,10 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VkontakteCommunityWidget();
-      Assert.Null(widget.Field("account"));
-      Assert.Equal((byte)VkontakteCommunityMode.Participants, widget.Field("mode").To<byte>());
-      Assert.Null(widget.Field("width"));
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Account());
+      Assert.Equal((byte)VkontakteCommunityMode.Participants, widget.Mode());
+      Assert.Null(widget.Width());
+      Assert.Null(widget.Height());
     }
 
     /// <summary>
@@ -33,9 +32,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().Account(string.Empty));
 
       var widget = new VkontakteCommunityWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -45,9 +44,9 @@ namespace Catharsis.Web.Widgets
     public void Mode_Method()
     {
       var widget = new VkontakteCommunityWidget();
-      Assert.Equal((byte)VkontakteCommunityMode.Participants, widget.Field("mode").To<byte>());
+      Assert.Equal((byte)VkontakteCommunityMode.Participants, widget.Mode());
       Assert.True(ReferenceEquals(widget.Mode(1), widget));
-      Assert.Equal(1, widget.Field("mode").To<byte>());
+      Assert.Equal(1, widget.Mode());
     }
 
     /// <summary>
@@ -60,9 +59,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().Width(string.Empty));
 
       var widget = new VkontakteCommunityWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>
@@ -75,9 +74,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().Height(string.Empty));
 
       var widget = new VkontakteCommunityWidget();
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Height());
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
+      Assert.Equal("height", widget.Height());
     }
 
     /// <summary>

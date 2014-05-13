@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,8 +16,8 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new MailRuIcqWidget();
-      Assert.Null(widget.Property("account"));
-      Assert.Null(widget.Property("language"));
+      Assert.Null(widget.Account());
+      Assert.Null(widget.Language());
     }
 
     /// <summary>
@@ -31,9 +30,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuIcqWidget().Account(string.Empty));
 
       var widget = new MailRuIcqWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -46,9 +45,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuIcqWidget().Language(string.Empty));
 
       var widget = new MailRuIcqWidget();
-      Assert.Null(widget.Field("language"));
+      Assert.Null(widget.Language());
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
-      Assert.Equal("language", widget.Field("language").To<string>());
+      Assert.Equal("language", widget.Language());
     }
 
     /// <summary>

@@ -27,6 +27,11 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
+    public byte[] Contents()
+    {
+      return this.contents;
+    }
+
     /// <summary>
     ///   <para>MIME content-type of image.</para>
     /// </summary>
@@ -42,6 +47,11 @@ namespace Catharsis.Web.Widgets
       return this;
     }
 
+    public string Format()
+    {
+      return this.format;
+    }
+
     /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
@@ -54,7 +64,7 @@ namespace Catharsis.Web.Widgets
       }
 
       return new TagBuilder("img")
-        .Attribute("src", "data:{1};base64,{0}".FormatSelf(Convert.ToBase64String(this.contents), this.format.IsEmpty() ? "image" : this.format))
+        .Attribute("src", "data:{1};base64,{0}".FormatSelf(Convert.ToBase64String(this.Contents()), this.Format().IsEmpty() ? "image" : this.Format()))
         .ToString();
     }
   }

@@ -17,5 +17,11 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentException">If <paramref name="appId"/> is <see cref="string.Empty"/> string.</exception>
     /// <remarks>This attribute is required.</remarks>
     IFacebookInitializationWidget AppId(string appId);
+
+    /// <summary>
+    ///   <para>Identifier of registered Facebook application.</para>
+    /// </summary>
+    /// <returns>Identifier of Facebook application.</returns>
+    string AppId();
   }
 }

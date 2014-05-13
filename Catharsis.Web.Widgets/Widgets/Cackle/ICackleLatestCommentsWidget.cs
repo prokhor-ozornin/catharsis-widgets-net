@@ -21,11 +21,23 @@ namespace Catharsis.Web.Widgets
     ICackleLatestCommentsWidget Account(string account);
 
     /// <summary>
+    ///   <para>Identifier of registered website in the "Cackle" comments system.</para>
+    /// </summary>
+    /// <returns>Identifier of website.</returns>
+    string Account();
+
+    /// <summary>
     ///   <para>Size of user avatars. Default is 32.</para>
     /// </summary>
     /// <param name="size">Size of user avatars.</param>
     /// <returns>Reference to the current widget.</returns>
     ICackleLatestCommentsWidget AvatarSize(short size);
+
+    /// <summary>
+    ///   <para>Size of user avatars. Default is 32.</para>
+    /// </summary>
+    /// <returns>Size of user avatars.</returns>
+    short AvatarSize();
 
     /// <summary>
     ///   <para>Number of comments to display. Maximum 100, default 5.</para>
@@ -35,6 +47,12 @@ namespace Catharsis.Web.Widgets
     ICackleLatestCommentsWidget Max(byte max);
 
     /// <summary>
+    ///   <para>Number of comments to display. Maximum 100, default 5.</para>
+    /// </summary>
+    /// <returns>Number of comments to display.</returns>
+    byte Max();
+
+    /// <summary>
     ///   <para>Maximum allowed count of characters in comment (0 - do not cut). Default is 150.</para>
     /// </summary>
     /// <param name="size">Maximum count of characters in comment.</param>
@@ -42,10 +60,22 @@ namespace Catharsis.Web.Widgets
     ICackleLatestCommentsWidget TextSize(int size);
 
     /// <summary>
+    ///   <para>Maximum allowed count of characters in comment (0 - do not cut). Default is 150.</para>
+    /// </summary>
+    /// <returns>Maximum count of characters in comment.</returns>
+    int TextSize();
+
+    /// <summary>
     ///   <para>Maximum allowed count of characters in title (0 - do not cut). Default is 40.</para>
     /// </summary>
     /// <param name="size">Maximum count of characters in title.</param>
     /// <returns>Reference to the current widget.</returns>
     ICackleLatestCommentsWidget TitleSize(int size);
+
+    /// <summary>
+    ///   <para>Maximum allowed count of characters in title (0 - do not cut). Default is 40.</para>
+    /// </summary>
+    /// <returns>Maximum count of characters in title.</returns>
+    int TitleSize();
   }
 }

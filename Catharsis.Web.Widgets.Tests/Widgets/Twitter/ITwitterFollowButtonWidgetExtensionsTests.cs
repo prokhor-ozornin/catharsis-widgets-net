@@ -22,7 +22,7 @@ namespace Catharsis.Web.Widgets
       new TwitterFollowButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
-        Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Field("language").To<string>());
+        Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Language());
       });
     }
 
@@ -37,8 +37,8 @@ namespace Catharsis.Web.Widgets
       new TwitterFollowButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Size(TwitterFollowButtonSize.Large), widget));
-        Assert.Equal("large", widget.Field("size").To<string>());
-        Assert.Equal("medium", widget.Size(TwitterFollowButtonSize.Medium).Field("size").To<string>());
+        Assert.Equal("large", widget.Size());
+        Assert.Equal("medium", widget.Size(TwitterFollowButtonSize.Medium).Size());
       });
     }
 
@@ -53,8 +53,8 @@ namespace Catharsis.Web.Widgets
       new TwitterFollowButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Alignment(TwitterFollowButtonAlignment.Left), widget));
-        Assert.Equal("left", widget.Field("alignment").To<string>());
-        Assert.Equal("right", widget.Alignment(TwitterFollowButtonAlignment.Right).Field("alignment").To<string>());
+        Assert.Equal("left", widget.Alignment());
+        Assert.Equal("right", widget.Alignment(TwitterFollowButtonAlignment.Right).Alignment());
       });
     }
   }

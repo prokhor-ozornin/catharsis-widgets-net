@@ -21,16 +21,16 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new TwitterTweetButtonWidget();
-      Assert.Null(widget.Field("url"));
-      Assert.Null(widget.Field("language"));
-      Assert.Null(widget.Field("text"));
-      Assert.Null(widget.Field("via"));
-      Assert.Null(widget.Field("size"));
-      Assert.Null(widget.Field("countUrl"));
-      Assert.Null(widget.Field("counterPosition"));
-      Assert.Null(widget.Field("suggestions"));
-      Assert.False(widget.Field("tags").To<IEnumerable<string>>().Any());
-      Assert.False(widget.Field("accounts").To<IEnumerable<string>>().Any());
+      Assert.Null(widget.Url());
+      Assert.Null(widget.Language());
+      Assert.Null(widget.Text());
+      Assert.Null(widget.Via());
+      Assert.Null(widget.Size());
+      Assert.Null(widget.CountUrl());
+      Assert.Null(widget.CounterPosition());
+      Assert.Null(widget.Suggestions());
+      Assert.False(widget.HashTags().Any());
+      Assert.False(widget.RelatedAccounts().Any());
     }
 
     /// <summary>
@@ -43,9 +43,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Url(string.Empty));
 
       var widget = new TwitterFollowButtonWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -58,9 +58,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Language(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.Null(widget.Field("language"));
+      Assert.Null(widget.Language());
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
-      Assert.Equal("language", widget.Field("language").To<string>());
+      Assert.Equal("language", widget.Language());
     }
 
     /// <summary>
@@ -73,9 +73,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Text(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.Null(widget.Field("text"));
+      Assert.Null(widget.Text());
       Assert.True(ReferenceEquals(widget.Text("text"), widget));
-      Assert.Equal("text", widget.Field("text").To<string>());
+      Assert.Equal("text", widget.Text());
     }
 
     /// <summary>
@@ -88,9 +88,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Via(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.Null(widget.Field("via"));
+      Assert.Null(widget.Via());
       Assert.True(ReferenceEquals(widget.Via("via"), widget));
-      Assert.Equal("via", widget.Field("via").To<string>());
+      Assert.Equal("via", widget.Via());
     }
 
     /// <summary>
@@ -103,9 +103,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Size(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.Null(widget.Field("size"));
+      Assert.Null(widget.Size());
       Assert.True(ReferenceEquals(widget.Size("size"), widget));
-      Assert.Equal("size", widget.Field("size").To<string>());
+      Assert.Equal("size", widget.Size());
     }
 
     /// <summary>
@@ -118,9 +118,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().CountUrl(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.Null(widget.Field("countUrl"));
+      Assert.Null(widget.CountUrl());
       Assert.True(ReferenceEquals(widget.CountUrl("countUrl"), widget));
-      Assert.Equal("countUrl", widget.Field("countUrl").To<string>());
+      Assert.Equal("countUrl", widget.CountUrl());
     }
 
     /// <summary>
@@ -133,9 +133,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().CounterPosition(string.Empty));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.Null(widget.Field("counterPosition"));
+      Assert.Null(widget.CounterPosition());
       Assert.True(ReferenceEquals(widget.CounterPosition("counterPosition"), widget));
-      Assert.Equal("counterPosition", widget.Field("counterPosition").To<string>());
+      Assert.Equal("counterPosition", widget.CounterPosition());
     }
 
     /// <summary>
@@ -145,9 +145,9 @@ namespace Catharsis.Web.Widgets
     public void Suggestions_Method()
     {
       var widget = new TwitterTweetButtonWidget();
-      Assert.Null(widget.Field("suggestions"));
-      Assert.True(ReferenceEquals(widget.Suggestions(), widget));
-      Assert.True(widget.Field("suggestions").To<bool>());
+      Assert.Null(widget.Suggestions());
+      Assert.True(ReferenceEquals(widget.Suggestions(true), widget));
+      Assert.True(widget.Suggestions().Value);
     }
 
     /// <summary>
@@ -159,10 +159,10 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().HashTags(null));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.False(widget.Field("tags").To<IEnumerable<string>>().Any());
+      Assert.False(widget.HashTags().Any());
       var tags = new [] { "first", "second", "third" };
       Assert.True(ReferenceEquals(widget.HashTags(tags), widget));
-      Assert.True(widget.Field("tags").To<IEnumerable<string>>().SequenceEqual(tags));
+      Assert.True(widget.HashTags().SequenceEqual(tags));
     }
 
     /// <summary>
@@ -174,10 +174,10 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().RelatedAccounts(null));
 
       var widget = new TwitterTweetButtonWidget();
-      Assert.False(widget.Field("accounts").To<IEnumerable<string>>().Any());
+      Assert.False(widget.RelatedAccounts().Any());
       var accounts = new[] { "first", "second", "third" };
       Assert.True(ReferenceEquals(widget.RelatedAccounts(accounts), widget));
-      Assert.True(widget.Field("accounts").To<IEnumerable<string>>().SequenceEqual(accounts));
+      Assert.True(widget.RelatedAccounts().SequenceEqual(accounts));
     }
 
     /// <summary>

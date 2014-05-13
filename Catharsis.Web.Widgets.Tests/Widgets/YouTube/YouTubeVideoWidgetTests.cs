@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,11 +16,11 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new YouTubeVideoWidget();
-      Assert.Null(widget.Field("id"));
-      Assert.Null(widget.Field("width"));
-      Assert.Null(widget.Field("height"));
-      Assert.False(widget.Field("privateMode").To<bool>());
-      Assert.False(widget.Field("secureMode").To<bool>());
+      Assert.Null(widget.Id());
+      Assert.Null(widget.Width());
+      Assert.Null(widget.Height());
+      Assert.False(widget.PrivateMode());
+      Assert.False(widget.SecureMode());
     }
 
     /// <summary>
@@ -34,9 +33,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YouTubeVideoWidget().Id(string.Empty));
 
       var widget = new YouTubeVideoWidget();
-      Assert.Null(widget.Field("id"));
+      Assert.Null(widget.Id());
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.Equal("id", widget.Field("id").To<string>());
+      Assert.Equal("id", widget.Id());
     }
 
     /// <summary>
@@ -49,9 +48,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YouTubeVideoWidget().Width(string.Empty));
 
       var widget = new YouTubeVideoWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>
@@ -64,9 +63,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YouTubeVideoWidget().Height(string.Empty));
 
       var widget = new YouTubeVideoWidget();
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Height());
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
+      Assert.Equal("height", widget.Height());
     }
 
     /// <summary>
@@ -76,9 +75,9 @@ namespace Catharsis.Web.Widgets
     public void PrivateMode_Method()
     {
       var widget = new YouTubeVideoWidget();
-      Assert.False(widget.Field("privateMode").To<bool>());
-      Assert.True(ReferenceEquals(widget.PrivateMode(), widget));
-      Assert.True(widget.Field("privateMode").To<bool>());
+      Assert.False(widget.PrivateMode());
+      Assert.True(ReferenceEquals(widget.PrivateMode(true), widget));
+      Assert.True(widget.PrivateMode());
     }
 
     /// <summary>
@@ -88,9 +87,9 @@ namespace Catharsis.Web.Widgets
     public void SecureMode_Method()
     {
       var widget = new YouTubeVideoWidget();
-      Assert.False(widget.Field("secureMode").To<bool>());
-      Assert.True(ReferenceEquals(widget.SecureMode(), widget));
-      Assert.True(widget.Field("secureMode").To<bool>());
+      Assert.False(widget.SecureMode());
+      Assert.True(ReferenceEquals(widget.SecureMode(true), widget));
+      Assert.True(widget.SecureMode());
     }
 
     /// <summary>
@@ -104,7 +103,7 @@ namespace Catharsis.Web.Widgets
       Assert.Equal(string.Empty, new YouTubeVideoWidget().Id("id").Width("width").ToString());
       Assert.Equal(string.Empty, new YouTubeVideoWidget().Height("height").Width("width").ToString());
       Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://www.youtube.com/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new YouTubeVideoWidget().Id("id").Height("height").Width("width").ToString());
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://www.youtube-nocookie.com/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new YouTubeVideoWidget().Id("id").Height("height").Width("width").PrivateMode().SecureMode().ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://www.youtube-nocookie.com/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new YouTubeVideoWidget().Id("id").Height("height").Width("width").PrivateMode(true).SecureMode(true).ToString());
     }
   }
 }

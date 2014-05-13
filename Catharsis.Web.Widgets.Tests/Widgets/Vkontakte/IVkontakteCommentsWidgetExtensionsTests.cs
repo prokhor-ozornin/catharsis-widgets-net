@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Catharsis.Commons;
 using Xunit;
@@ -22,7 +21,7 @@ namespace Catharsis.Web.Widgets
       new VkontakteCommentsWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Limit(1), widget));
-        Assert.Equal(1, widget.Field("limit").To<byte>());
+        Assert.Equal(1, widget.Limit());
       });
     }
 
@@ -37,16 +36,16 @@ namespace Catharsis.Web.Widgets
       new VkontakteCommentsWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Attach("first", "second"), widget));
-        var attach = widget.Field("attach").To<IEnumerable<string>>().ToArray();
+        var attach = widget.Attach().ToArray();
         Assert.Equal(2, attach.Count());
         Assert.True(attach.SequenceEqual(new[] { "first", "second" }));
       });
-      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.All).With(widget => Assert.Equal("*", widget.Field("attach").To<IEnumerable<string>>().Single()));
-      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.Audio).With(widget => Assert.Equal("audio", widget.Field("attach").To<IEnumerable<string>>().Single()));
-      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.Graffiti).With(widget => Assert.Equal("graffiti", widget.Field("attach").To<IEnumerable<string>>().Single()));
-      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.Link).With(widget => Assert.Equal("link", widget.Field("attach").To<IEnumerable<string>>().Single()));
-      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.Photo).With(widget => Assert.Equal("photo", widget.Field("attach").To<IEnumerable<string>>().Single()));
-      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.Video).With(widget => Assert.Equal("video", widget.Field("attach").To<IEnumerable<string>>().Single()));
+      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.All).With(widget => Assert.Equal("*", widget.Attach().Single()));
+      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.Audio).With(widget => Assert.Equal("audio", widget.Attach().Single()));
+      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.Graffiti).With(widget => Assert.Equal("graffiti", widget.Attach().Single()));
+      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.Link).With(widget => Assert.Equal("link", widget.Attach().Single()));
+      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.Photo).With(widget => Assert.Equal("photo", widget.Attach().Single()));
+      new VkontakteCommentsWidget().Attach(VkontakteCommentsAttach.Video).With(widget => Assert.Equal("video", widget.Attach().Single()));
     }
 
     /// <summary>
@@ -60,7 +59,7 @@ namespace Catharsis.Web.Widgets
       new VkontakteCommentsWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Width(1), widget));
-        Assert.Equal("1", widget.Field("width").To<string>());
+        Assert.Equal("1", widget.Width());
       });
     }
   }

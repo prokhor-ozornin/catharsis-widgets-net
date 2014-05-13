@@ -31,19 +31,28 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Unique identifier of Pinterest Pin.</para>
+    /// </summary>
+    /// <returns>Identifier of pin.</returns>
+    public string Id()
+    {
+      return this.id;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.id.IsEmpty())
+      if (this.Id().IsEmpty())
       {
         return string.Empty;
       }
 
       return new TagBuilder("a")
         .Attribute("data-pin-do", "embedPin")
-        .Attribute("href", "http://www.pinterest.com/pin/{0}".FormatSelf(this.id))
+        .Attribute("href", "http://www.pinterest.com/pin/{0}".FormatSelf(this.Id()))
         .ToString();
     }
   }

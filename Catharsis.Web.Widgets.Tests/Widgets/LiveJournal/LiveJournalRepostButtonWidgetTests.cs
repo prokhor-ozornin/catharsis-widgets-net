@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,8 +16,8 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new LiveJournalRepostButtonWidget();
-      Assert.Null(widget.Field("text"));
-      Assert.Null(widget.Field("title"));
+      Assert.Null(widget.Text());
+      Assert.Null(widget.Title());
     }
 
     /// <summary>
@@ -31,9 +30,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new LiveJournalRepostButtonWidget().Text(string.Empty));
 
       var widget = new LiveJournalRepostButtonWidget();
-      Assert.Null(widget.Field("text"));
+      Assert.Null(widget.Text());
       Assert.True(ReferenceEquals(widget.Text("text"), widget));
-      Assert.Equal("text", widget.Field("text").To<string>());
+      Assert.Equal("text", widget.Text());
     }
 
     /// <summary>
@@ -46,9 +45,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new LiveJournalRepostButtonWidget().Title(string.Empty));
 
       var widget = new LiveJournalRepostButtonWidget();
-      Assert.Null(widget.Field("title"));
+      Assert.Null(widget.Title());
       Assert.True(ReferenceEquals(widget.Title("title"), widget));
-      Assert.Equal("title", widget.Field("title").To<string>());
+      Assert.Equal("title", widget.Title());
     }
 
     /// <summary>

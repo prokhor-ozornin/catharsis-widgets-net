@@ -31,6 +31,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Specified URL address of Facebook post to embed.</para>
+    /// </summary>
+    /// <returns>URL of Facebook post.</returns>
+    public string Url()
+    {
+      return this.url;
+    }
+
+    /// <summary>
     ///   <para>Specifies width of Facebook post area on page.</para>
     /// </summary>
     /// <param name="width">Width of post.</param>
@@ -46,19 +55,28 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Specifies width of Facebook post area on page.</para>
+    /// </summary>
+    /// <returns>Width of post.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.url.IsEmpty())
+      if (this.Url().IsEmpty())
       {
         return string.Empty;
       }
 
       return new TagBuilder("div")
-        .Attribute("data-href", this.url)
-        .Attribute("data-width", this.width)
+        .Attribute("data-href", this.Url())
+        .Attribute("data-width", this.Width())
         .CssClass("fb-post")
         .ToString();
     }

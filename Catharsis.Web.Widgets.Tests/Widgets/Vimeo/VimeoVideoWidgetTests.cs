@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,11 +16,11 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VimeoVideoWidget();
-      Assert.Null(widget.Field("id"));
-      Assert.Null(widget.Field("width"));
-      Assert.Null(widget.Field("height"));
-      Assert.False(widget.Field("autoPlay").To<bool>());
-      Assert.False(widget.Field("loop").To<bool>());
+      Assert.Null(widget.Id());
+      Assert.Null(widget.Width());
+      Assert.Null(widget.Height());
+      Assert.False(widget.AutoPlay());
+      Assert.False(widget.Loop());
     }
 
     /// <summary>
@@ -34,9 +33,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VimeoVideoWidget().Id(string.Empty));
 
       var widget = new VimeoVideoWidget();
-      Assert.Null(widget.Field("id"));
+      Assert.Null(widget.Id());
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.Equal("id", widget.Field("id").To<string>());
+      Assert.Equal("id", widget.Id());
     }
 
     /// <summary>
@@ -49,9 +48,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VimeoVideoWidget().Width(string.Empty));
 
       var widget = new VimeoVideoWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>
@@ -64,9 +63,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VimeoVideoWidget().Height(string.Empty));
 
       var widget = new VimeoVideoWidget();
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Height());
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
+      Assert.Equal("height", widget.Height());
     }
 
     /// <summary>
@@ -76,9 +75,9 @@ namespace Catharsis.Web.Widgets
     public void AutoPlay_Method()
     {
       var widget = new VimeoVideoWidget();
-      Assert.False(widget.Field("autoPlay").To<bool>());
-      Assert.True(ReferenceEquals(widget.AutoPlay(), widget));
-      Assert.True(widget.Field("autoPlay").To<bool>());
+      Assert.False(widget.AutoPlay());
+      Assert.True(ReferenceEquals(widget.AutoPlay(true), widget));
+      Assert.True(widget.AutoPlay());
     }
 
     /// <summary>
@@ -88,9 +87,9 @@ namespace Catharsis.Web.Widgets
     public void Loop_Method()
     {
       var widget = new VimeoVideoWidget();
-      Assert.False(widget.Field("loop").To<bool>());
-      Assert.True(ReferenceEquals(widget.Loop(), widget));
-      Assert.True(widget.Field("loop").To<bool>());
+      Assert.False(widget.Loop());
+      Assert.True(ReferenceEquals(widget.Loop(true), widget));
+      Assert.True(widget.Loop());
     }
 
     /// <summary>
@@ -104,7 +103,7 @@ namespace Catharsis.Web.Widgets
       Assert.Equal(string.Empty, new VimeoVideoWidget().Id("id").Width("width").ToString());
       Assert.Equal(string.Empty, new VimeoVideoWidget().Height("height").Width("width").ToString());
       Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://player.vimeo.com/video/id?badge=0"" webkitallowfullscreen=""true"" width=""width""></iframe>", new VimeoVideoWidget().Id("id").Height("height").Width("width").ToString());
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1"" webkitallowfullscreen=""true"" width=""width""></iframe>", new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay().Loop().ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1"" webkitallowfullscreen=""true"" width=""width""></iframe>", new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay(true).Loop(true).ToString());
     }
   }
 }

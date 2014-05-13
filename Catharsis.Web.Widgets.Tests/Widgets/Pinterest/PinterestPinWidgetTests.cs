@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,7 +16,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new PinterestPinWidget();
-      Assert.Null(widget.Field("id"));
+      Assert.Null(widget.Id());
     }
 
     /// <summary>
@@ -30,9 +29,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestPinWidget().Id(string.Empty));
 
       var widget = new PinterestPinWidget();
-      Assert.Null(widget.Field("id"));
+      Assert.Null(widget.Id());
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.Equal("id", widget.Field("id").To<string>());
+      Assert.Equal("id", widget.Id());
     }
 
     /// <summary>

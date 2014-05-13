@@ -20,10 +20,19 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="enabled"><c>true</c> to enable autoplay, <c>false</c> to disable.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IVimeoVideoWidget AutoPlay(bool enabled = true)
+    public IVimeoVideoWidget AutoPlay(bool enabled)
     {
       this.autoPlay = enabled;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to start playing video automatically. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to enable autoplay, <c>false</c> to disable.</returns>
+    public bool AutoPlay()
+    {
+      return this.autoPlay;
     }
 
     /// <summary>
@@ -43,6 +52,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Height of video control.</para>
+    /// </summary>
+    /// <returns>Height of video.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>Identifier of video.</para>
     /// </summary>
     /// <param name="id">Identifier of video.</param>
@@ -59,14 +77,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of video.</para>
+    /// </summary>
+    /// <returns>Identifier of video.</returns>
+    public string Id()
+    {
+      return this.id;
+    }
+
+    /// <summary>
     ///   <para>Whether to replay video when it finishes. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="enabled"><c>true</c> to enable looping, <c>false</c> to disable.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IVimeoVideoWidget Loop(bool enabled = true)
+    public IVimeoVideoWidget Loop(bool enabled)
     {
       this.loop = enabled;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to replay video when it finishes. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to enable looping, <c>false</c> to disable.</returns>
+    public bool Loop()
+    {
+      return this.loop;
     }
 
     /// <summary>
@@ -86,12 +122,21 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Width of video control.</para>
+    /// </summary>
+    /// <returns>Width of video.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.id.IsEmpty() || this.width.IsEmpty() || this.height.IsEmpty())
+      if (this.Id().IsEmpty() || this.Width().IsEmpty() || this.Height().IsEmpty())
       {
         return string.Empty;
       }
@@ -101,9 +146,9 @@ namespace Catharsis.Web.Widgets
         .Attribute("allowfullscreen", true)
         .Attribute("webkitallowfullscreen", true)
         .Attribute("mozallowfullscreen", true)
-        .Attribute("height", this.height)
-        .Attribute("width", this.width)
-        .Attribute("src", "https://player.vimeo.com/video/{0}?badge=0{1}{2}".FormatSelf(this.id, this.autoPlay ? "&autoplay=1" : string.Empty, this.loop ? "&loop=1" : string.Empty))
+        .Attribute("height", this.Height())
+        .Attribute("width", this.Width())
+        .Attribute("src", "https://player.vimeo.com/video/{0}?badge=0{1}{2}".FormatSelf(this.Id(), this.AutoPlay() ? "&autoplay=1" : string.Empty, this.Loop() ? "&loop=1" : string.Empty))
         .ToString();
     }
   }

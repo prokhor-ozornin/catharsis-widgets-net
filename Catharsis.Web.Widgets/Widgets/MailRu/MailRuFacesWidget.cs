@@ -41,6 +41,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Color of Faces box background.</para>
+    /// </summary>
+    /// <returns>Background color.</returns>
+    public string BackgroundColor()
+    {
+      return this.backgroundColor;
+    }
+
+    /// <summary>
     ///   <para>Color of Faces box border.</para>
     /// </summary>
     /// <param name="color">Border color.</param>
@@ -53,6 +62,15 @@ namespace Catharsis.Web.Widgets
 
       this.borderColor = color;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Color of Faces box border.</para>
+    /// </summary>
+    /// <returns>Border color.</returns>
+    public string BorderColor()
+    {
+      return this.borderColor;
     }
 
     /// <summary>
@@ -72,6 +90,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Domain of target site with which users have interacted.</para>
+    /// </summary>
+    /// <returns>Target site domain.</returns>
+    public string Domain()
+    {
+      return this.domain;
+    }
+
+    /// <summary>
     ///   <para>Name of font, used for text labels.</para>
     /// </summary>
     /// <param name="font">Font name.</param>
@@ -84,6 +111,15 @@ namespace Catharsis.Web.Widgets
 
       this.font = font;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Name of font, used for text labels.</para>
+    /// </summary>
+    /// <returns>Font name.</returns>
+    public string Font()
+    {
+      return this.font;
     }
 
     /// <summary>
@@ -103,6 +139,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Height of Faces box area.</para>
+    /// </summary>
+    /// <returns>Area height.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>Color of Faces box hyperlinks.</para>
     /// </summary>
     /// <param name="color">Hyperlinks color.</param>
@@ -115,6 +160,15 @@ namespace Catharsis.Web.Widgets
 
       this.hyperlinkColor = color;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Color of Faces box hyperlinks.</para>
+    /// </summary>
+    /// <returns>Hyperlinks color.</returns>
+    public string HyperlinkColor()
+    {
+      return this.hyperlinkColor;
     }
 
     /// <summary>
@@ -133,14 +187,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Color of Faces box text labels.</para>
+    /// </summary>
+    /// <returns>Text color.</returns>
+    public string TextColor()
+    {
+      return this.textColor;
+    }
+
+    /// <summary>
     ///   <para>Whether to show or hide Faces box title.</para>
     /// </summary>
     /// <param name="show"><c>true</c> to show title, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IMailRuFacesWidget Title(bool show = true)
+    public IMailRuFacesWidget Title(bool show)
     {
       this.title = show;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to show or hide Faces box title.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show title, <c>false</c> to hide.</returns>
+    public bool Title()
+    {
+      return this.title;
     }
 
     /// <summary>
@@ -159,6 +231,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Color of Faces box title.</para>
+    /// </summary>
+    /// <returns>Title color.</returns>
+    public string TitleColor()
+    {
+      return this.titleColor;
+    }
+
+    /// <summary>
     ///   <para>Title text label of Faces box.</para>
     /// </summary>
     /// <param name="title">Title text.</param>
@@ -171,6 +252,15 @@ namespace Catharsis.Web.Widgets
 
       this.titleText = title;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Title text label of Faces box.</para>
+    /// </summary>
+    /// <returns>Title text.</returns>
+    public string TitleText()
+    {
+      return this.titleText;
     }
 
     /// <summary>
@@ -190,45 +280,60 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Width of Faces box area.</para>
+    /// </summary>
+    /// <returns>Area width.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.domain.IsEmpty() || this.width.IsEmpty() || this.height.IsEmpty())
+      if (this.Domain().IsEmpty() || this.Width().IsEmpty() || this.Height().IsEmpty())
       {
         return string.Empty;
       }
 
-      var config = new Dictionary<string, object> { { "domain", this.domain }, { "font", this.font }, { "width", this.width }, { "height", this.height } };
-      
-      if (!this.titleText.IsEmpty())
+      var config = new Dictionary<string, object>
       {
-        config["title"] = this.titleText;
+        { "domain", this.Domain() },
+        { "font", this.Font() },
+        { "width", this.Width() },
+        { "height", this.Height() }
+      };
+      
+      if (!this.TitleText().IsEmpty())
+      {
+        config["title"] = this.TitleText();
       }
-      if (!this.title)
+      if (!this.Title())
       {
         config["notitle"] = true;
       }
-      if (!this.titleColor.IsEmpty())
+      if (!this.TitleColor().IsEmpty())
       {
-        config["title-color"] = this.titleColor;
+        config["title-color"] = this.TitleColor();
       }
-      if (!this.backgroundColor.IsEmpty())
+      if (!this.BackgroundColor().IsEmpty())
       {
-        config["background"] = this.backgroundColor;
+        config["background"] = this.BackgroundColor();
       }
-      if (!this.borderColor.IsEmpty())
+      if (!this.BorderColor().IsEmpty())
       {
-        config["border"] = this.borderColor;
+        config["border"] = this.BorderColor();
       }
-      if (!this.textColor.IsEmpty())
+      if (!this.TextColor().IsEmpty())
       {
-        config["color"] = this.textColor;
+        config["color"] = this.TextColor();
       }
-      if (!this.hyperlinkColor.IsEmpty())
+      if (!this.HyperlinkColor().IsEmpty())
       {
-        config["link-color"] = this.hyperlinkColor;
+        config["link-color"] = this.HyperlinkColor();
       }
 
       return new TagBuilder("a")

@@ -18,8 +18,8 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new InlineImageWidget();
-      Assert.Null(widget.Field("contents"));
-      Assert.Null(widget.Field("format"));
+      Assert.Null(widget.Contents());
+      Assert.Null(widget.Format());
     }
 
     /// <summary>
@@ -31,9 +31,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new InlineImageWidget().Contents(null));
 
       var widget = new InlineImageWidget();
-      Assert.Null(widget.Field("contents"));
+      Assert.Null(widget.Contents());
       Assert.True(ReferenceEquals(widget.Contents(Guid.Empty.ToByteArray()), widget));
-      Assert.True(widget.Field("contents").To<byte[]>().SequenceEqual(Guid.Empty.ToByteArray()));
+      Assert.True(widget.Contents().SequenceEqual(Guid.Empty.ToByteArray()));
     }
 
     /// <summary>
@@ -46,9 +46,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new InlineImageWidget().Format(string.Empty));
 
       var widget = new InlineImageWidget();
-      Assert.Null(widget.Field("format"));
+      Assert.Null(widget.Format());
       Assert.True(ReferenceEquals(widget.Format("format"), widget));
-      Assert.Equal("format", widget.Field("format").To<string>());
+      Assert.Equal("format", widget.Format());
     }
 
     /// <summary>

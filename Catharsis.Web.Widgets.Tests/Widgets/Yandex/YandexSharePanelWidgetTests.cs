@@ -20,9 +20,9 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new YandexSharePanelWidget();
-      Assert.Null(widget.Field("language"));
-      Assert.Equal(YandexSharePanelLayout.Button.ToString().ToLowerInvariant(), widget.Field("layout").To<string>());
-      Assert.True(widget.Field("services").To<IEnumerable<string>>().SequenceEqual(new [] { "yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird" }));
+      Assert.Null(widget.Language());
+      Assert.Equal(YandexSharePanelLayout.Button.ToString().ToLowerInvariant(), widget.Layout());
+      Assert.True(widget.Services().SequenceEqual(new [] { "yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird" }));
     }
 
     /// <summary>
@@ -35,9 +35,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexSharePanelWidget().Language(string.Empty));
 
       var widget = new YandexSharePanelWidget();
-      Assert.Null(widget.Field("language"));
+      Assert.Null(widget.Language());
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
-      Assert.Equal("language", widget.Field("language").To<string>());
+      Assert.Equal("language", widget.Language());
     }
 
     /// <summary>
@@ -49,9 +49,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new YandexSharePanelWidget().Services(null));
 
       var widget = new YandexSharePanelWidget();
-      Assert.True(widget.Field("services").To<IEnumerable<string>>().SequenceEqual(new[] { "yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird" }));
+      Assert.True(widget.Services().SequenceEqual(new[] { "yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird" }));
       Assert.True(ReferenceEquals(widget.Services(new[] { "first", "second" }), widget));
-      Assert.True(widget.Field("services").To<IEnumerable<string>>().SequenceEqual(new[] { "first", "second" }));
+      Assert.True(widget.Services().SequenceEqual(new[] { "first", "second" }));
     }
 
     /// <summary>
@@ -64,9 +64,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexSharePanelWidget().Layout(string.Empty));
 
       var widget = new YandexSharePanelWidget();
-      Assert.Equal(YandexSharePanelLayout.Button.ToString().ToLowerInvariant(), widget.Field("layout").To<string>());
+      Assert.Equal(YandexSharePanelLayout.Button.ToString().ToLowerInvariant(), widget.Layout());
       Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-      Assert.Equal("layout", widget.Field("layout").To<string>());
+      Assert.Equal("layout", widget.Layout());
     }
 
     /// <summary>

@@ -19,6 +19,12 @@ namespace Catharsis.Web.Widgets
     ITumblrFollowButtonWidget Account(string account);
 
     /// <summary>
+    ///   <para>Name of Tumblr account (blog).</para>
+    /// </summary>
+    /// <returns>Name of blog.</returns>
+    string Account();
+
+    /// <summary>
     ///   <para>Visual color scheme of button.</para>
     /// </summary>
     /// <param name="scheme">Color scheme for button.</param>
@@ -28,10 +34,22 @@ namespace Catharsis.Web.Widgets
     ITumblrFollowButtonWidget ColorScheme(string scheme);
 
     /// <summary>
+    ///   <para>Visual color scheme of button.</para>
+    /// </summary>
+    /// <returns>Color scheme for button.</returns>
+    string ColorScheme();
+
+    /// <summary>
     ///   <para>Visual layout/appearance of button.</para>
     /// </summary>
     /// <param name="type">Layout of button.</param>
     /// <returns>Reference to the current widget.</returns>
     ITumblrFollowButtonWidget Type(byte type);
+
+    /// <summary>
+    ///   <para>Visual layout/appearance of button.</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    byte Type();
   }
 }

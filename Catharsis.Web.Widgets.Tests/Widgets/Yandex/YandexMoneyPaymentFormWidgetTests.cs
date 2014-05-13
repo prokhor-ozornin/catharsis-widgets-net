@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,17 +16,17 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.Null(widget.Field("account"));
-      Assert.Null(widget.Field("description"));
-      Assert.Null(widget.Field("sum"));
-      Assert.True(widget.Field("cards").To<bool>());
-      Assert.Equal((byte) YandexMoneyPaymentFormText.Pay, widget.Field("text").To<byte>());
-      Assert.False(widget.Field("askPayerPurpose").To<bool>());
-      Assert.False(widget.Field("askPayerComment").To<bool>());
-      Assert.False(widget.Field("askPayerFullName").To<bool>());
-      Assert.False(widget.Field("askPayerEmail").To<bool>());
-      Assert.False(widget.Field("askPayerPhone").To<bool>());
-      Assert.False(widget.Field("askPayerAddress").To<bool>());
+      Assert.Null(widget.Account());
+      Assert.Null(widget.Description());
+      Assert.Null(widget.Sum());
+      Assert.True(widget.Cards());
+      Assert.Equal((byte) YandexMoneyPaymentFormText.Pay, widget.Text());
+      Assert.False(widget.AskPayerPurpose());
+      Assert.False(widget.AskPayerComment());
+      Assert.False(widget.AskPayerFullName());
+      Assert.False(widget.AskPayerEmail());
+      Assert.False(widget.AskPayerPhone());
+      Assert.False(widget.AskPayerAddress());
     }
 
     /// <summary>
@@ -40,9 +39,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexMoneyPaymentFormWidget().Account(string.Empty));
 
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -55,9 +54,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexMoneyPaymentFormWidget().Description(string.Empty));
 
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.Null(widget.Field("description"));
+      Assert.Null(widget.Description());
       Assert.True(ReferenceEquals(widget.Description("description"), widget));
-      Assert.Equal("description", widget.Field("description").To<string>());
+      Assert.Equal("description", widget.Description());
     }
 
     /// <summary>
@@ -67,9 +66,9 @@ namespace Catharsis.Web.Widgets
     public void Sum_Method()
     {
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.Null(widget.Field("sum"));
+      Assert.Null(widget.Sum());
       Assert.True(ReferenceEquals(widget.Sum(1), widget));
-      Assert.Equal(1, widget.Field("sum").To<decimal>());
+      Assert.Equal(1, widget.Sum());
     }
 
     /// <summary>
@@ -79,9 +78,9 @@ namespace Catharsis.Web.Widgets
     public void Cards_Method()
     {
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.True(widget.Field("cards").To<bool>());
+      Assert.True(widget.Cards());
       Assert.True(ReferenceEquals(widget.Cards(false), widget));
-      Assert.False(widget.Field("cards").To<bool>());
+      Assert.False(widget.Cards());
     }
 
     /// <summary>
@@ -91,9 +90,9 @@ namespace Catharsis.Web.Widgets
     public void Text_Method()
     {
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.Equal((byte)YandexMoneyPaymentFormText.Pay, widget.Field("text").To<byte>());
+      Assert.Equal((byte)YandexMoneyPaymentFormText.Pay, widget.Text());
       Assert.True(ReferenceEquals(widget.Text(1), widget));
-      Assert.Equal(1, widget.Field("text").To<byte>());
+      Assert.Equal(1, widget.Text());
     }
 
     /// <summary>
@@ -103,9 +102,9 @@ namespace Catharsis.Web.Widgets
     public void AskPayerPurpose_Method()
     {
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.False(widget.Field("askPayerPurpose").To<bool>());
-      Assert.True(ReferenceEquals(widget.AskPayerPurpose(), widget));
-      Assert.True(widget.Field("askPayerPurpose").To<bool>());
+      Assert.False(widget.AskPayerPurpose());
+      Assert.True(ReferenceEquals(widget.AskPayerPurpose(true), widget));
+      Assert.True(widget.AskPayerPurpose());
     }
 
     /// <summary>
@@ -115,9 +114,9 @@ namespace Catharsis.Web.Widgets
     public void PayerComment_Method()
     {
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.False(widget.Field("askPayerComment").To<bool>());
-      Assert.True(ReferenceEquals(widget.AskPayerComment(), widget));
-      Assert.True(widget.Field("askPayerComment").To<bool>());
+      Assert.False(widget.AskPayerComment());
+      Assert.True(ReferenceEquals(widget.AskPayerComment(true), widget));
+      Assert.True(widget.AskPayerComment());
     }
 
     /// <summary>
@@ -127,9 +126,9 @@ namespace Catharsis.Web.Widgets
     public void PayerFullName_Method()
     {
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.False(widget.Field("askPayerFullName").To<bool>());
-      Assert.True(ReferenceEquals(widget.AskPayerFullName(), widget));
-      Assert.True(widget.Field("askPayerFullName").To<bool>());
+      Assert.False(widget.AskPayerFullName());
+      Assert.True(ReferenceEquals(widget.AskPayerFullName(true), widget));
+      Assert.True(widget.AskPayerFullName());
     }
 
     /// <summary>
@@ -139,9 +138,9 @@ namespace Catharsis.Web.Widgets
     public void PayerEmail_Method()
     {
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.False(widget.Field("askPayerEmail").To<bool>());
-      Assert.True(ReferenceEquals(widget.AskPayerEmail(), widget));
-      Assert.True(widget.Field("askPayerEmail").To<bool>());
+      Assert.False(widget.AskPayerEmail());
+      Assert.True(ReferenceEquals(widget.AskPayerEmail(true), widget));
+      Assert.True(widget.AskPayerEmail());
     }
 
     /// <summary>
@@ -151,9 +150,9 @@ namespace Catharsis.Web.Widgets
     public void PayerPhone_Method()
     {
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.False(widget.Field("askPayerPhone").To<bool>());
-      Assert.True(ReferenceEquals(widget.AskPayerPhone(), widget));
-      Assert.True(widget.Field("askPayerPhone").To<bool>());
+      Assert.False(widget.AskPayerPhone());
+      Assert.True(ReferenceEquals(widget.AskPayerPhone(true), widget));
+      Assert.True(widget.AskPayerPhone());
     }
 
     /// <summary>
@@ -163,9 +162,9 @@ namespace Catharsis.Web.Widgets
     public void PayerAddress_Method()
     {
       var widget = new YandexMoneyPaymentFormWidget();
-      Assert.False(widget.Field("askPayerAddress").To<bool>());
-      Assert.True(ReferenceEquals(widget.AskPayerAddress(), widget));
-      Assert.True(widget.Field("askPayerAddress").To<bool>());
+      Assert.False(widget.AskPayerAddress());
+      Assert.True(ReferenceEquals(widget.AskPayerAddress(true), widget));
+      Assert.True(widget.AskPayerAddress());
     }
 
     /// <summary>
@@ -178,7 +177,7 @@ namespace Catharsis.Web.Widgets
       Assert.Equal(string.Empty, new YandexMoneyPaymentFormWidget().Description("description").ToString());
       Assert.Equal(string.Empty, new YandexMoneyPaymentFormWidget().Account("account").ToString());
       Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""200"" scrolling=""no"" src=""https://money.yandex.ru/embed/shop.xml?account=account&amp;quickpay=shop&amp;payment-type-choice=on&amp;writer=seller&amp;targets=description&amp;default-sum=&amp;button-text=01"" width=""450""></iframe>", new YandexMoneyPaymentFormWidget().Account("account").Description("description").ToString());
-      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""255"" scrolling=""no"" src=""https://money.yandex.ru/embed/shop.xml?account=account&amp;quickpay=shop&amp;writer=buyer&amp;targets-hint=description&amp;default-sum=1&amp;button-text=03&amp;comment=on&amp;fio=on&amp;mail=on&amp;phone=on&amp;address=on"" width=""450""></iframe>", new YandexMoneyPaymentFormWidget().Account("account").Description("description").Sum(1).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).AskPayerPurpose().AskPayerComment().AskPayerFullName().AskPayerEmail().AskPayerPhone().AskPayerAddress().ToString());
+      Assert.Equal(@"<iframe allowtransparency=""true"" frameborder=""0"" height=""255"" scrolling=""no"" src=""https://money.yandex.ru/embed/shop.xml?account=account&amp;quickpay=shop&amp;writer=buyer&amp;targets-hint=description&amp;default-sum=1&amp;button-text=03&amp;comment=on&amp;fio=on&amp;mail=on&amp;phone=on&amp;address=on"" width=""450""></iframe>", new YandexMoneyPaymentFormWidget().Account("account").Description("description").Sum(1).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).AskPayerPurpose(true).AskPayerComment(true).AskPayerFullName(true).AskPayerEmail(true).AskPayerPhone(true).AskPayerAddress(true).ToString());
     }
   }
 }

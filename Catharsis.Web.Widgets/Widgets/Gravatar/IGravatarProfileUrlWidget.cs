@@ -18,6 +18,12 @@ namespace Catharsis.Web.Widgets
     IGravatarProfileUrlWidget Format(string format);
 
     /// <summary>
+    ///   <para>Format in which to retrieve profile's data.</para>
+    /// </summary>
+    /// <returns>Profile's data format.</returns>
+    string Format();
+
+    /// <summary>
     ///   <para>MD5 hash of user's email address.</para>
     /// </summary>
     /// <param name="hash">Hash of user's email.</param>
@@ -26,6 +32,12 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentException">If <paramref name="hash"/> is <see cref="string.Empty"/> string.</exception>
     /// <remarks>This attribute is required.</remarks>
     IGravatarProfileUrlWidget Hash(string hash);
+
+    /// <summary>
+    ///   <para>MD5 hash of user's email address.</para>
+    /// </summary>
+    /// <returns>Hash of user's email.</returns>
+    string Hash();
 
     /// <summary>
     ///   <para>Adds custom parameter to URL's query part.</para>

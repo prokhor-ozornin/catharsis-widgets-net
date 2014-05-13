@@ -29,6 +29,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Text fragment to be reposted.</para>
+    /// </summary>
+    /// <returns>Text fragment.</returns>
+    public string Text()
+    {
+      return this.text;
+    }
+
+    /// <summary>
     ///   <para>Label text to display on the button.</para>
     /// </summary>
     /// <param name="title">Button's label text.</param>
@@ -44,13 +53,22 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Label text to display on the button.</para>
+    /// </summary>
+    /// <returns>Button's label text.</returns>
+    public string Title()
+    {
+      return this.title;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
       return new TagBuilder("lj-repost")
-       .Attribute("button", this.title)
+       .Attribute("button", this.Title())
        .InnerHtml(this.text)
        .ToString();
     }

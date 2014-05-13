@@ -31,6 +31,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Visual color scheme of button.</para>
+    /// </summary>
+    /// <returns>Color scheme for button.</returns>
+    public string ColorScheme()
+    {
+      return this.colorScheme;
+    }
+
+    /// <summary>
     ///   <para>Visual layout/appearance of button.</para>
     /// </summary>
     /// <param name="type">Layout of button.</param>
@@ -42,13 +51,22 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Visual layout/appearance of button.</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    public byte Type()
+    {
+      return this.type;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
       byte width;
-      switch (this.type.To<TumblrShareButtonType>())
+      switch (this.Type().To<TumblrShareButtonType>())
       {
         case TumblrShareButtonType.First:
           width = 80;
@@ -74,7 +92,7 @@ namespace Catharsis.Web.Widgets
       return new TagBuilder("a")
         .Attribute("href", "http://www.tumblr.com/share")
         .Attribute("title", "Share on Tumblr")
-        .Attribute("style", "display:inline-block; text-indent:-9999px; overflow:hidden; width:{2}px; height:20px; background:url('http://platform.tumblr.com/v1/share_{0}{1}.png') top left no-repeat transparent;".FormatSelf(this.type, this.colorScheme != null && this.colorScheme.ToLowerInvariant() == TumblrShareButtonColorScheme.Gray.ToString().ToLowerInvariant() ? "T" : string.Empty, width))
+        .Attribute("style", "display:inline-block; text-indent:-9999px; overflow:hidden; width:{2}px; height:20px; background:url('http://platform.tumblr.com/v1/share_{0}{1}.png') top left no-repeat transparent;".FormatSelf(this.Type(), this.ColorScheme() != null && string.Equals(this.ColorScheme(), TumblrShareButtonColorScheme.Gray.ToString(), StringComparison.InvariantCultureIgnoreCase) ? "T" : string.Empty, width))
         .InnerHtml("Share on Tumblr")
         .ToString();
     }

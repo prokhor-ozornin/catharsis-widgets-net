@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -19,9 +17,9 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VkontakteCommentsWidget();
-      Assert.Equal((byte)VkontakteCommentsLimit.Limit5, widget.Field("limit").To<byte>());
-      Assert.False(widget.Field("attach").To<IEnumerable<string>>().Any());
-      Assert.Null(widget.Field("width"));
+      Assert.Equal((byte)VkontakteCommentsLimit.Limit5, widget.Limit());
+      Assert.False(widget.Attach().Any());
+      Assert.Null(widget.Width());
     }
 
     /// <summary>
@@ -31,9 +29,9 @@ namespace Catharsis.Web.Widgets
     public void Limit_Method()
     {
       var widget = new VkontakteCommentsWidget();
-      Assert.Equal((byte)VkontakteCommentsLimit.Limit5, widget.Field("limit").To<byte>());
+      Assert.Equal((byte)VkontakteCommentsLimit.Limit5, widget.Limit());
       Assert.True(ReferenceEquals(widget.Limit(1), widget));
-      Assert.Equal(1, widget.Field("limit").To<byte>());
+      Assert.Equal(1, widget.Limit());
     }
 
     /// <summary>
@@ -43,9 +41,9 @@ namespace Catharsis.Web.Widgets
     public void Attach_Method()
     {
       var widget = new VkontakteCommentsWidget();
-      Assert.False(widget.Field("attach").To<IEnumerable<string>>().Any());
+      Assert.False(widget.Attach().Any());
       Assert.True(ReferenceEquals(widget.Attach("first", "second"), widget));
-      Assert.True(widget.Field("attach").To<IEnumerable<string>>().SequenceEqual(new [] { "first", "second" }));
+      Assert.True(widget.Attach().SequenceEqual(new [] { "first", "second" }));
     }
 
     /// <summary>
@@ -58,9 +56,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteCommentsWidget().Width(string.Empty));
 
       var widget = new VkontakteCommentsWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>

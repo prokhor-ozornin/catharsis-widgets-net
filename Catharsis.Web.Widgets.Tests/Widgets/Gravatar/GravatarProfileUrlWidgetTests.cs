@@ -19,8 +19,8 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new GravatarProfileUrlWidget();
-      Assert.Null(widget.Field("hash"));
-      Assert.Null(widget.Field("format"));
+      Assert.Null(widget.Hash());
+      Assert.Null(widget.Format());
       Assert.False(widget.Field("parameters").To<IDictionary<string, object>>().Any());
     }
 
@@ -34,9 +34,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GravatarProfileUrlWidget().Hash(string.Empty));
 
       var widget = new GravatarProfileUrlWidget();
-      Assert.Null(widget.Field("hash"));
+      Assert.Null(widget.Hash());
       Assert.True(ReferenceEquals(widget.Hash("hash"), widget));
-      Assert.Equal("hash", widget.Field("hash").To<string>());
+      Assert.Equal("hash", widget.Hash());
     }
 
     /// <summary>
@@ -49,9 +49,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GravatarProfileUrlWidget().Format(string.Empty));
 
       var widget = new GravatarProfileUrlWidget();
-      Assert.Null(widget.Field("format"));
+      Assert.Null(widget.Format());
       Assert.True(ReferenceEquals(widget.Format("format"), widget));
-      Assert.Equal("format", widget.Field("format").To<string>());
+      Assert.Equal("format", widget.Format());
     }
 
     /// <summary>

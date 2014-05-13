@@ -19,5 +19,11 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentException">If <paramref name="apiId"/> is <see cref="string.Empty"/> string.</exception>
     /// <remarks>This attribute is required.</remarks>
     IVkontakteInitializationWidget ApiId(string apiId);
+
+    /// <summary>
+    ///   <para>API identifier of registered VKontakte application.</para>
+    /// </summary>
+    /// <returns>Application API ID.</returns>
+    string ApiId();
   }
 }

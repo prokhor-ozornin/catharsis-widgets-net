@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,13 +16,13 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("colorScheme"));
-      Assert.Null(widget.Field("faces"));
-      Assert.Null(widget.Field("height"));
-      Assert.Null(widget.Field("kidsMode"));
-      Assert.Null(widget.Field("layout"));
-      Assert.Null(widget.Field("url"));
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.ColorScheme());
+      Assert.Null(widget.Faces());
+      Assert.Null(widget.Height());
+      Assert.Null(widget.KidsMode());
+      Assert.Null(widget.Layout());
+      Assert.Null(widget.Url());
+      Assert.Null(widget.Width());
     }
 
     /// <summary>
@@ -36,9 +35,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().ColorScheme(string.Empty));
 
       var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("colorScheme"));
+      Assert.Null(widget.ColorScheme());
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
+      Assert.Equal("colorScheme", widget.ColorScheme());
     }
 
     /// <summary>
@@ -48,9 +47,9 @@ namespace Catharsis.Web.Widgets
     public void Faces_Method()
     {
       var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("faces"));
-      Assert.True(ReferenceEquals(widget.Faces(), widget));
-      Assert.True(widget.Field("faces").To<bool>());
+      Assert.Null(widget.Faces());
+      Assert.True(ReferenceEquals(widget.Faces(true), widget));
+      Assert.True(widget.Faces().Value);
     }
 
     /// <summary>
@@ -63,9 +62,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Height(string.Empty));
 
       var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Height());
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
+      Assert.Equal("height", widget.Height());
     }
 
     /// <summary>
@@ -75,9 +74,9 @@ namespace Catharsis.Web.Widgets
     public void KidsMode_Method()
     {
       var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("kidsMode"));
-      Assert.True(ReferenceEquals(widget.KidsMode(), widget));
-      Assert.True(widget.Field("kidsMode").To<bool>());
+      Assert.Null(widget.KidsMode());
+      Assert.True(ReferenceEquals(widget.KidsMode(true), widget));
+      Assert.True(widget.KidsMode().Value);
     }
 
     /// <summary>
@@ -90,9 +89,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Layout(string.Empty));
 
       var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("layout"));
+      Assert.Null(widget.Layout());
       Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-      Assert.Equal("layout", widget.Field("layout").To<string>());
+      Assert.Equal("layout", widget.Layout());
     }
 
     /// <summary>
@@ -105,9 +104,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Url(string.Empty));
 
       var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("url"));
+      Assert.Null(widget.Url());
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.Equal("url", widget.Field("url").To<string>());
+      Assert.Equal("url", widget.Url());
     }
 
     /// <summary>
@@ -120,9 +119,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Width(string.Empty));
 
       var widget = new FacebookFollowButtonWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>
@@ -133,7 +132,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Equal(string.Empty, new FacebookFollowButtonWidget().ToString());
       Assert.Equal(@"<div class=""fb-follow"" data-href=""url""></div>", new FacebookFollowButtonWidget().Url("url").ToString());
-      Assert.Equal(@"<div class=""fb-follow"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-show-faces=""true"" data-width=""width""></div>", new FacebookFollowButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).KidsMode().Layout(FacebookButtonLayout.BoxCount).Faces().Width("width").Height("height").ToString());
+      Assert.Equal(@"<div class=""fb-follow"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-show-faces=""true"" data-width=""width""></div>", new FacebookFollowButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).KidsMode(true).Layout(FacebookButtonLayout.BoxCount).Faces(true).Width("width").Height("height").ToString());
     }
   }
 }

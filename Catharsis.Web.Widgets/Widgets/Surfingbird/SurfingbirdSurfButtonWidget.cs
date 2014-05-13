@@ -35,16 +35,34 @@ namespace Catharsis.Web.Widgets
       this.color = color;
       return this;
     }
+    
+    /// <summary>
+    ///   <para>Text label's color. If not specified, default color combination is used.</para>
+    /// </summary>
+    /// <returns>Label's color.</returns>
+    public string Color()
+    {
+      return this.color;
+    }
 
     /// <summary>
     ///   <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="show"><c>true</c> to show counter, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public ISurfingbirdSurfButtonWidget Counter(bool show = true)
+    public ISurfingbirdSurfButtonWidget Counter(bool show)
     {
       this.counter = show;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show counter, <c>false</c> to hide.</returns>
+    public bool Counter()
+    {
+      return this.counter;
     }
 
     /// <summary>
@@ -63,6 +81,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Vertical height of the button. Default is 25px.</para>
+    /// </summary>
+    /// <returns>Height of button.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>Text label to show on button. Default is "Surf".</para>
     /// </summary>
     /// <param name="label">Text label on button.</param>
@@ -75,6 +102,15 @@ namespace Catharsis.Web.Widgets
 
       this.label = label;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Text label to show on button. Default is "Surf".</para>
+    /// </summary>
+    /// <returns>Text label on button.</returns>
+    public string Label()
+    {
+      return this.label;
     }
 
     /// <summary>
@@ -93,6 +129,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Layout/appearance of the button.</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    public string Layout()
+    {
+      return this.layout;
+    }
+
+    /// <summary>
     ///   <para>Specifies URL address of web page to "like". Default is current web page.</para>
     /// </summary>
     /// <param name="url">URL of web page.</param>
@@ -105,6 +150,15 @@ namespace Catharsis.Web.Widgets
 
       this.url = url;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Specifies URL address of web page to "like". Default is current web page.</para>
+    /// </summary>
+    /// <returns>URL of web page.</returns>
+    public string Url()
+    {
+      return this.url;
     }
 
     /// <summary>
@@ -123,24 +177,36 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Horizontal width of the button. Default is 500px.</para>
+    /// </summary>
+    /// <returns>Width of button.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      var config = new Dictionary<string, object> { { "layout", "{0}{1}{2}".FormatSelf(this.layout, this.counter ? string.Empty : "-nocount", this.color.IsEmpty() ? string.Empty : "-" + this.color) } };
+      var config = new Dictionary<string, object>
+      {
+        { "layout", "{0}{1}{2}".FormatSelf(this.Layout(), this.Counter() ? string.Empty : "-nocount", this.Color().IsEmpty() ? string.Empty : "-" + this.Color()) }
+      };
 
-      if (!this.url.IsEmpty())
+      if (!this.Url().IsEmpty())
       {
-        config["url"] = this.url;
+        config["url"] = this.Url();
       }
-      if (!this.width.IsEmpty())
+      if (!this.Width().IsEmpty())
       {
-        config["width"] = this.width;
+        config["width"] = this.Width();
       }
-      if (!this.height.IsEmpty())
+      if (!this.Height().IsEmpty())
       {
-        config["height"] = this.height;
+        config["height"] = this.Height();
       }
 
       return new TagBuilder("a")
@@ -148,7 +214,7 @@ namespace Catharsis.Web.Widgets
         .Attribute("href", "http://surfingbird.ru/share")
         .Attribute("data-surf-config", config.Json())
         .CssClass("surfinbird__like_button")
-        .InnerHtml(this.label)
+        .InnerHtml(this.Label())
         .ToString();
     }
   }

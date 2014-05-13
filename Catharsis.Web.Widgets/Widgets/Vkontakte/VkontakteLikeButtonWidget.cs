@@ -38,6 +38,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Vertical height of the button in pixels. Default value is "22".</para>
+    /// </summary>
+    /// <returns>Height of button.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>Visual layout/appearance of the button.</para>
     /// </summary>
     /// <param name="layout">Layout of button.</param>
@@ -50,6 +59,15 @@ namespace Catharsis.Web.Widgets
 
       this.layout = layout;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Visual layout/appearance of the button.</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    public string Layout()
+    {
+      return this.layout;
     }
 
     /// <summary>
@@ -68,6 +86,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Description of the page (to display in preview mode for record on the wall).</para>
+    /// </summary>
+    /// <returns>Description of the page.</returns>
+    public string Description()
+    {
+      return this.description;
+    }
+
+    /// <summary>
     ///   <para>URL of the thumbnail image (to display in preview mode for record on the wall).</para>
     /// </summary>
     /// <param name="url">URL of post's thumbnail image.</param>
@@ -80,6 +107,15 @@ namespace Catharsis.Web.Widgets
 
       this.image = url;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>URL of the thumbnail image (to display in preview mode for record on the wall).</para>
+    /// </summary>
+    /// <returns>URL of post's thumbnail image.</returns>
+    public string Image()
+    {
+      return this.image;
     }
 
     /// <summary>
@@ -98,6 +134,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Title of the page (to display in preview mode for record on the wall).</para>
+    /// </summary>
+    /// <returns>Title of the page.</returns>
+    public string Title()
+    {
+      return this.title;
+    }
+
+    /// <summary>
     ///   <para>URL of the page to "like" (this URL will be shown in a record on the wall). Default is URL of the current page.</para>
     /// </summary>
     /// <param name="url">URL of target web page.</param>
@@ -110,6 +155,15 @@ namespace Catharsis.Web.Widgets
 
       this.url = url;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>URL of the page to "like" (this URL will be shown in a record on the wall). Default is URL of the current page.</para>
+    /// </summary>
+    /// <returns>URL of target web page.</returns>
+    public string Url()
+    {
+      return this.url;
     }
 
     /// <summary>
@@ -128,6 +182,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Text to be published on the wall when "Tell to friends" is pressed. Maximum length is 140 characters. Default value equals to page's title.</para>
+    /// </summary>
+    /// <returns>Text for publishing.</returns>
+    public string Text()
+    {
+      return this.text;
+    }
+
+    /// <summary>
     ///   <para>Type of text to display on the button.</para>
     /// </summary>
     /// <param name="verb">Displayed button's verb.</param>
@@ -136,6 +199,15 @@ namespace Catharsis.Web.Widgets
     {
       this.verb = verb;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Type of text to display on the button.</para>
+    /// </summary>
+    /// <returns>Displayed button's verb.</returns>
+    public byte? Verb()
+    {
+      return this.verb;
     }
 
     /// <summary>
@@ -154,6 +226,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Width of button in pixels (integer value > 200, default value is 350). Parameter value has meaning only for a button with a text counter (layout = "full").</para>
+    /// </summary>
+    /// <returns>Width of button.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
@@ -161,41 +242,41 @@ namespace Catharsis.Web.Widgets
     {
       var config = new Dictionary<string, object>();
       
-      if (!this.layout.IsEmpty())
+      if (!this.Layout().IsEmpty())
       {
-        config["type"] = this.layout;
+        config["type"] = this.Layout();
       }
-      if (!this.width.IsEmpty())
+      if (!this.Width().IsEmpty())
       {
-        config["width"] = this.width;
+        config["width"] = this.Width();
       }
-      if (!this.title.IsEmpty())
+      if (!this.Title().IsEmpty())
       {
-        config["pageTitle"] = this.title;
+        config["pageTitle"] = this.Title();
       }
-      if (!this.description.IsEmpty())
+      if (!this.Description().IsEmpty())
       {
-        config["pageDescription"] = this.description;
+        config["pageDescription"] = this.Description();
       }
-      if (!this.url.IsEmpty())
+      if (!this.Url().IsEmpty())
       {
-        config["pageUrl"] = this.url;
+        config["pageUrl"] = this.Url();
       }
-      if (!this.image.IsEmpty())
+      if (!this.Image().IsEmpty())
       {
-        config["pageImage"] = this.image;
+        config["pageImage"] = this.Image();
       }
-      if (!this.text.IsEmpty())
+      if (!this.Text().IsEmpty())
       {
-        config["text"] = this.text;
+        config["text"] = this.Text();
       }
-      if (!this.height.IsEmpty())
+      if (!this.Height().IsEmpty())
       {
-        config["height"] = this.height;
+        config["height"] = this.Height();
       }
-      if (this.verb != null)
+      if (this.Verb() != null)
       {
-        config["verb"] = this.verb;
+        config["verb"] = this.Verb();
       }
 
       return new StringBuilder()

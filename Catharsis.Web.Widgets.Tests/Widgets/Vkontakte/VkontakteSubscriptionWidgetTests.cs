@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,9 +16,9 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VkontakteSubscriptionWidget();
-      Assert.Null(widget.Field("account"));
-      Assert.Equal((byte)VkontakteSubscribeButtonLayout.First, widget.Field("layout").To<byte>());
-      Assert.False(widget.Field("onlyButton").To<bool>());
+      Assert.Null(widget.Account());
+      Assert.Equal((byte)VkontakteSubscribeButtonLayout.First, widget.Layout());
+      Assert.False(widget.OnlyButton());
     }
 
     /// <summary>
@@ -32,9 +31,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteSubscriptionWidget().Account(string.Empty));
 
       var widget = new VkontakteSubscriptionWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -44,9 +43,9 @@ namespace Catharsis.Web.Widgets
     public void Layout_Method()
     {
       var widget = new VkontakteSubscriptionWidget();
-      Assert.Equal((byte)VkontakteSubscribeButtonLayout.First, widget.Field("layout").To<byte>());
+      Assert.Equal((byte)VkontakteSubscribeButtonLayout.First, widget.Layout());
       Assert.True(ReferenceEquals(widget.Layout(2), widget));
-      Assert.Equal(2, widget.Field("layout").To<byte>());
+      Assert.Equal(2, widget.Layout());
     }
 
     /// <summary>
@@ -56,9 +55,9 @@ namespace Catharsis.Web.Widgets
     public void OnlyButton_Method()
     {
       var widget = new VkontakteSubscriptionWidget();
-      Assert.False(widget.Field("onlyButton").To<bool>());
-      Assert.True(ReferenceEquals(widget.OnlyButton(), widget));
-      Assert.True(widget.Field("onlyButton").To<bool>());
+      Assert.False(widget.OnlyButton());
+      Assert.True(ReferenceEquals(widget.OnlyButton(true), widget));
+      Assert.True(widget.OnlyButton());
     }
 
     /// <summary>
@@ -73,7 +72,7 @@ namespace Catharsis.Web.Widgets
       Assert.True(html.Contains(@"<div id=""vk_subscribe""></div>"));
       Assert.True(html.Contains(@"VK.Widgets.Subscribe(""vk_subscribe"", {""mode"":1}, ""account"""));
 
-      html = new VkontakteSubscriptionWidget().Account("account").Layout(VkontakteSubscribeButtonLayout.Second).OnlyButton().ToString();
+      html = new VkontakteSubscriptionWidget().Account("account").Layout(VkontakteSubscribeButtonLayout.Second).OnlyButton(true).ToString();
       Assert.True(html.Contains(@"<div id=""vk_subscribe""></div>"));
       Assert.True(html.Contains(@"VK.Widgets.Subscribe(""vk_subscribe"", {""mode"":2,""soft"":1}, ""account"""));
     }

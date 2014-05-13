@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,11 +16,11 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new PinterestBoardWidget();
-      Assert.Null(widget.Field("account"));
-      Assert.Null(widget.Field("height"));
-      Assert.Null(widget.Field("width"));
-      Assert.Null(widget.Field("id"));
-      Assert.Null(widget.Field("image"));
+      Assert.Null(widget.Account());
+      Assert.Null(widget.Height());
+      Assert.Null(widget.Width());
+      Assert.Null(widget.Id());
+      Assert.Null(widget.Image());
     }
 
     /// <summary>
@@ -34,9 +33,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().Account(string.Empty));
 
       var widget = new PinterestBoardWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -49,9 +48,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().Height(string.Empty));
 
       var widget = new PinterestBoardWidget();
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Height());
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
+      Assert.Equal("height", widget.Height());
     }
 
     /// <summary>
@@ -64,9 +63,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().Width(string.Empty));
 
       var widget = new PinterestBoardWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>
@@ -79,9 +78,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().Id(string.Empty));
 
       var widget = new PinterestBoardWidget();
-      Assert.Null(widget.Field("id"));
+      Assert.Null(widget.Id());
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.Equal("id", widget.Field("id").To<string>());
+      Assert.Equal("id", widget.Id());
     }
 
     /// <summary>
@@ -94,9 +93,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().Image(string.Empty));
 
       var widget = new PinterestBoardWidget();
-      Assert.Null(widget.Field("image"));
+      Assert.Null(widget.Image());
       Assert.True(ReferenceEquals(widget.Image("image"), widget));
-      Assert.Equal("image", widget.Field("image").To<string>());
+      Assert.Equal("image", widget.Image());
     }
 
     /// <summary>

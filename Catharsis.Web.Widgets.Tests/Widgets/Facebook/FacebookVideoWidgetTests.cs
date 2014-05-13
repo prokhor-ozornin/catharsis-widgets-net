@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,9 +16,9 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new FacebookVideoWidget();
-      Assert.Null(widget.Field("id"));
-      Assert.Null(widget.Field("width"));
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Id());
+      Assert.Null(widget.Width());
+      Assert.Null(widget.Height());
     }
 
     /// <summary>
@@ -32,9 +31,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookVideoWidget().Id(string.Empty));
 
       var widget = new FacebookVideoWidget();
-      Assert.Null(widget.Field("id"));
+      Assert.Null(widget.Id());
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.Equal("id", widget.Field("id").To<string>());
+      Assert.Equal("id", widget.Id());
     }
 
     /// <summary>
@@ -47,9 +46,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookVideoWidget().Width(string.Empty));
 
       var widget = new FacebookVideoWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>
@@ -62,9 +61,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookVideoWidget().Height(string.Empty));
 
       var widget = new FacebookVideoWidget();
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Height());
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
+      Assert.Equal("height", widget.Height());
     }
 
     /// <summary>

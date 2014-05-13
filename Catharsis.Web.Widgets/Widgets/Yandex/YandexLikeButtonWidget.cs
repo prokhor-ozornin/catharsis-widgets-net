@@ -32,6 +32,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Visual layout/appearance of the button.</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    public string Layout()
+    {
+      return this.layout;
+    }
+
+    /// <summary>
     ///   <para>Size of the button.</para>
     /// </summary>
     /// <param name="size">Size of button.</param>
@@ -44,6 +53,15 @@ namespace Catharsis.Web.Widgets
 
       this.size = size;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Size of the button.</para>
+    /// </summary>
+    /// <returns>Size of button.</returns>
+    public string Size()
+    {
+      return this.size;
     }
 
     /// <summary>
@@ -62,6 +80,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Label text to draw on the button.</para>
+    /// </summary>
+    /// <returns>Label text.</returns>
+    public string Text()
+    {
+      return this.text;
+    }
+
+    /// <summary>
     ///   <para>Custom title text for shared page.</para>
     /// </summary>
     /// <param name="title">Title text.</param>
@@ -74,6 +101,15 @@ namespace Catharsis.Web.Widgets
 
       this.title = title;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Custom title text for shared page.</para>
+    /// </summary>
+    /// <returns>Title text.</returns>
+    public string Title()
+    {
+      return this.title;
     }
 
     /// <summary>
@@ -92,6 +128,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>URL address of web page to share.</para>
+    /// </summary>
+    /// <returns>URL address of web page.</returns>
+    public string Url()
+    {
+      return this.url;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
@@ -100,11 +145,11 @@ namespace Catharsis.Web.Widgets
       return new StringBuilder()
         .Append(new TagBuilder("a")
           .Attribute("name", "ya-share")
-          .Attribute("type", this.layout)
-          .Attribute("size", this.size)
-          .Attribute("share_text", this.text)
-          .Attribute("share_url", this.url)
-          .Attribute("share_title", this.title))
+          .Attribute("type", this.Layout())
+          .Attribute("size", this.Size())
+          .Attribute("share_text", this.Text())
+          .Attribute("share_url", this.Url())
+          .Attribute("share_title", this.Title()))
         .Append(resources.yandex_like)
         .ToString();
     }

@@ -26,10 +26,19 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="show"><c>true</c> to show share counter, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IMailRuLikeButtonWidget Counter(bool show = true)
+    public IMailRuLikeButtonWidget Counter(bool show)
     {
       this.counter = show;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show share counter, <c>false</c> to hide.</returns>
+    public bool Counter()
+    {
+      return this.counter;
     }
 
     /// <summary>
@@ -48,6 +57,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Position of a share counter.</para>
+    /// </summary>
+    /// <returns>Position of a counter.</returns>
+    public string CounterPosition()
+    {
+      return this.counterPosition;
+    }
+
+    /// <summary>
     ///   <para>Visual layout/appearance of button.</para>
     /// </summary>
     /// <param name="layout">Visual layout of button.</param>
@@ -58,6 +76,15 @@ namespace Catharsis.Web.Widgets
     {
       this.layout = layout;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Visual layout/appearance of button.</para>
+    /// </summary>
+    /// <returns>Visual layout of button.</returns>
+    public byte Layout()
+    {
+      return this.layout;
     }
 
     /// <summary>
@@ -72,14 +99,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Vertical size of button.</para>
+    /// </summary>
+    /// <returns>Vertical size of button.</returns>
+    public string Size()
+    {
+      return this.size;
+    }
+
+    /// <summary>
     ///   <para>Whether to show text label on button. Default is <c>true</c>.</para>
     /// </summary>
     /// <param name="text"><c>true</c> to show text label, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IMailRuLikeButtonWidget Text(bool text = true)
+    public IMailRuLikeButtonWidget Text(bool text)
     {
       this.text = text;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to show text label on button. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show text label, <c>false</c> to hide.</returns>
+    public bool Text()
+    {
+      return this.text;
     }
 
     /// <summary>
@@ -98,6 +143,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Type of button.</para>
+    /// </summary>
+    /// <returns>Type of button.</returns>
+    public string Type()
+    {
+      return this.type;
+    }
+
+    /// <summary>
     ///   <para>Type of text label to show on button.</para>
     /// </summary>
     /// <param name="type">Type of text label.</param>
@@ -111,30 +165,44 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Type of text label to show on button.</para>
+    /// </summary>
+    /// <returns>Type of text label.</returns>
+    public byte TextType()
+    {
+      return this.textType;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      var config = new Dictionary<string, object> { { "sz", this.size }, { "st", this.layout }, { "tp", this.type } };
+      var config = new Dictionary<string, object>
+      {
+        { "sz", this.Size() },
+        { "st", this.Layout() },
+        { "tp", this.Type() }
+      };
 
-      if (!this.counter)
+      if (!this.Counter())
       {
         config["nc"] = 1;
       }
-      else if (this.counterPosition != null && string.Equals(this.counterPosition, MailRuLikeButtonCounterPosition.Upper.ToString(), StringComparison.InvariantCultureIgnoreCase))
+      else if (this.CounterPosition() != null && string.Equals(this.CounterPosition(), MailRuLikeButtonCounterPosition.Upper.ToString(), StringComparison.InvariantCultureIgnoreCase))
       {
         config["vt"] = 1;
       }
 
-      if (!this.text)
+      if (!this.Text())
       {
         config["nt"] = 1;
       }
       else
       {
-        config["cm"] = this.textType;
-        config["ck"] = this.textType;
+        config["cm"] = this.TextType();
+        config["ck"] = this.TextType();
       }
 
       return new TagBuilder("a")

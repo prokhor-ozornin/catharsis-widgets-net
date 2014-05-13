@@ -20,7 +20,7 @@ namespace Catharsis.Web.Widgets
       new PinterestBoardWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Height(1), widget));
-        Assert.Equal("1", widget.Field("height").To<string>());
+        Assert.Equal("1", widget.Height());
       });
     }
 
@@ -35,7 +35,7 @@ namespace Catharsis.Web.Widgets
       new PinterestBoardWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Width(1), widget));
-        Assert.Equal("1", widget.Field("width").To<string>());
+        Assert.Equal("1", widget.Width());
       });
     }
 
@@ -50,9 +50,9 @@ namespace Catharsis.Web.Widgets
       new PinterestBoardWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Header(), widget));
-        Assert.Equal("115", widget.Field("image").To<string>());
-        Assert.Equal("120", widget.Field("height").To<string>());
-        Assert.Equal("900", widget.Field("width").To<string>());
+        Assert.Equal("115", widget.Image());
+        Assert.Equal("120", widget.Height());
+        Assert.Equal("900", widget.Width());
       });
     }
 
@@ -67,7 +67,7 @@ namespace Catharsis.Web.Widgets
       new PinterestBoardWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Image(1), widget));
-        Assert.Equal("1", widget.Field("image").To<string>());
+        Assert.Equal("1", widget.Image());
       });
     }
 
@@ -82,9 +82,9 @@ namespace Catharsis.Web.Widgets
       new PinterestBoardWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Sidebar(), widget));
-        Assert.Equal("60", widget.Field("image").To<string>());
-        Assert.Equal("800", widget.Field("height").To<string>());
-        Assert.Equal("150", widget.Field("width").To<string>());
+        Assert.Equal("60", widget.Image());
+        Assert.Equal("800", widget.Height());
+        Assert.Equal("150", widget.Width());
       });
     }
 
@@ -99,9 +99,9 @@ namespace Catharsis.Web.Widgets
       new PinterestBoardWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Square(), widget));
-        Assert.Equal("80", widget.Field("image").To<string>());
-        Assert.Equal("320", widget.Field("height").To<string>());
-        Assert.Equal("400", widget.Field("width").To<string>());
+        Assert.Equal("80", widget.Image());
+        Assert.Equal("320", widget.Height());
+        Assert.Equal("400", widget.Width());
       });
     }
   }

@@ -41,14 +41,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of account in the Yandex.Money payment system which is to receive money.</para>
+    /// </summary>
+    /// <returns>Identifier of account.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>
     /// </summary>
     /// <param name="accept"><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyDonateFormWidget Cards(bool accept = true)
+    public IYandexMoneyDonateFormWidget Cards(bool accept)
     {
       this.cards = accept;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</returns>
+    public bool Cards()
+    {
+      return this.cards;
     }
 
     /// <summary>
@@ -68,14 +86,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Description of payment goal/purpose.</para>
+    /// </summary>
+    /// <returns>Description of payment purpose.</returns>
+    public string DescriptionText()
+    {
+      return this.descriptionText;
+    }
+
+    /// <summary>
     ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="ask"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyDonateFormWidget AskPayerComment(bool ask = true)
+    public IYandexMoneyDonateFormWidget AskPayerComment(bool ask)
     {
       this.askPayerComment = ask;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</returns>
+    public bool AskPayerComment()
+    {
+      return this.askPayerComment;
     }
 
     /// <summary>
@@ -94,14 +130,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Hint text for comment field.</para>
+    /// </summary>
+    /// <returns>Comment's hint.</returns>
+    public string CommentHint()
+    {
+      return this.commentHint;
+    }
+
+    /// <summary>
     ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="ask"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyDonateFormWidget AskPayerEmail(bool ask = true)
+    public IYandexMoneyDonateFormWidget AskPayerEmail(bool ask)
     {
       this.askPayerEmail = ask;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to make payer's email required, <c>false</c> to not.</returns>
+    public bool AskPayerEmail()
+    {
+      return this.askPayerEmail;
     }
 
     /// <summary>
@@ -109,10 +163,19 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="ask"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyDonateFormWidget AskPayerFullName(bool ask = true)
+    public IYandexMoneyDonateFormWidget AskPayerFullName(bool ask)
     {
       this.askPayerFullName = ask;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to make payer's full name required, <c>false</c> to not.</returns>
+    public bool AskPayerFullName()
+    {
+      return this.askPayerFullName;
     }
 
     /// <summary>
@@ -120,10 +183,19 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="ask"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyDonateFormWidget AskPayerPhone(bool ask = true)
+    public IYandexMoneyDonateFormWidget AskPayerPhone(bool ask)
     {
       this.askPayerPhone = ask;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to make payer's phone required, <c>false</c> to not.</returns>
+    public bool AskPayerPhone()
+    {
+      return this.askPayerPhone;
     }
 
     /// <summary>
@@ -142,6 +214,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Name of charitable project or program.</para>
+    /// </summary>
+    /// <returns>Name of project.</returns>
+    public string ProjectName()
+    {
+      return this.projectName;
+    }
+
+    /// <summary>
     ///   <para>URL address of charitable project or program website.</para>
     /// </summary>
     /// <param name="url">Website of project.</param>
@@ -157,14 +238,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>URL address of charitable project or program website.</para>
+    /// </summary>
+    /// <returns>Website of project.</returns>
+    public string ProjectSite()
+    {
+      return this.projectSite;
+    }
+
+    /// <summary>
     ///   <para>Whether to show description of payment goal/purpose in the form. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="show"><c>true</c> to show payment purpose text on the form, <c>false</c> to hide it.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IYandexMoneyDonateFormWidget Description(bool show = true)
+    public IYandexMoneyDonateFormWidget Description(bool show)
     {
       this.description = show;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to show description of payment goal/purpose in the form. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show payment purpose text on the form, <c>false</c> to hide it.</returns>
+    public bool Description()
+    {
+      return this.description;
     }
 
     /// <summary>
@@ -179,6 +278,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
+    /// </summary>
+    /// <returns>Payment sum.</returns>
+    public decimal? Sum()
+    {
+      return this.sum;
+    }
+
+    /// <summary>
     ///   <para>Text to display on button. Default is 1 ("Donate").</para>
     /// </summary>
     /// <param name="text">Numeric code of text to display.</param>
@@ -190,18 +298,27 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Text to display on button. Default is 1 ("Donate").</para>
+    /// </summary>
+    /// <returns>Numeric code of text to display.</returns>
+    public byte Text()
+    {
+      return this.text;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty() || this.descriptionText.IsEmpty())
+      if (this.Account().IsEmpty() || this.DescriptionText().IsEmpty())
       {
         return string.Empty;
       }
 
       int width;
-      switch ((YandexMoneyDonateFormText)this.text)
+      switch ((YandexMoneyDonateFormText)this.Text())
       {
         case YandexMoneyDonateFormText.Donate:
           width = 523;
@@ -233,12 +350,12 @@ namespace Catharsis.Web.Widgets
       }
 
       return new TagBuilder("iframe")
-        .Attribute("src", "https://money.yandex.ru/embed/donate.xml?account={0}&quickpay=donate{1}&default-sum={2}&targets={3}{4}&project-name={5}&project-site={6}&button-text=0{7}{8}{9}{10}{11}".FormatSelf(this.account, this.cards ? "&payment-type-choice=on" : string.Empty, this.sum, this.descriptionText, this.description ? "&target-visibility=on" : string.Empty, this.projectName, this.projectSite, this.text, this.askPayerComment ? "&comment=on&hint={0}".FormatSelf(this.commentHint) : string.Empty, this.askPayerFullName ? "&fio=on" : string.Empty, this.askPayerEmail ? "&mail=on" : string.Empty, this.askPayerPhone ? "&phone=on" : string.Empty))
+        .Attribute("src", "https://money.yandex.ru/embed/donate.xml?account={0}&quickpay=donate{1}&default-sum={2}&targets={3}{4}&project-name={5}&project-site={6}&button-text=0{7}{8}{9}{10}{11}".FormatSelf(this.Account(), this.Cards() ? "&payment-type-choice=on" : string.Empty, this.Sum(), this.DescriptionText(), this.Description() ? "&target-visibility=on" : string.Empty, this.ProjectName(), this.ProjectSite(), this.Text(), this.AskPayerComment() ? "&comment=on&hint={0}".FormatSelf(this.CommentHint()) : string.Empty, this.AskPayerFullName() ? "&fio=on" : string.Empty, this.AskPayerEmail() ? "&mail=on" : string.Empty, this.AskPayerPhone() ? "&phone=on" : string.Empty))
         .Attribute("frameborder", 0)
         .Attribute("allowtransparency", true)
         .Attribute("scrolling", "no")
         .Attribute("width", width)
-        .Attribute("height", this.askPayerComment ? 210 : 133)
+        .Attribute("height", this.AskPayerComment() ? 210 : 133)
         .ToString();
     }
   }

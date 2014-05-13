@@ -38,6 +38,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Background color of the button.</para>
+    /// </summary>
+    /// <returns>Button's color.</returns>
+    public string Color()
+    {
+      return this.color;
+    }
+
+    /// <summary>
     ///   <para>Position of button's pin counter.</para>
     /// </summary>
     /// <param name="position">Pin counter's position.</param>
@@ -47,6 +56,15 @@ namespace Catharsis.Web.Widgets
       this.counter = position;
 
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Position of button's pin counter.</para>
+    /// </summary>
+    /// <returns>Pin counter's position.</returns>
+    public PinterestPinItButtonPinCountPosition Counter()
+    {
+      return this.counter;
     }
 
     /// <summary>
@@ -66,6 +84,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Description of the "pinned" image.</para>
+    /// </summary>
+    /// <returns>Pin's description.</returns>
+    public string Description()
+    {
+      return this.description;
+    }
+
+    /// <summary>
     ///   <para>URL address of the "pinned" image.</para>
     /// </summary>
     /// <param name="url">Pin's image URL.</param>
@@ -79,6 +106,15 @@ namespace Catharsis.Web.Widgets
 
       this.image = url;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>URL address of the "pinned" image.</para>
+    /// </summary>
+    /// <returns>Pin's image URL.</returns>
+    public string Image()
+    {
+      return this.image;
     }
 
     /// <summary>
@@ -97,6 +133,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Language of button's label.</para>
+    /// </summary>
+    /// <returns>Button's text language.</returns>
+    public string Language()
+    {
+      return this.language;
+    }
+
+    /// <summary>
     ///   <para>Shape of the button.</para>
     /// </summary>
     /// <param name="shape">Button's shape.</param>
@@ -106,6 +151,15 @@ namespace Catharsis.Web.Widgets
       this.shape = shape;
 
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Shape of the button.</para>
+    /// </summary>
+    /// <returns>Button's shape.</returns>
+    public PinterestPinItButtonShape Shape()
+    {
+      return this.shape;
     }
 
     /// <summary>
@@ -119,6 +173,15 @@ namespace Catharsis.Web.Widgets
       this.size = size;
       
       return this;
+    }
+    
+    /// <summary>
+    ///   <para>Size of the button.</para>
+    /// </summary>
+    /// <returns>Button's size.</returns>
+    public PinterestPinItButtonSize Size()
+    {
+      return this.size;
     }
 
     /// <summary>
@@ -138,21 +201,30 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>URL address of target web page for the button.</para>
+    /// </summary>
+    /// <returns>Button's target web page.</returns>
+    public string Url()
+    {
+      return this.url;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.url.IsEmpty() || this.image.IsEmpty() || this.description.IsEmpty())
+      if (this.Url().IsEmpty() || this.Image().IsEmpty() || this.Description().IsEmpty())
       {
         return string.Empty;
       }
 
       byte height = 0;
-      switch (this.size)
+      switch (this.Size())
       {
         case PinterestPinItButtonSize.Large :
-          switch (this.shape)
+          switch (this.Shape())
           {
             case PinterestPinItButtonShape.Circular :
               height = 32;
@@ -165,7 +237,7 @@ namespace Catharsis.Web.Widgets
         break;
 
         case PinterestPinItButtonSize.Small :
-          switch (this.shape)
+          switch (this.Shape())
           {
             case PinterestPinItButtonShape.Circular:
               height = 16;
@@ -179,7 +251,7 @@ namespace Catharsis.Web.Widgets
       }
 
       string shape = string.Empty;
-      switch (this.shape)
+      switch (this.Shape())
       {
         case PinterestPinItButtonShape.Rectangular :
           shape = "rect";
@@ -191,14 +263,14 @@ namespace Catharsis.Web.Widgets
       }
 
       return new TagBuilder("a")
-        .Attribute("href", "http://www.pinterest.com/pin/create/button/?url={0}&media={1}&description={2}".FormatSelf(HttpUtility.UrlEncode(this.url), HttpUtility.UrlEncode(this.image), HttpUtility.UrlEncode(this.description)))
+        .Attribute("href", "http://www.pinterest.com/pin/create/button/?url={0}&media={1}&description={2}".FormatSelf(HttpUtility.UrlEncode(this.Url()), HttpUtility.UrlEncode(this.Image()), HttpUtility.UrlEncode(this.Description())))
         .Attribute("data-pin-do", "buttonPin")
-        .Attribute("data-pin-lang", this.shape == PinterestPinItButtonShape.Rectangular ? this.language : null)
-        .Attribute("data-pin-config", this.shape == PinterestPinItButtonShape.Rectangular ? this.counter.ToString().ToLowerInvariant() : null)
-        .Attribute("data-pin-color", this.shape == PinterestPinItButtonShape.Rectangular ? this.color : null)
+        .Attribute("data-pin-lang", this.Shape() == PinterestPinItButtonShape.Rectangular ? this.Language() : null)
+        .Attribute("data-pin-config", this.Shape() == PinterestPinItButtonShape.Rectangular ? this.Counter().ToString().ToLowerInvariant() : null)
+        .Attribute("data-pin-color", this.Shape() == PinterestPinItButtonShape.Rectangular ? this.Color() : null)
         .Attribute("data-pin-height", height)
         .Attribute("data-pin-shape", shape)
-        .InnerHtml(@"<img src=""http://assets.pinterest.com/images/pidgets/pinit_fg_{0}_{1}_{2}_{3}.png""/>".FormatSelf(this.language, shape, this.color, height))
+        .InnerHtml(@"<img src=""http://assets.pinterest.com/images/pidgets/pinit_fg_{0}_{1}_{2}_{3}.png""/>".FormatSelf(this.Language(), shape, this.Color(), height))
         .ToString();
     }
   }

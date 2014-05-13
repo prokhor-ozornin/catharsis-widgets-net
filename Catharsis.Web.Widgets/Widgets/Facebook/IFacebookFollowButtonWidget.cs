@@ -19,11 +19,23 @@ namespace Catharsis.Web.Widgets
     IFacebookFollowButtonWidget ColorScheme(string colorScheme);
 
     /// <summary>
+    ///   <para>The color scheme used by the button. Default is "light".</para>
+    /// </summary>
+    /// <returns>Color scheme of button.</returns>
+    string ColorScheme();
+
+    /// <summary>
     ///   <para>Specifies whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites.</para>
     /// </summary>
     /// <param name="show"><c>true</c> to show profiles photos, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    IFacebookFollowButtonWidget Faces(bool show = true);
+    IFacebookFollowButtonWidget Faces(bool show);
+
+    /// <summary>
+    ///   <para>Specifies whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show profiles photos, <c>false</c> to hide.</returns>
+    bool? Faces();
 
     /// <summary>
     ///   <para>The height of the button.</para>
@@ -35,11 +47,23 @@ namespace Catharsis.Web.Widgets
     IFacebookFollowButtonWidget Height(string height);
 
     /// <summary>
+    ///   <para>The height of the button.</para>
+    /// </summary>
+    /// <returns>Height of button.</returns>
+    string Height();
+
+    /// <summary>
     ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="enabled"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
     /// <returns>Reference to the current widget.</returns>
-    IFacebookFollowButtonWidget KidsMode(bool enabled = true);
+    IFacebookFollowButtonWidget KidsMode(bool enabled);
+
+    /// <summary>
+    ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    bool? KidsMode();
 
     /// <summary>
     ///   <para>Selects one of the different layouts that are available for the button. Default is "standard".</para>
@@ -49,6 +73,12 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentNullException">If <paramref name="layout"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="layout"/> is <see cref="string.Empty"/> string.</exception>
     IFacebookFollowButtonWidget Layout(string layout);
+
+    /// <summary>
+    ///   <para>Selects one of the different layouts that are available for the button. Default is "standard".</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    string Layout();
 
     /// <summary>
     ///   <para>The Facebook.com profile URL of the user to follow.</para>
@@ -61,6 +91,12 @@ namespace Catharsis.Web.Widgets
     IFacebookFollowButtonWidget Url(string url);
 
     /// <summary>
+    ///   <para>The Facebook.com profile URL of the user to follow.</para>
+    /// </summary>
+    /// <returns>Profile URL.</returns>
+    string Url();
+
+    /// <summary>
     ///   <para>The width of the button. The layout you choose affects the minimum and default widths you can use.</para>
     /// </summary>
     /// <param name="width">Width of button.</param>
@@ -68,5 +104,11 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
     IFacebookFollowButtonWidget Width(string width);
+
+    /// <summary>
+    ///   <para>The width of the button. The layout you choose affects the minimum and default widths you can use.</para>
+    /// </summary>
+    /// <returns>Width of button.</returns>
+    string Width();
   }
 }

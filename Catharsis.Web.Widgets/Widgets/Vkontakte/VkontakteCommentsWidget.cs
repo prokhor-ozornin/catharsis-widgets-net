@@ -33,6 +33,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Collection of attachment types, which are allowed in comment posts.</para>
+    /// </summary>
+    /// <returns>Allowed types of post attachments.</returns>
+    public IEnumerable<string> Attach()
+    {
+      return this.attach;
+    }
+
+    /// <summary>
     ///   <para>Maximum number of comments to display.</para>
     /// </summary>
     /// <param name="limit">Maximum number of comments.</param>
@@ -41,6 +50,15 @@ namespace Catharsis.Web.Widgets
     {
       this.limit = limit;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Maximum number of comments to display.</para>
+    /// </summary>
+    /// <returns>Maximum number of comments.</returns>
+    public byte Limit()
+    {
+      return this.limit;
     }
 
     /// <summary>
@@ -59,24 +77,36 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Horizontal width of comment area.</para>
+    /// </summary>
+    /// <returns>Width of comments widget.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      var config = new Dictionary<string, object> { { "limit", this.limit } };
-      
-      if (this.attach.Any())
+      var config = new Dictionary<string, object>
       {
-        config["attach"] = this.attach.Join(",");
+        { "limit", this.Limit() }
+      };
+      
+      if (this.Attach().Any())
+      {
+        config["attach"] = this.Attach().Join(",");
       }
       else
       {
         config["attach"] = false;
       }
-      if (!this.width.IsEmpty())
+      if (!this.Width().IsEmpty())
       {
-        config["width"] = this.width;
+        config["width"] = this.Width();
       }
 
       return new StringBuilder()

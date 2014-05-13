@@ -31,19 +31,28 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>API identifier of registered VKontakte application.</para>
+    /// </summary>
+    /// <returns>Application API ID.</returns>
+    public string ApiId()
+    {
+      return this.apiId;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.apiId.IsEmpty())
+      if (this.ApiId().IsEmpty())
       {
         return string.Empty;
       }
 
       return new TagBuilder("script")
         .Attribute("type", "text/javascript")
-        .InnerHtml("VK.init({{apiId:{0}, onlyWidgets:true}});".FormatSelf(this.apiId))
+        .InnerHtml("VK.init({{apiId:{0}, onlyWidgets:true}});".FormatSelf(this.ApiId()))
         .ToString();
     }
   }

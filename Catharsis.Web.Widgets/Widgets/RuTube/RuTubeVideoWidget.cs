@@ -30,6 +30,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of video.</para>
+    /// </summary>
+    /// <returns>Identifier of video.</returns>
+    public string Id()
+    {
+      return this.id;
+    }
+
+    /// <summary>
     ///   <para>Height of video control.</para>
     /// </summary>
     /// <param name="height">Height of video.</param>
@@ -43,6 +52,15 @@ namespace Catharsis.Web.Widgets
 
       this.height = height;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Height of video control.</para>
+    /// </summary>
+    /// <returns>Height of video.</returns>
+    public string Height()
+    {
+      return this.height;
     }
 
     /// <summary>
@@ -62,12 +80,21 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Width of video control.</para>
+    /// </summary>
+    /// <returns>Width of video.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.id.IsEmpty() || this.height.IsEmpty() || this.width.IsEmpty())
+      if (this.Id().IsEmpty() || this.Height().IsEmpty() || this.Width().IsEmpty())
       {
         return string.Empty;
       }
@@ -78,9 +105,9 @@ namespace Catharsis.Web.Widgets
         .Attribute("webkitallowfullscreen", true)
         .Attribute("mozallowfullscreen", true)
         .Attribute("scrolling", "no")
-        .Attribute("height", this.height)
-        .Attribute("width", this.width)
-        .Attribute("src", "http://rutube.ru/embed/{0}".FormatSelf(id))
+        .Attribute("height", this.Height())
+        .Attribute("width", this.Width())
+        .Attribute("src", "http://rutube.ru/embed/{0}".FormatSelf(this.Id()))
         .ToString();
     }
   }

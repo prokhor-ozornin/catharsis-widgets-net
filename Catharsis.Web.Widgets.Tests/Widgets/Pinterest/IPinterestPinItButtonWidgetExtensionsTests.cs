@@ -21,7 +21,7 @@ namespace Catharsis.Web.Widgets
       new PinterestPinItButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Gray(), widget));
-        Assert.Equal("gray", widget.Field("color").To<string>());
+        Assert.Equal("gray", widget.Color());
       });
     }
 
@@ -37,7 +37,7 @@ namespace Catharsis.Web.Widgets
       new PinterestPinItButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
-        Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Field("language").To<string>());
+        Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Language());
       });
     }
 
@@ -52,7 +52,7 @@ namespace Catharsis.Web.Widgets
       new PinterestPinItButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Red(), widget));
-        Assert.Equal("red", widget.Field("color").To<string>());
+        Assert.Equal("red", widget.Color());
       });
     }
 
@@ -67,7 +67,7 @@ namespace Catharsis.Web.Widgets
       new PinterestPinItButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.White(), widget));
-        Assert.Equal("white", widget.Field("color").To<string>());
+        Assert.Equal("white", widget.Color());
       });
     }
   }

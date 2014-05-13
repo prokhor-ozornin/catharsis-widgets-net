@@ -20,7 +20,7 @@ namespace Catharsis.Web.Widgets
       new YandexMoneyDonateFormWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Sum(1.0), widget));
-        Assert.Equal((decimal)1.0, widget.Field("sum").To<decimal>());
+        Assert.Equal((decimal)1.0, widget.Sum());
       });
     }
 
@@ -35,12 +35,12 @@ namespace Catharsis.Web.Widgets
       new YandexMoneyDonateFormWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Text(YandexMoneyDonateFormText.Donate), widget));
-        Assert.Equal(1, widget.Field("text").To<byte>());
+        Assert.Equal(1, widget.Text());
       });
-      new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(2, widget.Text(YandexMoneyDonateFormText.Give).Field("text").To<byte>()));
-      new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(3, widget.Text(YandexMoneyDonateFormText.Transfer).Field("text").To<byte>()));
-      new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(4, widget.Text(YandexMoneyDonateFormText.Send).Field("text").To<byte>()));
-      new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(5, widget.Text(YandexMoneyDonateFormText.Support).Field("text").To<byte>()));
+      new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(2, widget.Text(YandexMoneyDonateFormText.Give).Text()));
+      new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(3, widget.Text(YandexMoneyDonateFormText.Transfer).Text()));
+      new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(4, widget.Text(YandexMoneyDonateFormText.Send).Text()));
+      new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(5, widget.Text(YandexMoneyDonateFormText.Support).Text()));
     }
   }
 }

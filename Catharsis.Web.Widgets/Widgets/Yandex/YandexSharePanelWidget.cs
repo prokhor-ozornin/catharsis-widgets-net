@@ -34,6 +34,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Button's interface language.</para>
+    /// </summary>
+    /// <returns>Interface language.</returns>
+    public string Language()
+    {
+      return this.language;
+    }
+
+    /// <summary>
     ///   <para>Visual layout/appearance of the button.</para>
     /// </summary>
     /// <param name="layout">Layout of button.</param>
@@ -46,6 +55,15 @@ namespace Catharsis.Web.Widgets
       
       this.layout = layout;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Visual layout/appearance of the button.</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    public string Layout()
+    {
+      return this.layout;
     }
 
     /// <summary>
@@ -63,15 +81,24 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>List of included social services. Valid names include : [yaru, vkontakte, facebook, twitter, odnoklassniki ,moimir, lj, friendfeed, moikrug, gplus, pinterest, surfingbird].</para>
+    /// </summary>
+    /// <returns>List of social services for which to render buttons.</returns>
+    public IEnumerable<string> Services()
+    {
+      return this.services;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
       return new TagBuilder("div")
-        .Attribute("data-yashareL10n", this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
-        .Attribute("data-yashareType", this.layout)
-        .Attribute("data-yashareQuickServices", this.services.Join(","))
+        .Attribute("data-yashareL10n", this.Language() ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
+        .Attribute("data-yashareType", this.Layout())
+        .Attribute("data-yashareQuickServices", this.Services().Join(","))
         .CssClass("yashare-auto-init")
         .ToString();
     }

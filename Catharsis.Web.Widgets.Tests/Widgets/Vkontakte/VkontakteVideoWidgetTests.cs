@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,12 +16,12 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VkontakteVideoWidget();
-      Assert.Null(widget.Field("id"));
-      Assert.Null(widget.Field("width"));
-      Assert.Null(widget.Field("height"));
-      Assert.False(widget.Field("hd").To<bool>());
-      Assert.Null(widget.Field("user"));
-      Assert.Null(widget.Field("hash"));
+      Assert.Null(widget.Id());
+      Assert.Null(widget.Width());
+      Assert.Null(widget.Height());
+      Assert.False(widget.Hd());
+      Assert.Null(widget.User());
+      Assert.Null(widget.Hash());
     }
 
     /// <summary>
@@ -35,9 +34,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Id(string.Empty));
 
       var widget = new VkontakteVideoWidget();
-      Assert.Null(widget.Field("id"));
+      Assert.Null(widget.Id());
       Assert.True(ReferenceEquals(widget.Id("id"), widget));
-      Assert.Equal("id", widget.Field("id").To<string>());
+      Assert.Equal("id", widget.Id());
     }
 
     /// <summary>
@@ -50,9 +49,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Width(string.Empty));
 
       var widget = new VkontakteVideoWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>
@@ -65,9 +64,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Height(string.Empty));
 
       var widget = new VkontakteVideoWidget();
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Height());
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
+      Assert.Equal("height", widget.Height());
     }
 
     /// <summary>
@@ -77,9 +76,9 @@ namespace Catharsis.Web.Widgets
     public void Hd_Method()
     {
       var widget = new VkontakteVideoWidget();
-      Assert.False(widget.Field("hd").To<bool>());
-      Assert.True(ReferenceEquals(widget.Hd(), widget));
-      Assert.True(widget.Field("hd").To<bool>());
+      Assert.False(widget.Hd());
+      Assert.True(ReferenceEquals(widget.Hd(true), widget));
+      Assert.True(widget.Hd());
     }
 
     /// <summary>
@@ -92,9 +91,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().User(string.Empty));
 
       var widget = new VkontakteVideoWidget();
-      Assert.Null(widget.Field("user"));
+      Assert.Null(widget.User());
       Assert.True(ReferenceEquals(widget.User("user"), widget));
-      Assert.Equal("user", widget.Field("user").To<string>());
+      Assert.Equal("user", widget.User());
     }
 
     /// <summary>
@@ -107,9 +106,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Hash(string.Empty));
 
       var widget = new VkontakteVideoWidget();
-      Assert.Null(widget.Field("hash"));
+      Assert.Null(widget.Hash());
       Assert.True(ReferenceEquals(widget.Hash("hash"), widget));
-      Assert.Equal("hash", widget.Field("hash").To<string>());
+      Assert.Equal("hash", widget.Hash());
     }
 
     /// <summary>
@@ -126,7 +125,7 @@ namespace Catharsis.Web.Widgets
       Assert.Equal(string.Empty, new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").ToString());
 
       Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=0"" webkitallowfullscreen=""true"" width=""width""></iframe>", new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").ToString());
-      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=1"" webkitallowfullscreen=""true"" width=""width""></iframe>", new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").Hd().ToString());
+      Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=1"" webkitallowfullscreen=""true"" width=""width""></iframe>", new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").Hd(true).ToString());
     }
   }
 }

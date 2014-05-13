@@ -15,5 +15,11 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentNullException">If <paramref name="user"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="user"/> is <see cref="string.Empty"/> string.</exception>
     IYandexVideoWidget User(string user);
+
+    /// <summary>
+    ///   <para>Account identifier of video's uploader.</para>
+    /// </summary>
+    /// <returns>User's account identifier.</returns>
+    string User();
   }
 }

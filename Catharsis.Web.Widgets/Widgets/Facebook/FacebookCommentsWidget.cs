@@ -34,14 +34,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The color scheme used by the widget.</para>
+    /// </summary>
+    /// <returns>Color scheme of widget.</returns>
+    public string ColorScheme()
+    {
+      return this.colorScheme;
+    }
+
+    /// <summary>
     ///   <para>A boolean value that specifies whether to show the mobile-optimized version or not. If not specified, auto-detection is used.</para>
     /// </summary>
     /// <param name="mobile"><c>true</c> to use mobile-optimized version, <c>false</c> otherwise.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookCommentsWidget Mobile(bool mobile = true)
+    public IFacebookCommentsWidget Mobile(bool mobile)
     {
       this.mobile = mobile;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>A boolean value that specifies whether to show the mobile-optimized version or not. If not specified, auto-detection is used.</para>
+    /// </summary>
+    /// <returns><c>true</c> to use mobile-optimized version, <c>false</c> otherwise.</returns>
+    public bool? Mobile()
+    {
+      return this.mobile;
     }
 
     /// <summary>
@@ -60,6 +78,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The order to use when displaying comments.</para>
+    /// </summary>
+    /// <returns>Order of comments.</returns>
+    public string Order()
+    {
+      return this.order;
+    }
+
+    /// <summary>
     ///   <para>The number of comments to show by default. The minimum value is 1. Default is 10.</para>
     /// </summary>
     /// <param name="posts">Number of comments to show.</param>
@@ -68,6 +95,15 @@ namespace Catharsis.Web.Widgets
     {
       this.posts = posts;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>The number of comments to show by default. The minimum value is 1. Default is 10.</para>
+    /// </summary>
+    /// <returns>Number of comments to show.</returns>
+    public byte? Posts()
+    {
+      return this.posts;
     }
 
     /// <summary>
@@ -86,6 +122,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The absolute URL that comments posted in the widget will be permanently associated with. Stories on Facebook about comments posted in the plugin will link to this URL. Default is current page URL.</para>
+    /// </summary>
+    /// <returns>URL of the page for comments.</returns>
+    public string Url()
+    {
+      return this.url;
+    }
+
+    /// <summary>
     ///   <para>The width of the widget. The mobile version of the Comments widget ignores the width parameter, and instead has a fluid width of 100%.</para>
     /// </summary>
     /// <param name="width">Width of widget.</param>
@@ -101,18 +146,27 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The width of the widget. The mobile version of the Comments widget ignores the width parameter, and instead has a fluid width of 100%.</para>
+    /// </summary>
+    /// <returns>Width of widget.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
       return new TagBuilder("div")
-        .Attribute("data-href", this.url)
-        .Attribute("data-num-posts", this.posts)
-        .Attribute("data-width", this.width)
-        .Attribute("data-colorscheme", this.colorScheme)
-        .Attribute("data-mobile", this.mobile)
-        .Attribute("data-order-by", this.order)
+        .Attribute("data-href", this.Url())
+        .Attribute("data-num-posts", this.Posts())
+        .Attribute("data-width", this.Width())
+        .Attribute("data-colorscheme", this.ColorScheme())
+        .Attribute("data-mobile", this.Mobile())
+        .Attribute("data-order-by", this.Order())
         .CssClass("fb-comments")
         .ToString();
     }

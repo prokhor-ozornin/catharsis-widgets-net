@@ -1,22 +1,22 @@
 namespace Catharsis.Web.Widgets
 {
   /// <summary>
-  ///   <para></para>
+  ///   <para>Visual appearance (layout) of Facebook buttons.</para>
   /// </summary>
   public enum FacebookButtonLayout
   {
     /// <summary>
-    ///   <para></para>
+    ///   <para>Box with a counter.</para>
     /// </summary>
     BoxCount,
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Button with a counter.</para>
     /// </summary>
     ButtonCount,
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Standard.</para>
     /// </summary>
     Standard
   }

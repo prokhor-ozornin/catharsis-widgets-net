@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,17 +16,17 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("backgroundColor"));
-      Assert.Null(widget.Field("borderColor"));
-      Assert.Null(widget.Field("domain"));
-      Assert.Equal(MailRuFacesFont.Arial.ToString(), widget.Field("font").To<string>());
-      Assert.Null(widget.Field("height"));
-      Assert.Null(widget.Field("hyperlinkColor"));
-      Assert.Null(widget.Field("textColor"));
-      Assert.True(widget.Field("title").To<bool>());
-      Assert.Null(widget.Field("titleColor"));
-      Assert.Null(widget.Field("titleText"));
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.BackgroundColor());
+      Assert.Null(widget.BorderColor());
+      Assert.Null(widget.Domain());
+      Assert.Equal(MailRuFacesFont.Arial.ToString(), widget.Font());
+      Assert.Null(widget.Height());
+      Assert.Null(widget.HyperlinkColor());
+      Assert.Null(widget.TextColor());
+      Assert.True(widget.Title());
+      Assert.Null(widget.TitleColor());
+      Assert.Null(widget.TitleText());
+      Assert.Null(widget.Width());
     }
 
     /// <summary>
@@ -40,9 +39,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().BackgroundColor(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("backgroundColor"));
+      Assert.Null(widget.BackgroundColor());
       Assert.True(ReferenceEquals(widget.BackgroundColor("backgroundColor"), widget));
-      Assert.Equal("backgroundColor", widget.Field("backgroundColor").To<string>());
+      Assert.Equal("backgroundColor", widget.BackgroundColor());
     }
 
     /// <summary>
@@ -55,9 +54,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().BorderColor(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("borderColor"));
+      Assert.Null(widget.BorderColor());
       Assert.True(ReferenceEquals(widget.BorderColor("borderColor"), widget));
-      Assert.Equal("borderColor", widget.Field("borderColor").To<string>());
+      Assert.Equal("borderColor", widget.BorderColor());
     }
 
     /// <summary>
@@ -70,9 +69,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().Domain(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("domain"));
+      Assert.Null(widget.Domain());
       Assert.True(ReferenceEquals(widget.Domain("domain"), widget));
-      Assert.Equal("domain", widget.Field("domain").To<string>());
+      Assert.Equal("domain", widget.Domain());
     }
 
     /// <summary>
@@ -85,9 +84,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().Font(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Equal(MailRuFacesFont.Arial.ToString(), widget.Field("font").To<string>());
+      Assert.Equal(MailRuFacesFont.Arial.ToString(), widget.Font());
       Assert.True(ReferenceEquals(widget.Font("font"), widget));
-      Assert.Equal("font", widget.Field("font").To<string>());
+      Assert.Equal("font", widget.Font());
     }
 
     /// <summary>
@@ -100,9 +99,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().Height(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Height());
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
+      Assert.Equal("height", widget.Height());
     }
 
     /// <summary>
@@ -115,9 +114,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().HyperlinkColor(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("hyperlinkColor"));
+      Assert.Null(widget.HyperlinkColor());
       Assert.True(ReferenceEquals(widget.HyperlinkColor("hyperlinkColor"), widget));
-      Assert.Equal("hyperlinkColor", widget.Field("hyperlinkColor").To<string>());
+      Assert.Equal("hyperlinkColor", widget.HyperlinkColor());
     }
 
     /// <summary>
@@ -130,9 +129,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().TextColor(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("textColor"));
+      Assert.Null(widget.TextColor());
       Assert.True(ReferenceEquals(widget.TextColor("textColor"), widget));
-      Assert.Equal("textColor", widget.Field("textColor").To<string>());
+      Assert.Equal("textColor", widget.TextColor());
     }
 
     /// <summary>
@@ -142,9 +141,9 @@ namespace Catharsis.Web.Widgets
     public void Title_Method()
     {
       var widget = new MailRuFacesWidget();
-      Assert.True(widget.Field("title").To<bool>());
+      Assert.True(widget.Title());
       Assert.True(ReferenceEquals(widget.Title(false), widget));
-      Assert.False(widget.Field("title").To<bool>());
+      Assert.False(widget.Title());
     }
 
     /// <summary>
@@ -157,9 +156,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().TitleColor(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("titleColor"));
+      Assert.Null(widget.TitleColor());
       Assert.True(ReferenceEquals(widget.TitleColor("titleColor"), widget));
-      Assert.Equal("titleColor", widget.Field("titleColor").To<string>());
+      Assert.Equal("titleColor", widget.TitleColor());
     }
     
     /// <summary>
@@ -172,9 +171,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().TitleText(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("titleText"));
+      Assert.Null(widget.TitleText());
       Assert.True(ReferenceEquals(widget.TitleText("titleText"), widget));
-      Assert.Equal("titleText", widget.Field("titleText").To<string>());
+      Assert.Equal("titleText", widget.TitleText());
     }
 
     /// <summary>
@@ -187,9 +186,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().Width(string.Empty));
 
       var widget = new MailRuFacesWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>

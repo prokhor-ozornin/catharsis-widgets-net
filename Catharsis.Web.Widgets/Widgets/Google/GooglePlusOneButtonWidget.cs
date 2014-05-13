@@ -36,6 +36,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Horizontal alignment of the button assets within its frame.</para>
+    /// </summary>
+    /// <returns>Horizontal alignment of the button.</returns>
+    public string Alignment()
+    {
+      return this.alignment;
+    }
+
+    /// <summary>
     ///   <para>Annotation to display next to the button.</para>
     /// </summary>
     /// <param name="annotation">Annotation for the button.</param>
@@ -48,6 +57,15 @@ namespace Catharsis.Web.Widgets
 
       this.annotation = annotation;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Annotation to display next to the button.</para>
+    /// </summary>
+    /// <returns>Annotation for the button.</returns>
+    public string Annotation()
+    {
+      return this.annotation;
     }
 
     /// <summary>
@@ -66,14 +84,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Callback JavaScript function that is called after the user clicks the +1 button.</para>
+    /// </summary>
+    /// <returns>Callback JavaScript function.</returns>
+    public string Callback()
+    {
+      return this.callback;
+    }
+
+    /// <summary>
     ///   <para>Whether to show recommendations within the +1 hover bubble. Default is <c>true</c>.</para>
     /// </summary>
     /// <param name="show"><c>true</c> to show recommendations, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IGooglePlusOneButtonWidget Recommendations(bool show = true)
+    public IGooglePlusOneButtonWidget Recommendations(bool show)
     {
       this.recommendations = show;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to show recommendations within the +1 hover bubble. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show recommendations, <c>false</c> to hide.</returns>
+    public bool? Recommendations()
+    {
+      return this.recommendations;
     }
 
     /// <summary>
@@ -92,6 +128,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Size of the button.</para>
+    /// </summary>
+    /// <returns>Size of the button.</returns>
+    public string Size()
+    {
+      return this.size;
+    }
+
+    /// <summary>
     ///   <para>URL for the button. Default is current page's URL.</para>
     /// </summary>
     /// <param name="url">URL for the button.</param>
@@ -104,6 +149,15 @@ namespace Catharsis.Web.Widgets
 
       this.url = url;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>URL for the button. Default is current page's URL.</para>
+    /// </summary>
+    /// <returns>URL for the button.</returns>
+    public string Url()
+    {
+      return this.url;
     }
 
     /// <summary>
@@ -122,19 +176,28 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>If annotation is set to "inline", this parameter sets the width in pixels to use for the button and its inline annotation. If the width is omitted, a button and its inline annotation use 450px.</para>
+    /// </summary>
+    /// <returns>Width of the button.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
       return new TagBuilder("g:plusone")
-        .Attribute("href", this.url)
-        .Attribute("size", this.size)
-        .Attribute("annotation", this.annotation)
-        .Attribute("width", this.width)
-        .Attribute("align", this.alignment)
-        .Attribute("data-callback", this.callback)
-        .Attribute("data-recommendations", this.recommendations)
+        .Attribute("href", this.Url())
+        .Attribute("size", this.Size())
+        .Attribute("annotation", this.Annotation())
+        .Attribute("width", this.Width())
+        .Attribute("align", this.Alignment())
+        .Attribute("data-callback", this.Callback())
+        .Attribute("data-recommendations", this.Recommendations())
         .ToString();
     }
   }

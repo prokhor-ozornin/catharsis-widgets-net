@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,8 +16,8 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new GoogleAnalyticsWidget();
-      Assert.Null(widget.Field("account"));
-      Assert.Null(widget.Field("domain"));
+      Assert.Null(widget.Account());
+      Assert.Null(widget.Domain());
     }
 
     /// <summary>
@@ -31,9 +30,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GoogleAnalyticsWidget().Account(string.Empty));
 
       var widget = new GoogleAnalyticsWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -46,9 +45,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GoogleAnalyticsWidget().Domain(string.Empty));
 
       var widget = new GoogleAnalyticsWidget();
-      Assert.Null(widget.Field("domain"));
+      Assert.Null(widget.Domain());
       Assert.True(ReferenceEquals(widget.Domain("domain"), widget));
-      Assert.Equal("domain", widget.Field("domain").To<string>());
+      Assert.Equal("domain", widget.Domain());
     }
 
     /// <summary>

@@ -18,6 +18,12 @@ namespace Catharsis.Web.Widgets
     ILiveJournalRepostButtonWidget Text(string text);
 
     /// <summary>
+    ///   <para>Text fragment to be reposted.</para>
+    /// </summary>
+    /// <returns>Text fragment.</returns>
+    string Text();
+
+    /// <summary>
     ///   <para>Label text to display on the button.</para>
     /// </summary>
     /// <param name="title">Button's label text.</param>
@@ -25,5 +31,11 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
     ILiveJournalRepostButtonWidget Title(string title);
+
+    /// <summary>
+    ///   <para>Label text to display on the button.</para>
+    /// </summary>
+    /// <returns>Button's label text.</returns>
+    string Title();
   }
 } 

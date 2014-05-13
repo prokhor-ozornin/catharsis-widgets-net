@@ -31,6 +31,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Name of Tumblr account (blog).</para>
+    /// </summary>
+    /// <returns>Name of blog.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Visual color scheme of button.</para>
     /// </summary>
     /// <param name="scheme">Color scheme for button.</param>
@@ -46,6 +55,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Visual color scheme of button.</para>
+    /// </summary>
+    /// <returns>Color scheme for button.</returns>
+    public string ColorScheme()
+    {
+      return this.colorScheme;
+    }
+
+    /// <summary>
     ///   <para>Visual layout/appearance of button.</para>
     /// </summary>
     /// <param name="type">Layout of button.</param>
@@ -57,18 +75,27 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Visual layout/appearance of button.</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    public byte Type()
+    {
+      return this.type;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty())
+      if (this.Account().IsEmpty())
       {
         return string.Empty;
       }
 
       byte width = 189;
-      switch ((TumblrFollowButtonType)this.type)
+      switch ((TumblrFollowButtonType)this.Type())
       {
         case TumblrFollowButtonType.Second:
           width = 113;
@@ -82,7 +109,7 @@ namespace Catharsis.Web.Widgets
       return new TagBuilder("iframe")
         .Attribute("border", 0)
         .Attribute("allowtransparency", true)
-        .Attribute("src", "http://platform.tumblr.com/v1/follow_button.html?button_type={1}&tumblelog={0}&color_scheme={2}".FormatSelf(this.account, this.type, this.colorScheme))
+        .Attribute("src", "http://platform.tumblr.com/v1/follow_button.html?button_type={1}&tumblelog={0}&color_scheme={2}".FormatSelf(this.Account(), this.Type(), this.ColorScheme()))
         .Attribute("frameborder", 0)
         .Attribute("height", 25)
         .Attribute("scrolling", "no")

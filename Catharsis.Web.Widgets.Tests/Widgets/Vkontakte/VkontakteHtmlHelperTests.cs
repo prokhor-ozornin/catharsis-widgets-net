@@ -11,6 +11,16 @@ namespace Catharsis.Web.Widgets
     private readonly HtmlHelper html = new MockHtmlHelper();
 
     /// <summary>
+    ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.AuthButton()"/> method.</para>
+    /// </summary>
+    /*[Fact]
+    public void AuthButton_Method()
+    {
+      Assert.False(ReferenceEquals(this.html.Vkontakte().AuthButton(), this.html.Vkontakte().AuthButton()));
+      Assert.True(this.html.Vkontakte().AuthButton() is VkontakteAuthButtonWidget);
+    }*/
+
+    /// <summary>
     ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Video()"/> method.</para>
     /// </summary>
     [Fact]
@@ -59,6 +69,46 @@ namespace Catharsis.Web.Widgets
       Assert.False(ReferenceEquals(this.html.Vkontakte().LikeButton(), this.html.Vkontakte().LikeButton()));
       Assert.True(this.html.Vkontakte().LikeButton() is VkontakteLikeButtonWidget);
     }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Poll()"/> method.</para>
+    /// </summary>
+    /*[Fact]
+    public void Poll_Method()
+    {
+      Assert.False(ReferenceEquals(this.html.Vkontakte().Poll(), this.html.Vkontakte().Poll()));
+      Assert.True(this.html.Vkontakte().Poll() is VkontaktePollWidget);
+    }*/
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Post()"/> method.</para>
+    /// </summary>
+    /*[Fact]
+    public void Post_Method()
+    {
+      Assert.False(ReferenceEquals(this.html.Vkontakte().Post(), this.html.Vkontakte().Post()));
+      Assert.True(this.html.Vkontakte().Post() is VkontaktePostWidget);
+    }*/
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Recommendations()"/> method.</para>
+    /// </summary>
+    /*[Fact]
+    public void Recommendations_Method()
+    {
+      Assert.False(ReferenceEquals(this.html.Vkontakte().Recommendations(), this.html.Vkontakte().Recommendations()));
+      Assert.True(this.html.Vkontakte().Recommendations() is VkontakteRecommendationsWidget);
+    }*/
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.ShareButton()"/> method.</para>
+    /// </summary>
+    /*[Fact]
+    public void ShareButton_Method()
+    {
+      Assert.False(ReferenceEquals(this.html.Vkontakte().ShareButton(), this.html.Vkontakte().ShareButton()));
+      Assert.True(this.html.Vkontakte().ShareButton() is VkontakteShareButtonWidget);
+    }*/
 
     /// <summary>
     ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Subscription()"/> method.</para>

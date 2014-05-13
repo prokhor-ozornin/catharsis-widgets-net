@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,9 +16,9 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new TumblrFollowButtonWidget();
-      Assert.Null(widget.Field("account"));
-      Assert.Equal(TumblrFollowButtonType.First, widget.Field("type").To<TumblrFollowButtonType>());
-      Assert.Equal(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant(), widget.Field("colorScheme").To<string>());
+      Assert.Null(widget.Account());
+      Assert.Equal((byte) TumblrFollowButtonType.First, widget.Type());
+      Assert.Equal(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant(), widget.ColorScheme());
     }
 
     /// <summary>
@@ -32,9 +31,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TumblrFollowButtonWidget().Account(string.Empty));
 
       var widget = new TumblrFollowButtonWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -44,9 +43,9 @@ namespace Catharsis.Web.Widgets
     public void Type_Method()
     {
       var widget = new TumblrFollowButtonWidget();
-      Assert.Equal((byte)TumblrFollowButtonType.First, widget.Field("type").To<byte>());
+      Assert.Equal((byte)TumblrFollowButtonType.First, widget.Type());
       Assert.True(ReferenceEquals(widget.Type(1), widget));
-      Assert.Equal(1, widget.Field("type").To<byte>());
+      Assert.Equal(1, widget.Type());
     }
 
     /// <summary>
@@ -59,9 +58,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TumblrFollowButtonWidget().ColorScheme(string.Empty));
 
       var widget = new TumblrFollowButtonWidget();
-      Assert.Equal(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant(), widget.Field("colorScheme").To<string>());
+      Assert.Equal(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant(), widget.ColorScheme());
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
+      Assert.Equal("colorScheme", widget.ColorScheme());
     }
 
     /// <summary>

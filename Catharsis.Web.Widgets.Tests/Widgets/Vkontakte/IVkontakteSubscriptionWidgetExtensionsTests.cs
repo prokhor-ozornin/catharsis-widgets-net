@@ -20,9 +20,9 @@ namespace Catharsis.Web.Widgets
       new VkontakteSubscriptionWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Layout(VkontakteSubscribeButtonLayout.First), widget));
-        Assert.Equal(1, widget.Field("layout").To<byte>());
+        Assert.Equal(1, widget.Layout());
       });
-      new VkontakteSubscriptionWidget().With(widget => Assert.Equal(2, widget.Layout(VkontakteSubscribeButtonLayout.Second).Field("layout").To<byte>()));
+      new VkontakteSubscriptionWidget().With(widget => Assert.Equal(2, widget.Layout(VkontakteSubscribeButtonLayout.Second).Layout()));
     }
   }
 }

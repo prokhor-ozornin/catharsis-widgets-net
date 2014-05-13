@@ -31,6 +31,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of video.</para>
+    /// </summary>
+    /// <returns>Identifier of video.</returns>
+    public string Id()
+    {
+      return this.id;
+    }
+
+    /// <summary>
     ///   <para>Height of video control.</para>
     /// </summary>
     /// <param name="height">Height of video.</param>
@@ -47,6 +56,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Height of video control.</para>
+    /// </summary>
+    /// <returns>Height of video.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>Account identifier of video's uploader.</para>
     /// </summary>
     /// <param name="user">User's account identifier.</param>
@@ -59,6 +77,15 @@ namespace Catharsis.Web.Widgets
 
       this.user = user;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Account identifier of video's uploader.</para>
+    /// </summary>
+    /// <returns>User's account identifier.</returns>
+    public string User()
+    {
+      return this.user;
     }
 
     /// <summary>
@@ -78,20 +105,29 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Width of video control.</para>
+    /// </summary>
+    /// <returns>Width of video.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.id.IsEmpty() || this.user.IsEmpty() || this.height.IsEmpty() || this.width.IsEmpty())
+      if (this.Id().IsEmpty() || this.User().IsEmpty() || this.Height().IsEmpty() || this.Width().IsEmpty())
       {
         return string.Empty;
       }
 
       return new TagBuilder("iframe")
-        .Attribute("src", "http://video.yandex.ru/iframe/{1}/{0}".FormatSelf(this.id, this.user))
-        .Attribute("width", this.width)
-        .Attribute("height", this.height)
+        .Attribute("src", "http://video.yandex.ru/iframe/{1}/{0}".FormatSelf(this.Id(), this.User()))
+        .Attribute("width", this.Width())
+        .Attribute("height", this.Height())
         .Attribute("frameborder", 0)
         .Attribute("allowfullscreen", true)
         .Attribute("webkitallowfullscreen", true)

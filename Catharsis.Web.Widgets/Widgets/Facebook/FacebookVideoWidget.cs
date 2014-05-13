@@ -30,6 +30,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of video.</para>
+    /// </summary>
+    /// <returns>Identifier of video.</returns>
+    public string Id()
+    {
+      return this.id;
+    }
+
+    /// <summary>
     ///   <para>Height of video control.</para>
     /// </summary>
     /// <param name="height">Height of video.</param>
@@ -43,6 +52,15 @@ namespace Catharsis.Web.Widgets
 
       this.height = height;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Height of video control.</para>
+    /// </summary>
+    /// <returns>Height of video.</returns>
+    public string Height()
+    {
+      return this.height;
     }
 
     /// <summary>
@@ -62,20 +80,29 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Width of video control.</para>
+    /// </summary>
+    /// <returns>Width of video.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.id.IsEmpty() || this.width.IsEmpty() || this.height.IsEmpty())
+      if (this.Id().IsEmpty() || this.Width().IsEmpty() || this.Height().IsEmpty())
       {
         return string.Empty;
       }
 
       return new TagBuilder("iframe")
         .Attribute("src", "http://www.facebook.com/video/embed?video_id={0}".FormatSelf(id))
-        .Attribute("width", this.width)
-        .Attribute("height", this.height)
+        .Attribute("width", this.Width())
+        .Attribute("height", this.Height())
         .Attribute("frameborder", 0)
         .Attribute("allowfullscreen", true)
         .Attribute("webkitallowfullscreen", true)

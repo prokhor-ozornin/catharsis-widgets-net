@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Catharsis.Commons;
@@ -24,7 +23,7 @@ namespace Catharsis.Web.Widgets
       new TwitterTweetButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
-        Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Field("language").To<string>());
+        Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Language());
       });
     }
 
@@ -39,8 +38,8 @@ namespace Catharsis.Web.Widgets
       new TwitterTweetButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Size(TwitterTweetButtonSize.Large), widget));
-        Assert.Equal("large", widget.Field("size").To<string>());
-        Assert.Equal("medium", widget.Size(TwitterTweetButtonSize.Medium).Field("size").To<string>());
+        Assert.Equal("large", widget.Size());
+        Assert.Equal("medium", widget.Size(TwitterTweetButtonSize.Medium).Size());
       });
     }
 
@@ -55,9 +54,9 @@ namespace Catharsis.Web.Widgets
       new TwitterTweetButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.CounterPosition(TwitterTweetButtonCountBoxPosition.Horizontal), widget));
-        Assert.Equal("horizontal", widget.Field("counterPosition").To<string>());
-        Assert.Equal("none", widget.CounterPosition(TwitterTweetButtonCountBoxPosition.None).Field("counterPosition").To<string>());
-        Assert.Equal("vertical", widget.CounterPosition(TwitterTweetButtonCountBoxPosition.Vertical).Field("counterPosition").To<string>());
+        Assert.Equal("horizontal", widget.CounterPosition());
+        Assert.Equal("none", widget.CounterPosition(TwitterTweetButtonCountBoxPosition.None).CounterPosition());
+        Assert.Equal("vertical", widget.CounterPosition(TwitterTweetButtonCountBoxPosition.Vertical).CounterPosition());
       });
     }
 
@@ -73,8 +72,8 @@ namespace Catharsis.Web.Widgets
       new TwitterTweetButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.HashTags(Enumerable.Empty<string>().ToArray()), widget));
-        Assert.False(widget.Field("tags").To<IEnumerable<string>>().Any());
-        Assert.True(widget.HashTags(new[] { "first", "second" }).Field("tags").To<IEnumerable<string>>().SequenceEqual(new[] { "first", "second" }));
+        Assert.False(widget.HashTags().Any());
+        Assert.True(widget.HashTags(new[] { "first", "second" }).HashTags().SequenceEqual(new[] { "first", "second" }));
       });
     }
 
@@ -90,8 +89,8 @@ namespace Catharsis.Web.Widgets
       new TwitterTweetButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.RelatedAccounts(Enumerable.Empty<string>().ToArray()), widget));
-        Assert.False(widget.Field("accounts").To<IEnumerable<string>>().Any());
-        Assert.True(widget.RelatedAccounts(new[] { "first", "second" }).Field("accounts").To<IEnumerable<string>>().SequenceEqual(new[] { "first", "second" }));
+        Assert.False(widget.RelatedAccounts().Any());
+        Assert.True(widget.RelatedAccounts(new[] { "first", "second" }).RelatedAccounts().SequenceEqual(new[] { "first", "second" }));
       });
     }
   }

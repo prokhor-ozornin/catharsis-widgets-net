@@ -31,6 +31,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Format in which to retrieve profile's data.</para>
+    /// </summary>
+    /// <returns>Profile's data format.</returns>
+    public string Format()
+    {
+      return this.format;
+    }
+
+    /// <summary>
     ///   <para>MD5 hash of user's email address.</para>
     /// </summary>
     /// <param name="hash">Hash of user's email.</param>
@@ -44,6 +53,15 @@ namespace Catharsis.Web.Widgets
 
       this.hash = hash;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>MD5 hash of user's email address.</para>
+    /// </summary>
+    /// <returns>Hash of user's email.</returns>
+    public string Hash()
+    {
+      return this.hash;
     }
 
     /// <summary>
@@ -69,12 +87,12 @@ namespace Catharsis.Web.Widgets
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.hash.IsEmpty())
+      if (this.Hash().IsEmpty())
       {
         return string.Empty;
       }
 
-      return "http://www.gravatar.com/{0}{1}{2}".FormatSelf(this.hash, this.format.IsEmpty() ? string.Empty : ".{0}".FormatSelf(this.format), this.parameters.Any() ? "?{0}".FormatSelf(this.parameters.ToUrlQuery()) : string.Empty);
+      return "http://www.gravatar.com/{0}{1}{2}".FormatSelf(this.Hash(), this.Format().IsEmpty() ? string.Empty : ".{0}".FormatSelf(this.Format()), this.parameters.Any() ? "?{0}".FormatSelf(this.parameters.ToUrlQuery()) : string.Empty);
     }
   }
 }

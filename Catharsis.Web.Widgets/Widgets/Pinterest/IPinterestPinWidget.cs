@@ -19,5 +19,11 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
     /// <remarks>This attribute is required.</remarks>
     IPinterestPinWidget Id(string id);
+
+    /// <summary>
+    ///   <para>Unique identifier of Pinterest Pin.</para>
+    /// </summary>
+    /// <returns>Identifier of pin.</returns>
+    string Id();
   }
 }

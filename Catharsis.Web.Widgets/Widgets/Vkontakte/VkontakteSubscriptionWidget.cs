@@ -34,6 +34,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of user/group to subscribe to.</para>
+    /// </summary>
+    /// <returns>Account to subscribe to.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Visual layout/appearance of the button.</para>
     /// </summary>
     /// <param name="layout">Layout of button.</param>
@@ -45,14 +54,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Visual layout/appearance of the button.</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    public byte Layout()
+    {
+      return this.layout;
+    }
+
+    /// <summary>
     ///   <para>Whether to display both author and button or button only.</para>
     /// </summary>
     /// <param name="onlyButton"><c>false</c> to display both author/button, <c>true</c> to display only button.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IVkontakteSubscriptionWidget OnlyButton(bool onlyButton = true)
+    public IVkontakteSubscriptionWidget OnlyButton(bool onlyButton)
     {
       this.onlyButton = onlyButton;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to display both author and button or button only.</para>
+    /// </summary>
+    /// <returns><c>false</c> to display both author/button, <c>true</c> to display only button.</returns>
+    public bool OnlyButton()
+    {
+      return this.onlyButton;
     }
 
     /// <summary>
@@ -61,20 +88,24 @@ namespace Catharsis.Web.Widgets
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty())
+      if (this.Account().IsEmpty())
       {
         return string.Empty;
       }
 
-      var config = new Dictionary<string, object> { { "mode", this.layout } };
-      if (this.onlyButton)
+      var config = new Dictionary<string, object>
+      {
+        { "mode", this.Layout() }
+      };
+
+      if (this.OnlyButton())
       {
         config["soft"] = 1;
       }
 
       return new StringBuilder()
         .Append(new TagBuilder("div").Attribute("id", "vk_subscribe"))
-        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Subscribe(""vk_subscribe"", {0}, ""{1}"");".FormatSelf(config.Json(), this.account)))
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Subscribe(""vk_subscribe"", {0}, ""{1}"");".FormatSelf(config.Json(), this.Account())))
         .ToString();
     }
   }

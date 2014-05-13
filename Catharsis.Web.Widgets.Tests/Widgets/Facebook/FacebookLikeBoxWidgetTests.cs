@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,15 +16,15 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new FacebookLikeBoxWidget();
-      Assert.Null(widget.Field("border"));
-      Assert.Null(widget.Field("colorScheme"));
-      Assert.Null(widget.Field("faces"));
-      Assert.Null(widget.Field("header"));
-      Assert.Null(widget.Field("height"));
-      Assert.Null(widget.Field("stream"));
-      Assert.Null(widget.Field("url"));
-      Assert.Null(widget.Field("wall"));
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Border());
+      Assert.Null(widget.ColorScheme());
+      Assert.Null(widget.Faces());
+      Assert.Null(widget.Header());
+      Assert.Null(widget.Height());
+      Assert.Null(widget.Stream());
+      Assert.Null(widget.Url());
+      Assert.Null(widget.Wall());
+      Assert.Null(widget.Width());
     }
 
     /// <summary>
@@ -35,9 +34,9 @@ namespace Catharsis.Web.Widgets
     public void Border_Method()
     {
       var widget = new FacebookLikeBoxWidget();
-      Assert.Null(widget.Field("border"));
-      Assert.True(ReferenceEquals(widget.Border(), widget));
-      Assert.True(widget.Field("border").To<bool>());
+      Assert.Null(widget.Border());
+      Assert.True(ReferenceEquals(widget.Border(true), widget));
+      Assert.True(widget.Border().Value);
     }
 
     /// <summary>
@@ -50,9 +49,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().ColorScheme(string.Empty));
 
       var widget = new FacebookLikeBoxWidget();
-      Assert.Null(widget.Field("colorScheme"));
+      Assert.Null(widget.ColorScheme());
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
+      Assert.Equal("colorScheme", widget.ColorScheme());
     }
 
     /// <summary>
@@ -62,9 +61,9 @@ namespace Catharsis.Web.Widgets
     public void Faces_Method()
     {
       var widget = new FacebookLikeBoxWidget();
-      Assert.Null(widget.Field("faces"));
-      Assert.True(ReferenceEquals(widget.Faces(), widget));
-      Assert.True(widget.Field("faces").To<bool>());
+      Assert.Null(widget.Faces());
+      Assert.True(ReferenceEquals(widget.Faces(true), widget));
+      Assert.True(widget.Faces().Value);
     }
 
     /// <summary>
@@ -74,9 +73,9 @@ namespace Catharsis.Web.Widgets
     public void Header_Method()
     {
       var widget = new FacebookLikeBoxWidget();
-      Assert.Null(widget.Field("header"));
-      Assert.True(ReferenceEquals(widget.Header(), widget));
-      Assert.True(widget.Field("header").To<bool>());
+      Assert.Null(widget.Header());
+      Assert.True(ReferenceEquals(widget.Header(true), widget));
+      Assert.True(widget.Header().Value);
     }
 
     /// <summary>
@@ -89,9 +88,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().Height(string.Empty));
 
       var widget = new FacebookLikeBoxWidget();
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Height());
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
+      Assert.Equal("height", widget.Height());
     }
 
     /// <summary>
@@ -101,9 +100,9 @@ namespace Catharsis.Web.Widgets
     public void Stream_Method()
     {
       var widget = new FacebookLikeBoxWidget();
-      Assert.Null(widget.Field("stream"));
-      Assert.True(ReferenceEquals(widget.Stream(), widget));
-      Assert.True(widget.Field("stream").To<bool>());
+      Assert.Null(widget.Stream());
+      Assert.True(ReferenceEquals(widget.Stream(true), widget));
+      Assert.True(widget.Stream().Value);
     }
 
     /// <summary>
@@ -116,9 +115,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().Url(string.Empty));
 
       var widget = new FacebookLikeBoxWidget();
-      Assert.Null(widget.Field("url"));
+      Assert.Null(widget.Url());
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.Equal("url", widget.Field("url").To<string>());
+      Assert.Equal("url", widget.Url());
     }
 
     /// <summary>
@@ -128,9 +127,9 @@ namespace Catharsis.Web.Widgets
     public void Wall_Method()
     {
       var widget = new FacebookLikeBoxWidget();
-      Assert.Null(widget.Field("wall"));
-      Assert.True(ReferenceEquals(widget.Wall(), widget));
-      Assert.True(widget.Field("wall").To<bool>());
+      Assert.Null(widget.Wall());
+      Assert.True(ReferenceEquals(widget.Wall(true), widget));
+      Assert.True(widget.Wall().Value);
     }
 
     /// <summary>
@@ -143,9 +142,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().Width(string.Empty));
 
       var widget = new FacebookLikeBoxWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>
@@ -156,7 +155,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Equal(string.Empty, new FacebookLikeBoxWidget().ToString());
       Assert.Equal(@"<div class=""fb-like-box"" data-href=""https://www.facebook.com/pages/Clear-Words/515749945120070""></div>", new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").ToString());
-      Assert.Equal(@"<div class=""fb-like-box"" data-colorscheme=""dark"" data-force-wall=""true"" data-header=""true"" data-height=""height"" data-href=""https://www.facebook.com/pages/Clear-Words/515749945120070"" data-show-border=""true"" data-show-faces=""true"" data-stream=""true"" data-width=""width""></div>", new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Wall().Header().Border().Faces().Stream().ToString());
+      Assert.Equal(@"<div class=""fb-like-box"" data-colorscheme=""dark"" data-force-wall=""true"" data-header=""true"" data-height=""height"" data-href=""https://www.facebook.com/pages/Clear-Words/515749945120070"" data-show-border=""true"" data-show-faces=""true"" data-stream=""true"" data-width=""width""></div>", new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Wall(true).Header(true).Border(true).Faces(true).Stream(true).ToString());
     }
   }
 }

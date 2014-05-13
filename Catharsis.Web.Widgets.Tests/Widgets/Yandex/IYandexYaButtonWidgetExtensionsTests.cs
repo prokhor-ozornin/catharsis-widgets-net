@@ -20,9 +20,9 @@ namespace Catharsis.Web.Widgets
       new YandexLikeButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Size(YandexLikeButtonSize.Large), widget));
-        Assert.Equal("large", widget.Field("size").To<string>());
+        Assert.Equal("large", widget.Size());
       });
-      new YandexLikeButtonWidget().With(widget => Assert.Equal("small", widget.Size(YandexLikeButtonSize.Small).Field("size").To<string>()));
+      new YandexLikeButtonWidget().With(widget => Assert.Equal("small", widget.Size(YandexLikeButtonSize.Small).Size()));
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace Catharsis.Web.Widgets
       new YandexLikeButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Layout(YandexLikeButtonLayout.Button), widget));
-        Assert.Equal("button", widget.Field("layout").To<string>());
+        Assert.Equal("button", widget.Layout());
       });
-      new YandexLikeButtonWidget().With(widget => Assert.Equal("icon", widget.Layout(YandexLikeButtonLayout.Icon).Field("layout").To<string>()));
+      new YandexLikeButtonWidget().With(widget => Assert.Equal("icon", widget.Layout(YandexLikeButtonLayout.Icon).Layout()));
     }
   }
 }

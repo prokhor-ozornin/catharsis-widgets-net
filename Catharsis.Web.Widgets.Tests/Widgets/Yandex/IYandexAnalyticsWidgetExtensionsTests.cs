@@ -22,7 +22,7 @@ namespace Catharsis.Web.Widgets
       new YandexAnalyticsWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Language(CultureInfo.InvariantCulture), widget));
-        Assert.Equal(CultureInfo.InvariantCulture.TwoLetterISOLanguageName, widget.Field("language").To<string>());
+        Assert.Equal(CultureInfo.InvariantCulture.TwoLetterISOLanguageName, widget.Language());
       });
     }
   }

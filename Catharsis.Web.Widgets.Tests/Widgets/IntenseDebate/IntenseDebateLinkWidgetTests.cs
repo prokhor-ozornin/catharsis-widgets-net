@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -19,9 +18,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new IntenseDebateLinkWidget().Account(string.Empty));
 
       var widget = new IntenseDebateLinkWidget();
-      Assert.Null(widget.Field("acoount"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -34,9 +33,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new IntenseDebateLinkWidget().PostId(string.Empty));
 
       var widget = new IntenseDebateLinkWidget();
-      Assert.Null(widget.Field("postId"));
+      Assert.Null(widget.PostId());
       Assert.True(ReferenceEquals(widget.PostId("postId"), widget));
-      Assert.Equal("postId", widget.Field("postId").To<string>());
+      Assert.Equal("postId", widget.PostId());
     }
 
     /// <summary>
@@ -49,9 +48,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new IntenseDebateLinkWidget().PostUrl(string.Empty));
 
       var widget = new IntenseDebateLinkWidget();
-      Assert.Null(widget.Field("postUrl"));
+      Assert.Null(widget.PostUrl());
       Assert.True(ReferenceEquals(widget.PostUrl("postUrl"), widget));
-      Assert.Equal("postUrl", widget.Field("postUrl").To<string>());
+      Assert.Equal("postUrl", widget.PostUrl());
     }
 
     /// <summary>
@@ -64,9 +63,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new IntenseDebateLinkWidget().PostTitle(string.Empty));
 
       var widget = new IntenseDebateLinkWidget();
-      Assert.Null(widget.Field("postTitle"));
+      Assert.Null(widget.PostTitle());
       Assert.True(ReferenceEquals(widget.PostTitle("postTitle"), widget));
-      Assert.Equal("postTitle", widget.Field("postTitle").To<string>());
+      Assert.Equal("postTitle", widget.PostTitle());
     }
 
     /// <summary>

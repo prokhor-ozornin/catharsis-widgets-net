@@ -20,6 +20,12 @@ namespace Catharsis.Web.Widgets
     IYandexSharePanelWidget Language(string language);
 
     /// <summary>
+    ///   <para>Button's interface language.</para>
+    /// </summary>
+    /// <returns>Interface language.</returns>
+    string Language();
+
+    /// <summary>
     ///   <para>Visual layout/appearance of the button.</para>
     /// </summary>
     /// <param name="layout">Layout of button.</param>
@@ -29,11 +35,23 @@ namespace Catharsis.Web.Widgets
     IYandexSharePanelWidget Layout(string layout);
 
     /// <summary>
+    ///   <para>Visual layout/appearance of the button.</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    string Layout();
+
+    /// <summary>
     ///   <para>List of included social services. Valid names include : [yaru, vkontakte, facebook, twitter, odnoklassniki ,moimir, lj, friendfeed, moikrug, gplus, pinterest, surfingbird].</para>
     /// </summary>
     /// <param name="services">List of social services for which to render buttons.</param>
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="services"/> is a <c>null</c> reference.</exception>
     IYandexSharePanelWidget Services(IEnumerable<string> services);
+
+    /// <summary>
+    ///   <para>List of included social services. Valid names include : [yaru, vkontakte, facebook, twitter, odnoklassniki ,moimir, lj, friendfeed, moikrug, gplus, pinterest, surfingbird].</para>
+    /// </summary>
+    /// <returns>List of social services for which to render buttons.</returns>
+    IEnumerable<string> Services();
   }
 }

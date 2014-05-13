@@ -37,6 +37,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Collection of Open Graph action types.</para>
+    /// </summary>
+    /// <returns>Collection of Facebook action types.</returns>
+    public IEnumerable<string> Actions()
+    {
+      return this.actions;
+    }
+
+    /// <summary>
     ///   <para>The color scheme used by the widget. Default is "light".</para>
     /// </summary>
     /// <param name="colorScheme">Color scheme of widget.</param>
@@ -49,6 +58,15 @@ namespace Catharsis.Web.Widgets
 
       this.colorScheme = colorScheme;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>The color scheme used by the widget. Default is "light".</para>
+    /// </summary>
+    /// <returns>Color scheme of widget.</returns>
+    public string ColorScheme()
+    {
+      return this.colorScheme;
     }
 
     /// <summary>
@@ -67,6 +85,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The height of the widget in pixels.</para>
+    /// </summary>
+    /// <returns>Height of widget.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>The maximum number of rows of faces to display. Default is 1.</para>
     /// </summary>
     /// <param name="maxRows">Number of rows of faces to display.</param>
@@ -75,6 +102,15 @@ namespace Catharsis.Web.Widgets
     {
       this.maxRows = maxRows;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>The maximum number of rows of faces to display. Default is 1.</para>
+    /// </summary>
+    /// <returns>Number of rows of faces to display.</returns>
+    public byte? MaxRows()
+    {
+      return this.maxRows;
     }
 
     /// <summary>
@@ -93,6 +129,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Controls the size of the photos shown in the widget. Default is "medium".</para>
+    /// </summary>
+    /// <returns>Size of photos.</returns>
+    public string PhotoSize()
+    {
+      return this.photoSize;
+    }
+
+    /// <summary>
     ///   <para>Display photos of the people who have liked this absolute URL. Default is current page URL.</para>
     /// </summary>
     /// <param name="url">Target "liked" URL.</param>
@@ -105,6 +150,15 @@ namespace Catharsis.Web.Widgets
 
       this.url = url;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Display photos of the people who have liked this absolute URL. Default is current page URL.</para>
+    /// </summary>
+    /// <returns>Target "liked" URL.</returns>
+    public string Url()
+    {
+      return this.url;
     }
 
     /// <summary>
@@ -123,19 +177,28 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The width of the widget in pixels. Minimum is 200. Default is 300.</para>
+    /// </summary>
+    /// <returns>Width of widget.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
       return new TagBuilder("div")
-        .Attribute("data-href", this.url ?? (HttpContext.Current != null ? HttpContext.Current.Request.Url.ToString() : null))
-        .Attribute("data-action", this.actions.Any() ? this.actions.Join(",") : null)
-        .Attribute("data-size", this.photoSize)
-        .Attribute("data-width", this.width)
-        .Attribute("data-height", this.height)
-        .Attribute("data-max-rows", this.maxRows)
-        .Attribute("data-colorscheme", this.colorScheme)
+        .Attribute("data-href", this.Url() ?? (HttpContext.Current != null ? HttpContext.Current.Request.Url.ToString() : null))
+        .Attribute("data-action", this.Actions().Any() ? this.Actions().Join(",") : null)
+        .Attribute("data-size", this.PhotoSize())
+        .Attribute("data-width", this.Width())
+        .Attribute("data-height", this.Height())
+        .Attribute("data-max-rows", this.MaxRows())
+        .Attribute("data-colorscheme", this.ColorScheme())
         .CssClass("fb-facepile")
         .ToString();
     }

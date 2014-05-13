@@ -32,6 +32,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Pinterest user account.</para>
+    /// </summary>
+    /// <returns>Account name.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Text label on the button.</para>
     /// </summary>
     /// <param name="label">Button's label.</param>
@@ -48,20 +57,29 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Text label on the button.</para>
+    /// </summary>
+    /// <returns>Button's label.</returns>
+    public string Label()
+    {
+      return this.label;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty() || this.label.IsEmpty())
+      if (this.Account().IsEmpty() || this.Label().IsEmpty())
       {
         return string.Empty;
       }
 
       return new TagBuilder("a")
         .Attribute("data-pin-do", "buttonFollow")
-        .Attribute("href", "http://www.pinterest.com/{0}".FormatSelf(this.account))
-        .InnerHtml(this.label)
+        .Attribute("href", "http://www.pinterest.com/{0}".FormatSelf(this.Account()))
+        .InnerHtml(this.Label())
         .ToString();
     }
   }

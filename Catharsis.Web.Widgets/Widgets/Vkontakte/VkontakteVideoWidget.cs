@@ -32,14 +32,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Hash code of video.</para>
+    /// </summary>
+    /// <returns>Video's hash code.</returns>
+    public string Hash()
+    {
+      return this.hash;
+    }
+
+    /// <summary>
     ///   <para>Whether to play video in High Definition format. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="enabled"><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IVkontakteVideoWidget Hd(bool enabled = true)
+    public IVkontakteVideoWidget Hd(bool enabled)
     {
       this.hd = enabled;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to play video in High Definition format. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</returns>
+    public bool Hd()
+    {
+      return this.hd;
     }
 
     /// <summary>
@@ -59,6 +77,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Height of video control.</para>
+    /// </summary>
+    /// <returns>Height of video.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>Identifier of video.</para>
     /// </summary>
     /// <param name="id">Identifier of video.</param>
@@ -75,6 +102,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of video.</para>
+    /// </summary>
+    /// <returns>Identifier of video.</returns>
+    public string Id()
+    {
+      return this.id;
+    }
+
+    /// <summary>
     ///   <para>Account identifier of video's uploader.</para>
     /// </summary>
     /// <param name="user">User's account.</param>
@@ -87,6 +123,15 @@ namespace Catharsis.Web.Widgets
 
       this.user = user;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Account identifier of video's uploader.</para>
+    /// </summary>
+    /// <returns>User's account.</returns>
+    public string User()
+    {
+      return this.user;
     }
 
     /// <summary>
@@ -106,12 +151,21 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Width of video control.</para>
+    /// </summary>
+    /// <returns>Width of video.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.id.IsEmpty() || this.user.IsEmpty() || this.hash.IsEmpty() || this.width.IsEmpty() || this.height.IsEmpty())
+      if (this.Id().IsEmpty() || this.User().IsEmpty() || this.Hash().IsEmpty() || this.Width().IsEmpty() || this.Height().IsEmpty())
       {
         return string.Empty;
       }
@@ -121,9 +175,9 @@ namespace Catharsis.Web.Widgets
         .Attribute("allowfullscreen", true)
         .Attribute("webkitallowfullscreen", true)
         .Attribute("mozallowfullscreen", true)
-        .Attribute("width", this.width)
-        .Attribute("height", this.height)
-        .Attribute("src", "http://vk.com/video_ext.php?oid={1}&id={0}&hash={2}&hd={3}".FormatSelf(this.id, this.user, this.hash, this.hd ? 1 : 0))
+        .Attribute("width", this.Width())
+        .Attribute("height", this.Height())
+        .Attribute("src", "http://vk.com/video_ext.php?oid={1}&id={0}&hash={2}&hd={3}".FormatSelf(this.Id(), this.User(), this.Hash(), this.Hd() ? 1 : 0))
         .ToString();
     }
   }

@@ -39,6 +39,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Account name of Mail.ru group.</para>
+    /// </summary>
+    /// <returns>Group name.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Color of Groups box background.</para>
     /// </summary>
     /// <param name="color">Background color.</param>
@@ -51,6 +60,15 @@ namespace Catharsis.Web.Widgets
 
       this.backgroundColor = color;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Color of Groups box background.</para>
+    /// </summary>
+    /// <returns>Background color.</returns>
+    public string BackgroundColor()
+    {
+      return this.backgroundColor;
     }
 
     /// <summary>
@@ -69,6 +87,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Color of "Subscribe" button in Groups box.</para>
+    /// </summary>
+    /// <returns>Button color.</returns>
+    public string ButtonColor()
+    {
+      return this.buttonColor;
+    }
+
+    /// <summary>
     ///   <para>Target site domain.</para>
     /// </summary>
     /// <param name="domain">Target domain.</param>
@@ -81,6 +108,15 @@ namespace Catharsis.Web.Widgets
 
       this.domain = domain;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Target site domain.</para>
+    /// </summary>
+    /// <returns>Target domain.</returns>
+    public string Domain()
+    {
+      return this.domain;
     }
 
     /// <summary>
@@ -100,14 +136,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Height of Groups box area.</para>
+    /// </summary>
+    /// <returns>Area height.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>Whether to show portraits of group's subscribers or not.</para>
     /// </summary>
     /// <param name="show"><c>true</c> to show subscribers, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IMailRuGroupsWidget Subscribers(bool show = true)
+    public IMailRuGroupsWidget Subscribers(bool show)
     {
       this.subscribers = show;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to show portraits of group's subscribers or not.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show subscribers, <c>false</c> to hide.</returns>
+    public bool Subscribers()
+    {
+      return this.subscribers;
     }
 
     /// <summary>
@@ -123,6 +177,15 @@ namespace Catharsis.Web.Widgets
 
       this.textColor = color;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Color of Groups box text labels.</para>
+    /// </summary>
+    /// <returns>Text color.</returns>
+    public string TextColor()
+    {
+      return this.textColor;
     }
 
     /// <summary>
@@ -142,36 +205,52 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Width of Groups box area.</para>
+    /// </summary>
+    /// <returns>Area width.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty() || this.width.IsEmpty() || this.height.IsEmpty())
+      if (this.Account().IsEmpty() || this.Width().IsEmpty() || this.Height().IsEmpty())
       {
         return string.Empty;
       }
 
-      var config = new Dictionary<string, object> { { "group", this.account }, { "max_sub", 50 }, { "width", this.width }, { "height", this.height } };
-      if (this.subscribers)
+      var config = new Dictionary<string, object>
+      {
+        { "group", this.Account() },
+        { "max_sub", 50 },
+        { "width", this.Width() },
+        { "height", this.Height() }
+      };
+
+      if (this.Subscribers())
       {
         config["show_subscribers"] = true;
       }
-      if (!this.backgroundColor.IsEmpty())
+      if (!this.BackgroundColor().IsEmpty())
       {
-        config["background"] = this.backgroundColor;
+        config["background"] = this.BackgroundColor();
       }
-      if (!this.textColor.IsEmpty())
+      if (!this.TextColor().IsEmpty())
       {
-        config["color"] = this.textColor;
+        config["color"] = this.TextColor();
       }
-      if (!this.buttonColor.IsEmpty())
+      if (!this.ButtonColor().IsEmpty())
       {
-        config["button_background"] = this.buttonColor;
+        config["button_background"] = this.ButtonColor();
       }
-      if (!this.domain.IsEmpty())
+      if (!this.Domain().IsEmpty())
       {
-        config["domain"] = this.domain;
+        config["domain"] = this.Domain();
       }
 
       return new TagBuilder("a")

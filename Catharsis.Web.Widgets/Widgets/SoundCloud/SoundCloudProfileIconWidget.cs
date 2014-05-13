@@ -31,6 +31,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>SoundCloud user's account name.</para>
+    /// </summary>
+    /// <returns>Account name.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Color of profile icon.</para>
     /// </summary>
     /// <param name="color">Icon's color.</param>
@@ -46,6 +55,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Color of profile icon.</para>
+    /// </summary>
+    /// <returns>Icon's color.</returns>
+    public string Color()
+    {
+      return this.color;
+    }
+
+    /// <summary>
     ///   <para>Edge size of profile icon in pixels.</para>
     /// </summary>
     /// <param name="size">Icon's size.</param>
@@ -57,12 +75,21 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Edge size of profile icon in pixels.</para>
+    /// </summary>
+    /// <returns>Icon's size.</returns>
+    public short Size()
+    {
+      return this.size;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty())
+      if (this.Account().IsEmpty())
       {
         return string.Empty;
       }
@@ -71,8 +98,8 @@ namespace Catharsis.Web.Widgets
         .Attribute("allowtransparency", true)
         .Attribute("frameborder", 0)
         .Attribute("scrolling", "no")
-        .Attribute("style", "width: {0}px; height: {0}px;".FormatSelf(this.size))
-        .Attribute("src", "https://w.soundcloud.com/icon/?url={0}".FormatSelf("http://soundcloud.com/{0}&color={1}&size={2}".FormatSelf(this.account, this.color, this.size)))
+        .Attribute("style", "width: {0}px; height: {0}px;".FormatSelf(this.Size()))
+        .Attribute("src", "https://w.soundcloud.com/icon/?url={0}".FormatSelf("http://soundcloud.com/{0}&color={1}&size={2}".FormatSelf(this.Account(), this.Color(), this.Size())))
         .ToString();
     }
   }

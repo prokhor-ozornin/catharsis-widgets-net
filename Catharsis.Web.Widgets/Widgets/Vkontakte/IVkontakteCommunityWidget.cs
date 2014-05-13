@@ -20,6 +20,12 @@ namespace Catharsis.Web.Widgets
     IVkontakteCommunityWidget Account(string account);
 
     /// <summary>
+    ///   <para>Identifier or VKontakte public group/community.</para>
+    /// </summary>
+    /// <returns>Group identifier.</returns>
+    string Account();
+
+    /// <summary>
     ///   <para>Vertical height of widget.</para>
     /// </summary>
     /// <param name="height">Height of widget.</param>
@@ -29,11 +35,23 @@ namespace Catharsis.Web.Widgets
     IVkontakteCommunityWidget Height(string height);
 
     /// <summary>
+    ///   <para>Vertical height of widget.</para>
+    /// </summary>
+    /// <returns>Height of widget.</returns>
+    string Height();
+
+    /// <summary>
     ///   <para>Type of information to be displayed about given community.</para>
     /// </summary>
     /// <param name="mode">Community's info type.</param>
     /// <returns>Reference to the current widget.</returns>
     IVkontakteCommunityWidget Mode(byte mode);
+
+    /// <summary>
+    ///   <para>Type of information to be displayed about given community.</para>
+    /// </summary>
+    /// <returns>Community's info type.</returns>
+    byte Mode();
 
     /// <summary>
     ///   <para>Horizontal width of widget.</para>
@@ -44,5 +62,10 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
     IVkontakteCommunityWidget Width(string width);
 
+    /// <summary>
+    ///   <para>Horizontal width of widget.</para>
+    /// </summary>
+    /// <returns>Width of widget.</returns>
+    string Width();
   }
 }

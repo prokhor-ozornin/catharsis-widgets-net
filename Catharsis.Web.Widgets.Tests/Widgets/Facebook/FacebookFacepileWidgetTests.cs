@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -19,13 +18,13 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new FacebookFacepileWidget();
-      Assert.False(widget.Field("actions").To<IEnumerable<string>>().Any());
-      Assert.Null(widget.Field("colorScheme"));
-      Assert.Null(widget.Field("height"));
-      Assert.Null(widget.Field("maxRows"));
-      Assert.Null(widget.Field("photoSize"));
-      Assert.Null(widget.Field("url"));
-      Assert.Null(widget.Field("width"));
+      Assert.False(widget.Actions().Any());
+      Assert.Null(widget.ColorScheme());
+      Assert.Null(widget.Height());
+      Assert.Null(widget.MaxRows());
+      Assert.Null(widget.PhotoSize());
+      Assert.Null(widget.Url());
+      Assert.Null(widget.Width());
     }
 
     /// <summary>
@@ -37,9 +36,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new FacebookFacepileWidget().Actions(null));
 
       var widget = new FacebookFacepileWidget();
-      Assert.False(widget.Field("actions").To<IEnumerable<string>>().Any());
+      Assert.False(widget.Actions().Any());
       Assert.True(ReferenceEquals(widget.Actions(new[] { "first", "second" }), widget));
-      Assert.True(widget.Field("actions").To<IEnumerable<string>>().SequenceEqual(new[] { "first", "second" }));
+      Assert.True(widget.Actions().SequenceEqual(new[] { "first", "second" }));
     }
 
     /// <summary>
@@ -52,9 +51,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookFacepileWidget().ColorScheme(string.Empty));
 
       var widget = new FacebookFacepileWidget();
-      Assert.Null(widget.Field("colorScheme"));
+      Assert.Null(widget.ColorScheme());
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
+      Assert.Equal("colorScheme", widget.ColorScheme());
     }
 
     /// <summary>
@@ -67,9 +66,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookFacepileWidget().Height(string.Empty));
 
       var widget = new FacebookFacepileWidget();
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Height());
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
+      Assert.Equal("height", widget.Height());
     }
 
     /// <summary>
@@ -79,9 +78,9 @@ namespace Catharsis.Web.Widgets
     public void MaxRows_Method()
     {
       var widget = new FacebookFacepileWidget();
-      Assert.Null(widget.Field("maxRows"));
+      Assert.Null(widget.MaxRows());
       Assert.True(ReferenceEquals(widget.MaxRows(1), widget));
-      Assert.Equal(1, widget.Field("maxRows").To<byte>());
+      Assert.Equal(1, widget.MaxRows().Value);
     }
 
     /// <summary>
@@ -94,9 +93,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookFacepileWidget().PhotoSize(string.Empty));
 
       var widget = new FacebookFacepileWidget();
-      Assert.Null(widget.Field("photoSize"));
+      Assert.Null(widget.PhotoSize());
       Assert.True(ReferenceEquals(widget.PhotoSize("photoSize"), widget));
-      Assert.Equal("photoSize", widget.Field("photoSize").To<string>());
+      Assert.Equal("photoSize", widget.PhotoSize());
     }
 
     /// <summary>
@@ -109,9 +108,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookFacepileWidget().Url(string.Empty));
 
       var widget = new FacebookFacepileWidget();
-      Assert.Null(widget.Field("url"));
+      Assert.Null(widget.Url());
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.Equal("url", widget.Field("url").To<string>());
+      Assert.Equal("url", widget.Url());
     }
 
     /// <summary>
@@ -124,9 +123,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new FacebookFacepileWidget().Width(string.Empty));
 
       var widget = new FacebookFacepileWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>

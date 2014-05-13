@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Catharsis.Commons;
 using Xunit;
 
@@ -65,10 +64,10 @@ namespace Catharsis.Web.Widgets
       new GravatarImageUrlWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Email("prokhor.ozornin@yandex.ru"), widget));
-        Assert.Equal("61b98d241eaa1ce237c979e7a8181d13", widget.Field("hash").To<string>());
+        Assert.Equal("61b98d241eaa1ce237c979e7a8181d13", widget.Hash());
       });
 
-      Assert.Equal(new GravatarImageUrlWidget().Email("prokhor.ozornin@yandex.ru").Field("hash").To<string>(), new GravatarImageUrlWidget().Email(" PROKHOR.OZORNIN@yandex.ru ").Field("hash").To<string>());
+      Assert.Equal(new GravatarImageUrlWidget().Email("prokhor.ozornin@yandex.ru").Hash(), new GravatarImageUrlWidget().Email(" PROKHOR.OZORNIN@yandex.ru ").Hash());
     }
 
     /// <summary>

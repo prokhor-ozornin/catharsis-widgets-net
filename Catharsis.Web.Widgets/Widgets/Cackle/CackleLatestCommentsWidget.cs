@@ -36,6 +36,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of registered website in the "Cackle" comments system.</para>
+    /// </summary>
+    /// <returns>Identifier of website.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Size of user avatars. Default is 32.</para>
     /// </summary>
     /// <param name="size">Size of user avatars.</param>
@@ -44,6 +53,15 @@ namespace Catharsis.Web.Widgets
     {
       this.avatarSize = size;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Size of user avatars. Default is 32.</para>
+    /// </summary>
+    /// <returns>Size of user avatars.</returns>
+    public short AvatarSize()
+    {
+      return this.avatarSize;
     }
 
     /// <summary>
@@ -58,6 +76,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Number of comments to display. Maximum 100, default 5.</para>
+    /// </summary>
+    /// <returns>Number of comments to display.</returns>
+    public byte Max()
+    {
+      return this.max;
+    }
+
+    /// <summary>
     ///   <para>Maximum allowed count of characters in comment (0 - do not cut). Default is 150.</para>
     /// </summary>
     /// <param name="size">Maximum count of characters in comment.</param>
@@ -69,6 +96,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Maximum allowed count of characters in comment (0 - do not cut). Default is 150.</para>
+    /// </summary>
+    /// <returns>Maximum count of characters in comment.</returns>
+    public int TextSize()
+    {
+      return this.textSize;
+    }
+
+    /// <summary>
     ///   <para>Maximum allowed count of characters in title (0 - do not cut). Default is 40.</para>
     /// </summary>
     /// <param name="size">Maximum count of characters in title.</param>
@@ -77,6 +113,15 @@ namespace Catharsis.Web.Widgets
     {
       this.titleSize = size;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Maximum allowed count of characters in title (0 - do not cut). Default is 40.</para>
+    /// </summary>
+    /// <returns>Maximum count of characters in title.</returns>
+    public int TitleSize()
+    {
+      return this.titleSize;
     }
 
     /// <summary>
@@ -93,11 +138,11 @@ namespace Catharsis.Web.Widgets
       var config = new
       {
         widget = "CommentRecent",
-        id = this.account,
-        size = this.max,
-        avatarSize = this.avatarSize,
-        textSize = this.textSize,
-        titleSize = this.titleSize
+        id = this.Account(),
+        size = this.Max(),
+        avatarSize = this.AvatarSize(),
+        textSize = this.TextSize(),
+        titleSize = this.TitleSize()
       };
 
       return new StringBuilder()

@@ -29,6 +29,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Google Analytics site identifier (UA-*).</para>
+    /// </summary>
+    /// <returns>Site identifier.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Google Analytics site domain name.</para>
     /// </summary>
     /// <param name="domain">Site domain name.</param>
@@ -45,17 +54,26 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Google Analytics site domain name.</para>
+    /// </summary>
+    /// <returns>Site domain name.</returns>
+    public string Domain()
+    {
+      return this.domain;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty() || this.domain.IsEmpty())
+      if (this.Account().IsEmpty() || this.Domain().IsEmpty())
       {
         return string.Empty;
       }
 
-      return resources.google_analytics.FormatSelf(this.account, this.domain);
+      return resources.google_analytics.FormatSelf(this.Account(), this.Domain());
     }
   }
 }

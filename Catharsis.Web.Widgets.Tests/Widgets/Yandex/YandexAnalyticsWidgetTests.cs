@@ -18,14 +18,14 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.Null(widget.Field("account"));
-      Assert.True(widget.Field("webVisor").To<bool>());
-      Assert.True(widget.Field("clickMap").To<bool>());
-      Assert.True(widget.Field("trackLinks").To<bool>());
-      Assert.True(widget.Field("trackHash").To<bool>());
-      Assert.True(widget.Field("accurate").To<bool>());
-      Assert.False(widget.Field("noIndex").To<bool>());
-      Assert.Null(widget.Field("language"));
+      Assert.Null(widget.Account());
+      Assert.True(widget.WebVisor());
+      Assert.True(widget.ClickMap());
+      Assert.True(widget.TrackLinks());
+      Assert.True(widget.TrackHash());
+      Assert.True(widget.Accurate());
+      Assert.False(widget.NoIndex());
+      Assert.Null(widget.Language());
     }
 
     /// <summary>
@@ -38,9 +38,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexAnalyticsWidget().Account(string.Empty));
 
       var widget = new YandexAnalyticsWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -50,9 +50,9 @@ namespace Catharsis.Web.Widgets
     public void WebVisor_Method()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("webVisor").To<bool>());
+      Assert.True(widget.WebVisor());
       Assert.True(ReferenceEquals(widget.WebVisor(false), widget));
-      Assert.False(widget.Field("webVisor").To<bool>());
+      Assert.False(widget.WebVisor());
     }
 
     /// <summary>
@@ -62,9 +62,9 @@ namespace Catharsis.Web.Widgets
     public void ClickMap_Method()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("clickMap").To<bool>());
+      Assert.True(widget.ClickMap());
       Assert.True(ReferenceEquals(widget.ClickMap(false), widget));
-      Assert.False(widget.Field("clickMap").To<bool>());
+      Assert.False(widget.ClickMap());
     }
 
     /// <summary>
@@ -74,9 +74,9 @@ namespace Catharsis.Web.Widgets
     public void TrackLinks_Method()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("trackLinks").To<bool>());
+      Assert.True(widget.TrackLinks());
       Assert.True(ReferenceEquals(widget.TrackLinks(false), widget));
-      Assert.False(widget.Field("trackLinks").To<bool>());
+      Assert.False(widget.TrackLinks());
     }
 
     /// <summary>
@@ -86,9 +86,9 @@ namespace Catharsis.Web.Widgets
     public void TrackHash_Method()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("trackHash").To<bool>());
+      Assert.True(widget.TrackHash());
       Assert.True(ReferenceEquals(widget.TrackHash(false), widget));
-      Assert.False(widget.Field("trackHash").To<bool>());
+      Assert.False(widget.TrackHash());
     }
 
     /// <summary>
@@ -98,9 +98,9 @@ namespace Catharsis.Web.Widgets
     public void Accurate_Method()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.True(widget.Field("accurate").To<bool>());
+      Assert.True(widget.Accurate());
       Assert.True(ReferenceEquals(widget.Accurate(false), widget));
-      Assert.False(widget.Field("accurate").To<bool>());
+      Assert.False(widget.Accurate());
     }
 
     /// <summary>
@@ -110,9 +110,9 @@ namespace Catharsis.Web.Widgets
     public void NoIndex_Method()
     {
       var widget = new YandexAnalyticsWidget();
-      Assert.False(widget.Field("noIndex").To<bool>());
-      Assert.True(ReferenceEquals(widget.NoIndex(), widget));
-      Assert.True(widget.Field("noIndex").To<bool>());
+      Assert.False(widget.NoIndex());
+      Assert.True(ReferenceEquals(widget.NoIndex(true), widget));
+      Assert.True(widget.NoIndex());
     }
 
     /// <summary>
@@ -125,9 +125,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new YandexAnalyticsWidget().Language(string.Empty));
 
       var widget = new YandexAnalyticsWidget();
-      Assert.Null(widget.Field("language"));
+      Assert.Null(widget.Language());
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
-      Assert.Equal("language", widget.Field("language").To<string>());
+      Assert.Equal("language", widget.Language());
     }
 
     /// <summary>
@@ -148,7 +148,7 @@ namespace Catharsis.Web.Widgets
       Assert.True(html.Contains(@"""trackHash"":true"));
       Assert.False(html.Contains(@"""ut"":""noindex"""));
 
-      html = new YandexAnalyticsWidget().Account("account").Language("language").WebVisor(false).ClickMap(false).TrackLinks(false).Accurate(false).TrackHash(false).NoIndex().ToString();
+      html = new YandexAnalyticsWidget().Account("account").Language("language").WebVisor(false).ClickMap(false).TrackLinks(false).Accurate(false).TrackHash(false).NoIndex(true).ToString();
       Assert.True(html.Contains("Ya.Metrika.informer({i: this, id: account, lang: 'language'})"));
       Assert.True(html.Contains("yaCounteraccount"));
       Assert.True(html.Contains(@"""webvisor"":false"));

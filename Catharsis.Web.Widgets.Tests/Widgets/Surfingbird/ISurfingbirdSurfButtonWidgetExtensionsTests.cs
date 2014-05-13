@@ -20,10 +20,10 @@ namespace Catharsis.Web.Widgets
       new SurfingbirdSurfButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Layout(SurfingbirdSurfButtonLayout.Common), widget));
-        Assert.Equal("common", widget.Field("layout").To<string>());
+        Assert.Equal("common", widget.Layout());
       });
-      new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("micro", widget.Layout(SurfingbirdSurfButtonLayout.Micro).Field("layout").To<string>()));
-      new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("vert", widget.Layout(SurfingbirdSurfButtonLayout.Vertical).Field("layout").To<string>()));
+      new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("micro", widget.Layout(SurfingbirdSurfButtonLayout.Micro).Layout()));
+      new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("vert", widget.Layout(SurfingbirdSurfButtonLayout.Vertical).Layout()));
     }
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Catharsis.Web.Widgets
       new SurfingbirdSurfButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Width(1), widget));
-        Assert.Equal("1", widget.Field("width").To<string>());
+        Assert.Equal("1", widget.Width());
       });
     }
 
@@ -52,7 +52,7 @@ namespace Catharsis.Web.Widgets
       new SurfingbirdSurfButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Height(1), widget));
-        Assert.Equal("1", widget.Field("height").To<string>());
+        Assert.Equal("1", widget.Height());
       });
     }
 
@@ -67,10 +67,10 @@ namespace Catharsis.Web.Widgets
       new SurfingbirdSurfButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Color(SurfingbirdSurfButtonColor.Blue), widget));
-        Assert.Equal("blue", widget.Field("color").To<string>());
+        Assert.Equal("blue", widget.Color());
       });
-      new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("gray", widget.Color(SurfingbirdSurfButtonColor.Gray).Field("color").To<string>()));
-      new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("green", widget.Color(SurfingbirdSurfButtonColor.Green).Field("color").To<string>()));
+      new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("gray", widget.Color(SurfingbirdSurfButtonColor.Gray).Color()));
+      new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("green", widget.Color(SurfingbirdSurfButtonColor.Green).Color()));
     }
   }
 }

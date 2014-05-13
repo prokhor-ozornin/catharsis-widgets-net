@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -19,10 +18,10 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VideoJSPlayerWidget();
-      Assert.Null(widget.Field("extra"));
-      Assert.Null(widget.Field("width"));
-      Assert.Null(widget.Field("height"));
-      Assert.False(widget.Field("videos").To<IEnumerable<IMediaSource>>().Any());
+      Assert.Null(widget.Extra());
+      Assert.Null(widget.Width());
+      Assert.Null(widget.Height());
+      Assert.False(widget.Videos().Any());
     }
 
     /// <summary>
@@ -35,9 +34,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Width(string.Empty));
 
       var widget = new VideoJSPlayerWidget();
-      Assert.Null(widget.Field("extra"));
+      Assert.Null(widget.Extra());
       Assert.True(ReferenceEquals(widget.Extra("extra"), widget));
-      Assert.Equal("extra", widget.Field("extra").To<string>());
+      Assert.Equal("extra", widget.Extra());
     }
 
     /// <summary>
@@ -50,9 +49,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Width(string.Empty));
 
       var widget = new VideoJSPlayerWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>
@@ -65,9 +64,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Height(string.Empty));
 
       var widget = new VideoJSPlayerWidget();
-      Assert.Null(widget.Field("height"));
+      Assert.Null(widget.Height());
       Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Field("height").To<string>());
+      Assert.Equal("height", widget.Height());
     }
 
     /// <summary>
@@ -79,9 +78,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Videos(null));
 
       var widget = new VideoJSPlayerWidget();
-      Assert.False(widget.Field("videos").To<IEnumerable<IMediaSource>>().Any());
+      Assert.False(widget.Videos().Any());
       Assert.True(ReferenceEquals(widget.Videos(new MediaSource("url", "contentType")), widget));
-      Assert.True(widget.Field("videos").To<IEnumerable<IMediaSource>>().SequenceEqual(new [] { new MediaSource("url", "contentType") }));
+      Assert.True(widget.Videos().SequenceEqual(new [] { new MediaSource("url", "contentType") }));
     }
 
     /// <summary>

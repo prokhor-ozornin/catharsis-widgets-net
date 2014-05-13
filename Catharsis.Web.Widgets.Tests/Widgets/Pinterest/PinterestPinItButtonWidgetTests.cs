@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,14 +16,14 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new PinterestPinItButtonWidget();
-      Assert.Equal("gray", widget.Field("color").To<string>());
-      Assert.Equal(PinterestPinItButtonPinCountPosition.None, widget.Field("counter").To<PinterestPinItButtonPinCountPosition>());
-      Assert.Null(widget.Field("description"));
-      Assert.Null(widget.Field("image"));
-      Assert.Equal("en", widget.Field("language").To<string>());
-      Assert.Equal(PinterestPinItButtonShape.Rectangular, widget.Field("shape").To<PinterestPinItButtonShape>());
-      Assert.Equal(PinterestPinItButtonSize.Small, widget.Field("size").To<PinterestPinItButtonSize>());
-      Assert.Null(widget.Field("url"));
+      Assert.Equal("gray", widget.Color());
+      Assert.Equal(PinterestPinItButtonPinCountPosition.None, widget.Counter());
+      Assert.Null(widget.Description());
+      Assert.Null(widget.Image());
+      Assert.Equal("en", widget.Language());
+      Assert.Equal(PinterestPinItButtonShape.Rectangular, widget.Shape());
+      Assert.Equal(PinterestPinItButtonSize.Small, widget.Size());
+      Assert.Null(widget.Url());
     }
 
     /// <summary>
@@ -37,9 +36,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Color(string.Empty));
 
       var widget = new PinterestPinItButtonWidget();
-      Assert.Equal("gray", widget.Field("color").To<string>());
+      Assert.Equal("gray", widget.Color());
       Assert.True(ReferenceEquals(widget.Color("color"), widget));
-      Assert.Equal("color", widget.Field("color").To<string>());
+      Assert.Equal("color", widget.Color());
     }
 
     /// <summary>
@@ -49,9 +48,9 @@ namespace Catharsis.Web.Widgets
     public void Counter_Method()
     {
       var widget = new PinterestPinItButtonWidget();
-      Assert.Equal(PinterestPinItButtonPinCountPosition.None, widget.Field("counter").To<PinterestPinItButtonPinCountPosition>());
+      Assert.Equal(PinterestPinItButtonPinCountPosition.None, widget.Counter());
       Assert.True(ReferenceEquals(widget.Counter(PinterestPinItButtonPinCountPosition.Above), widget));
-      Assert.Equal(PinterestPinItButtonPinCountPosition.Above, widget.Field("counter").To<PinterestPinItButtonPinCountPosition>());
+      Assert.Equal(PinterestPinItButtonPinCountPosition.Above, widget.Counter());
     }
 
     /// <summary>
@@ -64,9 +63,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Color(string.Empty));
 
       var widget = new PinterestPinItButtonWidget();
-      Assert.Null(widget.Field("description"));
+      Assert.Null(widget.Description());
       Assert.True(ReferenceEquals(widget.Description("description"), widget));
-      Assert.Equal("description", widget.Field("description").To<string>());
+      Assert.Equal("description", widget.Description());
     }
 
     /// <summary>
@@ -79,9 +78,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Image(string.Empty));
 
       var widget = new PinterestPinItButtonWidget();
-      Assert.Null(widget.Field("image"));
+      Assert.Null(widget.Image());
       Assert.True(ReferenceEquals(widget.Image("image"), widget));
-      Assert.Equal("image", widget.Field("image").To<string>());
+      Assert.Equal("image", widget.Image());
     }
 
     /// <summary>
@@ -94,9 +93,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Language(string.Empty));
 
       var widget = new PinterestPinItButtonWidget();
-      Assert.Equal("en", widget.Field("language").To<string>());
+      Assert.Equal("en", widget.Language());
       Assert.True(ReferenceEquals(widget.Language("language"), widget));
-      Assert.Equal("language", widget.Field("language").To<string>());
+      Assert.Equal("language", widget.Language());
     }
 
     /// <summary>
@@ -106,9 +105,9 @@ namespace Catharsis.Web.Widgets
     public void Shape_Method()
     {
       var widget = new PinterestPinItButtonWidget();
-      Assert.Equal(PinterestPinItButtonShape.Rectangular, widget.Field("shape").To<PinterestPinItButtonShape>());
+      Assert.Equal(PinterestPinItButtonShape.Rectangular, widget.Shape());
       Assert.True(ReferenceEquals(widget.Shape(PinterestPinItButtonShape.Circular), widget));
-      Assert.Equal(PinterestPinItButtonShape.Circular, widget.Field("shape").To<PinterestPinItButtonShape>());
+      Assert.Equal(PinterestPinItButtonShape.Circular, widget.Shape());
     }
 
     /// <summary>
@@ -118,9 +117,9 @@ namespace Catharsis.Web.Widgets
     public void Size_Method()
     {
       var widget = new PinterestPinItButtonWidget();
-      Assert.Equal(PinterestPinItButtonSize.Small, widget.Field("size").To<PinterestPinItButtonSize>());
+      Assert.Equal(PinterestPinItButtonSize.Small, widget.Size());
       Assert.True(ReferenceEquals(widget.Size(PinterestPinItButtonSize.Large), widget));
-      Assert.Equal(PinterestPinItButtonSize.Large, widget.Field("size").To<PinterestPinItButtonSize>());
+      Assert.Equal(PinterestPinItButtonSize.Large, widget.Size());
     }
 
     /// <summary>
@@ -133,9 +132,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Url(string.Empty));
 
       var widget = new PinterestPinItButtonWidget();
-      Assert.Null(widget.Field("url"));
+      Assert.Null(widget.Url());
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.Equal("url", widget.Field("url").To<string>());
+      Assert.Equal("url", widget.Url());
     }
 
     /// <summary>

@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,7 +16,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookPostWidgetExtensions.Width(null, 0));
 
-      Assert.Equal("1", new FacebookPostWidget().Width(1).Field("width").To<string>());
+      Assert.Equal("1", new FacebookPostWidget().Width(1).Width());
     }
   }
 }

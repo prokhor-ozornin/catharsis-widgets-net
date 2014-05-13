@@ -22,14 +22,23 @@ namespace Catharsis.Web.Widgets
     private string width;
 
     /// <summary>
-    ///   <para>Specifies whether or not to show a border around the plugin. Default is <c>true</c>.</para>
+    ///   <para>Whether or not to show a border around the plugin. Default is <c>true</c>.</para>
     /// </summary>
     /// <param name="border"><c>true</c> to show border, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeBoxWidget Border(bool border = true)
+    public IFacebookLikeBoxWidget Border(bool border)
     {
       this.border = border;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether or not to show a border around the plugin. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show border, <c>false</c> to hide.</returns>
+    public bool? Border()
+    {
+      return this.border;
     }
 
     /// <summary>
@@ -48,25 +57,52 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
-    ///   <para>Specifies whether to display profile photos of people who like the page. Default is <c>true</c>.</para>
+    ///   <para>The color scheme used by the widget. Default is "light".</para>
+    /// </summary>
+    /// <returns>Color scheme of widget.</returns>
+    public string ColorScheme()
+    {
+      return this.colorScheme;
+    }
+
+    /// <summary>
+    ///   <para>Whether to display profile photos of people who like the page. Default is <c>true</c>.</para>
     /// </summary>
     /// <param name="show"><c>true</c> to show profile photos, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeBoxWidget Faces(bool show = true)
+    public IFacebookLikeBoxWidget Faces(bool show)
     {
       this.faces = show;
       return this;
     }
 
     /// <summary>
-    ///   <para>Specifies whether to display the Facebook header at the top of the widget. Default is <c>true</c>.</para>
+    ///   <para>Whether to display profile photos of people who like the page. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show profile photos, <c>false</c> to hide.</returns>
+    public bool? Faces()
+    {
+      return this.faces;
+    }
+
+    /// <summary>
+    ///   <para>Whether to display the Facebook header at the top of the widget. Default is <c>true</c>.</para>
     /// </summary>
     /// <param name="show"><c>true</c> to show header, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeBoxWidget Header(bool show = true)
+    public IFacebookLikeBoxWidget Header(bool show)
     {
       this.header = show;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to display the Facebook header at the top of the widget. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show header, <c>false</c> to hide.</returns>
+    public bool? Header()
+    {
+      return this.header;
     }
 
     /// <summary>
@@ -85,14 +121,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The height of the widget in pixels. The default height varies based on number of faces to display, and whether the stream is displayed. With stream set to true and 10 photos displayed (via showFaces) the default height is 556px. With stream and show_faces both false, the default height is 63px.</para>
+    /// </summary>
+    /// <returns>Height of widget.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>Specifies whether to display a stream of the latest posts by the Page. Default is <c>true</c>.</para>
     /// </summary>
     /// <param name="show"><c>true</c> to show stream of posts, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeBoxWidget Stream(bool show = true)
+    public IFacebookLikeBoxWidget Stream(bool show)
     {
       this.stream = show;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Specifies whether to display a stream of the latest posts by the Page. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show stream of posts, <c>false</c> to hide.</returns>
+    public bool? Stream()
+    {
+      return this.stream;
     }
 
     /// <summary>
@@ -112,14 +166,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The absolute URL of the Facebook Page that will be liked.</para>
+    /// </summary>
+    /// <returns>URL of target web page.</returns>
+    public string Url()
+    {
+      return this.url;
+    }
+
+    /// <summary>
     ///   <para>For "place" Pages (Pages that have a physical location that can be used with check-ins), this specifies whether the stream contains posts by the Page or just check-ins from friends. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="include"><c>true</c> to include page's posts in the stream, <c>false</c> to exclude.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookLikeBoxWidget Wall(bool include = true)
+    public IFacebookLikeBoxWidget Wall(bool include)
     {
       this.wall = include;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>For "place" Pages (Pages that have a physical location that can be used with check-ins), this specifies whether the stream contains posts by the Page or just check-ins from friends. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to include page's posts in the stream, <c>false</c> to exclude.</returns>
+    public bool? Wall()
+    {
+      return this.wall;
     }
 
     /// <summary>
@@ -138,26 +210,35 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The width of the widget in pixels. Minimum is 292. Default is 300.</para>
+    /// </summary>
+    /// <returns>Width of button.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.url.IsEmpty())
+      if (this.Url().IsEmpty())
       {
         return string.Empty;
       }
 
       return new TagBuilder("div")
-        .Attribute("data-href", this.url)
-        .Attribute("data-width", this.width)
-        .Attribute("data-height", this.height)
-        .Attribute("data-colorscheme", this.colorScheme)
-        .Attribute("data-force-wall", this.wall)
-        .Attribute("data-header", this.header)
-        .Attribute("data-show-border", this.border)
-        .Attribute("data-show-faces", this.faces)
-        .Attribute("data-stream", this.stream)
+        .Attribute("data-href", this.Url())
+        .Attribute("data-width", this.Width())
+        .Attribute("data-height", this.Height())
+        .Attribute("data-colorscheme", this.ColorScheme())
+        .Attribute("data-force-wall", this.Wall())
+        .Attribute("data-header", this.Header())
+        .Attribute("data-show-border", this.Border())
+        .Attribute("data-show-faces", this.Faces())
+        .Attribute("data-stream", this.Stream())
         .CssClass("fb-like-box")
         .ToString();
     }

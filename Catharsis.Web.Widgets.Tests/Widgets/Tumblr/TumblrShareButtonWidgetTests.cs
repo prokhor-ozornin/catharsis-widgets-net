@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,9 +16,8 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new TumblrShareButtonWidget();
-      Assert.Equal(TumblrShareButtonType.First, widget.Field("type").To<TumblrShareButtonType>());
-      Assert.Equal(TumblrFollowButtonType.First, widget.Field("type").To<TumblrFollowButtonType>());
-      Assert.Null(widget.Field("colorScheme"));
+      Assert.Equal((byte) TumblrShareButtonType.First, widget.Type());
+      Assert.Null(widget.ColorScheme());
     }
 
     /// <summary>
@@ -29,9 +27,9 @@ namespace Catharsis.Web.Widgets
     public void Type_Method()
     {
       var widget = new TumblrShareButtonWidget();
-      Assert.Equal((byte)TumblrShareButtonType.First, widget.Field("type").To<byte>());
+      Assert.Equal((byte) TumblrShareButtonType.First, widget.Type());
       Assert.True(ReferenceEquals(widget.Type(1), widget));
-      Assert.Equal(1, widget.Field("type").To<byte>());
+      Assert.Equal(1, widget.Type());
     }
 
     /// <summary>
@@ -44,9 +42,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new TumblrShareButtonWidget().ColorScheme(string.Empty));
 
       var widget = new TumblrShareButtonWidget();
-      Assert.Null(widget.Field("colorScheme"));
+      Assert.Null(widget.ColorScheme());
       Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-      Assert.Equal("colorScheme", widget.Field("colorScheme").To<string>());
+      Assert.Equal("colorScheme", widget.ColorScheme());
     }
 
     /// <summary>

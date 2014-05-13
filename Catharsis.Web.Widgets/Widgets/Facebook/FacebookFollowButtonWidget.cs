@@ -35,14 +35,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The color scheme used by the button. Default is "light".</para>
+    /// </summary>
+    /// <returns>Color scheme of button.</returns>
+    public string ColorScheme()
+    {
+      return this.colorScheme;
+    }
+
+    /// <summary>
     ///   <para>Specifies whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites.</para>
     /// </summary>
     /// <param name="show"><c>true</c> to show profiles photos, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookFollowButtonWidget Faces(bool show = true)
+    public IFacebookFollowButtonWidget Faces(bool show)
     {
       this.faces = show;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Specifies whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show profiles photos, <c>false</c> to hide.</returns>
+    public bool? Faces()
+    {
+      return this.faces;
     }
 
     /// <summary>
@@ -61,14 +79,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The height of the button.</para>
+    /// </summary>
+    /// <returns>Height of button.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
     /// </summary>
     /// <param name="enabled"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
     /// <returns>Reference to the current widget.</returns>
-    public IFacebookFollowButtonWidget KidsMode(bool enabled = true)
+    public IFacebookFollowButtonWidget KidsMode(bool enabled)
     {
       this.kidsMode = enabled;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</returns>
+    public bool? KidsMode()
+    {
+      return this.kidsMode;
     }
 
     /// <summary>
@@ -84,6 +120,15 @@ namespace Catharsis.Web.Widgets
 
       this.layout = layout;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Selects one of the different layouts that are available for the button. Default is "standard".</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    public string Layout()
+    {
+      return this.layout;
     }
 
     /// <summary>
@@ -103,6 +148,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The Facebook.com profile URL of the user to follow.</para>
+    /// </summary>
+    /// <returns>Profile URL.</returns>
+    public string Url()
+    {
+      return this.url;
+    }
+
+    /// <summary>
     ///   <para>The width of the button. The layout you choose affects the minimum and default widths you can use.</para>
     /// </summary>
     /// <param name="width">Width of button.</param>
@@ -118,24 +172,33 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The width of the button. The layout you choose affects the minimum and default widths you can use.</para>
+    /// </summary>
+    /// <returns>Width of button.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.url.IsEmpty())
+      if (this.Url().IsEmpty())
       {
         return string.Empty;
       }
 
       return new TagBuilder("div")
-        .Attribute("data-layout", this.layout)
-        .Attribute("data-show-faces", this.faces)
-        .Attribute("data-href", this.url)
-        .Attribute("data-colorscheme", this.colorScheme)
-        .Attribute("data-kid-directed-site", this.kidsMode)
-        .Attribute("data-width", this.width)
-        .Attribute("data-height", this.height)
+        .Attribute("data-layout", this.Layout())
+        .Attribute("data-show-faces", this.Faces())
+        .Attribute("data-href", this.Url())
+        .Attribute("data-colorscheme", this.ColorScheme())
+        .Attribute("data-kid-directed-site", this.KidsMode())
+        .Attribute("data-width", this.Width())
+        .Attribute("data-height", this.Height())
         .CssClass("fb-follow")
         .ToString();
     }

@@ -30,6 +30,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier of registered website in the "Disqus" comments system.</para>
+    /// </summary>
+    /// <returns>Identifier of website.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
@@ -40,7 +49,7 @@ namespace Catharsis.Web.Widgets
         return string.Empty;
       }
 
-      return resources.disqus_comments.FormatSelf(this.account);
+      return resources.disqus_comments.FormatSelf(this.Account());
     }
   }
 }

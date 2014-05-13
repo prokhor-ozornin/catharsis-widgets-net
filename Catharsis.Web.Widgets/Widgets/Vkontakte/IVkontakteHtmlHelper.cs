@@ -6,6 +6,12 @@ namespace Catharsis.Web.Widgets
   public interface IVkontakteHtmlHelper
   {
     /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <returns></returns>
+    //IVkontakteAuthButtonWidget AuthButton();
+
+    /// <summary>
     ///   <para>Creates new VKontakte comments widget.</para>
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
@@ -28,6 +34,30 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <returns>Initialized widget with default options.</returns>
     IVkontakteLikeButtonWidget LikeButton();
+
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <returns></returns>
+    //IVkontaktePollWidget Poll();
+
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <returns></returns>
+    //IVkontaktePostWidget Post();
+
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <returns></returns>
+    //IVkontakteRecommendationsWidget Recommendations();
+
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <returns></returns>
+    //IVkontakteShareButtonWidget ShareButton();
 
     /// <summary>
     ///   <para>Creates new VKontakte subscription widget.</para>

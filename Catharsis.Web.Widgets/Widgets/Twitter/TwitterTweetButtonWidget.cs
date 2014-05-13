@@ -43,6 +43,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Count box position. Default is "horizontal".</para>
+    /// </summary>
+    /// <returns>Count box position.</returns>
+    public string CounterPosition()
+    {
+      return this.counterPosition;
+    }
+
+    /// <summary>
     ///   <para>The URL to which your shared URL resolves. Default is the URL being shared.</para>
     /// </summary>
     /// <param name="url">Resolved URL of shared post.</param>
@@ -58,6 +67,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The URL to which your shared URL resolves. Default is the URL being shared.</para>
+    /// </summary>
+    /// <returns>Resolved URL of shared post.</returns>
+    public string CountUrl()
+    {
+      return this.countUrl;
+    }
+
+    /// <summary>
     ///   <para>Collection of hashtags which are to be appended to tweet text.</para>
     /// </summary>
     /// <param name="tags">Collection of tags for post.</param>
@@ -69,6 +87,15 @@ namespace Catharsis.Web.Widgets
 
       this.tags = tags;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Collection of hashtags which are to be appended to tweet text.</para>
+    /// </summary>
+    /// <returns>Collection of tags for post.</returns>
+    public IEnumerable<string> HashTags()
+    {
+      return this.tags;
     }
 
     /// <summary>
@@ -87,14 +114,32 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Language for the "Tweet" button. Default is either request locale's language or language of the current thread.</para>
+    /// </summary>
+    /// <returns>Interface language for button.</returns>
+    public string Language()
+    {
+      return this.language;
+    }
+
+    /// <summary>
     ///   <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
     /// </summary>
     /// <param name="enabled"><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</param>
     /// <returns>Reference to the current widget.</returns>
-    public ITwitterTweetButtonWidget Suggestions(bool enabled = true)
+    public ITwitterTweetButtonWidget Suggestions(bool enabled)
     {
       this.suggestions = enabled;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</returns>
+    public bool? Suggestions()
+    {
+      return this.suggestions;
     }
 
     /// <summary>
@@ -109,6 +154,15 @@ namespace Catharsis.Web.Widgets
 
       this.accounts = accounts;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Collection of related accounts.</para>
+    /// </summary>
+    /// <returns>Collection of related accounts.</returns>
+    public IEnumerable<string> RelatedAccounts()
+    {
+      return this.accounts;
     }
 
     /// <summary>
@@ -127,6 +181,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>The size of the rendered button. Default is "medium".</para>
+    /// </summary>
+    /// <returns>Size of button.</returns>
+    public string Size()
+    {
+      return this.size;
+    }
+
+    /// <summary>
     ///   <para>Tweet text. Default is content of the "title" tag.</para>
     /// </summary>
     /// <param name="text">Tweet text.</param>
@@ -139,6 +202,15 @@ namespace Catharsis.Web.Widgets
 
       this.text = text;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Tweet text. Default is content of the "title" tag.</para>
+    /// </summary>
+    /// <returns>Tweet text.</returns>
+    public string Text()
+    {
+      return this.text;
     }
 
     /// <summary>
@@ -157,6 +229,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>URL of the page to share. Default is contents of HTTP "Referrer" header.</para>
+    /// </summary>
+    /// <returns>URL of shared web page.</returns>
+    public string Url()
+    {
+      return this.url;
+    }
+
+    /// <summary>
     ///   <para>Screen name of the user to attribute the Tweet to.</para>
     /// </summary>
     /// <param name="account">Screen name of tweet's author.</param>
@@ -172,6 +253,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Screen name of the user to attribute the Tweet to.</para>
+    /// </summary>
+    /// <returns>Screen name of tweet's author.</returns>
+    public string Via()
+    {
+      return this.via;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
@@ -179,16 +269,16 @@ namespace Catharsis.Web.Widgets
     {
       return new TagBuilder("a")
         .Attribute("href", "https://twitter.com/share")
-        .Attribute("data-lang", this.language ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
-        .Attribute("data-url", this.url)
-        .Attribute("data-via", this.via)
-        .Attribute("data-text", this.text)
-        .Attribute("data-related", this.accounts.Any() ? this.accounts.Join(",") : null)
-        .Attribute("data-count", this.counterPosition)
-        .Attribute("data-counturl", this.countUrl)
-        .Attribute("data-hashtags", this.tags.Any() ? this.tags.Join(" ") : null)
-        .Attribute("data-size", this.size)
-        .Attribute("data-dnt", this.suggestions == null ? null : !this.suggestions)
+        .Attribute("data-lang", this.Language() ?? (HttpContext.Current != null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
+        .Attribute("data-url", this.Url())
+        .Attribute("data-via", this.Via())
+        .Attribute("data-text", this.Text())
+        .Attribute("data-related", this.RelatedAccounts().Any() ? this.RelatedAccounts().Join(",") : null)
+        .Attribute("data-count", this.CounterPosition())
+        .Attribute("data-counturl", this.CountUrl())
+        .Attribute("data-hashtags", this.HashTags().Any() ? this.HashTags().Join(" ") : null)
+        .Attribute("data-size", this.Size())
+        .Attribute("data-dnt", this.Suggestions() == null ? null : !this.Suggestions())
         .CssClass(this.tags.Any() ? "twitter-hashtag-button" : "twitter-share-button")
         .ToString();
     }

@@ -15,7 +15,13 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <param name="show"><c>true</c> to show share counter, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    IMailRuLikeButtonWidget Counter(bool show = true);
+    IMailRuLikeButtonWidget Counter(bool show);
+
+    /// <summary>
+    ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show share counter, <c>false</c> to hide.</returns>
+    bool Counter();
 
     /// <summary>
     ///   <para>Position of a share counter.</para>
@@ -27,6 +33,12 @@ namespace Catharsis.Web.Widgets
     IMailRuLikeButtonWidget CounterPosition(string position);
 
     /// <summary>
+    ///   <para>Position of a share counter.</para>
+    /// </summary>
+    /// <returns>Position of a counter.</returns>
+    string CounterPosition();
+
+    /// <summary>
     ///   <para>Visual layout/appearance of button.</para>
     /// </summary>
     /// <param name="layout">Visual layout of button.</param>
@@ -36,6 +48,12 @@ namespace Catharsis.Web.Widgets
     IMailRuLikeButtonWidget Layout(byte layout);
 
     /// <summary>
+    ///   <para>Visual layout/appearance of button.</para>
+    /// </summary>
+    /// <returns>Visual layout of button.</returns>
+    byte Layout();
+
+    /// <summary>
     ///   <para>Vertical size of button.</para>
     /// </summary>
     /// <param name="size">Vertical size of button.</param>
@@ -43,11 +61,23 @@ namespace Catharsis.Web.Widgets
     IMailRuLikeButtonWidget Size(string size);
 
     /// <summary>
+    ///   <para>Vertical size of button.</para>
+    /// </summary>
+    /// <returns>Vertical size of button.</returns>
+    string Size();
+
+    /// <summary>
     ///   <para>Whether to show text label on button. Default is <c>true</c>.</para>
     /// </summary>
     /// <param name="text"><c>true</c> to show text label, <c>false</c> to hide.</param>
     /// <returns>Reference to the current widget.</returns>
-    IMailRuLikeButtonWidget Text(bool text = true);
+    IMailRuLikeButtonWidget Text(bool text);
+
+    /// <summary>
+    ///   <para>Whether to show text label on button. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to show text label, <c>false</c> to hide.</returns>
+    bool Text();
 
     /// <summary>
     ///   <para>Type of text label to show on button.</para>
@@ -59,6 +89,12 @@ namespace Catharsis.Web.Widgets
     IMailRuLikeButtonWidget TextType(byte type);
 
     /// <summary>
+    ///   <para>Type of text label to show on button.</para>
+    /// </summary>
+    /// <returns>Type of text label.</returns>
+    byte TextType();
+
+    /// <summary>
     ///   <para>Type of button.</para>
     /// </summary>
     /// <param name="type">Type of button.</param>
@@ -66,5 +102,11 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentNullException">If <paramref name="type"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="type"/> is <see cref="string.Empty"/> string.</exception>
     IMailRuLikeButtonWidget Type(string type);
+
+    /// <summary>
+    ///   <para>Type of button.</para>
+    /// </summary>
+    /// <returns>Type of button.</returns>
+    string Type();
   }
 }

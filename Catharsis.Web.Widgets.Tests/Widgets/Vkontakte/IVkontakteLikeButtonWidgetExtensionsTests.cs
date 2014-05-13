@@ -20,9 +20,9 @@ namespace Catharsis.Web.Widgets
       new VkontakteLikeButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Verb(VkontakteLikeButtonVerb.Like), widget));
-        Assert.Equal(0, widget.Field("verb").To<byte>());
+        Assert.Equal(0, widget.Verb().Value);
       });
-      new VkontakteLikeButtonWidget().With(widget => Assert.Equal(1, widget.Verb(VkontakteLikeButtonVerb.Interest).Field("verb").To<byte>()));
+      new VkontakteLikeButtonWidget().With(widget => Assert.Equal(1, widget.Verb(VkontakteLikeButtonVerb.Interest).Verb().Value));
     }
 
     /// <summary>
@@ -36,11 +36,11 @@ namespace Catharsis.Web.Widgets
       new VkontakteLikeButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Layout(VkontakteLikeButtonLayout.Button), widget));
-        Assert.Equal("button", widget.Field("layout").To<string>());
+        Assert.Equal("button", widget.Layout());
       });
-      new VkontakteLikeButtonWidget().With(widget => Assert.Equal("full", widget.Layout(VkontakteLikeButtonLayout.Full).Field("layout").To<string>()));
-      new VkontakteLikeButtonWidget().With(widget => Assert.Equal("mini", widget.Layout(VkontakteLikeButtonLayout.Mini).Field("layout").To<string>()));
-      new VkontakteLikeButtonWidget().With(widget => Assert.Equal("vertical", widget.Layout(VkontakteLikeButtonLayout.Vertical).Field("layout").To<string>()));
+      new VkontakteLikeButtonWidget().With(widget => Assert.Equal("full", widget.Layout(VkontakteLikeButtonLayout.Full).Layout()));
+      new VkontakteLikeButtonWidget().With(widget => Assert.Equal("mini", widget.Layout(VkontakteLikeButtonLayout.Mini).Layout()));
+      new VkontakteLikeButtonWidget().With(widget => Assert.Equal("vertical", widget.Layout(VkontakteLikeButtonLayout.Vertical).Layout()));
     }
 
     /// <summary>
@@ -54,7 +54,7 @@ namespace Catharsis.Web.Widgets
       new VkontakteLikeButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Width(1), widget));
-        Assert.Equal("1", widget.Field("width").To<string>());
+        Assert.Equal("1", widget.Width());
       });
     }
 
@@ -69,7 +69,7 @@ namespace Catharsis.Web.Widgets
       new VkontakteLikeButtonWidget().With(widget =>
       {
         Assert.True(ReferenceEquals(widget.Height(1), widget));
-        Assert.Equal("1", widget.Field("height").To<string>());
+        Assert.Equal("1", widget.Height());
       });
     }
   }

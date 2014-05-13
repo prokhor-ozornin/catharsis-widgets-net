@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -19,8 +17,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookRecommendationsFeedWidgetExtensions.Actions(null, Enumerable.Empty<string>().ToArray()));
 
-      Assert.False(new FacebookRecommendationsFeedWidget().Actions().Field("actions").To<IEnumerable<string>>().Any());
-      Assert.True(new FacebookRecommendationsFeedWidget().Actions("first", "second").Field("actions").To<IEnumerable<string>>().SequenceEqual(new[] { "first", "second" }));
+      Assert.False(new FacebookRecommendationsFeedWidget().Actions().Any());
+      Assert.True(new FacebookRecommendationsFeedWidget().Actions("first", "second").Actions().SequenceEqual(new[] { "first", "second" }));
     }
 
     /// <summary>
@@ -31,7 +29,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookRecommendationsFeedWidgetExtensions.Width(null, 0));
 
-      Assert.Equal("1", new FacebookRecommendationsFeedWidget().Width(1).Field("width").To<string>());
+      Assert.Equal("1", new FacebookRecommendationsFeedWidget().Width(1).Width());
     }
 
     /// <summary>
@@ -42,7 +40,7 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookRecommendationsFeedWidgetExtensions.Height(null, 0));
 
-      Assert.Equal("1", new FacebookRecommendationsFeedWidget().Height(1).Field("height").To<string>());
+      Assert.Equal("1", new FacebookRecommendationsFeedWidget().Height(1).Height());
     }
 
     /// <summary>
@@ -53,8 +51,8 @@ namespace Catharsis.Web.Widgets
     {
       Assert.Throws<ArgumentNullException>(() => IFacebookRecommendationsFeedWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
 
-      Assert.Equal("dark", new FacebookRecommendationsFeedWidget().ColorScheme(FacebookColorScheme.Dark).Field("colorScheme").To<string>());
-      Assert.Equal("light", new FacebookRecommendationsFeedWidget().ColorScheme(FacebookColorScheme.Light).Field("colorScheme").To<string>());
+      Assert.Equal("dark", new FacebookRecommendationsFeedWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
+      Assert.Equal("light", new FacebookRecommendationsFeedWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());
     }
   }
 }

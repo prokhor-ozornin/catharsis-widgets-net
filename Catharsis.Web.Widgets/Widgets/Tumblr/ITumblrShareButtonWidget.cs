@@ -20,10 +20,22 @@ namespace Catharsis.Web.Widgets
     ITumblrShareButtonWidget ColorScheme(string scheme);
 
     /// <summary>
+    ///   <para>Visual color scheme of button.</para>
+    /// </summary>
+    /// <returns>Color scheme for button.</returns>
+    string ColorScheme();
+
+    /// <summary>
     ///   <para>Visual layout/appearance of button.</para>
     /// </summary>
     /// <param name="type">Layout of button.</param>
     /// <returns>Reference to the current widget.</returns>
     ITumblrShareButtonWidget Type(byte type);
+
+    /// <summary>
+    ///   <para>Visual layout/appearance of button.</para>
+    /// </summary>
+    /// <returns>Layout of button.</returns>
+    byte Type();
   }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,9 +16,9 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new SoundCloudProfileIconWidget();
-      Assert.Null(widget.Field("account"));
-      Assert.Equal("orange_white", widget.Field("color").To<string>());
-      Assert.Equal((short)SoundCloudProfileIconSize.Size32, widget.Field("size").To<short>());
+      Assert.Null(widget.Account());
+      Assert.Equal("orange_white", widget.Color());
+      Assert.Equal((short) SoundCloudProfileIconSize.Size32, widget.Size());
     }
 
     /// <summary>
@@ -32,9 +31,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new SoundCloudProfileIconWidget().Account(string.Empty));
 
       var widget = new SoundCloudProfileIconWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account());
     }
 
     /// <summary>
@@ -47,9 +46,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new SoundCloudProfileIconWidget().Color(string.Empty));
 
       var widget = new SoundCloudProfileIconWidget();
-      Assert.Equal("orange_white", widget.Field("color").To<string>());
+      Assert.Equal("orange_white", widget.Color());
       Assert.True(ReferenceEquals(widget.Color("color"), widget));
-      Assert.Equal("color", widget.Field("color").To<string>());
+      Assert.Equal("color", widget.Color());
     }
 
     /// <summary>
@@ -59,9 +58,9 @@ namespace Catharsis.Web.Widgets
     public void Size_Method()
     {
       var widget = new SoundCloudProfileIconWidget();
-      Assert.Equal((short) SoundCloudProfileIconSize.Size32, widget.Field("size").To<short>());
+      Assert.Equal((short) SoundCloudProfileIconSize.Size32, widget.Size());
       Assert.True(ReferenceEquals(widget.Size(1), widget));
-      Assert.Equal(1, widget.Field("size").To<short>());
+      Assert.Equal(1, widget.Size());
     }
 
     /// <summary>

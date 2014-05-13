@@ -1,5 +1,4 @@
 using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,14 +16,13 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new GooglePlusOneButtonWidget();
-      Assert.Null(widget.Field("url"));
-      Assert.Null(widget.Field("language"));
-      Assert.Null(widget.Field("width"));
-      Assert.Null(widget.Field("size"));
-      Assert.Null(widget.Field("alignment"));
-      Assert.Null(widget.Field("annotation"));
-      Assert.Null(widget.Field("callback"));
-      Assert.Null(widget.Field("recommendations"));
+      Assert.Null(widget.Url());
+      Assert.Null(widget.Width());
+      Assert.Null(widget.Size());
+      Assert.Null(widget.Alignment());
+      Assert.Null(widget.Annotation());
+      Assert.Null(widget.Callback());
+      Assert.Null(widget.Recommendations());
     }
 
     /// <summary>
@@ -37,9 +35,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Url(string.Empty));
 
       var widget = new GooglePlusOneButtonWidget();
-      Assert.Null(widget.Field("url"));
+      Assert.Null(widget.Url());
       Assert.True(ReferenceEquals(widget.Url("url"), widget));
-      Assert.Equal("url", widget.Field("url").To<string>());
+      Assert.Equal("url", widget.Url());
     }
 
     /// <summary>
@@ -52,9 +50,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Width(string.Empty));
 
       var widget = new GooglePlusOneButtonWidget();
-      Assert.Null(widget.Field("width"));
+      Assert.Null(widget.Width());
       Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Field("width").To<string>());
+      Assert.Equal("width", widget.Width());
     }
 
     /// <summary>
@@ -67,9 +65,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Size(string.Empty));
 
       var widget = new GooglePlusOneButtonWidget();
-      Assert.Null(widget.Field("size"));
+      Assert.Null(widget.Size());
       Assert.True(ReferenceEquals(widget.Size("size"), widget));
-      Assert.Equal("size", widget.Field("size").To<string>());
+      Assert.Equal("size", widget.Size());
     }
 
     /// <summary>
@@ -82,9 +80,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Alignment(string.Empty));
 
       var widget = new GooglePlusOneButtonWidget();
-      Assert.Null(widget.Field("alignment"));
+      Assert.Null(widget.Alignment());
       Assert.True(ReferenceEquals(widget.Alignment("alignment"), widget));
-      Assert.Equal("alignment", widget.Field("alignment").To<string>());
+      Assert.Equal("alignment", widget.Alignment());
     }
 
     /// <summary>
@@ -97,9 +95,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Annotation(string.Empty));
 
       var widget = new GooglePlusOneButtonWidget();
-      Assert.Null(widget.Field("annotation"));
+      Assert.Null(widget.Annotation());
       Assert.True(ReferenceEquals(widget.Annotation("annotation"), widget));
-      Assert.Equal("annotation", widget.Field("annotation").To<string>());
+      Assert.Equal("annotation", widget.Annotation());
     }
 
     /// <summary>
@@ -112,9 +110,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Callback(string.Empty));
 
       var widget = new GooglePlusOneButtonWidget();
-      Assert.Null(widget.Field("callback"));
+      Assert.Null(widget.Callback());
       Assert.True(ReferenceEquals(widget.Callback("callback"), widget));
-      Assert.Equal("callback", widget.Field("callback").To<string>());
+      Assert.Equal("callback", widget.Callback());
     }
 
     /// <summary>
@@ -124,9 +122,9 @@ namespace Catharsis.Web.Widgets
     public void Recommendations_Method()
     {
       var widget = new GooglePlusOneButtonWidget();
-      Assert.Null(widget.Field("recommendations"));
-      Assert.True(ReferenceEquals(widget.Recommendations(), widget));
-      Assert.True(widget.Field("recommendations").To<bool>());
+      Assert.Null(widget.Recommendations());
+      Assert.True(ReferenceEquals(widget.Recommendations(true), widget));
+      Assert.True(widget.Recommendations().Value);
     }
 
     /// <summary>
@@ -136,7 +134,7 @@ namespace Catharsis.Web.Widgets
     public void ToHtmlString_Method()
     {
       Assert.Equal("<g:plusone></g:plusone>", new GooglePlusOneButtonWidget().ToString());
-      Assert.Equal(@"<g:plusone align=""left"" annotation=""none"" data-callback=""callback"" data-recommendations=""true"" href=""url"" size=""small"" width=""width""></g:plusone>", new GooglePlusOneButtonWidget().Url("url").Size(GooglePlusOneButtonSize.Small).Annotation(GooglePlusOneButtonAnnotation.None).Width("width").Alignment(GooglePlusOneButtonAlignment.Left).Callback("callback").Recommendations().ToString());
+      Assert.Equal(@"<g:plusone align=""left"" annotation=""none"" data-callback=""callback"" data-recommendations=""true"" href=""url"" size=""small"" width=""width""></g:plusone>", new GooglePlusOneButtonWidget().Url("url").Size(GooglePlusOneButtonSize.Small).Annotation(GooglePlusOneButtonAnnotation.None).Width("width").Alignment(GooglePlusOneButtonAlignment.Left).Callback("callback").Recommendations(true).ToString());
     }
   }
 }

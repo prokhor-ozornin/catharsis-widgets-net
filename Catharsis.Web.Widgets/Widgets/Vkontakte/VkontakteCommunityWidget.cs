@@ -35,6 +35,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Identifier or VKontakte public group/community.</para>
+    /// </summary>
+    /// <returns>Group identifier.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Vertical height of widget.</para>
     /// </summary>
     /// <param name="height">Height of widget.</param>
@@ -50,6 +59,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Vertical height of widget.</para>
+    /// </summary>
+    /// <returns>Height of widget.</returns>
+    public string Height()
+    {
+      return this.height;
+    }
+
+    /// <summary>
     ///   <para>Type of information to be displayed about given community.</para>
     /// </summary>
     /// <param name="mode">Community's info type.</param>
@@ -58,6 +76,15 @@ namespace Catharsis.Web.Widgets
     {
       this.mode = mode;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Type of information to be displayed about given community.</para>
+    /// </summary>
+    /// <returns>Community's info type.</returns>
+    public byte Mode()
+    {
+      return this.mode;
     }
 
     /// <summary>
@@ -76,34 +103,46 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Horizontal width of widget.</para>
+    /// </summary>
+    /// <returns>Width of widget.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty())
+      if (this.Account().IsEmpty())
       {
         return string.Empty;
       }
 
-      var config = new Dictionary<string, object> { { "mode", this.mode } };
+      var config = new Dictionary<string, object>
+      {
+        { "mode", this.Mode() }
+      };
       
-      if (this.mode == (byte)VkontakteCommunityMode.News)
+      if (this.Mode() == (byte)VkontakteCommunityMode.News)
       {
         config["wide"] = 1;
       }
-      if (!this.width.IsEmpty())
+      if (!this.Width().IsEmpty())
       {
-        config["width"] = this.width;
+        config["width"] = this.Width();
       }
-      if (!this.height.IsEmpty())
+      if (!this.Height().IsEmpty())
       {
-        config["height"] = this.height;
+        config["height"] = this.Height();
       }
 
       return new StringBuilder()
         .Append(new TagBuilder("div").Attribute("id", "vk_groups"))
-        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Group(""vk_groups"", {0}, ""{1}"");".FormatSelf(config.Json(), this.account)))
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Group(""vk_groups"", {0}, ""{1}"");".FormatSelf(config.Json(), this.Account())))
         .ToString();
     }
   }

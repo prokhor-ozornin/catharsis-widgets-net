@@ -19,6 +19,12 @@ namespace Catharsis.Web.Widgets
     ISoundCloudProfileIconWidget Account(string account);
 
     /// <summary>
+    ///   <para>SoundCloud user's account name.</para>
+    /// </summary>
+    /// <returns>Account name.</returns>
+    string Account();
+
+    /// <summary>
     ///   <para>Color of profile icon.</para>
     /// </summary>
     /// <param name="color">Icon's color.</param>
@@ -28,10 +34,22 @@ namespace Catharsis.Web.Widgets
     ISoundCloudProfileIconWidget Color(string color);
 
     /// <summary>
+    ///   <para>Color of profile icon.</para>
+    /// </summary>
+    /// <returns>Icon's color.</returns>
+    string Color();
+
+    /// <summary>
     ///   <para>Edge size of profile icon in pixels.</para>
     /// </summary>
     /// <param name="size">Icon's size.</param>
     /// <returns>Reference to the current widget.</returns>
     ISoundCloudProfileIconWidget Size(short size);
+
+    /// <summary>
+    ///   <para>Edge size of profile icon in pixels.</para>
+    /// </summary>
+    /// <returns>Icon's size.</returns>
+    short Size();
   }
 }

@@ -21,6 +21,12 @@ namespace Catharsis.Web.Widgets
     IPinterestFollowButtonWidget Account(string account);
 
     /// <summary>
+    ///   <para>Pinterest user account.</para>
+    /// </summary>
+    /// <returns>Account name.</returns>
+    string Account();
+
+    /// <summary>
     ///   <para>Text label on the button.</para>
     /// </summary>
     /// <param name="label">Button's label.</param>
@@ -29,5 +35,11 @@ namespace Catharsis.Web.Widgets
     /// <exception cref="ArgumentException">If <paramref name="label"/> is <see cref="string.Empty"/> string.</exception>
     /// <remarks>This attribute is required.</remarks>
     IPinterestFollowButtonWidget Label(string label);
+
+    /// <summary>
+    ///   <para>Text label on the button.</para>
+    /// </summary>
+    /// <returns>Button's label.</returns>
+    string Label();
   }
 }

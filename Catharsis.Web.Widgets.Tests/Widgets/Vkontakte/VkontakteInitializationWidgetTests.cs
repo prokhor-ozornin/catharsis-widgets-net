@@ -1,5 +1,4 @@
 ﻿using System;
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets
@@ -17,7 +16,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VkontakteInitializationWidget();
-      Assert.Null(widget.Field("apiId"));
+      Assert.Null(widget.ApiId());
     }
 
     /// <summary>
@@ -30,9 +29,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new VkontakteInitializationWidget().ApiId(string.Empty));
 
       var widget = new VkontakteInitializationWidget();
-      Assert.Null(widget.Field("apiId"));
+      Assert.Null(widget.ApiId());
       Assert.True(ReferenceEquals(widget.ApiId("apiId"), widget));
-      Assert.Equal("apiId", widget.Field("apiId").To<string>());
+      Assert.Equal("apiId", widget.ApiId());
     }
 
     /// <summary>

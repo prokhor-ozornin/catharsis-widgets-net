@@ -35,6 +35,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Pinterest user account.</para>
+    /// </summary>
+    /// <returns>Account name.</returns>
+    public string Account()
+    {
+      return this.account;
+    }
+
+    /// <summary>
     ///   <para>Total height of board in pixels.</para>
     /// </summary>
     /// <param name="height">Board's height.</param>
@@ -48,6 +57,15 @@ namespace Catharsis.Web.Widgets
 
       this.height = height;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Total height of board in pixels.</para>
+    /// </summary>
+    /// <returns>Board's height.</returns>
+    public string Height()
+    {
+      return this.height;
     }
 
     /// <summary>
@@ -67,6 +85,15 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Total width of board in pixels.</para>
+    /// </summary>
+    /// <returns>Board's width.</returns>
+    public string Width()
+    {
+      return this.width;
+    }
+
+    /// <summary>
     ///   <para>Identifier of account's board.</para>
     /// </summary>
     /// <param name="id">Board's identifier.</param>
@@ -80,6 +107,15 @@ namespace Catharsis.Web.Widgets
 
       this.id = id;
       return this;
+    }
+
+    /// <summary>
+    ///   <para>Identifier of account's board.</para>
+    /// </summary>
+    /// <returns>Board's identifier.</returns>
+    public string Id()
+    {
+      return this.id;
     }
 
     /// <summary>
@@ -99,22 +135,31 @@ namespace Catharsis.Web.Widgets
     }
 
     /// <summary>
+    ///   <para>Width of board's image in pixels.</para>
+    /// </summary>
+    /// <returns>Board's image width.</returns>
+    public string Image()
+    {
+      return this.image;
+    }
+
+    /// <summary>
     ///   <para>Returns HTML markup text of widget.</para>
     /// </summary>
     /// <returns>Widget's HTML markup.</returns>
     public override string ToHtmlString()
     {
-      if (this.account.IsEmpty() || this.id.IsEmpty())
+      if (this.Account().IsEmpty() || this.Id().IsEmpty())
       {
         return string.Empty;
       }
 
       return new TagBuilder("a")
         .Attribute("data-pin-do", "embedBoard")
-        .Attribute("href", "http://www.pinterest.com/{0}/{1}".FormatSelf(this.account, this.id))
-        .Attribute("data-pin-scale-width", this.image)
-        .Attribute("data-pin-scale-height", this.height)
-        .Attribute("data-pin-board-width", this.width)
+        .Attribute("href", "http://www.pinterest.com/{0}/{1}".FormatSelf(this.Account(), this.Id()))
+        .Attribute("data-pin-scale-width", this.Image())
+        .Attribute("data-pin-scale-height", this.Height())
+        .Attribute("data-pin-board-width", this.Width())
         .ToString();
     }
   }

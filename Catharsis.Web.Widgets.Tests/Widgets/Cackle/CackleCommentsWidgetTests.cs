@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new CackleCommentsWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
     }
 
     /// <summary>
@@ -31,9 +31,9 @@ namespace Catharsis.Web.Widgets
       Assert.Throws<ArgumentException>(() => new CackleCommentsWidget().Account(string.Empty));
 
       var widget = new CackleCommentsWidget();
-      Assert.Null(widget.Field("account"));
+      Assert.Null(widget.Account());
       Assert.True(ReferenceEquals(widget.Account("account"), widget));
-      Assert.Equal("account", widget.Field("account").To<string>());
+      Assert.Equal("account", widget.Account().To<string>());
     }
 
     /// <summary>
