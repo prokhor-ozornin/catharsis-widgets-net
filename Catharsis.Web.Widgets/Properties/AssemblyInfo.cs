@@ -32,8 +32,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("2.5")]
-[assembly: AssemblyFileVersion("2.5")]
+[assembly: AssemblyVersion("2.7")]
+[assembly: AssemblyFileVersion("2.7")]
 
 [assembly: CLSCompliant(true)]
 [assembly: InternalsVisibleTo("Catharsis.Web.Widgets.Tests")]

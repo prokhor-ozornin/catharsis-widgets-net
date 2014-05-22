@@ -1,17 +1,17 @@
 namespace Catharsis.Web.Widgets
 {
   /// <summary>
-  ///   <para></para>
+  ///   <para>Horizontal alignment of Google "+1" button.</para>
   /// </summary>
   public enum GooglePlusOneButtonAlignment
   {
     /// <summary>
-    ///   <para></para>
+    ///   <para>Left alignment.</para>
     /// </summary>
     Left,
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Right alignment.</para>
     /// </summary>
     Right
   }

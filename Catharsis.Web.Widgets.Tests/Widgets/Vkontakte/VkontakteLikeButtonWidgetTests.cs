@@ -16,6 +16,7 @@ namespace Catharsis.Web.Widgets
     public void Constructors()
     {
       var widget = new VkontakteLikeButtonWidget();
+      Assert.Null(widget.ElementId());
       Assert.Null(widget.Text());
       Assert.Null(widget.Verb());
       Assert.Null(widget.Layout());
@@ -25,6 +26,21 @@ namespace Catharsis.Web.Widgets
       Assert.Null(widget.Url());
       Assert.Null(widget.Description());
       Assert.Null(widget.Image());
+    }
+
+    /// <summary>
+    ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.ElementId(string)"/> method.</para>
+    /// </summary>
+    [Fact]
+    public void ElementId_Method()
+    {
+      Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().ElementId(null));
+      Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().ElementId(string.Empty));
+
+      var widget = new VkontakteLikeButtonWidget();
+      Assert.Null(widget.ElementId());
+      Assert.True(ReferenceEquals(widget.ElementId("elementId"), widget));
+      Assert.Equal("elementId", widget.ElementId());
     }
 
     /// <summary>
@@ -170,10 +186,10 @@ namespace Catharsis.Web.Widgets
       Assert.True(html.Contains(@"<script type=""text/javascript"">"));
       Assert.True(html.Contains(@"VK.Widgets.Like(""vk_like"", {});"));
 
-      html = new VkontakteLikeButtonWidget().Layout(VkontakteLikeButtonLayout.Button).Width("width").Title("title").Description("description").Url("url").Image("image").Text("text").Height("height").Verb(1).ToString();
-      Assert.True(html.Contains(@"<div id=""vk_like""></div>"));
+      html = new VkontakteLikeButtonWidget().Layout(VkontakteLikeButtonLayout.Button).ElementId("elementId").Width("width").Title("title").Description("description").Url("url").Image("image").Text("text").Height("height").Verb(1).ToString();
+      Assert.True(html.Contains(@"<div id=""elementId""></div>"));
       Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-      Assert.True(html.Contains(@"VK.Widgets.Like(""vk_like"", {""type"":""button"",""width"":""width"",""pageTitle"":""title"",""pageDescription"":""description"",""pageUrl"":""url"",""pageImage"":""image"",""text"":""text"",""height"":""height"",""verb"":1});"));
+      Assert.True(html.Contains(@"VK.Widgets.Like(""elementId"", {""type"":""button"",""width"":""width"",""pageTitle"":""title"",""pageDescription"":""description"",""pageUrl"":""url"",""pageImage"":""image"",""text"":""text"",""height"":""height"",""verb"":1});"));
     }
   }
 }

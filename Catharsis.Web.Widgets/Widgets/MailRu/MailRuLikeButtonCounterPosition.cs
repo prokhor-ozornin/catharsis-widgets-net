@@ -1,17 +1,17 @@
 namespace Catharsis.Web.Widgets
 {
   /// <summary>
-  ///   <para></para>
+  ///   <para> Position of counter for Mail.ru "Like" button.</para>
   /// </summary>
   public enum MailRuLikeButtonCounterPosition
   {
     /// <summary>
-    ///   <para></para>
+    ///   <para>To the right side of button.</para>
     /// </summary>
     Right,
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Over the button.</para>
     /// </summary>
     Upper
   }

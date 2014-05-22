@@ -37,8 +37,7 @@
       <HintPath>..\packages\Catharsis.Commons.2.0.2\lib\net40\Catharsis.Commons.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -166,11 +165,19 @@
     <Compile Include="Widgets\Vimeo\HtmlHelperExtensionsTests.cs" />
     <Compile Include="Widgets\Vimeo\IVimeoHtmlHelperExtensionsTests.cs" />
     <Compile Include="Widgets\Vkontakte\HtmlHelperExtensionsTests.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteAuthButtonWidgetExtensionsTests.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteCommentsWidgetExtensionsTests.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteCommunityWidgetExtensionsTests.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteHtmlHelperExtensionsTests.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteLikeButtonWidgetExtensionsTests.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontaktePollWidgetExtensionsTests.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontaktePostWidgetExtensionsTests.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteRecommendationsWidgetExtensionsTests.cs" />
     <Compile Include="Widgets\Vkontakte\IVkontakteSubscriptionWidgetExtensionsTests.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteAuthButtonWidgetTests.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontaktePollWidgetTests.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontaktePostWidgetTests.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteRecommendationsWidgetTests.cs" />
     <Compile Include="Widgets\WebWidgetsScriptsTests.cs" />
     <Compile Include="Widgets\WebWidgetsStylesTests.cs" />
     <Compile Include="Widgets\Yandex\HtmlHelperExtensionsTests.cs" />

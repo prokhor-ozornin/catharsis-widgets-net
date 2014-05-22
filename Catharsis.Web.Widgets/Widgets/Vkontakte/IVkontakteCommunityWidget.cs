@@ -10,6 +10,66 @@ namespace Catharsis.Web.Widgets
   public interface IVkontakteCommunityWidget : IHtmlWidget
   {
     /// <summary>
+    ///   <para>Background color of widget.</para>
+    /// </summary>
+    /// <param name="color">Widget's background color in RRGGBB format.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+    IVkontakteCommunityWidget BackgroundColor(string color);
+
+    /// <summary>
+    ///   <para>Background color of widget.</para>
+    /// </summary>
+    /// <returns>Widget's background color in RRGGBB format.</returns>
+    string BackgroundColor();
+
+    /// <summary>
+    ///   <para>Text color of widget.</para>
+    /// </summary>
+    /// <param name="color">Widget's text color in RRGGBB format.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+    IVkontakteCommunityWidget TextColor(string color);
+
+    /// <summary>
+    ///   <para>Text color of widget.</para>
+    /// </summary>
+    /// <returns>Widget's text color in RRGGBB format.</returns>
+    string TextColor();
+
+    /// <summary>
+    ///   <para>Button color of widget.</para>
+    /// </summary>
+    /// <param name="color">Widget's button color in RRGGBB format.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+    IVkontakteCommunityWidget ButtonColor(string color);
+
+    /// <summary>
+    ///   <para>Button color of widget.</para>
+    /// </summary>
+    /// <returns>Widget's button color in RRGGBB format.</returns>
+    string ButtonColor();
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <param name="id">HTML element's identifier.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+    IVkontakteCommunityWidget ElementId(string id);
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <returns>HTML element's identifier.</returns>
+    string ElementId();
+
+    /// <summary>
     ///   <para>Identifier or VKontakte public group/community.</para>
     /// </summary>
     /// <param name="account">Group identifier.</param>

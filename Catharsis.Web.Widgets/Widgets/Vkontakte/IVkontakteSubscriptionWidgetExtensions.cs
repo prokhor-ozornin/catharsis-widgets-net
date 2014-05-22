@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to provided <paramref name="widget"/>.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IVkontakteSubscriptionWidget.Layout(byte)"/>
-    public static IVkontakteSubscriptionWidget Layout(this IVkontakteSubscriptionWidget widget, VkontakteSubscribeButtonLayout layout)
+    public static IVkontakteSubscriptionWidget Layout(this IVkontakteSubscriptionWidget widget, VkontakteSubscriptionButtonLayout layout)
     {
       Assertion.NotNull(widget);
 

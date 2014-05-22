@@ -14,7 +14,8 @@ namespace Catharsis.Web.Widgets
   public class VkontakteSubscriptionWidget : HtmlWidget, IVkontakteSubscriptionWidget
   {
     private string account;
-    private byte layout = (byte) VkontakteSubscribeButtonLayout.First;
+    private string elementId;
+    private byte layout = (byte) VkontakteSubscriptionButtonLayout.Button;
     private bool onlyButton;
 
     /// <summary>
@@ -40,6 +41,30 @@ namespace Catharsis.Web.Widgets
     public string Account()
     {
       return this.account;
+    }
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <param name="id">HTML element's identifier.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+    public IVkontakteSubscriptionWidget ElementId(string id)
+    {
+      Assertion.NotEmpty(id);
+
+      this.elementId = id;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <returns>HTML element's identifier.</returns>
+    public string ElementId()
+    {
+      return this.elementId;
     }
 
     /// <summary>
@@ -103,9 +128,11 @@ namespace Catharsis.Web.Widgets
         config["soft"] = 1;
       }
 
+      var elementId = this.ElementId() ?? "vk_subscribe_{0}".FormatSelf(this.Account());
+
       return new StringBuilder()
-        .Append(new TagBuilder("div").Attribute("id", "vk_subscribe"))
-        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Subscribe(""vk_subscribe"", {0}, ""{1}"");".FormatSelf(config.Json(), this.Account())))
+        .Append(new TagBuilder("div").Attribute("id", elementId))
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Subscribe(""{0}"", {1}, ""{2}"");".FormatSelf(elementId, config.Json(), this.Account())))
         .ToString();
     }
   }

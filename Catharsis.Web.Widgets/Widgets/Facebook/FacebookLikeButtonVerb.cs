@@ -1,17 +1,17 @@
 namespace Catharsis.Web.Widgets
 {
   /// <summary>
-  ///   <para></para>
+  ///   <para>Text verb for Facebook "Like" button.</para>
   /// </summary>
   public enum FacebookLikeButtonVerb
   {
     /// <summary>
-    ///   <para></para>
+    ///   <para>Like.</para>
     /// </summary>
     Like,
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Recommend.</para>
     /// </summary>
     Recommend
   }

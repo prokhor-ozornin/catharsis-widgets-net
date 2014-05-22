@@ -73,32 +73,32 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Poll()"/> method.</para>
     /// </summary>
-    /*[Fact]
+    [Fact]
     public void Poll_Method()
     {
       Assert.False(ReferenceEquals(this.html.Vkontakte().Poll(), this.html.Vkontakte().Poll()));
       Assert.True(this.html.Vkontakte().Poll() is VkontaktePollWidget);
-    }*/
+    }
 
     /// <summary>
     ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Post()"/> method.</para>
     /// </summary>
-    /*[Fact]
+    [Fact]
     public void Post_Method()
     {
       Assert.False(ReferenceEquals(this.html.Vkontakte().Post(), this.html.Vkontakte().Post()));
       Assert.True(this.html.Vkontakte().Post() is VkontaktePostWidget);
-    }*/
+    }
 
     /// <summary>
     ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Recommendations()"/> method.</para>
     /// </summary>
-    /*[Fact]
+    [Fact]
     public void Recommendations_Method()
     {
       Assert.False(ReferenceEquals(this.html.Vkontakte().Recommendations(), this.html.Vkontakte().Recommendations()));
       Assert.True(this.html.Vkontakte().Recommendations() is VkontakteRecommendationsWidget);
-    }*/
+    }
 
     /// <summary>
     ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.ShareButton()"/> method.</para>

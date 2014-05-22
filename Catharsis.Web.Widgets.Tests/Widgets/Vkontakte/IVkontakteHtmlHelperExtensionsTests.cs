@@ -11,16 +11,15 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.AuthButton(IVkontakteHtmlHelper, Action{IVkontakteAuthButtonWidget})"/> method.</para>
     /// </summary>
-    /*[Fact]
+    [Fact]
     public void AuthButton_Method()
     {
       Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.AuthButton(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().AuthButton(null));
 
-      //Assert.Equal(new VkontakteHtmlHelper().AuthButton().ToHtmlString(), new VkontakteHtmlHelper().AuthButton(x => { }));
-      //Assert.Equal(new VkontakteHtmlHelper().AuthButton().Attach(VkontakteCommentsAttach.All).ToHtmlString(), new VkontakteHtmlHelper().AuthButton(x => x.Attach(VkontakteCommentsAttach.All)));
-      throw new NotImplementedException();
-    }*/
+      Assert.Equal(new VkontakteHtmlHelper().AuthButton().ToHtmlString(), new VkontakteHtmlHelper().AuthButton(x => { }));
+      Assert.Equal(new VkontakteHtmlHelper().AuthButton().Standard("url").ToHtmlString(), new VkontakteHtmlHelper().AuthButton(x => x.Standard("url")));
+    }
 
     /// <summary>
     ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.Initialize(IVkontakteHtmlHelper, Action{IVkontakteInitializationWidget})"/> method.</para>
@@ -77,7 +76,7 @@ namespace Catharsis.Web.Widgets
     /// <summary>
     ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.Poll(IVkontakteHtmlHelper, Action{IVkontaktePollWidget})"/> method.</para>
     /// </summary>
-    /*[Fact]
+    [Fact]
     public void Poll_Method()
     {
       Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Poll(null, widget => { }));
@@ -85,48 +84,32 @@ namespace Catharsis.Web.Widgets
 
       Assert.Equal(new VkontakteHtmlHelper().Poll().ToHtmlString(), new VkontakteHtmlHelper().Poll(x => { }));
       Assert.Equal(new VkontakteHtmlHelper().Poll().Id("id").ToHtmlString(), new VkontakteHtmlHelper().Poll(x => x.Id("id")));
-    }*/
+    }
 
     /// <summary>
     ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.Post(IVkontakteHtmlHelper, Action{IVkontaktePostWidget})"/> method.</para>
     /// </summary>
-    /*[Fact]
+    [Fact]
     public void Post_Method()
     {
       Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Post(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Post(null));
 
       Assert.Equal(new VkontakteHtmlHelper().Post().ToHtmlString(), new VkontakteHtmlHelper().Post(x => { }));
-      Assert.Equal(new VkontakteHtmlHelper().Post().Url("url").Width("width").ToHtmlString(), new VkontakteHtmlHelper().Post(x => x.Url("url").Width("width")));
-    }*/
+      Assert.Equal(new VkontakteHtmlHelper().Post().Id("id").Owner("owner").Hash("hash").ToHtmlString(), new VkontakteHtmlHelper().Post(x => x.Id("id").Owner("owner").Hash("hash")));
+    }
 
     /// <summary>
     ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.Recommendations(IVkontakteHtmlHelper, Action{IVkontakteRecommendationsWidget})"/> method.</para>
     /// </summary>
-    /*[Fact]
+    [Fact]
     public void Recommendations_Method()
     {
       Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Recommendations(null, widget => { }));
       Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Recommendations(null));
 
       Assert.Equal(new VkontakteHtmlHelper().Recommendations().ToHtmlString(), new VkontakteHtmlHelper().Recommendations(x => { }));
-      //Assert.Equal(new VkontakteHtmlHelper().Recommendations().Url("url").Width("width").ToHtmlString(), new VkontakteHtmlHelper().Recommendations(x => x.Url("url").Width("width")));
-      throw new NotImplementedException();
-    }*/
-
-    /// <summary>
-    ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.ShareButton(IVkontakteHtmlHelper, Action{IVkontakteShareButtonWidget})"/> method.</para>
-    /// </summary>
-    /*[Fact]
-    public void ShareButton_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.ShareButton(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().ShareButton(null));
-
-      //Assert.Equal(new VkontakteHtmlHelper().ShareButton().ToHtmlString(), new VkontakteHtmlHelper().ShareButton(x => { }));
-      //Assert.Equal(new VkontakteHtmlHelper().ShareButton().Account("account").ToHtmlString(), new VkontakteHtmlHelper().ShareButton(x => x.Account("account")));
-      throw new NotImplementedException();
-    }*/
+    }
 
     /// <summary>
     ///   <para>Performs testing of <see cref="IVkontakteHtmlHelperExtensions.Subscription(IVkontakteHtmlHelper, Action{IVkontakteSubscriptionWidget})"/> method.</para>

@@ -13,6 +13,7 @@ namespace Catharsis.Web.Widgets
   /// <seealso cref="http://vk.com/dev/Like"/>
   public class VkontakteLikeButtonWidget : HtmlWidget, IVkontakteLikeButtonWidget
   {
+    private string elementId;
     private string text;
     private byte? verb;
     private string layout;
@@ -22,6 +23,30 @@ namespace Catharsis.Web.Widgets
     private string url;
     private string description;
     private string image;
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <param name="id">HTML element's identifier.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+    public IVkontakteLikeButtonWidget ElementId(string id)
+    {
+      Assertion.NotEmpty(id);
+
+      this.elementId = id;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <returns>HTML element's identifier.</returns>
+    public string ElementId()
+    {
+      return this.elementId;
+    }
 
     /// <summary>
     ///   <para>Vertical height of the button in pixels. Default value is "22".</para>
@@ -279,9 +304,11 @@ namespace Catharsis.Web.Widgets
         config["verb"] = this.Verb();
       }
 
+      var elementId = this.ElementId() ?? "vk_like";
+
       return new StringBuilder()
-        .Append(new TagBuilder("div").Attribute("id", "vk_like"))
-        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Like(""vk_like"", {0});".FormatSelf(config.Json())))
+        .Append(new TagBuilder("div").Attribute("id", elementId))
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Like(""{0}"", {1});".FormatSelf(elementId, config.Json())))
         .ToString();
     }
   }

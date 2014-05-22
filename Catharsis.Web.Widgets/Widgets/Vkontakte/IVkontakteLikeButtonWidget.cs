@@ -10,6 +10,21 @@ namespace Catharsis.Web.Widgets
   public interface IVkontakteLikeButtonWidget : IHtmlWidget
   {
     /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <param name="id">HTML element's identifier.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+    IVkontakteLikeButtonWidget ElementId(string id);
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <returns>HTML element's identifier.</returns>
+    string ElementId();
+
+    /// <summary>
     ///   <para>Vertical height of the button in pixels. Default value is "22".</para>
     /// </summary>
     /// <param name="height">Height of button.</param>

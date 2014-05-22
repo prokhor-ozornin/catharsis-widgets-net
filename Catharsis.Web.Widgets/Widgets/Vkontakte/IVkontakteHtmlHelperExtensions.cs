@@ -17,7 +17,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IVkontakteHtmlHelper.AuthButton()"/>
-    /*public static string AuthButton(this IVkontakteHtmlHelper html, Action<IVkontakteAuthButtonWidget> builder)
+    public static string AuthButton(this IVkontakteHtmlHelper html, Action<IVkontakteAuthButtonWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
@@ -25,7 +25,7 @@ namespace Catharsis.Web.Widgets
       var widget = html.AuthButton();
       builder(widget);
       return widget.ToHtmlString();
-    }*/
+    }
 
     /// <summary>
     ///   <para>Creates new VKontakte JavaScript API initialization widget.</para>
@@ -107,7 +107,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IVkontakteHtmlHelper.Poll()"/>
-    /*public static string Poll(this IVkontakteHtmlHelper html, Action<IVkontaktePollWidget> builder)
+    public static string Poll(this IVkontakteHtmlHelper html, Action<IVkontaktePollWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
@@ -115,7 +115,7 @@ namespace Catharsis.Web.Widgets
       var widget = html.Poll();
       builder(widget);
       return widget.ToHtmlString();
-    }*/
+    }
 
     /// <summary>
     ///   <para>Creates new VKontakte embedded post widget.</para>
@@ -125,7 +125,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IVkontakteHtmlHelper.Post()"/>
-    /*public static string Post(this IVkontakteHtmlHelper html, Action<IVkontaktePostWidget> builder)
+    public static string Post(this IVkontakteHtmlHelper html, Action<IVkontaktePostWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
@@ -133,7 +133,7 @@ namespace Catharsis.Web.Widgets
       var widget = html.Post();
       builder(widget);
       return widget.ToHtmlString();
-    }*/
+    }
 
     /// <summary>
     ///   <para>Creates new VKontakte Recommendations widget.</para>
@@ -142,8 +142,8 @@ namespace Catharsis.Web.Widgets
     /// <param name="builder">Delegate that performs configuration of the widget.</param>
     /// <returns>HTML contents of configured and rendered widget.</returns>
     /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IVkontakteHtmlHelper.ShareButton()"/>
-    /*public static string Recommendations(this IVkontakteHtmlHelper html, Action<IVkontakteRecommendationsWidget> builder)
+    /// <seealso cref="IVkontakteHtmlHelper.Recommendations()"/>
+    public static string Recommendations(this IVkontakteHtmlHelper html, Action<IVkontakteRecommendationsWidget> builder)
     {
       Assertion.NotNull(html);
       Assertion.NotNull(builder);
@@ -151,26 +151,8 @@ namespace Catharsis.Web.Widgets
       var widget = html.Recommendations();
       builder(widget);
       return widget.ToHtmlString();
-    }*/
+    }
 
-    /// <summary>
-    ///   <para>Creates new VKontakte "Share" button widget.</para>
-    /// </summary>
-    /// <param name="html">Helper object to call method on.</param>
-    /// <param name="builder">Delegate that performs configuration of the widget.</param>
-    /// <returns>HTML contents of configured and rendered widget.</returns>
-    /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IVkontakteHtmlHelper.ShareButton()"/>
-    /*public static string ShareButton(this IVkontakteHtmlHelper html, Action<IVkontakteShareButtonWidget> builder)
-    {
-      Assertion.NotNull(html);
-      Assertion.NotNull(builder);
-
-      var widget = html.ShareButton();
-      builder(widget);
-      return widget.ToHtmlString();
-    }*/
-    
     /// <summary>
     ///   <para>Creates new VKontakte subscription widget.</para>
     /// </summary>

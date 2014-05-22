@@ -2,10 +2,10 @@ namespace Catharsis.Web.Widgets
 {
   internal sealed class VkontakteHtmlHelper : IVkontakteHtmlHelper
   {
-    /*public IVkontakteAuthButtonWidget AuthButton()
+    public IVkontakteAuthButtonWidget AuthButton()
     {
       return new VkontakteAuthButtonWidget();
-    }*/
+    }
 
     public IVkontakteCommentsWidget Comments()
     {
@@ -27,7 +27,7 @@ namespace Catharsis.Web.Widgets
       return new VkontakteLikeButtonWidget();
     }
 
-    /*public IVkontaktePollWidget Poll()
+    public IVkontaktePollWidget Poll()
     {
       return new VkontaktePollWidget();
     }
@@ -42,7 +42,7 @@ namespace Catharsis.Web.Widgets
       return new VkontakteRecommendationsWidget();
     }
 
-    public IVkontakteShareButtonWidget ShareButton()
+    /*public IVkontakteShareButtonWidget ShareButton()
     {
       return new VkontakteShareButtonWidget();
     }*/

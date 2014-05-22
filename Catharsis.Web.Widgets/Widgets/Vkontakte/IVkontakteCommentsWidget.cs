@@ -25,6 +25,47 @@ namespace Catharsis.Web.Widgets
     IEnumerable<string> Attach();
 
     /// <summary>
+    ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <param name="enabled"><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</param>
+    /// <returns>Reference to the current widget.</returns>
+    IVkontakteCommentsWidget AutoPublish(bool enabled);
+
+    /// <summary>
+    ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</returns>
+    bool? AutoPublish();
+
+    /// <summary>
+    ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <param name="enabled"><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</param>
+    /// <returns>Reference to the current widget.</returns>
+    IVkontakteCommentsWidget AutoUpdate(bool enabled);
+
+    /// <summary>
+    ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</returns>
+    bool? AutoUpdate();
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <param name="id">HTML element's identifier.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+    IVkontakteCommentsWidget ElementId(string id);
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <returns>HTML element's identifier.</returns>
+    string ElementId();
+
+    /// <summary>
     ///   <para>Maximum number of comments to display.</para>
     /// </summary>
     /// <param name="limit">Maximum number of comments.</param>
@@ -36,6 +77,19 @@ namespace Catharsis.Web.Widgets
     /// </summary>
     /// <returns>Maximum number of comments.</returns>
     byte Limit();
+
+    /// <summary>
+    ///   <para>Whether to use minimalistic mode of widget (small fonts, images, etc.). Default is to use auto mode (determine automatically).</para>
+    /// </summary>
+    /// <param name="enabled"><c>true</c> to enable minimalistic mode, <c>false</c> to disable it.</param>
+    /// <returns>Reference to the current widget.</returns>
+    IVkontakteCommentsWidget Mini(bool? enabled);
+
+    /// <summary>
+    ///   <para>Whether to use minimalistic mode of widget (small fonts, images, etc.). Default is to use auto mode (determine automatically).</para>
+    /// </summary>
+    /// <returns><c>true</c> to enable minimalistic mode, <c>false</c> to disable it.</returns>
+    bool? Mini();
 
     /// <summary>
     ///   <para>Horizontal width of comment area.</para>

@@ -588,7 +588,19 @@ _Code:_
 
 `@Html.Vkontakte().Initialize().ApiId("3816272")`
 
-**3. Comments**
+**3. OAuth Button**
+
+_Requirements:_ Call to `Html.Vkontakte().Initialize()`
+
+_Code:_
+
+`@Html.Vkontakte().AuthButton().Standard("http://yandex.ru")`
+
+`@Html.Vkontakte().AuthButton().Dynamic("onAuth").Width(640)`
+
+![](http://img-fotki.yandex.ru/get/5204/80185211.1e/0_8ee77_efa1aeb_orig)
+
+**4. Comments**
 
 _Requirements:_ Call to `Html.Vkontakte().Initialize()`
 
@@ -596,11 +608,11 @@ _Code:_
 
 `@Html.Vkontakte().Comments()`
 
-`@Html.Vkontakte().Comments().Attach(VkontakteCommentsAttach.All).Limit(VkontakteCommentsLimit.Limit15)`
+`@Html.Vkontakte().Comments().Attach(VkontakteCommentsAttach.All).Limit(VkontakteCommentsLimit.Limit15).AutoPublish(true).AutoUpdate(true).Mini(true)`
 
 ![](http://img-fotki.yandex.ru/get/9822/80185211.1d/0_8deef_1d93c587_orig)
 
-**4. Community**
+**5. Community**
 
 _Requirements:_ Call to `Html.Vkontakte().Initialize()`
 
@@ -608,11 +620,11 @@ _Code:_
 
 `@Html.Vkontakte().Community().Account("44545550")`
 
-`@Html.Vkontakte().Community().Account("44545550").Mode(VkontakteCommunityMode.News).Height(400).Width(600)`
+`@Html.Vkontakte().Community().Account("44545550").Mode(VkontakteCommunityMode.News).Height(400).Width(600).BackgroundColor("AABBCC").TextColor("FF0000").ButtonColor("00FF00")`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8def1_155d6ab8_orig)
 
-**5. Like Button**
+**6. Like Button**
 
 _Requirements:_ Call to `Html.Vkontakte().Initialize()`
 
@@ -622,7 +634,43 @@ _Code:_
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def2_6a491b94_orig)
 
-**6. Subscription**
+**7. Poll**
+
+_Requirements:_ Call to `Html.Vkontakte().Initialize()`
+
+_Code:_
+
+`@Html.Vkontakte().Poll().Id("6564504_c2a6ccb7df15aff473")`
+
+`@Html.Vkontakte().Poll().Id("6564504_c2a6ccb7df15aff473").Width(640)`
+
+![](http://img-fotki.yandex.ru/get/5204/80185211.1e/0_8ee78_e69406c8_orig)
+
+**8. Wall Post**
+
+_Requirements:_ Call to `Html.Vkontakte().Initialize()`
+
+_Code:_
+
+`@Html.Vkontakte().Post().Id(45616).Owner(1).Hash("Yss6aNhrrQhOL5FfXZeuga8yKA")`
+
+`@Html.Vkontakte().Post().Id(45616).Owner(1).Hash("Yss6aNhrrQhOL5FfXZeuga8yKA").Width(640)`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def5_d36b01d0_orig)
+
+**9. Recommendations Feed**
+
+_Requirements:_ Call to `Html.Vkontakte().Initialize()`
+
+_Code:_
+
+`@Html.Vkontakte().Recommendations()`
+
+`@Html.Vkontakte().Recommendations().Limit(VkontakteRecommendationsLimit.Ten).Max(50).Period(VkontakteRecommendationsPeriod.Month).Sorting(VkontakteRecommendationsSorting.Likes).Verb(VkontakteRecommendationsVerb.Like).Target("_blank")`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def6_9a22aa7c_orig)
+
+**10. Subscription**
 
 _Requirements:_ Call to `Html.Vkontakte().Initialize()`
 

@@ -3,16 +3,16 @@
   /// <summary>
   ///   <para></para>
   /// </summary>
-  public enum VkontakteSubscribeButtonLayout : byte
+  public enum VkontakteRecommendationsSorting
   {
     /// <summary>
     ///   <para></para>
     /// </summary>
-    First = 1,
+    FriendLikes,
 
     /// <summary>
     ///   <para></para>
     /// </summary>
-    Second = 2
+    Likes
   }
 }

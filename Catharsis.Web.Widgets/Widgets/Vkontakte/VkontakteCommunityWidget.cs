@@ -14,9 +14,13 @@ namespace Catharsis.Web.Widgets
   public class VkontakteCommunityWidget : HtmlWidget, IVkontakteCommunityWidget
   {
     private string account;
-    private byte mode = (byte) VkontakteCommunityMode.Participants;
-    private string width;
+    private string backgroundColor;
+    private string buttonColor;
+    private string elementId;
     private string height;
+    private byte mode = (byte)VkontakteCommunityMode.Participants;
+    private string textColor;
+    private string width;
 
     /// <summary>
     ///   <para>Identifier or VKontakte public group/community.</para>
@@ -41,6 +45,102 @@ namespace Catharsis.Web.Widgets
     public string Account()
     {
       return this.account;
+    }
+
+    /// <summary>
+    ///   <para>Background color of widget.</para>
+    /// </summary>
+    /// <param name="color">Widget's background color in RRGGBB format.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+    public IVkontakteCommunityWidget BackgroundColor(string color)
+    {
+      Assertion.NotEmpty(color);
+
+      this.backgroundColor = color;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Background color of widget.</para>
+    /// </summary>
+    /// <returns>Widget's background color in RRGGBB format.</returns>
+    public string BackgroundColor()
+    {
+      return this.backgroundColor;
+    }
+
+    /// <summary>
+    ///   <para>Text color of widget.</para>
+    /// </summary>
+    /// <param name="color">Widget's text color in RRGGBB format.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+    public IVkontakteCommunityWidget TextColor(string color)
+    {
+      Assertion.NotEmpty(color);
+
+      this.textColor = color;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Text color of widget.</para>
+    /// </summary>
+    /// <returns>Widget's text color in RRGGBB format.</returns>
+    public string TextColor()
+    {
+      return this.textColor;
+    }
+
+    /// <summary>
+    ///   <para>Button color of widget.</para>
+    /// </summary>
+    /// <param name="color">Widget's button color in RRGGBB format.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+    public IVkontakteCommunityWidget ButtonColor(string color)
+    {
+      Assertion.NotEmpty(color);
+
+      this.buttonColor = color;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Button color of widget.</para>
+    /// </summary>
+    /// <returns>Widget's button color in RRGGBB format.</returns>
+    public string ButtonColor()
+    {
+      return this.buttonColor;
+    }
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <param name="id">HTML element's identifier.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+    public IVkontakteCommunityWidget ElementId(string id)
+    {
+      Assertion.NotEmpty(id);
+
+      this.elementId = id;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <returns>HTML element's identifier.</returns>
+    public string ElementId()
+    {
+      return this.elementId;
     }
 
     /// <summary>
@@ -139,10 +239,24 @@ namespace Catharsis.Web.Widgets
       {
         config["height"] = this.Height();
       }
+      if (!this.BackgroundColor().IsEmpty())
+      {
+        config["color1"] = this.BackgroundColor();
+      }
+      if (!this.TextColor().IsEmpty())
+      {
+        config["color2"] = this.TextColor();
+      }
+      if (!this.ButtonColor().IsEmpty())
+      {
+        config["color3"] = this.ButtonColor();
+      }
+
+      var elementId = this.ElementId() ?? "vk_groups_{0}".FormatSelf(this.Account());
 
       return new StringBuilder()
-        .Append(new TagBuilder("div").Attribute("id", "vk_groups"))
-        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Group(""vk_groups"", {0}, ""{1}"");".FormatSelf(config.Json(), this.Account())))
+        .Append(new TagBuilder("div").Attribute("id", elementId))
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Group(""{0}"", {1}, ""{2}"");".FormatSelf(elementId, config.Json(), this.Account())))
         .ToString();
     }
   }

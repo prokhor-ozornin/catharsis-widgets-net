@@ -14,8 +14,12 @@ namespace Catharsis.Web.Widgets
   /// <seealso cref="http://vk.com/dev/Comments"/>
   public class VkontakteCommentsWidget : HtmlWidget, IVkontakteCommentsWidget
   {
-    private byte limit = (byte) VkontakteCommentsLimit.Limit5;
     private IEnumerable<string> attach = Enumerable.Empty<string>();
+    private bool? autoPublish;
+    private bool? autoUpdate;
+    private string elementId;
+    private byte limit = (byte)VkontakteCommentsLimit.Limit5;
+    private bool? mini;
     private string width;
 
     /// <summary>
@@ -39,6 +43,90 @@ namespace Catharsis.Web.Widgets
     public IEnumerable<string> Attach()
     {
       return this.attach;
+    }
+
+    /// <summary>
+    ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <param name="enabled"><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</param>
+    /// <returns>Reference to the current widget.</returns>
+    public IVkontakteCommentsWidget AutoPublish(bool enabled)
+    {
+      this.autoPublish = enabled;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</returns>
+    public bool? AutoPublish()
+    {
+      return this.autoPublish;
+    }
+
+    /// <summary>
+    ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <param name="enabled"><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</param>
+    /// <returns>Reference to the current widget.</returns>
+    public IVkontakteCommentsWidget AutoUpdate(bool enabled)
+    {
+      this.autoUpdate = enabled;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+    /// </summary>
+    /// <returns><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</returns>
+    public bool? AutoUpdate()
+    {
+      return this.autoUpdate;
+    }
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <param name="id">HTML element's identifier.</param>
+    /// <returns>Reference to the current widget.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+    public IVkontakteCommentsWidget ElementId(string id)
+    {
+      Assertion.NotEmpty(id);
+
+      this.elementId = id;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Identifier of HTML container for the widget.</para>
+    /// </summary>
+    /// <returns>HTML element's identifier.</returns>
+    public string ElementId()
+    {
+      return this.elementId;
+    }
+
+    /// <summary>
+    ///   <para>Whether to use minimalistic mode of widget (small fonts, images, etc.). Default is to use auto mode (determine automatically).</para>
+    /// </summary>
+    /// <param name="enabled"><c>true</c> to enable minimalistic mode, <c>false</c> to disable it.</param>
+    /// <returns>Reference to the current widget.</returns>
+    public IVkontakteCommentsWidget Mini(bool? enabled)
+    {
+      this.mini = enabled;
+      return this;
+    }
+
+    /// <summary>
+    ///   <para>Whether to use minimalistic mode of widget (small fonts, images, etc.). Default is to use auto mode (determine automatically).</para>
+    /// </summary>
+    /// <returns><c>true</c> to enable minimalistic mode, <c>false</c> to disable it.</returns>
+    public bool? Mini()
+    {
+      return this.mini;
     }
 
     /// <summary>
@@ -108,10 +196,24 @@ namespace Catharsis.Web.Widgets
       {
         config["width"] = this.Width();
       }
+      if (this.AutoPublish() != null)
+      {
+        config["autoPublish"] = this.AutoPublish().Value ? 1 : 0;
+      }
+      if (this.AutoUpdate() != null)
+      {
+        config["norealtime"] = this.AutoUpdate().Value ? 0 : 1;
+      }
+      if (this.Mini() != null)
+      {
+        config["mini"] = this.Mini().Value ? 1 : 0;
+      }
+
+      var elementId = this.ElementId() ?? "vk_comments";
 
       return new StringBuilder()
-        .Append(new TagBuilder("div").Attribute("id", "vk_comments"))
-        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Comments(""vk_comments"", {0});".FormatSelf(config.Json())))
+        .Append(new TagBuilder("div").Attribute("id", elementId))
+        .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml(@"VK.Widgets.Comments(""{0}"", {1});".FormatSelf(elementId, config.Json())))
         .ToString();
     }
   }

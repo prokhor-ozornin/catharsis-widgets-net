@@ -105,6 +105,23 @@
   <ItemGroup>
     <Compile Include="Widgets\IWidgetsStylesRenderer.cs" />
     <Compile Include="Widgets\IWidgetsScriptsRenderer.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteAuthButtonWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteAuthButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontaktePollWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontaktePollWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontaktePostWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontaktePostWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteRecommendationsWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteRecommendationsWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteAuthButtonType.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteAuthButtonWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontaktePollWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontaktePostWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteRecommendationsSorting.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteRecommendationsVerb.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteRecommendationsPeriod.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteRecommendationsLimit.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteRecommendationsWidget.cs" />
     <Compile Include="Widgets\WebWidgetsScripts.cs" />
     <Compile Include="Widgets\WebWidgetsStyles.cs" />
     <Compile Include="Widgets\Cackle\HtmlHelperExtensions.cs" />
@@ -394,7 +411,7 @@
     <Compile Include="Widgets\Vkontakte\VkontakteLikeButtonLayout.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteLikeButtonVerb.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteLikeButtonWidget.cs" />
-    <Compile Include="Widgets\Vkontakte\VkontakteSubscribeButtonLayout.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteSubscriptionButtonLayout.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteSubscriptionWidget.cs" />
     <Compile Include="Widgets\Vkontakte\VkontakteVideoWidget.cs" />
     <Compile Include="Widgets\Yandex\YandexAnalyticsWidget.cs" />

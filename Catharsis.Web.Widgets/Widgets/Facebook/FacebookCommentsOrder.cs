@@ -1,22 +1,22 @@
 ﻿namespace Catharsis.Web.Widgets
 {
   /// <summary>
-  ///   <para></para>
+  ///   <para>Order of comments for Facebook Comments widget.</para>
   /// </summary>
   public enum FacebookCommentsOrder
   {
     /// <summary>
-    ///   <para></para>
+    ///   <para>Social relevance ordering.</para>
     /// </summary>
     Social,
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Opposite order in which comments were posted.</para>
     /// </summary>
     ReverseTime,
 
     /// <summary>
-    ///   <para></para>
+    ///   <para>Order in which comments were posted.</para>
     /// </summary>
     Time
   }
