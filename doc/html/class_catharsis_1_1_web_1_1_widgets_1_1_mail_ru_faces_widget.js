@@ -1,0 +1,26 @@
+var class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget =
+[
+    [ "BackgroundColor", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#aab027d65e66880596ed0e8c6dab52b89", null ],
+    [ "BackgroundColor", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#ab3c47b406be715adac064ceab157aef6", null ],
+    [ "BorderColor", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#ad66df287ad08269190ce3c7ede31dea3", null ],
+    [ "BorderColor", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#ad037f878ff833a5b6952f5f03c18783a", null ],
+    [ "Domain", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#afd2dc64e3055819bb8990d36bf246fbf", null ],
+    [ "Domain", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#a8eb8eb864b472ac8db856a1341dec54d", null ],
+    [ "Font", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#ab5d8596bf2d2e84cc52f8123f368ced0", null ],
+    [ "Font", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#a62b62e29f27bfa419909a04558d68c04", null ],
+    [ "Height", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#a8cf81b083317cb593400b56e8d4d52a5", null ],
+    [ "Height", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#afb39c9f7d8c50f1a86e4ac28105f7196", null ],
+    [ "HyperlinkColor", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#a88f09c7e368535b22ce8ead75f95b38d", null ],
+    [ "HyperlinkColor", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#adb6ceb3ce960fbd628938811f4e63d00", null ],
+    [ "TextColor", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#a7af6a1b59fffc54a15e1890646c94829", null ],
+    [ "TextColor", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#a1d827d00df39bd4b39c178c68826b9ad", null ],
+    [ "Title", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#a79e2affdc8563b798a8adb3867161878", null ],
+    [ "Title", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#aaa0a93fa638f6e2aeb1cf4aebfa92625", null ],
+    [ "TitleColor", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#a3d389fe840507321190acb63f5675b3b", null ],
+    [ "TitleColor", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#af8840722972e6a1ddb5ee79a955e5f02", null ],
+    [ "TitleText", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#a2213dd41300604c17d5c9a27191e8aac", null ],
+    [ "TitleText", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#af7ce6d59746a34daa4795293fb8793a4", null ],
+    [ "ToHtmlString", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#a8e1eeaca5dedc383d3c5f1eb1450aee1", null ],
+    [ "Width", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#aac3e4ab69403d25ea8d8a1ae1a25dc28", null ],
+    [ "Width", "class_catharsis_1_1_web_1_1_widgets_1_1_mail_ru_faces_widget.html#a9b23febd5231bc73a66981a5c024eb56", null ]
+];

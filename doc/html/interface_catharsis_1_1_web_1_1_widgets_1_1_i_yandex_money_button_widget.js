@@ -1,0 +1,25 @@
+var interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget =
+[
+    [ "Account", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a595f444dbe06e063cdb3d9e7608ee49e", null ],
+    [ "Account", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#ab0e3d64531ed94d1d1b1f58899607bd6", null ],
+    [ "AskPayerAddress", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#ac43d4d20e1702305465f7672a0f34b67", null ],
+    [ "AskPayerAddress", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#ad1ea72d6d84c6a7eff42866c9712e9b0", null ],
+    [ "AskPayerEmail", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a4bc1a29031966ee71c5527f83a096431", null ],
+    [ "AskPayerEmail", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#ad3bf98faadae7d5ccac72bfcd001990a", null ],
+    [ "AskPayerFullName", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a0070e8e54c49a34156cad82d8e5829ef", null ],
+    [ "AskPayerFullName", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a5b7c43e86d4f08d3a125da43bd70ae71", null ],
+    [ "AskPayerPhone", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#abf85c574f0dc8027c0ca67c06b3d05a2", null ],
+    [ "AskPayerPhone", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a97de03680f89d81583809556e9635319", null ],
+    [ "Color", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#ae3347503b758ce677a2a9a68db7b41f7", null ],
+    [ "Color", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a5c879e6fe4f925a87a2c605f20f0fe17", null ],
+    [ "Description", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#adf860650157a6fdee56b7cd38ce6a893", null ],
+    [ "Description", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#aaecfb7e4e7a76111bfbb988a86cf4fa1", null ],
+    [ "Size", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a27e6decb92f78d32b82e25727044b8c0", null ],
+    [ "Size", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a42a95771c9c38f7c9148e33e90b3210f", null ],
+    [ "Sum", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a6c5c069ce92f284b0c71dd4a46467db4", null ],
+    [ "Sum", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#aff91b8a0bac429aab8e2894332f6a522", null ],
+    [ "Text", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a5e2927a481a02ff31f3bb4e60b07157c", null ],
+    [ "Text", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a352e620ec502cea597ffca95ee2bec02", null ],
+    [ "Type", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a8fadb691d112146f4744b26c63b92e71", null ],
+    [ "Type", "interface_catharsis_1_1_web_1_1_widgets_1_1_i_yandex_money_button_widget.html#a3c8bd9ba8b85041ff8e91a007b945b33", null ]
+];

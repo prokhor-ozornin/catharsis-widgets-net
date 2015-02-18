@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{62AA44B7-C3CC-4A0E-97BB-D497803943EB}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Catharsis.Web.Widgets</RootNamespace>
+    <AssemblyName>Catharsis.Web.Widgets</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Catharsis.Web.Widgets.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Catharsis.Commons, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Catharsis.Commons.2.8\lib\net40\Catharsis.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Widgets\IWidgetsStylesRenderer.cs" />
+    <Compile Include="Widgets\IWidgetsScriptsRenderer.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteAuthButtonWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteAuthButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontaktePollWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontaktePollWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontaktePostWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontaktePostWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteRecommendationsWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteRecommendationsWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteAuthButtonType.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteAuthButtonWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontaktePollWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontaktePostWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteRecommendationsSorting.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteRecommendationsVerb.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteRecommendationsPeriod.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteRecommendationsLimit.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteRecommendationsWidget.cs" />
+    <Compile Include="Widgets\WebWidgetsScripts.cs" />
+    <Compile Include="Widgets\WebWidgetsStyles.cs" />
+    <Compile Include="Widgets\Cackle\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Cackle\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\Disqus\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Disqus\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\Facebook\FacebookActivityFeedWidget.cs" />
+    <Compile Include="Widgets\Facebook\FacebookCommentsOrder.cs" />
+    <Compile Include="Widgets\Facebook\FacebookCommentsWidget.cs" />
+    <Compile Include="Widgets\Facebook\FacebookFacepilePhotoSize.cs" />
+    <Compile Include="Widgets\Facebook\FacebookFacepileWidget.cs" />
+    <Compile Include="Widgets\Facebook\FacebookFollowButtonWidget.cs" />
+    <Compile Include="Widgets\Facebook\FacebookLikeBoxWidget.cs" />
+    <Compile Include="Widgets\Facebook\FacebookRecommendationsFeedWidget.cs" />
+    <Compile Include="Widgets\Facebook\FacebookSendButtonWidget.cs" />
+    <Compile Include="Widgets\Facebook\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Google\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookActivityFeedWidgetExtensions.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookCommentsWidgetExtensions.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookFacepileWidget.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookActivityFeedWidget.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookCommentsWidget.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookFacepileWidgetExtensions.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookFollowButtonWidget.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookFollowButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookLikeBoxWidget.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookLikeBoxWidgetExtensions.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookRecommendationsFeedWidget.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookRecommendationsFeedWidgetExtensions.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookSendButtonWidget.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookSendButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Google\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\Gravatar\GravatarDefaultImage.cs" />
+    <Compile Include="Widgets\Gravatar\GravatarHtmlHelper.cs" />
+    <Compile Include="Widgets\Gravatar\GravatarImageRating.cs" />
+    <Compile Include="Widgets\Gravatar\GravatarImageUrlWidget.cs" />
+    <Compile Include="Widgets\Gravatar\GravatarProfileUrlWidget.cs" />
+    <Compile Include="Widgets\Gravatar\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Gravatar\IGravatarHtmlHelper.cs" />
+    <Compile Include="Widgets\Gravatar\IGravatarHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Gravatar\IGravatarImageUrlWidget.cs" />
+    <Compile Include="Widgets\Gravatar\IGravatarImageUrlWidgetExtensions.cs" />
+    <Compile Include="Widgets\Gravatar\IGravatarProfileUrlWidget.cs" />
+    <Compile Include="Widgets\Gravatar\IGravatarProfileUrlWidgetExtensions.cs" />
+    <Compile Include="IDictionaryExtensions.cs" />
+    <Compile Include="Widgets\InlineImage\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\IntenseDebate\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\LiveJournal\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\LiveJournal\ILiveJournalHtmlHelper.cs" />
+    <Compile Include="Widgets\LiveJournal\ILiveJournalHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\LiveJournal\ILiveJournalLikeButtonWidget.cs" />
+    <Compile Include="Widgets\LiveJournal\ILiveJournalRepostButtonWidget.cs" />
+    <Compile Include="Widgets\LiveJournal\LiveJournalHtmlHelper.cs" />
+    <Compile Include="Widgets\LiveJournal\LiveJournalLikeButtonWidget.cs" />
+    <Compile Include="Widgets\LiveJournal\LiveJournalRepostButtonWidget.cs" />
+    <Compile Include="Widgets\MailRu\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\MailRu\IMailRuFacesWidget.cs" />
+    <Compile Include="Widgets\MailRu\IMailRuFacesWidgetExtensions.cs" />
+    <Compile Include="Widgets\MailRu\IMailRuGroupsWidget.cs" />
+    <Compile Include="Widgets\MailRu\IMailRuGroupsWidgetExtensions.cs" />
+    <Compile Include="Widgets\MailRu\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\MailRu\MailRuFacesFont.cs" />
+    <Compile Include="Widgets\MailRu\MailRuFacesWidget.cs" />
+    <Compile Include="Widgets\MailRu\MailRuGroupsWidget.cs" />
+    <Compile Include="Widgets\Pinterest\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Pinterest\IPinterestBoardWidget.cs" />
+    <Compile Include="Widgets\Pinterest\IPinterestBoardWidgetExtensions.cs" />
+    <Compile Include="Widgets\Pinterest\IPinterestFollowButtonWidget.cs" />
+    <Compile Include="Widgets\Pinterest\IPinterestHtmlHelper.cs" />
+    <Compile Include="Widgets\Pinterest\IPinterestHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Pinterest\IPinterestPinItButtonWidget.cs" />
+    <Compile Include="Widgets\Pinterest\IPinterestPinItButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Pinterest\IPinterestPinWidget.cs" />
+    <Compile Include="Widgets\Pinterest\IPinterestProfileWidget.cs" />
+    <Compile Include="Widgets\Pinterest\IPinterestProfileWidgetExtensions.cs" />
+    <Compile Include="Widgets\Pinterest\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\Pinterest\PinterestBoardWidget.cs" />
+    <Compile Include="Widgets\Pinterest\PinterestFollowButtonWidget.cs" />
+    <Compile Include="Widgets\Pinterest\PinterestHtmlHelper.cs" />
+    <Compile Include="Widgets\Pinterest\PinterestPinItButtonPinCountPosition.cs" />
+    <Compile Include="Widgets\Pinterest\PinterestPinItButtonShape.cs" />
+    <Compile Include="Widgets\Pinterest\PinterestPinItButtonSize.cs" />
+    <Compile Include="Widgets\Pinterest\PinterestPinItButtonWidget.cs" />
+    <Compile Include="Widgets\Pinterest\PinterestPinWidget.cs" />
+    <Compile Include="Widgets\Pinterest\PinterestProfileWidget.cs" />
+    <Compile Include="Widgets\RuTube\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\SoundCloud\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\SoundCloud\ISoundCloudHtmlHelper.cs" />
+    <Compile Include="Widgets\SoundCloud\ISoundCloudHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\SoundCloud\ISoundCloudProfileIconWidget.cs" />
+    <Compile Include="Widgets\SoundCloud\ISoundCloudProfileIconWidgetExtensions.cs" />
+    <Compile Include="Widgets\SoundCloud\SoundCloudHtmlHelper.cs" />
+    <Compile Include="Widgets\SoundCloud\SoundCloudProfileIconSize.cs" />
+    <Compile Include="Widgets\SoundCloud\SoundCloudProfileIconWidget.cs" />
+    <Compile Include="Widgets\Surfingbird\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Surfingbird\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\Tumblr\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Tumblr\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\Twitter\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Twitter\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\VideoJS\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\VideoJS\IVideoJSHtmlHelper.cs" />
+    <Compile Include="Widgets\VideoJS\IVideoJSHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\VideoJS\IVideoJSPlayerWidget.cs" />
+    <Compile Include="IMediaSource.cs" />
+    <Compile Include="Widgets\VideoJS\IVideoJSPlayerWidgetExtensions.cs" />
+    <Compile Include="Widgets\VideoJS\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\VideoJS\IWidgetsStylesRendererExtensions.cs" />
+    <Compile Include="Widgets\Vimeo\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\Yandex\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Yandex\IWidgetsScriptsRendererExtensions.cs" />
+    <Compile Include="Widgets\Yandex\IYandexMoneyButtonWidget.cs" />
+    <Compile Include="Widgets\Yandex\IYandexMoneyButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Yandex\IYandexMoneyDonateFormWidget.cs" />
+    <Compile Include="Widgets\Yandex\IYandexMoneyDonateFormWidgetExtensions.cs" />
+    <Compile Include="Widgets\Yandex\IYandexMoneyPaymentFormWidget.cs" />
+    <Compile Include="Widgets\Yandex\IYandexMoneyPaymentFormWidgetExtensions.cs" />
+    <Compile Include="VideoContentTypes.cs" />
+    <Compile Include="Widgets\VideoJS\VideoJSHtmlHelper.cs" />
+    <Compile Include="Widgets\VideoJS\VideoJSPlayerWidget.cs" />
+    <Compile Include="MediaSource.cs" />
+    <Compile Include="Widgets\WebWidgetsBundleConfig.cs" />
+    <Compile Include="Widgets\Cackle\CackleCommentsCountWidget.cs" />
+    <Compile Include="Widgets\Cackle\CackleCommentsWidget.cs" />
+    <Compile Include="Widgets\Cackle\CackleHtmlHelper.cs" />
+    <Compile Include="Widgets\Cackle\CackleLatestCommentsWidget.cs" />
+    <Compile Include="Widgets\Cackle\CackleLoginWidget.cs" />
+    <Compile Include="Widgets\Disqus\DisqusCommentsWidget.cs" />
+    <Compile Include="Widgets\Disqus\DisqusHtmlHelper.cs" />
+    <Compile Include="Widgets\Facebook\FacebookHtmlHelper.cs" />
+    <Compile Include="Widgets\Facebook\FacebookInitializationWidget.cs" />
+    <Compile Include="Widgets\Facebook\FacebookColorScheme.cs" />
+    <Compile Include="Widgets\Facebook\FacebookButtonLayout.cs" />
+    <Compile Include="Widgets\Facebook\FacebookLikeButtonVerb.cs" />
+    <Compile Include="Widgets\Facebook\FacebookLikeButtonWidget.cs" />
+    <Compile Include="Widgets\Facebook\FacebookPostWidget.cs" />
+    <Compile Include="Widgets\Facebook\FacebookVideoWidget.cs" />
+    <Compile Include="Widgets\Google\GoogleAnalyticsWidget.cs" />
+    <Compile Include="Widgets\Google\GoogleHtmlHelper.cs" />
+    <Compile Include="Widgets\Google\GooglePlusOneButtonAlignment.cs" />
+    <Compile Include="Widgets\Google\GooglePlusOneButtonAnnotation.cs" />
+    <Compile Include="Widgets\Google\GooglePlusOneButtonSize.cs" />
+    <Compile Include="Widgets\Google\GooglePlusOneButtonWidget.cs" />
+    <Compile Include="Widgets\HtmlWidget.cs" />
+    <Compile Include="HttpRequestExtensions.cs" />
+    <Compile Include="Widgets\Cackle\ICackleCommentsCountWidget.cs" />
+    <Compile Include="Widgets\Cackle\ICackleCommentsWidget.cs" />
+    <Compile Include="Widgets\Cackle\ICackleHtmlHelper.cs" />
+    <Compile Include="Widgets\Cackle\ICackleHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Cackle\ICackleLatestCommentsWidget.cs" />
+    <Compile Include="Widgets\Cackle\ICackleLoginWidget.cs" />
+    <Compile Include="Widgets\Disqus\IDisqusCommentsWidget.cs" />
+    <Compile Include="Widgets\Disqus\IDisqusHtmlHelper.cs" />
+    <Compile Include="Widgets\Disqus\IDisqusHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookHtmlHelper.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookInitializationWidget.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookLikeButtonWidget.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookLikeButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookPostWidget.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookPostWidgetExtensions.cs" />
+    <Compile Include="Widgets\Facebook\IFacebookVideoWidget.cs" />
+    <Compile Include="Widgets\Google\IGoogleAnalyticsWidget.cs" />
+    <Compile Include="Widgets\Google\IGoogleHtmlHelper.cs" />
+    <Compile Include="Widgets\Google\IGoogleHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Google\IGooglePlusOneButtonWidget.cs" />
+    <Compile Include="Widgets\Google\IGooglePlusOneButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\IHtmlWidget.cs" />
+    <Compile Include="Widgets\IHtmlWidgetExtensions.cs" />
+    <Compile Include="Widgets\InlineImage\IInlineImageExtensions.cs" />
+    <Compile Include="Widgets\InlineImage\IInlineImageWidget.cs" />
+    <Compile Include="Widgets\IntenseDebate\IIntenseDebateCommentsWidget.cs" />
+    <Compile Include="Widgets\IntenseDebate\IIntenseDebateHtmlHelper.cs" />
+    <Compile Include="Widgets\IntenseDebate\IIntenseDebateHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\IntenseDebate\IIntenseDebateLinkWidget.cs" />
+    <Compile Include="Widgets\MailRu\IMailRuHtmlHelper.cs" />
+    <Compile Include="Widgets\MailRu\IMailRuHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\MailRu\IMailRuIcqWidget.cs" />
+    <Compile Include="Widgets\MailRu\IMailRuLikeButtonWidget.cs" />
+    <Compile Include="Widgets\MailRu\IMailRuLikeButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\MailRu\IMailRuVideoWidget.cs" />
+    <Compile Include="Widgets\InlineImage\InlineImageWidget.cs" />
+    <Compile Include="Widgets\IntenseDebate\IntenseDebateCommentsWidget.cs" />
+    <Compile Include="Widgets\IntenseDebate\IntenseDebateHtmlHelper.cs" />
+    <Compile Include="Widgets\IntenseDebate\IntenseDebateLinkWidget.cs" />
+    <Compile Include="Widgets\RuTube\IRuTubeHtmlHelper.cs" />
+    <Compile Include="Widgets\RuTube\IRuTubeHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\RuTube\IRuTubeVideoWidget.cs" />
+    <Compile Include="Widgets\Surfingbird\ISurfingbirdHtmlHelper.cs" />
+    <Compile Include="Widgets\Surfingbird\ISurfingbirdHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Surfingbird\ISurfingbirdSurfButtonWidget.cs" />
+    <Compile Include="Widgets\Surfingbird\ISurfingbirdSurfButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Tumblr\ITumblrFollowButtonWidget.cs" />
+    <Compile Include="Widgets\Tumblr\ITumblrFollowButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Tumblr\ITumblrHtmlHelper.cs" />
+    <Compile Include="Widgets\Tumblr\ITumblrHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Tumblr\ITumblrShareButtonWidget.cs" />
+    <Compile Include="Widgets\Tumblr\ITumblrShareButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Twitter\ITwitterFollowButtonWidget.cs" />
+    <Compile Include="Widgets\Twitter\ITwitterFollowButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Twitter\ITwitterHtmlHelper.cs" />
+    <Compile Include="Widgets\Twitter\ITwitterHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Twitter\ITwitterTweetButtonWidget.cs" />
+    <Compile Include="Widgets\Twitter\ITwitterTweetButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\IVideoWidget.cs" />
+    <Compile Include="Widgets\Vimeo\IVimeoHtmlHelper.cs" />
+    <Compile Include="Widgets\Vimeo\IVimeoHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Vimeo\IVimeoVideoWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteCommentsWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteCommentsWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteCommunityWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteCommunityWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteHtmlHelper.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteInitializationWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteLikeButtonWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteLikeButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteSubscriptionWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteSubscriptionWidgetExtensions.cs" />
+    <Compile Include="Widgets\Vkontakte\IVkontakteVideoWidget.cs" />
+    <Compile Include="Widgets\Yandex\IYandexAnalyticsWidget.cs" />
+    <Compile Include="Widgets\Yandex\IYandexAnalyticsWidgetExtensions.cs" />
+    <Compile Include="Widgets\Yandex\IYandexHtmlHelper.cs" />
+    <Compile Include="Widgets\Yandex\IYandexHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\Yandex\IYandexSharePanelWidget.cs" />
+    <Compile Include="Widgets\Yandex\IYandexSharePanelWidgetExtensions.cs" />
+    <Compile Include="Widgets\Yandex\IYandexVideoWidget.cs" />
+    <Compile Include="Widgets\Yandex\IYandexLikeButtonWidget.cs" />
+    <Compile Include="Widgets\Yandex\IYandexLikeButtonWidgetExtensions.cs" />
+    <Compile Include="Widgets\YouTube\HtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\YouTube\IYouTubeHtmlHelper.cs" />
+    <Compile Include="Widgets\YouTube\IYouTubeHtmlHelperExtensions.cs" />
+    <Compile Include="Widgets\YouTube\IYouTubeVideoWidget.cs" />
+    <Compile Include="Widgets\MailRu\MailRuHtmlHelper.cs" />
+    <Compile Include="Widgets\MailRu\MailRuIcqWidget.cs" />
+    <Compile Include="Widgets\MailRu\MailRuLikeButtonCounterPosition.cs" />
+    <Compile Include="Widgets\MailRu\MailRuLikeButtonLayout.cs" />
+    <Compile Include="Widgets\MailRu\MailRuLikeButtonSize.cs" />
+    <Compile Include="Widgets\MailRu\MailRuLikeButtonTextType.cs" />
+    <Compile Include="Widgets\MailRu\MailRuLikeButtonType.cs" />
+    <Compile Include="Widgets\MailRu\MailRuLikeButtonWidget.cs" />
+    <Compile Include="Widgets\MailRu\MailRuVideoWidget.cs" />
+    <Compile Include="ObjectExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="resources.Designer.cs">
+      <DependentUpon>resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Widgets\RuTube\RuTubeHtmlHelper.cs" />
+    <Compile Include="Widgets\RuTube\RuTubeVideoWidget.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="Widgets\Surfingbird\SurfingbirdHtmlHelper.cs" />
+    <Compile Include="Widgets\Surfingbird\SurfingbirdSurfButtonColor.cs" />
+    <Compile Include="Widgets\Surfingbird\SurfingbirdSurfButtonLayout.cs" />
+    <Compile Include="Widgets\Surfingbird\SurfingbirdSurfButtonWidget.cs" />
+    <Compile Include="TagBuilderExtensions.cs" />
+    <Compile Include="TextReaderExtensions.cs" />
+    <Compile Include="TextWriterExtensions.cs" />
+    <Compile Include="Widgets\Tumblr\TumblrFollowButtonColorScheme.cs" />
+    <Compile Include="Widgets\Tumblr\TumblrFollowButtonType.cs" />
+    <Compile Include="Widgets\Tumblr\TumblrFollowButtonWidget.cs" />
+    <Compile Include="Widgets\Tumblr\TumblrHtmlHelper.cs" />
+    <Compile Include="Widgets\Tumblr\TumblrShareButtonColorScheme.cs" />
+    <Compile Include="Widgets\Tumblr\TumblrShareButtonType.cs" />
+    <Compile Include="Widgets\Tumblr\TumblrShareButtonWidget.cs" />
+    <Compile Include="Widgets\Twitter\TwitterFollowButtonAlignment.cs" />
+    <Compile Include="Widgets\Twitter\TwitterFollowButtonSize.cs" />
+    <Compile Include="Widgets\Twitter\TwitterFollowButtonWidget.cs" />
+    <Compile Include="Widgets\Twitter\TwitterHtmlHelper.cs" />
+    <Compile Include="Widgets\Twitter\TwitterTweetButtonCountBoxPosition.cs" />
+    <Compile Include="Widgets\Twitter\TwitterTweetButtonSize.cs" />
+    <Compile Include="Widgets\Twitter\TwitterTweetButtonWidget.cs" />
+    <Compile Include="Widgets\Vimeo\VimeoHtmlHelper.cs" />
+    <Compile Include="Widgets\Vimeo\VimeoVideoWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteCommentsAttach.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteCommentsLimit.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteCommentsWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteCommunityMode.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteCommunityWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteHtmlHelper.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteInitializationWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteLikeButtonHeight.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteLikeButtonLayout.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteLikeButtonVerb.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteLikeButtonWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteSubscriptionButtonLayout.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteSubscriptionWidget.cs" />
+    <Compile Include="Widgets\Vkontakte\VkontakteVideoWidget.cs" />
+    <Compile Include="Widgets\Yandex\YandexAnalyticsWidget.cs" />
+    <Compile Include="Widgets\Yandex\YandexHtmlHelper.cs" />
+    <Compile Include="Widgets\Yandex\YandexMoneyButtonColor.cs" />
+    <Compile Include="Widgets\Yandex\YandexMoneyButtonSize.cs" />
+    <Compile Include="Widgets\Yandex\YandexMoneyButtonText.cs" />
+    <Compile Include="Widgets\Yandex\YandexMoneyButtonType.cs" />
+    <Compile Include="Widgets\Yandex\YandexMoneyButtonWidget.cs" />
+    <Compile Include="Widgets\Yandex\YandexMoneyDonateFormText.cs" />
+    <Compile Include="Widgets\Yandex\YandexMoneyDonateFormWidget.cs" />
+    <Compile Include="Widgets\Yandex\YandexMoneyPaymentFormText.cs" />
+    <Compile Include="Widgets\Yandex\YandexMoneyPaymentFormWidget.cs" />
+    <Compile Include="Widgets\Yandex\YandexSharePanelLayout.cs" />
+    <Compile Include="Widgets\Yandex\YandexSharePanelWidget.cs" />
+    <Compile Include="Widgets\Yandex\YandexVideoWidget.cs" />
+    <Compile Include="Widgets\Yandex\YandexLikeButtonLayout.cs" />
+    <Compile Include="Widgets\Yandex\YandexLikeButtonSize.cs" />
+    <Compile Include="Widgets\Yandex\YandexLikeButtonWidget.cs" />
+    <Compile Include="Widgets\YouTube\YouTubeHtmlHelper.cs" />
+    <Compile Include="Widgets\YouTube\YouTubeVideoWidget.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Scripts\WebWidgets\cackle.js" />
+    <Content Include="Scripts\WebWidgets\disqus.js" />
+    <Content Include="Scripts\WebWidgets\google_analytics.js" />
+    <Content Include="Scripts\WebWidgets\google_plusone.js" />
+    <Content Include="Scripts\WebWidgets\twitter_initialize.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8257</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
