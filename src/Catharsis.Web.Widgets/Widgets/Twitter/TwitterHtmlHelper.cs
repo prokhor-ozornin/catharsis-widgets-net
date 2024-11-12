@@ -1,15 +1,8 @@
-namespace Catharsis.Web.Widgets
-{
-  internal sealed class TwitterHtmlHelper : ITwitterHtmlHelper
-  {
-    public ITwitterFollowButtonWidget FollowButton()
-    {
-      return new TwitterFollowButtonWidget();
-    }
+namespace Catharsis.Web.Widgets;
 
-    public ITwitterTweetButtonWidget TweetButton()
-    {
-      return new TwitterTweetButtonWidget();
-    }
-  }
+internal sealed class TwitterHtmlHelper : ITwitterHtmlHelper
+{
+  public ITwitterFollowButtonWidget FollowButton() => new TwitterFollowButtonWidget();
+
+  public ITwitterTweetButtonWidget TweetButton() => new TwitterTweetButtonWidget();
 }

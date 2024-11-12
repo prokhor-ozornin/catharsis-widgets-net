@@ -1,9 +1,8 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para></para>
+/// </summary>
+public interface IRobokassaPaymentFormWidget : IHtmlWidget
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  public interface IRobokassaPaymentFormWidget : IHtmlWidget
-  {
-  }
 }

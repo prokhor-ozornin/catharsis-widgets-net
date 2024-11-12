@@ -1,12 +1,8 @@
-﻿namespace Catharsis.Web.Widgets
-{
-  public abstract class HtmlWidget : IHtmlWidget
-  {
-    public abstract string ToHtmlString();
+﻿namespace Catharsis.Web.Widgets;
 
-    public override string ToString()
-    {
-      return this.ToHtmlString();
-    }
-  }
+public abstract class HtmlWidget : IHtmlWidget
+{
+  public abstract string ToHtmlString();
+
+  public override string ToString() => ToHtmlString();
 }

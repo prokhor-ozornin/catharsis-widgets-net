@@ -1,25 +1,22 @@
-﻿using System;
+﻿namespace Catharsis.Web.Widgets;
 
-namespace Catharsis.Web.Widgets
+/// <summary>
+///   <para>Renders embedded Yandex video on web page.</para>
+/// </summary>
+public interface IYandexVideoWidget : IVideoWidget<IYandexVideoWidget>
 {
   /// <summary>
-  ///   <para>Renders embedded Yandex video on web page.</para>
+  ///   <para>Account identifier of video's uploader.</para>
   /// </summary>
-  public interface IYandexVideoWidget : IVideoWidget<IYandexVideoWidget>
-  {
-    /// <summary>
-    ///   <para>Account identifier of video's uploader.</para>
-    /// </summary>
-    /// <param name="user">User's account identifier.</param>
-    /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="user"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="user"/> is <see cref="string.Empty"/> string.</exception>
-    IYandexVideoWidget User(string user);
+  /// <param name="user">User's account identifier.</param>
+  /// <returns>Reference to the current widget.</returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="user"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="user"/> is <see cref="string.Empty"/> string.</exception>
+  IYandexVideoWidget User(string user);
 
-    /// <summary>
-    ///   <para>Account identifier of video's uploader.</para>
-    /// </summary>
-    /// <returns>User's account identifier.</returns>
-    string User();
-  }
+  /// <summary>
+  ///   <para>Account identifier of video's uploader.</para>
+  /// </summary>
+  /// <returns>User's account identifier.</returns>
+  string User();
 }

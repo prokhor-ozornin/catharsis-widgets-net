@@ -1,23 +1,22 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Size of photos (width/height) for Facebook Facepile widget.</para>
+/// </summary>
+public enum FacebookFacepilePhotoSize
 {
   /// <summary>
-  ///   <para>Size of photos (width/height) for Facebook Facepile widget.</para>
+  ///   <para>Small.</para>
   /// </summary>
-  public enum FacebookFacepilePhotoSize
-  {
-    /// <summary>
-    ///   <para>Small.</para>
-    /// </summary>
-    Small,
+  Small,
 
-    /// <summary>
-    ///   <para>Medium.</para>
-    /// </summary>
-    Medium,
+  /// <summary>
+  ///   <para>Medium.</para>
+  /// </summary>
+  Medium,
 
-    /// <summary>
-    ///   <para>Large.</para>
-    /// </summary>
-    Large
-  }
+  /// <summary>
+  ///   <para>Large.</para>
+  /// </summary>
+  Large
 }

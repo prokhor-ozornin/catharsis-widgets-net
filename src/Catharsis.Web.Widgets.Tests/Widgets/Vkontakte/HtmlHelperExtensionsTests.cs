@@ -1,24 +1,22 @@
-using System;
 using System.Web.Mvc;
 using Xunit;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Tests set for class <see cref="HtmlHelperExtensions"/>.</para>
+/// </summary>
+public sealed partial class HtmlHelperExtensionsTests
 {
   /// <summary>
-  ///   <para>Tests set for class <see cref="HtmlHelperExtensions"/>.</para>
+  ///   <para>Performs testing of <see cref="HtmlHelperExtensions.Vkontakte(HtmlHelper)"/> method.</para>
   /// </summary>
-  public sealed partial class HtmlHelperExtensionsTests
+  [Fact]
+  public void Vkontakte_Method()
   {
-    /// <summary>
-    ///   <para>Performs testing of <see cref="HtmlHelperExtensions.Vkontakte(HtmlHelper)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Vkontakte_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Vkontakte(null));
+    Assert.Throws<ArgumentNullException>(() => HtmlHelperExtensions.Vkontakte(null));
 
-      Assert.NotNull(html.Vkontakte());
-      Assert.True(ReferenceEquals(html.Vkontakte(), html.Vkontakte()));
-    }
+    Assert.NotNull(html.Vkontakte());
+    Assert.True(ReferenceEquals(html.Vkontakte(), html.Vkontakte()));
   }
 }

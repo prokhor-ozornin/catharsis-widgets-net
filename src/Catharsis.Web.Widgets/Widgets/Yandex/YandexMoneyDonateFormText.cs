@@ -1,33 +1,32 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Type of text label (verb) on Yandex.Money donation button.</para>
+/// </summary>
+public enum YandexMoneyDonateFormText
 {
   /// <summary>
-  ///   <para>Type of text label (verb) on Yandex.Money donation button.</para>
+  ///   <para>Donate.</para>
   /// </summary>
-  public enum YandexMoneyDonateFormText
-  {
-    /// <summary>
-    ///   <para>Donate.</para>
-    /// </summary>
-    Donate = 1,
+  Donate = 1,
 
-    /// <summary>
-    ///   <para>Give.</para>
-    /// </summary>
-    Give = 2,
+  /// <summary>
+  ///   <para>Give.</para>
+  /// </summary>
+  Give = 2,
 
-    /// <summary>
-    ///   <para>Transfer.</para>
-    /// </summary>
-    Transfer = 3,
+  /// <summary>
+  ///   <para>Transfer.</para>
+  /// </summary>
+  Transfer = 3,
 
-    /// <summary>
-    ///   <para>Send.</para>
-    /// </summary>
-    Send = 4,
+  /// <summary>
+  ///   <para>Send.</para>
+  /// </summary>
+  Send = 4,
 
-    /// <summary>
-    ///   <para>Support.</para>
-    /// </summary>
-    Support = 5
-  }
+  /// <summary>
+  ///   <para>Support.</para>
+  /// </summary>
+  Support = 5
 }

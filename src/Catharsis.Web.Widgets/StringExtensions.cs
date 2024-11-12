@@ -1,6 +1,4 @@
-﻿using System;
-using Catharsis.Commons;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Catharsis.Web.Widgets
 {
@@ -18,11 +16,13 @@ namespace Catharsis.Web.Widgets
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">If <paramref name="subject"/> is a <c>null</c> reference.</exception>
     /// <exception cref="ArgumentException">If <paramref name="subject"/> is <see cref="string.Empty"/> string.</exception>
-    public static T Json<T>(this string subject)
-    {
-      Assertion.NotEmpty(subject);
-
-      return JsonConvert.DeserializeObject<T>(subject, new JsonSerializerSettings { Formatting = Formatting.None, DateTimeZoneHandling = DateTimeZoneHandling.Utc, DefaultValueHandling = DefaultValueHandling.Ignore, PreserveReferencesHandling = PreserveReferencesHandling.Objects, ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
-    }
+    public static T Json<T>(this string subject) => subject is not null ?
+      JsonConvert.DeserializeObject<T>(
+        subject,
+        new JsonSerializerSettings
+        {
+          Formatting = Formatting.None, DateTimeZoneHandling = DateTimeZoneHandling.Utc, DefaultValueHandling = DefaultValueHandling.Ignore, PreserveReferencesHandling = PreserveReferencesHandling.Objects, ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+        })
+      : throw new ArgumentNullException(nameof(subject));
   }
 }

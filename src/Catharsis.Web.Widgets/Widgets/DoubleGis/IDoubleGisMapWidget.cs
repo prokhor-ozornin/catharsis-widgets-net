@@ -1,9 +1,8 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para></para>
+/// </summary>
+public interface IDoubleGisMapWidget : IHtmlWidget
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  public interface IDoubleGisMapWidget : IHtmlWidget
-  {
-  }
 }

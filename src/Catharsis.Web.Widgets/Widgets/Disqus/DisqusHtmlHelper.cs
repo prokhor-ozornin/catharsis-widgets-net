@@ -1,10 +1,8 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <inheritdoc cref="IDisqusHtmlHelper"/>
+public class DisqusHtmlHelper : IDisqusHtmlHelper
 {
-  internal sealed class DisqusHtmlHelper : IDisqusHtmlHelper
-  {
-    public IDisqusCommentsWidget Comments()
-    {
-      return new DisqusCommentsWidget();
-    }
-  }
+  /// <inheritdoc cref="IDisqusHtmlHelper.Comments()"/>
+  public IDisqusCommentsWidget Comments() => new DisqusCommentsWidget();
 }

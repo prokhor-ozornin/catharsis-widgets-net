@@ -1,15 +1,8 @@
-namespace Catharsis.Web.Widgets
-{
-  internal class IntenseDebateHtmlHelper : IIntenseDebateHtmlHelper
-  {
-    public IIntenseDebateCommentsWidget Comments()
-    {
-      return new IntenseDebateCommentsWidget();
-    }
+namespace Catharsis.Web.Widgets;
 
-    public IIntenseDebateLinkWidget Link()
-    {
-      return new IntenseDebateLinkWidget();
-    }
-  }
+internal class IntenseDebateHtmlHelper : IIntenseDebateHtmlHelper
+{
+  public IIntenseDebateCommentsWidget Comments() => new IntenseDebateCommentsWidget();
+
+  public IIntenseDebateLinkWidget Link() => new IntenseDebateLinkWidget();
 }

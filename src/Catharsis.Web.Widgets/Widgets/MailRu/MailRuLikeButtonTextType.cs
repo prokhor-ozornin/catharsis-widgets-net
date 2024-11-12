@@ -1,23 +1,22 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Type of text label for Mail.ru "Like" button.</para>
+/// </summary>
+public enum MailRuLikeButtonTextType : byte
 {
   /// <summary>
-  ///   <para>Type of text label for Mail.ru "Like" button.</para>
+  ///   <para>Like.</para>
   /// </summary>
-  public enum MailRuLikeButtonTextType : byte
-  {
-    /// <summary>
-    ///   <para>Like.</para>
-    /// </summary>
-    First = 1,
+  First = 1,
 
-    /// <summary>
-    ///   <para>Share.</para>
-    /// </summary>
-    Second = 2,
+  /// <summary>
+  ///   <para>Share.</para>
+  /// </summary>
+  Second = 2,
 
-    /// <summary>
-    ///   <para>Recommend.</para>
-    /// </summary>
-    Third = 3
-  }
+  /// <summary>
+  ///   <para>Recommend.</para>
+  /// </summary>
+  Third = 3
 }

@@ -1,23 +1,11 @@
-﻿using System;
-using System.IO;
-using Catharsis.Commons;
+﻿namespace Catharsis.Web.Widgets;
 
-namespace Catharsis.Web.Widgets
+/// <inheritdoc cref="IVkontakteVideoWidget"/>
+public class YandexMapWidget : HtmlWidget, IYandexMapWidget
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  public sealed class YandexMapWidget : HtmlWidgetBase, IYandexMapWidget
+  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
+  public override string ToHtmlString()
   {
-    /// <summary>
-    ///   <para>Generates and writes HTML markup of widget, using specified text writer.</para>
-    /// </summary>
-    /// <param name="writer">Text writer to use as output destination.</param>
-    public override void Write(TextWriter writer)
-    {
-      Assertion.NotNull(writer);
-
-      throw new NotImplementedException();
-    }
+    throw new NotImplementedException();
   }
 }

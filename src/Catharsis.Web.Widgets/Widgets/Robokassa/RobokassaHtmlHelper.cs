@@ -1,10 +1,6 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+internal sealed class RobokassaHtmlHelper : IRobokassaHtmlHelper
 {
-  internal sealed class RobokassaHtmlHelper : IRobokassaHtmlHelper
-  {
-    public IRobokassaPaymentFormWidget PaymentForm()
-    {
-      return new RobokassaPaymentFormWidget();
-    }
-  }
+  public IRobokassaPaymentFormWidget PaymentForm() => new RobokassaPaymentFormWidget();
 }

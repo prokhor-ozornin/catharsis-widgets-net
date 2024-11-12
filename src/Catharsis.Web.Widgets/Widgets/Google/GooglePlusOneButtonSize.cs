@@ -1,28 +1,27 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Size of Google "+1" button.</para>
+/// </summary>
+public enum GooglePlusOneButtonSize
 {
   /// <summary>
-  ///   <para>Size of Google "+1" button.</para>
+  ///   <para>Medium.</para>
   /// </summary>
-  public enum GooglePlusOneButtonSize
-  {
-    /// <summary>
-    ///   <para>Medium.</para>
-    /// </summary>
-    Medium,
+  Medium,
 
-    /// <summary>
-    ///   <para>Small.</para>
-    /// </summary>
-    Small,
+  /// <summary>
+  ///   <para>Small.</para>
+  /// </summary>
+  Small,
 
-    /// <summary>
-    ///   <para>Standard.</para>
-    /// </summary>
-    Standard,
+  /// <summary>
+  ///   <para>Standard.</para>
+  /// </summary>
+  Standard,
 
-    /// <summary>
-    ///   <para>Tall.</para>
-    /// </summary>
-    Tall
-  }
+  /// <summary>
+  ///   <para>Tall.</para>
+  /// </summary>
+  Tall
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using Catharsis.Commons;
+﻿using System.Globalization;
 
 namespace Catharsis.Web.Widgets
 {

@@ -1,20 +1,14 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <inheritdoc cref="IGoogleHtmlHelper"/>
+public class GoogleHtmlHelper : IGoogleHtmlHelper
 {
-  internal sealed class GoogleHtmlHelper : IGoogleHtmlHelper
-  {
-    public IGoogleAnalyticsWidget Analytics()
-    {
-      return new GoogleAnalyticsWidget();
-    }
+  /// <inheritdoc cref="IGoogleHtmlHelper.Analytics()"/>
+  public IGoogleAnalyticsWidget Analytics() => new GoogleAnalyticsWidget();
 
-    /*public IGoogleMapWidget Map()
-    {
-      return new GoogleMapWidget();
-    }*/
+  /// <inheritdoc cref="IGoogleHtmlHelper.Map()"/>
+  //public IGoogleMapWidget Map() => new GoogleMapWidget();
 
-    public IGooglePlusOneButtonWidget PlusOneButton()
-    {
-      return new GooglePlusOneButtonWidget();
-    }
-  }
+  /// <inheritdoc cref="IGoogleHtmlHelper.PlusOneButton()"/>
+  public IGooglePlusOneButtonWidget PlusOneButton() => new GooglePlusOneButtonWidget();
 }

@@ -1,24 +1,22 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Tests set for class <see cref="IVimeoHtmlHelperExtensions"/>.</para>
+/// </summary>
+public sealed class IVimeoHtmlHelperExtensionsTests
 {
   /// <summary>
-  ///   <para>Tests set for class <see cref="IVimeoHtmlHelperExtensions"/>.</para>
+  ///   <para>Performs testing of <see cref="IVimeoHtmlHelperExtensions.Video(IVimeoHtmlHelper, Action{IVimeoVideoWidget})"/> method.</para>
   /// </summary>
-  public sealed class IVimeoHtmlHelperExtensionsTests
+  [Fact]
+  public void Video_Method()
   {
-    /// <summary>
-    ///   <para>Performs testing of <see cref="IVimeoHtmlHelperExtensions.Video(IVimeoHtmlHelper, Action{IVimeoVideoWidget})"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Video_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => IVimeoHtmlHelperExtensions.Video(null, widget => { }));
-      Assert.Throws<ArgumentNullException>(() => new VimeoHtmlHelper().Video(null));
+    Assert.Throws<ArgumentNullException>(() => IVimeoHtmlHelperExtensions.Video(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new VimeoHtmlHelper().Video(null));
 
-      Assert.Equal(new VimeoHtmlHelper().Video().ToHtmlString(), new VimeoHtmlHelper().Video(x => { }));
-      Assert.Equal(new VimeoHtmlHelper().Video().Id("id").ToHtmlString(), new VimeoHtmlHelper().Video(x => x.Id("id")));
-    }
+    Assert.Equal(new VimeoHtmlHelper().Video().ToHtmlString(), new VimeoHtmlHelper().Video(x => { }));
+    Assert.Equal(new VimeoHtmlHelper().Video().Id("id").ToHtmlString(), new VimeoHtmlHelper().Video(x => x.Id("id")));
   }
 }

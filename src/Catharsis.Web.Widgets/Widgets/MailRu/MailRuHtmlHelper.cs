@@ -1,30 +1,20 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <inheritdoc cref="IMailRuHtmlHelper"/>
+public class MailRuHtmlHelper : IMailRuHtmlHelper
 {
-  internal sealed class MailRuHtmlHelper : IMailRuHtmlHelper
-  {
-    public IMailRuFacesWidget Faces()
-    {
-      return new MailRuFacesWidget();
-    }
+  /// <inheritdoc cref="IMailRuHtmlHelper.Faces()"/>
+  public IMailRuFacesWidget Faces() => new MailRuFacesWidget();
 
-    public IMailRuGroupsWidget Groups()
-    {
-      return new MailRuGroupsWidget();
-    }
+  /// <inheritdoc cref="IMailRuHtmlHelper.Groups()"/>
+  public IMailRuGroupsWidget Groups() => new MailRuGroupsWidget();
 
-    public IMailRuIcqWidget Icq()
-    {
-      return new MailRuIcqWidget();
-    }
+  /// <inheritdoc cref="IMailRuHtmlHelper.Icq()"/>
+  public IMailRuIcqWidget Icq() => new MailRuIcqWidget();
 
-    public IMailRuLikeButtonWidget LikeButton()
-    {
-      return new MailRuLikeButtonWidget();
-    }
+  /// <inheritdoc cref="IMailRuHtmlHelper.LikeButton()"/>
+  public IMailRuLikeButtonWidget LikeButton() => new MailRuLikeButtonWidget();
 
-    public IMailRuVideoWidget Video()
-    {
-      return new MailRuVideoWidget();
-    }
-  }
+  /// <inheritdoc cref="IMailRuHtmlHelper.Video()"/>
+  public IMailRuVideoWidget Video() => new MailRuVideoWidget();
 }

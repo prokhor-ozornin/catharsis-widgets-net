@@ -1,76 +1,73 @@
-using System;
-using Catharsis.Commons;
 using Xunit;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Tests set for class <see cref="ISurfingbirdSurfButtonWidgetExtensions"/>.</para>
+/// </summary>
+public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests
 {
   /// <summary>
-  ///   <para>Tests set for class <see cref="ISurfingbirdSurfButtonWidgetExtensions"/>.</para>
+  ///   <para>Performs testing of <see cref="ISurfingbirdSurfButtonWidgetExtensions.Layout(ISurfingbirdSurfButtonWidget, SurfingbirdSurfButtonLayout)"/> method.</para>
   /// </summary>
-  public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests
+  [Fact]
+  public void Layout_Method()
   {
-    /// <summary>
-    ///   <para>Performs testing of <see cref="ISurfingbirdSurfButtonWidgetExtensions.Layout(ISurfingbirdSurfButtonWidget, SurfingbirdSurfButtonLayout)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Layout_Method()
+    Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Layout(null, SurfingbirdSurfButtonLayout.Common));
+
+    new SurfingbirdSurfButtonWidget().Do(widget =>
     {
-      Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Layout(null, SurfingbirdSurfButtonLayout.Common));
+      Assert.True(ReferenceEquals(widget.Layout(SurfingbirdSurfButtonLayout.Common), widget));
+      Assert.Equal("common", widget.Layout());
+    });
+    new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("micro", widget.Layout(SurfingbirdSurfButtonLayout.Micro).Layout()));
+    new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("vert", widget.Layout(SurfingbirdSurfButtonLayout.Vertical).Layout()));
+  }
 
-      new SurfingbirdSurfButtonWidget().Do(widget =>
-      {
-        Assert.True(ReferenceEquals(widget.Layout(SurfingbirdSurfButtonLayout.Common), widget));
-        Assert.Equal("common", widget.Layout());
-      });
-      new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("micro", widget.Layout(SurfingbirdSurfButtonLayout.Micro).Layout()));
-      new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("vert", widget.Layout(SurfingbirdSurfButtonLayout.Vertical).Layout()));
-    }
+  /// <summary>
+  ///   <para>Performs testing of <see cref="ISurfingbirdSurfButtonWidgetExtensions.Width(ISurfingbirdSurfButtonWidget, short)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Width_Method()
+  {
+    Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, 1));
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="ISurfingbirdSurfButtonWidgetExtensions.Width(ISurfingbirdSurfButtonWidget, short)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Width_Method()
+    new SurfingbirdSurfButtonWidget().Do(widget =>
     {
-      Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, 1));
+      Assert.True(ReferenceEquals(widget.Width(1), widget));
+      Assert.Equal("1", widget.Width());
+    });
+  }
 
-      new SurfingbirdSurfButtonWidget().Do(widget =>
-      {
-        Assert.True(ReferenceEquals(widget.Width(1), widget));
-        Assert.Equal("1", widget.Width());
-      });
-    }
+  /// <summary>
+  ///   <para>Performs testing of <see cref="ISurfingbirdSurfButtonWidgetExtensions.Height(ISurfingbirdSurfButtonWidget, short)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Height_Method()
+  {
+    Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, 1));
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="ISurfingbirdSurfButtonWidgetExtensions.Height(ISurfingbirdSurfButtonWidget, short)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Height_Method()
+    new SurfingbirdSurfButtonWidget().Do(widget =>
     {
-      Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, 1));
+      Assert.True(ReferenceEquals(widget.Height(1), widget));
+      Assert.Equal("1", widget.Height());
+    });
+  }
 
-      new SurfingbirdSurfButtonWidget().Do(widget =>
-      {
-        Assert.True(ReferenceEquals(widget.Height(1), widget));
-        Assert.Equal("1", widget.Height());
-      });
-    }
+  /// <summary>
+  ///   <para>Performs testing of <see cref="ISurfingbirdSurfButtonWidgetExtensions.Color(ISurfingbirdSurfButtonWidget, SurfingbirdSurfButtonColor)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Color_Method()
+  {
+    Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Color(null, SurfingbirdSurfButtonColor.Blue));
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="ISurfingbirdSurfButtonWidgetExtensions.Color(ISurfingbirdSurfButtonWidget, SurfingbirdSurfButtonColor)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Color_Method()
+    new SurfingbirdSurfButtonWidget().Do(widget =>
     {
-      Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Color(null, SurfingbirdSurfButtonColor.Blue));
-
-      new SurfingbirdSurfButtonWidget().Do(widget =>
-      {
-        Assert.True(ReferenceEquals(widget.Color(SurfingbirdSurfButtonColor.Blue), widget));
-        Assert.Equal("blue", widget.Color());
-      });
-      new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("gray", widget.Color(SurfingbirdSurfButtonColor.Gray).Color()));
-      new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("green", widget.Color(SurfingbirdSurfButtonColor.Green).Color()));
-    }
+      Assert.True(ReferenceEquals(widget.Color(SurfingbirdSurfButtonColor.Blue), widget));
+      Assert.Equal("blue", widget.Color());
+    });
+    new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("gray", widget.Color(SurfingbirdSurfButtonColor.Gray).Color()));
+    new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("green", widget.Color(SurfingbirdSurfButtonColor.Green).Color()));
   }
 }

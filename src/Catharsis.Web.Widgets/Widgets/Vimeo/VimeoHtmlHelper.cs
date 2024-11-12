@@ -1,10 +1,6 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+internal sealed class VimeoHtmlHelper : IVimeoHtmlHelper
 {
-  internal sealed class VimeoHtmlHelper : IVimeoHtmlHelper
-  {
-    public IVimeoVideoWidget Video()
-    {
-      return new VimeoVideoWidget();
-    }
-  }
+  public IVimeoVideoWidget Video() => new VimeoVideoWidget();
 }

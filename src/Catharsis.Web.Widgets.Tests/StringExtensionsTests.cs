@@ -1,23 +1,21 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Tests set for class <see cref="StringExtensions"/>.</para>
+/// </summary>
+public sealed class StringExtensionsTests
 {
   /// <summary>
-  ///   <para>Tests set for class <see cref="StringExtensions"/>.</para>
+  ///   <para>Performs testing of <see cref="StringExtensions.Json{T}(string)"/> method.</para>
   /// </summary>
-  public sealed class StringExtensionsTests
+  [Fact(Skip = "To be implemented")]
+  public void Json_Method()
   {
-    /// <summary>
-    ///   <para>Performs testing of <see cref="StringExtensions.Json{T}(string)"/> method.</para>
-    /// </summary>
-    [Fact(Skip = "To be implemented")]
-    public void Json_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => StringExtensions.Json<object>(null));
-      Assert.Throws<ArgumentException>(() => string.Empty.Json<object>());
+    Assert.Throws<ArgumentNullException>(() => StringExtensions.Json<object>(null));
+    Assert.Throws<ArgumentException>(() => string.Empty.Json<object>());
 
-      throw new NotImplementedException();
-    }
+    throw new NotImplementedException();
   }
 }

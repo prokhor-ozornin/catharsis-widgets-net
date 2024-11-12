@@ -1,58 +1,48 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using System.Web.Mvc;
-using Catharsis.Commons;
+using Catharsis.Extensions;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <inheritdoc cref="IFacebookInitializationWidget"/>
+public class FacebookInitializationWidget : HtmlWidget, IFacebookInitializationWidget
 {
+  private string appId;
+
   /// <summary>
-  ///   <para>Performs initialization of Facebook JavaScript API. Initialization must be performed before rendering Facebook widgets on the page.</para>
+  ///   <para>Identifier of registered Facebook application.</para>
   /// </summary>
-  /// <seealso cref="https://developers.facebook.com/docs/javascript"/>
-  public class FacebookInitializationWidget : HtmlWidget, IFacebookInitializationWidget
+  /// <param name="appId">Identifier of Facebook application.</param>
+  /// <returns>Reference to the current widget.</returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="appId"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="appId"/> is <see cref="string.Empty"/> string.</exception>
+  /// <remarks>This attribute is required.</remarks>
+  public IFacebookInitializationWidget AppId(string appId)
   {
-    private string appId;
+    if (appId is null) throw new ArgumentNullException(nameof(appId));
+    if (appId.IsEmpty()) throw new ArgumentException(nameof(appId));
 
-    /// <summary>
-    ///   <para>Identifier of registered Facebook application.</para>
-    /// </summary>
-    /// <param name="appId">Identifier of Facebook application.</param>
-    /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="appId"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="appId"/> is <see cref="string.Empty"/> string.</exception>
-    /// <remarks>This attribute is required.</remarks>
-    public IFacebookInitializationWidget AppId(string appId)
+    this.appId = appId;
+    return this;
+  }
+
+  /// <summary>
+  ///   <para>Identifier of registered Facebook application.</para>
+  /// </summary>
+  /// <returns>Identifier of Facebook application.</returns>
+  public string AppId() => appId;
+
+  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
+  public override string ToHtmlString()
+  {
+    if (AppId().IsEmpty())
     {
-      Assertion.NotEmpty(appId);
-
-      this.appId = appId;
-      return this;
+      return string.Empty;
     }
 
-    /// <summary>
-    ///   <para>Identifier of registered Facebook application.</para>
-    /// </summary>
-    /// <returns>Identifier of Facebook application.</returns>
-    public string AppId()
-    {
-      return this.appId;
-    }
-
-    /// <summary>
-    ///   <para>Returns HTML markup text of widget.</para>
-    /// </summary>
-    /// <returns>Widget's HTML markup.</returns>
-    public override string ToHtmlString()
-    {
-      if (this.AppId().IsEmpty())
-      {
-        return string.Empty;
-      }
-
-      return new StringBuilder()
-        .Append(new TagBuilder("div").Attribute("id", "fb-root"))
-        .Append(resources.facebook_initialize.FormatSelf(this.AppId()))
-        .ToString();
-    }
+    return new StringBuilder()
+      .Append(new TagBuilder("div").Attribute("id", "fb-root"))
+      .Append(string.Format(resources.facebook_initialize, AppId()))
+      .ToString();
   }
 }

@@ -1,18 +1,17 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Size of Pinterest "Pin It" button.</para>
+/// </summary>
+public enum PinterestPinItButtonSize
 {
   /// <summary>
-  ///   <para>Size of Pinterest "Pin It" button.</para>
+  ///   <para>Small.</para>
   /// </summary>
-  public enum PinterestPinItButtonSize
-  {
-    /// <summary>
-    ///   <para>Small.</para>
-    /// </summary>
-    Small,
+  Small,
 
-    /// <summary>
-    ///   <para>Large.</para>
-    /// </summary>
-    Large
-  }
+  /// <summary>
+  ///   <para>Large.</para>
+  /// </summary>
+  Large
 }

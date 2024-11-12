@@ -1,25 +1,17 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <inheritdoc cref="ICackleHtmlHelper"/>
+public class CackleHtmlHelper : ICackleHtmlHelper
 {
-  internal sealed class CackleHtmlHelper : ICackleHtmlHelper
-  {
-    public ICackleCommentsWidget Comments()
-    {
-      return new CackleCommentsWidget();
-    }
+  /// <inheritdoc cref="ICackleHtmlHelper.Comments()"/>
+  public ICackleCommentsWidget Comments() => new CackleCommentsWidget();
 
-    public ICackleCommentsCountWidget CommentsCount()
-    {
-      return new CackleCommentsCountWidget();
-    }
+  /// <inheritdoc cref="ICackleHtmlHelper.CommentsCount()"/>
+  public ICackleCommentsCountWidget CommentsCount() => new CackleCommentsCountWidget();
 
-    public ICackleLatestCommentsWidget LatestComments()
-    {
-      return new CackleLatestCommentsWidget();
-    }
+  /// <inheritdoc cref="ICackleHtmlHelper.LatestComments()"/>
+  public ICackleLatestCommentsWidget LatestComments() => new CackleLatestCommentsWidget();
 
-    public ICackleLoginWidget Login()
-    {
-      return new CackleLoginWidget();
-    }
-  }
+  /// <inheritdoc cref="ICackleHtmlHelper.Login()"/>
+  public ICackleLoginWidget Login() => new CackleLoginWidget();
 }

@@ -1,9 +1,8 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>CSS code renderer.</para>
+/// </summary>
+public interface IWidgetsStylesRenderer
 {
-  /// <summary>
-  ///   <para>CSS code renderer.</para>
-  /// </summary>
-  public interface IWidgetsStylesRenderer
-  {
-  }
 }

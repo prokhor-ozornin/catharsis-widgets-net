@@ -1,18 +1,17 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Relative size of Twitter "Tweet" button.</para>
+/// </summary>
+public enum TwitterTweetButtonSize
 {
   /// <summary>
-  ///   <para>Relative size of Twitter "Tweet" button.</para>
+  ///   <para>Large.</para>
   /// </summary>
-  public enum TwitterTweetButtonSize
-  {
-    /// <summary>
-    ///   <para>Large.</para>
-    /// </summary>
-    Large,
+  Large,
 
-    /// <summary>
-    ///   <para>Medium.</para>
-    /// </summary>
-    Medium
-  }
+  /// <summary>
+  ///   <para>Medium.</para>
+  /// </summary>
+  Medium
 }

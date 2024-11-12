@@ -1,15 +1,11 @@
-﻿namespace Catharsis.Web.Widgets
-{
-  internal sealed class LiveJournalHtmlHelper : ILiveJournalHtmlHelper
-  {
-    public ILiveJournalLikeButtonWidget LikeButton()
-    {
-      return new LiveJournalLikeButtonWidget();
-    }
+﻿namespace Catharsis.Web.Widgets;
 
-    public ILiveJournalRepostButtonWidget RepostButton()
-    {
-      return new LiveJournalRepostButtonWidget();
-    }
-  }
+/// <inheritdoc cref="ILiveJournalHtmlHelper"/>
+public class LiveJournalHtmlHelper : ILiveJournalHtmlHelper
+{
+  /// <inheritdoc cref="ILiveJournalHtmlHelper.LikeButton()"/>
+  public ILiveJournalLikeButtonWidget LikeButton() => new LiveJournalLikeButtonWidget();
+
+  /// <inheritdoc cref="ILiveJournalHtmlHelper.RepostButton()"/>
+  public ILiveJournalRepostButtonWidget RepostButton() => new LiveJournalRepostButtonWidget();
 }

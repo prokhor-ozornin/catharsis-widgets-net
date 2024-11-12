@@ -1,10 +1,6 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+internal sealed class Share42HtmlHelper : IShare42HtmlHelper
 {
-  internal sealed class Share42HtmlHelper : IShare42HtmlHelper
-  {
-    public IShare42PanelWidget Panel()
-    {
-      return new Share42PanelWidget();
-    }
-  }
+  public IShare42PanelWidget Panel() => new Share42PanelWidget();
 }

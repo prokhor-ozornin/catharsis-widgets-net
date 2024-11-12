@@ -1,18 +1,17 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Facebook widgets color scheme.</para>
+/// </summary>
+public enum FacebookColorScheme
 {
   /// <summary>
-  ///   <para>Facebook widgets color scheme.</para>
+  ///   <para>Dark.</para>
   /// </summary>
-  public enum FacebookColorScheme
-  {
-    /// <summary>
-    ///   <para>Dark.</para>
-    /// </summary>
-    Dark,
+  Dark,
 
-    /// <summary>
-    ///   <para>Light.</para>
-    /// </summary>
-    Light
-  }
+  /// <summary>
+  ///   <para>Light.</para>
+  /// </summary>
+  Light
 }

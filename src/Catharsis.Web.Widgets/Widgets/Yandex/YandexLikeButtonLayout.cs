@@ -1,18 +1,17 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para> Visual appearance/layout of Yandex "Like" button.</para>
+/// </summary>
+public enum YandexLikeButtonLayout
 {
   /// <summary>
-  ///   <para> Visual appearance/layout of Yandex "Like" button.</para>
+  ///   <para>Generic button with text.</para>
   /// </summary>
-  public enum YandexLikeButtonLayout
-  {
-    /// <summary>
-    ///   <para>Generic button with text.</para>
-    /// </summary>
-    Button,
+  Button,
 
-    /// <summary>
-    ///   <para>Icon only.</para>
-    /// </summary>
-    Icon
-  }
+  /// <summary>
+  ///   <para>Icon only.</para>
+  /// </summary>
+  Icon
 }

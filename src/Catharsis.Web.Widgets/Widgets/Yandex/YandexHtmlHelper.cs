@@ -1,40 +1,18 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+internal sealed class YandexHtmlHelper : IYandexHtmlHelper
 {
-  internal sealed class YandexHtmlHelper : IYandexHtmlHelper
-  {
-    public IYandexAnalyticsWidget Analytics()
-    {
-      return new YandexAnalyticsWidget();
-    }
+  public IYandexAnalyticsWidget Analytics() => new YandexAnalyticsWidget();
 
-    public IYandexLikeButtonWidget LikeButton()
-    {
-      return new YandexLikeButtonWidget();
-    }
+  public IYandexLikeButtonWidget LikeButton() => new YandexLikeButtonWidget();
 
-    public IYandexMoneyButtonWidget MoneyButton()
-    {
-      return new YandexMoneyButtonWidget();
-    }
+  public IYandexMoneyButtonWidget MoneyButton() => new YandexMoneyButtonWidget();
 
-    public IYandexMoneyDonateFormWidget MoneyDonateForm()
-    {
-      return new YandexMoneyDonateFormWidget();
-    }
+  public IYandexMoneyDonateFormWidget MoneyDonateForm() => new YandexMoneyDonateFormWidget();
 
-    public IYandexMoneyPaymentFormWidget MoneyPaymentForm()
-    {
-      return new YandexMoneyPaymentFormWidget();
-    }
+  public IYandexMoneyPaymentFormWidget MoneyPaymentForm() => new YandexMoneyPaymentFormWidget();
 
-    public IYandexSharePanelWidget SharePanel()
-    {
-      return new YandexSharePanelWidget();
-    }
+  public IYandexSharePanelWidget SharePanel() => new YandexSharePanelWidget();
 
-    public IYandexVideoWidget Video()
-    {
-      return new YandexVideoWidget();
-    }
-  }
+  public IYandexVideoWidget Video() => new YandexVideoWidget();
 }

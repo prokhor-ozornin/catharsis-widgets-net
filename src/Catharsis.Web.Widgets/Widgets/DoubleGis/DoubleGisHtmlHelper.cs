@@ -1,20 +1,14 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <inheritdoc cref="IDoubleGisHtmlHelper"/>
+public class DoubleGisHtmlHelper : IDoubleGisHtmlHelper
 {
-  internal sealed class DoubleGisHtmlHelper : IDoubleGisHtmlHelper
-  {
-    public IDoubleGisContactsMapWidget ContactsMap()
-    {
-      return new DoubleGisContactsMapWidget();
-    }
+  /// <inheritdoc cref="IDoubleGisHtmlHelper.ContactsMap()"/>
+  public IDoubleGisContactsMapWidget ContactsMap() => new DoubleGisContactsMapWidget();
 
-    public IDoubleGisMapWidget Map()
-    {
-      return new DoubleGisMapWidget();
-    }
+  /// <inheritdoc cref="IDoubleGisHtmlHelper.Map()"/>
+  public IDoubleGisMapWidget Map() => new DoubleGisMapWidget();
 
-    public IDoubleGisMiniMapWidget MiniMap()
-    {
-      return new DoubleGisMiniMapWidget();
-    }
-  }
+  /// <inheritdoc cref="IDoubleGisHtmlHelper.MiniMap()"/>
+  public IDoubleGisMiniMapWidget MiniMap() => new DoubleGisMiniMapWidget();
 }

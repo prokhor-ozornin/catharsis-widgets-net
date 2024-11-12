@@ -1,30 +1,14 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+internal sealed class PinterestHtmlHelper : IPinterestHtmlHelper
 {
-  internal sealed class PinterestHtmlHelper : IPinterestHtmlHelper
-  {
-    public IPinterestBoardWidget Board()
-    {
-      return new PinterestBoardWidget();
-    }
+  public IPinterestBoardWidget Board() => new PinterestBoardWidget();
 
-    public IPinterestFollowButtonWidget FollowButton()
-    {
-      return new PinterestFollowButtonWidget();
-    }
+  public IPinterestFollowButtonWidget FollowButton() => new PinterestFollowButtonWidget();
 
-    public IPinterestPinItButtonWidget PinItButton()
-    {
-      return new PinterestPinItButtonWidget();
-    }
+  public IPinterestPinItButtonWidget PinItButton() => new PinterestPinItButtonWidget();
 
-    public IPinterestPinWidget Pin()
-    {
-      return new PinterestPinWidget();
-    }
+  public IPinterestPinWidget Pin() => new PinterestPinWidget();
 
-    public IPinterestProfileWidget Profile()
-    {
-      return new PinterestProfileWidget();
-    }
-  }
+  public IPinterestProfileWidget Profile() => new PinterestProfileWidget();
 }

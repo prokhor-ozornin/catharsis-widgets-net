@@ -1,15 +1,11 @@
-﻿namespace Catharsis.Web.Widgets
-{
-  internal sealed class GravatarHtmlHelper : IGravatarHtmlHelper
-  {
-    public IGravatarImageUrlWidget ImageUrl()
-    {
-      return new GravatarImageUrlWidget();
-    }
+﻿namespace Catharsis.Web.Widgets;
 
-    public IGravatarProfileUrlWidget ProfileUrl()
-    {
-      return new GravatarProfileUrlWidget();
-    }
-  }
+/// <inheritdoc cref="IGravatarHtmlHelper"/>
+public class GravatarHtmlHelper : IGravatarHtmlHelper
+{
+  /// <inheritdoc cref="IGravatarHtmlHelper.ImageUrl()"/>
+  public IGravatarImageUrlWidget ImageUrl() => new GravatarImageUrlWidget();
+
+  /// <inheritdoc cref="IGravatarHtmlHelper.ProfileUrl()"/>
+  public IGravatarProfileUrlWidget ProfileUrl() => new GravatarProfileUrlWidget();
 }

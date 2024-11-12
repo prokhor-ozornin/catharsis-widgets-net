@@ -1,107 +1,101 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Web;
-using Catharsis.Commons;
+﻿using System.Globalization;
+using System.Web.WebPages;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Set of extension methods for class <see cref="HttpRequest"/>.</para>
+/// </summary>
+/// <seealso cref="HttpRequest"/>
+public static class HttpRequestExtensions
 {
   /// <summary>
-  ///   <para>Set of extension methods for class <see cref="HttpRequest"/>.</para>
+  ///   <para></para>
   /// </summary>
-  /// <seealso cref="HttpRequest"/>
-  public static class HttpRequestExtensions
+  /// <param name="request"></param>
+  /// <param name="name"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If either <paramref name="request"/> or <paramref name="name"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="name"/> is <see cref="string.Empty"/> string.</exception>
+  public static object Parameter(this HttpRequest request, string name)
   {
-    /// <summary>
-    ///   <para></para>
-    /// </summary>
-    /// <param name="request"></param>
-    /// <param name="name"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">If either <paramref name="request"/> or <paramref name="name"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="name"/> is <see cref="string.Empty"/> string.</exception>
-    public static object Parameter(this HttpRequest request, string name)
+    if (request is null) throw new ArgumentNullException(nameof(request));
+    if (name is null) throw new ArgumentNullException(nameof(name));
+    if (name.IsEmpty()) throw new ArgumentException(nameof(name));
+
+    var nameLower = name.ToLowerInvariant();
+    var nameUpper = name.ToUpperInvariant();
+
+    var parameter = request.Params[name];
+    if (parameter is null)
     {
-      Assertion.NotNull(request);
-      Assertion.NotEmpty(name);
-
-      var nameLower = name.ToLowerInvariant();
-      var nameUpper = name.ToUpperInvariant();
-
-      var parameter = request.Params[name];
-      if (parameter == null)
+      parameter = request.Params[nameLower];
+    }
+    if (parameter is null)
+    {
+      parameter = request.Params[nameUpper];
+    }
+    if (parameter is null)
+    {
+      parameter = request.Headers[name];
+    }
+    if (parameter is null)
+    {
+      parameter = request.Headers[nameLower];
+    }
+    if (parameter is null)
+    {
+      parameter = request.Headers[nameUpper];
+    }
+    if (parameter is null)
+    {
+      var cookie = request.Cookies[name];
+      if (cookie is null)
       {
-        parameter = request.Params[nameLower];
+        cookie = request.Cookies[nameLower];
       }
-      if (parameter == null)
+      if (cookie is null)
       {
-        parameter = request.Params[nameUpper];
+        cookie = request.Cookies[nameUpper];
       }
-      if (parameter == null)
+      if (cookie is not null)
       {
-        parameter = request.Headers[name];
+        parameter = cookie.Value;
       }
-      if (parameter == null)
-      {
-        parameter = request.Headers[nameLower];
-      }
-      if (parameter == null)
-      {
-        parameter = request.Headers[nameUpper];
-      }
-      if (parameter == null)
-      {
-        var cookie = request.Cookies[name];
-        if (cookie == null)
-        {
-          cookie = request.Cookies[nameLower];
-        }
-        if (cookie == null)
-        {
-          cookie = request.Cookies[nameUpper];
-        }
-        if (cookie != null)
-        {
-          parameter = cookie.Value;
-        }
-      }
-
-      return parameter;
     }
 
-    /// <summary>
-    ///   <para></para>
-    /// </summary>
-    /// <param name="request"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="request"/> is a <c>null</c> reference.</exception>
-    public static CultureInfo Culture(this HttpRequest request)
+    return parameter;
+  }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="request"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="request"/> is a <c>null</c> reference.</exception>
+  public static CultureInfo Culture(this HttpRequest request) => request is not null ? CultureInfo.GetCultureInfo(request.Language()) : throw new ArgumentNullException(nameof(request));
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="request"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="request"/> is a <c>null</c> reference.</exception>
+  public static string Language(this HttpRequest request)
+  {
+    if (request is null) throw new ArgumentNullException(nameof(request));
+
+    var language = request.Parameter("lang") ?? request.Parameter("language");
+
+    if (language is null)
     {
-      Assertion.NotNull(request);
-
-      return CultureInfo.GetCultureInfo(request.Language());
-    }
-
-    /// <summary>
-    ///   <para></para>
-    /// </summary>
-    /// <param name="request"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="request"/> is a <c>null</c> reference.</exception>
-    public static string Language(this HttpRequest request)
-    {
-      Assertion.NotNull(request);
-
-      var language = request.Parameter("lang") ?? request.Parameter("language");
-      if (language == null)
+      var acceptLanguage = request.Parameter("Accept-Language");
+      if (acceptLanguage is not null)
       {
-        var acceptLanguage = request.Parameter("Accept-Language");
-        if (acceptLanguage != null)
-        {
-          language = acceptLanguage.ToString().Split(',').First();
-        }
+        language = acceptLanguage.ToString().Split(',').First();
       }
-      return language != null ? language.ToString() : CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
     }
+
+    return language is not null ? language.ToString() : CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
   }
 }

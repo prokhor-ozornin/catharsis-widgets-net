@@ -1,26 +1,12 @@
-﻿using System;
+﻿namespace Catharsis.Web.Widgets;
 
-namespace Catharsis.Web.Widgets
+/// <inheritdoc cref="IPayPalSubscribeWidget"/>
+public class PayPalSubscribeWidget : HtmlWidget, IPayPalSubscribeWidget
 {
-  public sealed class PayPalSubscribeWidget : HtmlWidgetBase, IPayPalSubscribeWidget
-  {
-    public IPayPalSubscribeWidget AsForm()
-    {
-      throw new NotImplementedException();
-    }
+  public IPayPalSubscribeWidget AsForm() => throw new NotImplementedException();
 
-    public IPayPalSubscribeWidget AsUrl()
-    {
-      throw new NotImplementedException();
-    }
+  public IPayPalSubscribeWidget AsUrl() => throw new NotImplementedException();
 
-    /// <summary>
-    ///   <para>Returns HTML markup text of widget.</para>
-    /// </summary>
-    /// <returns>Widget's HTML markup.</returns>
-    public override string ToHtmlString()
-    {
-      throw new NotImplementedException();
-    }
-  }
+  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
+  public override string ToHtmlString() => throw new NotImplementedException();
 }

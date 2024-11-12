@@ -1,9 +1,8 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>JavaScript code renderer.</para>
+/// </summary>
+public interface IWidgetsScriptsRenderer
 {
-  /// <summary>
-  ///   <para>JavaScript code renderer.</para>
-  /// </summary>
-  public interface IWidgetsScriptsRenderer
-  {
-  }
 }

@@ -1,10 +1,6 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+internal sealed class YouTubeHtmlHelper : IYouTubeHtmlHelper
 {
-  internal sealed class YouTubeHtmlHelper : IYouTubeHtmlHelper
-  {
-    public IYouTubeVideoWidget Video()
-    {
-      return new YouTubeVideoWidget();
-    }
-  }
+  public IYouTubeVideoWidget Video() => new YouTubeVideoWidget();
 }

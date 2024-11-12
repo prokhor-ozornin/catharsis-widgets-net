@@ -1,16 +1,11 @@
-﻿using System;
+﻿namespace Catharsis.Web.Widgets;
 
-namespace Catharsis.Web.Widgets
+/// <inheritdoc cref="IAddThisSmartLayersWidget"/>
+public class AddThisSmartLayersWidget : HtmlWidget, IAddThisSmartLayersWidget
 {
-  public sealed class AddThisSmartLayersWidget : HtmlWidgetBase, IAddThisSmartLayersWidget
+  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
+  public override string ToHtmlString()
   {
-    /// <summary>
-    ///   <para>Returns HTML markup text of widget.</para>
-    /// </summary>
-    /// <returns>Widget's HTML markup.</returns>
-    public override string ToHtmlString()
-    {
-      throw new NotImplementedException();
-    }
+    throw new NotImplementedException();
   }
 }

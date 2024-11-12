@@ -1,60 +1,38 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <inheritdoc cref="IFacebookHtmlHelper"/>
+public class FacebookHtmlHelper : IFacebookHtmlHelper
 {
-  internal sealed class FacebookHtmlHelper : IFacebookHtmlHelper
-  {
-    public IFacebookActivityFeedWidget ActivityFeed()
-    {
-      return new FacebookActivityFeedWidget();
-    }
+  /// <inheritdoc cref="IFacebookHtmlHelper.ActivityFeed()"/>
+  public IFacebookActivityFeedWidget ActivityFeed() => new FacebookActivityFeedWidget();
 
-    public IFacebookCommentsWidget Comments()
-    {
-      return new FacebookCommentsWidget();
-    }
+  /// <inheritdoc cref="IFacebookHtmlHelper.Comments()"/>
+  public IFacebookCommentsWidget Comments() => new FacebookCommentsWidget();
 
-    public IFacebookFacepileWidget Facepile()
-    {
-      return new FacebookFacepileWidget();
-    }
+  /// <inheritdoc cref="IFacebookHtmlHelper.Facepile()"/>
+  public IFacebookFacepileWidget Facepile() => new FacebookFacepileWidget();
 
-    public IFacebookFollowButtonWidget FollowButton()
-    {
-      return new FacebookFollowButtonWidget();
-    }
+  /// <inheritdoc cref="IFacebookHtmlHelper.FollowButton()"/>
+  public IFacebookFollowButtonWidget FollowButton() => new FacebookFollowButtonWidget();
 
-    public IFacebookInitializationWidget Initialize()
-    {
-      return new FacebookInitializationWidget();
-    }
+  /// <inheritdoc cref="IFacebookHtmlHelper.Initialize()"/>
+  public IFacebookInitializationWidget Initialize() => new FacebookInitializationWidget();
 
-    public IFacebookLikeButtonWidget LikeButton()
-    {
-      return new FacebookLikeButtonWidget();
-    }
+  /// <inheritdoc cref="IFacebookHtmlHelper.LikeButton()"/>
+  public IFacebookLikeButtonWidget LikeButton() => new FacebookLikeButtonWidget();
 
-    public IFacebookLikeBoxWidget LikeBox()
-    {
-      return new FacebookLikeBoxWidget();
-    }
+  /// <inheritdoc cref="IFacebookHtmlHelper.LikeBox()"/>
+  public IFacebookLikeBoxWidget LikeBox() => new FacebookLikeBoxWidget();
 
-    public IFacebookPostWidget Post()
-    {
-      return new FacebookPostWidget();
-    }
+  /// <inheritdoc cref="IFacebookHtmlHelper.Post()"/>
+  public IFacebookPostWidget Post() => new FacebookPostWidget();
 
-    public IFacebookRecommendationsFeedWidget RecommendationsFeed()
-    {
-      return new FacebookRecommendationsFeedWidget();
-    }
+  /// <inheritdoc cref="IFacebookHtmlHelper.RecommendationsFeed()"/>
+  public IFacebookRecommendationsFeedWidget RecommendationsFeed() => new FacebookRecommendationsFeedWidget();
 
-    public IFacebookSendButtonWidget SendButton()
-    {
-      return new FacebookSendButtonWidget();
-    }
+  /// <inheritdoc cref="IFacebookHtmlHelper.SendButton()"/>
+  public IFacebookSendButtonWidget SendButton() => new FacebookSendButtonWidget();
 
-    public IFacebookVideoWidget Video()
-    {
-      return new FacebookVideoWidget();
-    }
-  }
+  /// <inheritdoc cref="IFacebookHtmlHelper.Video()"/>
+  public IFacebookVideoWidget Video() => new FacebookVideoWidget();
 }

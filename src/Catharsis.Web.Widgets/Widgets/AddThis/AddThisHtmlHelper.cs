@@ -1,30 +1,20 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <inheritdoc cref="IAddThisHtmlHelper"/>
+public class AddThisHtmlHelper : IAddThisHtmlHelper
 {
-  internal sealed class AddThisHtmlHelper : IAddThisHtmlHelper
-  {
-    public IAddThisSmartLayersWidget SmartLayers()
-    {
-      return new AddThisSmartLayersWidget();
-    }
+  /// <inheritdoc cref="IAddThisHtmlHelper.SmartLayers()"/>
+  public IAddThisSmartLayersWidget SmartLayers() => new AddThisSmartLayersWidget();
 
-    public IAddThisShareButtonsWidget ShareButtons()
-    {
-      return new AddThisShareButtonsWidget();
-    }
+  /// <inheritdoc cref="IAddThisHtmlHelper.ShareButtons()"/>
+  public IAddThisShareButtonsWidget ShareButtons() => new AddThisShareButtonsWidget();
 
-    public IAddThisFollowButtonsWidget FollowButtons()
-    {
-      return new AddThisFollowButtonsWidget();
-    }
+  /// <inheritdoc cref="IAddThisHtmlHelper.FollowButtons()"/>
+  public IAddThisFollowButtonsWidget FollowButtons() => new AddThisFollowButtonsWidget();
 
-    public IAddThisWelcomeBarWidget WelcomeBar()
-    {
-      return new AddThisWelcomeBarWidget();
-    }
+  /// <inheritdoc cref="IAddThisHtmlHelper.WelcomeBar()"/>
+  public IAddThisWelcomeBarWidget WelcomeBar() => new AddThisWelcomeBarWidget();
 
-    public IAddThisTrendingContentWidget TrendingContent()
-    {
-      return new AddThisTrendingContentWidget();
-    }
-  }
+  /// <inheritdoc cref="IAddThisHtmlHelper.TrendingContent()"/>
+  public IAddThisTrendingContentWidget TrendingContent() => new AddThisTrendingContentWidget();
 }

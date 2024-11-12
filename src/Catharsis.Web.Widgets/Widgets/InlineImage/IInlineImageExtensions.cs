@@ -1,51 +1,32 @@
-﻿using System;
-using Catharsis.Commons;
+﻿namespace Catharsis.Web.Widgets;
 
-namespace Catharsis.Web.Widgets
+/// <summary>
+///   <para>Set of extension methods for interface <see cref="IInlineImageWidget"/>.</para>
+/// </summary>
+/// <seealso cref="IInlineImageWidget"/>
+public static class IInlineImageExtensions
 {
   /// <summary>
-  ///   <para>Set of extension methods for interface <see cref="IInlineImageWidget"/>.</para>
+  ///   <para></para>
   /// </summary>
-  /// <seealso cref="IInlineImageWidget"/>
-  public static class IInlineImageExtensions
-  {
-    /// <summary>
-    ///   <para></para>
-    /// </summary>
-    /// <param name="widget"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    public static IInlineImageWidget Jpg(this IInlineImageWidget widget)
-    {
-      Assertion.NotNull(widget);
+  /// <param name="widget"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+  public static IInlineImageWidget Jpg(this IInlineImageWidget widget) => widget is not null ? widget.Format("jpg") : throw new ArgumentNullException(nameof(widget));
+    
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="widget"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+  public static IInlineImageWidget Png(this IInlineImageWidget widget) => widget is not null ? widget.Format("png") : throw new ArgumentNullException(nameof(widget));
 
-      return widget.Format("jpg");
-    }
-
-    /// <summary>
-    ///   <para></para>
-    /// </summary>
-    /// <param name="widget"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    public static IInlineImageWidget Png(this IInlineImageWidget widget)
-    {
-      Assertion.NotNull(widget);
-
-      return widget.Format("png");
-    }
-
-    /// <summary>
-    ///   <para></para>
-    /// </summary>
-    /// <param name="widget"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    public static IInlineImageWidget Gif(this IInlineImageWidget widget)
-    {
-      Assertion.NotNull(widget);
-
-      return widget.Format("gif");
-    }
-  }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="widget"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+  public static IInlineImageWidget Gif(this IInlineImageWidget widget) => widget is not null ? widget.Format("gif") : throw new ArgumentNullException(nameof(widget));
 }

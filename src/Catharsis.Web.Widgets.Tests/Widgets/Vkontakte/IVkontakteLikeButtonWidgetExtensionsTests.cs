@@ -1,76 +1,73 @@
-﻿using System;
-using Catharsis.Commons;
-using Xunit;
+﻿using Xunit;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Test set for class <see cref="IVkontakteLikeButtonWidgetExtensions"/>.</para>
+/// </summary>
+public sealed class IVkontakteLikeButtonWidgetExtensionsTests
 {
   /// <summary>
-  ///   <para>Test set for class <see cref="IVkontakteLikeButtonWidgetExtensions"/>.</para>
+  ///   <para>Performs testing of <see cref="IVkontakteLikeButtonWidgetExtensions.Verb(IVkontakteLikeButtonWidget, VkontakteLikeButtonVerb)"/> method.</para>
   /// </summary>
-  public sealed class IVkontakteLikeButtonWidgetExtensionsTests
+  [Fact]
+  public void Verb_Method()
   {
-    /// <summary>
-    ///   <para>Performs testing of <see cref="IVkontakteLikeButtonWidgetExtensions.Verb(IVkontakteLikeButtonWidget, VkontakteLikeButtonVerb)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Verb_Method()
+    Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Verb(null, VkontakteLikeButtonVerb.Interest));
+
+    new VkontakteLikeButtonWidget().Do(widget =>
     {
-      Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Verb(null, VkontakteLikeButtonVerb.Interest));
+      Assert.True(ReferenceEquals(widget.Verb(VkontakteLikeButtonVerb.Like), widget));
+      Assert.Equal(0, widget.Verb().Value);
+    });
+    new VkontakteLikeButtonWidget().Do(widget => Assert.Equal(1, widget.Verb(VkontakteLikeButtonVerb.Interest).Verb().Value));
+  }
 
-      new VkontakteLikeButtonWidget().Do(widget =>
-      {
-        Assert.True(ReferenceEquals(widget.Verb(VkontakteLikeButtonVerb.Like), widget));
-        Assert.Equal(0, widget.Verb().Value);
-      });
-      new VkontakteLikeButtonWidget().Do(widget => Assert.Equal(1, widget.Verb(VkontakteLikeButtonVerb.Interest).Verb().Value));
-    }
+  /// <summary>
+  ///   <para>Performs testing of <see cref="IVkontakteLikeButtonWidgetExtensions.Layout(IVkontakteLikeButtonWidget, VkontakteLikeButtonLayout)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Layout_Method()
+  {
+    Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Width(null, 0));
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="IVkontakteLikeButtonWidgetExtensions.Layout(IVkontakteLikeButtonWidget, VkontakteLikeButtonLayout)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Layout_Method()
+    new VkontakteLikeButtonWidget().Do(widget =>
     {
-      Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Width(null, 0));
+      Assert.True(ReferenceEquals(widget.Layout(VkontakteLikeButtonLayout.Button), widget));
+      Assert.Equal("button", widget.Layout());
+    });
+    new VkontakteLikeButtonWidget().Do(widget => Assert.Equal("full", widget.Layout(VkontakteLikeButtonLayout.Full).Layout()));
+    new VkontakteLikeButtonWidget().Do(widget => Assert.Equal("mini", widget.Layout(VkontakteLikeButtonLayout.Mini).Layout()));
+    new VkontakteLikeButtonWidget().Do(widget => Assert.Equal("vertical", widget.Layout(VkontakteLikeButtonLayout.Vertical).Layout()));
+  }
 
-      new VkontakteLikeButtonWidget().Do(widget =>
-      {
-        Assert.True(ReferenceEquals(widget.Layout(VkontakteLikeButtonLayout.Button), widget));
-        Assert.Equal("button", widget.Layout());
-      });
-      new VkontakteLikeButtonWidget().Do(widget => Assert.Equal("full", widget.Layout(VkontakteLikeButtonLayout.Full).Layout()));
-      new VkontakteLikeButtonWidget().Do(widget => Assert.Equal("mini", widget.Layout(VkontakteLikeButtonLayout.Mini).Layout()));
-      new VkontakteLikeButtonWidget().Do(widget => Assert.Equal("vertical", widget.Layout(VkontakteLikeButtonLayout.Vertical).Layout()));
-    }
+  /// <summary>
+  ///   <para>Performs testing of <see cref="IVkontakteLikeButtonWidgetExtensions.Width(IVkontakteLikeButtonWidget, short)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Width_Method()
+  {
+    Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Width(null, 0));
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="IVkontakteLikeButtonWidgetExtensions.Width(IVkontakteLikeButtonWidget, short)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Width_Method()
+    new VkontakteLikeButtonWidget().Do(widget =>
     {
-      Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Width(null, 0));
+      Assert.True(ReferenceEquals(widget.Width(1), widget));
+      Assert.Equal("1", widget.Width());
+    });
+  }
 
-      new VkontakteLikeButtonWidget().Do(widget =>
-      {
-        Assert.True(ReferenceEquals(widget.Width(1), widget));
-        Assert.Equal("1", widget.Width());
-      });
-    }
+  /// <summary>
+  ///   <para>Performs testing of <see cref="IVkontakteLikeButtonWidgetExtensions.Height(IVkontakteLikeButtonWidget, short)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Height_Method()
+  {
+    Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Height(null, 0));
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="IVkontakteLikeButtonWidgetExtensions.Height(IVkontakteLikeButtonWidget, short)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Height_Method()
+    new VkontakteLikeButtonWidget().Do(widget =>
     {
-      Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Height(null, 0));
-
-      new VkontakteLikeButtonWidget().Do(widget =>
-      {
-        Assert.True(ReferenceEquals(widget.Height(1), widget));
-        Assert.Equal("1", widget.Height());
-      });
-    }
+      Assert.True(ReferenceEquals(widget.Height(1), widget));
+      Assert.Equal("1", widget.Height());
+    });
   }
 }

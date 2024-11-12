@@ -1,18 +1,17 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Shape of Pinterest "Pin It" button.</para>
+/// </summary>
+public enum PinterestPinItButtonShape
 {
   /// <summary>
-  ///   <para>Shape of Pinterest "Pin It" button.</para>
+  ///   <para>Rectangular.</para>
   /// </summary>
-  public enum PinterestPinItButtonShape
-  {
-    /// <summary>
-    ///   <para>Rectangular.</para>
-    /// </summary>
-    Rectangular,
+  Rectangular,
 
-    /// <summary>
-    ///   <para>Circular.</para>
-    /// </summary>
-    Circular
-  }
+  /// <summary>
+  ///   <para>Circular.</para>
+  /// </summary>
+  Circular
 }

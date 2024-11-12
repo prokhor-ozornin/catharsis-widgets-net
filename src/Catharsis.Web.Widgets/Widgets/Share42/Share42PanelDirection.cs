@@ -1,18 +1,17 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para></para>
+/// </summary>
+public enum Share42PanelDirection
 {
   /// <summary>
   ///   <para></para>
   /// </summary>
-  public enum Share42PanelDirection
-  {
-    /// <summary>
-    ///   <para></para>
-    /// </summary>
-    Horizontal,
+  Horizontal,
 
-    /// <summary>
-    ///   <para></para>
-    /// </summary>
-    Vertical
-  }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  Vertical
 }

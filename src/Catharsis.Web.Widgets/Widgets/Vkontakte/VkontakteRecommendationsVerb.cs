@@ -1,18 +1,17 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Type of verb label on Vkontakte "Recommendations Feed" widget.</para>
+/// </summary>
+public enum VkontakteRecommendationsVerb : byte
 {
   /// <summary>
-  ///   <para>Type of verb label on Vkontakte "Recommendations Feed" widget.</para>
+  ///   <para>Like.</para>
   /// </summary>
-  public enum VkontakteRecommendationsVerb : byte
-  {
-    /// <summary>
-    ///   <para>Like.</para>
-    /// </summary>
-    Like = 0,
+  Like = 0,
 
-    /// <summary>
-    ///   <para>Interest.</para>
-    /// </summary>
-    Interest = 1
-  }
+  /// <summary>
+  ///   <para>Interest.</para>
+  /// </summary>
+  Interest = 1
 }

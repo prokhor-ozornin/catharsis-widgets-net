@@ -1,104 +1,100 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Xunit;
+﻿using Xunit;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Tests set for class <see cref="VideoJSPlayerWidget"/>.</para>
+/// </summary>
+public sealed class VideoJSPlayerWidgetTests
 {
   /// <summary>
-  ///   <para>Tests set for class <see cref="VideoJSPlayerWidget"/>.</para>
+  ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
-  public sealed class VideoJSPlayerWidgetTests
+  /// <seealso cref="VideoJSPlayerWidget()"/>
+  [Fact]
+  public void Constructors()
   {
-    /// <summary>
-    ///   <para>Performs testing of class constructor(s).</para>
-    /// </summary>
-    /// <seealso cref="VideoJSPlayerWidget()"/>
-    [Fact]
-    public void Constructors()
-    {
-      var widget = new VideoJSPlayerWidget();
-      Assert.Null(widget.Extra());
-      Assert.Null(widget.Width());
-      Assert.Null(widget.Height());
-      Assert.False(widget.Videos().Any());
-    }
+    var widget = new VideoJSPlayerWidget();
+    Assert.Null(widget.Extra());
+    Assert.Null(widget.Width());
+    Assert.Null(widget.Height());
+    Assert.False(widget.Videos().Any());
+  }
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.Extra(string)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Extra_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Width(null));
-      Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Width(string.Empty));
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.Extra(string)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Extra_Method()
+  {
+    Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Width(null));
+    Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Width(string.Empty));
 
-      var widget = new VideoJSPlayerWidget();
-      Assert.Null(widget.Extra());
-      Assert.True(ReferenceEquals(widget.Extra("extra"), widget));
-      Assert.Equal("extra", widget.Extra());
-    }
+    var widget = new VideoJSPlayerWidget();
+    Assert.Null(widget.Extra());
+    Assert.True(ReferenceEquals(widget.Extra("extra"), widget));
+    Assert.Equal("extra", widget.Extra());
+  }
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.Width(string)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Width_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Width(null));
-      Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Width(string.Empty));
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.Width(string)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Width_Method()
+  {
+    Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Width(null));
+    Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Width(string.Empty));
 
-      var widget = new VideoJSPlayerWidget();
-      Assert.Null(widget.Width());
-      Assert.True(ReferenceEquals(widget.Width("width"), widget));
-      Assert.Equal("width", widget.Width());
-    }
+    var widget = new VideoJSPlayerWidget();
+    Assert.Null(widget.Width());
+    Assert.True(ReferenceEquals(widget.Width("width"), widget));
+    Assert.Equal("width", widget.Width());
+  }
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.Height(string)"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Height_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Height(null));
-      Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Height(string.Empty));
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.Height(string)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Height_Method()
+  {
+    Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Height(null));
+    Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Height(string.Empty));
 
-      var widget = new VideoJSPlayerWidget();
-      Assert.Null(widget.Height());
-      Assert.True(ReferenceEquals(widget.Height("height"), widget));
-      Assert.Equal("height", widget.Height());
-    }
+    var widget = new VideoJSPlayerWidget();
+    Assert.Null(widget.Height());
+    Assert.True(ReferenceEquals(widget.Height("height"), widget));
+    Assert.Equal("height", widget.Height());
+  }
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.Videos(IEnumerable{IMediaSource})"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void Videos_Method()
-    {
-      Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Videos(null));
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.Videos(IEnumerable{IMediaSource})"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Videos_Method()
+  {
+    Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Videos(null));
 
-      var widget = new VideoJSPlayerWidget();
-      Assert.False(widget.Videos().Any());
-      Assert.True(ReferenceEquals(widget.Videos(new MediaSource("url", "contentType")), widget));
-      Assert.True(widget.Videos().SequenceEqual(new [] { new MediaSource("url", "contentType") }));
-    }
+    var widget = new VideoJSPlayerWidget();
+    Assert.False(widget.Videos().Any());
+    Assert.True(ReferenceEquals(widget.Videos(new MediaSource("url", "contentType")), widget));
+    Assert.True(widget.Videos().SequenceEqual(new [] { new MediaSource("url", "contentType") }));
+  }
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.ToHtmlString()"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void ToHtmlString_Method()
-    {
-      var videos = new[] { new MediaSource("http://vjs.zencdn.net/v/oceans.mp4", VideoContentTypes.MP4), new MediaSource("http://vjs.zencdn.net/v/oceans.webm", VideoContentTypes.WebM) };
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.ToHtmlString()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void ToHtmlString_Method()
+  {
+    var videos = new[] { new MediaSource("http://vjs.zencdn.net/v/oceans.mp4", VideoContentTypes.MP4), new MediaSource("http://vjs.zencdn.net/v/oceans.webm", VideoContentTypes.WebM) };
 
-      Assert.Equal(string.Empty, new VideoJSPlayerWidget().ToString());
-      Assert.Equal(string.Empty, new VideoJSPlayerWidget().Width("width").ToString());
-      Assert.Equal(string.Empty, new VideoJSPlayerWidget().Height("height").ToString());
-      Assert.Equal(string.Empty, new VideoJSPlayerWidget().Width("width").Height("height").ToString());
-      Assert.Equal(string.Empty, new VideoJSPlayerWidget().Videos(videos).ToString());
-      Assert.Equal(string.Empty, new VideoJSPlayerWidget().Videos(videos).Width("width").ToString());
-      Assert.Equal(string.Empty, new VideoJSPlayerWidget().Videos(videos).Height("height").ToString());
-      Assert.Equal(@"<video class=""video-js vjs-default-skin"" controls=""controls"" data-setup=""{}"" height=""height"" preload=""auto"" width=""width""><source src=""http://vjs.zencdn.net/v/oceans.mp4"" type=""video/mp4""></source><source src=""http://vjs.zencdn.net/v/oceans.webm"" type=""video/webm""></source><track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track></video>", new VideoJSPlayerWidget().Videos(videos).Width("width").Height("height").Extra(@"<track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track>").ToString());
-    }
+    Assert.Equal(string.Empty, new VideoJSPlayerWidget().ToString());
+    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Width("width").ToString());
+    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Height("height").ToString());
+    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Width("width").Height("height").ToString());
+    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Videos(videos).ToString());
+    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Videos(videos).Width("width").ToString());
+    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Videos(videos).Height("height").ToString());
+    Assert.Equal(@"<video class=""video-js vjs-default-skin"" controls=""controls"" data-setup=""{}"" height=""height"" preload=""auto"" width=""width""><source src=""http://vjs.zencdn.net/v/oceans.mp4"" type=""video/mp4""></source><source src=""http://vjs.zencdn.net/v/oceans.webm"" type=""video/webm""></source><track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track></video>", new VideoJSPlayerWidget().Videos(videos).Width("width").Height("height").Extra(@"<track kind=""captions"" src=""http://www.videojs.com/vtt/captions.vtt"" srclang=""en"" label=""English""></track>").ToString());
   }
 }

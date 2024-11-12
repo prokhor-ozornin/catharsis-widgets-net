@@ -1,60 +1,26 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+internal sealed class VkontakteHtmlHelper : IVkontakteHtmlHelper
 {
-  internal sealed class VkontakteHtmlHelper : IVkontakteHtmlHelper
-  {
-    public IVkontakteAuthButtonWidget AuthButton()
-    {
-      return new VkontakteAuthButtonWidget();
-    }
+  public IVkontakteAuthButtonWidget AuthButton() => new VkontakteAuthButtonWidget();
 
-    public IVkontakteCommentsWidget Comments()
-    {
-      return new VkontakteCommentsWidget();
-    }
+  public IVkontakteCommentsWidget Comments() => new VkontakteCommentsWidget();
 
-    public IVkontakteCommunityWidget Community()
-    {
-      return new VkontakteCommunityWidget();
-    }
+  public IVkontakteCommunityWidget Community() => new VkontakteCommunityWidget();
 
-    public IVkontakteInitializationWidget Initialize()
-    {
-      return new VkontakteInitializationWidget();
-    }
+  public IVkontakteInitializationWidget Initialize() => new VkontakteInitializationWidget();
 
-    public IVkontakteLikeButtonWidget LikeButton()
-    {
-      return new VkontakteLikeButtonWidget();
-    }
+  public IVkontakteLikeButtonWidget LikeButton() => new VkontakteLikeButtonWidget();
 
-    public IVkontaktePollWidget Poll()
-    {
-      return new VkontaktePollWidget();
-    }
+  public IVkontaktePollWidget Poll() => new VkontaktePollWidget();
 
-    public IVkontaktePostWidget Post()
-    {
-      return new VkontaktePostWidget();
-    }
+  public IVkontaktePostWidget Post() => new VkontaktePostWidget();
 
-    public IVkontakteRecommendationsWidget Recommendations()
-    {
-      return new VkontakteRecommendationsWidget();
-    }
+  public IVkontakteRecommendationsWidget Recommendations() => new VkontakteRecommendationsWidget();
 
-    /*public IVkontakteShareButtonWidget ShareButton()
-    {
-      return new VkontakteShareButtonWidget();
-    }*/
+  //public IVkontakteShareButtonWidget ShareButton() => new VkontakteShareButtonWidget();
 
-    public IVkontakteSubscriptionWidget Subscription()
-    {
-      return new VkontakteSubscriptionWidget();
-    }
+  public IVkontakteSubscriptionWidget Subscription() => new VkontakteSubscriptionWidget();
 
-    public IVkontakteVideoWidget Video()
-    {
-      return new VkontakteVideoWidget();
-    }
-  }
+  public IVkontakteVideoWidget Video() => new VkontakteVideoWidget();
 }

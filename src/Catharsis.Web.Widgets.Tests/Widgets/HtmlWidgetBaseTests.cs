@@ -1,31 +1,30 @@
 ﻿using Xunit;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Tests set for class <see cref="HtmlWidget"/>.</para>
+/// </summary>
+public sealed class HtmlWidgetTests
 {
   /// <summary>
-  ///   <para>Tests set for class <see cref="HtmlWidget"/>.</para>
+  ///   <para>Performs testing of <see cref="HtmlWidget.ToHtmlString()"/> method.</para>
   /// </summary>
-  public sealed class HtmlWidgetTests
+  [Fact]
+  public void ToHtmlString_Method()
   {
-    /// <summary>
-    ///   <para>Performs testing of <see cref="HtmlWidget.ToHtmlString()"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void ToHtmlString_Method()
-    {
-      var widget = new MockHtmlWidget();
-      Assert.Equal(MockHtmlWidget.Contents, widget.ToHtmlString());
-    }
+    var widget = new MockHtmlWidget();
+    Assert.Equal(MockHtmlWidget.Contents, widget.ToHtmlString());
+  }
 
-    /// <summary>
-    ///   <para>Performs testing of <see cref="HtmlWidget.ToString()"/> method.</para>
-    /// </summary>
-    [Fact]
-    public void ToString_Method()
-    {
-      var widget = new MockHtmlWidget();
-      Assert.Equal(MockHtmlWidget.Contents, widget.ToString());
-      Assert.Equal(widget.ToHtmlString(), widget.ToString());
-    }
+  /// <summary>
+  ///   <para>Performs testing of <see cref="HtmlWidget.ToString()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void ToString_Method()
+  {
+    var widget = new MockHtmlWidget();
+    Assert.Equal(MockHtmlWidget.Contents, widget.ToString());
+    Assert.Equal(widget.ToHtmlString(), widget.ToString());
   }
 }

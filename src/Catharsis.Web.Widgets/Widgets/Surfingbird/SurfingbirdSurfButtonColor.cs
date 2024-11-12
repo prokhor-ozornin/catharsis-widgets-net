@@ -1,23 +1,22 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Color of Surfingbird "Surf" button.</para>
+/// </summary>
+public enum SurfingbirdSurfButtonColor
 {
   /// <summary>
-  ///   <para>Color of Surfingbird "Surf" button.</para>
+  ///   <para>Blue.</para>
   /// </summary>
-  public enum SurfingbirdSurfButtonColor
-  {
-    /// <summary>
-    ///   <para>Blue.</para>
-    /// </summary>
-    Blue,
+  Blue,
 
-    /// <summary>
-    ///   <para>Green.</para>
-    /// </summary>
-    Green,
+  /// <summary>
+  ///   <para>Green.</para>
+  /// </summary>
+  Green,
 
-    /// <summary>
-    ///   <para>Gray.</para>
-    /// </summary>
-    Gray
-  }
+  /// <summary>
+  ///   <para>Gray.</para>
+  /// </summary>
+  Gray
 }

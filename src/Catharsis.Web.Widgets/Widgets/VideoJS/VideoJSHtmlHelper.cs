@@ -1,10 +1,6 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+internal sealed class VideoJSHtmlHelper : IVideoJSHtmlHelper
 {
-  internal sealed class VideoJSHtmlHelper : IVideoJSHtmlHelper
-  {
-    public IVideoJSPlayerWidget Player()
-    {
-      return new VideoJSPlayerWidget();
-    }
-  }
+  public IVideoJSPlayerWidget Player() => new VideoJSPlayerWidget();
 }

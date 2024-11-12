@@ -1,18 +1,17 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Tumblr "Share" button color scheme.</para>
+/// </summary>
+public enum TumblrShareButtonColorScheme
 {
   /// <summary>
-  ///   <para>Tumblr "Share" button color scheme.</para>
+  ///   <para>Gray.</para>
   /// </summary>
-  public enum TumblrShareButtonColorScheme
-  {
-    /// <summary>
-    ///   <para>Gray.</para>
-    /// </summary>
-    Gray,
+  Gray,
 
-    /// <summary>
-    ///   <para>Light.</para>
-    /// </summary>
-    Light
-  }
+  /// <summary>
+  ///   <para>Light.</para>
+  /// </summary>
+  Light
 }

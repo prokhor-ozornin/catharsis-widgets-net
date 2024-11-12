@@ -1,40 +1,18 @@
-﻿namespace Catharsis.Web.Widgets
+﻿namespace Catharsis.Web.Widgets;
+
+internal sealed class MockVideoWidget : HtmlWidget, IVideoWidget<MockVideoWidget>
 {
-  internal sealed class MockVideoWidget : HtmlWidget, IVideoWidget<MockVideoWidget>
-  {
-    public MockVideoWidget Id(string id)
-    {
-      return this;
-    }
+  public MockVideoWidget Id(string id) => this;
 
-    public string Id()
-    {
-      return string.Empty;
-    }
+  public string Id() => string.Empty;
 
-    public MockVideoWidget Width(string width)
-    {
-      return this;
-    }
+  public MockVideoWidget Width(string width) => this;
 
-    public string Width()
-    {
-      return string.Empty;
-    }
+  public string Width() => string.Empty;
 
-    public MockVideoWidget Height(string height)
-    {
-      return this;
-    }
+  public MockVideoWidget Height(string height) => this;
 
-    public string Height()
-    {
-      return string.Empty;
-    }
+  public string Height() => string.Empty;
 
-    public override string ToHtmlString()
-    {
-      return string.Empty;
-    }
-  }
+  public override string ToHtmlString() => string.Empty;
 }

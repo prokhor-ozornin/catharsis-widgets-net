@@ -1,65 +1,50 @@
-﻿using System;
-using System.Web.Mvc;
-using Catharsis.Commons;
+﻿using System.Web.Mvc;
+using Catharsis.Extensions;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+public class MediaSource : IMediaSource, IEquatable<MediaSource>
 {
-  public sealed class MediaSource : IMediaSource, IEquatable<MediaSource>
+  private string contentType;
+  private string url;
+
+  public MediaSource(string url, string contentType)
   {
-    private string contentType;
-    private string url;
+    Url = url;
+    ContentType = contentType;
+  }
 
-    public MediaSource(string url, string contentType)
+  public string ContentType
+  {
+    get => contentType;
+    set
     {
-      this.Url = url;
-      this.ContentType = contentType;
-    }
+      if (value is null) throw new ArgumentNullException(nameof(value));
+      if (value.IsEmpty()) throw new ArgumentException(nameof(value));
 
-    public string ContentType
-    {
-      get { return this.contentType; }
-      set
-      {
-        Assertion.NotEmpty(value);
-
-        this.contentType = value;
-      }
-    }
-
-    public string Url
-    {
-      get { return this.url; }
-      set
-      {
-        Assertion.NotEmpty(value);
-
-        this.url = value;
-      }
-    }
-    
-    public bool Equals(MediaSource other)
-    {
-      return this.Equality(other, source => source.Url);
-    }
-
-    public override bool Equals(object other)
-    {
-      return this.Equals(other as MediaSource);
-    }
-
-    public override int GetHashCode()
-    {
-      return this.GetHashCode(source => source.Url);
-    }
-
-    public string ToHtmlString()
-    {
-      return this.ToString();
-    }
-
-    public override string ToString()
-    {
-      return new TagBuilder("source").Attribute("src", this.Url).Attribute("type", this.ContentType).ToString();
+      contentType = value;
     }
   }
+
+  public string Url
+  {
+    get => url;
+    set
+    {
+      if (value is null) throw new ArgumentNullException(nameof(value));
+      if (value.IsEmpty()) throw new ArgumentException(nameof(value));
+
+      url = value;
+    }
+  }
+    
+  public bool Equals(MediaSource other) => this.Equality(other, source => source.Url);
+
+  public override bool Equals(object other) => Equals(other as MediaSource);
+
+  public override int GetHashCode() => this.GetHashCode(source => source.Url);
+
+  public string ToHtmlString() => ToString();
+
+  public override string ToString() => new TagBuilder("source").Attribute("src", this.Url).Attribute("type", this.ContentType).ToString();
 }

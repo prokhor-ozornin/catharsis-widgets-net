@@ -1,11 +1,10 @@
 ﻿using System.Web.Mvc;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+internal sealed class MockHtmlHelper : HtmlHelper
 {
-  internal sealed class MockHtmlHelper : HtmlHelper
+  public MockHtmlHelper() : base(new ViewContext(), new ViewPage())
   {
-    public MockHtmlHelper() : base(new ViewContext(), new ViewPage())
-    {
-    }
   }
 }

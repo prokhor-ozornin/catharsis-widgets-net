@@ -1,28 +1,25 @@
-﻿using System;
-using System.Web.Mvc;
-using Catharsis.Commons;
+﻿using System.Web.Mvc;
 
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Set of extension methods for class <see cref="HtmlHelper"/>.</para>
+/// </summary>
+/// <seealso cref="HtmlHelper"/>
+public static partial class HtmlHelperExtensions
 {
+  private static IFacebookHtmlHelper facebook;
+
   /// <summary>
-  ///   <para>Set of extension methods for class <see cref="HtmlHelper"/>.</para>
+  ///   <para>Initializes HTML helper object for rendering of Facebook widgets.</para>
   /// </summary>
-  /// <seealso cref="HtmlHelper"/>
-  public static partial class HtmlHelperExtensions
+  /// <param name="html">Helper object to call method on.</param>
+  /// <returns>Widgets factory helper.</returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="html"/> is a <c>null</c> reference.</exception>
+  public static IFacebookHtmlHelper Facebook(this HtmlHelper html)
   {
-    private static IFacebookHtmlHelper facebook;
+    Assertion.NotNull(html);
 
-    /// <summary>
-    ///   <para>Initializes HTML helper object for rendering of Facebook widgets.</para>
-    /// </summary>
-    /// <param name="html">Helper object to call method on.</param>
-    /// <returns>Widgets factory helper.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="html"/> is a <c>null</c> reference.</exception>
-    public static IFacebookHtmlHelper Facebook(this HtmlHelper html)
-    {
-      Assertion.NotNull(html);
-
-      return facebook ?? (facebook = new FacebookHtmlHelper());
-    }
+    return facebook ?? (facebook = new FacebookHtmlHelper());
   }
 }

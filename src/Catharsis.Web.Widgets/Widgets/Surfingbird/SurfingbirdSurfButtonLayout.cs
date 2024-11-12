@@ -1,23 +1,22 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Surfingbird "Surf" button visual appearance/layout type.</para>
+/// </summary>
+public enum SurfingbirdSurfButtonLayout
 {
   /// <summary>
-  ///   <para>Surfingbird "Surf" button visual appearance/layout type.</para>
+  ///   <para>Horizontal button with a label.</para>
   /// </summary>
-  public enum SurfingbirdSurfButtonLayout
-  {
-    /// <summary>
-    ///   <para>Horizontal button with a label.</para>
-    /// </summary>
-    Common,
+  Common,
 
-    /// <summary>
-    ///   <para>Micro/small button without label.</para>
-    /// </summary>
-    Micro,
+  /// <summary>
+  ///   <para>Micro/small button without label.</para>
+  /// </summary>
+  Micro,
 
-    /// <summary>
-    ///   <para>Large square button without label.</para>
-    /// </summary>
-    Vertical
-  }
+  /// <summary>
+  ///   <para>Large square button without label.</para>
+  /// </summary>
+  Vertical
 }

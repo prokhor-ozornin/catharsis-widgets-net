@@ -1,43 +1,40 @@
-﻿using System;
+﻿namespace Catharsis.Web.Widgets;
 
-namespace Catharsis.Web.Widgets
+/// <summary>
+///   <para>Renders embedded Facebook post on web page.</para>
+///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
+/// </summary>
+/// <seealso cref="https://developers.facebook.com/docs/plugins/embedded-posts"/>
+public interface IFacebookPostWidget : IHtmlWidget
 {
   /// <summary>
-  ///   <para>Renders embedded Facebook post on web page.</para>
-  ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
+  ///   <para>Specified URL address of Facebook post to embed.</para>
   /// </summary>
-  /// <seealso cref="https://developers.facebook.com/docs/plugins/embedded-posts"/>
-  public interface IFacebookPostWidget : IHtmlWidget
-  {
-    /// <summary>
-    ///   <para>Specified URL address of Facebook post to embed.</para>
-    /// </summary>
-    /// <param name="url">URL of Facebook post.</param>
-    /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
-    /// <remarks>This attribute is required.</remarks>
-    IFacebookPostWidget Url(string url);
+  /// <param name="url">URL of Facebook post.</param>
+  /// <returns>Reference to the current widget.</returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
+  /// <remarks>This attribute is required.</remarks>
+  IFacebookPostWidget Url(string url);
 
-    /// <summary>
-    ///   <para>Specified URL address of Facebook post to embed.</para>
-    /// </summary>
-    /// <returns>URL of Facebook post.</returns>
-    string Url();
+  /// <summary>
+  ///   <para>Specified URL address of Facebook post to embed.</para>
+  /// </summary>
+  /// <returns>URL of Facebook post.</returns>
+  string Url();
 
-    /// <summary>
-    ///   <para>Specifies width of Facebook post area on page.</para>
-    /// </summary>
-    /// <param name="width">Width of post.</param>
-    /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-    IFacebookPostWidget Width(string width);
+  /// <summary>
+  ///   <para>Specifies width of Facebook post area on page.</para>
+  /// </summary>
+  /// <param name="width">Width of post.</param>
+  /// <returns>Reference to the current widget.</returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
+  IFacebookPostWidget Width(string width);
 
-    /// <summary>
-    ///   <para>Specifies width of Facebook post area on page.</para>
-    /// </summary>
-    /// <returns>Width of post.</returns>
-    string Width();
-  }
+  /// <summary>
+  ///   <para>Specifies width of Facebook post area on page.</para>
+  /// </summary>
+  /// <returns>Width of post.</returns>
+  string Width();
 }

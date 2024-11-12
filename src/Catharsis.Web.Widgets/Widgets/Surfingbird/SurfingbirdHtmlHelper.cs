@@ -1,10 +1,6 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+internal sealed class SurfingbirdHtmlHelper : ISurfingbirdHtmlHelper
 {
-  internal sealed class SurfingbirdHtmlHelper : ISurfingbirdHtmlHelper
-  {
-    public ISurfingbirdSurfButtonWidget SurfButton()
-    {
-      return new SurfingbirdSurfButtonWidget();
-    }
-  }
+  public ISurfingbirdSurfButtonWidget SurfButton() => new SurfingbirdSurfButtonWidget();
 }

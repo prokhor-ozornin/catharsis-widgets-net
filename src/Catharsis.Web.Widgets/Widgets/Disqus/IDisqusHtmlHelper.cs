@@ -1,14 +1,13 @@
-namespace Catharsis.Web.Widgets
+namespace Catharsis.Web.Widgets;
+
+/// <summary>
+///   <para>Helper factory class for managing Disqus widgets.</para>
+/// </summary>
+public interface IDisqusHtmlHelper
 {
   /// <summary>
-  ///   <para>Helper factory class for managing Disqus widgets.</para>
+  ///   <para>Creates new Disqus comments widget.</para>
   /// </summary>
-  public interface IDisqusHtmlHelper
-  {
-    /// <summary>
-    ///   <para>Creates new Disqus comments widget.</para>
-    /// </summary>
-    /// <returns>Initialized widget with default options.</returns>
-    IDisqusCommentsWidget Comments();
-  }
+  /// <returns>Initialized widget with default options.</returns>
+  IDisqusCommentsWidget Comments();
 }
