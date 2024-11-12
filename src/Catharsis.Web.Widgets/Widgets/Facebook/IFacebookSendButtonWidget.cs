@@ -5,7 +5,7 @@
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="https://developers.facebook.com/docs/plugins/send-button"/>
-public interface IFacebookSendButtonWidget : IHtmlWidget
+public interface IFacebookSendButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>The color scheme used by the button. Default is "light".</para>

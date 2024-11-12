@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IYandexMoneyPaymentFormWidget"/>
-public class YandexMoneyPaymentFormWidget : HtmlWidget, IYandexMoneyPaymentFormWidget
+public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWidget
 {
   private string account;
   private string description;
@@ -219,8 +219,8 @@ public class YandexMoneyPaymentFormWidget : HtmlWidget, IYandexMoneyPaymentFormW
   /// <returns>Numeric code of text to display.</returns>
   public byte Text() => text;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty() || Description().IsEmpty())
     {

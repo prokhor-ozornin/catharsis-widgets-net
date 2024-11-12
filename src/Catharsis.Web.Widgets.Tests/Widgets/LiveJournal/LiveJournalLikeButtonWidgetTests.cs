@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets;
 public sealed class LiveJournalLikeButtonWidgetTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="LiveJournalLikeButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="LiveJournalLikeButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

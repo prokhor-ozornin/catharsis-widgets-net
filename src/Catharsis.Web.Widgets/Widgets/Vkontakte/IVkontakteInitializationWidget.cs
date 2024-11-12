@@ -6,7 +6,7 @@
 /// </summary>
 /// <seealso cref="http://vk.com/dev/sites"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Vkontakte(IWidgetsScriptsRenderer)"/>
-public interface IVkontakteInitializationWidget : IHtmlWidget
+public interface IVkontakteInitializationWidget : IWebWidget
 {
   /// <summary>
   ///   <para>API identifier of registered VKontakte application.</para>

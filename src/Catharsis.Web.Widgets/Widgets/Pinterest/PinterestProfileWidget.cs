@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IPinterestProfileWidget"/>
-public sealed class PinterestProfileWidget : HtmlWidget, IPinterestProfileWidget
+public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
 {
   private string account;
   private string height;
@@ -103,9 +103,9 @@ public sealed class PinterestProfileWidget : HtmlWidget, IPinterestProfileWidget
   /// <returns>Area's image width.</returns>
   public string Image() => image;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
   /// <returns>Widget's HTML markup.</returns>
-  public override string ToHtmlString()
+  public override string ToHtml()
   {
     if (Account().IsEmpty())
     {

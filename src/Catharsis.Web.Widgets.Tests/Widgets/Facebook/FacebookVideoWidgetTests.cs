@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,6 +15,8 @@ public sealed class FacebookVideoWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(CackleCommentsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ICackleCommentsWidget>();
+
     var widget = new FacebookVideoWidget();
     Assert.Null(widget.Id());
     Assert.Null(widget.Width());
@@ -66,7 +69,7 @@ public sealed class FacebookVideoWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookVideoWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookVideoWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

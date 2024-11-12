@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IPinterestBoardWidget"/>
-public class PinterestBoardWidget : HtmlWidget, IPinterestBoardWidget
+public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
 {
   private string account;
   private string height;
@@ -127,8 +127,8 @@ public class PinterestBoardWidget : HtmlWidget, IPinterestBoardWidget
   /// <returns>Board's image width.</returns>
   public string Image() => image;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty() || Id().IsEmpty())
     {

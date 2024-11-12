@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ISurfingbirdSurfButtonWidget"/>
-public class SurfingbirdSurfButtonWidget : HtmlWidget, ISurfingbirdSurfButtonWidget
+public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidget
 {
   private string url;
   private string layout = SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant();
@@ -169,8 +169,8 @@ public class SurfingbirdSurfButtonWidget : HtmlWidget, ISurfingbirdSurfButtonWid
   /// <returns>Width of button.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     var config = new Dictionary<string, object>
     {

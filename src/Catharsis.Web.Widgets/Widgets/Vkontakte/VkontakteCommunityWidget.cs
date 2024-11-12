@@ -5,7 +5,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontakteCommunityWidget"/>
-public class VkontakteCommunityWidget : HtmlWidget, IVkontakteCommunityWidget
+public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
 {
   private string account;
   private string backgroundColor;
@@ -195,8 +195,8 @@ public class VkontakteCommunityWidget : HtmlWidget, IVkontakteCommunityWidget
   /// <returns>Width of widget.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty())
     {

@@ -3,6 +3,6 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IRobokassaPaymentFormWidget : IHtmlWidget
+public interface IRobokassaPaymentFormWidget : IWebWidget
 {
 }

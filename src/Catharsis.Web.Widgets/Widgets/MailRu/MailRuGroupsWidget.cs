@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IMailRuGroupsWidget"/>
-public class MailRuGroupsWidget : HtmlWidget, IMailRuGroupsWidget
+public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
 {
   private string account;
   private string backgroundColor;
@@ -189,8 +189,8 @@ public class MailRuGroupsWidget : HtmlWidget, IMailRuGroupsWidget
   /// <returns>Area width.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty() || Width().IsEmpty() || Height().IsEmpty())
     {

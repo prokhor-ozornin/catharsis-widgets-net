@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 /// <seealso cref="http://disqus.com/websites"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Cackle(IWidgetsScriptsRenderer)"/>
-public interface IDisqusCommentsWidget : IHtmlWidget
+public interface IDisqusCommentsWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Identifier of registered website in the "Disqus" comments system.</para>

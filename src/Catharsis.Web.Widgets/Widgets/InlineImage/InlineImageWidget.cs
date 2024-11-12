@@ -5,7 +5,7 @@ using Convert = System.Convert;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IInlineImageWidget"/>
-public class InlineImageWidget : HtmlWidget, IInlineImageWidget
+public class InlineImageWidget : WebWidget, IInlineImageWidget
 {
   private byte[] contents;
   private string format;
@@ -46,8 +46,8 @@ public class InlineImageWidget : HtmlWidget, IInlineImageWidget
 
   public string Format() => format;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (contents is null)
     {

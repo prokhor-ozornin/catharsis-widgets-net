@@ -1,6 +1,8 @@
 ﻿namespace Catharsis.Web.Widgets;
 
-internal sealed class RobokassaHtmlHelper : IRobokassaHtmlHelper
+/// <inheritdoc cref="IRobokassaHtmlHelper"/>
+public class RobokassaHtmlHelper : IRobokassaHtmlHelper
 {
+  /// <inheritdoc cref="IRobokassaHtmlHelper.PaymentForm()"/>
   public IRobokassaPaymentFormWidget PaymentForm() => new RobokassaPaymentFormWidget();
 }

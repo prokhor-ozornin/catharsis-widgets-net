@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IYandexMoneyButtonWidget"/>
-public class YandexMoneyButtonWidget : HtmlWidget, IYandexMoneyButtonWidget
+public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
 {
   private string account;
   private string color = YandexMoneyButtonColor.Orange.ToString().ToLowerInvariant();
@@ -238,8 +238,8 @@ public class YandexMoneyButtonWidget : HtmlWidget, IYandexMoneyButtonWidget
   /// <returns>Payment source.</returns>
   public string Type() => type;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty() || Sum() is null || Description().IsEmpty())
     {

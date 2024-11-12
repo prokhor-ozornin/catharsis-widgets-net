@@ -191,7 +191,7 @@ public sealed class MailRuFacesWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuFacesWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuFacesWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

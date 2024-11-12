@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,14 +15,16 @@ public sealed class FacebookFacepileWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(FacebookFacepileWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookFacepileWidget>();
+
     var widget = new FacebookFacepileWidget();
-    Assert.False(widget.Actions().Any());
-    Assert.Null(widget.ColorScheme());
-    Assert.Null(widget.Height());
-    Assert.Null(widget.MaxRows());
-    Assert.Null(widget.PhotoSize());
-    Assert.Null(widget.Url());
-    Assert.Null(widget.Width());
+    widget.Actions().Should().BeEmpty();
+    widget.ColorScheme().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.MaxRows().Should().BeNull();
+    widget.PhotoSize().Should().BeNull();
+    widget.Url().Should().BeNull();
+    widget.Width().Should().BeNull();
   }
 
   /// <summary>
@@ -126,7 +129,7 @@ public sealed class FacebookFacepileWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookFacepileWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookFacepileWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

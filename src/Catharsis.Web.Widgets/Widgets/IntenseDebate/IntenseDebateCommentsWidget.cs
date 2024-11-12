@@ -3,7 +3,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IIntenseDebateCommentsWidget"/>
-public class IntenseDebateCommentsWidget : HtmlWidget, IIntenseDebateCommentsWidget
+public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidget
 {
   private string account;
   private string postId;
@@ -99,6 +99,6 @@ public class IntenseDebateCommentsWidget : HtmlWidget, IIntenseDebateCommentsWid
   /// <returns>Title of post or page.</returns>
   public string PostTitle() => postTitle;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString() => Account().IsEmpty() ? string.Empty : string.Format(resources.intensedebate_comments, Account(), PostId(), PostUrl(), PostTitle());
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml() => Account().IsEmpty() ? string.Empty : string.Format(resources.intensedebate_comments, Account(), PostId(), PostUrl(), PostTitle());
 }

@@ -23,7 +23,7 @@ public static class IYandexHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -43,7 +43,7 @@ public static class IYandexHtmlHelperExtensions
 
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -62,7 +62,7 @@ public static class IYandexHtmlHelperExtensions
 
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -81,7 +81,7 @@ public static class IYandexHtmlHelperExtensions
 
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -100,7 +100,7 @@ public static class IYandexHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -120,7 +120,7 @@ public static class IYandexHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -140,6 +140,6 @@ public static class IYandexHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 }

@@ -3,6 +3,6 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IAddThisFollowButtonsWidget : IHtmlWidget
+public interface IAddThisFollowButtonsWidget : IWebWidget
 {
 }

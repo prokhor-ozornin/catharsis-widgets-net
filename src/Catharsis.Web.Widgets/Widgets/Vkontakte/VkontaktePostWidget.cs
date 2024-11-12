@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontaktePostWidget"/>
-public class VkontaktePostWidget : HtmlWidget, IVkontaktePostWidget
+public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
 {
   private string elementId;
   private string hash;
@@ -130,8 +130,8 @@ public class VkontaktePostWidget : HtmlWidget, IVkontaktePostWidget
   /// <returns>Width of post.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Id().IsEmpty() || Owner().IsEmpty() || Hash().IsEmpty())
     {

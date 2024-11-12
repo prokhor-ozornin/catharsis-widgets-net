@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVimeoVideoWidget"/>
-public class VimeoVideoWidget : HtmlWidget, IVimeoVideoWidget
+public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
 {
   private bool autoPlay;
   private string height;
@@ -115,8 +115,8 @@ public class VimeoVideoWidget : HtmlWidget, IVimeoVideoWidget
   /// <returns>Width of video.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Id().IsEmpty() || Width().IsEmpty() || Height().IsEmpty())
     {

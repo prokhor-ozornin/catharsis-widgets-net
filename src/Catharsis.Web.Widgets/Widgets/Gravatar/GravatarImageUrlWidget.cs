@@ -3,7 +3,7 @@
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IGravatarImageUrlWidget"/>
-public class GravatarImageUrlWidget : HtmlWidget, IGravatarImageUrlWidget
+public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
 {
   private string extension;
   private string hash;
@@ -74,6 +74,6 @@ public class GravatarImageUrlWidget : HtmlWidget, IGravatarImageUrlWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString() => Hash().IsEmpty() ? string.Empty : $"http://www.gravatar.com/avatar/{Hash()}{(Extension().IsEmpty() ? string.Empty : $".${Extension()}")}{(parameters.Any() ? $"?${parameters.ToUrlQuery()}" : string.Empty)}";
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml() => Hash().IsEmpty() ? string.Empty : $"http://www.gravatar.com/avatar/{Hash()}{(Extension().IsEmpty() ? string.Empty : $".${Extension()}")}{(parameters.Any() ? $"?${parameters.ToUrlQuery()}" : string.Empty)}";
 }

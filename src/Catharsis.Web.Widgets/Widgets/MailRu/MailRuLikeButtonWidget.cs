@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IMailRuLikeButtonWidget"/>
-public class MailRuLikeButtonWidget : HtmlWidget, IMailRuLikeButtonWidget
+public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
 {
   private string type = "combo";
   private string size = "20";
@@ -147,8 +147,8 @@ public class MailRuLikeButtonWidget : HtmlWidget, IMailRuLikeButtonWidget
   /// <returns>Type of text label.</returns>
   public byte TextType() => textType;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     var config = new Dictionary<string, object>
     {

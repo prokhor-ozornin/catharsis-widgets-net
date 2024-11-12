@@ -143,7 +143,7 @@ public sealed class MailRuGroupsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuGroupsWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuGroupsWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

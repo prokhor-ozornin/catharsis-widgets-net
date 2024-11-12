@@ -5,7 +5,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontakteLikeButtonWidget"/>
-public class VkontakteLikeButtonWidget : HtmlWidget, IVkontakteLikeButtonWidget
+public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
 {
   private string elementId;
   private string text;
@@ -241,8 +241,8 @@ public class VkontakteLikeButtonWidget : HtmlWidget, IVkontakteLikeButtonWidget
   /// <returns>Width of button.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     var config = new Dictionary<string, object>();
       

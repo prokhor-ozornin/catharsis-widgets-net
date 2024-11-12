@@ -1,10 +1,10 @@
 ﻿namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IAddThisWelcomeBarWidget"/>
-public class AddThisWelcomeBarWidget : HtmlWidget, IAddThisWelcomeBarWidget
+public class AddThisWelcomeBarWidget : WebWidget, IAddThisWelcomeBarWidget
 {
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     throw new NotImplementedException();
   }

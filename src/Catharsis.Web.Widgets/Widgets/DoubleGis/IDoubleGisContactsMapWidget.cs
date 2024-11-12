@@ -3,6 +3,6 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IDoubleGisContactsMapWidget : IHtmlWidget
+public interface IDoubleGisContactsMapWidget : IWebWidget
 {
 }

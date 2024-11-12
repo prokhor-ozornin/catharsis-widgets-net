@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookFollowButtonWidget"/>
-public class FacebookFollowButtonWidget : HtmlWidget, IFacebookFollowButtonWidget
+public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
 {
   private string colorScheme;
   private bool? faces;
@@ -159,8 +159,8 @@ public class FacebookFollowButtonWidget : HtmlWidget, IFacebookFollowButtonWidge
   /// <returns>Width of button.</returns>
   public string Width() => this.width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Url().IsEmpty())
     {

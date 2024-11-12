@@ -4,7 +4,7 @@
 ///   <para>Gravatar's user profile URL.</para>
 /// </summary>
 /// <seealso cref="http://gravatar.com/site/implement/profiles"/>
-public interface IGravatarProfileUrlWidget : IHtmlWidget
+public interface IGravatarProfileUrlWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Format in which to retrieve profile's data.</para>

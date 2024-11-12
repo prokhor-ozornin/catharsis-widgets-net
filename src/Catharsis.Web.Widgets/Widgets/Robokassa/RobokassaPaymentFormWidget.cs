@@ -1,8 +1,8 @@
 ﻿namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IRobokassaPaymentFormWidget"/>
-public sealed class RobokassaPaymentFormWidget : HtmlWidget, IRobokassaPaymentFormWidget
+public class RobokassaPaymentFormWidget : WebWidget, IRobokassaPaymentFormWidget
 {
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString() => throw new NotImplementedException();
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml() => throw new NotImplementedException();
 }

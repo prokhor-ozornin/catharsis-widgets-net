@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="https://developers.facebook.com/docs/plugins/like-button"/>
-public interface IFacebookLikeButtonWidget : IHtmlWidget
+public interface IFacebookLikeButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Color scheme used by the button. Default is "light".</para>

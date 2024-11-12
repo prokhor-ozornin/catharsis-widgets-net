@@ -16,7 +16,7 @@ public sealed class IYouTubeHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IYouTubeHtmlHelperExtensions.Video(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new YouTubeHtmlHelper().Video(null));
 
-    Assert.Equal(new YouTubeHtmlHelper().Video().ToHtmlString(), new YouTubeHtmlHelper().Video(x => { }));
-    Assert.Equal(new YouTubeHtmlHelper().Video().Id("id").ToHtmlString(), new YouTubeHtmlHelper().Video(x => x.Id("id")));
+    Assert.Equal(new YouTubeHtmlHelper().Video().ToHtml(), new YouTubeHtmlHelper().Video(x => { }));
+    Assert.Equal(new YouTubeHtmlHelper().Video().Id("id").ToHtml(), new YouTubeHtmlHelper().Video(x => x.Id("id")));
   }
 }

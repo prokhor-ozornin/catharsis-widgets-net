@@ -23,6 +23,6 @@ public static class IRobokassaHtmlHelperExtensions
 
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 }

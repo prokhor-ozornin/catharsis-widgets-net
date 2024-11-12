@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 /// <seealso cref="https://dev.twitter.com/docs/tweet-button"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Twitter(IWidgetsScriptsRenderer)"/>
-public interface ITwitterTweetButtonWidget : IHtmlWidget
+public interface ITwitterTweetButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Count box position. Default is "horizontal".</para>

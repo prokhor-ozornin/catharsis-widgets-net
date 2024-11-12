@@ -16,7 +16,7 @@ public sealed class IIntenseDebateHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IIntenseDebateHtmlHelperExtensions.Comments(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new IntenseDebateHtmlHelper().Comments(null));
 
-    Assert.Equal(new IntenseDebateHtmlHelper().Comments().ToHtmlString(), new IntenseDebateHtmlHelper().Comments(x => { }));
-    Assert.Equal(new IntenseDebateHtmlHelper().Comments().Account("account").ToHtmlString(), new IntenseDebateHtmlHelper().Comments(x => x.Account("account")));
+    Assert.Equal(new IntenseDebateHtmlHelper().Comments().ToHtml(), new IntenseDebateHtmlHelper().Comments(x => { }));
+    Assert.Equal(new IntenseDebateHtmlHelper().Comments().Account("account").ToHtml(), new IntenseDebateHtmlHelper().Comments(x => x.Account("account")));
   }
 }

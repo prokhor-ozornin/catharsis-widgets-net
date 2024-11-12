@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ITwitterTweetButtonWidget"/>
-public class TwitterTweetButtonWidget : HtmlWidget, ITwitterTweetButtonWidget
+public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
 {
   private string url;
   private string language;
@@ -224,8 +224,8 @@ public class TwitterTweetButtonWidget : HtmlWidget, ITwitterTweetButtonWidget
   /// <returns>Screen name of tweet's author.</returns>
   public string Via() => via;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     return new TagBuilder("a")
       .Attribute("href", "https://twitter.com/share")

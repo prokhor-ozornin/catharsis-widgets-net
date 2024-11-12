@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookLikeBoxWidget"/>
-public class FacebookLikeBoxWidget : HtmlWidget, IFacebookLikeBoxWidget
+public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
 {
   private bool? border;
   private string colorScheme;
@@ -190,8 +190,8 @@ public class FacebookLikeBoxWidget : HtmlWidget, IFacebookLikeBoxWidget
   /// <returns>Width of button.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Url().IsEmpty())
     {

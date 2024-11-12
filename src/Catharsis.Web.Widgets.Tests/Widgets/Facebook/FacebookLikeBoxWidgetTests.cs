@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,16 +15,18 @@ public sealed class FacebookLikeBoxWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(FacebookLikeBoxWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookLikeBoxWidget>();
+
     var widget = new FacebookLikeBoxWidget();
-    Assert.Null(widget.Border());
-    Assert.Null(widget.ColorScheme());
-    Assert.Null(widget.Faces());
-    Assert.Null(widget.Header());
-    Assert.Null(widget.Height());
-    Assert.Null(widget.Stream());
-    Assert.Null(widget.Url());
-    Assert.Null(widget.Wall());
-    Assert.Null(widget.Width());
+    widget.Border().Should().BeNull();
+    widget.ColorScheme().Should().BeNull();
+    widget.Faces().Should().BeNull();
+    widget.Header().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.Stream().Should().BeNull();
+    widget.Url().Should().BeNull();
+    widget.Wall().Should().BeNull();
+    widget.Width().Should().BeNull();
   }
 
   /// <summary>
@@ -147,7 +150,7 @@ public sealed class FacebookLikeBoxWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookLikeBoxWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookLikeBoxWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

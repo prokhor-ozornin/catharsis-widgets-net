@@ -112,7 +112,7 @@ public sealed class VkontakteRecommendationsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteRecommendationsWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteRecommendationsWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

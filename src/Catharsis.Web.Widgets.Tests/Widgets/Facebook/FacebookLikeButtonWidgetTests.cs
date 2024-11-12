@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -14,15 +15,17 @@ public sealed class FacebookLikeButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(FacebookLikeButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookLikeButtonWidget>();
+
     var widget = new FacebookLikeButtonWidget();
-    Assert.Null(widget.ColorScheme());
-    Assert.Null(widget.Faces());
-    Assert.Null(widget.KidsMode());
-    Assert.Null(widget.Layout());
-    Assert.Null(widget.TrackLabel());
-    Assert.Null(widget.Url());
-    Assert.Null(widget.Verb());
-    Assert.Null(widget.Width());
+    widget.ColorScheme().Should().BeNull();
+    widget.Faces().Should().BeNull();
+    widget.KidsMode().Should().BeNull();
+    widget.Layout().Should().BeNull();
+    widget.TrackLabel().Should().BeNull();
+    widget.Url().Should().BeNull();
+    widget.Verb().Should().BeNull();
+    widget.Width().Should().BeNull();
   }
 
   /// <summary>
@@ -140,7 +143,7 @@ public sealed class FacebookLikeButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

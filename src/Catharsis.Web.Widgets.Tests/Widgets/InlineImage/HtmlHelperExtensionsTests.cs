@@ -26,7 +26,7 @@ public sealed partial class HtmlHelperExtensionsTests
     Assert.False(ReferenceEquals(html.InlineImage(), html.InlineImage()));
     Assert.Equal(html.InlineImage().ToString(), html.InlineImage().ToString());
 
-    Assert.Equal(new MockHtmlHelper().InlineImage().ToHtmlString(), new MockHtmlHelper().InlineImage(x => { }));
-    Assert.Equal(new MockHtmlHelper().InlineImage().Contents(Guid.Empty.ToByteArray()).ToHtmlString(), new MockHtmlHelper().InlineImage(x => x.Contents(Guid.Empty.ToByteArray())));
+    Assert.Equal(new MockHtmlHelper().InlineImage().ToHtml(), new MockHtmlHelper().InlineImage(x => { }));
+    Assert.Equal(new MockHtmlHelper().InlineImage().Contents(Guid.Empty.ToByteArray()).ToHtml(), new MockHtmlHelper().InlineImage(x => x.Contents(Guid.Empty.ToByteArray())));
   }
 }

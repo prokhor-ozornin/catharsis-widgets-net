@@ -5,7 +5,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontakteCommentsWidget"/>
-public class VkontakteCommentsWidget : HtmlWidget, IVkontakteCommentsWidget
+public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
 {
   private IEnumerable<string> attach = Enumerable.Empty<string>();
   private bool? autoPublish;
@@ -150,8 +150,8 @@ public class VkontakteCommentsWidget : HtmlWidget, IVkontakteCommentsWidget
   /// <returns>Width of comments widget.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     var config = new Dictionary<string, object>
     {

@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 /// <seealso cref="http://ru.cackle.me/help/widget-api"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Cackle(IWidgetsScriptsRenderer)"/>
-public interface ICackleLatestCommentsWidget : IHtmlWidget
+public interface ICackleLatestCommentsWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Identifier of registered website in the "Cackle" comments system.</para>

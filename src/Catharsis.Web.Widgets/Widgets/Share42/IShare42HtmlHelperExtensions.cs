@@ -23,6 +23,6 @@ public static class IShare42HtmlHelperExtensions
 
     builder(widget);
     
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 }

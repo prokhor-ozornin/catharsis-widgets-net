@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontakteInitializationWidget"/>
-public class VkontakteInitializationWidget : HtmlWidget, IVkontakteInitializationWidget
+public class VkontakteInitializationWidget : WebWidget, IVkontakteInitializationWidget
 {
   private string apiId;
 
@@ -32,8 +32,8 @@ public class VkontakteInitializationWidget : HtmlWidget, IVkontakteInitializatio
   /// <returns>Application API ID.</returns>
   public string ApiId() => apiId;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (ApiId().IsEmpty())
     {

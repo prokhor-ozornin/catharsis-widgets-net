@@ -3,7 +3,7 @@
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontakteVideoWidget"/>
-public class YandexAnalyticsWidget : HtmlWidget, IYandexAnalyticsWidget
+public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
 {
   private string account;
   private bool webVisor = true;
@@ -163,8 +163,8 @@ public class YandexAnalyticsWidget : HtmlWidget, IYandexAnalyticsWidget
   /// <returns><c>true</c> to enable webvisor functionality, <c>false</c> to disable it.</returns>
   public bool WebVisor() => webVisor;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty())
     {

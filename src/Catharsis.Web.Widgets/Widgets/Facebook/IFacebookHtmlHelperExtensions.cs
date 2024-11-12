@@ -21,7 +21,7 @@ public static class IFacebookHtmlHelperExtensions
 
     var widget = html.Initialize();
     builder(widget);
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -39,7 +39,7 @@ public static class IFacebookHtmlHelperExtensions
 
     var widget = html.ActivityFeed();
     builder(widget);
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -57,7 +57,7 @@ public static class IFacebookHtmlHelperExtensions
 
     var widget = html.RecommendationsFeed();
     builder(widget);
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -75,7 +75,7 @@ public static class IFacebookHtmlHelperExtensions
 
     var widget = html.Comments();
     builder(widget);
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -93,7 +93,7 @@ public static class IFacebookHtmlHelperExtensions
 
     var widget = html.Facepile();
     builder(widget);
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -111,7 +111,7 @@ public static class IFacebookHtmlHelperExtensions
 
     var widget = html.FollowButton();
     builder(widget);
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -129,7 +129,7 @@ public static class IFacebookHtmlHelperExtensions
 
     var widget = html.LikeButton();
     builder(widget);
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -147,7 +147,7 @@ public static class IFacebookHtmlHelperExtensions
 
     var widget = html.LikeBox();
     builder(widget);
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -165,7 +165,7 @@ public static class IFacebookHtmlHelperExtensions
 
     var widget = html.Post();
     builder(widget);
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -183,7 +183,7 @@ public static class IFacebookHtmlHelperExtensions
 
     var widget = html.SendButton();
     builder(widget);
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -201,6 +201,6 @@ public static class IFacebookHtmlHelperExtensions
 
     var widget = html.Video();
     builder(widget);
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 }

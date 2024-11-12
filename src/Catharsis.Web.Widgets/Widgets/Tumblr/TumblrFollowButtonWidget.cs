@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ITumblrFollowButtonWidget"/>
-public class TumblrFollowButtonWidget : HtmlWidget, ITumblrFollowButtonWidget
+public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
 {
   private string account;
   private byte type = (byte) TumblrFollowButtonType.First;
@@ -74,8 +74,8 @@ public class TumblrFollowButtonWidget : HtmlWidget, ITumblrFollowButtonWidget
   /// <returns>Layout of button.</returns>
   public byte Type() => type;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty())
     {

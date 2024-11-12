@@ -34,7 +34,7 @@ public sealed class VkontakteInitializationWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteInitializationWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteInitializationWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

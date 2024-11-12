@@ -128,7 +128,7 @@ public sealed class YandexAnalyticsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

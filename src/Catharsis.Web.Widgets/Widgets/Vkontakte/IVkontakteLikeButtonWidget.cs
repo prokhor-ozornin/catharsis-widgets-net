@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="http://vk.com/dev/Like"/>
-public interface IVkontakteLikeButtonWidget : IHtmlWidget
+public interface IVkontakteLikeButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Identifier of HTML container for the widget.</para>

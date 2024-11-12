@@ -17,7 +17,7 @@ public sealed class IInlineImageExtensionsTests
 
     var widget = new InlineImageWidget();
     Assert.True(ReferenceEquals(widget.Jpg(), widget));
-    Assert.True(widget.Contents(Guid.Empty.ToByteArray()).ToHtmlString().Contains("data:jpg"));
+    Assert.True(widget.Contents(Guid.Empty.ToByteArray()).ToHtml().Contains("data:jpg"));
   }
 
   /// <summary>
@@ -30,7 +30,7 @@ public sealed class IInlineImageExtensionsTests
 
     var widget = new InlineImageWidget();
     Assert.True(ReferenceEquals(widget.Png(), widget));
-    Assert.True(widget.Contents(Guid.Empty.ToByteArray()).ToHtmlString().Contains("data:png"));
+    Assert.True(widget.Contents(Guid.Empty.ToByteArray()).ToHtml().Contains("data:png"));
   }
 
   /// <summary>
@@ -43,6 +43,6 @@ public sealed class IInlineImageExtensionsTests
 
     var widget = new InlineImageWidget();
     Assert.True(ReferenceEquals(widget.Gif(), widget));
-    Assert.True(widget.Contents(Guid.Empty.ToByteArray()).ToHtmlString().Contains("data:gif"));
+    Assert.True(widget.Contents(Guid.Empty.ToByteArray()).ToHtml().Contains("data:gif"));
   }
 }

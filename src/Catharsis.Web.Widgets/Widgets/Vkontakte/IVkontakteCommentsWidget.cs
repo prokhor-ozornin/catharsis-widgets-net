@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="http://vk.com/dev/Comments"/>
-public interface IVkontakteCommentsWidget : IHtmlWidget
+public interface IVkontakteCommentsWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Collection of attachment types, which are allowed in comment posts.</para>

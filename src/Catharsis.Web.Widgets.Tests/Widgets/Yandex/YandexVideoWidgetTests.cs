@@ -82,7 +82,7 @@ public sealed class YandexVideoWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexVideoWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexVideoWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

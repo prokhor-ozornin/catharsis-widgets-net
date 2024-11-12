@@ -6,7 +6,7 @@
 /// </summary>
 /// <seealso cref="http://ru.cackle.me/help/widget-api"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Cackle(IWidgetsScriptsRenderer)"/>
-public interface ICackleLoginWidget : IHtmlWidget
+public interface ICackleLoginWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Identifier of registered website in the "Cackle" comments system.</para>

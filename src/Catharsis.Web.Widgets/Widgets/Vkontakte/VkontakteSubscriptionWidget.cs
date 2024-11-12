@@ -5,7 +5,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontakteSubscriptionWidget"/>
-public class VkontakteSubscriptionWidget : HtmlWidget, IVkontakteSubscriptionWidget
+public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidget
 {
   private string account;
   private string elementId;
@@ -93,8 +93,8 @@ public class VkontakteSubscriptionWidget : HtmlWidget, IVkontakteSubscriptionWid
   /// <returns><c>false</c> to display both author/button, <c>true</c> to display only button.</returns>
   public bool OnlyButton() => onlyButton;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty())
     {

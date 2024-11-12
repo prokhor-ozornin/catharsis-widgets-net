@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -14,8 +15,10 @@ public sealed class DisqusCommentsWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(DisqusCommentsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IDisqusCommentsWidget>();
+
     var widget = new DisqusCommentsWidget();
-    Assert.Null(widget.Account());
+    widget.Account().Should().BeNull();
   }
 
   /// <summary>
@@ -34,7 +37,7 @@ public sealed class DisqusCommentsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="DisqusCommentsWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="DisqusCommentsWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

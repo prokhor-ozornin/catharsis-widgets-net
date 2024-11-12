@@ -5,7 +5,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookInitializationWidget"/>
-public class FacebookInitializationWidget : HtmlWidget, IFacebookInitializationWidget
+public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWidget
 {
   private string appId;
 
@@ -32,8 +32,8 @@ public class FacebookInitializationWidget : HtmlWidget, IFacebookInitializationW
   /// <returns>Identifier of Facebook application.</returns>
   public string AppId() => appId;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (AppId().IsEmpty())
     {

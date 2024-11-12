@@ -1,10 +1,10 @@
 ﻿namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IAddThisSmartLayersWidget"/>
-public class AddThisSmartLayersWidget : HtmlWidget, IAddThisSmartLayersWidget
+public class AddThisSmartLayersWidget : WebWidget, IAddThisSmartLayersWidget
 {
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     throw new NotImplementedException();
   }

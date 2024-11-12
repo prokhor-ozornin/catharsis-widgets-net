@@ -6,7 +6,7 @@
 /// </summary>
 /// <seealso cref="http://business.pinterest.com/widget-builder/#do_pin_it_button"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
-public interface IPinterestPinItButtonWidget : IHtmlWidget
+public interface IPinterestPinItButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Background color of the button.</para>

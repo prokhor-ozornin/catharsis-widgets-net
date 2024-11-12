@@ -33,6 +33,6 @@ public static partial class HtmlHelperExtensions
 
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 }

@@ -4,7 +4,7 @@
 ///   <para>Renders Yandex.Metrika web counter's JavaScript code.</para>
 /// </summary>
 /// <seealso cref="https://metrika.yandex.ru"/>
-public interface IYandexAnalyticsWidget : IHtmlWidget
+public interface IYandexAnalyticsWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Specifies identifier Yandex.Metrica site.</para>

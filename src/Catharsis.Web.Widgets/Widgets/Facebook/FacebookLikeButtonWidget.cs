@@ -4,7 +4,7 @@ using System.Web.WebPages;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookLikeButtonWidget"/>
-public class FacebookLikeButtonWidget : HtmlWidget, IFacebookLikeButtonWidget
+public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
 {
   private string colorScheme;
   private bool? faces;
@@ -181,8 +181,8 @@ public class FacebookLikeButtonWidget : HtmlWidget, IFacebookLikeButtonWidget
   /// <returns>Width of button.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString() => new TagBuilder("div")
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-action", Verb())
       .Attribute("data-layout", Layout())
       .Attribute("data-show-faces", Faces())

@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Requires Yandex scripts bundle to be included.</para>
 /// </summary>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Yandex(IWidgetsScriptsRenderer)"/>
-public interface IYandexSharePanelWidget : IHtmlWidget
+public interface IYandexSharePanelWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Button's interface language.</para>

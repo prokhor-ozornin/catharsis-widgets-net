@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,13 +15,15 @@ public sealed class FacebookCommentsWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(FacebookCommentsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookCommentsWidget>();
+
     var widget = new FacebookCommentsWidget();
-    Assert.Null(widget.ColorScheme());
-    Assert.Null(widget.Mobile());
-    Assert.Null(widget.Order());
-    Assert.Null(widget.Posts());
-    Assert.Null(widget.Url());
-    Assert.Null(widget.Width());
+    widget.ColorScheme().Should().BeNull();
+    widget.Mobile().Should().BeNull();
+    widget.Order().Should().BeNull();
+    widget.Posts().Should().BeNull();
+    widget.Url().Should().BeNull();
+    widget.Width().Should().BeNull();
   }
 
   /// <summary>
@@ -108,7 +111,7 @@ public sealed class FacebookCommentsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookCommentsWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookCommentsWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

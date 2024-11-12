@@ -6,7 +6,7 @@
 /// </summary>
 /// <seealso cref="http://api.mail.ru/sites/plugins/groups"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.MailRu(IWidgetsScriptsRenderer)"/>
-public interface IMailRuGroupsWidget : IHtmlWidget
+public interface IMailRuGroupsWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Account name of Mail.ru group.</para>

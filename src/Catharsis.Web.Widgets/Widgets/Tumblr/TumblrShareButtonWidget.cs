@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ITumblrShareButtonWidget"/>
-public class TumblrShareButtonWidget : HtmlWidget, ITumblrShareButtonWidget
+public class TumblrShareButtonWidget : WebWidget, ITumblrShareButtonWidget
 {
   private byte type = (byte) TumblrShareButtonType.First;
   private string colorScheme;
@@ -49,8 +49,8 @@ public class TumblrShareButtonWidget : HtmlWidget, ITumblrShareButtonWidget
   /// <returns>Layout of button.</returns>
   public byte Type() => type;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     byte width;
 

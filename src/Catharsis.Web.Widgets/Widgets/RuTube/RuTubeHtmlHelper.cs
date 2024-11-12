@@ -1,6 +1,8 @@
 namespace Catharsis.Web.Widgets;
 
-internal sealed class RuTubeHtmlHelper : IRuTubeHtmlHelper
+/// <inheritdoc cref="IRuTubeHtmlHelper"/>
+public class RuTubeHtmlHelper : IRuTubeHtmlHelper
 {
+  /// <inheritdoc cref="IRuTubeHtmlHelper.Video()"/>
   public IRuTubeVideoWidget Video() => new RuTubeVideoWidget();
 }

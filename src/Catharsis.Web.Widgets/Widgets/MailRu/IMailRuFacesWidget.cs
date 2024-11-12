@@ -6,7 +6,7 @@
 /// </summary>
 /// <seealso cref="http://api.mail.ru/sites/plugins/faces"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.MailRu(IWidgetsScriptsRenderer)"/>
-public interface IMailRuFacesWidget : IHtmlWidget
+public interface IMailRuFacesWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Color of Faces box background.</para>

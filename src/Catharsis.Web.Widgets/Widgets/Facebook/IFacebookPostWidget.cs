@@ -5,7 +5,7 @@
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="https://developers.facebook.com/docs/plugins/embedded-posts"/>
-public interface IFacebookPostWidget : IHtmlWidget
+public interface IFacebookPostWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Specified URL address of Facebook post to embed.</para>

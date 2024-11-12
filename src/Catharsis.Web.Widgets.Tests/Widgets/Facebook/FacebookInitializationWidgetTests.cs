@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,8 +15,10 @@ public sealed class FacebookInitializationWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(FacebookInitializationWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookInitializationWidget>();
+
     var widget = new FacebookInitializationWidget();
-    Assert.Null(widget.AppId());
+    widget.AppId().Should().BeNull();
   }
 
   /// <summary>
@@ -34,7 +37,7 @@ public sealed class FacebookInitializationWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookInitializationWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookInitializationWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

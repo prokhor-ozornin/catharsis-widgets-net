@@ -4,7 +4,7 @@
 ///   <para></para>
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public interface IPayPalWidget<T> : IHtmlWidget where T : IPayPalWidget<T>
+public interface IPayPalWidget<T> : IWebWidget where T : IPayPalWidget<T>
 {
   /// <summary>
   ///   <para></para>

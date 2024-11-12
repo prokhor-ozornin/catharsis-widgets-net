@@ -5,7 +5,7 @@
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="https://developers.facebook.com/docs/plugins/like-box-for-pages"/>
-public interface IFacebookLikeBoxWidget : IHtmlWidget
+public interface IFacebookLikeBoxWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Specifies whether or not to show a border around the plugin. Default is <c>true</c>.</para>

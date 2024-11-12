@@ -66,7 +66,7 @@ public sealed class MailRuVideoWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuVideoWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuVideoWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

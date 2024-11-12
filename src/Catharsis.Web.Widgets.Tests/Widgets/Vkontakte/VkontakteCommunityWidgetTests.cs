@@ -143,7 +143,7 @@ public sealed class VkontakteCommunityWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteCommunityWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteCommunityWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

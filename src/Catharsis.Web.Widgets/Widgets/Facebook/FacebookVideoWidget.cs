@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookVideoWidget"/>
-public class FacebookVideoWidget : HtmlWidget, IFacebookVideoWidget
+public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
 {
   private string id;
   private string width;
@@ -79,8 +79,8 @@ public class FacebookVideoWidget : HtmlWidget, IFacebookVideoWidget
   /// <returns>Width of video.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Id().IsEmpty() || Width().IsEmpty() || Height().IsEmpty())
     {

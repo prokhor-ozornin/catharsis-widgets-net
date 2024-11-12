@@ -1,6 +1,8 @@
 namespace Catharsis.Web.Widgets;
 
-internal sealed class SurfingbirdHtmlHelper : ISurfingbirdHtmlHelper
+/// <inheritdoc cref="ISurfingbirdHtmlHelper"/>
+public class SurfingbirdHtmlHelper : ISurfingbirdHtmlHelper
 {
+  /// <inheritdoc cref="ISurfingbirdHtmlHelper.SurfButton()"/>
   public ISurfingbirdSurfButtonWidget SurfButton() => new SurfingbirdSurfButtonWidget();
 }

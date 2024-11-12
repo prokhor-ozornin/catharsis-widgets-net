@@ -68,7 +68,7 @@ public sealed class IntenseDebateCommentsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IntenseDebateCommentsWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="IntenseDebateCommentsWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

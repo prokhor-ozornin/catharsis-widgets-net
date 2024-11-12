@@ -5,7 +5,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IMailRuIcqWidget"/>
-public class MailRuIcqWidget : HtmlWidget, IMailRuIcqWidget
+public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
 {
   private string account;
   private string language;
@@ -54,8 +54,8 @@ public class MailRuIcqWidget : HtmlWidget, IMailRuIcqWidget
   /// <returns>ISO language code for interface.</returns>
   public string Language() => language;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     var builder = new StringBuilder()
       .Append(new TagBuilder("script")

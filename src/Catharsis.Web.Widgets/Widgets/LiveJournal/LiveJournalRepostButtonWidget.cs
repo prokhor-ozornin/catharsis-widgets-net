@@ -4,7 +4,7 @@ using System.Web.WebPages;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ILiveJournalRepostButtonWidget"/>
-public class LiveJournalRepostButtonWidget : HtmlWidget, ILiveJournalRepostButtonWidget
+public class LiveJournalRepostButtonWidget : WebWidget, ILiveJournalRepostButtonWidget
 {
   private string text;
   private string title;
@@ -53,8 +53,8 @@ public class LiveJournalRepostButtonWidget : HtmlWidget, ILiveJournalRepostButto
   /// <returns>Button's label text.</returns>
   public string Title() => title;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString() => new TagBuilder("lj-repost")
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml() => new TagBuilder("lj-repost")
     .Attribute("button", Title())
     .InnerHtml(text)
     .ToString();

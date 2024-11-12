@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IPinterestFollowButtonWidget"/>
-public class PinterestFollowButtonWidget : HtmlWidget, IPinterestFollowButtonWidget
+public class PinterestFollowButtonWidget : WebWidget, IPinterestFollowButtonWidget
 {
   private string account;
   private string label = "Follow";
@@ -56,8 +56,8 @@ public class PinterestFollowButtonWidget : HtmlWidget, IPinterestFollowButtonWid
   /// <returns>Button's label.</returns>
   public string Label() => label;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty() || Label().IsEmpty())
     {

@@ -127,7 +127,7 @@ public sealed class GooglePlusOneButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="GooglePlusOneButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="GooglePlusOneButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

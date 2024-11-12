@@ -16,8 +16,8 @@ public sealed class IGravatarHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IGravatarHtmlHelperExtensions.ImageUrl(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new GravatarHtmlHelper().ImageUrl(null));
 
-    Assert.Equal(new GravatarHtmlHelper().ImageUrl().ToHtmlString(), new GravatarHtmlHelper().ImageUrl(x => { }));
-    Assert.Equal(new GravatarHtmlHelper().ImageUrl().Hash("hash").ToHtmlString(), new GravatarHtmlHelper().ImageUrl(x => x.Hash("hash")));
+    Assert.Equal(new GravatarHtmlHelper().ImageUrl().ToHtml(), new GravatarHtmlHelper().ImageUrl(x => { }));
+    Assert.Equal(new GravatarHtmlHelper().ImageUrl().Hash("hash").ToHtml(), new GravatarHtmlHelper().ImageUrl(x => x.Hash("hash")));
   }
 
   /// <summary>
@@ -29,7 +29,7 @@ public sealed class IGravatarHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IGravatarHtmlHelperExtensions.ProfileUrl(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new GravatarHtmlHelper().ProfileUrl(null));
 
-    Assert.Equal(new GravatarHtmlHelper().ProfileUrl().ToHtmlString(), new GravatarHtmlHelper().ProfileUrl(x => { }));
-    Assert.Equal(new GravatarHtmlHelper().ProfileUrl().Hash("hash").ToHtmlString(), new GravatarHtmlHelper().ProfileUrl(x => x.Hash("hash")));
+    Assert.Equal(new GravatarHtmlHelper().ProfileUrl().ToHtml(), new GravatarHtmlHelper().ProfileUrl(x => { }));
+    Assert.Equal(new GravatarHtmlHelper().ProfileUrl().Hash("hash").ToHtml(), new GravatarHtmlHelper().ProfileUrl(x => x.Hash("hash")));
   }
 }

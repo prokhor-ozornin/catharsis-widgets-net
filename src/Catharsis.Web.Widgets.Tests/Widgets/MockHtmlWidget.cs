@@ -1,6 +1,6 @@
 ﻿namespace Catharsis.Web.Widgets;
 
-internal sealed class MockHtmlWidget : HtmlWidget
+internal sealed class MockWebWidget : WebWidget
 {
-  public override string ToHtmlString() => "Widget text content";
+  public override string ToHtml() => "Widget text content";
 }

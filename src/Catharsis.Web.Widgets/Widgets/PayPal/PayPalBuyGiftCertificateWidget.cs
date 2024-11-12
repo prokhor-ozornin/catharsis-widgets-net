@@ -1,7 +1,7 @@
 ﻿namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IPayPalBuyGiftCertificateWidget"/>
-public class PayPalBuyGiftCertificateWidget : HtmlWidget, IPayPalBuyGiftCertificateWidget
+public class PayPalBuyGiftCertificateWidget : WebWidget, IPayPalBuyGiftCertificateWidget
 {
   public IPayPalBuyGiftCertificateWidget AsForm()
   {
@@ -13,8 +13,8 @@ public class PayPalBuyGiftCertificateWidget : HtmlWidget, IPayPalBuyGiftCertific
     throw new NotImplementedException();
   }
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     throw new NotImplementedException();
   }

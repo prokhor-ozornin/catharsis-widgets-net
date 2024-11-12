@@ -5,7 +5,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ICackleCommentsWidget"/>
-public class CackleCommentsWidget : HtmlWidget, ICackleCommentsWidget
+public class CackleCommentsWidget : WebWidget, ICackleCommentsWidget
 {
   private string account;
 
@@ -32,8 +32,8 @@ public class CackleCommentsWidget : HtmlWidget, ICackleCommentsWidget
   /// <returns>Identifier of website.</returns>
   public string Account() => account;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (account.IsEmpty())
     {

@@ -1,6 +1,8 @@
 ﻿namespace Catharsis.Web.Widgets;
 
-internal sealed class VideoJSHtmlHelper : IVideoJSHtmlHelper
+/// <inheritdoc cref="IVideoJSHtmlHelper"/>
+public class VideoJSHtmlHelper : IVideoJSHtmlHelper
 {
+  /// <inheritdoc cref="IVideoJSHtmlHelper.Player()"/>
   public IVideoJSPlayerWidget Player() => new VideoJSPlayerWidget();
 }

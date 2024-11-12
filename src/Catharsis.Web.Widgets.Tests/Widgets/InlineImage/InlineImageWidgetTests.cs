@@ -49,7 +49,7 @@ public sealed class InlineImageWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="InlineImageWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="InlineImageWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

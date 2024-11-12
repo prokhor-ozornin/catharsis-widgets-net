@@ -3,6 +3,6 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IAddThisShareButtonsWidget : IHtmlWidget
+public interface IAddThisShareButtonsWidget : IWebWidget
 {
 }

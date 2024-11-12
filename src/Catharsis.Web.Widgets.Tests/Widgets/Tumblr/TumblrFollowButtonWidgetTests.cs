@@ -63,7 +63,7 @@ public sealed class TumblrFollowButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TumblrFollowButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="TumblrFollowButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

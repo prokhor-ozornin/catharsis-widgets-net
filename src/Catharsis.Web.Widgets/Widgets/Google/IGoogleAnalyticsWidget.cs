@@ -4,7 +4,7 @@
 ///   <para>Includes Google Analytics JavaScript code into web page.</para>
 /// </summary>
 /// <seealso cref="http://www.google.com/analytics"/>
-public interface IGoogleAnalyticsWidget : IHtmlWidget
+public interface IGoogleAnalyticsWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Google Analytics site identifier (UA-*).</para>

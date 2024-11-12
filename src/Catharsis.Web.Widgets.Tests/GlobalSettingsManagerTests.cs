@@ -23,7 +23,7 @@ public sealed class GlobalSettingsManagerTests
 
   private static void TestSettingsProvider(ISettingsProvider provider)
   {
-    Assertion.NotNull(provider);
+    if (provider is null) throw new ArgumentNullException(nameof(provider));
 
     const string key= "key";
 

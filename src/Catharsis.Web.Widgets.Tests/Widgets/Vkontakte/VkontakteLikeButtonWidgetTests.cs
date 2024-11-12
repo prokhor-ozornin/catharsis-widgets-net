@@ -175,7 +175,7 @@ public sealed class VkontakteLikeButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

@@ -16,8 +16,8 @@ public sealed class ITwitterHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ITwitterHtmlHelperExtensions.FollowButton(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new TwitterHtmlHelper().FollowButton(null));
 
-    Assert.Equal(new TwitterHtmlHelper().FollowButton().ToHtmlString(), new TwitterHtmlHelper().FollowButton(x => { }));
-    Assert.Equal(new TwitterHtmlHelper().FollowButton().Account("account").ToHtmlString(), new TwitterHtmlHelper().FollowButton(x => x.Account("account")));
+    Assert.Equal(new TwitterHtmlHelper().FollowButton().ToHtml(), new TwitterHtmlHelper().FollowButton(x => { }));
+    Assert.Equal(new TwitterHtmlHelper().FollowButton().Account("account").ToHtml(), new TwitterHtmlHelper().FollowButton(x => x.Account("account")));
   }
 
   /// <summary>
@@ -29,7 +29,7 @@ public sealed class ITwitterHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ITwitterHtmlHelperExtensions.TweetButton(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new TwitterHtmlHelper().TweetButton(null));
 
-    Assert.Equal(new TwitterHtmlHelper().TweetButton().ToHtmlString(), new TwitterHtmlHelper().TweetButton(x => { }));
-    Assert.Equal(new TwitterHtmlHelper().TweetButton().Text("text").ToHtmlString(), new TwitterHtmlHelper().TweetButton(x => x.Text("text")));
+    Assert.Equal(new TwitterHtmlHelper().TweetButton().ToHtml(), new TwitterHtmlHelper().TweetButton(x => { }));
+    Assert.Equal(new TwitterHtmlHelper().TweetButton().Text("text").ToHtml(), new TwitterHtmlHelper().TweetButton(x => x.Text("text")));
   }
 }

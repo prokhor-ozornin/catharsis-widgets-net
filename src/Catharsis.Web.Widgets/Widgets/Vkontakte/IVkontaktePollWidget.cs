@@ -5,7 +5,7 @@
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="http://vk.com/dev/Poll"/>
-public interface IVkontaktePollWidget : IHtmlWidget
+public interface IVkontaktePollWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Unique identifier of poll.</para>

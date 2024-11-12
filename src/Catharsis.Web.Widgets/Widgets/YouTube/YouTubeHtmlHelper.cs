@@ -1,6 +1,8 @@
 namespace Catharsis.Web.Widgets;
 
-internal sealed class YouTubeHtmlHelper : IYouTubeHtmlHelper
+/// <inheritdoc cref="IYouTubeHtmlHelper"/>
+public class YouTubeHtmlHelper : IYouTubeHtmlHelper
 {
+  /// <inheritdoc cref="IYouTubeHtmlHelper.Video()"/>
   public IYouTubeVideoWidget Video() => new YouTubeVideoWidget();
 }

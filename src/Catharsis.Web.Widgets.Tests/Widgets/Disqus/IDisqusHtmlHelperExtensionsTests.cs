@@ -16,7 +16,7 @@ public sealed class IDisqusHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IDisqusHtmlHelperExtensions.Comments(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new DisqusHtmlHelper().Comments(null));
 
-    Assert.Equal(new DisqusHtmlHelper().Comments().ToHtmlString(), new DisqusHtmlHelper().Comments(x => { }));
-    Assert.Equal(new DisqusHtmlHelper().Comments().Account("account").ToHtmlString(), new DisqusHtmlHelper().Comments(x => x.Account("account")));
+    Assert.Equal(new DisqusHtmlHelper().Comments().ToHtml(), new DisqusHtmlHelper().Comments(x => { }));
+    Assert.Equal(new DisqusHtmlHelper().Comments().Account("account").ToHtml(), new DisqusHtmlHelper().Comments(x => x.Account("account")));
   }
 }

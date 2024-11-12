@@ -3,7 +3,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IDisqusCommentsWidget"/>
-public class DisqusCommentsWidget : HtmlWidget, IDisqusCommentsWidget
+public class DisqusCommentsWidget : WebWidget, IDisqusCommentsWidget
 {
   private string account;
 
@@ -31,6 +31,6 @@ public class DisqusCommentsWidget : HtmlWidget, IDisqusCommentsWidget
   /// <returns>Identifier of website.</returns>
   public string Account() => account;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString() => account.IsEmpty() ? string.Empty : string.Format(resources.disqus_comments, Account());
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml() => account.IsEmpty() ? string.Empty : string.Format(resources.disqus_comments, Account());
 }

@@ -47,7 +47,7 @@ public sealed class TumblrShareButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TumblrShareButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="TumblrShareButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

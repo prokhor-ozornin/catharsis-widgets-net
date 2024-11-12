@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 /// <seealso cref="http://surfingbird.ru/publishers/surfbutton"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Surfingbird(IWidgetsScriptsRenderer)"/>
-public interface ISurfingbirdSurfButtonWidget : IHtmlWidget
+public interface ISurfingbirdSurfButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Text label's color. If not specified, default color combination is used.</para>

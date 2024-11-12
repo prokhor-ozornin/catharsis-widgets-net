@@ -5,7 +5,7 @@ using System.Web.WebPages;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontakteVideoWidget"/>
-public class YandexLikeButtonWidget : HtmlWidget, IYandexLikeButtonWidget
+public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
 {
   private string url;
   private string title;
@@ -125,8 +125,8 @@ public class YandexLikeButtonWidget : HtmlWidget, IYandexLikeButtonWidget
   /// <returns>URL address of web page.</returns>
   public string Url() => url;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     return new StringBuilder()
       .Append(new TagBuilder("a")

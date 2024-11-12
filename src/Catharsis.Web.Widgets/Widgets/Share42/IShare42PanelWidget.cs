@@ -3,7 +3,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Renders Share42 panel.</para>
 /// </summary>
-public interface IShare42PanelWidget : IHtmlWidget
+public interface IShare42PanelWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Specifies direction on panel (static horizontal or floating vertical).</para>

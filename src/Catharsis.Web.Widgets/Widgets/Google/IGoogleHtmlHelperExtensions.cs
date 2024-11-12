@@ -23,7 +23,7 @@ public static class IGoogleHtmlHelperExtensions
 
     builder(widget);
     
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -61,6 +61,6 @@ public static class IGoogleHtmlHelperExtensions
     
     builder(widget);
     
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 }

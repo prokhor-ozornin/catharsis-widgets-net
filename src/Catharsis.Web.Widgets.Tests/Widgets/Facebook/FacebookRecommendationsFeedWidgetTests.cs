@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,17 +15,19 @@ public sealed class FacebookRecommendationsFeedWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(FacebookRecommendationsFeedWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookRecommendationsFeedWidget>();
+
     var widget = new FacebookRecommendationsFeedWidget();
-    Assert.Null(widget.Domain());
-    Assert.Null(widget.AppId());
-    Assert.False(widget.Actions().Any());
-    Assert.Null(widget.Width());
-    Assert.Null(widget.Height());
-    Assert.Null(widget.ColorScheme());
-    Assert.Null(widget.Header());
-    Assert.Null(widget.LinkTarget());
-    Assert.Null(widget.MaxAge());
-    Assert.Null(widget.TrackLabel());
+    widget.Domain().Should().BeNull();
+    widget.AppId().Should().BeNull();
+    widget.Actions().Should().BeEmpty();
+    widget.Width().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.ColorScheme().Should().BeNull();
+    widget.Header().Should().BeNull();
+    widget.LinkTarget().Should().BeNull();
+    widget.MaxAge().Should().BeNull();
+    widget.TrackLabel().Should().BeNull();
   }
 
   /// <summary>
@@ -171,7 +174,7 @@ public sealed class FacebookRecommendationsFeedWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookRecommendationsFeedWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookRecommendationsFeedWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

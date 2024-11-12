@@ -16,7 +16,7 @@ public sealed class ISurfingbirdHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ISurfingbirdHtmlHelperExtensions.SurfButton(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new SurfingbirdHtmlHelper().SurfButton(null));
 
-    Assert.Equal(new SurfingbirdHtmlHelper().SurfButton().ToHtmlString(), new SurfingbirdHtmlHelper().SurfButton(x => { }));
-    Assert.Equal(new SurfingbirdHtmlHelper().SurfButton().Url("url").ToHtmlString(), new SurfingbirdHtmlHelper().SurfButton(x => x.Url("url")));
+    Assert.Equal(new SurfingbirdHtmlHelper().SurfButton().ToHtml(), new SurfingbirdHtmlHelper().SurfButton(x => { }));
+    Assert.Equal(new SurfingbirdHtmlHelper().SurfButton().Url("url").ToHtml(), new SurfingbirdHtmlHelper().SurfButton(x => x.Url("url")));
   }
 }

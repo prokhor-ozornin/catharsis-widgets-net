@@ -63,7 +63,7 @@ public sealed class SoundCloudProfileIconWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="SoundCloudProfileIconWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="SoundCloudProfileIconWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

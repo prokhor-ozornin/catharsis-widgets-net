@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontakteVideoWidget"/>
-public class VkontakteVideoWidget : HtmlWidget, IVkontakteVideoWidget
+public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
 {
   private string id;
   private string width;
@@ -148,8 +148,8 @@ public class VkontakteVideoWidget : HtmlWidget, IVkontakteVideoWidget
   /// <returns>Width of video.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Id().IsEmpty() || User().IsEmpty() || Hash().IsEmpty() || Width().IsEmpty() || Height().IsEmpty())
     {

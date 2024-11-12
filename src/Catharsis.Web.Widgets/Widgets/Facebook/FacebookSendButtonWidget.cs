@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookSendButtonWidget"/>
-public class FacebookSendButtonWidget : HtmlWidget, IFacebookSendButtonWidget
+public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
 {
   private string url;
   private string width;
@@ -140,8 +140,8 @@ public class FacebookSendButtonWidget : HtmlWidget, IFacebookSendButtonWidget
   /// <returns>Width of button.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString() => new TagBuilder("div")
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-href", Url())
       .Attribute("data-colorscheme", ColorScheme())
       .Attribute("data-kid-directed-site", KidsMode())

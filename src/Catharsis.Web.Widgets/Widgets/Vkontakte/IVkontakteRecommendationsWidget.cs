@@ -5,7 +5,7 @@
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="http://vk.com/dev/Recommended"/>
-public interface IVkontakteRecommendationsWidget : IHtmlWidget
+public interface IVkontakteRecommendationsWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Identifier of HTML container for the widget.</para>

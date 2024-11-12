@@ -16,7 +16,7 @@ public sealed class IRuTubeHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IRuTubeHtmlHelperExtensions.Video(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new RuTubeHtmlHelper().Video(null));
 
-    Assert.Equal(new RuTubeHtmlHelper().Video().ToHtmlString(), new RuTubeHtmlHelper().Video(x => { }));
-    Assert.Equal(new RuTubeHtmlHelper().Video().Id("id").ToHtmlString(), new RuTubeHtmlHelper().Video(x => x.Id("id")));
+    Assert.Equal(new RuTubeHtmlHelper().Video().ToHtml(), new RuTubeHtmlHelper().Video(x => { }));
+    Assert.Equal(new RuTubeHtmlHelper().Video().Id("id").ToHtml(), new RuTubeHtmlHelper().Video(x => x.Id("id")));
   }
 }

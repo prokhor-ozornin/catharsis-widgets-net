@@ -5,7 +5,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ICackleLatestCommentsWidget"/>
-public class CackleLatestCommentsWidget : HtmlWidget, ICackleLatestCommentsWidget
+public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
 {
   private string account;
   private short avatarSize = 32;
@@ -105,8 +105,8 @@ public class CackleLatestCommentsWidget : HtmlWidget, ICackleLatestCommentsWidge
   /// <returns>Maximum count of characters in title.</returns>
   public int TitleSize() => titleSize;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (account.IsEmpty())
     {

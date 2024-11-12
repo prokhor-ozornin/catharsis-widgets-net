@@ -202,7 +202,7 @@ public sealed class YandexMoneyDonateFormWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexMoneyDonateFormWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexMoneyDonateFormWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

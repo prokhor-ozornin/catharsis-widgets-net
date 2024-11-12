@@ -16,7 +16,7 @@ public sealed class IVideoJSHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVideoJSHtmlHelperExtensions.Player(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VideoJSHtmlHelper().Player(null));
 
-    Assert.Equal(new VideoJSHtmlHelper().Player().ToHtmlString(), new VideoJSHtmlHelper().Player(x => { }));
-    Assert.Equal(new VideoJSHtmlHelper().Player().Videos(new MediaSource("url", "contentType")).Width("width").Height("height").ToHtmlString(), new VideoJSHtmlHelper().Player(x => x.Videos(new MediaSource("url", "contentType")).Width("width").Height("height")));
+    Assert.Equal(new VideoJSHtmlHelper().Player().ToHtml(), new VideoJSHtmlHelper().Player(x => { }));
+    Assert.Equal(new VideoJSHtmlHelper().Player().Videos(new MediaSource("url", "contentType")).Width("width").Height("height").ToHtml(), new VideoJSHtmlHelper().Player(x => x.Videos(new MediaSource("url", "contentType")).Width("width").Height("height")));
   }
 }

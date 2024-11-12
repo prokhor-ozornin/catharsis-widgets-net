@@ -64,7 +64,7 @@ public sealed class RuTubeVideoWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="RuTubeVideoWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="RuTubeVideoWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

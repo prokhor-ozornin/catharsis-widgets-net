@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 /// <seealso cref="https://developers.google.com/+/web/+1button"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Google(IWidgetsScriptsRenderer)"/>
-public interface IGooglePlusOneButtonWidget : IHtmlWidget
+public interface IGooglePlusOneButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Horizontal alignment of the button assets within its frame.</para>

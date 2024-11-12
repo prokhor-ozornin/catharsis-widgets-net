@@ -115,7 +115,7 @@ public sealed class MailRuLikeButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuLikeButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuLikeButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

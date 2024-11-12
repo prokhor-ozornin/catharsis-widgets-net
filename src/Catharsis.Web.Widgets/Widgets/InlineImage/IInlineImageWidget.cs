@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Renders inline HTML image with BASE64-encoded binary data.</para>
 /// </summary>
-public interface IInlineImageWidget : IHtmlWidget
+public interface IInlineImageWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Binary contents of image.</para>

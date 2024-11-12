@@ -4,7 +4,7 @@
 ///   <para>Gravatar's avatar image URL.</para>
 /// </summary>
 /// <seealso cref="http://gravatar.com/site/implement/images"/>
-public interface IGravatarImageUrlWidget : IHtmlWidget
+public interface IGravatarImageUrlWidget : IWebWidget
 {
   /// <summary>
   ///   <para>File-type extension for URL (jpg, png, gif, etc).</para>

@@ -175,7 +175,7 @@ public sealed class TwitterTweetButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TwitterTweetButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="TwitterTweetButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

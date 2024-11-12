@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IPinterestPinWidget"/>
-public sealed class PinterestPinWidget : HtmlWidget, IPinterestPinWidget
+public class PinterestPinWidget : WebWidget, IPinterestPinWidget
 {
   private string id;
 
@@ -31,8 +31,8 @@ public sealed class PinterestPinWidget : HtmlWidget, IPinterestPinWidget
   /// <returns>Identifier of pin.</returns>
   public string Id() => id;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Id().IsEmpty())
     {

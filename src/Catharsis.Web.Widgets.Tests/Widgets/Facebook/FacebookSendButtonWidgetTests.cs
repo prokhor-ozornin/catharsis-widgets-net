@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,13 +15,15 @@ public sealed class FacebookSendButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(FacebookSendButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookSendButtonWidget>();
+
     var widget = new FacebookSendButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.Null(widget.Width());
-    Assert.Null(widget.Height());
-    Assert.Null(widget.ColorScheme());
-    Assert.Null(widget.KidsMode());
-    Assert.Null(widget.TrackLabel());
+    widget.Url().Should().BeNull();
+    widget.Width().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.ColorScheme().Should().BeNull();
+    widget.KidsMode().Should().BeNull();
+    widget.TrackLabel().Should().BeNull();
   }
 
   /// <summary>
@@ -111,7 +114,7 @@ public sealed class FacebookSendButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookSendButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookSendButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

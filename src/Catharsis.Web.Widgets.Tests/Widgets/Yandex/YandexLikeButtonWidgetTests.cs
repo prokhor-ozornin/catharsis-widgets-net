@@ -98,7 +98,7 @@ public sealed class YandexLikeButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexLikeButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexLikeButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

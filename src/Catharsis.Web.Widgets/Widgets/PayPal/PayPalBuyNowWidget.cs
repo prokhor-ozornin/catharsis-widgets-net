@@ -1,7 +1,7 @@
 ﻿namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IPayPalBuyNowWidget"/>
-public class PayPalBuyNowWidget : HtmlWidget, IPayPalBuyNowWidget
+public class PayPalBuyNowWidget : WebWidget, IPayPalBuyNowWidget
 {
   /// <summary>
   ///   <para></para>
@@ -15,6 +15,6 @@ public class PayPalBuyNowWidget : HtmlWidget, IPayPalBuyNowWidget
   /// <returns></returns>
   public IPayPalBuyNowWidget AsUrl() => throw new NotImplementedException();
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString() => throw new NotImplementedException();
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml() => throw new NotImplementedException();
 }

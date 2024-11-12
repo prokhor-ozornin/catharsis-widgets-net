@@ -3,6 +3,6 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IAddThisSmartLayersWidget : IHtmlWidget
+public interface IAddThisSmartLayersWidget : IWebWidget
 {
 }

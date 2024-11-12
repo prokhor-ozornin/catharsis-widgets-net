@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 /// <seealso cref="http://www.tumblr.com/buttons"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Tumblr(IWidgetsScriptsRenderer)"/>
-public interface ITumblrShareButtonWidget : IHtmlWidget
+public interface ITumblrShareButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Visual color scheme of button.</para>

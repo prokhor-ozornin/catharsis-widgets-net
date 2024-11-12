@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IYandexMoneyDonateFormWidget"/>
-public class YandexMoneyDonateFormWidget : HtmlWidget, IYandexMoneyDonateFormWidget
+public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidget
 {
   private string account;
   private bool description;
@@ -270,8 +270,8 @@ public class YandexMoneyDonateFormWidget : HtmlWidget, IYandexMoneyDonateFormWid
   /// <returns>Numeric code of text to display.</returns>
   public byte Text() => text;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty() || DescriptionText().IsEmpty())
     {

@@ -50,7 +50,7 @@ public sealed class MailRuIcqWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuIcqWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuIcqWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

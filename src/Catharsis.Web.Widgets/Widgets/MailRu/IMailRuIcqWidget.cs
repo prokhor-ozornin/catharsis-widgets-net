@@ -4,7 +4,7 @@
 ///   <para>Adds "ICQ On-Site" widget to web page.</para>
 /// </summary>
 /// <seealso cref="http://api.mail.ru/sites/plugins/icq-on-site"/>
-public interface IMailRuIcqWidget : IHtmlWidget
+public interface IMailRuIcqWidget : IWebWidget
 {
   /// <summary>
   ///   <para>ICQ UIN number of contact person. If specified, "Ask Me" option will be added to the widget.</para>

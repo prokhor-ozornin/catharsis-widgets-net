@@ -3,7 +3,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Renders Yandex "Like" button.</para>
 /// </summary>
-public interface IYandexLikeButtonWidget : IHtmlWidget
+public interface IYandexLikeButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Visual layout/appearance of the button.</para>

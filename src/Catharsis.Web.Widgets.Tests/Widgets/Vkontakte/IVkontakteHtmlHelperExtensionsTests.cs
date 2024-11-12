@@ -16,8 +16,8 @@ public sealed class IVkontakteHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.AuthButton(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().AuthButton(null));
 
-    Assert.Equal(new VkontakteHtmlHelper().AuthButton().ToHtmlString(), new VkontakteHtmlHelper().AuthButton(x => { }));
-    Assert.Equal(new VkontakteHtmlHelper().AuthButton().Standard("url").ToHtmlString(), new VkontakteHtmlHelper().AuthButton(x => x.Standard("url")));
+    Assert.Equal(new VkontakteHtmlHelper().AuthButton().ToHtml(), new VkontakteHtmlHelper().AuthButton(x => { }));
+    Assert.Equal(new VkontakteHtmlHelper().AuthButton().Standard("url").ToHtml(), new VkontakteHtmlHelper().AuthButton(x => x.Standard("url")));
   }
 
   /// <summary>
@@ -29,8 +29,8 @@ public sealed class IVkontakteHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Initialize(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Initialize(null));
 
-    Assert.Equal(new VkontakteHtmlHelper().Initialize().ToHtmlString(), new VkontakteHtmlHelper().Initialize(x => { }));
-    Assert.Equal(new VkontakteHtmlHelper().Initialize().ApiId("apiId").ToHtmlString(), new VkontakteHtmlHelper().Initialize(x => x.ApiId("apiId")));
+    Assert.Equal(new VkontakteHtmlHelper().Initialize().ToHtml(), new VkontakteHtmlHelper().Initialize(x => { }));
+    Assert.Equal(new VkontakteHtmlHelper().Initialize().ApiId("apiId").ToHtml(), new VkontakteHtmlHelper().Initialize(x => x.ApiId("apiId")));
   }
     
   /// <summary>
@@ -42,8 +42,8 @@ public sealed class IVkontakteHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Comments(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Comments(null));
 
-    Assert.Equal(new VkontakteHtmlHelper().Comments().ToHtmlString(), new VkontakteHtmlHelper().Comments(x => { }));
-    Assert.Equal(new VkontakteHtmlHelper().Comments().Attach(VkontakteCommentsAttach.All).ToHtmlString(), new VkontakteHtmlHelper().Comments(x => x.Attach(VkontakteCommentsAttach.All)));
+    Assert.Equal(new VkontakteHtmlHelper().Comments().ToHtml(), new VkontakteHtmlHelper().Comments(x => { }));
+    Assert.Equal(new VkontakteHtmlHelper().Comments().Attach(VkontakteCommentsAttach.All).ToHtml(), new VkontakteHtmlHelper().Comments(x => x.Attach(VkontakteCommentsAttach.All)));
   }
 
   /// <summary>
@@ -55,8 +55,8 @@ public sealed class IVkontakteHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Community(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Community(null));
 
-    Assert.Equal(new VkontakteHtmlHelper().Community().ToHtmlString(), new VkontakteHtmlHelper().Community(x => { }));
-    Assert.Equal(new VkontakteHtmlHelper().Community().Account("account").ToHtmlString(), new VkontakteHtmlHelper().Community(x => x.Account("account")));
+    Assert.Equal(new VkontakteHtmlHelper().Community().ToHtml(), new VkontakteHtmlHelper().Community(x => { }));
+    Assert.Equal(new VkontakteHtmlHelper().Community().Account("account").ToHtml(), new VkontakteHtmlHelper().Community(x => x.Account("account")));
   }
 
   /// <summary>
@@ -68,8 +68,8 @@ public sealed class IVkontakteHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.LikeButton(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().LikeButton(null));
 
-    Assert.Equal(new VkontakteHtmlHelper().LikeButton().ToHtmlString(), new VkontakteHtmlHelper().LikeButton(x => { }));
-    Assert.Equal(new VkontakteHtmlHelper().LikeButton().Text("text").ToHtmlString(), new VkontakteHtmlHelper().LikeButton(x => x.Text("text")));
+    Assert.Equal(new VkontakteHtmlHelper().LikeButton().ToHtml(), new VkontakteHtmlHelper().LikeButton(x => { }));
+    Assert.Equal(new VkontakteHtmlHelper().LikeButton().Text("text").ToHtml(), new VkontakteHtmlHelper().LikeButton(x => x.Text("text")));
   }
 
   /// <summary>
@@ -81,8 +81,8 @@ public sealed class IVkontakteHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Poll(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Poll(null));
 
-    Assert.Equal(new VkontakteHtmlHelper().Poll().ToHtmlString(), new VkontakteHtmlHelper().Poll(x => { }));
-    Assert.Equal(new VkontakteHtmlHelper().Poll().Id("id").ToHtmlString(), new VkontakteHtmlHelper().Poll(x => x.Id("id")));
+    Assert.Equal(new VkontakteHtmlHelper().Poll().ToHtml(), new VkontakteHtmlHelper().Poll(x => { }));
+    Assert.Equal(new VkontakteHtmlHelper().Poll().Id("id").ToHtml(), new VkontakteHtmlHelper().Poll(x => x.Id("id")));
   }
 
   /// <summary>
@@ -94,8 +94,8 @@ public sealed class IVkontakteHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Post(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Post(null));
 
-    Assert.Equal(new VkontakteHtmlHelper().Post().ToHtmlString(), new VkontakteHtmlHelper().Post(x => { }));
-    Assert.Equal(new VkontakteHtmlHelper().Post().Id("id").Owner("owner").Hash("hash").ToHtmlString(), new VkontakteHtmlHelper().Post(x => x.Id("id").Owner("owner").Hash("hash")));
+    Assert.Equal(new VkontakteHtmlHelper().Post().ToHtml(), new VkontakteHtmlHelper().Post(x => { }));
+    Assert.Equal(new VkontakteHtmlHelper().Post().Id("id").Owner("owner").Hash("hash").ToHtml(), new VkontakteHtmlHelper().Post(x => x.Id("id").Owner("owner").Hash("hash")));
   }
 
   /// <summary>
@@ -107,7 +107,7 @@ public sealed class IVkontakteHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Recommendations(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Recommendations(null));
 
-    Assert.Equal(new VkontakteHtmlHelper().Recommendations().ToHtmlString(), new VkontakteHtmlHelper().Recommendations(x => { }));
+    Assert.Equal(new VkontakteHtmlHelper().Recommendations().ToHtml(), new VkontakteHtmlHelper().Recommendations(x => { }));
   }
 
   /// <summary>
@@ -119,8 +119,8 @@ public sealed class IVkontakteHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Subscription(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Subscription(null));
 
-    Assert.Equal(new VkontakteHtmlHelper().Subscription().ToHtmlString(), new VkontakteHtmlHelper().Subscription(x => { }));
-    Assert.Equal(new VkontakteHtmlHelper().Subscription().Account("account").ToHtmlString(), new VkontakteHtmlHelper().Subscription(x => x.Account("account")));
+    Assert.Equal(new VkontakteHtmlHelper().Subscription().ToHtml(), new VkontakteHtmlHelper().Subscription(x => { }));
+    Assert.Equal(new VkontakteHtmlHelper().Subscription().Account("account").ToHtml(), new VkontakteHtmlHelper().Subscription(x => x.Account("account")));
   }
 
   /// <summary>
@@ -132,7 +132,7 @@ public sealed class IVkontakteHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVkontakteHtmlHelperExtensions.Video(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VkontakteHtmlHelper().Video(null));
 
-    Assert.Equal(new VkontakteHtmlHelper().Video().ToHtmlString(), new VkontakteHtmlHelper().Video(x => { }));
-    Assert.Equal(new VkontakteHtmlHelper().Video().Id("id").ToHtmlString(), new VkontakteHtmlHelper().Video(x => x.Id("id")));
+    Assert.Equal(new VkontakteHtmlHelper().Video().ToHtml(), new VkontakteHtmlHelper().Video(x => { }));
+    Assert.Equal(new VkontakteHtmlHelper().Video().Id("id").ToHtml(), new VkontakteHtmlHelper().Video(x => x.Id("id")));
   }
 }

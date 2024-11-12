@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookFacepileWidget"/>
-public class FacebookFacepileWidget : HtmlWidget, IFacebookFacepileWidget
+public class FacebookFacepileWidget : WebWidget, IFacebookFacepileWidget
 {
   private IEnumerable<string> actions = [];
   private string colorScheme;
@@ -165,8 +165,8 @@ public class FacebookFacepileWidget : HtmlWidget, IFacebookFacepileWidget
   /// <returns>Width of widget.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     return new TagBuilder("div")
       .Attribute("data-href", Url() ?? (HttpContext.Current is not null ? HttpContext.Current.Request.Url.ToString() : null))

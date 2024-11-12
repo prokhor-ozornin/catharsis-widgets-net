@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontakteAuthButtonWidget"/>
-public class VkontakteAuthButtonWidget : HtmlWidget, IVkontakteAuthButtonWidget
+public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
 {
   private string callback;
   private string elementId;
@@ -121,8 +121,8 @@ public class VkontakteAuthButtonWidget : HtmlWidget, IVkontakteAuthButtonWidget
   /// <returns>JavaScript callback function.</returns>
   public string Callback() => callback;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Type() == VkontakteAuthButtonType.Dynamic && Callback().IsEmpty())
     {

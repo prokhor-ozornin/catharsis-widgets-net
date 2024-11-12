@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ITwitterFollowButtonWidget"/>
-public class TwitterFollowButtonWidget : HtmlWidget, ITwitterFollowButtonWidget
+public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
 {
   private string account;
   private string language;
@@ -177,8 +177,8 @@ public class TwitterFollowButtonWidget : HtmlWidget, ITwitterFollowButtonWidget
   /// <returns>Width of button.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty())
     {

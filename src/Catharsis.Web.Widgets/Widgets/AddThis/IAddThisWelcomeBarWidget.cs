@@ -3,6 +3,6 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IAddThisWelcomeBarWidget : IHtmlWidget
+public interface IAddThisWelcomeBarWidget : IWebWidget
 {
 }

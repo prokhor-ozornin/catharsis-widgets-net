@@ -4,7 +4,7 @@ using System.Web.WebPages;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IGooglePlusOneButtonWidget"/>
-public class GooglePlusOneButtonWidget : HtmlWidget, IGooglePlusOneButtonWidget
+public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
 {
   private string url;
   private string width;
@@ -163,8 +163,8 @@ public class GooglePlusOneButtonWidget : HtmlWidget, IGooglePlusOneButtonWidget
   /// <returns>Width of the button.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     return new TagBuilder("g:plusone")
       .Attribute("href", Url())

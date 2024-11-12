@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 /// <seealso cref="https://dev.twitter.com/docs/follow-button"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Twitter(IWidgetsScriptsRenderer)"/>
-public interface ITwitterFollowButtonWidget : IHtmlWidget
+public interface ITwitterFollowButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Twitter account name.</para>

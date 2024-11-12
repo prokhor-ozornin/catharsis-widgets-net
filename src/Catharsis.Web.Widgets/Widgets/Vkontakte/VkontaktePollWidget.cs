@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontaktePollWidget"/>
-public class VkontaktePollWidget : HtmlWidget, IVkontaktePollWidget
+public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
 {
   private string elementId;
   private string id;
@@ -104,8 +104,8 @@ public class VkontaktePollWidget : HtmlWidget, IVkontaktePollWidget
   /// <returns>Poll's web page URL.</returns>
   public string Url() => url;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Id().IsEmpty())
     {

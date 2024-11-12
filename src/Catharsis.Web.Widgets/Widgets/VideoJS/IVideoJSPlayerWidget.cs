@@ -7,7 +7,7 @@
 /// <seealso cref="http://www.videojs.com"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.VideoJS(IWidgetsScriptsRenderer)"/>
 /// <seealso cref="IWidgetsStylesRendererExtensions.VideoJS(IWidgetsStylesRenderer)"/>
-public interface IVideoJSPlayerWidget : IHtmlWidget
+public interface IVideoJSPlayerWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Custom HTML code to be part of <c>video</c> tag.</para>

@@ -3,6 +3,6 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IGoogleMapWidget : IHtmlWidget
+public interface IGoogleMapWidget : IWebWidget
 {
 }

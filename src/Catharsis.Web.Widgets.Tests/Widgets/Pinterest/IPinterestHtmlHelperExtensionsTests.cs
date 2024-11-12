@@ -16,8 +16,8 @@ public sealed class IPinterestHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IPinterestHtmlHelperExtensions.Board(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new PinterestHtmlHelper().Board(null));
 
-    Assert.Equal(new PinterestHtmlHelper().Board().ToHtmlString(), new CackleHtmlHelper().Comments(x => { }));
-    Assert.Equal(new PinterestHtmlHelper().Board().Account("account").Id("id").ToHtmlString(), new PinterestHtmlHelper().Board(x => x.Account("account").Id("id")));
+    Assert.Equal(new PinterestHtmlHelper().Board().ToHtml(), new CackleHtmlHelper().Comments(x => { }));
+    Assert.Equal(new PinterestHtmlHelper().Board().Account("account").Id("id").ToHtml(), new PinterestHtmlHelper().Board(x => x.Account("account").Id("id")));
   }
 
   /// <summary>
@@ -29,8 +29,8 @@ public sealed class IPinterestHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IPinterestHtmlHelperExtensions.FollowButton(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new PinterestHtmlHelper().FollowButton(null));
 
-    Assert.Equal(new PinterestHtmlHelper().FollowButton().ToHtmlString(), new PinterestHtmlHelper().FollowButton(x => { }));
-    Assert.Equal(new PinterestHtmlHelper().FollowButton().Account("account").ToHtmlString(), new PinterestHtmlHelper().FollowButton(x => x.Account("account")));
+    Assert.Equal(new PinterestHtmlHelper().FollowButton().ToHtml(), new PinterestHtmlHelper().FollowButton(x => { }));
+    Assert.Equal(new PinterestHtmlHelper().FollowButton().Account("account").ToHtml(), new PinterestHtmlHelper().FollowButton(x => x.Account("account")));
   }
 
   /// <summary>
@@ -42,8 +42,8 @@ public sealed class IPinterestHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IPinterestHtmlHelperExtensions.PinItButton(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new PinterestHtmlHelper().PinItButton(null));
 
-    Assert.Equal(new PinterestHtmlHelper().PinItButton().ToHtmlString(), new PinterestHtmlHelper().PinItButton(x => { }));
-    Assert.Equal(new PinterestHtmlHelper().PinItButton().Url("url").Image("image").Description("description").ToHtmlString(), new PinterestHtmlHelper().PinItButton(x => x.Url("url").Image("image").Description("description")));
+    Assert.Equal(new PinterestHtmlHelper().PinItButton().ToHtml(), new PinterestHtmlHelper().PinItButton(x => { }));
+    Assert.Equal(new PinterestHtmlHelper().PinItButton().Url("url").Image("image").Description("description").ToHtml(), new PinterestHtmlHelper().PinItButton(x => x.Url("url").Image("image").Description("description")));
   }
 
   /// <summary>
@@ -55,8 +55,8 @@ public sealed class IPinterestHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IPinterestHtmlHelperExtensions.Pin(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new PinterestHtmlHelper().Pin(null));
 
-    Assert.Equal(new PinterestHtmlHelper().Pin().ToHtmlString(), new PinterestHtmlHelper().Pin(x => { }));
-    Assert.Equal(new PinterestHtmlHelper().Pin().Id("id").ToHtmlString(), new PinterestHtmlHelper().Pin(x => x.Id("id")));
+    Assert.Equal(new PinterestHtmlHelper().Pin().ToHtml(), new PinterestHtmlHelper().Pin(x => { }));
+    Assert.Equal(new PinterestHtmlHelper().Pin().Id("id").ToHtml(), new PinterestHtmlHelper().Pin(x => x.Id("id")));
   }
 
   /// <summary>
@@ -68,7 +68,7 @@ public sealed class IPinterestHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IPinterestHtmlHelperExtensions.Profile(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new PinterestHtmlHelper().Profile(null));
 
-    Assert.Equal(new PinterestHtmlHelper().Profile().ToHtmlString(), new PinterestHtmlHelper().Profile(x => { }));
-    Assert.Equal(new PinterestHtmlHelper().Profile().Account("account").ToHtmlString(), new PinterestHtmlHelper().Profile(x => x.Account("account")));
+    Assert.Equal(new PinterestHtmlHelper().Profile().ToHtml(), new PinterestHtmlHelper().Profile(x => { }));
+    Assert.Equal(new PinterestHtmlHelper().Profile().Account("account").ToHtml(), new PinterestHtmlHelper().Profile(x => x.Account("account")));
   }
 }

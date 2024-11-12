@@ -3,7 +3,7 @@
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IIntenseDebateLinkWidget"/>
-public class IntenseDebateLinkWidget : HtmlWidget, IIntenseDebateLinkWidget
+public class IntenseDebateLinkWidget : WebWidget, IIntenseDebateLinkWidget
 {
   private string account;
   private string postId;
@@ -99,6 +99,6 @@ public class IntenseDebateLinkWidget : HtmlWidget, IIntenseDebateLinkWidget
   /// <returns>Title of post or page.</returns>
   public string PostTitle() => postTitle;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString() => Account().IsEmpty() ? string.Empty : string.Format(resources.intensedebate_link, Account(), PostId(), PostUrl(), PostTitle());
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml() => Account().IsEmpty() ? string.Empty : string.Format(resources.intensedebate_link, Account(), PostId(), PostUrl(), PostTitle());
 }

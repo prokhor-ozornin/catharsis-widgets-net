@@ -4,7 +4,7 @@
 ///   <para>Renders LiveJournal "Repost" button.</para>
 /// </summary>
 /// <seealso cref="http://www.livejournal.com/support/faq/313.html"/>
-public interface ILiveJournalRepostButtonWidget : IHtmlWidget
+public interface ILiveJournalRepostButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Text fragment to be reposted.</para>

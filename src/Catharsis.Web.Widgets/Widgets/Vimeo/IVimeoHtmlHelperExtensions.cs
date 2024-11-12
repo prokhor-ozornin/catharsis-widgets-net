@@ -23,6 +23,6 @@ public static class IVimeoHtmlHelperExtensions
 
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 }

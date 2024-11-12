@@ -92,7 +92,7 @@ public sealed class VimeoVideoWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VimeoVideoWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VimeoVideoWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

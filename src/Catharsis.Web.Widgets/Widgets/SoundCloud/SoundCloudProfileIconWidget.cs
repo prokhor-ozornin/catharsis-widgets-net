@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ISoundCloudProfileIconWidget"/>
-public class SoundCloudProfileIconWidget : HtmlWidget, ISoundCloudProfileIconWidget
+public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidget
 {
   private string account;
   private string color = "orange_white";
@@ -72,8 +72,8 @@ public class SoundCloudProfileIconWidget : HtmlWidget, ISoundCloudProfileIconWid
   /// <returns>Icon's size.</returns>
   public short Size() => size;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty())
     {

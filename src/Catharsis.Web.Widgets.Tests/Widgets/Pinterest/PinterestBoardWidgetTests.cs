@@ -98,7 +98,7 @@ public sealed class PinterestBoardWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestBoardWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestBoardWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

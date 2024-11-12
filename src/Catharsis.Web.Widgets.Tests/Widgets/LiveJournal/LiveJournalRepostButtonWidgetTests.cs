@@ -50,7 +50,7 @@ public sealed class LiveJournalRepostButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="LiveJournalRepostButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="LiveJournalRepostButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

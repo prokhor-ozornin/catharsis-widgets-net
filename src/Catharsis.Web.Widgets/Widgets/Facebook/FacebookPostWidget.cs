@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookPostWidget"/>
-public class FacebookPostWidget : HtmlWidget, IFacebookPostWidget
+public class FacebookPostWidget : WebWidget, IFacebookPostWidget
 {
   private string url;
   private string width;
@@ -54,8 +54,8 @@ public class FacebookPostWidget : HtmlWidget, IFacebookPostWidget
   /// <returns>Width of post.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Url().IsEmpty())
     {

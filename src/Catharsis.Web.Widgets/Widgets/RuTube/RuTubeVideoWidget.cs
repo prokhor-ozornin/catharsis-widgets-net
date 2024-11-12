@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IRuTubeVideoWidget"/>
-public class RuTubeVideoWidget : HtmlWidget, IRuTubeVideoWidget
+public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
 {
   private string id;
   private string height;
@@ -79,8 +79,8 @@ public class RuTubeVideoWidget : HtmlWidget, IRuTubeVideoWidget
   /// <returns>Width of video.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Id().IsEmpty() || Height().IsEmpty() || Width().IsEmpty())
     {

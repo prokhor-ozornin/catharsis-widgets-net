@@ -81,7 +81,7 @@ public sealed class VideoJSPlayerWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

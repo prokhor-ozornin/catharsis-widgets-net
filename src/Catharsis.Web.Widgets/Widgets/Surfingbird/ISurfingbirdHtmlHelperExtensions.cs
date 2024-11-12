@@ -23,6 +23,6 @@ public static class ISurfingbirdHtmlHelperExtensions
 
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 }

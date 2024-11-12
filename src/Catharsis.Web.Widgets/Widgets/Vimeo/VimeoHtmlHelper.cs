@@ -1,6 +1,8 @@
 namespace Catharsis.Web.Widgets;
 
-internal sealed class VimeoHtmlHelper : IVimeoHtmlHelper
+/// <inheritdoc cref="IVimeoHtmlHelper"/>
+public class VimeoHtmlHelper : IVimeoHtmlHelper
 {
+  /// <inheritdoc cref="IVimeoHtmlHelper.Video()"/>
   public IVimeoVideoWidget Video() => new VimeoVideoWidget();
 }

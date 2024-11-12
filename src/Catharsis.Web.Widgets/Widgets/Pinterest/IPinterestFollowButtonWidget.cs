@@ -6,7 +6,7 @@
 /// </summary>
 /// <seealso cref="http://business.pinterest.com/widget-builder/#do_follow_me_button"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
-public interface IPinterestFollowButtonWidget : IHtmlWidget
+public interface IPinterestFollowButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Pinterest user account.</para>

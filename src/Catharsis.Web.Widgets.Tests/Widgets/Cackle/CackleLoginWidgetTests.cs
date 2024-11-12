@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,8 +15,10 @@ public sealed class CackleLoginWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(CackleLoginWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ICackleLoginWidget>();
+
     var widget = new CackleLoginWidget();
-    Assert.Null(widget.Account());
+    widget.Account().Should().BeNull();
   }
 
   /// <summary>
@@ -34,7 +37,7 @@ public sealed class CackleLoginWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="CackleLoginWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="CackleLoginWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

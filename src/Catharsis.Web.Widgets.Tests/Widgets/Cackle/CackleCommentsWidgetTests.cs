@@ -1,4 +1,5 @@
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -15,8 +16,10 @@ public sealed class CackleCommentsWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(CackleCommentsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ICackleCommentsWidget>();
+
     var widget = new CackleCommentsWidget();
-    Assert.Null(widget.Account());
+    widget.Account().Should().BeNull();
   }
 
   /// <summary>
@@ -35,7 +38,7 @@ public sealed class CackleCommentsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="CackleCommentsWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="CackleCommentsWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

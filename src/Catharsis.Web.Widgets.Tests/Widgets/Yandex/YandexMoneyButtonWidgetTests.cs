@@ -176,7 +176,7 @@ public sealed class YandexMoneyButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

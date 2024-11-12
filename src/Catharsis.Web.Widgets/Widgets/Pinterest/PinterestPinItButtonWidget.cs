@@ -5,7 +5,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IPinterestPinItButtonWidget"/>
-public sealed class PinterestPinItButtonWidget : HtmlWidget, IPinterestPinItButtonWidget
+public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
 {
   private string color = "gray";
   private PinterestPinItButtonPinCountPosition counter = PinterestPinItButtonPinCountPosition.None;
@@ -181,8 +181,8 @@ public sealed class PinterestPinItButtonWidget : HtmlWidget, IPinterestPinItButt
   /// <returns>Button's target web page.</returns>
   public string Url() => url;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Url().IsEmpty() || Image().IsEmpty() || Description().IsEmpty())
     {

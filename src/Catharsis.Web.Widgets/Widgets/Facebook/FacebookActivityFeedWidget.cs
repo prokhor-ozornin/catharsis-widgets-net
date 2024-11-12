@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookActivityFeedWidget"/>
-public class FacebookActivityFeedWidget : HtmlWidget, IFacebookActivityFeedWidget
+public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
 {
   private IEnumerable<string> actions = [];
   private string appId;
@@ -245,8 +245,8 @@ public class FacebookActivityFeedWidget : HtmlWidget, IFacebookActivityFeedWidge
   /// <returns>Width of widget.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     return new TagBuilder("div")
       .Attribute("data-site", Domain())

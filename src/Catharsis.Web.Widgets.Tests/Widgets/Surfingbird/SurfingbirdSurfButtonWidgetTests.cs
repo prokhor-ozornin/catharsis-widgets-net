@@ -127,7 +127,7 @@ public sealed class SurfingbirdSurfButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="SurfingbirdSurfButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="SurfingbirdSurfButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

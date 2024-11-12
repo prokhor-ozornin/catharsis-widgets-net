@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="http://vk.com/dev/Subscribe"/>
-public interface IVkontakteSubscriptionWidget : IHtmlWidget
+public interface IVkontakteSubscriptionWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Identifier of user/group to subscribe to.</para>

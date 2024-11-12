@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Renders Tumblr "Follow" button.</para>
 /// </summary>
 /// <seealso cref="http://www.tumblr.com/buttons"/>
-public interface ITumblrFollowButtonWidget : IHtmlWidget
+public interface ITumblrFollowButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Name of Tumblr account (blog).</para>

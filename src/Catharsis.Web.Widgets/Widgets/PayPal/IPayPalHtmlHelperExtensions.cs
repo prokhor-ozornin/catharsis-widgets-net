@@ -23,7 +23,7 @@ public static class IPayPalHtmlHelperExtensions
 
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -43,7 +43,7 @@ public static class IPayPalHtmlHelperExtensions
 
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -63,7 +63,7 @@ public static class IPayPalHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -83,6 +83,6 @@ public static class IPayPalHtmlHelperExtensions
      
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 }

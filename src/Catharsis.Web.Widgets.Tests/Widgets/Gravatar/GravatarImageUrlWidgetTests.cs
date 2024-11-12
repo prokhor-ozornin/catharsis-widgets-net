@@ -69,7 +69,7 @@ public sealed class GravatarImageUrlWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="GravatarImageUrlWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="GravatarImageUrlWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

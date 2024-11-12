@@ -4,7 +4,7 @@
 ///   <para>Renders IntenseDebate hyperlink with current comment count for registered website.</para>
 /// </summary>
 /// <seealso cref="http://intensedebate.com"/>
-public interface IIntenseDebateLinkWidget : IHtmlWidget
+public interface IIntenseDebateLinkWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Identifier of registered website in the "IntenseDebate" comments system.</para>

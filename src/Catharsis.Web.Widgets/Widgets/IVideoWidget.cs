@@ -3,7 +3,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Represents custom embedded video widget.</para>
 /// </summary>
-public interface IVideoWidget<T> : IHtmlWidget where T : IVideoWidget<T>
+public interface IVideoWidget<out T> : IWebWidget where T : IVideoWidget<T>
 {
   /// <summary>
   ///   <para>Identifier of video.</para>

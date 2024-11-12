@@ -1,7 +1,7 @@
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IShare42PanelWidget"/>
-internal sealed class Share42PanelWidget : HtmlWidget, IShare42PanelWidget
+public class Share42PanelWidget : WebWidget, IShare42PanelWidget
 {
   private Share42PanelDirection direction = Share42PanelDirection.Horizontal;
   private byte size = (byte) Share42PanelSize.Size24;
@@ -18,8 +18,8 @@ internal sealed class Share42PanelWidget : HtmlWidget, IShare42PanelWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     /*writer.Write(this.ToTag("div", tag => tag.AddCssClass("share42init")));
     switch (this.direction)

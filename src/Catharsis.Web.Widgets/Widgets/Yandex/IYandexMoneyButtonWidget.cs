@@ -4,7 +4,7 @@
 ///   <para>Renders button for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
 /// </summary>
 /// <seealso cref="https://money.yandex.ru/embed/quickpay/small.xml"/>
-public interface IYandexMoneyButtonWidget : IHtmlWidget
+public interface IYandexMoneyButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Identifier of account in the Yandex.Money payment system which is to receive money.</para>

@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IYandexVideoWidget"/>
-public class YandexVideoWidget : HtmlWidget, IYandexVideoWidget
+public class YandexVideoWidget : WebWidget, IYandexVideoWidget
 {
   private string id;
   private string width;
@@ -106,8 +106,8 @@ public class YandexVideoWidget : HtmlWidget, IYandexVideoWidget
   /// <returns>Width of video.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Id().IsEmpty() || User().IsEmpty() || Height().IsEmpty() || Width().IsEmpty())
     {

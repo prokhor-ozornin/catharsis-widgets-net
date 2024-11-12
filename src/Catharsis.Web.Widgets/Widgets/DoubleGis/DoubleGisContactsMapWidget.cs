@@ -1,10 +1,10 @@
 ﻿namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IDoubleGisContactsMapWidget"/>
-public class DoubleGisContactsMapWidget : HtmlWidget, IDoubleGisContactsMapWidget
+public class DoubleGisContactsMapWidget : WebWidget, IDoubleGisContactsMapWidget
 {
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     throw new NotImplementedException();
   }

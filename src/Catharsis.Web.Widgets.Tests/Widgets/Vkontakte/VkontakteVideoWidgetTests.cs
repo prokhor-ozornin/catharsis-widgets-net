@@ -111,7 +111,7 @@ public sealed class VkontakteVideoWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteVideoWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteVideoWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

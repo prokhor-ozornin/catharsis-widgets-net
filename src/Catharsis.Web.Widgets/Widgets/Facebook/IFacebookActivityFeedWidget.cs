@@ -5,7 +5,7 @@
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="https://developers.facebook.com/docs/plugins/activity"/>
-public interface IFacebookActivityFeedWidget : IHtmlWidget
+public interface IFacebookActivityFeedWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Collection of Open Graph action types to show in the feed.</para>

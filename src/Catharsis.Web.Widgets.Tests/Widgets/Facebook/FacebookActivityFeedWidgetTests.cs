@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,18 +15,20 @@ public sealed class FacebookActivityFeedWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(FacebookActivityFeedWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookActivityFeedWidget>();
+
     var widget = new FacebookActivityFeedWidget();
-    Assert.False(widget.Actions().Any());
-    Assert.Null(widget.AppId());
-    Assert.Null(widget.ColorScheme());
-    Assert.Null(widget.Domain());
-    Assert.Null(widget.Header());
-    Assert.Null(widget.Height());
-    Assert.Null(widget.LinkTarget());
-    Assert.Null(widget.MaxAge());
-    Assert.Null(widget.Recommendations());
-    Assert.Null(widget.TrackLabel());
-    Assert.Null(widget.Width());
+    widget.Actions().Should().BeEmpty();
+    widget.AppId().Should().BeNull();
+    widget.ColorScheme().Should().BeNull();
+    widget.Domain().Should().BeNull();
+    widget.Header().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.LinkTarget().Should().BeNull();
+    widget.MaxAge().Should().BeNull();
+    widget.Recommendations().Should().BeNull();
+    widget.TrackLabel().Should().BeNull();
+    widget.Width().Should().BeNull();
   }
 
   /// <summary>
@@ -184,7 +187,7 @@ public sealed class FacebookActivityFeedWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookActivityFeedWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookActivityFeedWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

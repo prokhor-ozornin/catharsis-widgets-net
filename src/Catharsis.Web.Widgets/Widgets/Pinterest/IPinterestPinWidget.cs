@@ -6,7 +6,7 @@
 /// </summary>
 /// <seealso cref="http://business.pinterest.com/widget-builder/#do_embed_pin"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
-public interface IPinterestPinWidget : IHtmlWidget
+public interface IPinterestPinWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Unique identifier of Pinterest Pin.</para>

@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookCommentsWidget"/>
-public class FacebookCommentsWidget : HtmlWidget, IFacebookCommentsWidget
+public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
 {
   private string colorScheme;
   private bool? mobile;
@@ -139,8 +139,8 @@ public class FacebookCommentsWidget : HtmlWidget, IFacebookCommentsWidget
   /// <returns>Width of widget.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     return new TagBuilder("div")
       .Attribute("data-href", Url())

@@ -23,7 +23,7 @@ public static class IVkontakteHtmlHelperExtensions
 
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -43,7 +43,7 @@ public static class IVkontakteHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -63,7 +63,7 @@ public static class IVkontakteHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -83,7 +83,7 @@ public static class IVkontakteHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -103,7 +103,7 @@ public static class IVkontakteHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -123,7 +123,7 @@ public static class IVkontakteHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -143,7 +143,7 @@ public static class IVkontakteHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -163,7 +163,7 @@ public static class IVkontakteHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -183,7 +183,7 @@ public static class IVkontakteHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 
   /// <summary>
@@ -203,6 +203,6 @@ public static class IVkontakteHtmlHelperExtensions
       
     builder(widget);
       
-    return widget.ToHtmlString();
+    return widget.ToHtml();
   }
 }

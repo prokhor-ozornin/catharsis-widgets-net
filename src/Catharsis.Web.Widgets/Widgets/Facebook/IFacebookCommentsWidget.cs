@@ -5,7 +5,7 @@
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="https://developers.facebook.com/docs/plugins/comments"/>
-public interface IFacebookCommentsWidget : IHtmlWidget
+public interface IFacebookCommentsWidget : IWebWidget
 {
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>

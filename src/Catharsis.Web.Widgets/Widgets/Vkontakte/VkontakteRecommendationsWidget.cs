@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontakteRecommendationsWidget"/>
-public class VkontakteRecommendationsWidget : HtmlWidget, IVkontakteRecommendationsWidget
+public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendationsWidget
 {
   private string elementId;
   private byte? limit;
@@ -147,8 +147,8 @@ public class VkontakteRecommendationsWidget : HtmlWidget, IVkontakteRecommendati
   /// <returns>HTML hyperlinks target value.</returns>
   public string Target() => target;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     var config = new Dictionary<string, object>();
     

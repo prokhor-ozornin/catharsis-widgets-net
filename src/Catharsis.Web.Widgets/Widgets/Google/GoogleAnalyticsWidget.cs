@@ -3,7 +3,7 @@
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IGoogleAnalyticsWidget"/>
-public class GoogleAnalyticsWidget : HtmlWidget, IGoogleAnalyticsWidget
+public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
 {
   private string account;
   private string domain;
@@ -54,8 +54,8 @@ public class GoogleAnalyticsWidget : HtmlWidget, IGoogleAnalyticsWidget
   /// <returns>Site domain name.</returns>
   public string Domain() => domain;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     if (Account().IsEmpty() || Domain().IsEmpty())
     {

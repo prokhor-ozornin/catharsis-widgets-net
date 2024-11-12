@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IYandexSharePanelWidget"/>
-public class YandexSharePanelWidget : HtmlWidget, IYandexSharePanelWidget
+public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
 {
   private string language;
   private string layout = YandexSharePanelLayout.Button.ToString().ToLowerInvariant();
@@ -76,8 +76,8 @@ public class YandexSharePanelWidget : HtmlWidget, IYandexSharePanelWidget
   /// <returns>List of social services for which to render buttons.</returns>
   public IEnumerable<string> Services() => services;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     return new TagBuilder("div")
       .Attribute("data-yashareL10n", Language() ?? (HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))

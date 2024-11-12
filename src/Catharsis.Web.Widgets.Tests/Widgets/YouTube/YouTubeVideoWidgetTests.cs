@@ -92,7 +92,7 @@ public sealed class YouTubeVideoWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YouTubeVideoWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YouTubeVideoWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

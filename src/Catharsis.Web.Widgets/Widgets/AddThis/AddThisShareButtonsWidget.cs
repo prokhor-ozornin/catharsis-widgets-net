@@ -1,10 +1,10 @@
 ﻿namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IAddThisShareButtonsWidget"/>
-public class AddThisShareButtonsWidget : HtmlWidget, IAddThisShareButtonsWidget
+public class AddThisShareButtonsWidget : WebWidget, IAddThisShareButtonsWidget
 {
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     throw new NotImplementedException();
   }

@@ -6,7 +6,7 @@
 /// </summary>
 /// <seealso cref="http://business.pinterest.com/widget-builder/#do_embed_user"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
-public interface IPinterestProfileWidget : IHtmlWidget
+public interface IPinterestProfileWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Pinterest user account.</para>

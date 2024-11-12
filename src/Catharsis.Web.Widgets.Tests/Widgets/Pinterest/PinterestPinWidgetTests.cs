@@ -34,7 +34,7 @@ public sealed class PinterestPinWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestPinWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestPinWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

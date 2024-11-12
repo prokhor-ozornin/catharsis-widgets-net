@@ -5,7 +5,7 @@
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
 /// <seealso cref="http://vk.com/dev/Post"/>
-public interface IVkontaktePostWidget : IHtmlWidget
+public interface IVkontaktePostWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Identifier of HTML container for the widget.</para>

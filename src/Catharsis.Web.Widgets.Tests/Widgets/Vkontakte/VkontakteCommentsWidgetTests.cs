@@ -115,7 +115,7 @@ public sealed class VkontakteCommentsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteCommentsWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteCommentsWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

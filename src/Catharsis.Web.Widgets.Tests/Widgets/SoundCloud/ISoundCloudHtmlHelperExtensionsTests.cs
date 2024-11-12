@@ -16,7 +16,7 @@ public sealed class ISoundCloudHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ISoundCloudHtmlHelperExtensions.ProfileIcon(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new SoundCloudHtmlHelper().ProfileIcon(null));
 
-    Assert.Equal(new SoundCloudHtmlHelper().ProfileIcon().ToHtmlString(), new SoundCloudHtmlHelper().ProfileIcon(x => { }));
-    Assert.Equal(new SoundCloudHtmlHelper().ProfileIcon().Account("account").ToHtmlString(), new SoundCloudHtmlHelper().ProfileIcon(x => x.Account("account")));
+    Assert.Equal(new SoundCloudHtmlHelper().ProfileIcon().ToHtml(), new SoundCloudHtmlHelper().ProfileIcon(x => { }));
+    Assert.Equal(new SoundCloudHtmlHelper().ProfileIcon().Account("account").ToHtml(), new SoundCloudHtmlHelper().ProfileIcon(x => x.Account("account")));
   }
 }

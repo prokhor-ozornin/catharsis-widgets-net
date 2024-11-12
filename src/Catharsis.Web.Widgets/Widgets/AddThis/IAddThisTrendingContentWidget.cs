@@ -3,6 +3,6 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IAddThisTrendingContentWidget : IHtmlWidget
+public interface IAddThisTrendingContentWidget : IWebWidget
 {
 }

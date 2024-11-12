@@ -1,10 +1,10 @@
 ﻿namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IAddThisTrendingContentWidget"/>
-public class AddThisTrendingContentWidget : HtmlWidget, IAddThisTrendingContentWidget
+public class AddThisTrendingContentWidget : WebWidget, IAddThisTrendingContentWidget
 {
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     throw new NotImplementedException();
   }

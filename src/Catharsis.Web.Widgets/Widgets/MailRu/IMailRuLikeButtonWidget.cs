@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 /// <seealso cref="http://api.mail.ru/sites/plugins/share"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.MailRu(IWidgetsScriptsRenderer)"/>
-public interface IMailRuLikeButtonWidget : IHtmlWidget
+public interface IMailRuLikeButtonWidget : IWebWidget
 {
   /// <summary>
   ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>

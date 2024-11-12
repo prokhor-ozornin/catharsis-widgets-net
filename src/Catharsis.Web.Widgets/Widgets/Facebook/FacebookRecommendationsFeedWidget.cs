@@ -4,7 +4,7 @@ using Catharsis.Extensions;
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookRecommendationsFeedWidget"/>
-public class FacebookRecommendationsFeedWidget : HtmlWidget, IFacebookRecommendationsFeedWidget
+public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendationsFeedWidget
 {
   private IEnumerable<string> actions = [];
   private string appId;
@@ -223,8 +223,8 @@ public class FacebookRecommendationsFeedWidget : HtmlWidget, IFacebookRecommenda
   /// <returns>Label for tracking referrals.</returns>
   public string TrackLabel() => trackLabel;
 
-  /// <inheritdoc cref="IHtmlWidget.ToHtmlString()"/>
-  public override string ToHtmlString()
+  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  public override string ToHtml()
   {
     return new TagBuilder("div")
       .Attribute("data-site", Domain())

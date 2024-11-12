@@ -16,8 +16,8 @@ public sealed class ICackleHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.Comments(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().Comments(null));
 
-    Assert.Equal(new CackleHtmlHelper().Comments().ToHtmlString(), new CackleHtmlHelper().Comments(x => { }));
-    Assert.Equal(new CackleHtmlHelper().Comments().Account("account").ToHtmlString(), new CackleHtmlHelper().Comments(x => x.Account("account")));
+    Assert.Equal(new CackleHtmlHelper().Comments().ToHtml(), new CackleHtmlHelper().Comments(x => { }));
+    Assert.Equal(new CackleHtmlHelper().Comments().Account("account").ToHtml(), new CackleHtmlHelper().Comments(x => x.Account("account")));
   }
 
   /// <summary>
@@ -29,8 +29,8 @@ public sealed class ICackleHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.CommentsCount(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().CommentsCount(null));
 
-    Assert.Equal(new CackleHtmlHelper().CommentsCount().ToHtmlString(), new CackleHtmlHelper().CommentsCount(x => { }));
-    Assert.Equal(new CackleHtmlHelper().CommentsCount().Account("account").ToHtmlString(), new CackleHtmlHelper().CommentsCount(x => x.Account("account")));
+    Assert.Equal(new CackleHtmlHelper().CommentsCount().ToHtml(), new CackleHtmlHelper().CommentsCount(x => { }));
+    Assert.Equal(new CackleHtmlHelper().CommentsCount().Account("account").ToHtml(), new CackleHtmlHelper().CommentsCount(x => x.Account("account")));
   }
 
   /// <summary>
@@ -42,8 +42,8 @@ public sealed class ICackleHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.LatestComments(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().LatestComments(null));
 
-    Assert.Equal(new CackleHtmlHelper().LatestComments().ToHtmlString(), new CackleHtmlHelper().LatestComments(x => { }));
-    Assert.Equal(new CackleHtmlHelper().LatestComments().Account("account").ToHtmlString(), new CackleHtmlHelper().LatestComments(x => x.Account("account")));
+    Assert.Equal(new CackleHtmlHelper().LatestComments().ToHtml(), new CackleHtmlHelper().LatestComments(x => { }));
+    Assert.Equal(new CackleHtmlHelper().LatestComments().Account("account").ToHtml(), new CackleHtmlHelper().LatestComments(x => x.Account("account")));
   }
 
   /// <summary>
@@ -55,7 +55,7 @@ public sealed class ICackleHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.Login(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().Login(null));
 
-    Assert.Equal(new CackleHtmlHelper().Login().ToHtmlString(), new CackleHtmlHelper().Login(x => { }));
-    Assert.Equal(new CackleHtmlHelper().Login().Account("account").ToHtmlString(), new CackleHtmlHelper().Login(x => x.Account("account")));
+    Assert.Equal(new CackleHtmlHelper().Login().ToHtml(), new CackleHtmlHelper().Login(x => { }));
+    Assert.Equal(new CackleHtmlHelper().Login().Account("account").ToHtml(), new CackleHtmlHelper().Login(x => x.Account("account")));
   }
 }

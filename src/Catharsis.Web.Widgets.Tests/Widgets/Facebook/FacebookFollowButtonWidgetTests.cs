@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,14 +15,16 @@ public sealed class FacebookFollowButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(FacebookFollowButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookFollowButtonWidget>();
+
     var widget = new FacebookFollowButtonWidget();
-    Assert.Null(widget.ColorScheme());
-    Assert.Null(widget.Faces());
-    Assert.Null(widget.Height());
-    Assert.Null(widget.KidsMode());
-    Assert.Null(widget.Layout());
-    Assert.Null(widget.Url());
-    Assert.Null(widget.Width());
+    widget.ColorScheme().Should().BeNull();
+    widget.Faces().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.KidsMode().Should().BeNull();
+    widget.Layout().Should().BeNull();
+    widget.Url().Should().BeNull();
+    widget.Width().Should().BeNull();
   }
 
   /// <summary>
@@ -124,7 +127,7 @@ public sealed class FacebookFollowButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

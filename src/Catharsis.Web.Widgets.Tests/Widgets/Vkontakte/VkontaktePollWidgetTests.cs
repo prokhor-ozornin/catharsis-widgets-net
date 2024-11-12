@@ -82,7 +82,7 @@ public sealed class VkontaktePollWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontaktePollWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontaktePollWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

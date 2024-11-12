@@ -82,7 +82,7 @@ public sealed class PinterestProfileWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestProfileWidget.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestProfileWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtmlString_Method()

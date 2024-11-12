@@ -3,6 +3,6 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IYandexMapWidget : IHtmlWidget
+public interface IYandexMapWidget : IWebWidget
 {
 }

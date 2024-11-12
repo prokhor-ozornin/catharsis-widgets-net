@@ -16,7 +16,7 @@ public sealed class IVimeoHtmlHelperExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IVimeoHtmlHelperExtensions.Video(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new VimeoHtmlHelper().Video(null));
 
-    Assert.Equal(new VimeoHtmlHelper().Video().ToHtmlString(), new VimeoHtmlHelper().Video(x => { }));
-    Assert.Equal(new VimeoHtmlHelper().Video().Id("id").ToHtmlString(), new VimeoHtmlHelper().Video(x => x.Id("id")));
+    Assert.Equal(new VimeoHtmlHelper().Video().ToHtml(), new VimeoHtmlHelper().Video(x => { }));
+    Assert.Equal(new VimeoHtmlHelper().Video().Id("id").ToHtml(), new VimeoHtmlHelper().Video(x => x.Id("id")));
   }
 }
