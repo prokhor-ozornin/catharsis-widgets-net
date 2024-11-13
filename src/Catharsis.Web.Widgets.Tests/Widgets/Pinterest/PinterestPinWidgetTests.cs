@@ -37,10 +37,10 @@ public sealed class PinterestPinWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestPinWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestPinWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new PinterestPinWidget().ToString());
     Assert.Equal(@"<a data-pin-do=""embedPin"" href=""http://www.pinterest.com/pin/id""></a>", new PinterestPinWidget().Id("id").ToString());

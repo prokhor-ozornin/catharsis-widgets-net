@@ -169,7 +169,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   /// <returns>Width of button.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     var config = new Dictionary<string, object>

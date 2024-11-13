@@ -224,7 +224,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   /// <returns>Screen name of tweet's author.</returns>
   public string Via() => via;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     return new TagBuilder("a")

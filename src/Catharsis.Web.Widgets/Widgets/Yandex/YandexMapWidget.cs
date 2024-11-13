@@ -3,7 +3,7 @@
 /// <inheritdoc cref="IVkontakteVideoWidget"/>
 public class YandexMapWidget : WebWidget, IYandexMapWidget
 {
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     throw new NotImplementedException();

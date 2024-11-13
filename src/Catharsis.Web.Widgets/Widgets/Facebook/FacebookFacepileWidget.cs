@@ -1,10 +1,9 @@
-﻿using System.Web.Mvc;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
-/// <inheritdoc cref="IFacebookFacepileWidget"/>
-public class FacebookFacepileWidget : WebWidget, IFacebookFacepileWidget
+/// <inheritdoc cref="IFacebookFacePileWidget"/>
+public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
 {
   private IEnumerable<string> actions = [];
   private string colorScheme;
@@ -20,7 +19,7 @@ public class FacebookFacepileWidget : WebWidget, IFacebookFacepileWidget
   /// <param name="actions">Collection of Facebook action types.</param>
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="actions"/> is a <c>null</c> reference.</exception>
-  public IFacebookFacepileWidget Actions(IEnumerable<string> actions)
+  public IFacebookFacePileWidget Actions(IEnumerable<string> actions)
   {
     this.actions = actions ?? throw new ArgumentNullException(nameof(actions));
 
@@ -40,7 +39,7 @@ public class FacebookFacepileWidget : WebWidget, IFacebookFacepileWidget
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="colorScheme"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="colorScheme"/> is <see cref="string.Empty"/> string.</exception>
-  public IFacebookFacepileWidget ColorScheme(string colorScheme)
+  public IFacebookFacePileWidget ColorScheme(string colorScheme)
   {
     if (colorScheme is null) throw new ArgumentNullException(nameof(colorScheme));
     if (colorScheme.IsEmpty()) throw new ArgumentException(nameof(colorScheme));
@@ -63,7 +62,7 @@ public class FacebookFacepileWidget : WebWidget, IFacebookFacepileWidget
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  public IFacebookFacepileWidget Height(string height)
+  public IFacebookFacePileWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
@@ -84,7 +83,7 @@ public class FacebookFacepileWidget : WebWidget, IFacebookFacepileWidget
   /// </summary>
   /// <param name="maxRows">Number of rows of faces to display.</param>
   /// <returns>Reference to the current widget.</returns>
-  public IFacebookFacepileWidget MaxRows(byte maxRows)
+  public IFacebookFacePileWidget MaxRows(byte maxRows)
   {
     this.maxRows = maxRows;
     return this;
@@ -103,7 +102,7 @@ public class FacebookFacepileWidget : WebWidget, IFacebookFacepileWidget
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="size"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="size"/> is <see cref="string.Empty"/> string.</exception>
-  public IFacebookFacepileWidget PhotoSize(string size)
+  public IFacebookFacePileWidget PhotoSize(string size)
   {
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
@@ -126,7 +125,7 @@ public class FacebookFacepileWidget : WebWidget, IFacebookFacepileWidget
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
-  public IFacebookFacepileWidget Url(string url)
+  public IFacebookFacePileWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
@@ -149,7 +148,7 @@ public class FacebookFacepileWidget : WebWidget, IFacebookFacepileWidget
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  public IFacebookFacepileWidget Width(string width)
+  public IFacebookFacePileWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
@@ -165,10 +164,8 @@ public class FacebookFacepileWidget : WebWidget, IFacebookFacepileWidget
   /// <returns>Width of widget.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
-  public override string ToHtml()
-  {
-    return new TagBuilder("div")
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-href", Url() ?? (HttpContext.Current is not null ? HttpContext.Current.Request.Url.ToString() : null))
       .Attribute("data-action", Actions().Any() ? Actions().Join(",") : null)
       .Attribute("data-size", PhotoSize())

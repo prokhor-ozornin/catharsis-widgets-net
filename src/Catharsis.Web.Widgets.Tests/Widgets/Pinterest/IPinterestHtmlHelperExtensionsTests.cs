@@ -3,72 +3,72 @@
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="IPinterestHtmlHelperExtensions"/>.</para>
+///   <para>Tests set for class <see cref="IPinterestWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IPinterestHtmlHelperExtensionsTests
+public sealed class PinterestWidgetCreatorExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IPinterestHtmlHelperExtensions.Board(IPinterestHtmlHelper, Action{IPinterestBoardWidget}"/> method.</para>
+  ///   <para>Performs testing of <see cref="IPinterestWidgetCreatorExtensions.Board(IPinterestWidgetCreator, Action{IPinterestBoardWidget}"/> method.</para>
   /// </summary>
   [Fact]
   public void Board_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestHtmlHelperExtensions.Board(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new PinterestHtmlHelper().Board(null));
+    Assert.Throws<ArgumentNullException>(() => IPinterestWidgetCreatorExtensions.Board(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new PinterestWidgetCreator().Board(null));
 
-    Assert.Equal(new PinterestHtmlHelper().Board().ToHtml(), new CackleHtmlHelper().Comments(x => { }));
-    Assert.Equal(new PinterestHtmlHelper().Board().Account("account").Id("id").ToHtml(), new PinterestHtmlHelper().Board(x => x.Account("account").Id("id")));
+    Assert.Equal(new PinterestWidgetCreator().Board().ToHtml(), new CackleWidgetsCreator().Comments(x => { }));
+    Assert.Equal(new PinterestWidgetCreator().Board().Account("account").Id("id").ToHtml(), new PinterestWidgetCreator().Board(x => x.Account("account").Id("id")));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IPinterestHtmlHelperExtensions.FollowButton(IPinterestHtmlHelper, Action{IPinterestFollowButtonWidget}"/> method.</para>
+  ///   <para>Performs testing of <see cref="IPinterestWidgetCreatorExtensions.FollowButton(IPinterestWidgetCreator, Action{IPinterestFollowButtonWidget}"/> method.</para>
   /// </summary>
   [Fact]
   public void FollowButton_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestHtmlHelperExtensions.FollowButton(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new PinterestHtmlHelper().FollowButton(null));
+    Assert.Throws<ArgumentNullException>(() => IPinterestWidgetCreatorExtensions.FollowButton(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new PinterestWidgetCreator().FollowButton(null));
 
-    Assert.Equal(new PinterestHtmlHelper().FollowButton().ToHtml(), new PinterestHtmlHelper().FollowButton(x => { }));
-    Assert.Equal(new PinterestHtmlHelper().FollowButton().Account("account").ToHtml(), new PinterestHtmlHelper().FollowButton(x => x.Account("account")));
+    Assert.Equal(new PinterestWidgetCreator().FollowButton().ToHtml(), new PinterestWidgetCreator().FollowButton(x => { }));
+    Assert.Equal(new PinterestWidgetCreator().FollowButton().Account("account").ToHtml(), new PinterestWidgetCreator().FollowButton(x => x.Account("account")));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IPinterestHtmlHelperExtensions.PinItButton(IPinterestHtmlHelper, Action{IPinterestPinItButtonWidget}"/> method.</para>
+  ///   <para>Performs testing of <see cref="IPinterestWidgetCreatorExtensions.PinItButton(IPinterestWidgetCreator, Action{IPinterestPinItButtonWidget}"/> method.</para>
   /// </summary>
   [Fact]
   public void PinItButton_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestHtmlHelperExtensions.PinItButton(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new PinterestHtmlHelper().PinItButton(null));
+    Assert.Throws<ArgumentNullException>(() => IPinterestWidgetCreatorExtensions.PinItButton(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new PinterestWidgetCreator().PinItButton(null));
 
-    Assert.Equal(new PinterestHtmlHelper().PinItButton().ToHtml(), new PinterestHtmlHelper().PinItButton(x => { }));
-    Assert.Equal(new PinterestHtmlHelper().PinItButton().Url("url").Image("image").Description("description").ToHtml(), new PinterestHtmlHelper().PinItButton(x => x.Url("url").Image("image").Description("description")));
+    Assert.Equal(new PinterestWidgetCreator().PinItButton().ToHtml(), new PinterestWidgetCreator().PinItButton(x => { }));
+    Assert.Equal(new PinterestWidgetCreator().PinItButton().Url("url").Image("image").Description("description").ToHtml(), new PinterestWidgetCreator().PinItButton(x => x.Url("url").Image("image").Description("description")));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IPinterestHtmlHelperExtensions.Pin(IPinterestHtmlHelper, Action{IPinterestPinWidget}"/> method.</para>
+  ///   <para>Performs testing of <see cref="IPinterestWidgetCreatorExtensions.Pin(IPinterestWidgetCreator, Action{IPinterestPinWidget}"/> method.</para>
   /// </summary>
   [Fact]
   public void Pin_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestHtmlHelperExtensions.Pin(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new PinterestHtmlHelper().Pin(null));
+    Assert.Throws<ArgumentNullException>(() => IPinterestWidgetCreatorExtensions.Pin(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new PinterestWidgetCreator().Pin(null));
 
-    Assert.Equal(new PinterestHtmlHelper().Pin().ToHtml(), new PinterestHtmlHelper().Pin(x => { }));
-    Assert.Equal(new PinterestHtmlHelper().Pin().Id("id").ToHtml(), new PinterestHtmlHelper().Pin(x => x.Id("id")));
+    Assert.Equal(new PinterestWidgetCreator().Pin().ToHtml(), new PinterestWidgetCreator().Pin(x => { }));
+    Assert.Equal(new PinterestWidgetCreator().Pin().Id("id").ToHtml(), new PinterestWidgetCreator().Pin(x => x.Id("id")));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IPinterestHtmlHelperExtensions.Profile(IPinterestHtmlHelper, Action{IPinterestProfileWidget}"/> method.</para>
+  ///   <para>Performs testing of <see cref="IPinterestWidgetCreatorExtensions.Profile(IPinterestWidgetCreator, Action{IPinterestProfileWidget}"/> method.</para>
   /// </summary>
   [Fact]
   public void Profile_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestHtmlHelperExtensions.Profile(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new PinterestHtmlHelper().Profile(null));
+    Assert.Throws<ArgumentNullException>(() => IPinterestWidgetCreatorExtensions.Profile(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new PinterestWidgetCreator().Profile(null));
 
-    Assert.Equal(new PinterestHtmlHelper().Profile().ToHtml(), new PinterestHtmlHelper().Profile(x => { }));
-    Assert.Equal(new PinterestHtmlHelper().Profile().Account("account").ToHtml(), new PinterestHtmlHelper().Profile(x => x.Account("account")));
+    Assert.Equal(new PinterestWidgetCreator().Profile().ToHtml(), new PinterestWidgetCreator().Profile(x => { }));
+    Assert.Equal(new PinterestWidgetCreator().Profile().Account("account").ToHtml(), new PinterestWidgetCreator().Profile(x => x.Account("account")));
   }
 }

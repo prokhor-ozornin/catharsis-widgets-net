@@ -270,7 +270,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   /// <returns>Numeric code of text to display.</returns>
   public byte Text() => text;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty() || DescriptionText().IsEmpty())

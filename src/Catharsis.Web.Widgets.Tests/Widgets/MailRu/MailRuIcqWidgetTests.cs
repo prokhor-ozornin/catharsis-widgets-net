@@ -53,10 +53,10 @@ public sealed class MailRuIcqWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuIcqWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuIcqWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(@"<script src=""http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"" type=""text/javascript""></script>", new MailRuIcqWidget().ToString());
 

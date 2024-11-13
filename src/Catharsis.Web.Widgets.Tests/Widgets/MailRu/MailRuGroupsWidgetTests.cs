@@ -146,10 +146,10 @@ public sealed class MailRuGroupsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuGroupsWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuGroupsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new MailRuGroupsWidget().ToString());
     Assert.Equal(string.Empty, new MailRuGroupsWidget().Account("account").Width("width").ToString());

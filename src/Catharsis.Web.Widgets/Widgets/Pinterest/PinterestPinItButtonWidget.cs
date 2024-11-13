@@ -181,7 +181,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   /// <returns>Button's target web page.</returns>
   public string Url() => url;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Url().IsEmpty() || Image().IsEmpty() || Description().IsEmpty())

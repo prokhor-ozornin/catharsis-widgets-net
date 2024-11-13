@@ -140,10 +140,10 @@ public sealed class PinterestPinItButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestPinItButtonWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestPinItButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new PinterestPinItButtonWidget().ToString());
     Assert.Equal(string.Empty, new PinterestPinItButtonWidget().Url("url").Image("image").ToString());

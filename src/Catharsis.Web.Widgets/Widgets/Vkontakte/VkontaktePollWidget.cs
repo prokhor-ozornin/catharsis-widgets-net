@@ -104,7 +104,7 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
   /// <returns>Poll's web page URL.</returns>
   public string Url() => url;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Id().IsEmpty())

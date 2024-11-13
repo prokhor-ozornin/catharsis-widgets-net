@@ -4,15 +4,15 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="RuTubeHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="RuTubeWidgetCreator"/>.</para>
 /// </summary>
-/// <seealso cref="RuTubeHtmlHelper"/>
-public sealed class RuTubeHtmlHelperTests
+/// <seealso cref="RuTubeWidgetCreator"/>
+public sealed class RuTubeWidgetCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="RuTubeHtmlHelper.Video()"/> method.</para>
+  ///   <para>Performs testing of <see cref="RuTubeWidgetCreator.Video()"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()

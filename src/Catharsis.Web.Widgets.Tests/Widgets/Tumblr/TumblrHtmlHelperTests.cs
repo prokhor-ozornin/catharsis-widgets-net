@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="TumblrHtmlHelper"/></para>
+///   <para>Tests set for class <see cref="TumblrWidgetCreator"/></para>
 /// </summary>
-public sealed class TumblrHtmlHelperTests
+public sealed class TumblrWidgetCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TumblrHtmlHelper.FollowButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="TumblrWidgetCreator.FollowButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void FollowButton_Method()
@@ -21,7 +21,7 @@ public sealed class TumblrHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TumblrHtmlHelper.ShareButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="TumblrWidgetCreator.ShareButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void ShareButton_Method()

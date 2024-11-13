@@ -189,7 +189,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   /// <returns>Area width.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty() || Width().IsEmpty() || Height().IsEmpty())

@@ -49,7 +49,7 @@ public class TumblrShareButtonWidget : WebWidget, ITumblrShareButtonWidget
   /// <returns>Layout of button.</returns>
   public byte Type() => type;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     byte width;

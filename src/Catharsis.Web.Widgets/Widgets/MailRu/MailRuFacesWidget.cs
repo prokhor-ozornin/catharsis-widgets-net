@@ -261,7 +261,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   /// <returns>Area width.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Domain().IsEmpty() || Width().IsEmpty() || Height().IsEmpty())

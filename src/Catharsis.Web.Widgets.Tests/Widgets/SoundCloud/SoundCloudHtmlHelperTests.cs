@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="SoundCloudHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="SoundCloudWidgetCreator"/>.</para>
 /// </summary>
-public sealed class SoundCloudHtmlHelperTests
+public sealed class SoundCloudWidgetCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="SoundCloudHtmlHelper.ProfileIcon()"/> method.</para>
+  ///   <para>Performs testing of <see cref="SoundCloudWidgetCreator.ProfileIcon()"/> method.</para>
   /// </summary>
   [Fact]
   public void ProfileIcon_Method()

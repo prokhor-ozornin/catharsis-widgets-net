@@ -3,59 +3,59 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="ICackleHtmlHelperExtensions"/>.</para>
+///   <para>Tests set for class <see cref="ICackleWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class ICackleHtmlHelperExtensionsTests
+public sealed class CackleWidgetsCreatorExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="ICackleHtmlHelperExtensions.Comments(ICackleHtmlHelper, Action{ICackleCommentsWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="ICackleWidgetsCreatorExtensions.Comments(ICackleWidgetsCreator, Action{ICackleCommentsWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void Comments_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.Comments(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().Comments(null));
+    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.Comments(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new CackleWidgetsCreator().Comments(null));
 
-    Assert.Equal(new CackleHtmlHelper().Comments().ToHtml(), new CackleHtmlHelper().Comments(x => { }));
-    Assert.Equal(new CackleHtmlHelper().Comments().Account("account").ToHtml(), new CackleHtmlHelper().Comments(x => x.Account("account")));
+    Assert.Equal(new CackleWidgetsCreator().Comments().ToHtml(), new CackleWidgetsCreator().Comments(x => { }));
+    Assert.Equal(new CackleWidgetsCreator().Comments().Account("account").ToHtml(), new CackleWidgetsCreator().Comments(x => x.Account("account")));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="ICackleHtmlHelperExtensions.CommentsCount(ICackleHtmlHelper, Action{ICackleCommentsCountWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="ICackleWidgetsCreatorExtensions.CommentsCount(ICackleWidgetsCreator, Action{ICackleCommentsCountWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void CommentsCount_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.CommentsCount(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().CommentsCount(null));
+    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.CommentsCount(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new CackleWidgetsCreator().CommentsCount(null));
 
-    Assert.Equal(new CackleHtmlHelper().CommentsCount().ToHtml(), new CackleHtmlHelper().CommentsCount(x => { }));
-    Assert.Equal(new CackleHtmlHelper().CommentsCount().Account("account").ToHtml(), new CackleHtmlHelper().CommentsCount(x => x.Account("account")));
+    Assert.Equal(new CackleWidgetsCreator().CommentsCount().ToHtml(), new CackleWidgetsCreator().CommentsCount(x => { }));
+    Assert.Equal(new CackleWidgetsCreator().CommentsCount().Account("account").ToHtml(), new CackleWidgetsCreator().CommentsCount(x => x.Account("account")));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="ICackleHtmlHelperExtensions.LatestComments(ICackleHtmlHelper, Action{ICackleLatestCommentsWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="ICackleWidgetsCreatorExtensions.LatestComments(ICackleWidgetsCreator, Action{ICackleLatestCommentsWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void LatestComments_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.LatestComments(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().LatestComments(null));
+    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.LatestComments(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new CackleWidgetsCreator().LatestComments(null));
 
-    Assert.Equal(new CackleHtmlHelper().LatestComments().ToHtml(), new CackleHtmlHelper().LatestComments(x => { }));
-    Assert.Equal(new CackleHtmlHelper().LatestComments().Account("account").ToHtml(), new CackleHtmlHelper().LatestComments(x => x.Account("account")));
+    Assert.Equal(new CackleWidgetsCreator().LatestComments().ToHtml(), new CackleWidgetsCreator().LatestComments(x => { }));
+    Assert.Equal(new CackleWidgetsCreator().LatestComments().Account("account").ToHtml(), new CackleWidgetsCreator().LatestComments(x => x.Account("account")));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="ICackleHtmlHelperExtensions.Login(ICackleHtmlHelper, Action{ICackleLoginWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="ICackleWidgetsCreatorExtensions.Login(ICackleWidgetsCreator, Action{ICackleLoginWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void Login_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ICackleHtmlHelperExtensions.Login(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new CackleHtmlHelper().Login(null));
+    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.Login(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new CackleWidgetsCreator().Login(null));
 
-    Assert.Equal(new CackleHtmlHelper().Login().ToHtml(), new CackleHtmlHelper().Login(x => { }));
-    Assert.Equal(new CackleHtmlHelper().Login().Account("account").ToHtml(), new CackleHtmlHelper().Login(x => x.Account("account")));
+    Assert.Equal(new CackleWidgetsCreator().Login().ToHtml(), new CackleWidgetsCreator().Login(x => { }));
+    Assert.Equal(new CackleWidgetsCreator().Login().Account("account").ToHtml(), new CackleWidgetsCreator().Login(x => x.Account("account")));
   }
 }

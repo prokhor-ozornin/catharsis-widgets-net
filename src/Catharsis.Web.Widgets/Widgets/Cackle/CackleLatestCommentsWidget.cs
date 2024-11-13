@@ -105,7 +105,7 @@ public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
   /// <returns>Maximum count of characters in title.</returns>
   public int TitleSize() => titleSize;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (account.IsEmpty())

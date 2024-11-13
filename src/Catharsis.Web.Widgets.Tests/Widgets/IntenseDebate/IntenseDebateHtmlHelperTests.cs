@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IntenseDebateHtmlHelper"/>.</para>
 /// </summary>
-public sealed class IntenseDebateHtmlHelperTests
+public sealed class IntenseDebateWidgetsCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 

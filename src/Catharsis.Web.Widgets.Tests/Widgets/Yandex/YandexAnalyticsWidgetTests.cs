@@ -131,15 +131,15 @@ public sealed class YandexAnalyticsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new YandexAnalyticsWidget().ToString());
       
     var html = new YandexAnalyticsWidget().Account("account").ToString();
-    Assert.True(html.Contains("Ya.Metrika.informer({{i: this, id: account, lang: '{0}'}})".FormatSelf(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)));
+    Assert.True(html.Contains($"Ya.Metrika.informer({{i: this, id: account, lang: '${Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName}'}})"));
     Assert.True(html.Contains("yaCounteraccount"));
     Assert.True(html.Contains(@"""webvisor"":true"));
     Assert.True(html.Contains(@"""clickmap"":true"));

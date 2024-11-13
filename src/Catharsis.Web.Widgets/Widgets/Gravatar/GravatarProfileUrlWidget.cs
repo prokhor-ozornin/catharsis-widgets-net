@@ -72,6 +72,6 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
     return this;
   }
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => Hash().IsEmpty() ? string.Empty : $"http://www.gravatar.com/{Hash()}{(Format().IsEmpty() ? string.Empty : $".${Format()}")}{(parameters.Any() ? $"?${parameters.ToUrlQuery()}" : string.Empty)}";
 }

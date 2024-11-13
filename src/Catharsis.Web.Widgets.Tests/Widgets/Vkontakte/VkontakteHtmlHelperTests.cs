@@ -4,9 +4,9 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="VkontakteHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="VkontakteWidgetCreator"/>.</para>
 /// </summary>
-public sealed class VkontakteHtmlHelperTests
+public sealed class VkontakteWidgetCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
@@ -21,7 +21,7 @@ public sealed class VkontakteHtmlHelperTests
   }*/
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Video()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Video()"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()
@@ -31,7 +31,7 @@ public sealed class VkontakteHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Initialize()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Initialize()"/> method.</para>
   /// </summary>
   [Fact]
   public void Initialize_Method()
@@ -41,7 +41,7 @@ public sealed class VkontakteHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Comments()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Comments()"/> method.</para>
   /// </summary>
   [Fact]
   public void Comments_Method()
@@ -51,7 +51,7 @@ public sealed class VkontakteHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Community()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Community()"/> method.</para>
   /// </summary>
   [Fact]
   public void Community_Method()
@@ -61,7 +61,7 @@ public sealed class VkontakteHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.LikeButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.LikeButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void Like_Method()
@@ -71,7 +71,7 @@ public sealed class VkontakteHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Poll()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Poll()"/> method.</para>
   /// </summary>
   [Fact]
   public void Poll_Method()
@@ -81,7 +81,7 @@ public sealed class VkontakteHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Post()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Post()"/> method.</para>
   /// </summary>
   [Fact]
   public void Post_Method()
@@ -91,7 +91,7 @@ public sealed class VkontakteHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Recommendations()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Recommendations()"/> method.</para>
   /// </summary>
   [Fact]
   public void Recommendations_Method()
@@ -111,7 +111,7 @@ public sealed class VkontakteHtmlHelperTests
   }*/
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteHtmlHelper.Subscription()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Subscription()"/> method.</para>
   /// </summary>
   [Fact]
   public void Subscribe_Method()

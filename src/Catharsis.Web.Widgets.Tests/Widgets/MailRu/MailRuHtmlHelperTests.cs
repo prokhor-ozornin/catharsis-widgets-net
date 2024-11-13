@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="MailRuHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="MailRuWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class MailRuHtmlHelperTests
+public sealed class MailRuWidgetsCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuHtmlHelper.Faces()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuWidgetsCreator.Faces()"/> method.</para>
   /// </summary>
   [Fact]
   public void Faces_Method()
@@ -21,7 +21,7 @@ public sealed class MailRuHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuHtmlHelper.Groups()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuWidgetsCreator.Groups()"/> method.</para>
   /// </summary>
   [Fact]
   public void Groups_Method()
@@ -31,7 +31,7 @@ public sealed class MailRuHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuHtmlHelper.Icq()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuWidgetsCreator.Icq()"/> method.</para>
   /// </summary>
   [Fact]
   public void Icq_Method()
@@ -41,7 +41,7 @@ public sealed class MailRuHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuHtmlHelper.LikeButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuWidgetsCreator.LikeButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void LikeButton_Method()
@@ -51,7 +51,7 @@ public sealed class MailRuHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MailRuHtmlHelper.Video()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MailRuWidgetsCreator.Video()"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()

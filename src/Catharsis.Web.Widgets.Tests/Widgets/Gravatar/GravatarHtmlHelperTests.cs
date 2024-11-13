@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="GravatarHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="GravatarWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class GravatarHtmlHelperTests
+public sealed class GravatarWidgetsCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="GravatarHtmlHelper.ImageUrl()"/> method.</para>
+  ///   <para>Performs testing of <see cref="GravatarWidgetsCreator.ImageUrl()"/> method.</para>
   /// </summary>
   [Fact]
   public void ImageLink_Method()
@@ -21,7 +21,7 @@ public sealed class GravatarHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="GravatarHtmlHelper.ProfileUrl()"/> method.</para>
+  ///   <para>Performs testing of <see cref="GravatarWidgetsCreator.ProfileUrl()"/> method.</para>
   /// </summary>
   [Fact]
   public void ProfileLink_Method()

@@ -3,20 +3,20 @@
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="IRuTubeHtmlHelperExtensions"/>.</para>
+///   <para>Tests set for class <see cref="IRuTubeWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IRuTubeHtmlHelperExtensionsTests
+public sealed class RuTubeWidgetCreatorExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IRuTubeHtmlHelperExtensions.Video(IRuTubeHtmlHelper, Action{IRuTubeVideoWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IRuTubeWidgetCreatorExtensions.Video(IRuTubeWidgetCreator, Action{IRuTubeVideoWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IRuTubeHtmlHelperExtensions.Video(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new RuTubeHtmlHelper().Video(null));
+    Assert.Throws<ArgumentNullException>(() => IRuTubeWidgetCreatorExtensions.Video(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new RuTubeWidgetCreator().Video(null));
 
-    Assert.Equal(new RuTubeHtmlHelper().Video().ToHtml(), new RuTubeHtmlHelper().Video(x => { }));
-    Assert.Equal(new RuTubeHtmlHelper().Video().Id("id").ToHtml(), new RuTubeHtmlHelper().Video(x => x.Id("id")));
+    Assert.Equal(new RuTubeWidgetCreator().Video().ToHtml(), new RuTubeWidgetCreator().Video(x => { }));
+    Assert.Equal(new RuTubeWidgetCreator().Video().Id("id").ToHtml(), new RuTubeWidgetCreator().Video(x => x.Id("id")));
   }
 }

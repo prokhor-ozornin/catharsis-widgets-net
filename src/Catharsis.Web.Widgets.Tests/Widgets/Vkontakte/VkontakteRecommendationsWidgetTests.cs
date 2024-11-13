@@ -115,10 +115,10 @@ public sealed class VkontakteRecommendationsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteRecommendationsWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteRecommendationsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(@"<div id=""vk_recommendations""></div><script type=""text/javascript"">VK.Widgets.Recommended(""vk_recommendations"", {});</script>", new VkontakteRecommendationsWidget().ToString());
     Assert.Equal(@"<div id=""elementId""></div><script type=""text/javascript"">VK.Widgets.Recommended(""elementId"", {""limit"":5,""max"":1,""period"":""day"",""verb"":0,""sort"":""friend_likes"",""target"":""target""});</script>", new VkontakteRecommendationsWidget().ElementId("elementId").Limit(VkontakteRecommendationsLimit.Five).Max(1).Period(VkontakteRecommendationsPeriod.Day).Verb(VkontakteRecommendationsVerb.Like).Sorting(VkontakteRecommendationsSorting.FriendLikes).Target("target").ToString());

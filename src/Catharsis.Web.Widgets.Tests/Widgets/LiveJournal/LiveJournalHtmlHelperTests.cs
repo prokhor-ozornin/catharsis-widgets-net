@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="LiveJournalHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="LiveJournalWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class LiveJournalHtmlHelperTests
+public sealed class LiveJournalWidgetsCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="LiveJournalHtmlHelper.LikeButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="LiveJournalWidgetsCreator.LikeButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void LikeButton_Method()
@@ -21,7 +21,7 @@ public sealed class LiveJournalHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="LiveJournalHtmlHelper.RepostButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="LiveJournalWidgetsCreator.RepostButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void RepostButton_Method()

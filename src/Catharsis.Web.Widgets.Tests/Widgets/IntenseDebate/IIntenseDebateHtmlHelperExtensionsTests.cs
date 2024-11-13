@@ -3,17 +3,17 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="IIntenseDebateHtmlHelperExtensions"/>.</para>
+///   <para>Tests set for class <see cref="IIntenseDebateWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IIntenseDebateHtmlHelperExtensionsTests
+public sealed class IntenseDebateWidgetsCreatorExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IIntenseDebateHtmlHelperExtensions.Comments(IIntenseDebateHtmlHelper, Action{IIntenseDebateCommentsWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IIntenseDebateWidgetsCreatorExtensions.Comments(IIntenseDebateWidgetsCreator, Action{IIntenseDebateCommentsWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void Comments_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IIntenseDebateHtmlHelperExtensions.Comments(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IIntenseDebateWidgetsCreatorExtensions.Comments(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new IntenseDebateHtmlHelper().Comments(null));
 
     Assert.Equal(new IntenseDebateHtmlHelper().Comments().ToHtml(), new IntenseDebateHtmlHelper().Comments(x => { }));

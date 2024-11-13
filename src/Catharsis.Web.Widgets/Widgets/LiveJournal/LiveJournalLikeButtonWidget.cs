@@ -5,6 +5,6 @@ public class LiveJournalLikeButtonWidget : WebWidget, ILiveJournalLikeButtonWidg
 {
   private const string html = @"<lj-like buttons=""repost""/>";
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => html;
 }

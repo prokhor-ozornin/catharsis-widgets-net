@@ -114,10 +114,10 @@ public sealed class VkontakteVideoWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteVideoWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteVideoWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new VkontakteVideoWidget().ToString());
     Assert.Equal(string.Empty, new VkontakteVideoWidget().User("oid").Hash("hash").Width("width").Height("height").ToString());

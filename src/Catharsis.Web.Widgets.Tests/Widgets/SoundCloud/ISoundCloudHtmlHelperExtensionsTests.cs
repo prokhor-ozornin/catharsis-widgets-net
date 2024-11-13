@@ -8,15 +8,15 @@ namespace Catharsis.Web.Widgets;
 public sealed class ISoundCloudHtmlHelperExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="ISoundCloudHtmlHelperExtensions.ProfileIcon(ISoundCloudHtmlHelper, Action{ISoundCloudProfileIconWidget}"/> method.</para>
+  ///   <para>Performs testing of <see cref="ISoundCloudHtmlHelperExtensions.ProfileIcon(ISoundCloudWidgetCreator, Action{ISoundCloudProfileIconWidget}"/> method.</para>
   /// </summary>
   [Fact]
   public void ProfileIcon_Method()
   {
     Assert.Throws<ArgumentNullException>(() => ISoundCloudHtmlHelperExtensions.ProfileIcon(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new SoundCloudHtmlHelper().ProfileIcon(null));
+    Assert.Throws<ArgumentNullException>(() => new SoundCloudWidgetCreator().ProfileIcon(null));
 
-    Assert.Equal(new SoundCloudHtmlHelper().ProfileIcon().ToHtml(), new SoundCloudHtmlHelper().ProfileIcon(x => { }));
-    Assert.Equal(new SoundCloudHtmlHelper().ProfileIcon().Account("account").ToHtml(), new SoundCloudHtmlHelper().ProfileIcon(x => x.Account("account")));
+    Assert.Equal(new SoundCloudWidgetCreator().ProfileIcon().ToHtml(), new SoundCloudWidgetCreator().ProfileIcon(x => { }));
+    Assert.Equal(new SoundCloudWidgetCreator().ProfileIcon().Account("account").ToHtml(), new SoundCloudWidgetCreator().ProfileIcon(x => x.Account("account")));
   }
 }

@@ -148,7 +148,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
   /// <returns>Width of video.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Id().IsEmpty() || User().IsEmpty() || Hash().IsEmpty() || Width().IsEmpty() || Height().IsEmpty())

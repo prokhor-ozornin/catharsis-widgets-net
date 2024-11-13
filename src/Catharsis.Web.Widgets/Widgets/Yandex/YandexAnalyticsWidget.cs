@@ -163,7 +163,7 @@ public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
   /// <returns><c>true</c> to enable webvisor functionality, <c>false</c> to disable it.</returns>
   public bool WebVisor() => webVisor;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty())

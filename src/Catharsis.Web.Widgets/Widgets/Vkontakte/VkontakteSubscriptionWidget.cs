@@ -93,7 +93,7 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
   /// <returns><c>false</c> to display both author/button, <c>true</c> to display only button.</returns>
   public bool OnlyButton() => onlyButton;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty())

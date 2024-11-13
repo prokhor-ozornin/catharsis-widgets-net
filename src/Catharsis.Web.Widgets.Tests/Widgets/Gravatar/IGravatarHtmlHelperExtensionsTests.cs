@@ -3,33 +3,33 @@
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="IGravatarHtmlHelperExtensions"/>.</para>
+///   <para>Tests set for class <see cref="IGravatarWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IGravatarHtmlHelperExtensionsTests
+public sealed class GravatarWidgetsCreatorExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IGravatarHtmlHelperExtensions.ImageUrl(IGravatarHtmlHelper, Action{IGravatarImageUrlWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IGravatarWidgetsCreatorExtensions.ImageUrl(IGravatarWidgetsCreator, Action{IGravatarImageUrlWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void ImageUrl_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarHtmlHelperExtensions.ImageUrl(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new GravatarHtmlHelper().ImageUrl(null));
+    Assert.Throws<ArgumentNullException>(() => IGravatarWidgetsCreatorExtensions.ImageUrl(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new GravatarWidgetsCreator().ImageUrl(null));
 
-    Assert.Equal(new GravatarHtmlHelper().ImageUrl().ToHtml(), new GravatarHtmlHelper().ImageUrl(x => { }));
-    Assert.Equal(new GravatarHtmlHelper().ImageUrl().Hash("hash").ToHtml(), new GravatarHtmlHelper().ImageUrl(x => x.Hash("hash")));
+    Assert.Equal(new GravatarWidgetsCreator().ImageUrl().ToHtml(), new GravatarWidgetsCreator().ImageUrl(x => { }));
+    Assert.Equal(new GravatarWidgetsCreator().ImageUrl().Hash("hash").ToHtml(), new GravatarWidgetsCreator().ImageUrl(x => x.Hash("hash")));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IGravatarHtmlHelperExtensions.ProfileUrl(IGravatarHtmlHelper, Action{IGravatarProfileUrlWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IGravatarWidgetsCreatorExtensions.ProfileUrl(IGravatarWidgetsCreator, Action{IGravatarProfileUrlWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void ProfileUrl_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarHtmlHelperExtensions.ProfileUrl(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new GravatarHtmlHelper().ProfileUrl(null));
+    Assert.Throws<ArgumentNullException>(() => IGravatarWidgetsCreatorExtensions.ProfileUrl(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new GravatarWidgetsCreator().ProfileUrl(null));
 
-    Assert.Equal(new GravatarHtmlHelper().ProfileUrl().ToHtml(), new GravatarHtmlHelper().ProfileUrl(x => { }));
-    Assert.Equal(new GravatarHtmlHelper().ProfileUrl().Hash("hash").ToHtml(), new GravatarHtmlHelper().ProfileUrl(x => x.Hash("hash")));
+    Assert.Equal(new GravatarWidgetsCreator().ProfileUrl().ToHtml(), new GravatarWidgetsCreator().ProfileUrl(x => { }));
+    Assert.Equal(new GravatarWidgetsCreator().ProfileUrl().Hash("hash").ToHtml(), new GravatarWidgetsCreator().ProfileUrl(x => x.Hash("hash")));
   }
 }

@@ -67,10 +67,10 @@ public sealed class RuTubeVideoWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="RuTubeVideoWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="RuTubeVideoWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new RuTubeVideoWidget().ToString());
     Assert.Equal(string.Empty, new RuTubeVideoWidget().Id("id").Height("height").ToString());

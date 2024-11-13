@@ -190,7 +190,7 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   /// <returns>Width of button.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Url().IsEmpty())

@@ -118,10 +118,10 @@ public sealed class VkontakteCommentsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteCommentsWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteCommentsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     var html = new VkontakteCommentsWidget().ToString();
     Assert.True(html.Contains(@"<div id=""vk_comments""></div>"));

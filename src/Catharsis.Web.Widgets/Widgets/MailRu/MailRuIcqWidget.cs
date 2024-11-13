@@ -54,7 +54,7 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
   /// <returns>ISO language code for interface.</returns>
   public string Language() => language;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     var builder = new StringBuilder()

@@ -111,10 +111,10 @@ public sealed class FacebookCommentsWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookCommentsWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookCommentsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(@"<div class=""fb-comments""></div>", new FacebookCommentsWidget().ToString());
     Assert.Equal(@"<div class=""fb-comments"" data-colorscheme=""dark"" data-href=""url"" data-mobile=""true"" data-num-posts=""1"" data-order-by=""reverse_time"" data-width=""width""></div>", new FacebookCommentsWidget().Url("url").Posts(1).Width("width").ColorScheme(FacebookColorScheme.Dark).Mobile(true).Order(FacebookCommentsOrder.ReverseTime).ToString());

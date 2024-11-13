@@ -20,19 +20,13 @@ public static class IMailRuFacesWidgetExtensions
   {
     if (widget is null) throw new ArgumentNullException(nameof(widget));
 
-    switch (font)
+    return font switch
     {
-      case MailRuFacesFont.Arial :
-        return widget.Font("Arial");
-
-      case MailRuFacesFont.Georgia :
-        return widget.Font("Georgia");
-
-      case MailRuFacesFont.Tahoma :
-        return widget.Font("Tahoma");
-    }
-
-    return widget;
+      MailRuFacesFont.Arial => widget.Font("Arial"),
+      MailRuFacesFont.Georgia => widget.Font("Georgia"),
+      MailRuFacesFont.Tahoma => widget.Font("Tahoma"),
+      _ => widget
+    };
   }
 
   /// <summary>

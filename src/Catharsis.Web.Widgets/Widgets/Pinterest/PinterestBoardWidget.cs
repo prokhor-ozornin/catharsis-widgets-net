@@ -127,7 +127,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
   /// <returns>Board's image width.</returns>
   public string Image() => image;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty() || Id().IsEmpty())

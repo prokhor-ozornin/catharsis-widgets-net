@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="GoogleHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="GoogleWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class GoogleHtmlHelperTests
+public sealed class GoogleWidgetsCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="GoogleHtmlHelper.Analytics()"/> method.</para>
+  ///   <para>Performs testing of <see cref="GoogleWidgetsCreator.Analytics()"/> method.</para>
   /// </summary>
   [Fact]
   public void Analytics_Method()
@@ -31,7 +31,7 @@ public sealed class GoogleHtmlHelperTests
   }*/
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="GoogleHtmlHelper.PlusOneButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="GoogleWidgetsCreator.PlusOneButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void PlusOneButton_Method()

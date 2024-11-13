@@ -125,10 +125,10 @@ public sealed class TwitterFollowButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TwitterFollowButtonWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="TwitterFollowButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(@"<a class=""twitter-follow-button"" data-lang=""{0}"" href=""https://twitter.com/account""></a>".FormatSelf(HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new TwitterFollowButtonWidget().Account("account").ToString());
     Assert.Equal(@"<a class=""twitter-follow-button"" data-align=""align"" data-dnt=""true"" data-lang=""en"" data-show-count=""true"" data-show-screen-name=""true"" data-size=""size"" data-width=""width"" href=""https://twitter.com/account""></a>", new TwitterFollowButtonWidget().Account("account").Language("en").Counter(true).Size("size").Width("width").Alignment("align").ScreenName(true).Suggestions(false).ToString());

@@ -103,7 +103,7 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
   /// <returns>Area's image width.</returns>
   public string Image() => image;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   /// <returns>Widget's HTML markup.</returns>
   public override string ToHtml()
   {

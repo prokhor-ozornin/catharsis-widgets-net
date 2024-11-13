@@ -32,7 +32,7 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
   /// <returns>Application API ID.</returns>
   public string ApiId() => apiId;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (ApiId().IsEmpty())

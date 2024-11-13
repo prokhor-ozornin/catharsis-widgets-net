@@ -85,10 +85,10 @@ public sealed class VkontaktePollWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontaktePollWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontaktePollWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new VkontaktePollWidget().ToString());
     Assert.Equal(@"<div id=""vk_poll_id""></div><script type=""text/javascript"">VK.Widgets.Poll(""vk_poll_id"", {}, ""id"");</script>", new VkontaktePollWidget().Id("id").ToString());

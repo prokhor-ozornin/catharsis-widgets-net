@@ -177,7 +177,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   /// <returns>Width of button.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty())

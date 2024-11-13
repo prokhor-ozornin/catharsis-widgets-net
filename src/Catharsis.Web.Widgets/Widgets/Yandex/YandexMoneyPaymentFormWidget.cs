@@ -219,7 +219,7 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   /// <returns>Numeric code of text to display.</returns>
   public byte Text() => text;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty() || Description().IsEmpty())

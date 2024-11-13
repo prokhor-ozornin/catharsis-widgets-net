@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="SurfingbirdHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="SurfingbirdWidgetCreator"/>.</para>
 /// </summary>
-public sealed class SurfingbirdHtmlHelperTests
+public sealed class SurfingbirdWidgetCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="SurfingbirdHtmlHelper.SurfButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="SurfingbirdWidgetCreator.SurfButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void SurfButton_Method()

@@ -21,10 +21,10 @@ public sealed class YandexMapWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexMapWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexMapWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     throw new NotImplementedException();
   }

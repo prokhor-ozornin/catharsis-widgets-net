@@ -125,7 +125,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   /// <returns>URL address of web page.</returns>
   public string Url() => url;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     return new StringBuilder()

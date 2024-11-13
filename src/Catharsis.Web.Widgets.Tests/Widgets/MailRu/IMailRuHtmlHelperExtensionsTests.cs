@@ -3,72 +3,72 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="IMailRuHtmlHelperExtensions"/>.</para>
+///   <para>Tests set for class <see cref="IMailRuWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IMailRuHtmlHelperExtensionsTests
+public sealed class MailRuWidgetsCreatorExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IMailRuHtmlHelperExtensions.Faces(IMailRuHtmlHelper, Action{IMailRuFacesWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IMailRuWidgetsCreatorExtensions.Faces(IMailRuWidgetsCreator, Action{IMailRuFacesWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void Faces_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuHtmlHelperExtensions.Faces(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().Faces(null));
+    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Faces(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new MailRuWidgetsCreator().Faces(null));
 
-    Assert.Equal(new MailRuHtmlHelper().Faces().ToHtml(), new MailRuHtmlHelper().Faces(x => { }));
-    Assert.Equal(new MailRuHtmlHelper().Faces().Domain("domain").ToHtml(), new MailRuHtmlHelper().Faces(x => x.Domain("domain")));
+    Assert.Equal(new MailRuWidgetsCreator().Faces().ToHtml(), new MailRuWidgetsCreator().Faces(x => { }));
+    Assert.Equal(new MailRuWidgetsCreator().Faces().Domain("domain").ToHtml(), new MailRuWidgetsCreator().Faces(x => x.Domain("domain")));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IMailRuHtmlHelperExtensions.Groups(IMailRuHtmlHelper, Action{IMailRuGroupsWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IMailRuWidgetsCreatorExtensions.Groups(IMailRuWidgetsCreator, Action{IMailRuGroupsWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void Groups_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuHtmlHelperExtensions.Groups(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().Groups(null));
+    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Groups(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new MailRuWidgetsCreator().Groups(null));
 
-    Assert.Equal(new MailRuHtmlHelper().Groups().ToHtml(), new MailRuHtmlHelper().Groups(x => { }));
-    Assert.Equal(new MailRuHtmlHelper().Groups().Account("account").ToHtml(), new MailRuHtmlHelper().Groups(x => x.Account("account")));
+    Assert.Equal(new MailRuWidgetsCreator().Groups().ToHtml(), new MailRuWidgetsCreator().Groups(x => { }));
+    Assert.Equal(new MailRuWidgetsCreator().Groups().Account("account").ToHtml(), new MailRuWidgetsCreator().Groups(x => x.Account("account")));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IMailRuHtmlHelperExtensions.Icq(IMailRuHtmlHelper, Action{IMailRuIcqWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IMailRuWidgetsCreatorExtensions.Icq(IMailRuWidgetsCreator, Action{IMailRuIcqWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void Icq_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuHtmlHelperExtensions.Icq(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().Icq(null));
+    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Icq(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new MailRuWidgetsCreator().Icq(null));
 
-    Assert.Equal(new MailRuHtmlHelper().Icq().ToHtml(), new MailRuHtmlHelper().Icq(x => { }));
-    Assert.Equal(new MailRuHtmlHelper().Icq().Account("account").ToHtml(), new MailRuHtmlHelper().Icq(x => x.Account("account")));
+    Assert.Equal(new MailRuWidgetsCreator().Icq().ToHtml(), new MailRuWidgetsCreator().Icq(x => { }));
+    Assert.Equal(new MailRuWidgetsCreator().Icq().Account("account").ToHtml(), new MailRuWidgetsCreator().Icq(x => x.Account("account")));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IMailRuHtmlHelperExtensions.LikeButton(IMailRuHtmlHelper, Action{IMailRuLikeButtonWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IMailRuWidgetsCreatorExtensions.LikeButton(IMailRuWidgetsCreator, Action{IMailRuLikeButtonWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void LikeButton_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuHtmlHelperExtensions.LikeButton(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().LikeButton(null));
+    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.LikeButton(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new MailRuWidgetsCreator().LikeButton(null));
 
-    Assert.Equal(new MailRuHtmlHelper().LikeButton().ToHtml(), new MailRuHtmlHelper().LikeButton(x => { }));
-    Assert.Equal(new MailRuHtmlHelper().LikeButton().Type(MailRuLikeButtonType.All).ToHtml(), new MailRuHtmlHelper().LikeButton(x => x.Type(MailRuLikeButtonType.All)));
+    Assert.Equal(new MailRuWidgetsCreator().LikeButton().ToHtml(), new MailRuWidgetsCreator().LikeButton(x => { }));
+    Assert.Equal(new MailRuWidgetsCreator().LikeButton().Type(MailRuLikeButtonType.All).ToHtml(), new MailRuWidgetsCreator().LikeButton(x => x.Type(MailRuLikeButtonType.All)));
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IMailRuHtmlHelperExtensions.Video(IMailRuHtmlHelper, Action{IMailRuVideoWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IMailRuWidgetsCreatorExtensions.Video(IMailRuWidgetsCreator, Action{IMailRuVideoWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuHtmlHelperExtensions.Video(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new MailRuHtmlHelper().Video(null));
+    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Video(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new MailRuWidgetsCreator().Video(null));
 
-    Assert.Equal(new MailRuHtmlHelper().Video().ToHtml(), new MailRuHtmlHelper().Video(x => { }));
-    Assert.Equal(new MailRuHtmlHelper().Video().ToHtml(), new MailRuHtmlHelper().Video(x => x.Id("id")));
+    Assert.Equal(new MailRuWidgetsCreator().Video().ToHtml(), new MailRuWidgetsCreator().Video(x => { }));
+    Assert.Equal(new MailRuWidgetsCreator().Video().ToHtml(), new MailRuWidgetsCreator().Video(x => x.Id("id")));
   }
 }

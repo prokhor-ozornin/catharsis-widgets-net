@@ -8,15 +8,15 @@ namespace Catharsis.Web.Widgets;
 public sealed class IDisqusHtmlHelperExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IDisqusHtmlHelperExtensions.Comments(IDisqusHtmlHelper, Action{IDisqusCommentsWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IDisqusHtmlHelperExtensions.Comments(IDisqusWidgetsCreator, Action{IDisqusCommentsWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void Comments_Method()
   {
     Assert.Throws<ArgumentNullException>(() => IDisqusHtmlHelperExtensions.Comments(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new DisqusHtmlHelper().Comments(null));
+    Assert.Throws<ArgumentNullException>(() => new DisqusWidgetsCreator().Comments(null));
 
-    Assert.Equal(new DisqusHtmlHelper().Comments().ToHtml(), new DisqusHtmlHelper().Comments(x => { }));
-    Assert.Equal(new DisqusHtmlHelper().Comments().Account("account").ToHtml(), new DisqusHtmlHelper().Comments(x => x.Account("account")));
+    Assert.Equal(new DisqusWidgetsCreator().Comments().ToHtml(), new DisqusWidgetsCreator().Comments(x => { }));
+    Assert.Equal(new DisqusWidgetsCreator().Comments().Account("account").ToHtml(), new DisqusWidgetsCreator().Comments(x => x.Account("account")));
   }
 }

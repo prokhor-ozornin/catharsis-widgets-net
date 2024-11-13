@@ -74,6 +74,6 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
     return this;
   }
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => Hash().IsEmpty() ? string.Empty : $"http://www.gravatar.com/avatar/{Hash()}{(Extension().IsEmpty() ? string.Empty : $".${Extension()}")}{(parameters.Any() ? $"?${parameters.ToUrlQuery()}" : string.Empty)}";
 }

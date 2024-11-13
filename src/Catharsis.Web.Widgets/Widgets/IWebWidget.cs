@@ -3,11 +3,6 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IWebWidget
+public interface IWebWidget : IHtmlContent
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <returns></returns>
-  string ToHtml();
 }

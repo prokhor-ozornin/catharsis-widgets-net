@@ -76,7 +76,7 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
   /// <returns>List of social services for which to render buttons.</returns>
   public IEnumerable<string> Services() => services;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     return new TagBuilder("div")

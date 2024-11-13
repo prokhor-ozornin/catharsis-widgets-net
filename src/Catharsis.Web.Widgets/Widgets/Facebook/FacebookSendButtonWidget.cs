@@ -140,7 +140,7 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
   /// <returns>Width of button.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-href", Url())
       .Attribute("data-colorscheme", ColorScheme())

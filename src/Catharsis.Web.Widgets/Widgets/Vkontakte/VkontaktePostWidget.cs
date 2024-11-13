@@ -130,7 +130,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
   /// <returns>Width of post.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Id().IsEmpty() || Owner().IsEmpty() || Hash().IsEmpty())

@@ -32,7 +32,7 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
   /// <returns>Identifier of Facebook application.</returns>
   public string AppId() => appId;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (AppId().IsEmpty())

@@ -46,7 +46,7 @@ public class InlineImageWidget : WebWidget, IInlineImageWidget
 
   public string Format() => format;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (contents is null)

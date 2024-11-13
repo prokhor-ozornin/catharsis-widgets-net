@@ -31,7 +31,7 @@ public class PinterestPinWidget : WebWidget, IPinterestPinWidget
   /// <returns>Identifier of pin.</returns>
   public string Id() => id;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Id().IsEmpty())

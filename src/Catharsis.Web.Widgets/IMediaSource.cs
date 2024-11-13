@@ -1,11 +1,9 @@
-﻿using System.Web;
-
-namespace Catharsis.Web.Widgets;
+﻿namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Represents a media source for HTML video tag.</para>
 /// </summary>
-public interface IMediaSource : IHtmlString
+public interface IMediaSource : IHtmlContent
 {
   /// <summary>
   ///   <para>Content-type of associated video.</para>

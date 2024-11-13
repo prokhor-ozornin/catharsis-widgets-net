@@ -147,7 +147,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <returns>Type of text label.</returns>
   public byte TextType() => textType;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     var config = new Dictionary<string, object>

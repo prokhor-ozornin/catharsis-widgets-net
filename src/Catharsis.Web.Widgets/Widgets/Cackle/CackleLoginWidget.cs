@@ -33,7 +33,7 @@ public class CackleLoginWidget : WebWidget, ICackleLoginWidget
   /// <returns>Identifier of website.</returns>
   public string Account() => account;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (account.IsEmpty())

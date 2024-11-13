@@ -98,10 +98,10 @@ public sealed class VkontakteAuthButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteAuthButtonWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteAuthButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new VkontakteAuthButtonWidget().ToString());
     Assert.Equal(string.Empty, new VkontakteAuthButtonWidget().Type(VkontakteAuthButtonType.Standard).ToString());

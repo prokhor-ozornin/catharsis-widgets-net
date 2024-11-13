@@ -178,10 +178,10 @@ public sealed class TwitterTweetButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TwitterTweetButtonWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="TwitterTweetButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(@"<a class=""twitter-share-button"" data-lang=""{0}"" href=""https://twitter.com/share""></a>".FormatSelf(HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new TwitterTweetButtonWidget().ToString());
     Assert.Equal(@"<a class=""twitter-hashtag-button"" data-count=""counterPosition"" data-counturl=""countUrl"" data-dnt=""true"" data-hashtags=""tags"" data-lang=""en"" data-related=""related"" data-size=""size"" data-text=""text"" data-url=""url"" data-via=""via"" href=""https://twitter.com/share""></a>", new TwitterTweetButtonWidget().Language("en").Url("url").Via("via").Text("text").RelatedAccounts("related").CounterPosition("counterPosition").CountUrl("countUrl").HashTags("tags").Size("size").Suggestions(false).ToString());

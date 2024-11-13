@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="PinterestHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="PinterestWidgetCreator"/>.</para>
 /// </summary>
-public sealed class PinterestHtmlHelperTests
+public sealed class PinterestWidgetCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestHtmlHelper.Board()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestWidgetCreator.Board()"/> method.</para>
   /// </summary>
   [Fact]
   public void Board_Method()
@@ -21,7 +21,7 @@ public sealed class PinterestHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestHtmlHelper.FollowButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestWidgetCreator.FollowButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void FollowButton_Method()
@@ -31,7 +31,7 @@ public sealed class PinterestHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestHtmlHelper.PinItButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestWidgetCreator.PinItButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void PinItButton_Method()
@@ -41,7 +41,7 @@ public sealed class PinterestHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestHtmlHelper.Pin()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestWidgetCreator.Pin()"/> method.</para>
   /// </summary>
   [Fact]
   public void Pin_Method()
@@ -51,7 +51,7 @@ public sealed class PinterestHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestHtmlHelper.Profile()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestWidgetCreator.Profile()"/> method.</para>
   /// </summary>
   [Fact]
   public void Profile_Method()

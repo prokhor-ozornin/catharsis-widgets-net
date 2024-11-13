@@ -79,7 +79,7 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
   /// <returns>Width of video.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (Id().IsEmpty() || Height().IsEmpty() || Width().IsEmpty())

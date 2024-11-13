@@ -179,10 +179,10 @@ public sealed class YandexMoneyButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new YandexMoneyButtonWidget().ToString());
     Assert.Equal(string.Empty, new YandexMoneyButtonWidget().Description("description").Sum(1).ToString());

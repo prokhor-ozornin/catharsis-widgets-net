@@ -205,10 +205,10 @@ public sealed class YandexMoneyDonateFormWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexMoneyDonateFormWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexMoneyDonateFormWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new YandexMoneyDonateFormWidget().ToString());
     Assert.Equal(string.Empty, new YandexMoneyDonateFormWidget().DescriptionText("description").ToString());

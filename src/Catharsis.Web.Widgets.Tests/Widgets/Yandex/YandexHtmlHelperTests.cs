@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="YandexHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="YandexWidgetCreator"/>.</para>
 /// </summary>
-public sealed class YandexHtmlHelperTests
+public sealed class YandexWidgetCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexHtmlHelper.LikeButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetCreator.LikeButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void LikeButton_Method()
@@ -21,7 +21,7 @@ public sealed class YandexHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexHtmlHelper.MoneyButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetCreator.MoneyButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void MoneyButton_Method()
@@ -31,7 +31,7 @@ public sealed class YandexHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexHtmlHelper.MoneyDonateForm()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetCreator.MoneyDonateForm()"/> method.</para>
   /// </summary>
   [Fact]
   public void MoneyDonateForm_Method()
@@ -41,7 +41,7 @@ public sealed class YandexHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexHtmlHelper.MoneyPaymentForm()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetCreator.MoneyPaymentForm()"/> method.</para>
   /// </summary>
   [Fact]
   public void MoneyPaymentForm_Method()
@@ -51,7 +51,7 @@ public sealed class YandexHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexHtmlHelper.SharePanel()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetCreator.SharePanel()"/> method.</para>
   /// </summary>
   [Fact]
   public void Share_Method()
@@ -61,7 +61,7 @@ public sealed class YandexHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexHtmlHelper.Video()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetCreator.Video()"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()

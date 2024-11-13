@@ -37,10 +37,10 @@ public sealed class FacebookInitializationWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookInitializationWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookInitializationWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new FacebookInitializationWidget().ToString());
 

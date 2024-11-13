@@ -3,20 +3,20 @@
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="IYouTubeHtmlHelperExtensions"/>.</para>
+///   <para>Tests set for class <see cref="IYouTubeWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IYouTubeHtmlHelperExtensionsTests
+public sealed class YouTubeWidgetCreatorExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IYouTubeHtmlHelperExtensions.Video(IYouTubeHtmlHelper, Action{IYouTubeVideoWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IYouTubeWidgetCreatorExtensions.Video(IYouTubeWidgetCreator, Action{IYouTubeVideoWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYouTubeHtmlHelperExtensions.Video(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new YouTubeHtmlHelper().Video(null));
+    Assert.Throws<ArgumentNullException>(() => IYouTubeWidgetCreatorExtensions.Video(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new YouTubeWidgetCreator().Video(null));
 
-    Assert.Equal(new YouTubeHtmlHelper().Video().ToHtml(), new YouTubeHtmlHelper().Video(x => { }));
-    Assert.Equal(new YouTubeHtmlHelper().Video().Id("id").ToHtml(), new YouTubeHtmlHelper().Video(x => x.Id("id")));
+    Assert.Equal(new YouTubeWidgetCreator().Video().ToHtml(), new YouTubeWidgetCreator().Video(x => { }));
+    Assert.Equal(new YouTubeWidgetCreator().Video().Id("id").ToHtml(), new YouTubeWidgetCreator().Video(x => x.Id("id")));
   }
 }

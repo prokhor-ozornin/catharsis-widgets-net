@@ -37,10 +37,10 @@ public sealed class CackleLoginWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="CackleLoginWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="CackleLoginWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new CackleLoginWidget().ToString());
 

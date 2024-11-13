@@ -66,10 +66,10 @@ public sealed class TumblrFollowButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TumblrFollowButtonWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="TumblrFollowButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new TumblrFollowButtonWidget().ToString());
     Assert.Equal(@"<iframe allowtransparency=""true"" border=""0"" class=""btn"" frameborder=""0"" height=""25"" scrolling=""no"" src=""http://platform.tumblr.com/v1/follow_button.html?button_type=1&amp;tumblelog=account&amp;color_scheme=light"" width=""189""></iframe>", new TumblrFollowButtonWidget().Account("account").ToString());

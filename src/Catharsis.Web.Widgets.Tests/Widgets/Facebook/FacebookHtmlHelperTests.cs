@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="FacebookHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="FacebookWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class FacebookHtmlHelperTests
+public sealed class FacebookWidgetsCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookHtmlHelper.Initialize()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.Initialize()"/> method.</para>
   /// </summary>
   [Fact]
   public void Initialize_Method()
@@ -21,7 +21,7 @@ public sealed class FacebookHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookHtmlHelper.ActivityFeed()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.ActivityFeed()"/> method.</para>
   /// </summary>
   [Fact]
   public void ActivityFeed_Method()
@@ -31,7 +31,7 @@ public sealed class FacebookHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookHtmlHelper.RecommendationsFeed()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.RecommendationsFeed()"/> method.</para>
   /// </summary>
   [Fact]
   public void RecommendationsFeed_Method()
@@ -41,7 +41,7 @@ public sealed class FacebookHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookHtmlHelper.Comments()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.Comments()"/> method.</para>
   /// </summary>
   [Fact]
   public void Comments_Method()
@@ -51,7 +51,7 @@ public sealed class FacebookHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookHtmlHelper.Facepile()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.Facepile()"/> method.</para>
   /// </summary>
   [Fact]
   public void Facepile_Method()
@@ -61,7 +61,7 @@ public sealed class FacebookHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookHtmlHelper.FollowButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.FollowButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void FollowButton_Method()
@@ -71,7 +71,7 @@ public sealed class FacebookHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookHtmlHelper.LikeButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.LikeButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void LikeButton_Method()
@@ -81,7 +81,7 @@ public sealed class FacebookHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookHtmlHelper.LikeBox()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.LikeBox()"/> method.</para>
   /// </summary>
   [Fact]
   public void LikeBox_Method()
@@ -91,7 +91,7 @@ public sealed class FacebookHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookHtmlHelper.Post()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.Post()"/> method.</para>
   /// </summary>
   [Fact]
   public void Post_Method()
@@ -101,7 +101,7 @@ public sealed class FacebookHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookHtmlHelper.SendButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.SendButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void SendButton_Method()
@@ -111,7 +111,7 @@ public sealed class FacebookHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookHtmlHelper.Video()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.Video()"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()

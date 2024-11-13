@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="CackleHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="CackleWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class CackleHtmlHelperTests
+public sealed class CackleWidgetsCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="CackleHtmlHelper.Comments()"/> method.</para>
+  ///   <para>Performs testing of <see cref="CackleWidgetsCreator.Comments()"/> method.</para>
   /// </summary>
   [Fact]
   public void Comments_Method()
@@ -21,7 +21,7 @@ public sealed class CackleHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="CackleHtmlHelper.CommentsCount()"/> method.</para>
+  ///   <para>Performs testing of <see cref="CackleWidgetsCreator.CommentsCount()"/> method.</para>
   /// </summary>
   [Fact]
   public void CommentsCount_Method()
@@ -31,7 +31,7 @@ public sealed class CackleHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="CackleHtmlHelper.LatestComments()"/> method.</para>
+  ///   <para>Performs testing of <see cref="CackleWidgetsCreator.LatestComments()"/> method.</para>
   /// </summary>
   [Fact]
   public void LatestComments_Method()
@@ -41,7 +41,7 @@ public sealed class CackleHtmlHelperTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="CackleHtmlHelper.Login()"/> method.</para>
+  ///   <para>Performs testing of <see cref="CackleWidgetsCreator.Login()"/> method.</para>
   /// </summary>
   [Fact]
   public void Login_Method()

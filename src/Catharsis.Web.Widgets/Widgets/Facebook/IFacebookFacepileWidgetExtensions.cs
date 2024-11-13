@@ -3,10 +3,10 @@
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Set of extension methods for interface <see cref="IFacebookFacepileWidget"/>.</para>
+///   <para>Set of extension methods for interface <see cref="IFacebookFacePileWidget"/>.</para>
 /// </summary>
-/// <seealso cref="IFacebookFacepileWidget"/>
-public static class IFacebookFacepileWidgetExtensions
+/// <seealso cref="IFacebookFacePileWidget"/>
+public static class IFacebookFacePileWidgetExtensions
 {
   /// <summary>
   ///   <para>Collection of Open Graph action types.</para>
@@ -15,13 +15,8 @@ public static class IFacebookFacepileWidgetExtensions
   /// <param name="actions">Collection of Facebook action types.</param>
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IFacebookFacepileWidget.Actions(IEnumerable{string})"/>
-  public static IFacebookFacepileWidget Actions(this IFacebookFacepileWidget widget, params string[] actions)
-  {
-    Assertion.NotNull(widget);
-
-    return widget.Actions(actions);
-  }
+  /// <seealso cref="IFacebookFacePileWidget.Actions(IEnumerable{string})"/>
+  public static IFacebookFacePileWidget Actions(this IFacebookFacePileWidget widget, params string[] actions) => widget is not null ? widget.Actions(actions) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Controls the size of the photos shown in the widget.</para>
@@ -30,13 +25,8 @@ public static class IFacebookFacepileWidgetExtensions
   /// <param name="size">Size of photos.</param>
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IFacebookFacepileWidget.PhotoSize(string)"/>
-  public static IFacebookFacepileWidget PhotoSize(this IFacebookFacepileWidget widget, FacebookFacepilePhotoSize size)
-  {
-    Assertion.NotNull(widget);
-
-    return widget.PhotoSize(size.ToString().ToLowerInvariant());
-  }
+  /// <seealso cref="IFacebookFacePileWidget.PhotoSize(string)"/>
+  public static IFacebookFacePileWidget PhotoSize(this IFacebookFacePileWidget widget, FacebookFacePilePhotoSize size) => widget is not null ? widget.PhotoSize(size.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The width of the widget in pixels.</para>
@@ -45,13 +35,8 @@ public static class IFacebookFacepileWidgetExtensions
   /// <param name="width">Width of widget.</param>
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IFacebookFacepileWidget.Width(string)"/>
-  public static IFacebookFacepileWidget Width(this IFacebookFacepileWidget widget, short width)
-  {
-    Assertion.NotNull(widget);
-
-    return widget.Width(width.ToString(CultureInfo.InvariantCulture));
-  }
+  /// <seealso cref="IFacebookFacePileWidget.Width(string)"/>
+  public static IFacebookFacePileWidget Width(this IFacebookFacePileWidget widget, short width) => widget is not null ? widget.Width(width.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The height of the widget in pixels.</para>
@@ -60,13 +45,8 @@ public static class IFacebookFacepileWidgetExtensions
   /// <param name="height">Height of widget.</param>
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IFacebookFacepileWidget.Height(string)"/>
-  public static IFacebookFacepileWidget Height(this IFacebookFacepileWidget widget, short height)
-  {
-    Assertion.NotNull(widget);
-
-    return widget.Height(height.ToString(CultureInfo.InvariantCulture));
-  }
+  /// <seealso cref="IFacebookFacePileWidget.Height(string)"/>
+  public static IFacebookFacePileWidget Height(this IFacebookFacePileWidget widget, short height) => widget is not null ? widget.Height(height.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>
@@ -75,11 +55,6 @@ public static class IFacebookFacepileWidgetExtensions
   /// <param name="colorScheme">Color scheme of widget.</param>
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IFacebookFacepileWidget.ColorScheme(string)"/>
-  public static IFacebookFacepileWidget ColorScheme(this IFacebookFacepileWidget widget, FacebookColorScheme colorScheme)
-  {
-    Assertion.NotNull(widget);
-
-    return widget.ColorScheme(colorScheme.ToString().ToLowerInvariant());
-  }
+  /// <seealso cref="IFacebookFacePileWidget.ColorScheme(string)"/>
+  public static IFacebookFacePileWidget ColorScheme(this IFacebookFacePileWidget widget, FacebookColorScheme colorScheme) => widget is not null ? widget.ColorScheme(colorScheme.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
 }

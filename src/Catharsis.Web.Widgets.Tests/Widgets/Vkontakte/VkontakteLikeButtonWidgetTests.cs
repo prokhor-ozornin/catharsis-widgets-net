@@ -178,10 +178,10 @@ public sealed class VkontakteLikeButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     var html = new VkontakteLikeButtonWidget().ToString();
     Assert.True(html.Contains(@"<div id=""vk_like""></div>"));

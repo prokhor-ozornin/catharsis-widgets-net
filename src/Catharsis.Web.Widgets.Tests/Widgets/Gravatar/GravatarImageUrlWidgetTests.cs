@@ -73,10 +73,10 @@ public sealed class GravatarImageUrlWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="GravatarImageUrlWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="GravatarImageUrlWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new GravatarImageUrlWidget().ToString());
     Assert.Equal("http://www.gravatar.com/avatar/hash", new GravatarImageUrlWidget().Hash("hash").ToString());

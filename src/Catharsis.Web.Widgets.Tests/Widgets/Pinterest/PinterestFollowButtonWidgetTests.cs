@@ -53,10 +53,10 @@ public sealed class PinterestFollowButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestFollowButtonWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestFollowButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new PinterestFollowButtonWidget().ToString());
     Assert.Equal(@"<a data-pin-do=""buttonFollow"" href=""http://www.pinterest.com/account"">Follow</a>", new PinterestFollowButtonWidget().Account("account").ToString());

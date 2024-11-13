@@ -187,10 +187,10 @@ public sealed class FacebookActivityFeedWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookActivityFeedWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookActivityFeedWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(@"<div class=""fb-activity""></div>", new FacebookActivityFeedWidget().ToString());
     Assert.Equal(@"<div class=""fb-activity"" data-action=""actions"" data-app-id=""appId"" data-colorscheme=""dark"" data-header=""true"" data-height=""height"" data-linktarget=""linkTarget"" data-max-age=""1"" data-recommendations=""true"" data-ref=""trackLabel"" data-site=""domain"" data-width=""width""></div>", new FacebookActivityFeedWidget().Domain("domain").AppId("appId").Actions("actions").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Header(true).LinkTarget("linkTarget").MaxAge(1).Recommendations(true).TrackLabel("trackLabel").ToString());

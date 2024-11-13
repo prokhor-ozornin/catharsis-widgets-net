@@ -223,7 +223,7 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   /// <returns>Label for tracking referrals.</returns>
   public string TrackLabel() => trackLabel;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     return new TagBuilder("div")

@@ -32,7 +32,7 @@ public class CackleCommentsCountWidget : WebWidget, ICackleCommentsCountWidget
   /// <value>Identifier of website.</value>
   public string Account() => account;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (account.IsEmpty())

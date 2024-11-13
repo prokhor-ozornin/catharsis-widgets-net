@@ -84,10 +84,10 @@ public sealed class VideoJSPlayerWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     var videos = new[] { new MediaSource("http://vjs.zencdn.net/v/oceans.mp4", VideoContentTypes.MP4), new MediaSource("http://vjs.zencdn.net/v/oceans.webm", VideoContentTypes.WebM) };
 

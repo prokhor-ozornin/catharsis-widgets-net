@@ -127,10 +127,10 @@ public sealed class FacebookFollowButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new FacebookFollowButtonWidget().ToString());
     Assert.Equal(@"<div class=""fb-follow"" data-href=""url""></div>", new FacebookFollowButtonWidget().Url("url").ToString());

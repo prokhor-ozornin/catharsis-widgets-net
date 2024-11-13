@@ -147,7 +147,7 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
   /// <returns>HTML hyperlinks target value.</returns>
   public string Target() => target;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     var config = new Dictionary<string, object>();

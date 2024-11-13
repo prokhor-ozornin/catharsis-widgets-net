@@ -4,14 +4,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="VideoJSHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="VideoJsWidgetCreator"/>.</para>
 /// </summary>
-public sealed class VideoJSHtmlHelperTests
+public sealed class VideoJsWidgetCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VideoJSHtmlHelper.Player()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VideoJsWidgetCreator.Player()"/> method.</para>
   /// </summary>
   [Fact]
   public void Player_Method()

@@ -101,10 +101,10 @@ public sealed class VkontaktePostWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontaktePostWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontaktePostWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new VkontaktePostWidget().ToString());
     Assert.Equal(string.Empty, new VkontaktePostWidget().Owner("owner").Hash("hash").ToString());

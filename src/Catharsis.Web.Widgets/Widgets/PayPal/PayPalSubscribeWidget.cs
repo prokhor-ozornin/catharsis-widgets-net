@@ -7,6 +7,6 @@ public class PayPalSubscribeWidget : WebWidget, IPayPalSubscribeWidget
 
   public IPayPalSubscribeWidget AsUrl() => throw new NotImplementedException();
 
-  /// <inheritdoc cref="IWebWidget.ToHtml"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => throw new NotImplementedException();
 }

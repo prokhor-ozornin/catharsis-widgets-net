@@ -3,20 +3,20 @@
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="IVideoJSHtmlHelperExtensions"/>.</para>
+///   <para>Tests set for class <see cref="IVideoJSWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IVideoJSHtmlHelperExtensionsTests
+public sealed class VideoJsWidgetCreatorExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IVideoJSHtmlHelperExtensions.Player(IVideoJSHtmlHelper, Action{IVideoJSPlayerWidget})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IVideoJSWidgetCreatorExtensions.Player(IVideoJSWidgetCreator, Action{IVideoJSPlayerWidget})"/> method.</para>
   /// </summary>
   [Fact]
   public void Player_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVideoJSHtmlHelperExtensions.Player(null, widget => { }));
-    Assert.Throws<ArgumentNullException>(() => new VideoJSHtmlHelper().Player(null));
+    Assert.Throws<ArgumentNullException>(() => IVideoJSWidgetCreatorExtensions.Player(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => new VideoJsWidgetCreator().Player(null));
 
-    Assert.Equal(new VideoJSHtmlHelper().Player().ToHtml(), new VideoJSHtmlHelper().Player(x => { }));
-    Assert.Equal(new VideoJSHtmlHelper().Player().Videos(new MediaSource("url", "contentType")).Width("width").Height("height").ToHtml(), new VideoJSHtmlHelper().Player(x => x.Videos(new MediaSource("url", "contentType")).Width("width").Height("height")));
+    Assert.Equal(new VideoJsWidgetCreator().Player().ToHtml(), new VideoJsWidgetCreator().Player(x => { }));
+    Assert.Equal(new VideoJsWidgetCreator().Player().Videos(new MediaSource("url", "contentType")).Width("width").Height("height").ToHtml(), new VideoJsWidgetCreator().Player(x => x.Videos(new MediaSource("url", "contentType")).Width("width").Height("height")));
   }
 }

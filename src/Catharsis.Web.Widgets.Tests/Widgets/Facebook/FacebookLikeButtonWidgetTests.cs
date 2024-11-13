@@ -143,10 +143,10 @@ public sealed class FacebookLikeButtonWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(@"<div class=""fb-like""></div>", new FacebookLikeButtonWidget().ToString());
     Assert.Equal(@"<div class=""fb-like"" data-href=""url""></div>", new FacebookLikeButtonWidget().Url("url").ToString());

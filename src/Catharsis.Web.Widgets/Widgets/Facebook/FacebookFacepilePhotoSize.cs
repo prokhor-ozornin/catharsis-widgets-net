@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Size of photos (width/height) for Facebook Facepile widget.</para>
 /// </summary>
-public enum FacebookFacepilePhotoSize
+public enum FacebookFacePilePhotoSize
 {
   /// <summary>
   ///   <para>Small.</para>

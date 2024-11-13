@@ -150,10 +150,10 @@ public sealed class FacebookLikeBoxWidgetTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookLikeBoxWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookLikeBoxWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new FacebookLikeBoxWidget().ToString());
     Assert.Equal(@"<div class=""fb-like-box"" data-href=""https://www.facebook.com/pages/Clear-Words/515749945120070""></div>", new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").ToString());
