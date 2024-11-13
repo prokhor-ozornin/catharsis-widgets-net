@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,12 +15,14 @@ public sealed class VimeoVideoWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(VimeoVideoWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVimeoVideoWidget>();
+
     var widget = new VimeoVideoWidget();
-    Assert.Null(widget.Id());
-    Assert.Null(widget.Width());
-    Assert.Null(widget.Height());
-    Assert.False(widget.AutoPlay());
-    Assert.False(widget.Loop());
+    widget.Id().Should().BeNull();
+    widget.Width().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.AutoPlay().Should().BeFalse();
+    widget.Loop().Should().BeFalse();
   }
 
   /// <summary>

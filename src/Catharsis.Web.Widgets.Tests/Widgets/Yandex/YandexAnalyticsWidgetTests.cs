@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,15 +15,17 @@ public sealed class YandexAnalyticsWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(YandexAnalyticsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexAnalyticsWidget>();
+
     var widget = new YandexAnalyticsWidget();
-    Assert.Null(widget.Account());
-    Assert.True(widget.WebVisor());
-    Assert.True(widget.ClickMap());
-    Assert.True(widget.TrackLinks());
-    Assert.True(widget.TrackHash());
-    Assert.True(widget.Accurate());
-    Assert.False(widget.NoIndex());
-    Assert.Null(widget.Language());
+    widget.Account().Should().BeNull();
+    widget.WebVisor().Should().BeTrue();
+    widget.ClickMap().Should().BeTrue();
+    widget.TrackLinks().Should().BeTrue();
+    widget.TrackHash().Should().BeTrue();
+    widget.Accurate().Should().BeTrue();
+    widget.NoIndex().Should().BeFalse();
+    widget.Language().Should().BeNull();
   }
 
   /// <summary>

@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets.tests\\widgets\\facebook\\facebookcommentswidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|solutionrelative:catharsis.web.widgets.tests\\widgets\\facebook\\facebookcommentswidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets.tests\\widgets\\facebook\\facebookactivityfeedwidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|solutionrelative:catharsis.web.widgets.tests\\widgets\\facebook\\facebookactivityfeedwidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets.tests\\widgets\\disqus\\disquscommentswidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|solutionrelative:catharsis.web.widgets.tests\\widgets\\disqus\\disquscommentswidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets.tests\\widgets\\vkontakte\\vkontaktecommunitywidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|solutionrelative:catharsis.web.widgets.tests\\widgets\\vkontakte\\vkontaktecommunitywidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,49 +14,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DisqusCommentsWidgetTests.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Disqus\\DisqusCommentsWidgetTests.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets.Tests\\Widgets\\Disqus\\DisqusCommentsWidgetTests.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Disqus\\DisqusCommentsWidgetTests.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets.Tests\\Widgets\\Disqus\\DisqusCommentsWidgetTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T19:37:22.338Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FacebookActivityFeedWidgetTests.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookActivityFeedWidgetTests.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookActivityFeedWidgetTests.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookActivityFeedWidgetTests.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookActivityFeedWidgetTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T19:37:14.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FacebookCommentsWidgetTests.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookCommentsWidgetTests.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookCommentsWidgetTests.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookCommentsWidgetTests.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookCommentsWidgetTests.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAjAAAAAAAAAA==",
+              "Title": "VkontakteCommunityWidgetTests.cs",
+              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Vkontakte\\VkontakteCommunityWidgetTests.cs",
+              "RelativeDocumentMoniker": "Catharsis.Web.Widgets.Tests\\Widgets\\Vkontakte\\VkontakteCommunityWidgetTests.cs",
+              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Vkontakte\\VkontakteCommunityWidgetTests.cs",
+              "RelativeToolTip": "Catharsis.Web.Widgets.Tests\\Widgets\\Vkontakte\\VkontakteCommunityWidgetTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T19:28:45.698Z",
+              "WhenOpened": "2024-11-13T04:01:14.528Z",
               "EditorCaption": ""
             }
           ]

@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,10 +15,12 @@ public sealed class SoundCloudProfileIconWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(SoundCloudProfileIconWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ISoundCloudProfileIconWidget>();
+
     var widget = new SoundCloudProfileIconWidget();
-    Assert.Null(widget.Account());
-    Assert.Equal("orange_white", widget.Color());
-    Assert.Equal((short) SoundCloudProfileIconSize.Size32, widget.Size());
+    widget.Account().Should().BeNull();
+    widget.Color().Should().Be("orange_white");
+    widget.Size().Should().Be((short) SoundCloudProfileIconSize.Size32);
   }
 
   /// <summary>

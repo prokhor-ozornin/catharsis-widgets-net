@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -14,12 +15,14 @@ public sealed class YandexLikeButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(YandexLikeButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexLikeButtonWidget>();
+
     var widget = new YandexLikeButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.Null(widget.Title());
-    Assert.Equal(YandexLikeButtonSize.Large.ToString().ToLowerInvariant(), widget.Size());
-    Assert.Equal(YandexLikeButtonLayout.Button.ToString().ToLowerInvariant(), widget.Layout());
-    Assert.Null(widget.Text());
+    widget.Url().Should().BeNull();
+    widget.Title().Should().BeNull();
+    widget.Size().Should().Be(YandexLikeButtonSize.Large.ToString().ToLowerInvariant());
+    widget.Layout().Should().Be(YandexLikeButtonLayout.Button.ToString().ToLowerInvariant());
+    widget.Text().Should().BeNull();
   }
 
   /// <summary>

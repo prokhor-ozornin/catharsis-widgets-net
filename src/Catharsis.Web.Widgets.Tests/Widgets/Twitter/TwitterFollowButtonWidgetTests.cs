@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,15 +15,17 @@ public sealed class TwitterFollowButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(TwitterFollowButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ITwitterFollowButtonWidget>();
+
     var widget = new TwitterFollowButtonWidget();
-    Assert.Null(widget.Account());
-    Assert.Null(widget.Language());
-    Assert.Null(widget.Size());
-    Assert.Null(widget.Alignment());
-    Assert.Null(widget.Counter());
-    Assert.Null(widget.ScreenName());
-    Assert.Null(widget.Suggestions());
-    Assert.Null(widget.Width());
+    widget.Account().Should().BeNull();
+    widget.Language().Should().BeNull();
+    widget.Size().Should().BeNull();
+    widget.Alignment().Should().BeNull();
+    widget.Counter().Should().BeNull();
+    widget.ScreenName().Should().BeNull();
+    widget.Suggestions().Should().BeNull();
+    widget.Width().Should().BeNull();
   }
 
   /// <summary>

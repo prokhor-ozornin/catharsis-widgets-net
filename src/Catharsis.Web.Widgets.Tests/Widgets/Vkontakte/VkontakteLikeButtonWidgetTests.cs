@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,17 +15,19 @@ public sealed class VkontakteLikeButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(VkontakteLikeButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontakteLikeButtonWidget>();
+
     var widget = new VkontakteLikeButtonWidget();
-    Assert.Null(widget.ElementId());
-    Assert.Null(widget.Text());
-    Assert.Null(widget.Verb());
-    Assert.Null(widget.Layout());
-    Assert.Null(widget.Width());
-    Assert.Null(widget.Height());
-    Assert.Null(widget.Title());
-    Assert.Null(widget.Url());
-    Assert.Null(widget.Description());
-    Assert.Null(widget.Image());
+    widget.ElementId().Should().BeNull();
+    widget.Text().Should().BeNull();
+    widget.Verb().Should().BeNull();
+    widget.Layout().Should().BeNull();
+    widget.Width().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.Title().Should().BeNull();
+    widget.Url().Should().BeNull();
+    widget.Description().Should().BeNull();
+    widget.Image().Should().BeNull();
   }
 
   /// <summary>

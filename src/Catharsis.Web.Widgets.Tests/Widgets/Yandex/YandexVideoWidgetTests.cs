@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,11 +15,13 @@ public sealed class YandexVideoWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(YandexVideoWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexVideoWidget>();
+
     var widget = new YandexVideoWidget();
-    Assert.Null(widget.Id());
-    Assert.Null(widget.Width());
-    Assert.Null(widget.Height());
-    Assert.Null(widget.User());
+    widget.Id().Should().BeNull();
+    widget.Width().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.User().Should().BeNull();
   }
 
   /// <summary>

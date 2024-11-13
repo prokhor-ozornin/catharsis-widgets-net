@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,10 +16,12 @@ public sealed class GravatarProfileUrlWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(GravatarProfileUrlWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IGravatarProfileUrlWidget>();
+
     var widget = new GravatarProfileUrlWidget();
-    Assert.Null(widget.Hash());
-    Assert.Null(widget.Format());
-    Assert.False(widget.Field("parameters").To<IDictionary<string, object>>().Any());
+    widget.Hash().Should().BeNull();
+    widget.Format().Should().BeNull();
+    widget.GetFieldValue<IDictionary<string, object>>("paramters").Should().BeEmpty();
   }
 
   /// <summary>

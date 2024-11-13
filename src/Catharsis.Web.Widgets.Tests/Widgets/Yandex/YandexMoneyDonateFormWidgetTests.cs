@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,20 +15,22 @@ public sealed class YandexMoneyDonateFormWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(YandexMoneyDonateFormWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexMoneyDonateFormWidget>();
+
     var widget = new YandexMoneyDonateFormWidget();
-    Assert.Null(widget.Account());
-    Assert.Null(widget.DescriptionText());
-    Assert.Null(widget.Sum());
-    Assert.True(widget.Cards());
-    Assert.Equal((byte)YandexMoneyDonateFormText.Donate, widget.Text());
-    Assert.Null(widget.ProjectName());
-    Assert.Null(widget.ProjectSite());
-    Assert.False(widget.AskPayerComment());
-    Assert.Null(widget.CommentHint());
-    Assert.False(widget.AskPayerFullName());
-    Assert.False(widget.AskPayerEmail());
-    Assert.False(widget.AskPayerPhone());
-    Assert.False(widget.Description());
+    widget.Account().Should().BeNull();
+    widget.DescriptionText().Should().BeNull();
+    widget.Sum().Should().BeNull();
+    widget.Cards().Should().BeTrue();
+    widget.Text().Should().Be((byte) YandexMoneyDonateFormText.Donate);
+    widget.ProjectName().Should().BeNull();
+    widget.ProjectSite().Should().BeNull();
+    widget.AskPayerComment().Should().BeFalse();
+    widget.CommentHint().Should().BeNull();
+    widget.AskPayerFullName().Should().BeFalse();
+    widget.AskPayerEmail().Should().BeFalse();
+    widget.AskPayerPhone().Should().BeFalse();
+    widget.Description().Should().BeFalse();
   }
 
   /// <summary>

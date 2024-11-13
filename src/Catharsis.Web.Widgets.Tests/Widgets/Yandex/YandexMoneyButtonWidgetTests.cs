@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,18 +15,20 @@ public sealed class YandexMoneyButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(YandexMoneyButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexMoneyButtonWidget>();
+
     var widget = new YandexMoneyButtonWidget();
-    Assert.Null(widget.Account());
-    Assert.False(widget.AskPayerFullName());
-    Assert.False(widget.AskPayerEmail());
-    Assert.False(widget.AskPayerPhone());
-    Assert.False(widget.AskPayerAddress());
-    Assert.Equal("orange", widget.Color());
-    Assert.Null(widget.Description());
-    Assert.Equal("l", widget.Size());
-    Assert.Null(widget.Sum());
-    Assert.Equal((byte) YandexMoneyButtonText.Pay, widget.Text());
-    Assert.Equal("yamoney-payment-type", widget.Type());
+    Assert.Null(widget.Account().Should().BeNull());
+    widget.AskPayerFullName().Should().BeFalse();
+    widget.AskPayerEmail().Should().BeFalse();
+    widget.AskPayerPhone().Should().BeFalse();
+    widget.AskPayerAddress().Should().BeFalse();
+    widget.Color().Should().Be("orange");
+    widget.Description().Should().BeNull();
+    widget.Size().Should().Be("l");
+    widget.Sum().Should().BeNull();
+    widget.Text().Should().Be((byte) YandexMoneyButtonText.Pay);
+    widget.Type().Should().Be("yamoney-payment-type");
   }
 
   /// <summary>

@@ -15,12 +15,12 @@ public sealed class FacebookVideoWidgetTests
   [Fact]
   public void Constructors()
   {
-    typeof(CackleCommentsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ICackleCommentsWidget>();
+    typeof(FacebookVideoWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookVideoWidget>();
 
     var widget = new FacebookVideoWidget();
-    Assert.Null(widget.Id());
-    Assert.Null(widget.Width());
-    Assert.Null(widget.Height());
+    widget.Id().Should().BeNull();
+    widget.Width().Should().BeNull();
+    widget.Height().Should().BeNull();
   }
 
   /// <summary>

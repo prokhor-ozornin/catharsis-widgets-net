@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,15 +15,17 @@ public sealed class PinterestPinItButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(PinterestPinItButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IPinterestPinItButtonWidget>();
+
     var widget = new PinterestPinItButtonWidget();
-    Assert.Equal("gray", widget.Color());
-    Assert.Equal(PinterestPinItButtonPinCountPosition.None, widget.Counter());
-    Assert.Null(widget.Description());
-    Assert.Null(widget.Image());
-    Assert.Equal("en", widget.Language());
-    Assert.Equal(PinterestPinItButtonShape.Rectangular, widget.Shape());
-    Assert.Equal(PinterestPinItButtonSize.Small, widget.Size());
-    Assert.Null(widget.Url());
+    widget.Color().Should().Be("gray");
+    widget.Counter().Should().Be(PinterestPinItButtonPinCountPosition.None);
+    widget.Description().Should().BeNull();
+    widget.Image().Should().BeNull();
+    widget.Language().Should().Be("en");
+    widget.Shape().Should().Be(PinterestPinItButtonShape.Rectangular);
+    widget.Size().Should().Be(PinterestPinItButtonSize.Small);
+    widget.Url().Should().BeNull();
   }
 
   /// <summary>

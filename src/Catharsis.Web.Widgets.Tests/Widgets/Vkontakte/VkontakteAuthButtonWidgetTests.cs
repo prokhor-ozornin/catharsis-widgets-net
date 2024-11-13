@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,12 +15,14 @@ public sealed class VkontakteAuthButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(VkontakteAuthButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontakteAuthButtonWidget>();
+
     var widget = new VkontakteAuthButtonWidget();
-    Assert.Null(widget.Callback());
-    Assert.Null(widget.ElementId());
-    Assert.Equal(VkontakteAuthButtonType.Standard, widget.Type());
-    Assert.Null(widget.Url());
-    Assert.Null(widget.Width());
+    widget.Callback().Should().BeNull();
+    widget.ElementId().Should().BeNull();
+    widget.Type().Should().Be(VkontakteAuthButtonType.Standard);
+    widget.Url().Should().BeNull();
+    widget.Width().Should().BeNull();
   }
 
   /// <summary>

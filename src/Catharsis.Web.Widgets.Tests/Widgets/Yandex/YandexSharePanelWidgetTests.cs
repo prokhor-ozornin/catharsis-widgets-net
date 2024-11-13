@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -14,10 +15,12 @@ public sealed class YandexSharePanelWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(YandexSharePanelWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexSharePanelWidget>();
+
     var widget = new YandexSharePanelWidget();
-    Assert.Null(widget.Language());
-    Assert.Equal(YandexSharePanelLayout.Button.ToString().ToLowerInvariant(), widget.Layout());
-    Assert.True(widget.Services().SequenceEqual(new [] { "yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird" }));
+    widget.Language().Should().BeNull();
+    widget.Layout().Should().Be(YandexSharePanelLayout.Button.ToString().ToLowerInvariant());
+    widget.Services().Should().Equal(["yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird"]);
   }
 
   /// <summary>
@@ -70,7 +73,7 @@ public sealed class YandexSharePanelWidgetTests
   [Fact]
   public void ToHtmlString_Method()
   {
-    Assert.Equal(@"<div class=""yashare-auto-init"" data-yashareL10n=""{0}"" data-yashareQuickServices=""yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,pinterest,surfingbird"" data-yashareType=""button""></div>".FormatSelf(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new YandexSharePanelWidget().ToString());
+    Assert.Equal(string.Format(@"<div class=""yashare-auto-init"" data-yashareL10n=""{0}"" data-yashareQuickServices=""yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,pinterest,surfingbird"" data-yashareType=""button""></div>", Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), new YandexSharePanelWidget().ToString());
     Assert.Equal(@"<div class=""yashare-auto-init"" data-yashareL10n=""ru"" data-yashareQuickServices=""yaru"" data-yashareType=""link""></div>", new YandexSharePanelWidget().Services("yaru").Layout(YandexSharePanelLayout.Link).Language("ru").ToString());
   }
 }

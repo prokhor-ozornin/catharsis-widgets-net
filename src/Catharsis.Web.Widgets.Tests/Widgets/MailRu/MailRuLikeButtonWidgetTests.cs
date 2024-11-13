@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,14 +15,16 @@ public sealed class MailRuLikeButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(MailRuLikeButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IMailRuLikeButtonWidget>();
+
     var widget = new MailRuLikeButtonWidget();
-    Assert.Equal("combo", widget.Type());
-    Assert.Equal("20", widget.Size());
-    Assert.Equal((byte)MailRuLikeButtonLayout.First, widget.Layout());
-    Assert.True(widget.Text());
-    Assert.Equal((byte)MailRuLikeButtonTextType.First, widget.TextType());
-    Assert.True(widget.Counter());
-    Assert.Equal(MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant(), widget.CounterPosition());
+    widget.Type().Should().Be("combo");
+    widget.Size().Should().Be("20");
+    widget.Layout().Should().Be((byte) MailRuLikeButtonLayout.First);
+    widget.Text().Should().BeTrue();
+    widget.TextType().Should().Be((byte) MailRuLikeButtonTextType.First);
+    widget.Counter().Should().BeTrue();
+    widget.CounterPosition().Should().Be(MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant());
   }
 
   /// <summary>

@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,17 +15,19 @@ public sealed class TwitterTweetButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(TwitterTweetButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ITwitterTweetButtonWidget>();
+
     var widget = new TwitterTweetButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.Null(widget.Language());
-    Assert.Null(widget.Text());
-    Assert.Null(widget.Via());
-    Assert.Null(widget.Size());
-    Assert.Null(widget.CountUrl());
-    Assert.Null(widget.CounterPosition());
-    Assert.Null(widget.Suggestions());
-    Assert.False(widget.HashTags().Any());
-    Assert.False(widget.RelatedAccounts().Any());
+    widget.Url().Should().BeNull();
+    widget.Language().Should().BeNull();
+    widget.Text().Should().BeNull();
+    widget.Via().Should().BeNull();
+    widget.Size().Should().BeNull();
+    widget.CountUrl().Should().BeNull();
+    widget.CounterPosition().Should().BeNull();
+    widget.Suggestions().Should().BeNull();
+    widget.HashTags().Should().BeEmpty();
+    widget.RelatedAccounts().Should().BeEmpty();
   }
 
   /// <summary>

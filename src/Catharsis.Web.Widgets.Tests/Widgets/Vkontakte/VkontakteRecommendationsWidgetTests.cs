@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,14 +15,16 @@ public sealed class VkontakteRecommendationsWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(VkontakteRecommendationsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontakteRecommendationsWidget>();
+
     var widget = new VkontakteRecommendationsWidget();
-    Assert.Null(widget.ElementId());
-    Assert.Null(widget.Limit());
-    Assert.Null(widget.Max());
-    Assert.Null(widget.Period());
-    Assert.Null(widget.Sorting());
-    Assert.Null(widget.Target());
-    Assert.Null(widget.Verb());
+    widget.ElementId().Should().BeNull();
+    widget.Limit().Should().BeNull();
+    widget.Max().Should().BeNull();
+    widget.Period().Should().BeNull();
+    widget.Sorting().Should().BeNull();
+    widget.Target().Should().BeNull();
+    widget.Verb().Should().BeNull();
   }
 
   /// <summary>

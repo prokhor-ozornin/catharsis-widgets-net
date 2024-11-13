@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,11 +15,13 @@ public sealed class VideoJSPlayerWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(VideoJSPlayerWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVideoJSPlayerWidget>();
+
     var widget = new VideoJSPlayerWidget();
-    Assert.Null(widget.Extra());
-    Assert.Null(widget.Width());
-    Assert.Null(widget.Height());
-    Assert.False(widget.Videos().Any());
+    widget.Extra().Should().BeNull();
+    widget.Width().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.Videos().Should().BeEmpty();
   }
 
   /// <summary>

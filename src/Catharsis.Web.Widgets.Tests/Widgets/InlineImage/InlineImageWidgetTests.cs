@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,9 +15,11 @@ public sealed class InlineImageWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(InlineImageWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IInlineImageWidget>();
+
     var widget = new InlineImageWidget();
-    Assert.Null(widget.Contents());
-    Assert.Null(widget.Format());
+    widget.Contents().Should().BeNull();
+    widget.Format().Should().BeNull();
   }
 
   /// <summary>

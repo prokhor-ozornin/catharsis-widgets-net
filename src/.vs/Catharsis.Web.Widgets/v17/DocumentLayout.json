@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets.tests\\widgets\\facebook\\facebookvideowidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|solutionrelative:catharsis.web.widgets.tests\\widgets\\facebook\\facebookvideowidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets.tests\\widgets\\youtube\\youtubevideowidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|solutionrelative:catharsis.web.widgets.tests\\widgets\\youtube\\youtubevideowidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets.tests\\widgets\\yandex\\yandexvideowidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78FB3A30-B44A-4672-8570-FE3F91D05593}|Catharsis.Web.Widgets.Tests\\Catharsis.Web.Widgets.Tests.csproj|solutionrelative:catharsis.web.widgets.tests\\widgets\\yandex\\yandexvideowidgettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,23 +18,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FacebookVideoWidgetTests.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookVideoWidgetTests.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookVideoWidgetTests.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookVideoWidgetTests.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets.Tests\\Widgets\\Facebook\\FacebookVideoWidgetTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAANAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "YandexVideoWidgetTests.cs",
+              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Yandex\\YandexVideoWidgetTests.cs",
+              "RelativeDocumentMoniker": "Catharsis.Web.Widgets.Tests\\Widgets\\Yandex\\YandexVideoWidgetTests.cs",
+              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\Yandex\\YandexVideoWidgetTests.cs",
+              "RelativeToolTip": "Catharsis.Web.Widgets.Tests\\Widgets\\Yandex\\YandexVideoWidgetTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T19:45:19.29Z",
+              "WhenOpened": "2024-11-13T05:47:05.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "YouTubeVideoWidgetTests.cs",
+              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\YouTube\\YouTubeVideoWidgetTests.cs",
+              "RelativeDocumentMoniker": "Catharsis.Web.Widgets.Tests\\Widgets\\YouTube\\YouTubeVideoWidgetTests.cs",
+              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets.Tests\\Widgets\\YouTube\\YouTubeVideoWidgetTests.cs",
+              "RelativeToolTip": "Catharsis.Web.Widgets.Tests\\Widgets\\YouTube\\YouTubeVideoWidgetTests.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAG0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T05:49:03.176Z",
               "EditorCaption": ""
             }
           ]

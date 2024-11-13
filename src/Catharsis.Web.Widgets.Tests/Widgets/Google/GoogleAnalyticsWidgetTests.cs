@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,9 +15,11 @@ public sealed class GoogleAnalyticsWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(GoogleAnalyticsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IGoogleAnalyticsWidget>();
+
     var widget = new GoogleAnalyticsWidget();
-    Assert.Null(widget.Account());
-    Assert.Null(widget.Domain());
+    widget.Account().Should().BeNull();
+    widget.Domain().Should().BeNull();
   }
 
   /// <summary>

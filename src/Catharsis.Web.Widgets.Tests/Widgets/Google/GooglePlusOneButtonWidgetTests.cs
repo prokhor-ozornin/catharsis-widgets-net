@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -14,14 +15,16 @@ public sealed class GooglePlusOneButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(GooglePlusOneButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IGooglePlusOneButtonWidget>();
+
     var widget = new GooglePlusOneButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.Null(widget.Width());
-    Assert.Null(widget.Size());
-    Assert.Null(widget.Alignment());
-    Assert.Null(widget.Annotation());
-    Assert.Null(widget.Callback());
-    Assert.Null(widget.Recommendations());
+    widget.Url().Should().BeNull();
+    widget.Width().Should().BeNull();
+    widget.Size().Should().BeNull();
+    widget.Alignment().Should().BeNull();
+    widget.Annotation().Should().BeNull();
+    widget.Callback().Should().BeNull();
+    widget.Recommendations().Should().BeNull();
   }
 
   /// <summary>

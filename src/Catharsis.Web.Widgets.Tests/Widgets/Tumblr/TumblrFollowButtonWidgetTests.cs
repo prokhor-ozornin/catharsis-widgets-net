@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,10 +15,12 @@ public sealed class TumblrFollowButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(TumblrFollowButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ITumblrFollowButtonWidget>();
+
     var widget = new TumblrFollowButtonWidget();
-    Assert.Null(widget.Account());
-    Assert.Equal((byte) TumblrFollowButtonType.First, widget.Type());
-    Assert.Equal(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant(), widget.ColorScheme());
+    widget.Account().Should().BeNull();
+    widget.Type().Should().Be((byte) TumblrFollowButtonType.First);
+    widget.ColorScheme().Should().Be(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant());
   }
 
   /// <summary>

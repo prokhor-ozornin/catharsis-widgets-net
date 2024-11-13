@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,14 +15,16 @@ public sealed class SurfingbirdSurfButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(SurfingbirdSurfButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ISurfingbirdSurfButtonWidget>();
+
     var widget = new SurfingbirdSurfButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.Equal(SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant(), widget.Layout());
-    Assert.Null(widget.Width());
-    Assert.Null(widget.Height());
-    Assert.False(widget.Counter());
-    Assert.Equal("Surf", widget.Label());
-    Assert.Null(widget.Color());
+    Assert.Null(widget.Url().Should().BeNull());
+    widget.Layout().Should().Be(SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant());
+    widget.Width().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.Counter().Should().BeFalse();
+    widget.Label().Should().Be("Surf");
+    widget.Color().Should().BeNull();
   }
 
   /// <summary>

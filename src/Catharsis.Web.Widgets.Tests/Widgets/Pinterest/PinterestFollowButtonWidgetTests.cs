@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,9 +15,11 @@ public sealed class PinterestFollowButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(PinterestFollowButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IPinterestFollowButtonWidget>();
+
     var widget = new PinterestFollowButtonWidget();
-    Assert.Null(widget.Account());
-    Assert.Equal("Follow", widget.Label());
+    widget.Account().Should().BeNull();
+    widget.Label().Should().Be("Follow");
   }
 
   /// <summary>

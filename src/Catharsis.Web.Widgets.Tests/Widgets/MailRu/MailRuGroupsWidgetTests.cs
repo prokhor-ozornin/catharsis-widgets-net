@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,15 +15,17 @@ public sealed class MailRuGroupsWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(MailRuGroupsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IMailRuGroupsWidget>();
+
     var widget = new MailRuGroupsWidget();
-    Assert.Null(widget.Account());
-    Assert.Null(widget.BackgroundColor());
-    Assert.Null(widget.ButtonColor());
-    Assert.Null(widget.Domain());
-    Assert.Null(widget.Height());
-    Assert.True(widget.Subscribers());
-    Assert.Null(widget.TextColor());
-    Assert.Null(widget.Width());
+    widget.Account().Should().BeNull();
+    widget.BackgroundColor().Should().BeNull();
+    widget.ButtonColor().Should().BeNull();
+    widget.Domain().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.Subscribers().Should().BeTrue();
+    widget.TextColor().Should().BeNull();
+    widget.Width().Should().BeNull();
   }
 
   /// <summary>

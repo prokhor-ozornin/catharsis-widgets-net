@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,18 +15,20 @@ public sealed class MailRuFacesWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(MailRuFacesWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IMailRuFacesWidget>();
+
     var widget = new MailRuFacesWidget();
-    Assert.Null(widget.BackgroundColor());
-    Assert.Null(widget.BorderColor());
-    Assert.Null(widget.Domain());
-    Assert.Equal(MailRuFacesFont.Arial.ToString(), widget.Font());
-    Assert.Null(widget.Height());
-    Assert.Null(widget.HyperlinkColor());
-    Assert.Null(widget.TextColor());
-    Assert.True(widget.Title());
-    Assert.Null(widget.TitleColor());
-    Assert.Null(widget.TitleText());
-    Assert.Null(widget.Width());
+    widget.BackgroundColor().Should().BeNull();
+    widget.BorderColor().Should().BeNull();
+    widget.Domain().Should().BeNull();
+    widget.Font().Should().Be(MailRuFacesFont.Arial.ToString());
+    widget.Height().Should().BeNull();
+    widget.HyperlinkColor().Should().BeNull();
+    widget.TextColor().Should().BeNull();
+    widget.Title().Should().BeTrue();
+    widget.TitleColor().Should().BeNull();
+    widget.TitleText().Should().BeNull();
+    widget.Width().Should().BeNull();
   }
 
   /// <summary>

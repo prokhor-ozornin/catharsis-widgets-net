@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,9 +15,11 @@ public sealed class MailRuIcqWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(MailRuIcqWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IMailRuIcqWidget>();
+
     var widget = new MailRuIcqWidget();
-    Assert.Null(widget.Account());
-    Assert.Null(widget.Language());
+    widget.Account().Should().BeNull();
+    widget.Language().Should().BeNull();
   }
 
   /// <summary>

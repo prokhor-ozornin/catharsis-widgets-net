@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,11 +15,13 @@ public sealed class PinterestProfileWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(PinterestProfileWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IPinterestProfileWidget>();
+
     var widget = new PinterestProfileWidget();
-    Assert.Null(widget.Account());
-    Assert.Null(widget.Height());
-    Assert.Null(widget.Width());
-    Assert.Null(widget.Image());
+    widget.Account().Should().BeNull();
+    widget.Height().Should().BeNull();
+    widget.Width().Should().BeNull();
+    widget.Image().Should().BeNull();
   }
 
   /// <summary>

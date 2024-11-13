@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,9 +15,11 @@ public sealed class LiveJournalRepostButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(LiveJournalRepostButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ILiveJournalRepostButtonWidget>();
+
     var widget = new LiveJournalRepostButtonWidget();
-    Assert.Null(widget.Text());
-    Assert.Null(widget.Title());
+    widget.Text().Should().BeNull();
+    widget.Title().Should().BeNull();
   }
 
   /// <summary>

@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,10 +16,12 @@ public sealed class RuTubeVideoWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(RuTubeVideoWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IRuTubeVideoWidget>();
+
     var widget = new RuTubeVideoWidget();
-    Assert.Null(widget.Id());
-    Assert.Null(widget.Width());
-    Assert.Null(widget.Height());
+    widget.Id().Should().BeNull();
+    widget.Width().Should().BeNull();
+    widget.Height().Should().BeNull();
   }
 
   /// <summary>

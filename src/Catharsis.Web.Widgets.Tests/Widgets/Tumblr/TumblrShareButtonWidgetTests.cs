@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,9 +15,11 @@ public sealed class TumblrShareButtonWidgetTests
   [Fact]
   public void Constructors()
   {
+    typeof(TumblrShareButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ITumblrShareButtonWidget>();
+
     var widget = new TumblrShareButtonWidget();
-    Assert.Equal((byte) TumblrShareButtonType.First, widget.Type());
-    Assert.Null(widget.ColorScheme());
+    widget.Type().Should().Be((byte) TumblrShareButtonType.First);
+    widget.ColorScheme().Should().BeNull();
   }
 
   /// <summary>

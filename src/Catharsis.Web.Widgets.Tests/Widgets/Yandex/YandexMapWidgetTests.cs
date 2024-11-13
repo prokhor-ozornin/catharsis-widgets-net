@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -14,14 +15,16 @@ public sealed class YandexMapWidgetTests
   [Fact]
   public void Constructors()
   {
-    throw new NotImplementedException();
+    typeof(YandexMapWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexMapWidget>();
+
+    var widget = new YandexMapWidget();
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexMapWidget.Write(TextWriter)"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexMapWidget.ToHtml"/> method.</para>
   /// </summary>
   [Fact]
-  public void Write_Method()
+  public void ToHtmlString_Method()
   {
     throw new NotImplementedException();
   }
