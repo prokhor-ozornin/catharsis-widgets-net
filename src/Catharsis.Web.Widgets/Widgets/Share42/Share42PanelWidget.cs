@@ -21,17 +21,12 @@ public class Share42PanelWidget : WebWidget, IShare42PanelWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    /*writer.Write(this.ToTag("div", tag => tag.AddCssClass("share42init")));
-    switch (this.direction)
-    {
-      case Share42PanelDirection.Vertical:
-        //writer.Write(this.JavaScript(resources.share42_panel_vertical.FormatValue(this.size)));
-        break;
-
-      default:
-        //writer.Write(this.JavaScript(resources.share42_panel_horizontal.FormatValue(this.size)));
-        break;
-    }*/
+    //writer.Write(this.ToTag("div", tag => tag.AddCssClass("share42init")));
+    //direction switch
+    //{
+    //  Share42PanelDirection.Vertical => writer.Write(this.JavaScript(resources.share42_panel_vertical.FormatValue(size))),
+    //  _ => writer.Write(this.JavaScript(resources.share42_panel_horizontal.FormatValue(size)))
+    //};
 
     throw new NotImplementedException();
   }

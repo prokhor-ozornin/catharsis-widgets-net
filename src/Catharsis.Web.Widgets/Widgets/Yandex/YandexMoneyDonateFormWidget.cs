@@ -1,5 +1,4 @@
-﻿using System.Web.Mvc;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -278,34 +277,16 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
       return string.Empty;
     }
 
-    int width;
-    switch ((YandexMoneyDonateFormText) Text())
+    var width = (YandexMoneyDonateFormText)Text() switch
     {
-      case YandexMoneyDonateFormText.Donate:
-        width = 523;
-        break;
+      YandexMoneyDonateFormText.Donate => 523,
+      YandexMoneyDonateFormText.Give => 487,
+      YandexMoneyDonateFormText.Transfer => 495,
+      YandexMoneyDonateFormText.Send => 494,
+      YandexMoneyDonateFormText.Support => 507,
+      _ => 523
+    };
 
-      case YandexMoneyDonateFormText.Give:
-        width = 487;
-        break;
-
-      case YandexMoneyDonateFormText.Transfer:
-        width = 495;
-        break;
-
-      case YandexMoneyDonateFormText.Send:
-        width = 494;
-        break;
-
-      case YandexMoneyDonateFormText.Support:
-        width = 507;
-        break;
-
-      default:
-        width = 523;
-        break;
-
-    }
     if (!cards)
     {
       width -= 69;

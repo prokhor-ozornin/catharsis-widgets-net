@@ -1,5 +1,4 @@
-﻿using System.Web.Mvc;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -246,37 +245,16 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
       return string.Empty;
     }
 
-    int width;
-    switch ((YandexMoneyButtonText)this.Text())
+    int width = (YandexMoneyButtonText)Text() switch
     {
-      case YandexMoneyButtonText.Pay:
-        width = 229;
-        break;
-
-      case YandexMoneyButtonText.Buy:
-        width = 197;
-        break;
-
-      case YandexMoneyButtonText.Transfer:
-        width = 242;
-        break;
-
-      case YandexMoneyButtonText.Donate:
-        width = 283;
-        break;
-
-      case YandexMoneyButtonText.Give:
-        width = 231;
-        break;
-
-      case YandexMoneyButtonText.Support:
-        width = 262;
-        break;
-
-      default:
-        width = 283;
-        break;
-    }
+      YandexMoneyButtonText.Pay => 229,
+      YandexMoneyButtonText.Buy => 197,
+      YandexMoneyButtonText.Transfer => 242,
+      YandexMoneyButtonText.Donate => 283,
+      YandexMoneyButtonText.Give => 231,
+      YandexMoneyButtonText.Support => 262,
+      _ => 283
+    };
 
     return new TagBuilder("iframe")
       .Attribute("src", string.Format("https://money.yandex.ru/embed/small.xml?account={0}&quickpay=small&{1}=on&button-text=0{2}&button-size={3}&button-color={4}&targets={5}&default-sum={6}{7}{8}{9}{10}", Account(), Type(), Text(), Size(), Color(), Description(), Sum(), AskPayerFullName() ? "&fio=on" : string.Empty, AskPayerEmail() ? "&mail=on" : string.Empty, AskPayerPhone() ? "&phone=on" : string.Empty, AskPayerAddress() ? "&address=on" : string.Empty))

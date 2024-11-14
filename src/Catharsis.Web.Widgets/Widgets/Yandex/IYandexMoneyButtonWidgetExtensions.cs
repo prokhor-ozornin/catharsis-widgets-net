@@ -27,18 +27,13 @@ public static class IYandexMoneyButtonWidgetExtensions
   {
     if (widget is null) throw new ArgumentNullException(nameof(widget));
 
-    switch (size)
+    return size switch
     {
-      case YandexMoneyButtonSize.Medium :
-        return widget.Size("m");
-
-      case YandexMoneyButtonSize.Small :
-        return widget.Size("s");
-
-      case YandexMoneyButtonSize.Large:
-      default :
-        return widget.Size("l");
-    }
+      YandexMoneyButtonSize.Medium => widget.Size("m"),
+      YandexMoneyButtonSize.Small => widget.Size("s"),
+      YandexMoneyButtonSize.Large => widget.Size("l"),
+      _ => widget.Size("l")
+    };
   }
 
   /// <summary>
@@ -70,14 +65,11 @@ public static class IYandexMoneyButtonWidgetExtensions
   {
     if (widget is null) throw new ArgumentNullException(nameof(widget));
 
-    switch (type)
+    return type switch
     {
-      case YandexMoneyButtonType.Card :
-        return widget.Type("any-card-payment-type");
-
-      case YandexMoneyButtonType.Wallet:
-      default:
-        return widget.Type("yamoney-payment-type");
-    }
+      YandexMoneyButtonType.Card => widget.Type("any-card-payment-type"),
+      YandexMoneyButtonType.Wallet => widget.Type("yamoney-payment-type"),
+      _ => widget.Type("yamoney-payment-type")
+    };
   }
 }

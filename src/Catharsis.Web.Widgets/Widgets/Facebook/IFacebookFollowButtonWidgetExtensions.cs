@@ -16,12 +16,7 @@ public static class IFacebookFollowButtonWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFollowButtonWidget.Width(string)"/>
-  public static IFacebookFollowButtonWidget Width(this IFacebookFollowButtonWidget widget, short width)
-  {
-    Assertion.NotNull(widget);
-
-    return widget.Width(width.ToString(CultureInfo.InvariantCulture));
-  }
+  public static IFacebookFollowButtonWidget Width(this IFacebookFollowButtonWidget widget, short width) => widget is not null ? widget.Width(width.ToString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The height of the button.</para>
@@ -31,12 +26,7 @@ public static class IFacebookFollowButtonWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFollowButtonWidget.Height(string)"/>
-  public static IFacebookFollowButtonWidget Height(this IFacebookFollowButtonWidget widget, short height)
-  {
-    Assertion.NotNull(widget);
-
-    return widget.Height(height.ToString(CultureInfo.InvariantCulture));
-  }
+  public static IFacebookFollowButtonWidget Height(this IFacebookFollowButtonWidget widget, short height) => widget is not null ? widget.Height(height.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The color scheme used by the button.</para>
@@ -46,12 +36,7 @@ public static class IFacebookFollowButtonWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFollowButtonWidget.ColorScheme(string)"/>
-  public static IFacebookFollowButtonWidget ColorScheme(this IFacebookFollowButtonWidget widget, FacebookColorScheme colorScheme)
-  {
-    Assertion.NotNull(widget);
-
-    return widget.ColorScheme(colorScheme.ToString().ToLowerInvariant());
-  }
+  public static IFacebookFollowButtonWidget ColorScheme(this IFacebookFollowButtonWidget widget, FacebookColorScheme colorScheme) => widget is not null ? widget.ColorScheme(colorScheme.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Selects one of the different layouts that are available for the button.</para>
@@ -63,18 +48,13 @@ public static class IFacebookFollowButtonWidgetExtensions
   /// <seealso cref="IFacebookFollowButtonWidget.Layout(string)"/>
   public static IFacebookFollowButtonWidget Layout(this IFacebookFollowButtonWidget widget, FacebookButtonLayout layout)
   {
-    Assertion.NotNull(widget);
+    if (widget is null) throw new ArgumentNullException(nameof(widget));
 
-    switch (layout)
+    return layout switch
     {
-      case FacebookButtonLayout.BoxCount :
-        return widget.Layout("box_count");
-
-      case FacebookButtonLayout.ButtonCount :
-        return widget.Layout("button_count");
-
-      default :
-        return widget.Layout("standard");
-    }
+      FacebookButtonLayout.BoxCount => widget.Layout("box_count"),
+      FacebookButtonLayout.ButtonCount => widget.Layout("button_count"),
+      _ => widget.Layout("standard")
+    };
   }
 }

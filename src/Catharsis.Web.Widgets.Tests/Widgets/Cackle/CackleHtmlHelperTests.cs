@@ -1,4 +1,3 @@
-using System.Web.Mvc;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -16,8 +15,8 @@ public sealed class CackleWidgetsCreatorTests
   [Fact]
   public void Comments_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Cackle().Comments(), this.html.Cackle().Comments()));
-    Assert.True(this.html.Cackle().Comments() is CackleCommentsWidget);
+    Assert.False(ReferenceEquals(html.Cackle().Comments(), html.Cackle().Comments()));
+    Assert.True(html.Cackle().Comments() is CackleCommentsWidget);
   }
 
   /// <summary>
@@ -26,8 +25,8 @@ public sealed class CackleWidgetsCreatorTests
   [Fact]
   public void CommentsCount_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Cackle().CommentsCount(), this.html.Cackle().CommentsCount()));
-    Assert.True(this.html.Cackle().CommentsCount() is CackleCommentsCountWidget);
+    Assert.False(ReferenceEquals(html.Cackle().CommentsCount(), html.Cackle().CommentsCount()));
+    Assert.True(html.Cackle().CommentsCount() is CackleCommentsCountWidget);
   }
 
   /// <summary>
@@ -36,8 +35,8 @@ public sealed class CackleWidgetsCreatorTests
   [Fact]
   public void LatestComments_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Cackle().LatestComments(), this.html.Cackle().LatestComments()));
-    Assert.True(this.html.Cackle().LatestComments() is CackleLatestCommentsWidget);
+    Assert.False(ReferenceEquals(html.Cackle().LatestComments(), html.Cackle().LatestComments()));
+    Assert.True(html.Cackle().LatestComments() is CackleLatestCommentsWidget);
   }
 
   /// <summary>
@@ -46,7 +45,7 @@ public sealed class CackleWidgetsCreatorTests
   [Fact]
   public void Login_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Cackle().Login(), this.html.Cackle().Login()));
-    Assert.True(this.html.Cackle().Login() is CackleLoginWidget);
+    Assert.False(ReferenceEquals(html.Cackle().Login(), html.Cackle().Login()));
+    Assert.True(html.Cackle().Login() is CackleLoginWidget);
   }
 }

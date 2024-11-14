@@ -1,4 +1,3 @@
-using System.Web.Mvc;
 using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
@@ -82,25 +81,13 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
       return string.Empty;
     }
 
-    byte width;
-
-    switch ((TumblrFollowButtonType) Type())
+    byte width = (TumblrFollowButtonType)Type() switch
     {
-      case TumblrFollowButtonType.Second:
-        width = 113;
-        break;
-
-      case TumblrFollowButtonType.Third:
-        width = 18;
-        break;
-
-      case TumblrFollowButtonType.First:
-        width = 189;
-        break;
-
-      default:
-        throw new ArgumentOutOfRangeException();
-    }
+      TumblrFollowButtonType.Second => 113,
+      TumblrFollowButtonType.Third => 18,
+      TumblrFollowButtonType.First => 189,
+      _ => throw new ArgumentOutOfRangeException()
+    };
 
     return new TagBuilder("iframe")
       .Attribute("border", 0)

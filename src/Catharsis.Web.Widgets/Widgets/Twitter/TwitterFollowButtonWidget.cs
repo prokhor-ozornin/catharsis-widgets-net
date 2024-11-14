@@ -1,4 +1,3 @@
-using System.Web.Mvc;
 using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;

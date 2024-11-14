@@ -1,5 +1,4 @@
 ﻿using System.Web;
-using System.Web.Mvc;
 using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
@@ -191,46 +190,29 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
 
     byte height = 0;
 
-    switch (Size())
+    height = Size() switch
     {
-      case PinterestPinItButtonSize.Large :
-        switch (Shape())
-        {
-          case PinterestPinItButtonShape.Circular :
-            height = 32;
-            break;
+      PinterestPinItButtonSize.Large => Shape() switch
+      {
+        PinterestPinItButtonShape.Circular => 32,
+        PinterestPinItButtonShape.Rectangular => 28,
+        _ => height
+      },
+      PinterestPinItButtonSize.Small => Shape() switch
+      {
+        PinterestPinItButtonShape.Circular => 16,
+        PinterestPinItButtonShape.Rectangular => 20,
+        _ => height
+      },
+      _ => height
+    };
 
-          case PinterestPinItButtonShape.Rectangular :
-            height = 28;
-            break;
-        }
-        break;
-
-      case PinterestPinItButtonSize.Small :
-        switch (Shape())
-        {
-          case PinterestPinItButtonShape.Circular:
-            height = 16;
-            break;
-
-          case PinterestPinItButtonShape.Rectangular:
-            height = 20;
-            break;
-        }
-        break;
-    }
-
-    var shape = string.Empty;
-    switch (Shape())
+    var shape = Shape() switch
     {
-      case PinterestPinItButtonShape.Rectangular :
-        shape = "rect";
-        break;
-
-      case PinterestPinItButtonShape.Circular :
-        shape = "round";
-        break;
-    }
+      PinterestPinItButtonShape.Rectangular => "rect",
+      PinterestPinItButtonShape.Circular => "round",
+      _ => string.Empty
+    };
 
     return new TagBuilder("a")
       .Attribute("href", $"http://www.pinterest.com/pin/create/button/?url=${HttpUtility.UrlEncode(Url())}&media=${HttpUtility.UrlEncode(Image())}&description=${HttpUtility.UrlEncode(Description())}")

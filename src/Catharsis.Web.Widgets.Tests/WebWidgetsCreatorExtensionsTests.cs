@@ -1,5 +1,3 @@
-using System.Web.Mvc;
-
 namespace Catharsis.Web.Widgets;
 
 /// <summary>

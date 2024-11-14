@@ -1,5 +1,4 @@
-﻿using System.Web.Mvc;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
 using Convert = System.Convert;
 
 namespace Catharsis.Web.Widgets;

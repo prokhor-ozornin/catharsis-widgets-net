@@ -20,18 +20,13 @@ public static class ISurfingbirdSurfButtonWidgetExtensions
   {
     if (widget is null) throw new ArgumentNullException(nameof(widget));
 
-    switch (layout)
+    return layout switch
     {
-      case SurfingbirdSurfButtonLayout.Micro :
-        return widget.Layout("micro");
-
-      case SurfingbirdSurfButtonLayout.Vertical :
-        return widget.Layout("vert");
-
-      case SurfingbirdSurfButtonLayout.Common:
-      default:
-        return widget.Layout("common");
-    }
+      SurfingbirdSurfButtonLayout.Micro => widget.Layout("micro"),
+      SurfingbirdSurfButtonLayout.Vertical => widget.Layout("vert"),
+      SurfingbirdSurfButtonLayout.Common => widget.Layout("common"),
+      _ => widget.Layout("common")
+    };
   }
 
   /// <summary>

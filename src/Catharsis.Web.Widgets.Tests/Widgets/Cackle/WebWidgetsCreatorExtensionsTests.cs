@@ -1,4 +1,3 @@
-using System.Web.Mvc;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;

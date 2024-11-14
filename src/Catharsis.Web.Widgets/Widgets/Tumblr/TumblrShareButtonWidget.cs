@@ -1,4 +1,3 @@
-using System.Web.Mvc;
 using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
@@ -52,30 +51,14 @@ public class TumblrShareButtonWidget : WebWidget, ITumblrShareButtonWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    byte width;
-
-    switch (Type().To<TumblrShareButtonType>())
+    byte width = Type().To<TumblrShareButtonType>() switch
     {
-      case TumblrShareButtonType.First:
-        width = 80;
-        break;
-
-      case TumblrShareButtonType.Second:
-        width = 70;
-        break;
-
-      case TumblrShareButtonType.Third:
-        width = 130;
-        break;
-
-      case TumblrShareButtonType.Forth:
-        width = 20;
-        break;
-
-      default:
-        width = 80;
-        break;
-    }
+      TumblrShareButtonType.First => 80,
+      TumblrShareButtonType.Second => 70,
+      TumblrShareButtonType.Third => 130,
+      TumblrShareButtonType.Forth => 20,
+      _ => 80
+    };
 
     return new TagBuilder("a")
       .Attribute("href", "http://www.tumblr.com/share")

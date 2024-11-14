@@ -1,6 +1,4 @@
-﻿using System.Web.Mvc;
-
-namespace Catharsis.Web.Widgets;
+﻿namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Set of extension methods for interface<see cref="IWebWidgetsCreator"/>.</para>

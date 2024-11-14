@@ -1,5 +1,4 @@
-﻿using System.Web.Mvc;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -174,16 +173,12 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
     
     if (Sorting() is not null)
     {
-      switch (Sorting().Value)
+      config["sort"] = Sorting().Value switch
       {
-        case VkontakteRecommendationsSorting.FriendLikes :
-          config["sort"] = "friend_likes";
-          break;
-
-        case VkontakteRecommendationsSorting.Likes :
-          config["sort"] = "likes";
-          break;
-      }
+        VkontakteRecommendationsSorting.FriendLikes => "friend_likes",
+        VkontakteRecommendationsSorting.Likes => "likes",
+        _ => config["sort"]
+      };
     }
 
     if (Target() is not null)
