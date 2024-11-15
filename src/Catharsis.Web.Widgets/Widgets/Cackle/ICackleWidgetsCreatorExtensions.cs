@@ -32,8 +32,8 @@ public static class ICackleWidgetsCreatorExtensions
   /// <param name="creator">Helper object to call method on.</param>
   /// <param name="builder">Delegate that performs configuration of the widget.</param>
   /// <returns>HTML contents of configured and rendered widget.</returns>
-  /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="ICackleHtmlHelper.CommentsCount()"/>
+  /// <exception cref="ArgumentNullException">If either <paramref name="creator"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
+  /// <seealso cref="ICackleWidgetsCreator.CommentsCount()"/>
   public static string CommentsCount(this ICackleWidgetsCreator creator, Action<ICackleCommentsCountWidget> builder)
   {
     if (creator is null) throw new ArgumentNullException(nameof(creator));
@@ -49,11 +49,11 @@ public static class ICackleWidgetsCreatorExtensions
   /// <summary>
   ///   <para>Creates new Cackle latest comments widget.</para>
   /// </summary>
-  /// <param name="html">Helper object to call method on.</param>
+  /// <param name="creator">Helper object to call method on.</param>
   /// <param name="builder">Delegate that performs configuration of the widget.</param>
   /// <returns>HTML contents of configured and rendered widget.</returns>
-  /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="ICackleHtmlHelper.LatestComments()"/>
+  /// <exception cref="ArgumentNullException">If either <paramref name="creator"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
+  /// <seealso cref="ICackleWidgetsCreator.LatestComments()"/>
   public static string LatestComments(this ICackleWidgetsCreator creator, Action<ICackleLatestCommentsWidget> builder)
   {
     if (creator is null) throw new ArgumentNullException(nameof(creator));
@@ -69,11 +69,11 @@ public static class ICackleWidgetsCreatorExtensions
   /// <summary>
   ///   <para>Creates new Cackle OAuth login widget.</para>
   /// </summary>
-  /// <param name="html">Helper object to call method on.</param>
+  /// <param name="creator">Helper object to call method on.</param>
   /// <param name="builder">Delegate that performs configuration of the widget.</param>
   /// <returns>HTML contents of configured and rendered widget.</returns>
-  /// <exception cref="ArgumentNullException">If either <paramref name="html"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="ICackleHtmlHelper.Login()"/>
+  /// <exception cref="ArgumentNullException">If either <paramref name="creator"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
+  /// <seealso cref="ICackleWidgetsCreator.Login()"/>
   public static string Login(this ICackleWidgetsCreator creator, Action<ICackleLoginWidget> builder)
   {
     if (creator is null) throw new ArgumentNullException(nameof(creator));

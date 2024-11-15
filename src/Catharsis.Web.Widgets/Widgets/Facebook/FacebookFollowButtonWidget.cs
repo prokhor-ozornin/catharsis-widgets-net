@@ -13,13 +13,7 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
   private string url;
   private string width;
 
-  /// <summary>
-  ///   <para>The color scheme used by the button. Default is "light".</para>
-  /// </summary>
-  /// <param name="colorScheme">Color scheme of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="colorScheme"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="colorScheme"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.ColorScheme(string)"/>
   public IFacebookFollowButtonWidget ColorScheme(string colorScheme)
   {
     if (colorScheme is null) throw new ArgumentNullException(nameof(colorScheme));
@@ -29,36 +23,20 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>The color scheme used by the button. Default is "light".</para>
-  /// </summary>
-  /// <returns>Color scheme of button.</returns>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.ColorScheme()"/>
   public string ColorScheme() => colorScheme;
 
-  /// <summary>
-  ///   <para>Specifies whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites.</para>
-  /// </summary>
-  /// <param name="show"><c>true</c> to show profiles photos, <c>false</c> to hide.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.Faces(bool)"/>
   public IFacebookFollowButtonWidget Faces(bool show)
   {
     faces = show;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Specifies whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites.</para>
-  /// </summary>
-  /// <returns><c>true</c> to show profiles photos, <c>false</c> to hide.</returns>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.Faces()"/>
   public bool? Faces() => faces;
 
-  /// <summary>
-  ///   <para>The height of the button.</para>
-  /// </summary>
-  /// <param name="height">Height of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.Height(string)"/>
   public IFacebookFollowButtonWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -68,36 +46,20 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>The height of the button.</para>
-  /// </summary>
-  /// <returns>Height of button.</returns>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.KidsMode(bool)"/>
   public IFacebookFollowButtonWidget KidsMode(bool enabled)
   {
     kidsMode = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</returns>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.KidsMode()"/>
   public bool? KidsMode() => kidsMode;
 
-  /// <summary>
-  ///   <para>Selects one of the different layouts that are available for the button. Default is "standard".</para>
-  /// </summary>
-  /// <param name="layout">Layout of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="layout"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="layout"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.Layout(string)"/>
   public IFacebookFollowButtonWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
@@ -107,20 +69,10 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Selects one of the different layouts that are available for the button. Default is "standard".</para>
-  /// </summary>
-  /// <returns>Layout of button.</returns>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.Layout()"/>
   public string Layout() => layout;
 
-  /// <summary>
-  ///   <para>The Facebook.com profile URL of the user to follow.</para>
-  /// </summary>
-  /// <param name="url">Profile URL.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.Url(string)"/>
   public IFacebookFollowButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
@@ -130,19 +82,10 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>The Facebook.com profile URL of the user to follow.</para>
-  /// </summary>
-  /// <returns>Profile URL.</returns>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.Url()"/>
   public string Url() => url;
 
-  /// <summary>
-  ///   <para>The width of the button. The layout you choose affects the minimum and default widths you can use.</para>
-  /// </summary>
-  /// <param name="width">Width of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.Width(string)"/>
   public IFacebookFollowButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -152,11 +95,8 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>The width of the button. The layout you choose affects the minimum and default widths you can use.</para>
-  /// </summary>
-  /// <returns>Width of button.</returns>
-  public string Width() => this.width;
+  /// <inheritdoc cref="IFacebookFollowButtonWidget.Width()"/>
+  public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

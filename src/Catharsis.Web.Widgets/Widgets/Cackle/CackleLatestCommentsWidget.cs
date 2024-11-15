@@ -12,14 +12,7 @@ public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
   private int textSize = 150;
   private int titleSize = 40;
 
-  /// <summary>
-  ///   <para>Identifier of registered website in the "Cackle" comments system.</para>
-  /// </summary>
-  /// <param name="account">Identifier of website.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="ICackleLatestCommentsWidget.Account(string)"/>
   public ICackleLatestCommentsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -30,78 +23,47 @@ public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of registered website in the "Cackle" comments system.</para>
-  /// </summary>
-  /// <returns>Identifier of website.</returns>
+  /// <inheritdoc cref="ICackleLatestCommentsWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>Size of user avatars. Default is 32.</para>
-  /// </summary>
-  /// <param name="size">Size of user avatars.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="ICackleLatestCommentsWidget.AvatarSize(short)"/>
   public ICackleLatestCommentsWidget AvatarSize(short size)
   {
     avatarSize = size;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Size of user avatars. Default is 32.</para>
-  /// </summary>
-  /// <returns>Size of user avatars.</returns>
+  /// <inheritdoc cref="ICackleLatestCommentsWidget.AvatarSize()"/>
   public short AvatarSize() => avatarSize;
 
-  /// <summary>
-  ///   <para>Number of comments to display. Maximum 100, default 5.</para>
-  /// </summary>
-  /// <param name="max">Number of comments to display.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="ICackleLatestCommentsWidget.Max(byte)"/>
   public ICackleLatestCommentsWidget Max(byte max)
   {
     this.max = max;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Number of comments to display. Maximum 100, default 5.</para>
-  /// </summary>
-  /// <returns>Number of comments to display.</returns>
+  /// <inheritdoc cref="ICackleLatestCommentsWidget.Max()"/>
   public byte Max() => max;
 
-  /// <summary>
-  ///   <para>Maximum allowed count of characters in comment (0 - do not cut). Default is 150.</para>
-  /// </summary>
-  /// <param name="size">Maximum count of characters in comment.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="ICackleLatestCommentsWidget.TextSize(int)"/>
   public ICackleLatestCommentsWidget TextSize(int size)
   {
     textSize = size;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Maximum allowed count of characters in comment (0 - do not cut). Default is 150.</para>
-  /// </summary>
-  /// <returns>Maximum count of characters in comment.</returns>
+  /// <inheritdoc cref="ICackleLatestCommentsWidget.TextSize()"/>
   public int TextSize() => textSize;
 
-  /// <summary>
-  ///   <para>Maximum allowed count of characters in title (0 - do not cut). Default is 40.</para>
-  /// </summary>
-  /// <param name="size">Maximum count of characters in title.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="ICackleLatestCommentsWidget.TitleSize(int)"/>
   public ICackleLatestCommentsWidget TitleSize(int size)
   {
     titleSize = size;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Maximum allowed count of characters in title (0 - do not cut). Default is 40.</para>
-  /// </summary>
-  /// <returns>Maximum count of characters in title.</returns>
+  /// <inheritdoc cref="ICackleLatestCommentsWidget.TitleSize()"/>
   public int TitleSize() => titleSize;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

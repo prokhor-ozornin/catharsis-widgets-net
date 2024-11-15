@@ -8,14 +8,7 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
 {
   private string appId;
 
-  /// <summary>
-  ///   <para>Identifier of registered Facebook application.</para>
-  /// </summary>
-  /// <param name="appId">Identifier of Facebook application.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="appId"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="appId"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IFacebookInitializationWidget.AppId(string)"/>
   public IFacebookInitializationWidget AppId(string appId)
   {
     if (appId is null) throw new ArgumentNullException(nameof(appId));
@@ -25,10 +18,7 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of registered Facebook application.</para>
-  /// </summary>
-  /// <returns>Identifier of Facebook application.</returns>
+  /// <inheritdoc cref="IFacebookInitializationWidget.AppId()"/>
   public string AppId() => appId;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

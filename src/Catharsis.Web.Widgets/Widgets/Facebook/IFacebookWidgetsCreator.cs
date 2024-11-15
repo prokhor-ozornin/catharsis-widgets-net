@@ -21,7 +21,7 @@ public interface IFacebookWidgetsCreator
   ///   <para>Creates new Facebook Facepile widget.</para>
   /// </summary>
   /// <returns>Initialized widget with default options.</returns>
-  IFacebookFacepileWidget Facepile();
+  IFacebookFacePileWidget FacePile();
 
   /// <summary>
   ///   <para>Creates new Facebook "Follow" button widget.</para>

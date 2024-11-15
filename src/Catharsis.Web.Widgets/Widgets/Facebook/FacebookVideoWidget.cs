@@ -9,14 +9,7 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
   private string width;
   private string height;
 
-  /// <summary>
-  ///   <para>Identifier of video.</para>
-  /// </summary>
-  /// <param name="id">Identifier of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IFacebookVideoWidget.Id(string)"/>
   public IFacebookVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -26,20 +19,10 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of video.</para>
-  /// </summary>
-  /// <returns>Identifier of video.</returns>
+  /// <inheritdoc cref="IFacebookVideoWidget.Id()"/>
   public string Id() => id;
 
-  /// <summary>
-  ///   <para>Height of video control.</para>
-  /// </summary>
-  /// <param name="height">Height of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IFacebookVideoWidget.Height(string)"/>
   public IFacebookVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -49,20 +32,10 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Height of video control.</para>
-  /// </summary>
-  /// <returns>Height of video.</returns>
+  /// <inheritdoc cref="IFacebookVideoWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Width of video control.</para>
-  /// </summary>
-  /// <param name="width">Width of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IFacebookVideoWidget.Width(string)"/>
   public IFacebookVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -72,10 +45,7 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Width of video control.</para>
-  /// </summary>
-  /// <returns>Width of video.</returns>
+  /// <inheritdoc cref="IFacebookVideoWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

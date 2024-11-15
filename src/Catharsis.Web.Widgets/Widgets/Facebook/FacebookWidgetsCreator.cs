@@ -9,8 +9,8 @@ public class FacebookWidgetsCreator : IFacebookWidgetsCreator
   /// <inheritdoc cref="IFacebookWidgetsCreator.Comments()"/>
   public IFacebookCommentsWidget Comments() => new FacebookCommentsWidget();
 
-  /// <inheritdoc cref="IFacebookWidgetsCreator.Facepile()"/>
-  public IFacebookFacepileWidget Facepile() => new FacebookFacepileWidget();
+  /// <inheritdoc cref="IFacebookWidgetsCreator.FacePile"/>
+  public IFacebookFacePileWidget FacePile() => new FacebookFacePileWidget();
 
   /// <inheritdoc cref="IFacebookWidgetsCreator.FollowButton()"/>
   public IFacebookFollowButtonWidget FollowButton() => new FacebookFollowButtonWidget();

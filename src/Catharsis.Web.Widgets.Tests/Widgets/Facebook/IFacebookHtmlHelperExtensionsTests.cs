@@ -68,8 +68,8 @@ public sealed class IFacebookWidgetsCreatorExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IFacebookWidgetsCreatorExtensions.FacePile(null, widget => { }));
     Assert.Throws<ArgumentNullException>(() => new FacebookWidgetsCreator().FacePile(null));
 
-    Assert.Equal(new FacebookWidgetsCreator().Facepile().ToHtml(), new FacebookWidgetsCreator().FacePile(x => { }));
-    Assert.Equal(new FacebookWidgetsCreator().Facepile().Url("url").ToHtml(), new FacebookWidgetsCreator().FacePile(x => x.Url("url")));
+    Assert.Equal(new FacebookWidgetsCreator().FacePile().ToHtml(), new FacebookWidgetsCreator().FacePile(x => { }));
+    Assert.Equal(new FacebookWidgetsCreator().FacePile().Url("url").ToHtml(), new FacebookWidgetsCreator().FacePile(x => x.Url("url")));
   }
 
   /// <summary>

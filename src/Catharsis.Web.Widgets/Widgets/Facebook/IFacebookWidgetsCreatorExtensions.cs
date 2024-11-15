@@ -93,13 +93,13 @@ public static class IFacebookWidgetsCreatorExtensions
   /// <param name="builder">Delegate that performs configuration of the widget.</param>
   /// <returns>HTML contents of configured and rendered widget.</returns>
   /// <exception cref="ArgumentNullException">If either <paramref name="creator"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IFacebookWidgetsCreator.Facepile()"/>
+  /// <seealso cref="IFacebookWidgetsCreator.FacePile"/>
   public static string FacePile(this IFacebookWidgetsCreator creator, Action<IFacebookFacepileWidget> builder)
   {
     if (creator is null) throw new ArgumentNullException(nameof(creator));
     if (builder is null) throw new ArgumentNullException(nameof(builder));
 
-    var widget = creator.Facepile();
+    var widget = creator.FacePile();
     builder(widget);
     return widget.ToHtml();
   }
@@ -111,7 +111,7 @@ public static class IFacebookWidgetsCreatorExtensions
   /// <param name="builder">Delegate that performs configuration of the widget.</param>
   /// <returns>HTML contents of configured and rendered widget.</returns>
   /// <exception cref="ArgumentNullException">If either <paramref name="creator"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IFacebookWidgetsCreator.Facepile()"/>
+  /// <seealso cref="IFacebookWidgetsCreator.FacePile"/>
   public static string FollowButton(this IFacebookWidgetsCreator creator, Action<IFacebookFollowButtonWidget> builder)
   {
     if (creator is null) throw new ArgumentNullException(nameof(creator));

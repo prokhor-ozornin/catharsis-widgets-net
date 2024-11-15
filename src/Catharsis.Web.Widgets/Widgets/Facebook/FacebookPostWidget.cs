@@ -8,14 +8,7 @@ public class FacebookPostWidget : WebWidget, IFacebookPostWidget
   private string url;
   private string width;
 
-  /// <summary>
-  ///   <para>Specified URL address of Facebook post to embed.</para>
-  /// </summary>
-  /// <param name="url">URL of Facebook post.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IFacebookPostWidget.Url(string)"/>
   public IFacebookPostWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
@@ -25,19 +18,10 @@ public class FacebookPostWidget : WebWidget, IFacebookPostWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Specified URL address of Facebook post to embed.</para>
-  /// </summary>
-  /// <returns>URL of Facebook post.</returns>
+  /// <inheritdoc cref="IFacebookPostWidget.Url()"/>
   public string Url() => url;
 
-  /// <summary>
-  ///   <para>Specifies width of Facebook post area on page.</para>
-  /// </summary>
-  /// <param name="width">Width of post.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IFacebookPostWidget.Width(string)"/>
   public IFacebookPostWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -47,10 +31,7 @@ public class FacebookPostWidget : WebWidget, IFacebookPostWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Specifies width of Facebook post area on page.</para>
-  /// </summary>
-  /// <returns>Width of post.</returns>
+  /// <inheritdoc cref="IFacebookPostWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

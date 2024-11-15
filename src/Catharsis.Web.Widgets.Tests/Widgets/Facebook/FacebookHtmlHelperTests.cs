@@ -50,7 +50,7 @@ public sealed class FacebookWidgetsCreatorTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.Facepile()"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.FacePile"/> method.</para>
   /// </summary>
   [Fact]
   public void Facepile_Method()
