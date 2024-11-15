@@ -3,40 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\facebook\\facebookfollowbuttonwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\facebook\\facebookfollowbuttonwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\facebook\\facebooklikebuttonwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\facebook\\facebooklikebuttonwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\facebook\\facebookfacepilewidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\facebook\\facebookfacepilewidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\facebook\\facebooklikebuttonverb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\facebook\\facebooklikebuttonverb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\facebook\\facebookfacepilephotosize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\facebook\\facebookfacepilephotosize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\facebook\\facebookcommentsorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\facebook\\facebookcommentsorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\facebook\\facebookcommentswidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\facebook\\facebookcommentswidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\facebook\\facebookcolorscheme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\facebook\\facebookcolorscheme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\facebook\\facebookbuttonlayout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\facebook\\facebookbuttonlayout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\facebook\\facebookactivityfeedwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\facebook\\facebookactivityfeedwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\doublegis\\iwebwidgetscreatorextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\doublegis\\iwebwidgetscreatorextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\facebook\\facebooklikeboxwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\facebook\\facebooklikeboxwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -59,118 +35,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FacebookFollowButtonWidget.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFollowButtonWidget.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFollowButtonWidget.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFollowButtonWidget.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFollowButtonWidget.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAA==",
+              "Title": "FacebookLikeButtonWidget.cs",
+              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeButtonWidget.cs",
+              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeButtonWidget.cs",
+              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeButtonWidget.cs",
+              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeButtonWidget.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T18:10:45.701Z",
+              "WhenOpened": "2024-11-14T19:25:37.743Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FacebookFacePileWidget.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFacePileWidget.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFacePileWidget.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFacePileWidget.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFacePileWidget.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAAGcAAAA2AAAAAAAAAA==",
+              "Title": "FacebookLikeButtonVerb.cs",
+              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeButtonVerb.cs",
+              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeButtonVerb.cs",
+              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeButtonVerb.cs",
+              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeButtonVerb.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T18:07:44.34Z",
+              "WhenOpened": "2024-11-14T19:25:35.929Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FacebookFacePilePhotoSize.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFacePilePhotoSize.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFacePilePhotoSize.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFacePilePhotoSize.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookFacePilePhotoSize.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "FacebookLikeBoxWidget.cs",
+              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeBoxWidget.cs",
+              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeBoxWidget.cs",
+              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeBoxWidget.cs",
+              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookLikeBoxWidget.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T18:07:42.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FacebookCommentsWidget.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookCommentsWidget.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookCommentsWidget.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookCommentsWidget.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookCommentsWidget.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T18:07:40.357Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FacebookCommentsOrder.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookCommentsOrder.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookCommentsOrder.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookCommentsOrder.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookCommentsOrder.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T18:07:39.094Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FacebookColorScheme.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookColorScheme.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookColorScheme.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookColorScheme.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookColorScheme.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T18:07:37.685Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FacebookButtonLayout.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookButtonLayout.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookButtonLayout.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookButtonLayout.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookButtonLayout.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T18:07:36.277Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FacebookActivityFeedWidget.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookActivityFeedWidget.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookActivityFeedWidget.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookActivityFeedWidget.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Facebook\\FacebookActivityFeedWidget.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAJgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T16:18:17.692Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IWebWidgetsCreatorExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\DoubleGis\\IWebWidgetsCreatorExtensions.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\DoubleGis\\IWebWidgetsCreatorExtensions.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\DoubleGis\\IWebWidgetsCreatorExtensions.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\DoubleGis\\IWebWidgetsCreatorExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T15:49:59.36Z",
+              "WhenOpened": "2024-11-14T18:13:11.672Z",
               "EditorCaption": ""
             }
           ]
