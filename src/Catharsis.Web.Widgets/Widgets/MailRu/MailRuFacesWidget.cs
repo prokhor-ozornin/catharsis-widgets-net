@@ -17,13 +17,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   private string titleText;
   private string width;
 
-  /// <summary>
-  ///   <para>Color of Faces box background.</para>
-  /// </summary>
-  /// <param name="color">Background color.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuFacesWidget.BackgroundColor(string)"/>
   public IMailRuFacesWidget BackgroundColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
@@ -33,19 +27,10 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Color of Faces box background.</para>
-  /// </summary>
-  /// <returns>Background color.</returns>
+  /// <inheritdoc cref="IMailRuFacesWidget.BackgroundColor()"/>
   public string BackgroundColor() => backgroundColor;
 
-  /// <summary>
-  ///   <para>Color of Faces box border.</para>
-  /// </summary>
-  /// <param name="color">Border color.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuFacesWidget.BorderColor(string)"/>
   public IMailRuFacesWidget BorderColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
@@ -55,20 +40,10 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Color of Faces box border.</para>
-  /// </summary>
-  /// <returns>Border color.</returns>
+  /// <inheritdoc cref="IMailRuFacesWidget.BorderColor()"/>
   public string BorderColor() => borderColor;
 
-  /// <summary>
-  ///   <para>Domain of target site with which users have interacted.</para>
-  /// </summary>
-  /// <param name="domain">Target site domain.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="domain"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="domain"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IMailRuFacesWidget.Domain(string)"/>
   public IMailRuFacesWidget Domain(string domain)
   {
     if (domain is null) throw new ArgumentNullException(nameof(domain));
@@ -78,19 +53,10 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Domain of target site with which users have interacted.</para>
-  /// </summary>
-  /// <returns>Target site domain.</returns>
+  /// <inheritdoc cref="IMailRuFacesWidget.Domain()"/>
   public string Domain() => domain;
 
-  /// <summary>
-  ///   <para>Name of font, used for text labels.</para>
-  /// </summary>
-  /// <param name="font">Font name.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="font"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="font"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuFacesWidget.Font(string)"/>
   public IMailRuFacesWidget Font(string font)
   {
     if (font is null) throw new ArgumentNullException(nameof(font));
@@ -100,20 +66,10 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Name of font, used for text labels.</para>
-  /// </summary>
-  /// <returns>Font name.</returns>
+  /// <inheritdoc cref="IMailRuFacesWidget.Font()"/>
   public string Font() => font;
 
-  /// <summary>
-  ///   <para>Height of Faces box area.</para>
-  /// </summary>
-  /// <param name="height">Area height.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IMailRuFacesWidget.Height(string)"/>
   public IMailRuFacesWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -123,19 +79,10 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Height of Faces box area.</para>
-  /// </summary>
-  /// <returns>Area height.</returns>
+  /// <inheritdoc cref="IMailRuFacesWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Color of Faces box hyperlinks.</para>
-  /// </summary>
-  /// <param name="color">Hyperlinks color.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuFacesWidget.HyperlinkColor(string)"/>
   public IMailRuFacesWidget HyperlinkColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
@@ -145,19 +92,10 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Color of Faces box hyperlinks.</para>
-  /// </summary>
-  /// <returns>Hyperlinks color.</returns>
+  /// <inheritdoc cref="IMailRuFacesWidget.HyperlinkColor()"/>
   public string HyperlinkColor() => hyperlinkColor;
 
-  /// <summary>
-  ///   <para>Color of Faces box text labels.</para>
-  /// </summary>
-  /// <param name="color">Text color.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuFacesWidget.TextColor(string)"/>
   public IMailRuFacesWidget TextColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
@@ -167,36 +105,20 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Color of Faces box text labels.</para>
-  /// </summary>
-  /// <returns>Text color.</returns>
+  /// <inheritdoc cref="IMailRuFacesWidget.TextColor()"/>
   public string TextColor() => textColor;
 
-  /// <summary>
-  ///   <para>Whether to show or hide Faces box title.</para>
-  /// </summary>
-  /// <param name="show"><c>true</c> to show title, <c>false</c> to hide.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IMailRuFacesWidget.Title(bool)"/>
   public IMailRuFacesWidget Title(bool show)
   {
     title = show;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to show or hide Faces box title.</para>
-  /// </summary>
-  /// <returns><c>true</c> to show title, <c>false</c> to hide.</returns>
+  /// <inheritdoc cref="IMailRuFacesWidget.Title()"/>
   public bool Title() => title;
 
-  /// <summary>
-  ///   <para>Color of Faces box title.</para>
-  /// </summary>
-  /// <param name="color">Title color.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuFacesWidget.TitleColor(string)"/>
   public IMailRuFacesWidget TitleColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
@@ -206,22 +128,10 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Color of Faces box title.</para>
-  /// </summary>
-  /// <returns>Title color.</returns>
-  public string TitleColor()
-  {
-    return this.titleColor;
-  }
+  /// <inheritdoc cref="IMailRuFacesWidget.TitleColor()"/>
+  public string TitleColor() => titleColor;
 
-  /// <summary>
-  ///   <para>Title text label of Faces box.</para>
-  /// </summary>
-  /// <param name="title">Title text.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuFacesWidget.TitleText(string)"/>
   public IMailRuFacesWidget TitleText(string title)
   {
     if (title is null) throw new ArgumentNullException(nameof(title));
@@ -231,20 +141,10 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Title text label of Faces box.</para>
-  /// </summary>
-  /// <returns>Title text.</returns>
+  /// <inheritdoc cref="IMailRuFacesWidget.TitleText()"/>
   public string TitleText() => titleText;
 
-  /// <summary>
-  ///   <para>Width of Faces box area.</para>
-  /// </summary>
-  /// <param name="width">Area width.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IMailRuFacesWidget.Width(string)"/>
   public IMailRuFacesWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -254,10 +154,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Width of Faces box area.</para>
-  /// </summary>
-  /// <returns>Area width.</returns>
+  /// <inheritdoc cref="IMailRuFacesWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

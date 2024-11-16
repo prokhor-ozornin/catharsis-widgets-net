@@ -3,8 +3,10 @@
 /// <inheritdoc cref="IPayPalSubscribeWidget"/>
 public class PayPalSubscribeWidget : WebWidget, IPayPalSubscribeWidget
 {
+  /// <inheritdoc cref="IPayPalSubscribeWidget.AsForm()"/>
   public IPayPalSubscribeWidget AsForm() => throw new NotImplementedException();
 
+  /// <inheritdoc cref="IPayPalSubscribeWidget.AsUrl()"/>
   public IPayPalSubscribeWidget AsUrl() => throw new NotImplementedException();
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

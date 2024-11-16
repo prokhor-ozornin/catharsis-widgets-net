@@ -9,13 +9,7 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
   private string hash;
   private readonly IDictionary<string, object> parameters = new Dictionary<string, object>();
 
-  /// <summary>
-  ///   <para>Format in which to retrieve profile's data.</para>
-  /// </summary>
-  /// <param name="format">Profile's data format.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="format"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="format"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IGravatarProfileUrlWidget.Format(string)"/>
   public IGravatarProfileUrlWidget Format(string format)
   {
     if (format is null) throw new ArgumentNullException(nameof(format));
@@ -25,20 +19,10 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Format in which to retrieve profile's data.</para>
-  /// </summary>
-  /// <returns>Profile's data format.</returns>
+  /// <inheritdoc cref="IGravatarProfileUrlWidget.Format()"/>
   public string Format() => format;
 
-  /// <summary>
-  ///   <para>MD5 hash of user's email address.</para>
-  /// </summary>
-  /// <param name="hash">Hash of user's email.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="hash"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="hash"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IGravatarProfileUrlWidget.Hash(string)"/>
   public IGravatarProfileUrlWidget Hash(string hash)
   {
     if (hash is null) throw new ArgumentNullException(nameof(hash));
@@ -48,20 +32,10 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>MD5 hash of user's email address.</para>
-  /// </summary>
-  /// <returns>Hash of user's email.</returns>
+  /// <inheritdoc cref="IGravatarProfileUrlWidget.Hash()"/>
   public string Hash() => hash;
 
-  /// <summary>
-  ///   <para>Adds custom parameter to URL's query part.</para>
-  /// </summary>
-  /// <param name="name">Parameter's name.</param>
-  /// <param name="value">Parameter's value.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If either <paramref name="name"/> or <paramref name="value"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="name"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IGravatarProfileUrlWidget.Parameter(string, object)"/>
   public IGravatarProfileUrlWidget Parameter(string name, object value)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));

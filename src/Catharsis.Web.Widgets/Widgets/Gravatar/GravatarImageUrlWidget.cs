@@ -9,13 +9,7 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
   private string hash;
   private readonly IDictionary<string, object> parameters = new Dictionary<string, object>();
 
-  /// <summary>
-  ///   <para>File-type extension for URL (jpg, png, gif, etc).</para>
-  /// </summary>
-  /// <param name="extension">File-type extension.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="extension"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="extension"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IGravatarImageUrlWidget.Extension(string)"/>
   public IGravatarImageUrlWidget Extension(string extension)
   {
     if (extension is null) throw new ArgumentNullException(nameof(extension));
@@ -25,23 +19,10 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>File-type extension for URL (jpg, png, gif, etc).</para>
-  /// </summary>
-  /// <returns>File-type extension.</returns>
-  public string Extension()
-  {
-    return this.extension;
-  }
+  /// <inheritdoc cref="IGravatarImageUrlWidget.Extension(string)"/>
+  public string Extension() => extension;
 
-  /// <summary>
-  ///   <para>MD5 hash of user's email address.</para>
-  /// </summary>
-  /// <param name="hash">Hash of user's email.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="hash"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="hash"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IGravatarImageUrlWidget.Hash(string)"/>
   public IGravatarImageUrlWidget Hash(string hash)
   {
     if (hash is null) throw new ArgumentNullException(nameof(hash));
@@ -51,20 +32,10 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>MD5 hash of user's email address.</para>
-  /// </summary>
-  /// <returns>Hash of user's email.</returns>
+  /// <inheritdoc cref="IGravatarImageUrlWidget.Hash()"/>
   public string Hash() => hash;
 
-  /// <summary>
-  ///   <para>Adds custom parameter to URL's query part.</para>
-  /// </summary>
-  /// <param name="name">Parameter's name.</param>
-  /// <param name="value">Parameter's value.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If either <paramref name="name"/> or <paramref name="value"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="name"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IGravatarImageUrlWidget.Parameter(string, object)"/>
   public IGravatarImageUrlWidget Parameter(string name, object value)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));

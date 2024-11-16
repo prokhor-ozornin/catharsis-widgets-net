@@ -9,13 +9,7 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
   private string account;
   private string language;
 
-  /// <summary>
-  ///   <para>ICQ UIN number of contact person. If specified, "Ask Me" option will be added to the widget.</para>
-  /// </summary>
-  /// <param name="account">ICQ UIN number.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuIcqWidget.Account(string)"/>
   public IMailRuIcqWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -25,19 +19,10 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>ICQ UIN number of contact person. If specified, "Ask Me" option will be added to the widget.</para>
-  /// </summary>
-  /// <returns>ICQ UIN number.</returns>
+  /// <inheritdoc cref="IMailRuIcqWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>Two-letter ISO language code that determines the interface language. Default is "ru".</para>
-  /// </summary>
-  /// <param name="language">ISO language code for interface.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="language"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="language"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuIcqWidget.Language(string)"/>
   public IMailRuIcqWidget Language(string language)
   {
     if (language is null) throw new ArgumentNullException(nameof(language));
@@ -47,10 +32,7 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Two-letter ISO language code that determines the interface language. Default is "ru".</para>
-  /// </summary>
-  /// <returns>ISO language code for interface.</returns>
+  /// <inheritdoc cref="IMailRuIcqWidget.Language()"/>
   public string Language() => language;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

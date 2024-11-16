@@ -10,14 +10,7 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
   private string postUrl;
   private string postTitle;
 
-  /// <summary>
-  ///   <para>Identifier of registered website in the "IntenseDebate" comments system.</para>
-  /// </summary>
-  /// <param name="account">Identifier of website.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IIntenseDebateCommentsWidget.Account(string)"/>
   public IIntenseDebateCommentsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -27,19 +20,10 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of registered website in the "IntenseDebate" comments system.</para>
-  /// </summary>
-  /// <returns>Identifier of website.</returns>
+  /// <inheritdoc cref="IIntenseDebateCommentsWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>This is the unique identifier of the post or page. This is what keeps the comments set on this page different than comments set on another page. The default value is the URL of the page.</para>
-  /// </summary>
-  /// <param name="postId">Identifier of post or page.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="postId"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="postId"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostId(string)"/>
   public IIntenseDebateCommentsWidget PostId(string postId)
   {
     if (postId is null) throw new ArgumentNullException(nameof(postId));
@@ -49,19 +33,10 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>This is the unique identifier of the post or page. This is what keeps the comments set on this page different than comments set on another page. The default value is the URL of the page.</para>
-  /// </summary>
-  /// <returns>Identifier of post or page.</returns>
+  /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostId()"/>
   public string PostId() => postId;
 
-  /// <summary>
-  ///   <para>This is the url of the post or page. This is url Intense Debate will link to in RSS feeds and on IntenseDebate.com. The default is the current page's URL.</para>
-  /// </summary>
-  /// <param name="postUrl">URL of post or page.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="postUrl"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="postUrl"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostUrl(string)"/>
   public IIntenseDebateCommentsWidget PostUrl(string postUrl)
   {
     if (postUrl is null) throw new ArgumentNullException(nameof(postUrl));
@@ -71,19 +46,10 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>This is the url of the post or page. This is url Intense Debate will link to in RSS feeds and on IntenseDebate.com. The default is the current page's URL.</para>
-  /// </summary>
-  /// <returns>URL of post or page.</returns>
+  /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostUrl()"/>
   public string PostUrl() => postUrl;
 
-  /// <summary>
-  ///   <para>This is title of the post or page. This is the title that will be displayed in RSS feeds and on IntenseDebate.com. The default value is the title of the current page.</para>
-  /// </summary>
-  /// <param name="postTitle">Title of post or page.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="postTitle"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="postTitle"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostTitle(string)"/>
   public IIntenseDebateCommentsWidget PostTitle(string postTitle)
   {
     if (postTitle is null) throw new ArgumentNullException(nameof(postTitle));
@@ -93,10 +59,7 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>This is title of the post or page. This is the title that will be displayed in RSS feeds and on IntenseDebate.com. The default value is the title of the current page.</para>
-  /// </summary>
-  /// <returns>Title of post or page.</returns>
+  /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostTitle()"/>
   public string PostTitle() => postTitle;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

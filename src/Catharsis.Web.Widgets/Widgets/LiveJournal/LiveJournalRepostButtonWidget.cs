@@ -8,13 +8,7 @@ public class LiveJournalRepostButtonWidget : WebWidget, ILiveJournalRepostButton
   private string text;
   private string title;
 
-  /// <summary>
-  ///   <para>Text fragment to be reposted.</para>
-  /// </summary>
-  /// <param name="text">Text fragment.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="text"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="text"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ILiveJournalRepostButtonWidget.Text(string)"/>
   public ILiveJournalRepostButtonWidget Text(string text)
   {
     if (text is null) throw new ArgumentNullException(nameof(text));
@@ -24,19 +18,10 @@ public class LiveJournalRepostButtonWidget : WebWidget, ILiveJournalRepostButton
     return this;
   }
 
-  /// <summary>
-  ///   <para>Text fragment to be reposted.</para>
-  /// </summary>
-  /// <returns>Text fragment.</returns>
+  /// <inheritdoc cref="ILiveJournalRepostButtonWidget.Text()"/>
   public string Text() => text;
 
-  /// <summary>
-  ///   <para>Label text to display on the button.</para>
-  /// </summary>
-  /// <param name="title">Button's label text.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ILiveJournalRepostButtonWidget.Title(string)"/>
   public ILiveJournalRepostButtonWidget Title(string title)
   {
     if (title is null) throw new ArgumentNullException(nameof(title));
@@ -46,10 +31,7 @@ public class LiveJournalRepostButtonWidget : WebWidget, ILiveJournalRepostButton
     return this;
   }
 
-  /// <summary>
-  ///   <para>Label text to display on the button.</para>
-  /// </summary>
-  /// <returns>Button's label text.</returns>
+  /// <inheritdoc cref="ILiveJournalRepostButtonWidget.Title()"/>
   public string Title() => title;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

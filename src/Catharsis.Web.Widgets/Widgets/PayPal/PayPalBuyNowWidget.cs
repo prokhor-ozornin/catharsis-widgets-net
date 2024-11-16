@@ -3,16 +3,10 @@
 /// <inheritdoc cref="IPayPalBuyNowWidget"/>
 public class PayPalBuyNowWidget : WebWidget, IPayPalBuyNowWidget
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <returns></returns>
+  /// <inheritdoc cref="IPayPalBuyNowWidget.AsForm()"/>
   public IPayPalBuyNowWidget AsForm() => throw new NotImplementedException();
 
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <returns></returns>
+  /// <inheritdoc cref="IPayPalBuyNowWidget.AsUrl()"/>
   public IPayPalBuyNowWidget AsUrl() => throw new NotImplementedException();
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

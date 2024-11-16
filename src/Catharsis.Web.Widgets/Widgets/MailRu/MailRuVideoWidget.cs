@@ -9,14 +9,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
   private string height;
   private string width;
 
-  /// <summary>
-  ///   <para>Identifier of video.</para>
-  /// </summary>
-  /// <param name="id">Identifier of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IMailRuVideoWidget.Id(string)"/>
   public IMailRuVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -26,20 +19,10 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of video.</para>
-  /// </summary>
-  /// <returns>Identifier of video.</returns>
+  /// <inheritdoc cref="IMailRuVideoWidget.Id()"/>
   public string Id() => id;
 
-  /// <summary>
-  ///   <para>Height of video control.</para>
-  /// </summary>
-  /// <param name="height">Height of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IMailRuVideoWidget.Height(string)"/>
   public IMailRuVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -49,32 +32,20 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Height of video control.</para>
-  /// </summary>
-  /// <returns>Height of video.</returns>
+  /// <inheritdoc cref="IMailRuVideoWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Width of video control.</para>
-  /// </summary>
-  /// <param name="width">Width of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IMailRuVideoWidget.Width(string)"/>
   public IMailRuVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
+    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
     this.width = width;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Width of video control.</para>
-  /// </summary>
-  /// <returns>Width of video.</returns>
+  /// <inheritdoc cref="IMailRuVideoWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

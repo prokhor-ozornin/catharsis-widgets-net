@@ -7,14 +7,7 @@ public class PinterestPinWidget : WebWidget, IPinterestPinWidget
 {
   private string id;
 
-  /// <summary>
-  ///   <para>Unique identifier of Pinterest Pin.</para>
-  /// </summary>
-  /// <param name="id">Identifier of pin.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IPinterestPinWidget.Id(string)"/>
   public IPinterestPinWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -24,10 +17,7 @@ public class PinterestPinWidget : WebWidget, IPinterestPinWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Unique identifier of Pinterest Pin.</para>
-  /// </summary>
-  /// <returns>Identifier of pin.</returns>
+  /// <inheritdoc cref="IPinterestPinWidget.Id()"/>
   public string Id() => id;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

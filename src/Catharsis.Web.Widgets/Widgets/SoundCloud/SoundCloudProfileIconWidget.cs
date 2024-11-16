@@ -9,14 +9,7 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
   private string color = "orange_white";
   private short size = (short) SoundCloudProfileIconSize.Size32;
 
-  /// <summary>
-  ///   <para>SoundCloud user's account name.</para>
-  /// </summary>
-  /// <param name="account">Account name.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="ISoundCloudProfileIconWidget.Account(string)"/>
   public ISoundCloudProfileIconWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -26,19 +19,10 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>SoundCloud user's account name.</para>
-  /// </summary>
-  /// <returns>Account name.</returns>
+  /// <inheritdoc cref="ISoundCloudProfileIconWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>Color of profile icon.</para>
-  /// </summary>
-  /// <param name="color">Icon's color.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ISoundCloudProfileIconWidget.Color(string)"/>
   public ISoundCloudProfileIconWidget Color(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
@@ -48,27 +32,17 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Color of profile icon.</para>
-  /// </summary>
-  /// <returns>Icon's color.</returns>
+  /// <inheritdoc cref="ISoundCloudProfileIconWidget.Size(short)"/>
   public string Color() => color;
 
-  /// <summary>
-  ///   <para>Edge size of profile icon in pixels.</para>
-  /// </summary>
-  /// <param name="size">Icon's size.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="ISoundCloudProfileIconWidget.Size(short)"/>
   public ISoundCloudProfileIconWidget Size(short size)
   {
     this.size = size;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Edge size of profile icon in pixels.</para>
-  /// </summary>
-  /// <returns>Icon's size.</returns>
+  /// <inheritdoc cref="ISoundCloudProfileIconWidget.Size()"/>
   public short Size() => size;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

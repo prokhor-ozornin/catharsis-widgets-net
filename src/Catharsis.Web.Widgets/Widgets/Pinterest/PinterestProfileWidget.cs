@@ -10,14 +10,7 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
   private string width;
   private string image;
 
-  /// <summary>
-  ///   <para>Pinterest user account.</para>
-  /// </summary>
-  /// <param name="account">Account name.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IPinterestProfileWidget.Account(string)"/>
   public IPinterestProfileWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -27,20 +20,10 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Pinterest user account.</para>
-  /// </summary>
-  /// <returns>Account name.</returns>
+  /// <inheritdoc cref="IPinterestProfileWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>Total height of profile area in pixels.</para>
-  /// </summary>
-  /// <param name="height">Areas's height.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>Min: 60; leave blank for 175.</remarks>
+  /// <inheritdoc cref="IPinterestProfileWidget.Height(string)"/>
   public IPinterestProfileWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -50,20 +33,10 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Total height of profile area in pixels.</para>
-  /// </summary>
-  /// <returns>Areas's height.</returns>
+  /// <inheritdoc cref="IPinterestProfileWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Total width of profile area in pixels.</para>
-  /// </summary>
-  /// <param name="width">Area's width.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>Min: 130; leave blank for auto.</remarks>
+  /// <inheritdoc cref="IPinterestProfileWidget.Width(string)"/>
   public IPinterestProfileWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -73,20 +46,10 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Total width of profile area in pixels.</para>
-  /// </summary>
-  /// <returns>Area's width.</returns>
+  /// <inheritdoc cref="IPinterestProfileWidget.Width()"/>
   public string Width() => width;
 
-  /// <summary>
-  ///   <para>Width of profile area's image in pixels.</para>
-  /// </summary>
-  /// <param name="width">Area's image width.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>Min: 60; leave blank for 92.</remarks>
+  /// <inheritdoc cref="IPinterestProfileWidget.Image(string)"/>
   public IPinterestProfileWidget Image(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -96,10 +59,7 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Width of profile area's image in pixels.</para>
-  /// </summary>
-  /// <returns>Area's image width.</returns>
+  /// <inheritdoc cref="IPinterestProfileWidget.Image()"/>
   public string Image() => image;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

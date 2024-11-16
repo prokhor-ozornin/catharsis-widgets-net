@@ -9,31 +9,17 @@ public class InlineImageWidget : WebWidget, IInlineImageWidget
   private byte[] contents;
   private string format;
 
-  /// <summary>
-  ///   <para>Binary contents of image.</para>
-  /// </summary>
-  /// <param name="contents">Image data.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="contents"/> is a <c>null</c> reference.</exception>
+  /// <inheritdoc cref="IInlineImageWidget.Contents(byte[])"/>
   public IInlineImageWidget Contents(byte[] contents)
   {
     this.contents = contents ?? throw new ArgumentNullException(nameof(contents));
     return this;
   }
 
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <returns></returns>
+  /// <inheritdoc cref="IInlineImageWidget.Contents()"/>
   public byte[] Contents() => contents;
 
-  /// <summary>
-  ///   <para>MIME content-type of image.</para>
-  /// </summary>
-  /// <param name="format">Image type.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="format"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="format"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IInlineImageWidget.Format(string)"/>
   public IInlineImageWidget Format(string format)
   {
     if (format is null) throw new ArgumentNullException(nameof(format));
@@ -43,6 +29,7 @@ public class InlineImageWidget : WebWidget, IInlineImageWidget
     return this;
   }
 
+  /// <inheritdoc cref="IInlineImageWidget.Format()"/>
   public string Format() => format;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

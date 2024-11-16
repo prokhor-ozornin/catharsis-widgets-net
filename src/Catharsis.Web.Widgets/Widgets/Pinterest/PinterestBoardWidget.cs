@@ -11,14 +11,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
   private string id;
   private string image;
 
-  /// <summary>
-  ///   <para>Pinterest user account.</para>
-  /// </summary>
-  /// <param name="account">Account name.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IPinterestBoardWidget.Account(string)"/>
   public IPinterestBoardWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -28,20 +21,10 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Pinterest user account.</para>
-  /// </summary>
-  /// <returns>Account name.</returns>
+  /// <inheritdoc cref="IPinterestBoardWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>Total height of board in pixels.</para>
-  /// </summary>
-  /// <param name="height">Board's height.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>Min: 60; leave blank for 175.</remarks>
+  /// <inheritdoc cref="IPinterestBoardWidget.Height(string)"/>
   public IPinterestBoardWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -51,20 +34,10 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Total height of board in pixels.</para>
-  /// </summary>
-  /// <returns>Board's height.</returns>
+  /// <inheritdoc cref="IPinterestBoardWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Total width of board in pixels.</para>
-  /// </summary>
-  /// <param name="width">Board's width.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>Min: 130; leave blank for auto.</remarks>
+  /// <inheritdoc cref="IPinterestBoardWidget.Width(string)"/>
   public IPinterestBoardWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -74,20 +47,10 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Total width of board in pixels.</para>
-  /// </summary>
-  /// <returns>Board's width.</returns>
+  /// <inheritdoc cref="IPinterestBoardWidget.Width()"/>
   public string Width() => width;
 
-  /// <summary>
-  ///   <para>Identifier of account's board.</para>
-  /// </summary>
-  /// <param name="id">Board's identifier.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IPinterestBoardWidget.Id(string)"/>
   public IPinterestBoardWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -97,20 +60,10 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of account's board.</para>
-  /// </summary>
-  /// <returns>Board's identifier.</returns>
+  /// <inheritdoc cref="IPinterestBoardWidget.Id()"/>
   public string Id() => id;
 
-  /// <summary>
-  ///   <para>Width of board's image in pixels.</para>
-  /// </summary>
-  /// <param name="width">Board's image width.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>Min: 60; leave blank for 92.</remarks>
+  /// <inheritdoc cref="IPinterestBoardWidget.Image(string)"/>
   public IPinterestBoardWidget Image(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -120,10 +73,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Width of board's image in pixels.</para>
-  /// </summary>
-  /// <returns>Board's image width.</returns>
+  /// <inheritdoc cref="IPinterestBoardWidget.Image()"/>
   public string Image() => image;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
