@@ -7,14 +7,7 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
 {
   private string apiId;
 
-  /// <summary>
-  ///   <para>API identifier of registered VKontakte application.</para>
-  /// </summary>
-  /// <param name="apiId">Application API ID.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="apiId"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="apiId"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVkontakteInitializationWidget.ApiId(string)"/>
   public IVkontakteInitializationWidget ApiId(string apiId)
   {
     if (apiId is null) throw new ArgumentNullException(nameof(apiId));
@@ -25,10 +18,7 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
     return this;
   }
 
-  /// <summary>
-  ///   <para>API identifier of registered VKontakte application.</para>
-  /// </summary>
-  /// <returns>Application API ID.</returns>
+  /// <inheritdoc cref="IVkontakteInitializationWidget.ApiId()"/>
   public string ApiId() => apiId;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

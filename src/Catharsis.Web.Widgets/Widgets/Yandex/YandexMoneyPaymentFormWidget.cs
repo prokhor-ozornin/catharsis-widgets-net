@@ -17,14 +17,7 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   private bool askPayerPhone;
   private bool askPayerAddress;
 
-  /// <summary>
-  ///   <para>Identifier of account in the Yandex.Money payment system which is to receive money.</para>
-  /// </summary>
-  /// <param name="account">Identifier of account.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Account(string)"/>
   public IYandexMoneyPaymentFormWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -35,37 +28,20 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of account in the Yandex.Money payment system which is to receive money.</para>
-  /// </summary>
-  /// <returns>Identifier of account.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <param name="accept"><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Cards(bool)"/>
   public IYandexMoneyPaymentFormWidget Cards(bool accept)
   {
     cards = accept;
-      
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Cards()"/>
   public bool Cards() => cards;
 
-  /// <summary>
-  ///   <para>Description of payment goal/purpose (for predefined purpose) or purpose hint (for custom purpose).</para>
-  /// </summary>
-  /// <param name="description">Description of purpose/purpose hint.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="description"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="description"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Description(string)"/>
   public IYandexMoneyPaymentFormWidget Description(string description)
   {
     if (description is null) throw new ArgumentNullException(nameof(description));
@@ -76,146 +52,87 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
     return this;
   }
 
-  /// <summary>
-  ///   <para>Description of payment goal/purpose (for predefined purpose) or purpose hint (for custom purpose).</para>
-  /// </summary>
-  /// <returns>Description of purpose/purpose hint.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Description()"/>
   public string Description() => description;
 
-  /// <summary>
-  ///   <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerAddress(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerAddress(bool ask)
   {
     askPayerAddress = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to make payer's address required, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerAddress()"/>
   public bool AskPayerAddress() => askPayerAddress;
 
-  /// <summary>
-  ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerComment(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerComment(bool ask)
   {
     askPayerComment = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerComment()"/>
   public bool AskPayerComment() => askPayerComment;
 
-  /// <summary>
-  ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerEmail(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerEmail(bool ask)
   {
     askPayerEmail = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to make payer's email required, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerEmail()"/>
   public bool AskPayerEmail() => askPayerEmail;
 
-  /// <summary>
-  ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerFullName(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerFullName(bool ask)
   {
     askPayerFullName = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to make payer's full name required, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerFullName()"/>
   public bool AskPayerFullName() => askPayerFullName;
 
-  /// <summary>
-  ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPhone(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerPhone(bool ask)
   {
     askPayerPhone = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to make payer's phone required, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPhone()"/>
   public bool AskPayerPhone() => askPayerPhone;
 
-  /// <summary>
-  ///   <para>Whether to allow payer specify custom payment purpose text (<c>true</c>) or use predefined purpose text (<c>false</c>). Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to allow payer specify payment purpose, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPurpose(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerPurpose(bool ask)
   {
     askPayerPurpose = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to allow payer specify custom payment purpose text (<c>true</c>) or use predefined purpose text (<c>false</c>). Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to allow payer specify payment purpose, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPurpose()"/>
   public bool AskPayerPurpose() => askPayerPurpose;
 
-  /// <summary>
-  ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
-  /// </summary>
-  /// <param name="sum">Payment sum.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Sum(decimal)"/>
   public IYandexMoneyPaymentFormWidget Sum(decimal sum)
   {
     this.sum = sum;
     return this;
   }
-    
-  /// <summary>
-  ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
-  /// </summary>
-  /// <returns>Payment sum.</returns>
+
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Sum()"/>
   public decimal? Sum() => sum;
 
-  /// <summary>
-  ///   <para>Text to display on button. Default is 1 ("Pay").</para>
-  /// </summary>
-  /// <param name="text">Numeric code of text to display.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Text(byte)"/>
   public IYandexMoneyPaymentFormWidget Text(byte text)
   {
     this.text = text;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Text to display on button. Default is 1 ("Pay").</para>
-  /// </summary>
-  /// <returns>Numeric code of text to display.</returns>
+  /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Text()"/>
   public byte Text() => text;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

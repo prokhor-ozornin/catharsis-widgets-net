@@ -12,13 +12,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
   private string user;
   private string hash;
 
-  /// <summary>
-  ///   <para>Hash code of video.</para>
-  /// </summary>
-  /// <param name="hash">Video's hash code.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="hash"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="hash"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteVideoWidget.Hash(string)"/>
   public IVkontakteVideoWidget Hash(string hash)
   {
     if (hash is null) throw new ArgumentNullException(nameof(hash));
@@ -29,37 +23,20 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Hash code of video.</para>
-  /// </summary>
-  /// <returns>Video's hash code.</returns>
+  /// <inheritdoc cref="IVkontakteVideoWidget.Hash()"/>
   public string Hash() => hash;
 
-  /// <summary>
-  ///   <para>Whether to play video in High Definition format. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IVkontakteVideoWidget.Hd(bool)"/>
   public IVkontakteVideoWidget Hd(bool enabled)
   {
     hd = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to play video in High Definition format. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</returns>
+  /// <inheritdoc cref="IVkontakteVideoWidget.Hd()"/>
   public bool Hd() => hd;
 
-  /// <summary>
-  ///   <para>Height of video control.</para>
-  /// </summary>
-  /// <param name="height">Height of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVkontakteVideoWidget.Height(string)"/>
   public IVkontakteVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -70,20 +47,10 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Height of video control.</para>
-  /// </summary>
-  /// <returns>Height of video.</returns>
+  /// <inheritdoc cref="IVkontakteVideoWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Identifier of video.</para>
-  /// </summary>
-  /// <param name="id">Identifier of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVkontakteVideoWidget.Id(string)"/>
   public IVkontakteVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -94,19 +61,10 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of video.</para>
-  /// </summary>
-  /// <returns>Identifier of video.</returns>
+  /// <inheritdoc cref="IVkontakteVideoWidget.Id()"/>
   public string Id() => id;
 
-  /// <summary>
-  ///   <para>Account identifier of video's uploader.</para>
-  /// </summary>
-  /// <param name="user">User's account.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="user"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="user"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteVideoWidget.User(string)"/>
   public IVkontakteVideoWidget User(string user)
   {
     if (user is null) throw new ArgumentNullException(nameof(user));
@@ -117,20 +75,10 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Account identifier of video's uploader.</para>
-  /// </summary>
-  /// <returns>User's account.</returns>
+  /// <inheritdoc cref="IVkontakteVideoWidget.User()"/>
   public string User() => user;
 
-  /// <summary>
-  ///   <para>Width of video control.</para>
-  /// </summary>
-  /// <param name="width">Width of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVkontakteVideoWidget.Width(string)"/>
   public IVkontakteVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -141,10 +89,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Width of video control.</para>
-  /// </summary>
-  /// <returns>Width of video.</returns>
+  /// <inheritdoc cref="IVkontakteVideoWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

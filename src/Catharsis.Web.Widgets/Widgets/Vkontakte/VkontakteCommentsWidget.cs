@@ -14,12 +14,7 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
   private bool? mini;
   private string width;
 
-  /// <summary>
-  ///   <para>Collection of attachment types, which are allowed in comment posts.</para>
-  /// </summary>
-  /// <param name="types">Allowed types of post attachments.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="types"/> is a <c>null</c> reference.</exception>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.Attach(string[])"/>
   public IVkontakteCommentsWidget Attach(params string[] types)
   {
     if (attach is null) throw new ArgumentNullException(nameof(types));
@@ -29,53 +24,30 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Collection of attachment types, which are allowed in comment posts.</para>
-  /// </summary>
-  /// <returns>Allowed types of post attachments.</returns>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.Attach()"/>
   public IEnumerable<string> Attach() => attach;
 
-  /// <summary>
-  ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.AutoPublish(bool)"/>
   public IVkontakteCommentsWidget AutoPublish(bool enabled)
   {
     autoPublish = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</returns>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.AutoPublish()"/>
   public bool? AutoPublish() => autoPublish;
 
-  /// <summary>
-  ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.AutoUpdate(bool)"/>
   public IVkontakteCommentsWidget AutoUpdate(bool enabled)
   {
     autoUpdate = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</returns>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.AutoUpdate()"/>
   public bool? AutoUpdate() => autoUpdate;
 
-  /// <summary>
-  ///   <para>Identifier of HTML container for the widget.</para>
-  /// </summary>
-  /// <param name="id">HTML element's identifier.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.ElementId(string)"/>
   public IVkontakteCommentsWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -86,53 +58,30 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of HTML container for the widget.</para>
-  /// </summary>
-  /// <returns>HTML element's identifier.</returns>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.ElementId()"/>
   public string ElementId() => elementId;
 
-  /// <summary>
-  ///   <para>Whether to use minimalistic mode of widget (small fonts, images, etc.). Default is to use auto mode (determine automatically).</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to enable minimalistic mode, <c>false</c> to disable it.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.Mini(bool?)"/>
   public IVkontakteCommentsWidget Mini(bool? enabled)
   {
     mini = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to use minimalistic mode of widget (small fonts, images, etc.). Default is to use auto mode (determine automatically).</para>
-  /// </summary>
-  /// <returns><c>true</c> to enable minimalistic mode, <c>false</c> to disable it.</returns>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.Mini()"/>
   public bool? Mini() => mini;
 
-  /// <summary>
-  ///   <para>Maximum number of comments to display.</para>
-  /// </summary>
-  /// <param name="limit">Maximum number of comments.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.Limit(byte)"/>
   public IVkontakteCommentsWidget Limit(byte limit)
   {
     this.limit = limit;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Maximum number of comments to display.</para>
-  /// </summary>
-  /// <returns>Maximum number of comments.</returns>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.Limit()"/>
   public byte Limit() => limit;
 
-  /// <summary>
-  ///   <para>Horizontal width of comment area.</para>
-  /// </summary>
-  /// <param name="width">Width of comments widget.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.Width(string)"/>
   public IVkontakteCommentsWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -143,10 +92,7 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Horizontal width of comment area.</para>
-  /// </summary>
-  /// <returns>Width of comments widget.</returns>
+  /// <inheritdoc cref="IVkontakteCommentsWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

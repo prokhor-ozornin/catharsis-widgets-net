@@ -19,14 +19,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   private bool askPayerPhone;
   private string descriptionText;
 
-  /// <summary>
-  ///   <para>Identifier of account in the Yandex.Money payment system which is to receive money.</para>
-  /// </summary>
-  /// <param name="account">Identifier of account.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Account(string)"/>
   public IYandexMoneyDonateFormWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -36,37 +29,20 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of account in the Yandex.Money payment system which is to receive money.</para>
-  /// </summary>
-  /// <returns>Identifier of account.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <param name="accept"><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Cards(bool)"/>
   public IYandexMoneyDonateFormWidget Cards(bool accept)
   {
     cards = accept;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Cards()"/>
   public bool Cards() => cards;
 
-  /// <summary>
-  ///   <para>Description of payment goal/purpose.</para>
-  /// </summary>
-  /// <param name="description">Description of payment purpose.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="description"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="description"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.DescriptionText(string)"/>
   public IYandexMoneyDonateFormWidget DescriptionText(string description)
   {
     if (description is null) throw new ArgumentNullException(nameof(description));
@@ -76,36 +52,20 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Description of payment goal/purpose.</para>
-  /// </summary>
-  /// <returns>Description of payment purpose.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.DescriptionText()"/>
   public string DescriptionText() => descriptionText;
 
-  /// <summary>
-  ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerComment(bool)"/>
   public IYandexMoneyDonateFormWidget AskPayerComment(bool ask)
   {
     askPayerComment = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerComment()"/>
   public bool AskPayerComment() => askPayerComment;
 
-  /// <summary>
-  ///   <para>Hint text for comment field.</para>
-  /// </summary>
-  /// <param name="hint">Comment's hint.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="hint"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="hint"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.CommentHint(string)"/>
   public IYandexMoneyDonateFormWidget CommentHint(string hint)
   {
     if (hint is null) throw new ArgumentNullException(nameof(hint));
@@ -115,70 +75,40 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Hint text for comment field.</para>
-  /// </summary>
-  /// <returns>Comment's hint.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.CommentHint()"/>
   public string CommentHint() => commentHint;
 
-  /// <summary>
-  ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerEmail(bool)"/>
   public IYandexMoneyDonateFormWidget AskPayerEmail(bool ask)
   {
     askPayerEmail = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to make payer's email required, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerEmail()"/>
   public bool AskPayerEmail() => askPayerEmail;
 
-  /// <summary>
-  ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerFullName(bool)"/>
   public IYandexMoneyDonateFormWidget AskPayerFullName(bool ask)
   {
     askPayerFullName = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to make payer's full name required, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerFullName()"/>
   public bool AskPayerFullName() => askPayerFullName;
 
-  /// <summary>
-  ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerPhone(bool)"/>
   public IYandexMoneyDonateFormWidget AskPayerPhone(bool ask)
   {
     askPayerPhone = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to make payer's phone required, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerPhone()"/>
   public bool AskPayerPhone() => askPayerPhone;
 
-  /// <summary>
-  ///   <para>Name of charitable project or program.</para>
-  /// </summary>
-  /// <param name="name">Name of project.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="name"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="name"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.ProjectName(string)"/>
   public IYandexMoneyDonateFormWidget ProjectName(string name)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));
@@ -189,19 +119,10 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Name of charitable project or program.</para>
-  /// </summary>
-  /// <returns>Name of project.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.ProjectName()"/>
   public string ProjectName() => projectName;
 
-  /// <summary>
-  ///   <para>URL address of charitable project or program website.</para>
-  /// </summary>
-  /// <param name="url">Website of project.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.ProjectSite(string)"/>
   public IYandexMoneyDonateFormWidget ProjectSite(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
@@ -212,61 +133,37 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>URL address of charitable project or program website.</para>
-  /// </summary>
-  /// <returns>Website of project.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.ProjectSite()"/>
   public string ProjectSite() => projectSite;
 
-  /// <summary>
-  ///   <para>Whether to show description of payment goal/purpose in the form. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="show"><c>true</c> to show payment purpose text on the form, <c>false</c> to hide it.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Description(bool)"/>
   public IYandexMoneyDonateFormWidget Description(bool show)
   {
     description = show;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to show description of payment goal/purpose in the form. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to show payment purpose text on the form, <c>false</c> to hide it.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Description()"/>
   public bool Description() => description;
 
-  /// <summary>
-  ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
-  /// </summary>
-  /// <param name="sum">Payment sum.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Sum(decimal)"/>
   public IYandexMoneyDonateFormWidget Sum(decimal sum)
   {
     this.sum = sum;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
-  /// </summary>
-  /// <returns>Payment sum.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Sum()"/>
   public decimal? Sum() => sum;
 
-  /// <summary>
-  ///   <para>Text to display on button. Default is 1 ("Donate").</para>
-  /// </summary>
-  /// <param name="text">Numeric code of text to display.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Text(byte)"/>
   public IYandexMoneyDonateFormWidget Text(byte text)
   {
     this.text = text;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Text to display on button. Default is 1 ("Donate").</para>
-  /// </summary>
-  /// <returns>Numeric code of text to display.</returns>
+  /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Text()"/>
   public byte Text() => text;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
@@ -293,7 +190,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     }
 
     return new TagBuilder("iframe")
-      .Attribute("src", string.Format("https://money.yandex.ru/embed/donate.xml?account={0}&quickpay=donate{1}&default-sum={2}&targets={3}{4}&project-name={5}&project-site={6}&button-text=0{7}{8}{9}{10}{11}", Account(), Cards() ? "&payment-type-choice=on" : string.Empty, this.Sum(), this.DescriptionText(), this.Description() ? "&target-visibility=on" : string.Empty, ProjectName(), ProjectSite(), Text(), this.AskPayerComment() ? "&comment=on&hint={0}".FormatSelf(CommentHint()) : string.Empty, AskPayerFullName() ? "&fio=on" : string.Empty, AskPayerEmail() ? "&mail=on" : string.Empty, AskPayerPhone() ? "&phone=on" : string.Empty))
+      .Attribute("src", $"https://money.yandex.ru/embed/donate.xml?account={Account()}&quickpay=donate{(Cards() ? "&payment-type-choice=on" : string.Empty)}&default-sum={Sum()}&targets={DescriptionText()}{(Description() ? "&target-visibility=on" : string.Empty)}&project-name={ProjectName()}&project-site={ProjectSite()}&button-text=0{Text()}{(AskPayerComment() ? $"&comment=on&hint=${CommentHint()}" : string.Empty)}{(AskPayerFullName() ? "&fio=on" : string.Empty)}{(AskPayerEmail() ? "&mail=on" : string.Empty)}{(AskPayerPhone() ? "&phone=on" : string.Empty)}")
       .Attribute("frameborder", 0)
       .Attribute("allowtransparency", true)
       .Attribute("scrolling", "no")

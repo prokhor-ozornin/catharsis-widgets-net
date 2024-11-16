@@ -15,14 +15,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   private string textColor;
   private string width;
 
-  /// <summary>
-  ///   <para>Identifier or VKontakte public group/community.</para>
-  /// </summary>
-  /// <param name="account">Group identifier.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.Account(string)"/>
   public IVkontakteCommunityWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -33,19 +26,10 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier or VKontakte public group/community.</para>
-  /// </summary>
-  /// <returns>Group identifier.</returns>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>Background color of widget.</para>
-  /// </summary>
-  /// <param name="color">Widget's background color in RRGGBB format.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.BackgroundColor(string)"/>
   public IVkontakteCommunityWidget BackgroundColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
@@ -56,19 +40,10 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Background color of widget.</para>
-  /// </summary>
-  /// <returns>Widget's background color in RRGGBB format.</returns>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.BackgroundColor()"/>
   public string BackgroundColor() => backgroundColor;
 
-  /// <summary>
-  ///   <para>Text color of widget.</para>
-  /// </summary>
-  /// <param name="color">Widget's text color in RRGGBB format.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.TextColor(string)"/>
   public IVkontakteCommunityWidget TextColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
@@ -79,19 +54,10 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Text color of widget.</para>
-  /// </summary>
-  /// <returns>Widget's text color in RRGGBB format.</returns>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.TextColor()"/>
   public string TextColor() => textColor;
 
-  /// <summary>
-  ///   <para>Button color of widget.</para>
-  /// </summary>
-  /// <param name="color">Widget's button color in RRGGBB format.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.ButtonColor(string)"/>
   public IVkontakteCommunityWidget ButtonColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
@@ -102,19 +68,10 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Button color of widget.</para>
-  /// </summary>
-  /// <returns>Widget's button color in RRGGBB format.</returns>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.ButtonColor()"/>
   public string ButtonColor() => buttonColor;
 
-  /// <summary>
-  ///   <para>Identifier of HTML container for the widget.</para>
-  /// </summary>
-  /// <param name="id">HTML element's identifier.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.ElementId(string)"/>
   public IVkontakteCommunityWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -125,19 +82,10 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of HTML container for the widget.</para>
-  /// </summary>
-  /// <returns>HTML element's identifier.</returns>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.ElementId()"/>
   public string ElementId() => elementId;
 
-  /// <summary>
-  ///   <para>Vertical height of widget.</para>
-  /// </summary>
-  /// <param name="height">Height of widget.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.Height(string)"/>
   public IVkontakteCommunityWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -148,36 +96,20 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Vertical height of widget.</para>
-  /// </summary>
-  /// <returns>Height of widget.</returns>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Type of information to be displayed about given community.</para>
-  /// </summary>
-  /// <param name="mode">Community's info type.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.Mode(byte)"/>
   public IVkontakteCommunityWidget Mode(byte mode)
   {
     this.mode = mode;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Type of information to be displayed about given community.</para>
-  /// </summary>
-  /// <returns>Community's info type.</returns>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.Mode()"/>
   public byte Mode() => mode;
 
-  /// <summary>
-  ///   <para>Horizontal width of widget.</para>
-  /// </summary>
-  /// <param name="width">Width of widget.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.Width(string)"/>
   public IVkontakteCommunityWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -188,10 +120,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Horizontal width of widget.</para>
-  /// </summary>
-  /// <returns>Width of widget.</returns>
+  /// <inheritdoc cref="IVkontakteCommunityWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

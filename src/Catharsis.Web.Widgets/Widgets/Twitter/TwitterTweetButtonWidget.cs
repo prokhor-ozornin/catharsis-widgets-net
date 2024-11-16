@@ -16,13 +16,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   private IEnumerable<string> accounts = Enumerable.Empty<string>();
   private IEnumerable<string> tags = Enumerable.Empty<string>();
 
-  /// <summary>
-  ///   <para>Count box position. Default is "horizontal".</para>
-  /// </summary>
-  /// <param name="position">Count box position.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="position"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="position"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.CounterPosition(string)"/>
   public ITwitterTweetButtonWidget CounterPosition(string position)
   {
     if (position is null) throw new ArgumentNullException(nameof(position));
@@ -32,19 +26,10 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Count box position. Default is "horizontal".</para>
-  /// </summary>
-  /// <returns>Count box position.</returns>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.CounterPosition()"/>
   public string CounterPosition() => counterPosition;
 
-  /// <summary>
-  ///   <para>The URL to which your shared URL resolves. Default is the URL being shared.</para>
-  /// </summary>
-  /// <param name="url">Resolved URL of shared post.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.CountUrl(string)"/>
   public ITwitterTweetButtonWidget CountUrl(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
@@ -54,37 +39,20 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>The URL to which your shared URL resolves. Default is the URL being shared.</para>
-  /// </summary>
-  /// <returns>Resolved URL of shared post.</returns>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.CountUrl()"/>
   public string CountUrl() => countUrl;
 
-  /// <summary>
-  ///   <para>Collection of hashtags which are to be appended to tweet text.</para>
-  /// </summary>
-  /// <param name="tags">Collection of tags for post.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="tags"/> is a <c>null</c> reference.</exception>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.HashTags(IEnumerable{string})"/>
   public ITwitterTweetButtonWidget HashTags(IEnumerable<string> tags)
   {
     this.tags = tags ?? throw new ArgumentNullException(nameof(tags));
     return this;
   }
 
-  /// <summary>
-  ///   <para>Collection of hashtags which are to be appended to tweet text.</para>
-  /// </summary>
-  /// <returns>Collection of tags for post.</returns>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.HashTags()"/>
   public IEnumerable<string> HashTags() => tags;
 
-  /// <summary>
-  ///   <para>Language for the "Tweet" button. Default is either request locale's language or language of the current thread.</para>
-  /// </summary>
-  /// <param name="language">Interface language for button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="language"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="language"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Language(string)"/>
   public ITwitterTweetButtonWidget Language(string language)
   {
     if (language is null) throw new ArgumentNullException(nameof(language));
@@ -94,54 +62,30 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Language for the "Tweet" button. Default is either request locale's language or language of the current thread.</para>
-  /// </summary>
-  /// <returns>Interface language for button.</returns>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Language()"/>
   public string Language() => language;
 
-  /// <summary>
-  ///   <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Suggestions(bool)"/>
   public ITwitterTweetButtonWidget Suggestions(bool enabled)
   {
     suggestions = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</returns>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Suggestions()"/>
   public bool? Suggestions() => suggestions;
 
-  /// <summary>
-  ///   <para>Collection of related accounts.</para>
-  /// </summary>
-  /// <param name="accounts">Collection of related accounts.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="accounts"/> is a <c>null</c> reference.</exception>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.RelatedAccounts(IEnumerable{string})"/>
   public ITwitterTweetButtonWidget RelatedAccounts(IEnumerable<string> accounts)
   {
     this.accounts = accounts ?? throw new ArgumentNullException(nameof(accounts));
     return this;
   }
 
-  /// <summary>
-  ///   <para>Collection of related accounts.</para>
-  /// </summary>
-  /// <returns>Collection of related accounts.</returns>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.RelatedAccounts()"/>
   public IEnumerable<string> RelatedAccounts() => accounts;
 
-  /// <summary>
-  ///   <para>The size of the rendered button. Default is "medium".</para>
-  /// </summary>
-  /// <param name="size">Size of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="size"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="size"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Size(string)"/>
   public ITwitterTweetButtonWidget Size(string size)
   {
     if (size is null) throw new ArgumentNullException(nameof(size));
@@ -151,19 +95,10 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>The size of the rendered button. Default is "medium".</para>
-  /// </summary>
-  /// <returns>Size of button.</returns>
-  public string Size() => this.size;
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Size()"/>
+  public string Size() => size;
 
-  /// <summary>
-  ///   <para>Tweet text. Default is content of the "title" tag.</para>
-  /// </summary>
-  /// <param name="text">Tweet text.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="text"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="text"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Text(string)"/>
   public ITwitterTweetButtonWidget Text(string text)
   {
     if (text is null) throw new ArgumentNullException(nameof(text));
@@ -173,19 +108,10 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Tweet text. Default is content of the "title" tag.</para>
-  /// </summary>
-  /// <returns>Tweet text.</returns>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Text()"/>
   public string Text() => text;
 
-  /// <summary>
-  ///   <para>URL of the page to share. Default is contents of HTTP "Referrer" header.</para>
-  /// </summary>
-  /// <param name="url">URL of shared web page.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Url(string)"/>
   public ITwitterTweetButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
@@ -195,19 +121,10 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>URL of the page to share. Default is contents of HTTP "Referrer" header.</para>
-  /// </summary>
-  /// <returns>URL of shared web page.</returns>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Url()"/>
   public string Url() => url;
 
-  /// <summary>
-  ///   <para>Screen name of the user to attribute the Tweet to.</para>
-  /// </summary>
-  /// <param name="account">Screen name of tweet's author.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Via(string)"/>
   public ITwitterTweetButtonWidget Via(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -217,10 +134,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Screen name of the user to attribute the Tweet to.</para>
-  /// </summary>
-  /// <returns>Screen name of tweet's author.</returns>
+  /// <inheritdoc cref="ITwitterTweetButtonWidget.Via()"/>
   public string Via() => via;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

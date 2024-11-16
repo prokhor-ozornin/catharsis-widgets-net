@@ -9,13 +9,7 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
   private string layout = YandexSharePanelLayout.Button.ToString().ToLowerInvariant();
   private IEnumerable<string> services = ["yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird"];
 
-  /// <summary>
-  ///   <para>Button's interface language.</para>
-  /// </summary>
-  /// <param name="language">Interface language.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="language"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="language"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexSharePanelWidget.Language(string)"/>
   public IYandexSharePanelWidget Language(string language)
   {
     if (language is null) throw new ArgumentNullException(nameof(language));
@@ -26,19 +20,10 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Button's interface language.</para>
-  /// </summary>
-  /// <returns>Interface language.</returns>
+  /// <inheritdoc cref="IYandexSharePanelWidget.Language()"/>
   public string Language() => language;
 
-  /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <param name="layout">Layout of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="layout"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="layout"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexSharePanelWidget.Layout(string)"/>
   public IYandexSharePanelWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
@@ -50,18 +35,10 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <returns>Layout of button.</returns>
+  /// <inheritdoc cref="IYandexSharePanelWidget.Layout()"/>
   public string Layout() => layout;
 
-  /// <summary>
-  ///   <para>List of included social services. Valid names include : [yaru, vkontakte, facebook, twitter, odnoklassniki ,moimir, lj, friendfeed, moikrug, gplus, pinterest, surfingbird].</para>
-  /// </summary>
-  /// <param name="services">List of social services for which to render buttons.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="services"/> is a <c>null</c> reference.</exception>
+  /// <inheritdoc cref="IYandexSharePanelWidget.Services(IEnumerable{string})"/>
   public IYandexSharePanelWidget Services(IEnumerable<string> services)
   {
     this.services = services ?? throw new ArgumentNullException(nameof(services));
@@ -69,10 +46,7 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>List of included social services. Valid names include : [yaru, vkontakte, facebook, twitter, odnoklassniki ,moimir, lj, friendfeed, moikrug, gplus, pinterest, surfingbird].</para>
-  /// </summary>
-  /// <returns>List of social services for which to render buttons.</returns>
+  /// <inheritdoc cref="IYandexSharePanelWidget.Services()"/>
   public IEnumerable<string> Services() => services;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

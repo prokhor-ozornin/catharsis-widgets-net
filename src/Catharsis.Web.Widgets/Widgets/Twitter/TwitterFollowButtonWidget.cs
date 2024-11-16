@@ -14,14 +14,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   private bool? suggestions;
   private string width;
 
-  /// <summary>
-  ///   <para>Twitter account name.</para>
-  /// </summary>
-  /// <param name="account">Account name.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Account(string)"/>
   public ITwitterFollowButtonWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -31,19 +24,10 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Twitter account name.</para>
-  /// </summary>
-  /// <returns>Account name.</returns>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>Horizontal alignment of the button.</para>
-  /// </summary>
-  /// <param name="alignment">Horizontal alignment of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="alignment"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="alignment"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Alignment(string)"/>
   public ITwitterFollowButtonWidget Alignment(string alignment)
   {
     if (alignment is null) throw new ArgumentNullException(nameof(alignment));
@@ -53,36 +37,20 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Horizontal alignment of the button.</para>
-  /// </summary>
-  /// <returns>Horizontal alignment of button.</returns>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Alignment()"/>
   public string Alignment() => alignment;
 
-  /// <summary>
-  ///   <para>Whether to display user's followers count. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="show"><c>true</c> to show followers count, <c>false</c> to hide.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Counter(bool)"/>
   public ITwitterFollowButtonWidget Counter(bool show)
   {
     counter = show;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to display user's followers count. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to show followers count, <c>false</c> to hide.</returns>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Counter()"/>
   public bool? Counter() => counter;
 
-  /// <summary>
-  ///   <para>Language for the "Follow" button. Default is either request locale's language or language of the current thread.</para>
-  /// </summary>
-  /// <param name="language">Interface language for button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="language"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="language"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Language(string)"/>
   public ITwitterFollowButtonWidget Language(string language)
   {
     if (language is null) throw new ArgumentNullException(nameof(language));
@@ -92,36 +60,20 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Language for the "Follow" button. Default is either request locale's language or language of the current thread.</para>
-  /// </summary>
-  /// <returns>Interface language for button.</returns>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Language()"/>
   public string Language() => language;
 
-  /// <summary>
-  ///   <para>Whether to show user's screen name. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <param name="screenName"><c>true</c> to show screen name, <c>false</c> to hide.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.ScreenName(bool)"/>
   public ITwitterFollowButtonWidget ScreenName(bool screenName)
   {
     this.screenName = screenName;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to show user's screen name. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to show screen name, <c>false</c> to hide.</returns>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.ScreenName()"/>
   public bool? ScreenName() => screenName;
 
-  /// <summary>
-  ///   <para>The size of the rendered button. Default is "medium".</para>
-  /// </summary>
-  /// <param name="size">Size of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="size"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="size"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Size(string)"/>
   public ITwitterFollowButtonWidget Size(string size)
   {
     if (size is null) throw new ArgumentNullException(nameof(size));
@@ -131,36 +83,20 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>The size of the rendered button. Default is "medium".</para>
-  /// </summary>
-  /// <returns>Size of button.</returns>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Size()"/>
   public string Size() => size;
 
-  /// <summary>
-  ///   <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Suggestions(bool)"/>
   public ITwitterFollowButtonWidget Suggestions(bool enabled)
   {
     suggestions = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</returns>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Suggestions()"/>
   public bool? Suggestions() => suggestions;
 
-  /// <summary>
-  ///   <para>Width of the button.</para>
-  /// </summary>
-  /// <param name="width">Width of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Width(string)"/>
   public ITwitterFollowButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -170,10 +106,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Width of the button.</para>
-  /// </summary>
-  /// <returns>Width of button.</returns>
+  /// <inheritdoc cref="ITwitterFollowButtonWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

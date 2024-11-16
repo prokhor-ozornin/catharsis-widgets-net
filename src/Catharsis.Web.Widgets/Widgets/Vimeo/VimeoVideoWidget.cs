@@ -11,31 +11,17 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
   private bool loop;
   private string width;
 
-  /// <summary>
-  ///   <para>Whether to start playing video automatically. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to enable autoplay, <c>false</c> to disable.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IVimeoVideoWidget.AutoPlay(bool)"/>
   public IVimeoVideoWidget AutoPlay(bool enabled)
   {
     autoPlay = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to start playing video automatically. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to enable autoplay, <c>false</c> to disable.</returns>
+  /// <inheritdoc cref="IVimeoVideoWidget.AutoPlay()"/>
   public bool AutoPlay() => autoPlay;
 
-  /// <summary>
-  ///   <para>Height of video control.</para>
-  /// </summary>
-  /// <param name="height">Height of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVimeoVideoWidget.Height(string)"/>
   public IVimeoVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -45,20 +31,10 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Height of video control.</para>
-  /// </summary>
-  /// <returns>Height of video.</returns>
+  /// <inheritdoc cref="IVimeoVideoWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Identifier of video.</para>
-  /// </summary>
-  /// <param name="id">Identifier of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVimeoVideoWidget.Id(string)"/>
   public IVimeoVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -68,37 +44,20 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of video.</para>
-  /// </summary>
-  /// <returns>Identifier of video.</returns>
+  /// <inheritdoc cref="IVimeoVideoWidget.Id()"/>
   public string Id() => id;
 
-  /// <summary>
-  ///   <para>Whether to replay video when it finishes. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to enable looping, <c>false</c> to disable.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IVimeoVideoWidget.Loop(bool)"/>
   public IVimeoVideoWidget Loop(bool enabled)
   {
     loop = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to replay video when it finishes. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to enable looping, <c>false</c> to disable.</returns>
+  /// <inheritdoc cref="IVimeoVideoWidget.Loop()"/>
   public bool Loop() => loop;
 
-  /// <summary>
-  ///   <para>Width of video control.</para>
-  /// </summary>
-  /// <param name="width">Width of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVimeoVideoWidget.Width(string)"/>
   public IVimeoVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -108,10 +67,7 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Width of video control.</para>
-  /// </summary>
-  /// <returns>Width of video.</returns>
+  /// <inheritdoc cref="IVimeoVideoWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

@@ -17,14 +17,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   private byte text = (byte) YandexMoneyButtonText.Pay;
   private string type = "yamoney-payment-type";
 
-  /// <summary>
-  ///   <para>Identifier of account in the Yandex.Money payment system which is to receive money.</para>
-  /// </summary>
-  /// <param name="account">Identifier of account.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Account(string)"/>
   public IYandexMoneyButtonWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -35,19 +28,10 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of account in the Yandex.Money payment system which is to receive money.</para>
-  /// </summary>
-  /// <returns>Identifier of account.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>Color of button. Default is "orange".</para>
-  /// </summary>
-  /// <param name="color">Button's color.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Color(string)"/>
   public IYandexMoneyButtonWidget Color(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
@@ -58,112 +42,63 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Color of button. Default is "orange".</para>
-  /// </summary>
-  /// <returns>Button's color.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Color()"/>
   public string Color() => color;
 
-  /// <summary>
-  ///   <para>Description of payment goal/purpose.</para>
-  /// </summary>
-  /// <param name="description">Description of purpose.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="description"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="description"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Description(string)"/>
   public IYandexMoneyButtonWidget Description(string description)
   {
     if (description is null) throw new ArgumentNullException(nameof(description));
     if (description.IsEmpty()) throw new ArgumentException(nameof(description));
 
-
-
     this.description = description;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Description of payment goal/purpose.</para>
-  /// </summary>
-  /// <returns>Description of purpose.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Description()"/>
   public string Description() => description;
 
-  /// <summary>
-  ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerFullName(bool)"/>
   public IYandexMoneyButtonWidget AskPayerFullName(bool ask)
   {
     askPayerFullName = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to make payer's full name required, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerFullName()"/>
   public bool AskPayerFullName() => askPayerFullName;
 
-  /// <summary>
-  ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerEmail(bool)"/>
   public IYandexMoneyButtonWidget AskPayerEmail(bool ask)
   {
     askPayerEmail = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to make payer's email required, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerEmail()"/>
   public bool AskPayerEmail() => askPayerEmail;
 
-  /// <summary>
-  ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerPhone(bool)"/>
   public IYandexMoneyButtonWidget AskPayerPhone(bool ask)
   {
     askPayerPhone = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to make payer's phone required, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerPhone()"/>
   public bool AskPayerPhone() => askPayerPhone;
 
-  /// <summary>
-  ///   <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerAddress(bool)"/>
   public IYandexMoneyButtonWidget AskPayerAddress(bool ask)
   {
     askPayerAddress = ask;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to make payer's address required, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerAddress()"/>
   public bool AskPayerAddress() => askPayerAddress;
 
-  /// <summary>
-  ///   <para>Size of button. Default is "l" (large).</para>
-  /// </summary>
-  /// <param name="size">Button's size.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="size"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="size"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Size(string)"/>
   public IYandexMoneyButtonWidget Size(string size)
   {
     if (size is null) throw new ArgumentNullException(nameof(size));
@@ -174,54 +109,30 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Size of button. Default is "l" (large).</para>
-  /// </summary>
-  /// <returns>Button's size.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Size()"/>
   public string Size() => size;
 
-  /// <summary>
-  ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
-  /// </summary>
-  /// <param name="sum">Payment sum.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Sum(decimal)"/>
   public IYandexMoneyButtonWidget Sum(decimal sum)
   {
     this.sum = sum;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
-  /// </summary>
-  /// <returns>Payment sum.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Sum()"/>
   public decimal? Sum() => sum;
 
-  /// <summary>
-  ///   <para>Text to display on button. Default is 1 ("pay").</para>
-  /// </summary>
-  /// <param name="text">Numeric text type to display.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Text(byte)"/>
   public IYandexMoneyButtonWidget Text(byte text)
   {
     this.text = text;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Text to display on button. Default is 1 ("pay").</para>
-  /// </summary>
-  /// <returns>Numeric text type to display.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Text()"/>
   public byte Text() => text;
 
-  /// <summary>
-  ///   <para>Type of payment option. Default is "yamoney-payment-type" (pay from Yandex.Money wallet balance).</para>
-  /// </summary>
-  /// <param name="type">Payment source.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="type"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="type"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Type(string)"/>
   public IYandexMoneyButtonWidget Type(string type)
   {
     if (type is null) throw new ArgumentNullException(nameof(type));
@@ -231,10 +142,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Type of payment option. Default is "yamoney-payment-type" (pay from Yandex.Money wallet balance).</para>
-  /// </summary>
-  /// <returns>Payment source.</returns>
+  /// <inheritdoc cref="IYandexMoneyButtonWidget.Type()"/>
   public string Type() => type;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

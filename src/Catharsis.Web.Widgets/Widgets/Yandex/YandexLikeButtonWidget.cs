@@ -3,7 +3,7 @@ using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
-/// <inheritdoc cref="IVkontakteVideoWidget"/>
+/// <inheritdoc cref="IYandexLikeButtonWidget"/>
 public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
 {
   private string url;
@@ -12,13 +12,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   private string layout = YandexLikeButtonLayout.Button.ToString().ToLowerInvariant();
   private string text;
 
-  /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <param name="layout">Layout of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="layout"/> is <see cref="string.Empty"/> string.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="layout"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexLikeButtonWidget.Layout(string)"/>
   public IYandexLikeButtonWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
@@ -28,19 +22,10 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <returns>Layout of button.</returns>
+  /// <inheritdoc cref="IYandexLikeButtonWidget.Layout()"/>
   public string Layout() => layout;
 
-  /// <summary>
-  ///   <para>Size of the button.</para>
-  /// </summary>
-  /// <param name="size">Size of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="size"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="size"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexLikeButtonWidget.Size(string)"/>
   public IYandexLikeButtonWidget Size(string size)
   {
     if (size is null) throw new ArgumentNullException(nameof(size));
@@ -50,19 +35,10 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Size of the button.</para>
-  /// </summary>
-  /// <returns>Size of button.</returns>
-  public string Size() => this.size;
+  /// <inheritdoc cref="IYandexLikeButtonWidget.Size()"/>
+  public string Size() => size;
 
-  /// <summary>
-  ///   <para>Label text to draw on the button.</para>
-  /// </summary>
-  /// <param name="text">Label text.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="text"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="text"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexLikeButtonWidget.Text(string)"/>
   public IYandexLikeButtonWidget Text(string text)
   {
     if (text is null) throw new ArgumentNullException(nameof(text));
@@ -73,19 +49,10 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Label text to draw on the button.</para>
-  /// </summary>
-  /// <returns>Label text.</returns>
-  public string Text() => this.text;
+  /// <inheritdoc cref="IYandexLikeButtonWidget.Text()"/>
+  public string Text() => text;
 
-  /// <summary>
-  ///   <para>Custom title text for shared page.</para>
-  /// </summary>
-  /// <param name="title">Title text.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexLikeButtonWidget.Title(string)"/>
   public IYandexLikeButtonWidget Title(string title)
   {
     if (title is null) throw new ArgumentNullException(nameof(title));
@@ -96,19 +63,10 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Custom title text for shared page.</para>
-  /// </summary>
-  /// <returns>Title text.</returns>
+  /// <inheritdoc cref="IYandexLikeButtonWidget.Title()"/>
   public string Title() => title;
 
-  /// <summary>
-  ///   <para>URL address of web page to share.</para>
-  /// </summary>
-  /// <param name="url">URL address of web page.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IYandexLikeButtonWidget.Url(string)"/>
   public IYandexLikeButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
@@ -118,10 +76,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>URL address of web page to share.</para>
-  /// </summary>
-  /// <returns>URL address of web page.</returns>
+  /// <inheritdoc cref="IYandexLikeButtonWidget.Url()"/>
   public string Url() => url;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

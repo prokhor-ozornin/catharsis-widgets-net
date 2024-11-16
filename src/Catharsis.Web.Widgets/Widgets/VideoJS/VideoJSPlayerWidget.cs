@@ -8,15 +8,9 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
   private string extra;
   private string width;
   private string height;
-  private IEnumerable<IMediaSource> videos = Enumerable.Empty<IMediaSource>();
+  private IEnumerable<IMediaSource> videos = [];
 
-  /// <summary>
-  ///   <para>Custom HTML code to be part of <c>video</c> tag.</para>
-  /// </summary>
-  /// <param name="extra">Additional HTML code fragment.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="extra"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="extra"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVideoJSPlayerWidget.Extra(string)"/>
   public IVideoJSPlayerWidget Extra(string extra)
   {
     if (extra is null) throw new ArgumentNullException(nameof(extra));
@@ -26,20 +20,10 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Custom HTML code to be part of <c>video</c> tag.</para>
-  /// </summary>
-  /// <returns>Additional HTML code fragment.</returns>
+  /// <inheritdoc cref="IVideoJSPlayerWidget.Extra()"/>
   public string Extra() => extra;
 
-  /// <summary>
-  ///   <para>Vertical height of video.</para>
-  /// </summary>
-  /// <param name="height">Height of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVideoJSPlayerWidget.Height(string)"/>
   public IVideoJSPlayerWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -49,19 +33,10 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Vertical height of video.</para>
-  /// </summary>
-  /// <returns>Height of video.</returns>
+  /// <inheritdoc cref="IVideoJSPlayerWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Collection of video sources to use.</para>
-  /// </summary>
-  /// <param name="videos">Collection of videos.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="videos"/> is a <c>null</c> reference.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVideoJSPlayerWidget.Videos(IEnumerable{IMediaSource})"/>
   public IVideoJSPlayerWidget Videos(IEnumerable<IMediaSource> videos)
   {
     if (videos is null) throw new ArgumentNullException(nameof(videos));
@@ -70,20 +45,10 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Collection of video sources to use.</para>
-  /// </summary>
-  /// <returns>Collection of videos.</returns>
+  /// <inheritdoc cref="IVideoJSPlayerWidget.Videos()"/>
   public IEnumerable<IMediaSource> Videos() => videos;
 
-  /// <summary>
-  ///   <para>Horizontal width of video.</para>
-  /// </summary>
-  /// <param name="width">Width of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVideoJSPlayerWidget.Width(string)"/>
   public IVideoJSPlayerWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -93,10 +58,7 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Horizontal width of video.</para>
-  /// </summary>
-  /// <returns>Width of video.</returns>
+  /// <inheritdoc cref="IVideoJSPlayerWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

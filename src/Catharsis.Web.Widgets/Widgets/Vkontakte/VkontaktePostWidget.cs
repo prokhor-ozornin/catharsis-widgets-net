@@ -11,13 +11,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
   private string owner;
   private string width;
 
-  /// <summary>
-  ///   <para>Identifier of HTML container for the widget.</para>
-  /// </summary>
-  /// <param name="id">HTML element's identifier.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontaktePostWidget.ElementId(string)"/>
   public IVkontaktePostWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -28,20 +22,10 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of HTML container for the widget.</para>
-  /// </summary>
-  /// <returns>HTML element's identifier.</returns>
+  /// <inheritdoc cref="IVkontaktePostWidget.ElementId()"/>
   public string ElementId() => elementId;
 
-  /// <summary>
-  ///   <para>Unique identifier of wall's post.</para>
-  /// </summary>
-  /// <param name="id">Identifier of post.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVkontaktePostWidget.Id(string)"/>
   public IVkontaktePostWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -52,20 +36,10 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Unique identifier of wall's post.</para>
-  /// </summary>
-  /// <returns>Identifier of post.</returns>
+  /// <inheritdoc cref="IVkontaktePostWidget.ElementId()"/>
   public string Id() => id;
 
-  /// <summary>
-  ///   <para>Unique identifier of Vkontakte wall's owner.</para>
-  /// </summary>
-  /// <param name="id">Identifier of wall's owner.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVkontaktePostWidget.Owner(string)"/>
   public IVkontaktePostWidget Owner(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -76,20 +50,10 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Unique identifier of Vkontakte wall's owner.</para>
-  /// </summary>
-  /// <returns>Identifier of wall's owner.</returns>
+  /// <inheritdoc cref="IVkontaktePostWidget.Owner()"/>
   public string Owner() => owner;
 
-  /// <summary>
-  ///   <para>Unique hash code of wall's post.</para>
-  /// </summary>
-  /// <param name="hash">Hash code of post.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="hash"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="hash"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVkontaktePostWidget.Hash(string)"/>
   public IVkontaktePostWidget Hash(string hash)
   {
     if (hash is null) throw new ArgumentNullException(nameof(hash));
@@ -100,19 +64,10 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Unique hash code of wall's post.</para>
-  /// </summary>
-  /// <returns>Hash code of post.</returns>
+  /// <inheritdoc cref="IVkontaktePostWidget.Hash()"/>
   public string Hash() => hash;
 
-  /// <summary>
-  ///   <para>Width of wall's post. Default is the width of entire screen.</para>
-  /// </summary>
-  /// <param name="width">Width of post.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontaktePostWidget.Width(string)"/>
   public IVkontaktePostWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -123,10 +78,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Width of wall's post.</para>
-  /// </summary>
-  /// <returns>Width of post.</returns>
+  /// <inheritdoc cref="IVkontaktePostWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

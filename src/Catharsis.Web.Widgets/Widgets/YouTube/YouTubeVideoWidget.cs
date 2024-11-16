@@ -11,14 +11,7 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
   private bool privateMode;
   private bool secureMode;
 
-  /// <summary>
-  ///   <para>Specifies identifier of video.</para>
-  /// </summary>
-  /// <param name="id">Identifier of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IYouTubeVideoWidget.Id(string)"/>
   public IYouTubeVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -29,20 +22,10 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Specifies identifier of video.</para>
-  /// </summary>
-  /// <returns>Identifier of video.</returns>
+  /// <inheritdoc cref="IYouTubeVideoWidget.Id()"/>
   public string Id() => id;
 
-  /// <summary>
-  ///   <para>Specifies height of video control.</para>
-  /// </summary>
-  /// <param name="height">Height of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IYouTubeVideoWidget.Height(string)"/>
   public IYouTubeVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -53,54 +36,30 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Specifies height of video control.</para>
-  /// </summary>
-  /// <returns>Height of video.</returns>
+  /// <inheritdoc cref="IYouTubeVideoWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Specifies whether to keep track of user cookies or not (default is <c>false)</c>.</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to set cookies, <c>false</c> to not.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYouTubeVideoWidget.PrivateMode(bool)"/>
   public IYouTubeVideoWidget PrivateMode(bool enabled)
   {
     privateMode = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Specifies whether to keep track of user cookies or not (default is <c>false)</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to set cookies, <c>false</c> to not.</returns>
+  /// <inheritdoc cref="IYouTubeVideoWidget.PrivateMode()"/>
   public bool PrivateMode() => privateMode;
 
-  /// <summary>
-  ///   <para>Specifies whether to access video through secure HTTPS protocol or unsecure HTTP (default is <c>false</c>).</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to use HTTPS protocol, <c>false</c> to use HTTP.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IYouTubeVideoWidget.SecureMode(bool)"/>
   public IYouTubeVideoWidget SecureMode(bool enabled)
   {
     secureMode = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Specifies whether to access video through secure HTTPS protocol or unsecure HTTP (default is <c>false</c>).</para>
-  /// </summary>
-  /// <returns><c>true</c> to use HTTPS protocol, <c>false</c> to use HTTP.</returns>
+  /// <inheritdoc cref="IYouTubeVideoWidget.SecureMode()"/>
   public bool SecureMode() => secureMode;
 
-  /// <summary>
-  ///   <para>Specifies width of video control.</para>
-  /// </summary>
-  /// <param name="width">Width of video.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IYouTubeVideoWidget.Width(string)"/>
   public IYouTubeVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -111,10 +70,7 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Specifies width of video control.</para>
-  /// </summary>
-  /// <returns>Width of video.</returns>
+  /// <inheritdoc cref="IYouTubeVideoWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

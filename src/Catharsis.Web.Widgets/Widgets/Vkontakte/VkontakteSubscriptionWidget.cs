@@ -11,14 +11,7 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
   private byte layout = (byte) VkontakteSubscriptionButtonLayout.Button;
   private bool onlyButton;
 
-  /// <summary>
-  ///   <para>Identifier of user/group to subscribe to.</para>
-  /// </summary>
-  /// <param name="account">Account to subscribe to.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="account"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
-  /// <remarks>This attribute is required.</remarks>
+  /// <inheritdoc cref="IVkontakteSubscriptionWidget.Account(string)"/>
   public IVkontakteSubscriptionWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
@@ -29,19 +22,10 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of user/group to subscribe to.</para>
-  /// </summary>
-  /// <returns>Account to subscribe to.</returns>
+  /// <inheritdoc cref="IVkontakteSubscriptionWidget.Account()"/>
   public string Account() => account;
 
-  /// <summary>
-  ///   <para>Identifier of HTML container for the widget.</para>
-  /// </summary>
-  /// <param name="id">HTML element's identifier.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteSubscriptionWidget.ElementId(string)"/>
   public IVkontakteSubscriptionWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -52,44 +36,27 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of HTML container for the widget.</para>
-  /// </summary>
-  /// <returns>HTML element's identifier.</returns>
+  /// <inheritdoc cref="IVkontakteSubscriptionWidget.ElementId()"/>
   public string ElementId() => elementId;
 
-  /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <param name="layout">Layout of button.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IVkontakteSubscriptionWidget.Layout(byte)"/>
   public IVkontakteSubscriptionWidget Layout(byte layout)
   {
     this.layout = layout;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <returns>Layout of button.</returns>
+  /// <inheritdoc cref="IVkontakteSubscriptionWidget.Layout()"/>
   public byte Layout() => layout;
 
-  /// <summary>
-  ///   <para>Whether to display both author and button or button only.</para>
-  /// </summary>
-  /// <param name="onlyButton"><c>false</c> to display both author/button, <c>true</c> to display only button.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IVkontakteSubscriptionWidget.OnlyButton(bool)"/>
   public IVkontakteSubscriptionWidget OnlyButton(bool onlyButton)
   {
     this.onlyButton = onlyButton;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to display both author and button or button only.</para>
-  /// </summary>
-  /// <returns><c>false</c> to display both author/button, <c>true</c> to display only button.</returns>
+  /// <inheritdoc cref="IVkontakteSubscriptionWidget.OnlyButton()"/>
   public bool OnlyButton() => onlyButton;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
@@ -105,7 +72,7 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
       { "mode", Layout() }
     };
 
-    if (this.OnlyButton())
+    if (OnlyButton())
     {
       config["soft"] = 1;
     }

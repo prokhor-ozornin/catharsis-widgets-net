@@ -13,13 +13,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   private string label = "Surf";
   private string color;
 
-  /// <summary>
-  ///   <para>Text label's color. If not specified, default color combination is used.</para>
-  /// </summary>
-  /// <param name="color">Label's color.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="color"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="color"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Color(string)"/>
   public ISurfingbirdSurfButtonWidget Color(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
@@ -29,37 +23,21 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
 
     return this;
   }
-    
-  /// <summary>
-  ///   <para>Text label's color. If not specified, default color combination is used.</para>
-  /// </summary>
-  /// <returns>Label's color.</returns>
+
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Color()"/>
   public string Color() => color;
 
-  /// <summary>
-  ///   <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <param name="show"><c>true</c> to show counter, <c>false</c> to hide.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Counter(bool)"/>
   public ISurfingbirdSurfButtonWidget Counter(bool show)
   {
     counter = show;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to show counter, <c>false</c> to hide.</returns>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Counter()"/>
   public bool Counter() => counter;
 
-  /// <summary>
-  ///   <para>Vertical height of the button. Default is 25px.</para>
-  /// </summary>
-  /// <param name="height">Height of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Height(string)"/>
   public ISurfingbirdSurfButtonWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -70,19 +48,10 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Vertical height of the button. Default is 25px.</para>
-  /// </summary>
-  /// <returns>Height of button.</returns>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Text label to show on button. Default is "Surf".</para>
-  /// </summary>
-  /// <param name="label">Text label on button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="label"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="label"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Label(string)"/>
   public ISurfingbirdSurfButtonWidget Label(string label)
   {
     if (label is null) throw new ArgumentNullException(nameof(label));
@@ -93,19 +62,10 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Text label to show on button. Default is "Surf".</para>
-  /// </summary>
-  /// <returns>Text label on button.</returns>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Label()"/>
   public string Label() => label;
-    
-  /// <summary>
-  ///   <para>Layout/appearance of the button.</para>
-  /// </summary>
-  /// <param name="layout">Layout of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="layout"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="layout"/> is <see cref="string.Empty"/> string.</exception>
+
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Layout(string)"/>
   public ISurfingbirdSurfButtonWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
@@ -116,19 +76,10 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Layout/appearance of the button.</para>
-  /// </summary>
-  /// <returns>Layout of button.</returns>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Layout()"/>
   public string Layout() => layout;
 
-  /// <summary>
-  ///   <para>Specifies URL address of web page to "like". Default is current web page.</para>
-  /// </summary>
-  /// <param name="url">URL of web page.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Url(string)"/>
   public ISurfingbirdSurfButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
@@ -139,19 +90,10 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Specifies URL address of web page to "like". Default is current web page.</para>
-  /// </summary>
-  /// <returns>URL of web page.</returns>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Url()"/>
   public string Url() => url;
 
-  /// <summary>
-  ///   <para>Horizontal width of the button. Default is 500px.</para>
-  /// </summary>
-  /// <param name="width">Width of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Width(string)"/>
   public ISurfingbirdSurfButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -162,10 +104,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  /// <summary>
-  ///   <para>Horizontal width of the button. Default is 500px.</para>
-  /// </summary>
-  /// <returns>Width of button.</returns>
+  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>

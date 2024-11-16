@@ -17,13 +17,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   private string description;
   private string image;
 
-  /// <summary>
-  ///   <para>Identifier of HTML container for the widget.</para>
-  /// </summary>
-  /// <param name="id">HTML element's identifier.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.ElementId(string)"/>
   public IVkontakteLikeButtonWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -34,18 +28,10 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Identifier of HTML container for the widget.</para>
-  /// </summary>
-  /// <returns>HTML element's identifier.</returns>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.ElementId()"/>
   public string ElementId() => elementId;
 
-  /// <summary>
-  ///   <para>Vertical height of the button in pixels. Default value is "22".</para>
-  /// </summary>
-  /// <param name="height">Height of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Height(string)"/>
   public IVkontakteLikeButtonWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -56,19 +42,10 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Vertical height of the button in pixels. Default value is "22".</para>
-  /// </summary>
-  /// <returns>Height of button.</returns>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Height()"/>
   public string Height() => height;
 
-  /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <param name="layout">Layout of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="layout"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="layout"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Layout(string)"/>
   public IVkontakteLikeButtonWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
@@ -79,19 +56,10 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <returns>Layout of button.</returns>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Layout()"/>
   public string Layout() => layout;
 
-  /// <summary>
-  ///   <para>Description of the page (to display in preview mode for record on the wall).</para>
-  /// </summary>
-  /// <param name="description">Description of the page.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="description"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="description"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Description(string)"/>
   public IVkontakteLikeButtonWidget Description(string description)
   {
     if (description is null) throw new ArgumentNullException(nameof(description));
@@ -102,19 +70,10 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Description of the page (to display in preview mode for record on the wall).</para>
-  /// </summary>
-  /// <returns>Description of the page.</returns>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Description()"/>
   public string Description() => description;
 
-  /// <summary>
-  ///   <para>URL of the thumbnail image (to display in preview mode for record on the wall).</para>
-  /// </summary>
-  /// <param name="url">URL of post's thumbnail image.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Image(string)"/>
   public IVkontakteLikeButtonWidget Image(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
@@ -125,19 +84,10 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>URL of the thumbnail image (to display in preview mode for record on the wall).</para>
-  /// </summary>
-  /// <returns>URL of post's thumbnail image.</returns>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Image()"/>
   public string Image() => image;
 
-  /// <summary>
-  ///   <para>Title of the page (to display in preview mode for record on the wall).</para>
-  /// </summary>
-  /// <param name="title">Title of the page.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Title(string)"/>
   public IVkontakteLikeButtonWidget Title(string title)
   {
     if (title is null) throw new ArgumentNullException(nameof(title));
@@ -148,19 +98,10 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Title of the page (to display in preview mode for record on the wall).</para>
-  /// </summary>
-  /// <returns>Title of the page.</returns>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Title()"/>
   public string Title() => title;
- 
-  /// <summary>
-  ///   <para>URL of the page to "like" (this URL will be shown in a record on the wall). Default is URL of the current page.</para>
-  /// </summary>
-  /// <param name="url">URL of target web page.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
+
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Url(string)"/>
   public IVkontakteLikeButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
@@ -171,19 +112,10 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>URL of the page to "like" (this URL will be shown in a record on the wall). Default is URL of the current page.</para>
-  /// </summary>
-  /// <returns>URL of target web page.</returns>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Url()"/>
   public string Url() => url;
 
-  /// <summary>
-  ///   <para>Text to be published on the wall when "Tell to friends" is pressed. Maximum length is 140 characters. Default value equals to page's title.</para>
-  /// </summary>
-  /// <param name="text">Text for publishing.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="text"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="text"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Text(string)"/>
   public IVkontakteLikeButtonWidget Text(string text)
   {
     if (text is null) throw new ArgumentNullException(nameof(text));
@@ -194,36 +126,20 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Text to be published on the wall when "Tell to friends" is pressed. Maximum length is 140 characters. Default value equals to page's title.</para>
-  /// </summary>
-  /// <returns>Text for publishing.</returns>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Text()"/>
   public string Text() => text;
 
-  /// <summary>
-  ///   <para>Type of text to display on the button.</para>
-  /// </summary>
-  /// <param name="verb">Displayed button's verb.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Verb(byte)"/>
   public IVkontakteLikeButtonWidget Verb(byte verb)
   {
     this.verb = verb;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Type of text to display on the button.</para>
-  /// </summary>
-  /// <returns>Displayed button's verb.</returns>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Verb()"/>
   public byte? Verb() => verb;
 
-  /// <summary>
-  ///   <para>Width of button in pixels (integer value > 200, default value is 350). Parameter value has meaning only for a button with a text counter (layout = "full").</para>
-  /// </summary>
-  /// <param name="width">Width of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Width(string)"/>
   public IVkontakteLikeButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
@@ -234,10 +150,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Width of button in pixels (integer value > 200, default value is 350). Parameter value has meaning only for a button with a text counter (layout = "full").</para>
-  /// </summary>
-  /// <returns>Width of button.</returns>
+  /// <inheritdoc cref="IVkontakteLikeButtonWidget.Width()"/>
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
