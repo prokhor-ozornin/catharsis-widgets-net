@@ -115,5 +115,4 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
       .Attribute("data-colorscheme", ColorScheme())
       .CssClass("fb-facepile")
       .ToString();
-  }
 }

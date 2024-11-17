@@ -162,44 +162,52 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     {
       config["type"] = Layout();
     }
+
     if (!Width().IsEmpty())
     {
       config["width"] = Width();
     }
+
     if (!Title().IsEmpty())
     {
       config["pageTitle"] = Title();
     }
+
     if (!Description().IsEmpty())
     {
       config["pageDescription"] = Description();
     }
+
     if (!Url().IsEmpty())
     {
       config["pageUrl"] = Url();
     }
+
     if (!Image().IsEmpty())
     {
       config["pageImage"] = Image();
     }
+
     if (!Text().IsEmpty())
     {
       config["text"] = Text();
     }
+    
     if (!Height().IsEmpty())
     {
       config["height"] = Height();
     }
+    
     if (Verb() is not null)
     {
       config["verb"] = Verb();
     }
 
-    var elementId = ElementId() ?? "vk_like";
+    var id = ElementId() ?? "vk_like";
 
     return new StringBuilder()
-      .Append(new TagBuilder("div").Attribute("id", elementId))
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml($@"VK.Widgets.Like(""${elementId}"", ${config.Json()});"))
+      .Append(new TagBuilder("div").Attribute("id", id))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($@"VK.Widgets.Like(""${id}"", ${config.Json()});"))
       .ToString();
   }
 }

@@ -1,4 +1,5 @@
-﻿using Catharsis.Extensions;
+﻿using System.Text;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -75,17 +76,22 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
     }
 
     var config = new Dictionary<string, object>();
+    
     if (!Url().IsEmpty())
     {
       config["pageUrl"] = Url();
     }
+
     if (!Width().IsEmpty())
     {
       config["width"] = Width();
     }
 
-    var elementId = ElementId() ?? $"vk_poll_{Id()}";
+    var id = ElementId() ?? $"vk_poll_{Id()}";
       
-    return new TagBuilder("div").Attribute("id", elementId).ToString() + new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml($@"VK.Widgets.Poll(""{elementId}"", {config.Json()}, ""{Id()}""));");
+    return new StringBuilder()
+      .Append(new TagBuilder("div").Attribute("id", id))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($@"VK.Widgets.Poll(""{id}"", {config.Json()}, ""{Id()}""));")
+      ).ToString();
   }
 }

@@ -46,7 +46,7 @@ public class PinterestFollowButtonWidget : WebWidget, IPinterestFollowButtonWidg
     return new TagBuilder("a")
       .Attribute("data-pin-do", "buttonFollow")
       .Attribute("href", $"http://www.pinterest.com/${Account()}")
-      .InnerHtml(Label())
+      .Html(Label())
       .ToString();
   }
 }

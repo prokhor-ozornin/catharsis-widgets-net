@@ -76,7 +76,7 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
       .Attribute("data-setup", "{}")
       .Attribute("height", Height())
       .Attribute("width", Width())
-      .InnerHtml(Videos().Join(string.Empty) + Extra())
+      .Html(Videos().Join(string.Empty) + Extra())
       .ToString();
   }
 }

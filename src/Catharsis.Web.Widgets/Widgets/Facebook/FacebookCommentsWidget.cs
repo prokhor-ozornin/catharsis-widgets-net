@@ -139,9 +139,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    return new TagBuilder("div")
+  public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-href", Url())
       .Attribute("data-num-posts", Posts())
       .Attribute("data-width", Width())
@@ -150,5 +148,4 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
       .Attribute("data-order-by", Order())
       .CssClass("fb-comments")
       .ToString();
-  }
 }

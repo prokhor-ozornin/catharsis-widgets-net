@@ -102,9 +102,7 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    return new TagBuilder("g:plusone")
+  public override string ToHtml() => new TagBuilder("g:plusone")
       .Attribute("href", Url())
       .Attribute("size", Size())
       .Attribute("annotation", Annotation())
@@ -113,5 +111,4 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
       .Attribute("data-callback", Callback())
       .Attribute("data-recommendations", Recommendations())
       .ToString();
-  }
 }

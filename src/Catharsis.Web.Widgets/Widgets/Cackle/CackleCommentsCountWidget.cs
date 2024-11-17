@@ -37,7 +37,7 @@ public class CackleCommentsCountWidget : WebWidget, ICackleCommentsCountWidget
 
     return new TagBuilder("script")
       .Attribute("type", "text/javascript")
-      .InnerHtml($"cackle_widget = window.cackle_widget || [];cackle_widget.push(${config.Json()})")
+      .Html($"cackle_widget = window.cackle_widget || [];cackle_widget.push(${config.Json()})")
       .ToString();
   }
 }

@@ -33,15 +33,8 @@ public class InlineImageWidget : WebWidget, IInlineImageWidget
   public string Format() => format;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (contents is null)
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("img")
+  public override string ToHtml() => contents is null ? string.Empty : 
+    new TagBuilder("img")
       .Attribute("src", string.Format("data:{1};base64,{0}", Convert.ToBase64String(Contents()), Format().IsEmpty() ? "image" : Format()))
       .ToString();
-  }
 }

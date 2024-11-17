@@ -1,6 +1,4 @@
-﻿using System.Web;
-
-namespace Catharsis.Web.Widgets;
+﻿namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Set of extension methods for interface <see cref="IWidgetsScriptsRenderer"/>.</para>
@@ -14,5 +12,5 @@ public static partial class IWidgetsScriptsRendererExtensions
   /// <param name="renderer">JavaScript code renderer.</param>
   /// <returns>JavaScript code.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="renderer"/> is a <c>null</c> reference.</exception>
-  public static IHtmlString Google(this IWidgetsScriptsRenderer renderer) => renderer is not null ? Scripts.Render("~/WebWidgets/Google") : throw new ArgumentNullException(nameof(renderer));
+  public static string Google(this IWidgetsScriptsRenderer renderer) => renderer is not null ? Scripts.Render("~/WebWidgets/Google") : throw new ArgumentNullException(nameof(renderer));
 }

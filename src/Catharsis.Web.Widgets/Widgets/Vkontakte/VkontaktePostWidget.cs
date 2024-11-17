@@ -1,4 +1,5 @@
-﻿using Catharsis.Extensions;
+﻿using System.Text;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -96,8 +97,11 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
       config["width"] = Width();
     }
 
-    var elementId = ElementId() ?? $"vk_post_${Owner()}_${Id()}";
+    var id = ElementId() ?? $"vk_post_${Owner()}_${Id()}";
 
-    return new TagBuilder("div").Attribute("id", elementId).ToString() + new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml($@"(function() {{ window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post(""{elementId}"", {Owner()}, {Id()}, ""{Hash()}"", {config.Json()}) || setTimeout(arguments.callee, 50); }}());");
+    return new StringBuilder()
+      .Append(new TagBuilder("div").Attribute("id", id))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($@"(function() {{ window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post(""{id}"", {Owner()}, {Id()}, ""{Hash()}"", {config.Json()}) || setTimeout(arguments.callee, 50); }}());"))
+      .ToString();
   }
 }

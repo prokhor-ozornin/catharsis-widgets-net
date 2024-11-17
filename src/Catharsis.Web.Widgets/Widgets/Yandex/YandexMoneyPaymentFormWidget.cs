@@ -144,20 +144,7 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
     }
 
     return new TagBuilder("iframe")
-      .Attribute("src", string.Format("https://money.yandex.ru/embed/shop.xml?account={0}&quickpay=shop{1}&writer={2}&{3}={4}&default-sum={5}&button-text=0{6}{7}{8}{9}{10}{11}",
-        Account(),
-        Cards() ? "&payment-type-choice=on" : string.Empty,
-        AskPayerPurpose() ? "buyer" : "seller",
-        AskPayerPurpose() ? "targets-hint" : "targets",
-        Description(),
-        Sum(),
-        Text(), 
-        AskPayerComment() ? "&comment=on" : string.Empty, 
-        AskPayerFullName() ? "&fio=on" : string.Empty, 
-        AskPayerEmail() ? "&mail=on" : string.Empty, 
-        AskPayerPhone() ? "&phone=on" : string.Empty, 
-        AskPayerAddress() ? "&address=on" : string.Empty)
-      )
+      .Attribute("src", $"https://money.yandex.ru/embed/shop.xml?account={Account()}&quickpay=shop{(Cards() ? "&payment-type-choice=on" : string.Empty)}&writer={(AskPayerPurpose() ? "buyer" : "seller")}&{(AskPayerPurpose() ? "targets-hint" : "targets")}={Description()}&default-sum={Sum()}&button-text=0{Text()}{(AskPayerComment() ? "&comment=on" : string.Empty)}{(AskPayerFullName() ? "&fio=on" : string.Empty)}{(AskPayerEmail() ? "&mail=on" : string.Empty)}{(AskPayerPhone() ? "&phone=on" : string.Empty)}{(AskPayerAddress() ? "&address=on" : string.Empty)}")
       .Attribute("frameborder", 0)
       .Attribute("allowtransparency", true)
       .Attribute("scrolling", "no")

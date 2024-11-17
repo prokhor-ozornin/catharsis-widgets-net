@@ -28,8 +28,7 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
     if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
-
-      
+          
     this.layout = layout;
 
     return this;
@@ -50,13 +49,11 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
   public IEnumerable<string> Services() => services;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    return new TagBuilder("div")
+  public override string ToHtml() =>
+    new TagBuilder("div")
       .Attribute("data-yashareL10n", Language() ?? (HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
       .Attribute("data-yashareType", Layout())
       .Attribute("data-yashareQuickServices", Services().Join(","))
       .CssClass("yashare-auto-init")
       .ToString();
-  }
 }

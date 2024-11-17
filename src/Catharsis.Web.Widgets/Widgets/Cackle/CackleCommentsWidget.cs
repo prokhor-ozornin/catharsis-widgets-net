@@ -37,7 +37,11 @@ public class CackleCommentsWidget : WebWidget, ICackleCommentsWidget
 
     return new StringBuilder()
       .Append(@"<div id=""mc-container""></div>")
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml($"cackle_widget = window.cackle_widget || [];cackle_widget.push(${config.Json()});"))
+      .Append(
+        new TagBuilder("script")
+          .Attribute("type", "text/javascript")
+          .Html($"cackle_widget = window.cackle_widget || [];cackle_widget.push(${config.Json()});")
+        )
       .Append(@"<a id=""mc-link"" href=""http://cackle.me"">���������� ����������� <b style=""color:#4FA3DA"">Cackl</b><b style=""color:#F65077"">e</b></a>")
       .ToString();
   }

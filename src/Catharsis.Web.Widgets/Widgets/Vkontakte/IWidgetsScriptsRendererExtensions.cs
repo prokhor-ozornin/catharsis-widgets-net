@@ -1,6 +1,4 @@
-﻿using System.Web;
-
-namespace Catharsis.Web.Widgets;
+﻿namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Set of extension methods for interface <see cref="IWidgetsScriptsRenderer"/>.</para>
@@ -14,13 +12,10 @@ public static partial class IWidgetsScriptsRendererExtensions
   /// <param name="renderer">JavaScript code renderer.</param>
   /// <returns>JavaScript code.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="renderer"/> is a <c>null</c> reference.</exception>
-  public static IHtmlString Vkontakte(this IWidgetsScriptsRenderer renderer)
-  {
-    if (renderer is null) throw new ArgumentNullException(nameof(renderer));
-
-    return new MvcHtmlString(new TagBuilder("script")
+  public static string Vkontakte(this IWidgetsScriptsRenderer renderer) => renderer is not null ?
+    new TagBuilder("script")
       .Attribute("src", "http://vk.com/js/api/openapi.js")
       .Attribute("type", "text/javascript")
-      .ToString());
-  }
+      .ToString()
+    : throw new ArgumentNullException(nameof(renderer));  
 }

@@ -195,7 +195,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
       .Attribute("allowtransparency", true)
       .Attribute("scrolling", "no")
       .Attribute("width", width)
-      .Attribute("height", this.AskPayerComment() ? 210 : 133)
+      .Attribute("height", AskPayerComment() ? 210 : 133)
       .ToString();
   }
 }

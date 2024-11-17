@@ -138,9 +138,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   public string Via() => via;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    return new TagBuilder("a")
+  public override string ToHtml() => new TagBuilder("a")
       .Attribute("href", "https://twitter.com/share")
       .Attribute("data-lang", Language() ?? (HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
       .Attribute("data-url", Url())
@@ -154,5 +152,4 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
       .Attribute("data-dnt", Suggestions() is null ? null : !Suggestions())
       .CssClass(tags.Any() ? "twitter-hashtag-button" : "twitter-share-button")
       .ToString();
-  }
 }

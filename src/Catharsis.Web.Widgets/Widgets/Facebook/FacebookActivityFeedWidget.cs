@@ -48,7 +48,7 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
     this.colorScheme = scheme;
-      
+
     return this;
   }
 
@@ -153,9 +153,7 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    return new TagBuilder("div")
+  public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-site", Domain())
       .Attribute("data-app-id", AppId())
       .Attribute("data-action", Actions().Any() ? Actions().Join(",") : null)
@@ -169,5 +167,4 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
       .Attribute("data-ref", TrackLabel())
       .CssClass("fb-activity")
       .ToString();
-  }
 }

@@ -110,14 +110,8 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (Account().IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("a")
+  public override string ToHtml() => Account().IsEmpty() ? string.Empty : 
+    new TagBuilder("a")
       .Attribute("href", $"https://twitter.com/${Account()}")
       .Attribute("data-lang", Language() ?? (HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
       .Attribute("data-show-count", Counter())
@@ -128,5 +122,4 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
       .Attribute("data-dnt", Suggestions() is null ? null : !Suggestions())
       .CssClass("twitter-follow-button")
       .ToString();
-  }
 }

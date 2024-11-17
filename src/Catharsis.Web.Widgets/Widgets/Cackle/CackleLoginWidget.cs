@@ -38,7 +38,10 @@ public class CackleLoginWidget : WebWidget, ICackleLoginWidget
 
     return new StringBuilder()
       .Append(@"<div id=""mc-login""></div>")
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml($"cackle_widget = window.cackle_widget || [];cackle_widget.push(${config.Json()});"))
+      .Append(new TagBuilder("script")
+        .Attribute("type", "text/javascript")
+        .Html($"cackle_widget = window.cackle_widget || [];cackle_widget.push(${config.Json()});")
+      )
       .ToString();
   }
 }

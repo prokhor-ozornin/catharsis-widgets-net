@@ -161,7 +161,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
       .Attribute("href", $"http://connect.mail.ru/groups_widget?${config.ToUrlQuery()}")
       .Attribute("rel", config.Json())
       .CssClass("mrc__plugin_groups_widget")
-      .InnerHtml("Группы")
+      .Html("Группы")
       .ToString();
   }
 }

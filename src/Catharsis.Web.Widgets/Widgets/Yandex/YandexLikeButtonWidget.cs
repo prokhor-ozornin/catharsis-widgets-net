@@ -80,17 +80,15 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   public string Url() => url;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    return new StringBuilder()
+  public override string ToHtml() => new StringBuilder()
       .Append(new TagBuilder("a")
         .Attribute("name", "ya-share")
         .Attribute("type", Layout())
         .Attribute("size", Size())
         .Attribute("share_text", Text())
         .Attribute("share_url", Url())
-        .Attribute("share_title", Title()))
+        .Attribute("share_title", Title())
+       )
       .Append(resources.yandex_like)
       .ToString();
-  }
 }

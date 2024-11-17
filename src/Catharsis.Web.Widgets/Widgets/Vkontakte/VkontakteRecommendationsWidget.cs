@@ -1,4 +1,5 @@
-﻿using Catharsis.Extensions;
+﻿using System.Text;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -131,10 +132,11 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
       config["target"] = Target();
     }
 
-    var elementId = ElementId() ?? "vk_recommendations";
+    var id = ElementId() ?? "vk_recommendations";
 
-    return
-      new TagBuilder("div").Attribute("id", elementId).ToString() +
-      new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml($@"VK.Widgets.Recommended(""${elementId}"", ${config.Json()});");
+    return new StringBuilder()
+      .Append(new TagBuilder("div").Attribute("id", id))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($@"VK.Widgets.Recommended(""${id}"", ${config.Json()});"))
+      .ToString();
   }
 }

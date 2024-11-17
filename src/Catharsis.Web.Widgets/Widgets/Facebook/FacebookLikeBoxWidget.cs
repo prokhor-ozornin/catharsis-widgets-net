@@ -118,14 +118,7 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (Url().IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("div")
+  public override string ToHtml() => Url().IsEmpty() ? string.Empty : new TagBuilder("div")
       .Attribute("data-href", Url())
       .Attribute("data-width", Width())
       .Attribute("data-height", Height())
@@ -137,5 +130,4 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
       .Attribute("data-stream", Stream())
       .CssClass("fb-like-box")
       .ToString();
-  }
 }

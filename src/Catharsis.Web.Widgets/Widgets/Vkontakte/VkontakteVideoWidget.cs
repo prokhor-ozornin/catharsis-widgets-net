@@ -107,7 +107,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
       .Attribute("mozallowfullscreen", true)
       .Attribute("width", Width())
       .Attribute("height", Height())
-      .Attribute("src", $"http://vk.com/video_ext.php?oid=${User()}&id=${Id()}&hash=${Hash()}&hd=${Hd() ? 1 : 0}")
+      .Attribute("src", $"http://vk.com/video_ext.php?oid=${User()}&id=${Id()}&hash=${Hash()}&hd=${(Hd() ? 1 : 0)}")
       .ToString();
   }
 }

@@ -17,10 +17,7 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
   /// <inheritdoc cref="IVkontakteCommentsWidget.Attach(string[])"/>
   public IVkontakteCommentsWidget Attach(params string[] types)
   {
-    if (attach is null) throw new ArgumentNullException(nameof(types));
-
     attach = types;
-      
     return this;
   }
 
@@ -74,7 +71,7 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
   /// <inheritdoc cref="IVkontakteCommentsWidget.Limit(byte)"/>
   public IVkontakteCommentsWidget Limit(byte count)
   {
-    this.limit = count;
+    limit = count;
     return this;
   }
 
@@ -119,21 +116,24 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
     
     if (AutoPublish() is not null)
     {
-      config["autoPublish"] = AutoPublish().Value ? 1 : 0;
+      config["autoPublish"] = AutoPublish().GetValueOrDefault() ? 1 : 0;
     }
     
     if (AutoUpdate() is not null)
     {
-      config["norealtime"] = AutoUpdate().Value ? 0 : 1;
+      config["norealtime"] = AutoUpdate().GetValueOrDefault() ? 0 : 1;
     }
     
     if (Mini() is not null)
     {
-      config["mini"] = Mini().Value ? 1 : 0;
+      config["mini"] = Mini().GetValueOrDefault() ? 1 : 0;
     }
 
-    var elementId = ElementId() ?? "vk_comments";
+    var id = ElementId() ?? "vk_comments";
 
-    return new StringBuilder().Append(new TagBuilder("div").Attribute("id", elementId)).Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml($@"VK.Widgets.Comments(""${elementId}"", ${config.Json()}))).ToString();
+    return new StringBuilder()
+      .Append(new TagBuilder("div").Attribute("id", id))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"VK.Widgets.Comments(\"${id}\", ${config.Json()})"))
+     .ToString();
   }
 }

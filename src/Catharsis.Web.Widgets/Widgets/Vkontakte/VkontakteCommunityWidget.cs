@@ -161,12 +161,11 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
       config["color3"] = ButtonColor();
     }
 
-    var elementId = ElementId() ?? $"vk_groups_${Account()}";
+    var id = ElementId() ?? $"vk_groups_${Account()}";
 
     return new StringBuilder()
-      .Append(new TagBuilder("div").Attribute("id", elementId))
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml($@"VK.Widgets.Group(""${elementId}"", ${config.Json()}, ""${Account()}"")
-        .ToString();
-    }
+      .Append(new TagBuilder("div").Attribute("id", id))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"VK.Widgets.Group(\"${id}\", ${config.Json()}, \"${Account()}\""))
+      .ToString();
   }
 }

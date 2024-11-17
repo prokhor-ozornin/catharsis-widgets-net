@@ -180,7 +180,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
       .Attribute("href", "http://connect.mail.ru/share")
       .Attribute("data-mrc-config", config.Json())
       .CssClass("mrc__plugin_uber_like_button")
-      .InnerHtml("��������")
+      .Html("��������")
       .ToString();
   }
 }

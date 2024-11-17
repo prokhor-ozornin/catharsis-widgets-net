@@ -3,44 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\youtube\\iyoutubevideowidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\youtube\\iyoutubevideowidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\vkontakte\\vkontaktecommentswidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\vkontakte\\vkontaktecommentswidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\yandex\\iyandexwidgetcreatorextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\yandex\\iyandexwidgetcreatorextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\vkontakte\\vkontaktecommunitywidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\vkontakte\\vkontaktecommunitywidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\yandex\\iyandexwidgetcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\yandex\\iyandexwidgetcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\yandex\\iyandexvideowidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\yandex\\iyandexvideowidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\yandex\\iyandexsharepanelwidgetextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\yandex\\iyandexsharepanelwidgetextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\yandex\\iyandexsharepanelwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\yandex\\iyandexsharepanelwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\yandex\\iyandexmoneypaymentformwidgetextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\yandex\\iyandexmoneypaymentformwidgetextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\yandex\\iyandexmoneypaymentformwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\yandex\\iyandexmoneypaymentformwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\yandex\\iyandexmoneydonateformwidgetextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\yandex\\iyandexmoneydonateformwidgetextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\yandex\\iyandexmoneydonateformwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\yandex\\iyandexmoneydonateformwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|c:\\users\\prokhor\\documents\\projects\\net\\catharsis.web.widgets\\src\\catharsis.web.widgets\\widgets\\vkontakte\\vkontaktesubscriptionwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B785694F-1D09-4A30-9ED2-88BE8303C0E2}|Catharsis.Web.Widgets\\Catharsis.Web.Widgets.csproj|solutionrelative:catharsis.web.widgets\\widgets\\vkontakte\\vkontaktesubscriptionwidget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,132 +34,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "IYandexMoneyDonateFormWidget.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyDonateFormWidget.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyDonateFormWidget.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyDonateFormWidget.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyDonateFormWidget.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAAALAAAAAPAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "VkontakteCommentsWidget.cs",
+              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteCommentsWidget.cs",
+              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteCommentsWidget.cs",
+              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteCommentsWidget.cs",
+              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteCommentsWidget.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAAIYAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T20:07:32.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IYandexMoneyDonateFormWidgetExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyDonateFormWidgetExtensions.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyDonateFormWidgetExtensions.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyDonateFormWidgetExtensions.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyDonateFormWidgetExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAB8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T20:12:05.828Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IYandexMoneyPaymentFormWidget.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyPaymentFormWidget.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyPaymentFormWidget.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyPaymentFormWidget.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyPaymentFormWidget.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAAAI4AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T20:12:09.166Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IYandexMoneyPaymentFormWidgetExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyPaymentFormWidgetExtensions.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyPaymentFormWidgetExtensions.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyPaymentFormWidgetExtensions.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexMoneyPaymentFormWidgetExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T20:13:10.946Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IYandexSharePanelWidget.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexSharePanelWidget.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexSharePanelWidget.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexSharePanelWidget.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexSharePanelWidget.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T20:13:14.101Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IYandexSharePanelWidgetExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexSharePanelWidgetExtensions.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexSharePanelWidgetExtensions.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexSharePanelWidgetExtensions.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexSharePanelWidgetExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T20:13:24.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IYandexVideoWidget.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexVideoWidget.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexVideoWidget.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexVideoWidget.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexVideoWidget.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T03:47:23.5Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IYandexWidgetCreator.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexWidgetCreator.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexWidgetCreator.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexWidgetCreator.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexWidgetCreator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T03:47:26.065Z",
+              "WhenOpened": "2024-11-17T07:27:15.005Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IYandexWidgetCreatorExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexWidgetCreatorExtensions.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexWidgetCreatorExtensions.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexWidgetCreatorExtensions.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Yandex\\IYandexWidgetCreatorExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "VkontakteCommunityWidget.cs",
+              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteCommunityWidget.cs",
+              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteCommunityWidget.cs",
+              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteCommunityWidget.cs",
+              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteCommunityWidget.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAADgv5oAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T03:47:27.093Z",
+              "WhenOpened": "2024-11-17T07:32:49.72Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IYouTubeVideoWidget.cs",
-              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\YouTube\\IYouTubeVideoWidget.cs",
-              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\YouTube\\IYouTubeVideoWidget.cs",
-              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\YouTube\\IYouTubeVideoWidget.cs",
-              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\YouTube\\IYouTubeVideoWidget.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "VkontakteSubscriptionWidget.cs",
+              "DocumentMoniker": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteSubscriptionWidget.cs",
+              "RelativeDocumentMoniker": "Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteSubscriptionWidget.cs",
+              "ToolTip": "C:\\Users\\Prokhor\\Documents\\Projects\\NET\\Catharsis.Web.Widgets\\src\\Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteSubscriptionWidget.cs",
+              "RelativeToolTip": "Catharsis.Web.Widgets\\Widgets\\Vkontakte\\VkontakteSubscriptionWidget.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAADgv1QAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T03:47:31.537Z",
+              "WhenOpened": "2024-11-17T07:40:03.352Z",
               "EditorCaption": ""
             }
           ]

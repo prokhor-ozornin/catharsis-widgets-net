@@ -212,7 +212,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
       .Attribute("href", $"http://connect.mail.ru/share_friends?${config.ToUrlQuery()}")
       .Attribute("rel", config.Json())
       .CssClass("mrc__plugin_share_friends")
-      .InnerHtml("Друзья")
+      .Html("Друзья")
       .ToString();
   }
 }

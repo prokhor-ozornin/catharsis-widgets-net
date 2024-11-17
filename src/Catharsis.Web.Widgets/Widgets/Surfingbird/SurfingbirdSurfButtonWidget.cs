@@ -136,7 +136,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
       .Attribute("href", "http://surfingbird.ru/share")
       .Attribute("data-surf-config", config.Json())
       .CssClass("surfinbird__like_button")
-      .InnerHtml(Label())
+      .Html(Label())
       .ToString();
   }
 }

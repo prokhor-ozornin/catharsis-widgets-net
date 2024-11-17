@@ -99,14 +99,7 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
   public string Width() => width;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (Url().IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("div")
+  public override string ToHtml() => Url().IsEmpty() ? string.Empty : new TagBuilder("div")
       .Attribute("data-layout", Layout())
       .Attribute("data-show-faces", Faces())
       .Attribute("data-href", Url())
@@ -116,5 +109,4 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
       .Attribute("data-height", Height())
       .CssClass("fb-follow")
       .ToString();
-  }
 }

@@ -1,4 +1,5 @@
-﻿using Catharsis.Extensions;
+﻿using System.Text;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -109,9 +110,9 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
       config["width"] = Width();
     }
 
-    return
-      new TagBuilder("div").Attribute("id", elementId).ToString() +
-      new TagBuilder("script").Attribute("type", "text/javascript")
-        .InnerHtml($@"VK.Widgets.Auth(""${elementId}"", ${config.Json()})");
+    return new StringBuilder()
+      .Append(new TagBuilder("div").Attribute("id", elementId))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($@"VK.Widgets.Auth(""${elementId}"", ${config.Json()})"))
+      .ToString();
   }
 }

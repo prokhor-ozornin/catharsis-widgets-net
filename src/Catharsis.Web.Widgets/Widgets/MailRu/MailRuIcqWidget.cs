@@ -41,11 +41,12 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
     var builder = new StringBuilder()
       .Append(new TagBuilder("script")
         .Attribute("type", "text/javascript")
-        .Attribute("src", $"http://c.icq.com/siteim/icqbar/js/partners/initbar_$@{Language() ?? "ru"}.js"));
+        .Attribute("src", $"http://c.icq.com/siteim/icqbar/js/partners/initbar_$@{Language() ?? "ru"}.js")
+      );
       
     if (!Account().IsEmpty())
     {
-      builder.Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml($"window.ICQ = {{siteOwner:'${Account()}'}};"));
+      builder.Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"window.ICQ = {{siteOwner:'${Account()}'}};"));
     }
 
     return builder.ToString();

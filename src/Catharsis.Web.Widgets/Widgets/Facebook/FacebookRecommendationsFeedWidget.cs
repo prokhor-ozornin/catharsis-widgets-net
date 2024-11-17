@@ -138,9 +138,7 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public string TrackLabel() => trackLabel;
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    return new TagBuilder("div")
+  public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-site", Domain())
       .Attribute("data-app-id", AppId())
       .Attribute("data-action", Actions().Any() ? Actions().Join(",") : null)
@@ -153,5 +151,4 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
       .Attribute("data-ref", TrackLabel())
       .CssClass("fb-recommendations")
       .ToString();
-  }
 }

@@ -153,7 +153,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
       return string.Empty;
     }
 
-    int width = (YandexMoneyButtonText)Text() switch
+    var width = (YandexMoneyButtonText)Text() switch
     {
       YandexMoneyButtonText.Pay => 229,
       YandexMoneyButtonText.Buy => 197,
@@ -165,7 +165,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     };
 
     return new TagBuilder("iframe")
-      .Attribute("src", string.Format("https://money.yandex.ru/embed/small.xml?account={0}&quickpay=small&{1}=on&button-text=0{2}&button-size={3}&button-color={4}&targets={5}&default-sum={6}{7}{8}{9}{10}", Account(), Type(), Text(), Size(), Color(), Description(), Sum(), AskPayerFullName() ? "&fio=on" : string.Empty, AskPayerEmail() ? "&mail=on" : string.Empty, AskPayerPhone() ? "&phone=on" : string.Empty, AskPayerAddress() ? "&address=on" : string.Empty))
+      .Attribute("src", $"https://money.yandex.ru/embed/small.xml?account={Account()}&quickpay=small&{Type()}=on&button-text=0{Text()}&button-size={Size()}&button-color={Color()}&targets={Description()}&default-sum={Sum()}{(AskPayerFullName() ? "&fio=on" : string.Empty)}{(AskPayerEmail() ? "&mail=on" : string.Empty)}{(AskPayerPhone() ? "&phone=on" : string.Empty)}{(AskPayerAddress() ? "&address=on" : string.Empty)}")
       .Attribute("frameborder", 0)
       .Attribute("allowtransparency", true)
       .Attribute("scrolling", "no")

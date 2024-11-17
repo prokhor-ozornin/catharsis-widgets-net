@@ -14,7 +14,7 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.appId = id;
+    appId = id;
     return this;
   }
 

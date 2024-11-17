@@ -77,12 +77,12 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
       config["soft"] = 1;
     }
 
-    var elementId = ElementId() ?? $"vk_subscribe_${Account()}";
+    var id = ElementId() ?? $"vk_subscribe_${Account()}";
 
     return new StringBuilder()
-      .Append(new TagBuilder("div").Attribute("id", elementId))
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").InnerHtml($@"VK.Widgets.Subscribe(""${elementId}"", ${config.Json()}, ""${Account()}""));
-        .ToString();
-    }
+      .Append(new TagBuilder("div").Attribute("id", id))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript")
+      .Html($"VK.Widgets.Subscribe(\"${id}\", ${config.Json()}, \"${Account()}\""))
+      .ToString();
   }
 }
