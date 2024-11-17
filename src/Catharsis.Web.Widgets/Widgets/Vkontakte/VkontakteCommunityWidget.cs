@@ -140,22 +140,27 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     {
       config["wide"] = 1;
     }
+
     if (!Width().IsEmpty())
     {
       config["width"] = Width();
     }
+    
     if (!Height().IsEmpty())
     {
       config["height"] = Height();
     }
+    
     if (!BackgroundColor().IsEmpty())
     {
       config["color1"] = BackgroundColor();
     }
+    
     if (!TextColor().IsEmpty())
     {
       config["color2"] = TextColor();
     }
+    
     if (!ButtonColor().IsEmpty())
     {
       config["color3"] = ButtonColor();

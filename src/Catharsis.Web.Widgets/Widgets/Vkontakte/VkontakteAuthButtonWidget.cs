@@ -91,7 +91,7 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
       return string.Empty;
     }
 
-    var elementId = ElementId() ?? "vk_auth";
+    var id = ElementId() ?? "vk_auth";
 
     var config = new Dictionary<string, object>();
     
@@ -111,8 +111,8 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
     }
 
     return new StringBuilder()
-      .Append(new TagBuilder("div").Attribute("id", elementId))
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($@"VK.Widgets.Auth(""${elementId}"", ${config.Json()})"))
+      .Append(new TagBuilder("div").Attribute("id", id))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"\"VK.Widgets.Auth(\"${id}\", ${config.Json()})"))
       .ToString();
   }
 }

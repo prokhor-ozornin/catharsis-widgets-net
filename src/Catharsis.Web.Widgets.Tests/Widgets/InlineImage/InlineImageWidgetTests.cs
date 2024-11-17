@@ -58,7 +58,7 @@ public sealed class InlineImageWidgetTests
   public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new InlineImageWidget().ToString());
-    Assert.Equal($@"<img src=""data:image;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}""></img>", new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).ToString());
-    Assert.Equal($@"<img src=""data:jpg;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}""></img>", new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg").ToString());
+    Assert.Equal($"<img src=\"data:image;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>", new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).ToString());
+    Assert.Equal($"<img src=\"data:jpg;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>", new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg").ToString());
   }
 }

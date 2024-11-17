@@ -101,7 +101,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
 
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", id))
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($@"(function() {{ window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post(""{id}"", {Owner()}, {Id()}, ""{Hash()}"", {config.Json()}) || setTimeout(arguments.callee, 50); }}());"))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"\"(function() {{ window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post(\"{id}\", {Owner()}, {Id()}, \"{Hash()}\", {config.Json()}) || setTimeout(arguments.callee, 50); }}());"))
       .ToString();
   }
 }

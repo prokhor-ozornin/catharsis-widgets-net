@@ -91,7 +91,7 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
       
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", id))
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($@"VK.Widgets.Poll(""{id}"", {config.Json()}, ""{Id()}""));")
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"\"VK.Widgets.Poll(\"{id}\", {config.Json()}, \"{Id()}\"));")
       ).ToString();
   }
 }

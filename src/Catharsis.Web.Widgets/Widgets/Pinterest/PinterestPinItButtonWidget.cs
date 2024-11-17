@@ -222,7 +222,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
       .Attribute("data-pin-color", Shape() == PinterestPinItButtonShape.Rectangular ? Color() : null)
       .Attribute("data-pin-height", height)
       .Attribute("data-pin-shape", shape)
-      .Html($@"<img src=""http://assets.pinterest.com/images/pidgets/pinit_fg_${Language()}_${shape}_${Color()}_${height}.png""/>")
+      .Html($"<img src=\"http://assets.pinterest.com/images/pidgets/pinit_fg_${Language()}_${shape}_${Color()}_${height}.png\"/>")
       .ToString();
   }
 }

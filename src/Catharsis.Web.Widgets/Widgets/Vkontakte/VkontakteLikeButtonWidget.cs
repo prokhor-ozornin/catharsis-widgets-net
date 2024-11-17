@@ -207,7 +207,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
 
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", id))
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($@"VK.Widgets.Like(""${id}"", ${config.Json()});"))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"\"VK.Widgets.Like(\"${id}\", ${config.Json()});"))
       .ToString();
   }
 }

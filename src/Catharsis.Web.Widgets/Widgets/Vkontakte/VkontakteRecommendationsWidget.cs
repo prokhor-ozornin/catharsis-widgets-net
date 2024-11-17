@@ -99,27 +99,27 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
     
     if (Limit() is not null)
     {
-      config["limit"] = Limit().Value;
+      config["limit"] = Limit().GetValueOrDefault();
     }
     
     if (Max() is not null)
     {
-      config["max"] = Max().Value;
+      config["max"] = Max().GetValueOrDefault();
     }
 
     if (Period() is not null)
     {
-      config["period"] = Period().Value.ToString().ToLowerInvariant();
+      config["period"] = Period().GetValueOrDefault().ToString().ToLowerInvariant();
     }
     
     if (Verb() is not null)
     {
-      config["verb"] = (byte) Verb().Value;
+      config["verb"] = (byte) Verb().GetValueOrDefault();
     }
     
     if (Sorting() is not null)
     {
-      config["sort"] = Sorting().Value switch
+      config["sort"] = Sorting().GetValueOrDefault() switch
       {
         VkontakteRecommendationsSorting.FriendLikes => "friend_likes",
         VkontakteRecommendationsSorting.Likes => "likes",
@@ -136,7 +136,7 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
 
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", id))
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($@"VK.Widgets.Recommended(""${id}"", ${config.Json()});"))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"\"VK.Widgets.Recommended(\"${id}\", ${config.Json()});"))
       .ToString();
   }
 }
