@@ -28,12 +28,12 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   public IEnumerable<string> Actions() => actions;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.AppId(string)"/>
-  public IFacebookActivityFeedWidget AppId(string appId)
+  public IFacebookActivityFeedWidget AppId(string id)
   {
-    if (appId is null) throw new ArgumentNullException(nameof(appId));
-    if (appId.IsEmpty()) throw new ArgumentException(nameof(appId));
+    if (id is null) throw new ArgumentNullException(nameof(id));
+    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.appId = appId;
+    this.appId = id;
 
     return this;
   }
@@ -42,12 +42,12 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   public string AppId() => appId;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.ColorScheme(string)"/>
-  public IFacebookActivityFeedWidget ColorScheme(string colorScheme)
+  public IFacebookActivityFeedWidget ColorScheme(string scheme)
   {
-    if (colorScheme is null) throw new ArgumentNullException(nameof(colorScheme));
-    if (colorScheme.IsEmpty()) throw new ArgumentException(nameof(colorScheme));
+    if (scheme is null) throw new ArgumentNullException(nameof(scheme));
+    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = colorScheme;
+    this.colorScheme = scheme;
       
     return this;
   }
@@ -70,9 +70,9 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   public string Domain() => domain;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Header(bool)"/>
-  public IFacebookActivityFeedWidget Header(bool show)
+  public IFacebookActivityFeedWidget Header(bool enabled)
   {
-    header = show;
+    header = enabled;
     return this;
   }
 
@@ -105,9 +105,9 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   public string LinkTarget() => linkTarget;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.MaxAge(byte)"/>
-  public IFacebookActivityFeedWidget MaxAge(byte maxAge)
+  public IFacebookActivityFeedWidget MaxAge(byte age)
   {
-    this.maxAge = maxAge;
+    this.maxAge = age;
     return this;
   }
 
@@ -115,9 +115,9 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   public byte? MaxAge() => maxAge;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Recommendations(bool)"/>
-  public IFacebookActivityFeedWidget Recommendations(bool show)
+  public IFacebookActivityFeedWidget Recommendations(bool enabled)
   {
-    recommendations = show;
+    recommendations = enabled;
     return this;
   }
 

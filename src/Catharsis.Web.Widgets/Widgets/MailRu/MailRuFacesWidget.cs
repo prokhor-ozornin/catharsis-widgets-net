@@ -109,9 +109,9 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   public string TextColor() => textColor;
 
   /// <inheritdoc cref="IMailRuFacesWidget.Title(bool)"/>
-  public IMailRuFacesWidget Title(bool show)
+  public IMailRuFacesWidget Title(bool enabled)
   {
-    title = show;
+    title = enabled;
     return this;
   }
 

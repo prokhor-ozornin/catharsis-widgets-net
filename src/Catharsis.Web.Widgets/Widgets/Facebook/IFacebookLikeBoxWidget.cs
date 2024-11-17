@@ -10,9 +10,9 @@ public interface IFacebookLikeBoxWidget : IWebWidget
   /// <summary>
   ///   <para>Specifies whether or not to show a border around the plugin. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="border"><c>true</c> to show border, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show border, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookLikeBoxWidget Border(bool border);
+  IFacebookLikeBoxWidget Border(bool enabled);
 
   /// <summary>
   ///   <para>Specifies whether or not to show a border around the plugin. Default is <c>true</c>.</para>
@@ -23,11 +23,11 @@ public interface IFacebookLikeBoxWidget : IWebWidget
   /// <summary>
   ///   <para>The color scheme used by the widget. Default is "light".</para>
   /// </summary>
-  /// <param name="colorScheme">Color scheme of widget.</param>
+  /// <param name="scheme">Color scheme of widget.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="colorScheme"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="colorScheme"/> is <see cref="string.Empty"/> string.</exception>
-  IFacebookLikeBoxWidget ColorScheme(string colorScheme);
+  /// <exception cref="ArgumentNullException">If <paramref name="scheme"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="scheme"/> is <see cref="string.Empty"/> string.</exception>
+  IFacebookLikeBoxWidget ColorScheme(string scheme);
 
   /// <summary>
   ///   <para>The color scheme used by the widget. Default is "light".</para>
@@ -38,9 +38,9 @@ public interface IFacebookLikeBoxWidget : IWebWidget
   /// <summary>
   ///   <para>Specifies whether to display profile photos of people who like the page. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="faces"><c>true</c> to show profile photos, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show profile photos, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookLikeBoxWidget Faces(bool faces);
+  IFacebookLikeBoxWidget Faces(bool enabled);
 
   /// <summary>
   ///   <para>Specifies whether to display profile photos of people who like the page. Default is <c>true</c>.</para>
@@ -51,9 +51,9 @@ public interface IFacebookLikeBoxWidget : IWebWidget
   /// <summary>
   ///   <para>Specifies whether to display the Facebook header at the top of the widget. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="show"><c>true</c> to show header, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show header, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookLikeBoxWidget Header(bool show);
+  IFacebookLikeBoxWidget Header(bool enabled);
 
   /// <summary>
   ///   <para>Specifies whether to display the Facebook header at the top of the widget. Default is <c>true</c>.</para>
@@ -79,9 +79,9 @@ public interface IFacebookLikeBoxWidget : IWebWidget
   /// <summary>
   ///   <para>Specifies whether to display a stream of the latest posts by the Page. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="show"><c>true</c> to show stream of posts, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show stream of posts, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookLikeBoxWidget Stream(bool show);
+  IFacebookLikeBoxWidget Stream(bool enabled);
 
   /// <summary>
   ///   <para>Specifies whether to display a stream of the latest posts by the Page. Default is <c>true</c>.</para>
@@ -108,9 +108,9 @@ public interface IFacebookLikeBoxWidget : IWebWidget
   /// <summary>
   ///   <para>For "place" Pages (Pages that have a physical location that can be used with check-ins), this specifies whether the stream contains posts by the Page or just check-ins from friends. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="include"><c>true</c> to include page's posts in the stream, <c>false</c> to exclude.</param>
+  /// <param name="enabled"><c>true</c> to include page's posts in the stream, <c>false</c> to exclude.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookLikeBoxWidget Wall(bool include);
+  IFacebookLikeBoxWidget Wall(bool enabled);
 
   /// <summary>
   ///   <para>For "place" Pages (Pages that have a physical location that can be used with check-ins), this specifies whether the stream contains posts by the Page or just check-ins from friends. Default is <c>false</c>.</para>

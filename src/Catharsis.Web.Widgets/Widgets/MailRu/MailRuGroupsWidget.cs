@@ -80,9 +80,9 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   public string Height() => height;
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Subscribers(bool)"/>
-  public IMailRuGroupsWidget Subscribers(bool show)
+  public IMailRuGroupsWidget Subscribers(bool enabled)
   {
-    subscribers = show;
+    subscribers = enabled;
     return this;
   }
 

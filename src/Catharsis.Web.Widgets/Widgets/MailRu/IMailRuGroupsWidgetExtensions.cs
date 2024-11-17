@@ -16,7 +16,7 @@ public static class IMailRuGroupsWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IMailRuGroupsWidget.Height(string)"/>
-  public static IMailRuGroupsWidget Height(this IMailRuGroupsWidget widget, short height) => height is not null ? widget.Height(height.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IMailRuGroupsWidget Height(this IMailRuGroupsWidget widget, short height) => widget is not null ? widget.Height(height.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Width of Groups box area.</para>

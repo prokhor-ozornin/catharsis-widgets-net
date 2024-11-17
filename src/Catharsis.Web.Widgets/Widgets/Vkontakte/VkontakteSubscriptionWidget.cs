@@ -50,9 +50,9 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
   public byte Layout() => layout;
 
   /// <inheritdoc cref="IVkontakteSubscriptionWidget.OnlyButton(bool)"/>
-  public IVkontakteSubscriptionWidget OnlyButton(bool onlyButton)
+  public IVkontakteSubscriptionWidget OnlyButton(bool enabled)
   {
-    this.onlyButton = onlyButton;
+    this.onlyButton = enabled;
     return this;
   }
 

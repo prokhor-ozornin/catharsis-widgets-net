@@ -38,9 +38,9 @@ public interface IVkontakteRecommendationsWidget : IWebWidget
   /// <summary>
   ///   <para>Maximum number of pages to display when "Show all recommendations" is being pressed. Default is 4 * limit.</para>
   /// </summary>
-  /// <param name="max">Maximum number of pages.</param>
+  /// <param name="count">Maximum number of pages.</param>
   /// <returns>Reference to the current widget.</returns>
-  IVkontakteRecommendationsWidget Max(short max);
+  IVkontakteRecommendationsWidget Max(short count);
 
   /// <summary>
   ///   <para>Maximum number of pages to display when "Show all recommendations" is being pressed. Default is 4 * limit.</para>

@@ -15,16 +15,16 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>
   /// </summary>
-  /// <param name="colorScheme">Color scheme of widget.</param>
+  /// <param name="scheme">Color scheme of widget.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="colorScheme"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="colorScheme"/> is <see cref="string.Empty"/> string.</exception>
-  public IFacebookCommentsWidget ColorScheme(string colorScheme)
+  /// <exception cref="ArgumentNullException">If <paramref name="scheme"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="scheme"/> is <see cref="string.Empty"/> string.</exception>
+  public IFacebookCommentsWidget ColorScheme(string scheme)
   {
-    if (colorScheme is null) throw new ArgumentNullException(nameof(colorScheme));
-    if (colorScheme.IsEmpty()) throw new ArgumentException(nameof(colorScheme));
+    if (scheme is null) throw new ArgumentNullException(nameof(scheme));
+    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = colorScheme;
+    this.colorScheme = scheme;
 
     return this;
   }
@@ -38,11 +38,11 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   /// <summary>
   ///   <para>A boolean value that specifies whether to show the mobile-optimized version or not. If not specified, auto-detection is used.</para>
   /// </summary>
-  /// <param name="mobile"><c>true</c> to use mobile-optimized version, <c>false</c> otherwise.</param>
+  /// <param name="enabled"><c>true</c> to use mobile-optimized version, <c>false</c> otherwise.</param>
   /// <returns>Reference to the current widget.</returns>
-  public IFacebookCommentsWidget Mobile(bool mobile) 
+  public IFacebookCommentsWidget Mobile(bool enabled) 
   {
-    this.mobile = mobile;
+    this.mobile = enabled;
     return this;
   }
 
@@ -78,11 +78,11 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   /// <summary>
   ///   <para>The number of comments to show by default. The minimum value is 1. Default is 10.</para>
   /// </summary>
-  /// <param name="posts">Number of comments to show.</param>
+  /// <param name="count">Number of comments to show.</param>
   /// <returns>Reference to the current widget.</returns>
-  public IFacebookCommentsWidget Posts(byte posts)
+  public IFacebookCommentsWidget Posts(byte count)
   {
-    this.posts = posts;
+    this.posts = count;
     return this;
   }
 

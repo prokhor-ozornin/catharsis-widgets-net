@@ -25,11 +25,11 @@ public interface IIntenseDebateLinkWidget : IWebWidget
   /// <summary>
   ///   <para>This is the unique identifier of the post or page. This is what keeps the comments set on this page different than comments set on another page. The default value is the URL of the page.</para>
   /// </summary>
-  /// <param name="postId">Identifier of post or page.</param>
+  /// <param name="id">Identifier of post or page.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="postId"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="postId"/> is <see cref="string.Empty"/> string.</exception>
-  IIntenseDebateLinkWidget PostId(string postId);
+  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+  IIntenseDebateLinkWidget PostId(string id);
 
   /// <summary>
   ///   <para>This is the unique identifier of the post or page. This is what keeps the comments set on this page different than comments set on another page. The default value is the URL of the page.</para>
@@ -40,11 +40,11 @@ public interface IIntenseDebateLinkWidget : IWebWidget
   /// <summary>
   ///   <para>This is the url of the post or page. This is url Intense Debate will link to in RSS feeds and on IntenseDebate.com. The default is the current page's URL.</para>
   /// </summary>
-  /// <param name="postUrl">URL of post or page.</param>
+  /// <param name="url">URL of post or page.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="postUrl"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="postUrl"/> is <see cref="string.Empty"/> string.</exception>
-  IIntenseDebateLinkWidget PostUrl(string postUrl);
+  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
+  IIntenseDebateLinkWidget PostUrl(string url);
 
   /// <summary>
   ///   <para>This is the url of the post or page. This is url Intense Debate will link to in RSS feeds and on IntenseDebate.com. The default is the current page's URL.</para>
@@ -55,11 +55,11 @@ public interface IIntenseDebateLinkWidget : IWebWidget
   /// <summary>
   ///   <para>This is title of the post or page. This is the title that will be displayed in RSS feeds and on IntenseDebate.com. The default value is the title of the current page.</para>
   /// </summary>
-  /// <param name="postTitle">Title of post or page.</param>
+  /// <param name="title">Title of post or page.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="postTitle"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="postTitle"/> is <see cref="string.Empty"/> string.</exception>
-  IIntenseDebateLinkWidget PostTitle(string postTitle);
+  /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
+  IIntenseDebateLinkWidget PostTitle(string title);
 
   /// <summary>
   ///   <para>This is title of the post or page. This is the title that will be displayed in RSS feeds and on IntenseDebate.com. The default value is the title of the current page.</para>

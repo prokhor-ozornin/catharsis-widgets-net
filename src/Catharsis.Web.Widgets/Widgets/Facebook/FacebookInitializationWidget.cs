@@ -9,12 +9,12 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
   private string appId;
 
   /// <inheritdoc cref="IFacebookInitializationWidget.AppId(string)"/>
-  public IFacebookInitializationWidget AppId(string appId)
+  public IFacebookInitializationWidget AppId(string id)
   {
-    if (appId is null) throw new ArgumentNullException(nameof(appId));
-    if (appId.IsEmpty()) throw new ArgumentException(nameof(appId));
+    if (id is null) throw new ArgumentNullException(nameof(id));
+    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.appId = appId;
+    this.appId = id;
     return this;
   }
 

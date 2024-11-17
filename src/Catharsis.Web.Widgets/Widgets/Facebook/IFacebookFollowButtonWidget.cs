@@ -10,11 +10,11 @@ public interface IFacebookFollowButtonWidget : IWebWidget
   /// <summary>
   ///   <para>The color scheme used by the button. Default is "light".</para>
   /// </summary>
-  /// <param name="colorScheme">Color scheme of button.</param>
+  /// <param name="scheme">Color scheme of button.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="colorScheme"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="colorScheme"/> is <see cref="string.Empty"/> string.</exception>
-  IFacebookFollowButtonWidget ColorScheme(string colorScheme);
+  /// <exception cref="ArgumentNullException">If <paramref name="scheme"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="scheme"/> is <see cref="string.Empty"/> string.</exception>
+  IFacebookFollowButtonWidget ColorScheme(string scheme);
 
   /// <summary>
   ///   <para>The color scheme used by the button. Default is "light".</para>
@@ -25,9 +25,9 @@ public interface IFacebookFollowButtonWidget : IWebWidget
   /// <summary>
   ///   <para>Specifies whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites.</para>
   /// </summary>
-  /// <param name="show"><c>true</c> to show profiles photos, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show profiles photos, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookFollowButtonWidget Faces(bool show);
+  IFacebookFollowButtonWidget Faces(bool enabled);
 
   /// <summary>
   ///   <para>Specifies whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites.</para>

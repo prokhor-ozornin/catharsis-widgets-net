@@ -10,11 +10,11 @@ public interface IFacebookCommentsWidget : IWebWidget
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>
   /// </summary>
-  /// <param name="colorScheme">Color scheme of widget.</param>
+  /// <param name="scheme">Color scheme of widget.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="colorScheme"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="colorScheme"/> is <see cref="string.Empty"/> string.</exception>
-  IFacebookCommentsWidget ColorScheme(string colorScheme);
+  /// <exception cref="ArgumentNullException">If <paramref name="scheme"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="scheme"/> is <see cref="string.Empty"/> string.</exception>
+  IFacebookCommentsWidget ColorScheme(string scheme);
 
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>
@@ -25,9 +25,9 @@ public interface IFacebookCommentsWidget : IWebWidget
   /// <summary>
   ///   <para>A boolean value that specifies whether to show the mobile-optimized version or not. If not specified, auto-detection is used.</para>
   /// </summary>
-  /// <param name="mobile"><c>true</c> to use mobile-optimized version, <c>false</c> otherwise.</param>
+  /// <param name="enabled"><c>true</c> to use mobile-optimized version, <c>false</c> otherwise.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookCommentsWidget Mobile(bool mobile);
+  IFacebookCommentsWidget Mobile(bool enabled);
 
   /// <summary>
   ///   <para>A boolean value that specifies whether to show the mobile-optimized version or not. If not specified, auto-detection is used.</para>
@@ -53,9 +53,9 @@ public interface IFacebookCommentsWidget : IWebWidget
   /// <summary>
   ///   <para>The number of comments to show by default. The minimum value is 1. Default is 10.</para>
   /// </summary>
-  /// <param name="posts">Number of comments to show.</param>
+  /// <param name="count">Number of comments to show.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookCommentsWidget Posts(byte posts);
+  IFacebookCommentsWidget Posts(byte count);
 
   /// <summary>
   ///   <para>The number of comments to show by default. The minimum value is 1. Default is 10.</para>

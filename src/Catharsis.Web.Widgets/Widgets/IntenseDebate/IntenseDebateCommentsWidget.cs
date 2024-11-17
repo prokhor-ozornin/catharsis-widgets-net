@@ -24,12 +24,12 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
   public string Account() => account;
 
   /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostId(string)"/>
-  public IIntenseDebateCommentsWidget PostId(string postId)
+  public IIntenseDebateCommentsWidget PostId(string id)
   {
-    if (postId is null) throw new ArgumentNullException(nameof(postId));
-    if (postId.IsEmpty()) throw new ArgumentException(nameof(postId));
+    if (id is null) throw new ArgumentNullException(nameof(id));
+    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.postId = postId;
+    this.postId = id;
     return this;
   }
 
@@ -37,12 +37,12 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
   public string PostId() => postId;
 
   /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostUrl(string)"/>
-  public IIntenseDebateCommentsWidget PostUrl(string postUrl)
+  public IIntenseDebateCommentsWidget PostUrl(string url)
   {
-    if (postUrl is null) throw new ArgumentNullException(nameof(postUrl));
-    if (postUrl.IsEmpty()) throw new ArgumentException(nameof(postUrl));
+    if (url is null) throw new ArgumentNullException(nameof(url));
+    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.postUrl = postUrl;
+    this.postUrl = url;
     return this;
   }
 
@@ -50,12 +50,12 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
   public string PostUrl() => postUrl;
 
   /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostTitle(string)"/>
-  public IIntenseDebateCommentsWidget PostTitle(string postTitle)
+  public IIntenseDebateCommentsWidget PostTitle(string title)
   {
-    if (postTitle is null) throw new ArgumentNullException(nameof(postTitle));
-    if (postTitle.IsEmpty()) throw new ArgumentException(nameof(postTitle));
+    if (title is null) throw new ArgumentNullException(nameof(title));
+    if (title.IsEmpty()) throw new ArgumentException(nameof(title));
 
-    this.postTitle = postTitle;
+    this.postTitle = title;
     return this;
   }
 

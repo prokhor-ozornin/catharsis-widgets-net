@@ -13,12 +13,12 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
   private string trackLabel;
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.ColorScheme(string)"/>
-  public IFacebookSendButtonWidget ColorScheme(string colorScheme)
+  public IFacebookSendButtonWidget ColorScheme(string scheme)
   {
-    if (colorScheme is null) throw new ArgumentNullException(nameof(colorScheme));
-    if (colorScheme.IsEmpty()) throw new ArgumentException(nameof(colorScheme));
+    if (scheme is null) throw new ArgumentNullException(nameof(scheme));
+    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = colorScheme;
+    this.colorScheme = scheme;
     return this;
   }
 

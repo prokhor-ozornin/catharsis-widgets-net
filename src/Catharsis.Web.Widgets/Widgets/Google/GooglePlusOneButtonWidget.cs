@@ -53,9 +53,9 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
   public string Callback() => callback;
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Recommendations(bool)"/>
-  public IGooglePlusOneButtonWidget Recommendations(bool show)
+  public IGooglePlusOneButtonWidget Recommendations(bool enabled)
   {
-    recommendations = show;
+    recommendations = enabled;
     return this;
   }
 

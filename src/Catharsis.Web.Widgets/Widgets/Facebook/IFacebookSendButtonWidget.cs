@@ -10,11 +10,11 @@ public interface IFacebookSendButtonWidget : IWebWidget
   /// <summary>
   ///   <para>The color scheme used by the button. Default is "light".</para>
   /// </summary>
-  /// <param name="colorScheme">Color scheme of button.</param>
+  /// <param name="scheme">Color scheme of button.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="colorScheme"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="colorScheme"/> is <see cref="string.Empty"/> string.</exception>
-  IFacebookSendButtonWidget ColorScheme(string colorScheme);
+  /// <exception cref="ArgumentNullException">If <paramref name="scheme"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="scheme"/> is <see cref="string.Empty"/> string.</exception>
+  IFacebookSendButtonWidget ColorScheme(string scheme);
 
   /// <summary>
   ///   <para>The color scheme used by the button. Default is "light".</para>

@@ -32,9 +32,9 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   public string Account() => account;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Cards(bool)"/>
-  public IYandexMoneyPaymentFormWidget Cards(bool accept)
+  public IYandexMoneyPaymentFormWidget Cards(bool enabled)
   {
-    cards = accept;
+    cards = enabled;
     return this;
   }
 
@@ -56,9 +56,9 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   public string Description() => description;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerAddress(bool)"/>
-  public IYandexMoneyPaymentFormWidget AskPayerAddress(bool ask)
+  public IYandexMoneyPaymentFormWidget AskPayerAddress(bool enabled)
   {
-    askPayerAddress = ask;
+    askPayerAddress = enabled;
     return this;
   }
 
@@ -66,9 +66,9 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   public bool AskPayerAddress() => askPayerAddress;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerComment(bool)"/>
-  public IYandexMoneyPaymentFormWidget AskPayerComment(bool ask)
+  public IYandexMoneyPaymentFormWidget AskPayerComment(bool enabled)
   {
-    askPayerComment = ask;
+    askPayerComment = enabled;
     return this;
   }
 
@@ -76,9 +76,9 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   public bool AskPayerComment() => askPayerComment;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerEmail(bool)"/>
-  public IYandexMoneyPaymentFormWidget AskPayerEmail(bool ask)
+  public IYandexMoneyPaymentFormWidget AskPayerEmail(bool enabled)
   {
-    askPayerEmail = ask;
+    askPayerEmail = enabled;
     return this;
   }
 
@@ -86,9 +86,9 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   public bool AskPayerEmail() => askPayerEmail;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerFullName(bool)"/>
-  public IYandexMoneyPaymentFormWidget AskPayerFullName(bool ask)
+  public IYandexMoneyPaymentFormWidget AskPayerFullName(bool enabled)
   {
-    askPayerFullName = ask;
+    askPayerFullName = enabled;
     return this;
   }
 
@@ -96,9 +96,9 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   public bool AskPayerFullName() => askPayerFullName;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPhone(bool)"/>
-  public IYandexMoneyPaymentFormWidget AskPayerPhone(bool ask)
+  public IYandexMoneyPaymentFormWidget AskPayerPhone(bool enabled)
   {
-    askPayerPhone = ask;
+    askPayerPhone = enabled;
     return this;
   }
 
@@ -106,9 +106,9 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   public bool AskPayerPhone() => askPayerPhone;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPurpose(bool)"/>
-  public IYandexMoneyPaymentFormWidget AskPayerPurpose(bool ask)
+  public IYandexMoneyPaymentFormWidget AskPayerPurpose(bool enabled)
   {
-    askPayerPurpose = ask;
+    askPayerPurpose = enabled;
     return this;
   }
 

@@ -11,12 +11,12 @@ public interface IVkontakteInitializationWidget : IWebWidget
   /// <summary>
   ///   <para>API identifier of registered VKontakte application.</para>
   /// </summary>
-  /// <param name="apiId">Application API ID.</param>
+  /// <param name="id">Application API ID.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="apiId"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="apiId"/> is <see cref="string.Empty"/> string.</exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>This attribute is required.</remarks>
-  IVkontakteInitializationWidget ApiId(string apiId);
+  IVkontakteInitializationWidget ApiId(string id);
 
   /// <summary>
   ///   <para>API identifier of registered VKontakte application.</para>

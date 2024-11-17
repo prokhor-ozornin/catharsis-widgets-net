@@ -40,9 +40,9 @@ public interface ICackleLatestCommentsWidget : IWebWidget
   /// <summary>
   ///   <para>Number of comments to display. Maximum 100, default 5.</para>
   /// </summary>
-  /// <param name="max">Number of comments to display.</param>
+  /// <param name="count">Number of comments to display.</param>
   /// <returns>Reference to the current widget.</returns>
-  ICackleLatestCommentsWidget Max(byte max);
+  ICackleLatestCommentsWidget Max(byte count);
 
   /// <summary>
   ///   <para>Number of comments to display. Maximum 100, default 5.</para>

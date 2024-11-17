@@ -16,9 +16,9 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   private string width;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Border(bool)"/>
-  public IFacebookLikeBoxWidget Border(bool border)
+  public IFacebookLikeBoxWidget Border(bool enabled)
   {
-    this.border = border;
+    this.border = enabled;
     return this;
   }
 
@@ -26,12 +26,12 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   public bool? Border() => border;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.ColorScheme(string)"/>
-  public IFacebookLikeBoxWidget ColorScheme(string colorScheme)
+  public IFacebookLikeBoxWidget ColorScheme(string scheme)
   {
-    if (colorScheme is null) throw new ArgumentNullException(nameof(colorScheme));
-    if (colorScheme.IsEmpty()) throw new ArgumentException(nameof(colorScheme));
+    if (scheme is null) throw new ArgumentNullException(nameof(scheme));
+    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = colorScheme;
+    this.colorScheme = scheme;
     return this;
   }
 
@@ -39,9 +39,9 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   public string ColorScheme() => colorScheme;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Faces(bool)"/>
-  public IFacebookLikeBoxWidget Faces(bool show)
+  public IFacebookLikeBoxWidget Faces(bool enabled)
   {
-    faces = show;
+    faces = enabled;
     return this;
   }
 
@@ -49,9 +49,9 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   public bool? Faces() => faces;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Header(bool)"/>
-  public IFacebookLikeBoxWidget Header(bool show)
+  public IFacebookLikeBoxWidget Header(bool enabled)
   {
-    header = show;
+    header = enabled;
     return this;
   }
 
@@ -72,9 +72,9 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   public string Height() => height;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Stream(bool)"/>
-  public IFacebookLikeBoxWidget Stream(bool show)
+  public IFacebookLikeBoxWidget Stream(bool enabled)
   {
-    stream = show;
+    stream = enabled;
     return this;
   }
 
@@ -95,9 +95,9 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   public string Url() => url;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Wall(bool)"/>
-  public IFacebookLikeBoxWidget Wall(bool include)
+  public IFacebookLikeBoxWidget Wall(bool enabled)
   {
-    wall = include;
+    wall = enabled;
     return this;
   }
 

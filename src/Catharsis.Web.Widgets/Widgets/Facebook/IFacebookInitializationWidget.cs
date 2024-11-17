@@ -9,12 +9,12 @@ public interface IFacebookInitializationWidget : IWebWidget
   /// <summary>
   ///   <para>Identifier of registered Facebook application.</para>
   /// </summary>
-  /// <param name="appId">Identifier of Facebook application.</param>
+  /// <param name="id">Identifier of Facebook application.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="appId"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="appId"/> is <see cref="string.Empty"/> string.</exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>This attribute is required.</remarks>
-  IFacebookInitializationWidget AppId(string appId);
+  IFacebookInitializationWidget AppId(string id);
 
   /// <summary>
   ///   <para>Identifier of registered Facebook application.</para>

@@ -14,12 +14,12 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
   private string width;
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.ColorScheme(string)"/>
-  public IFacebookFollowButtonWidget ColorScheme(string colorScheme)
+  public IFacebookFollowButtonWidget ColorScheme(string scheme)
   {
-    if (colorScheme is null) throw new ArgumentNullException(nameof(colorScheme));
-    if (colorScheme.IsEmpty()) throw new ArgumentException(nameof(colorScheme));
+    if (scheme is null) throw new ArgumentNullException(nameof(scheme));
+    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = colorScheme;
+    this.colorScheme = scheme;
     return this;
   }
 
@@ -27,9 +27,9 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
   public string ColorScheme() => colorScheme;
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Faces(bool)"/>
-  public IFacebookFollowButtonWidget Faces(bool show)
+  public IFacebookFollowButtonWidget Faces(bool enabled)
   {
-    faces = show;
+    faces = enabled;
     return this;
   }
 

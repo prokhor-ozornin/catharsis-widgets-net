@@ -8,12 +8,12 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
   private string apiId;
 
   /// <inheritdoc cref="IVkontakteInitializationWidget.ApiId(string)"/>
-  public IVkontakteInitializationWidget ApiId(string apiId)
+  public IVkontakteInitializationWidget ApiId(string id)
   {
-    if (apiId is null) throw new ArgumentNullException(nameof(apiId));
-    if (apiId.IsEmpty()) throw new ArgumentException(nameof(apiId));
+    if (id is null) throw new ArgumentNullException(nameof(id));
+    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.apiId = apiId;
+    this.apiId = id;
 
     return this;
   }

@@ -28,9 +28,9 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   public string Color() => color;
 
   /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Counter(bool)"/>
-  public ISurfingbirdSurfButtonWidget Counter(bool show)
+  public ISurfingbirdSurfButtonWidget Counter(bool enabled)
   {
-    counter = show;
+    counter = enabled;
     return this;
   }
 

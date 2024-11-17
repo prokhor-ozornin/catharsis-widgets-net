@@ -33,9 +33,9 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   public string Account() => account;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Cards(bool)"/>
-  public IYandexMoneyDonateFormWidget Cards(bool accept)
+  public IYandexMoneyDonateFormWidget Cards(bool enabled)
   {
-    cards = accept;
+    cards = enabled;
     return this;
   }
 
@@ -56,9 +56,9 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   public string DescriptionText() => descriptionText;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerComment(bool)"/>
-  public IYandexMoneyDonateFormWidget AskPayerComment(bool ask)
+  public IYandexMoneyDonateFormWidget AskPayerComment(bool enabled)
   {
-    askPayerComment = ask;
+    askPayerComment = enabled;
     return this;
   }
 
@@ -79,9 +79,9 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   public string CommentHint() => commentHint;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerEmail(bool)"/>
-  public IYandexMoneyDonateFormWidget AskPayerEmail(bool ask)
+  public IYandexMoneyDonateFormWidget AskPayerEmail(bool enabled)
   {
-    askPayerEmail = ask;
+    askPayerEmail = enabled;
     return this;
   }
 
@@ -89,9 +89,9 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   public bool AskPayerEmail() => askPayerEmail;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerFullName(bool)"/>
-  public IYandexMoneyDonateFormWidget AskPayerFullName(bool ask)
+  public IYandexMoneyDonateFormWidget AskPayerFullName(bool enabled)
   {
-    askPayerFullName = ask;
+    askPayerFullName = enabled;
     return this;
   }
 
@@ -99,9 +99,9 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   public bool AskPayerFullName() => askPayerFullName;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerPhone(bool)"/>
-  public IYandexMoneyDonateFormWidget AskPayerPhone(bool ask)
+  public IYandexMoneyDonateFormWidget AskPayerPhone(bool enabled)
   {
-    askPayerPhone = ask;
+    askPayerPhone = enabled;
     return this;
   }
 
@@ -137,9 +137,9 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   public string ProjectSite() => projectSite;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Description(bool)"/>
-  public IYandexMoneyDonateFormWidget Description(bool show)
+  public IYandexMoneyDonateFormWidget Description(bool enabled)
   {
-    description = show;
+    description = enabled;
     return this;
   }
 

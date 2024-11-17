@@ -41,9 +41,9 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   public string Alignment() => alignment;
 
   /// <inheritdoc cref="ITwitterFollowButtonWidget.Counter(bool)"/>
-  public ITwitterFollowButtonWidget Counter(bool show)
+  public ITwitterFollowButtonWidget Counter(bool enabled)
   {
-    counter = show;
+    counter = enabled;
     return this;
   }
 
@@ -64,9 +64,9 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   public string Language() => language;
 
   /// <inheritdoc cref="ITwitterFollowButtonWidget.ScreenName(bool)"/>
-  public ITwitterFollowButtonWidget ScreenName(bool screenName)
+  public ITwitterFollowButtonWidget ScreenName(bool name)
   {
-    this.screenName = screenName;
+    this.screenName = name;
     return this;
   }
 

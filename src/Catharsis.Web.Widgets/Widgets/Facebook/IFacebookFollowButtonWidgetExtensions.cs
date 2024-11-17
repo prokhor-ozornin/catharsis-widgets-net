@@ -32,11 +32,11 @@ public static class IFacebookFollowButtonWidgetExtensions
   ///   <para>The color scheme used by the button.</para>
   /// </summary>
   /// <param name="widget">Widget to call method on.</param>
-  /// <param name="colorScheme">Color scheme of button.</param>
+  /// <param name="scheme">Color scheme of button.</param>
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFollowButtonWidget.ColorScheme(string)"/>
-  public static IFacebookFollowButtonWidget ColorScheme(this IFacebookFollowButtonWidget widget, FacebookColorScheme colorScheme) => widget is not null ? widget.ColorScheme(colorScheme.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFollowButtonWidget ColorScheme(this IFacebookFollowButtonWidget widget, FacebookColorScheme scheme) => widget is not null ? widget.ColorScheme(scheme.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Selects one of the different layouts that are available for the button.</para>

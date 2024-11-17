@@ -37,9 +37,9 @@ public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
   public short AvatarSize() => avatarSize;
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.Max(byte)"/>
-  public ICackleLatestCommentsWidget Max(byte max)
+  public ICackleLatestCommentsWidget Max(byte count)
   {
-    this.max = max;
+    this.max = count;
     return this;
   }
 

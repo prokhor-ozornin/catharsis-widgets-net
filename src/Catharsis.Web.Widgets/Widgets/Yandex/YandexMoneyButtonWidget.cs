@@ -59,9 +59,9 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   public string Description() => description;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerFullName(bool)"/>
-  public IYandexMoneyButtonWidget AskPayerFullName(bool ask)
+  public IYandexMoneyButtonWidget AskPayerFullName(bool enabled)
   {
-    askPayerFullName = ask;
+    askPayerFullName = enabled;
     return this;
   }
 
@@ -69,9 +69,9 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   public bool AskPayerFullName() => askPayerFullName;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerEmail(bool)"/>
-  public IYandexMoneyButtonWidget AskPayerEmail(bool ask)
+  public IYandexMoneyButtonWidget AskPayerEmail(bool enabled)
   {
-    askPayerEmail = ask;
+    askPayerEmail = enabled;
     return this;
   }
 
@@ -79,9 +79,9 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   public bool AskPayerEmail() => askPayerEmail;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerPhone(bool)"/>
-  public IYandexMoneyButtonWidget AskPayerPhone(bool ask)
+  public IYandexMoneyButtonWidget AskPayerPhone(bool enabled)
   {
-    askPayerPhone = ask;
+    askPayerPhone = enabled;
     return this;
   }
 
@@ -89,9 +89,9 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   public bool AskPayerPhone() => askPayerPhone;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerAddress(bool)"/>
-  public IYandexMoneyButtonWidget AskPayerAddress(bool ask)
+  public IYandexMoneyButtonWidget AskPayerAddress(bool enabled)
   {
-    askPayerAddress = ask;
+    askPayerAddress = enabled;
     return this;
   }
 

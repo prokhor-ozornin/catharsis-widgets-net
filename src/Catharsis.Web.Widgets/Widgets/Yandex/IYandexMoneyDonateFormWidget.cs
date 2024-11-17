@@ -25,9 +25,9 @@ public interface IYandexMoneyDonateFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="accept"><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyDonateFormWidget Cards(bool accept);
+  IYandexMoneyDonateFormWidget Cards(bool enabled);
 
   /// <summary>
   ///   <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>
@@ -54,9 +54,9 @@ public interface IYandexMoneyDonateFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="ask"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyDonateFormWidget AskPayerComment(bool ask);
+  IYandexMoneyDonateFormWidget AskPayerComment(bool enabled);
 
   /// <summary>
   ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
@@ -82,9 +82,9 @@ public interface IYandexMoneyDonateFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyDonateFormWidget AskPayerEmail(bool ask);
+  IYandexMoneyDonateFormWidget AskPayerEmail(bool enabled);
 
   /// <summary>
   ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
@@ -95,9 +95,9 @@ public interface IYandexMoneyDonateFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyDonateFormWidget AskPayerFullName(bool ask);
+  IYandexMoneyDonateFormWidget AskPayerFullName(bool enabled);
 
   /// <summary>
   ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
@@ -108,9 +108,9 @@ public interface IYandexMoneyDonateFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyDonateFormWidget AskPayerPhone(bool ask);
+  IYandexMoneyDonateFormWidget AskPayerPhone(bool enabled);
 
   /// <summary>
   ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
@@ -151,9 +151,9 @@ public interface IYandexMoneyDonateFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to show description of payment goal/purpose in the form. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="show"><c>true</c> to show payment purpose text on the form, <c>false</c> to hide it.</param>
+  /// <param name="enabled"><c>true</c> to show payment purpose text on the form, <c>false</c> to hide it.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyDonateFormWidget Description(bool show);
+  IYandexMoneyDonateFormWidget Description(bool enabled);
 
   /// <summary>
   ///   <para>Whether to show description of payment goal/purpose in the form. Default is <c>false</c>.</para>

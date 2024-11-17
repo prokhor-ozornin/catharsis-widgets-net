@@ -24,11 +24,11 @@ public interface IFacebookFacePileWidget : IWebWidget
   /// <summary>
   ///   <para>The color scheme used by the widget. Default is "light".</para>
   /// </summary>
-  /// <param name="colorScheme">Color scheme of widget.</param>
+  /// <param name="scheme">Color scheme of widget.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="colorScheme"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="colorScheme"/> is <see cref="string.Empty"/> string.</exception>
-  IFacebookFacePileWidget ColorScheme(string colorScheme);
+  /// <exception cref="ArgumentNullException">If <paramref name="scheme"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="scheme"/> is <see cref="string.Empty"/> string.</exception>
+  IFacebookFacePileWidget ColorScheme(string scheme);
 
   /// <summary>
   ///   <para>The color scheme used by the widget. Default is "light".</para>
@@ -54,9 +54,9 @@ public interface IFacebookFacePileWidget : IWebWidget
   /// <summary>
   ///   <para>The maximum number of rows of faces to display. Default is 1.</para>
   /// </summary>
-  /// <param name="maxRows">Number of rows of faces to display.</param>
+  /// <param name="count">Number of rows of faces to display.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookFacePileWidget MaxRows(byte maxRows);
+  IFacebookFacePileWidget MaxRows(byte count);
 
   /// <summary>
   ///   <para>The maximum number of rows of faces to display. Default is 1.</para>

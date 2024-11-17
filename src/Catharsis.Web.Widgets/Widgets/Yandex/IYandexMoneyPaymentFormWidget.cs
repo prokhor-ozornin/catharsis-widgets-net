@@ -25,9 +25,9 @@ public interface IYandexMoneyPaymentFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyPaymentFormWidget AskPayerAddress(bool ask);
+  IYandexMoneyPaymentFormWidget AskPayerAddress(bool enabled);
 
   /// <summary>
   ///   <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
@@ -38,9 +38,9 @@ public interface IYandexMoneyPaymentFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="ask"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyPaymentFormWidget AskPayerComment(bool ask);
+  IYandexMoneyPaymentFormWidget AskPayerComment(bool enabled);
 
   /// <summary>
   ///   <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
@@ -51,9 +51,9 @@ public interface IYandexMoneyPaymentFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyPaymentFormWidget AskPayerEmail(bool ask);
+  IYandexMoneyPaymentFormWidget AskPayerEmail(bool enabled);
 
   /// <summary>
   ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
@@ -64,9 +64,9 @@ public interface IYandexMoneyPaymentFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyPaymentFormWidget AskPayerFullName(bool ask);
+  IYandexMoneyPaymentFormWidget AskPayerFullName(bool enabled);
 
   /// <summary>
   ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
@@ -77,9 +77,9 @@ public interface IYandexMoneyPaymentFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="ask"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyPaymentFormWidget AskPayerPhone(bool ask);
+  IYandexMoneyPaymentFormWidget AskPayerPhone(bool enabled);
 
   /// <summary>
   ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
@@ -90,9 +90,9 @@ public interface IYandexMoneyPaymentFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to allow payer specify custom payment purpose text (<c>true</c>) or use predefined purpose text (<c>false</c>). Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="ask"><c>true</c> to allow payer specify payment purpose, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to allow payer specify payment purpose, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyPaymentFormWidget AskPayerPurpose(bool ask);
+  IYandexMoneyPaymentFormWidget AskPayerPurpose(bool enabled);
 
   /// <summary>
   ///   <para>Whether to allow payer specify custom payment purpose text (<c>true</c>) or use predefined purpose text (<c>false</c>). Default is <c>false</c>.</para>
@@ -103,9 +103,9 @@ public interface IYandexMoneyPaymentFormWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="accept"><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</param>
+  /// <param name="enabled"><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</param>
   /// <returns>Reference to the current widget.</returns>
-  IYandexMoneyPaymentFormWidget Cards(bool accept);
+  IYandexMoneyPaymentFormWidget Cards(bool enabled);
 
   /// <summary>
   ///   <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>

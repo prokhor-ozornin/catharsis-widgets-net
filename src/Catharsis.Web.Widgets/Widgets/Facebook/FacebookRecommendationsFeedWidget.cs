@@ -27,12 +27,12 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public IEnumerable<string> Actions() => actions;
 
   /// <inheritdoc cref="IFacebookRecommendationsFeedWidget.AppId(string)"/>
-  public IFacebookRecommendationsFeedWidget AppId(string appId)
+  public IFacebookRecommendationsFeedWidget AppId(string id)
   {
-    if (appId is null) throw new ArgumentNullException(nameof(appId));
-    if (appId.IsEmpty()) throw new ArgumentException(nameof(appId));
+    if (id is null) throw new ArgumentNullException(nameof(id));
+    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.appId = appId;
+    this.appId = id;
     return this;
   }
 
@@ -40,12 +40,12 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public string AppId() => appId;
 
   /// <inheritdoc cref="IFacebookRecommendationsFeedWidget.ColorScheme(string)"/>
-  public IFacebookRecommendationsFeedWidget ColorScheme(string colorScheme)
+  public IFacebookRecommendationsFeedWidget ColorScheme(string scheme)
   {
-    if (colorScheme is null) throw new ArgumentNullException(nameof(colorScheme));
-    if (colorScheme.IsEmpty()) throw new ArgumentException(nameof(colorScheme));
+    if (scheme is null) throw new ArgumentNullException(nameof(scheme));
+    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = colorScheme;
+    this.colorScheme = scheme;
     return this;
   }
 
@@ -92,9 +92,9 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public string Height() => height;
 
   /// <inheritdoc cref="IFacebookRecommendationsFeedWidget.Header(bool)"/>
-  public IFacebookRecommendationsFeedWidget Header(bool show)
+  public IFacebookRecommendationsFeedWidget Header(bool enabled)
   {
-    header = show;
+    header = enabled;
     return this;
   }
 
@@ -115,9 +115,9 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public string LinkTarget() => linkTarget;
 
   /// <inheritdoc cref="IFacebookRecommendationsFeedWidget.MaxAge(byte)"/>
-  public IFacebookRecommendationsFeedWidget MaxAge(byte maxAge)
+  public IFacebookRecommendationsFeedWidget MaxAge(byte age)
   {
-    this.maxAge = maxAge;
+    this.maxAge = age;
     return this;
   }
 

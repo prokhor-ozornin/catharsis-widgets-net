@@ -54,9 +54,9 @@ public interface IVkontakteSubscriptionWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to display both author and button or button only.</para>
   /// </summary>
-  /// <param name="onlyButton"><c>false</c> to display both author/button, <c>true</c> to display only button.</param>
+  /// <param name="enabled"><c>false</c> to display both author/button, <c>true</c> to display only button.</param>
   /// <returns>Reference to the current widget.</returns>
-  IVkontakteSubscriptionWidget OnlyButton(bool onlyButton);
+  IVkontakteSubscriptionWidget OnlyButton(bool enabled);
 
   /// <summary>
   ///   <para>Whether to display both author and button or button only.</para>

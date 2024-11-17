@@ -28,9 +28,9 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
   public string ColorScheme() => colorScheme;
 
   /// <inheritdoc cref="IFacebookLikeButtonWidget.Faces(bool)"/>
-  public IFacebookLikeButtonWidget Faces(bool show)
+  public IFacebookLikeButtonWidget Faces(bool enabled)
   {
-    faces = show;
+    faces = enabled;
     return this;
   }
 

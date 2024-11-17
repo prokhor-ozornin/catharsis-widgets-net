@@ -16,11 +16,11 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <summary>
   ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="show"><c>true</c> to show share counter, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show share counter, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  public IMailRuLikeButtonWidget Counter(bool show)
+  public IMailRuLikeButtonWidget Counter(bool enabled)
   {
-    counter = show;
+    counter = enabled;
     return this;
   }
 
@@ -91,11 +91,11 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <summary>
   ///   <para>Whether to show text label on button. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="text"><c>true</c> to show text label, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show text label, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  public IMailRuLikeButtonWidget Text(bool text)
+  public IMailRuLikeButtonWidget Text(bool enabled)
   {
-    this.text = text;
+    this.text = enabled;
     return this;
   }
 

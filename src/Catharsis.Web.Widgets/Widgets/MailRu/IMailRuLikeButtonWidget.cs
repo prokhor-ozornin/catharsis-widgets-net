@@ -11,9 +11,9 @@ public interface IMailRuLikeButtonWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="show"><c>true</c> to show share counter, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show share counter, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  IMailRuLikeButtonWidget Counter(bool show);
+  IMailRuLikeButtonWidget Counter(bool enabled);
 
   /// <summary>
   ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
@@ -67,9 +67,9 @@ public interface IMailRuLikeButtonWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to show text label on button. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="text"><c>true</c> to show text label, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show text label, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  IMailRuLikeButtonWidget Text(bool text);
+  IMailRuLikeButtonWidget Text(bool enabled);
 
   /// <summary>
   ///   <para>Whether to show text label on button. Default is <c>true</c>.</para>

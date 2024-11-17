@@ -4,8 +4,5 @@
 public class AddThisShareButtonsWidget : WebWidget, IAddThisShareButtonsWidget
 {
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml()
-  {
-    throw new NotImplementedException();
-  }
+  public override string ToHtml() => throw new NotImplementedException();
 }

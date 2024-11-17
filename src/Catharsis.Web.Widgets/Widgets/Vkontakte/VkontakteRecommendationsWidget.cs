@@ -38,9 +38,9 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
   public byte? Limit() => limit;
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Max(short)"/>
-  public IVkontakteRecommendationsWidget Max(short max)
+  public IVkontakteRecommendationsWidget Max(short count)
   {
-    this.max = max;
+    this.max = count;
     return this;
   }
 

@@ -52,9 +52,9 @@ public static class IFacebookFacePileWidgetExtensions
   ///   <para>The color scheme used by the widget.</para>
   /// </summary>
   /// <param name="widget">Widget to call method on.</param>
-  /// <param name="colorScheme">Color scheme of widget.</param>
+  /// <param name="scheme">Color scheme of widget.</param>
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFacePileWidget.ColorScheme(string)"/>
-  public static IFacebookFacePileWidget ColorScheme(this IFacebookFacePileWidget widget, FacebookColorScheme colorScheme) => widget is not null ? widget.ColorScheme(colorScheme.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFacePileWidget ColorScheme(this IFacebookFacePileWidget widget, FacebookColorScheme scheme) => widget is not null ? widget.ColorScheme(scheme.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
 }

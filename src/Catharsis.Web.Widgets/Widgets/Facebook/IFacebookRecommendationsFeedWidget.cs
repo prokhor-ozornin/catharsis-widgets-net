@@ -24,11 +24,11 @@ public interface IFacebookRecommendationsFeedWidget : IWebWidget
   /// <summary>
   ///   <para>Display all actions associated with this app ID. This is usually inferred from the app ID you use to initiate the JavaScript SDK.</para>
   /// </summary>
-  /// <param name="appId">Facebook Application ID.</param>
+  /// <param name="id">Facebook Application ID.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="appId"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="appId"/> is <see cref="string.Empty"/> string.</exception>
-  IFacebookRecommendationsFeedWidget AppId(string appId);
+  /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
+  IFacebookRecommendationsFeedWidget AppId(string id);
 
   /// <summary>
   ///   <para>Display all actions associated with this app ID. This is usually inferred from the app ID you use to initiate the JavaScript SDK.</para>
@@ -39,11 +39,11 @@ public interface IFacebookRecommendationsFeedWidget : IWebWidget
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>
   /// </summary>
-  /// <param name="colorScheme">Color scheme of widget.</param>
+  /// <param name="scheme">Color scheme of widget.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="colorScheme"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="colorScheme"/> is <see cref="string.Empty"/> string.</exception>
-  IFacebookRecommendationsFeedWidget ColorScheme(string colorScheme);
+  /// <exception cref="ArgumentNullException">If <paramref name="scheme"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="scheme"/> is <see cref="string.Empty"/> string.</exception>
+  IFacebookRecommendationsFeedWidget ColorScheme(string scheme);
 
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>
@@ -69,9 +69,9 @@ public interface IFacebookRecommendationsFeedWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to show the "Recent Activity" header above the feed or not. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="show"><c>true</c> to show header, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show header, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookRecommendationsFeedWidget Header(bool show);
+  IFacebookRecommendationsFeedWidget Header(bool enabled);
 
   /// <summary>
   ///   <para>Whether to show the "Recent Activity" header above the feed or not. Default is <c>true</c>.</para>
@@ -112,9 +112,9 @@ public interface IFacebookRecommendationsFeedWidget : IWebWidget
   /// <summary>
   ///   <para>Limit the created time of articles that are shown in the feed. Valid values are 1-180, which represents the age in days to limit to. Default is 0 (no limit).</para>
   /// </summary>
-  /// <param name="maxAge">Days age limit.</param>
+  /// <param name="age">Days age limit.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookRecommendationsFeedWidget MaxAge(byte maxAge);
+  IFacebookRecommendationsFeedWidget MaxAge(byte age);
 
   /// <summary>
   ///   <para>Limit the created time of articles that are shown in the feed. Valid values are 1-180, which represents the age in days to limit to. Default is 0 (no limit).</para>

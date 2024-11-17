@@ -25,9 +25,9 @@ public interface IFacebookLikeButtonWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="show"><c>true</c> to display profile photos, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to display profile photos, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  IFacebookLikeButtonWidget Faces(bool show);
+  IFacebookLikeButtonWidget Faces(bool enabled);
 
   /// <summary>
   ///   <para>Whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites. Default is <c>false</c>.</para>

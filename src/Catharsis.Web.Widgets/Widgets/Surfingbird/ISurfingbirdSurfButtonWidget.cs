@@ -26,9 +26,9 @@ public interface ISurfingbirdSurfButtonWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>
   /// </summary>
-  /// <param name="show"><c>true</c> to show counter, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show counter, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  ISurfingbirdSurfButtonWidget Counter(bool show);
+  ISurfingbirdSurfButtonWidget Counter(bool enabled);
 
   /// <summary>
   ///   <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>

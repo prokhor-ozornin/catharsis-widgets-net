@@ -3,6 +3,17 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IPayPalBuyNowWidget : IPayPalWidget<IPayPalBuyNowWidget>
+public interface IPayPalBuyNowWidget : IWebWidget
 {
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <returns></returns>
+  IPayPalBuyNowWidget AsForm();
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <returns></returns>
+  IPayPalBuyNowWidget AsUrl();
 }

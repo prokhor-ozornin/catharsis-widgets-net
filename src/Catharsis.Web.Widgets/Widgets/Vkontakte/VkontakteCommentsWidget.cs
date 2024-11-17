@@ -72,9 +72,9 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
   public bool? Mini() => mini;
 
   /// <inheritdoc cref="IVkontakteCommentsWidget.Limit(byte)"/>
-  public IVkontakteCommentsWidget Limit(byte limit)
+  public IVkontakteCommentsWidget Limit(byte count)
   {
-    this.limit = limit;
+    this.limit = count;
     return this;
   }
 

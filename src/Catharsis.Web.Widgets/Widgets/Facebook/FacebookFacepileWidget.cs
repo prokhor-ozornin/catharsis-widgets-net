@@ -25,12 +25,12 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   public IEnumerable<string> Actions() => actions;
 
   /// <inheritdoc cref="IFacebookFacePileWidget.ColorScheme(string)"/>
-  public IFacebookFacePileWidget ColorScheme(string colorScheme)
+  public IFacebookFacePileWidget ColorScheme(string scheme)
   {
-    if (colorScheme is null) throw new ArgumentNullException(nameof(colorScheme));
-    if (colorScheme.IsEmpty()) throw new ArgumentException(nameof(colorScheme));
+    if (scheme is null) throw new ArgumentNullException(nameof(scheme));
+    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = colorScheme;
+    this.colorScheme = scheme;
       
     return this;
   }
@@ -53,9 +53,9 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   public string Height() => height;
 
   /// <inheritdoc cref="IFacebookFacePileWidget.MaxRows(byte)"/>
-  public IFacebookFacePileWidget MaxRows(byte maxRows)
+  public IFacebookFacePileWidget MaxRows(byte count)
   {
-    this.maxRows = maxRows;
+    this.maxRows = count;
     return this;
   }
 
