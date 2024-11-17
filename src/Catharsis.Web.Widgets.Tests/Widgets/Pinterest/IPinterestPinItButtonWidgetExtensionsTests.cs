@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -16,7 +17,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IPinterestPinItButtonWidgetExtensions.Gray(null));
 
-    new PinterestPinItButtonWidget().Do(widget =>
+    new PinterestPinItButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Gray(), widget));
       Assert.Equal("gray", widget.Color());
@@ -32,7 +33,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IPinterestPinItButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture));
     Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Language((CultureInfo) null));
 
-    new PinterestPinItButtonWidget().Do(widget =>
+    new PinterestPinItButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
       Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Language());
@@ -47,7 +48,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IPinterestPinItButtonWidgetExtensions.Red(null));
 
-    new PinterestPinItButtonWidget().Do(widget =>
+    new PinterestPinItButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Red(), widget));
       Assert.Equal("red", widget.Color());
@@ -62,7 +63,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IPinterestPinItButtonWidgetExtensions.White(null));
 
-    new PinterestPinItButtonWidget().Do(widget =>
+    new PinterestPinItButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.White(), widget));
       Assert.Equal("white", widget.Color());

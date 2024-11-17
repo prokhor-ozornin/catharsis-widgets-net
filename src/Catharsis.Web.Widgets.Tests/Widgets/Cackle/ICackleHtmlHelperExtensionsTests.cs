@@ -13,10 +13,10 @@ public sealed class CackleWidgetsCreatorExtensionsTests
   [Fact]
   public void Comments_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.Comments(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.Comments(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new CackleWidgetsCreator().Comments(null));
 
-    Assert.Equal(new CackleWidgetsCreator().Comments().ToHtml(), new CackleWidgetsCreator().Comments(x => { }));
+    Assert.Equal(new CackleWidgetsCreator().Comments().ToHtml(), new CackleWidgetsCreator().Comments(_ => { }));
     Assert.Equal(new CackleWidgetsCreator().Comments().Account("account").ToHtml(), new CackleWidgetsCreator().Comments(x => x.Account("account")));
   }
 
@@ -26,10 +26,10 @@ public sealed class CackleWidgetsCreatorExtensionsTests
   [Fact]
   public void CommentsCount_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.CommentsCount(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.CommentsCount(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new CackleWidgetsCreator().CommentsCount(null));
 
-    Assert.Equal(new CackleWidgetsCreator().CommentsCount().ToHtml(), new CackleWidgetsCreator().CommentsCount(x => { }));
+    Assert.Equal(new CackleWidgetsCreator().CommentsCount().ToHtml(), new CackleWidgetsCreator().CommentsCount(_ => { }));
     Assert.Equal(new CackleWidgetsCreator().CommentsCount().Account("account").ToHtml(), new CackleWidgetsCreator().CommentsCount(x => x.Account("account")));
   }
 
@@ -39,10 +39,10 @@ public sealed class CackleWidgetsCreatorExtensionsTests
   [Fact]
   public void LatestComments_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.LatestComments(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.LatestComments(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new CackleWidgetsCreator().LatestComments(null));
 
-    Assert.Equal(new CackleWidgetsCreator().LatestComments().ToHtml(), new CackleWidgetsCreator().LatestComments(x => { }));
+    Assert.Equal(new CackleWidgetsCreator().LatestComments().ToHtml(), new CackleWidgetsCreator().LatestComments(_ => { }));
     Assert.Equal(new CackleWidgetsCreator().LatestComments().Account("account").ToHtml(), new CackleWidgetsCreator().LatestComments(x => x.Account("account")));
   }
 
@@ -52,10 +52,10 @@ public sealed class CackleWidgetsCreatorExtensionsTests
   [Fact]
   public void Login_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.Login(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => ICackleWidgetsCreatorExtensions.Login(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new CackleWidgetsCreator().Login(null));
 
-    Assert.Equal(new CackleWidgetsCreator().Login().ToHtml(), new CackleWidgetsCreator().Login(x => { }));
+    Assert.Equal(new CackleWidgetsCreator().Login().ToHtml(), new CackleWidgetsCreator().Login(_ => { }));
     Assert.Equal(new CackleWidgetsCreator().Login().Account("account").ToHtml(), new CackleWidgetsCreator().Login(x => x.Account("account")));
   }
 }

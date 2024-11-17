@@ -20,6 +20,15 @@ public sealed class FacebookFacePileWidgetExtensionsTests
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="IFacebookFacePileWidgetExtensions.Url(IFacebookFacePileWidget, Uri)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Url_Method()
+  {
+    throw new NotImplementedException();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookFacePileWidgetExtensions.PhotoSize(IFacebookFacepileWidget, FacebookFacePilePhotoSize)"/> method.</para>
   /// </summary>
   [Fact]

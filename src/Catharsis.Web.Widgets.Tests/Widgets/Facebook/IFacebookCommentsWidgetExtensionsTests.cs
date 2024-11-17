@@ -8,6 +8,15 @@ namespace Catharsis.Web.Widgets;
 public sealed class IFacebookCommentsWidgetExtensionsTests
 {
   /// <summary>
+  ///   <para>Performs testing of <see cref="IFacebookCommentsWidgetExtensions.Url(IFacebookCommentsWidget, Uri)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Url_Method()
+  {
+    throw new NotImplementedException();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookCommentsWidgetExtensions.Width(IFacebookCommentsWidget, short)"/> method.</para>
   /// </summary>
   [Fact]

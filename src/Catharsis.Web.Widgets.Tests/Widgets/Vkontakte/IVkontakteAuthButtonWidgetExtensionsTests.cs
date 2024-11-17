@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,7 +16,7 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IVkontakteAuthButtonWidgetExtensions.Width(null, 0));
 
-    new VkontakteAuthButtonWidget().Do(widget =>
+    new VkontakteAuthButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Width(1), widget));
       Assert.Equal("1", widget.Width());
@@ -32,7 +33,7 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().Standard(null));
     Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().Standard(string.Empty));
 
-    new VkontakteAuthButtonWidget().Do(widget =>
+    new VkontakteAuthButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Standard("url"), widget));
       Assert.Equal(VkontakteAuthButtonType.Standard, widget.Type());
@@ -50,7 +51,7 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().Dynamic(null));
     Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().Dynamic(string.Empty));
 
-    new VkontakteAuthButtonWidget().Do(widget =>
+    new VkontakteAuthButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Dynamic("callback"), widget));
       Assert.Equal(VkontakteAuthButtonType.Dynamic, widget.Type());

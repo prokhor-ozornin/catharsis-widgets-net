@@ -82,7 +82,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   /// <returns>Reference to the current widget.</returns>
   public IFacebookCommentsWidget Posts(byte count)
   {
-    this.posts = count;
+    posts = count;
     return this;
   }
 

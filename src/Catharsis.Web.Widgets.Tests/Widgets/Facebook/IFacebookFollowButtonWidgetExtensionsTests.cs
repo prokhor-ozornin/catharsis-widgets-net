@@ -53,4 +53,13 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTests
     Assert.Equal("button_count", new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.ButtonCount).Layout());
     Assert.Equal("standard", new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.Standard).Layout());
   }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="IFacebookFollowButtonWidgetExtensions.Url(IFacebookFollowButtonWidget, Uri)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Url_Method()
+  {
+    throw new NotImplementedException();
+  }
 }

@@ -13,7 +13,7 @@ public sealed class IntenseDebateWidgetsCreatorExtensionsTests
   [Fact]
   public void Comments_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IIntenseDebateWidgetsCreatorExtensions.Comments(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IIntenseDebateWidgetsCreatorExtensions.Comments(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new IntenseDebateHtmlHelper().Comments(null));
 
     Assert.Equal(new IntenseDebateHtmlHelper().Comments().ToHtml(), new IntenseDebateHtmlHelper().Comments(x => { }));

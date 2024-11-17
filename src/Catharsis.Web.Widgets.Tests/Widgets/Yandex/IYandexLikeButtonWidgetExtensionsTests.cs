@@ -1,3 +1,4 @@
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IYandexLikeButtonWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IYandexYaButtonWidgetExtensionsTests
+public sealed class IYandexLikeButtonWidgetExtensionsTests
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexLikeButtonWidgetExtensions.Size(IYandexLikeButtonWidget, YandexLikeButtonSize)"/> method.</para>
@@ -15,12 +16,12 @@ public sealed class IYandexYaButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IYandexLikeButtonWidgetExtensions.Size(null, YandexLikeButtonSize.Large));
 
-    new YandexLikeButtonWidget().Do(widget =>
+    new YandexLikeButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Size(YandexLikeButtonSize.Large), widget));
       Assert.Equal("large", widget.Size());
     });
-    new YandexLikeButtonWidget().Do(widget => Assert.Equal("small", widget.Size(YandexLikeButtonSize.Small).Size()));
+    new YandexLikeButtonWidget().With(widget => Assert.Equal("small", widget.Size(YandexLikeButtonSize.Small).Size()));
   }
 
   /// <summary>
@@ -29,11 +30,20 @@ public sealed class IYandexYaButtonWidgetExtensionsTests
   [Fact]
   public void Layout_Method()
   {
-    new YandexLikeButtonWidget().Do(widget =>
+    new YandexLikeButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Layout(YandexLikeButtonLayout.Button), widget));
       Assert.Equal("button", widget.Layout());
     });
-    new YandexLikeButtonWidget().Do(widget => Assert.Equal("icon", widget.Layout(YandexLikeButtonLayout.Icon).Layout()));
+    new YandexLikeButtonWidget().With(widget => Assert.Equal("icon", widget.Layout(YandexLikeButtonLayout.Icon).Layout()));
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="IYandexLikeButtonWidgetExtensions.Url(IYandexLikeButtonWidget, Uri)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Url_Method()
+  {
+    throw new NotImplementedException();
   }
 }

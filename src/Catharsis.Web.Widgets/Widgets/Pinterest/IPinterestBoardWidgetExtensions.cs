@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+﻿using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -16,7 +16,7 @@ public static class IPinterestBoardWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IPinterestBoardWidget.Height(string)"/>
-  public static IPinterestBoardWidget Height(this IPinterestBoardWidget widget, short height) => widget is not null ? widget.Height(height.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestBoardWidget Height(this IPinterestBoardWidget widget, short height) => widget is not null ? widget.Height(height.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Total width of board in pixels.</para>
@@ -26,7 +26,7 @@ public static class IPinterestBoardWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IPinterestBoardWidget.Width(string)"/>
-  public static IPinterestBoardWidget Width(this IPinterestBoardWidget widget, short width) => widget is not null ? widget.Width(width.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestBoardWidget Width(this IPinterestBoardWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Sets predefined dimensions of board and images to make board look like a site's header.</para>
@@ -47,7 +47,7 @@ public static class IPinterestBoardWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IPinterestBoardWidget.Image(string)"/>
-  public static IPinterestBoardWidget Image(this IPinterestBoardWidget widget, short width) => widget is not null ? widget.Image(width.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestBoardWidget Image(this IPinterestBoardWidget widget, short width) => widget is not null ? widget.Image(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Sets predefined dimensions of board and images to make board look like a site's sidebar.</para>

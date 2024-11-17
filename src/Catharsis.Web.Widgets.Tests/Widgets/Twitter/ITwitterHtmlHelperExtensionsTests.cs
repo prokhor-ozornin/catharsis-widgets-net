@@ -13,10 +13,10 @@ public sealed class TwitterWidgetCreatorExtensionsTests
   [Fact]
   public void FollowButton_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ITwitterWidgetCreatorExtensions.FollowButton(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => ITwitterWidgetCreatorExtensions.FollowButton(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new TwitterWidgetCreator().FollowButton(null));
 
-    Assert.Equal(new TwitterWidgetCreator().FollowButton().ToHtml(), new TwitterWidgetCreator().FollowButton(x => { }));
+    Assert.Equal(new TwitterWidgetCreator().FollowButton().ToHtml(), new TwitterWidgetCreator().FollowButton(_ => { }));
     Assert.Equal(new TwitterWidgetCreator().FollowButton().Account("account").ToHtml(), new TwitterWidgetCreator().FollowButton(x => x.Account("account")));
   }
 
@@ -26,10 +26,10 @@ public sealed class TwitterWidgetCreatorExtensionsTests
   [Fact]
   public void TweetButton_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ITwitterWidgetCreatorExtensions.TweetButton(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => ITwitterWidgetCreatorExtensions.TweetButton(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new TwitterWidgetCreator().TweetButton(null));
 
-    Assert.Equal(new TwitterWidgetCreator().TweetButton().ToHtml(), new TwitterWidgetCreator().TweetButton(x => { }));
+    Assert.Equal(new TwitterWidgetCreator().TweetButton().ToHtml(), new TwitterWidgetCreator().TweetButton(_ => { }));
     Assert.Equal(new TwitterWidgetCreator().TweetButton().Text("text").ToHtml(), new TwitterWidgetCreator().TweetButton(x => x.Text("text")));
   }
 }

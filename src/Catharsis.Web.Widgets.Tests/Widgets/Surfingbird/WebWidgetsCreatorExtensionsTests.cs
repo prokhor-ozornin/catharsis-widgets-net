@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets;
 public sealed partial class WebWidgetsCreatorExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.Surfingbird(HtmlHelper)"/> method.</para>
+  ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.Surfingbird(IWebWidgetsCreator)"/> method.</para>
   /// </summary>
   [Fact]
   public void Surfingbird_Method()

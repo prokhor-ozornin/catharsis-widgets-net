@@ -1,4 +1,5 @@
 ﻿using Xunit;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -8,6 +9,15 @@ namespace Catharsis.Web.Widgets;
 public sealed class IYandexMoneyDonateFormWidgetExtensionsTests
 {
   /// <summary>
+  ///   <para>Performs testing of <see cref="IYandexMoneyDonateFormWidgetExtensions.ProjectSite(IYandexMoneyDonateFormWidget, Uri)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Url_Method()
+  {
+    throw new NotImplementedException();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="IYandexMoneyDonateFormWidgetExtensions.Sum(IYandexMoneyDonateFormWidget, double)"/> method.</para>
   /// </summary>
   [Fact]
@@ -15,7 +25,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, 0));
 
-    new YandexMoneyDonateFormWidget().Do(widget =>
+    new YandexMoneyDonateFormWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Sum(1.0), widget));
       Assert.Equal((decimal)1.0, widget.Sum());
@@ -30,14 +40,14 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IYandexMoneyDonateFormWidgetExtensions.Text(null, YandexMoneyDonateFormText.Donate));
 
-    new YandexMoneyDonateFormWidget().Do(widget =>
+    new YandexMoneyDonateFormWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Text(YandexMoneyDonateFormText.Donate), widget));
       Assert.Equal(1, widget.Text());
     });
-    new YandexMoneyDonateFormWidget().Do(widget => Assert.Equal(2, widget.Text(YandexMoneyDonateFormText.Give).Text()));
-    new YandexMoneyDonateFormWidget().Do(widget => Assert.Equal(3, widget.Text(YandexMoneyDonateFormText.Transfer).Text()));
-    new YandexMoneyDonateFormWidget().Do(widget => Assert.Equal(4, widget.Text(YandexMoneyDonateFormText.Send).Text()));
-    new YandexMoneyDonateFormWidget().Do(widget => Assert.Equal(5, widget.Text(YandexMoneyDonateFormText.Support).Text()));
+    new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(2, widget.Text(YandexMoneyDonateFormText.Give).Text()));
+    new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(3, widget.Text(YandexMoneyDonateFormText.Transfer).Text()));
+    new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(4, widget.Text(YandexMoneyDonateFormText.Send).Text()));
+    new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(5, widget.Text(YandexMoneyDonateFormText.Support).Text()));
   }
 }

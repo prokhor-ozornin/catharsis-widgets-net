@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+﻿using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -26,7 +26,7 @@ public static class IFacebookFollowButtonWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFollowButtonWidget.Height(string)"/>
-  public static IFacebookFollowButtonWidget Height(this IFacebookFollowButtonWidget widget, short height) => widget is not null ? widget.Height(height.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFollowButtonWidget Height(this IFacebookFollowButtonWidget widget, short height) => widget is not null ? widget.Height(height.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The color scheme used by the button.</para>
@@ -57,4 +57,13 @@ public static class IFacebookFollowButtonWidgetExtensions
       _ => widget.Layout("standard")
     };
   }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="widget"></param>
+  /// <param name="url"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException"></exception>
+  public static IFacebookFollowButtonWidget Url(this IFacebookFollowButtonWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
 }

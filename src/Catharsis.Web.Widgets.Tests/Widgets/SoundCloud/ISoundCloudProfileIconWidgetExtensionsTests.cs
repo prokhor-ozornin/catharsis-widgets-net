@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,7 +16,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.OrangeWhite(null));
 
-    new SoundCloudProfileIconWidget().Do(widget =>
+    new SoundCloudProfileIconWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.OrangeWhite(), widget));
       Assert.Equal("orange_white", widget.Color());
@@ -30,7 +31,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.WhiteOrange(null));
 
-    new SoundCloudProfileIconWidget().Do(widget =>
+    new SoundCloudProfileIconWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.WhiteOrange(), widget));
       Assert.Equal("white_orange", widget.Color());
@@ -45,7 +46,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.BlackWhite(null));
 
-    new SoundCloudProfileIconWidget().Do(widget =>
+    new SoundCloudProfileIconWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.BlackWhite(), widget));
       Assert.Equal("black_white", widget.Color());
@@ -60,7 +61,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.WhiteTransparent(null));
 
-    new SoundCloudProfileIconWidget().Do(widget =>
+    new SoundCloudProfileIconWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.WhiteTransparent(), widget));
       Assert.Equal("white_transparent", widget.Color());
@@ -75,7 +76,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.OrangeTransparent(null));
 
-    new SoundCloudProfileIconWidget().Do(widget =>
+    new SoundCloudProfileIconWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.OrangeTransparent(), widget));
       Assert.Equal("orange_transparent", widget.Color());
@@ -90,7 +91,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.Size(null, SoundCloudProfileIconSize.Size16));
 
-    new SoundCloudProfileIconWidget().Do(widget =>
+    new SoundCloudProfileIconWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Size(SoundCloudProfileIconSize.Size16), widget));
       Assert.Equal((short) 16, widget.Size());

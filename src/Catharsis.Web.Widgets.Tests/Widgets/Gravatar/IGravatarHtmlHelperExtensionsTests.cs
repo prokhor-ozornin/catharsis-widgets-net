@@ -13,10 +13,10 @@ public sealed class GravatarWidgetsCreatorExtensionsTests
   [Fact]
   public void ImageUrl_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarWidgetsCreatorExtensions.ImageUrl(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IGravatarWidgetsCreatorExtensions.ImageUrl(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new GravatarWidgetsCreator().ImageUrl(null));
 
-    Assert.Equal(new GravatarWidgetsCreator().ImageUrl().ToHtml(), new GravatarWidgetsCreator().ImageUrl(x => { }));
+    Assert.Equal(new GravatarWidgetsCreator().ImageUrl().ToHtml(), new GravatarWidgetsCreator().ImageUrl(_ => { }));
     Assert.Equal(new GravatarWidgetsCreator().ImageUrl().Hash("hash").ToHtml(), new GravatarWidgetsCreator().ImageUrl(x => x.Hash("hash")));
   }
 
@@ -26,10 +26,10 @@ public sealed class GravatarWidgetsCreatorExtensionsTests
   [Fact]
   public void ProfileUrl_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarWidgetsCreatorExtensions.ProfileUrl(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IGravatarWidgetsCreatorExtensions.ProfileUrl(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new GravatarWidgetsCreator().ProfileUrl(null));
 
-    Assert.Equal(new GravatarWidgetsCreator().ProfileUrl().ToHtml(), new GravatarWidgetsCreator().ProfileUrl(x => { }));
+    Assert.Equal(new GravatarWidgetsCreator().ProfileUrl().ToHtml(), new GravatarWidgetsCreator().ProfileUrl(_ => { }));
     Assert.Equal(new GravatarWidgetsCreator().ProfileUrl().Hash("hash").ToHtml(), new GravatarWidgetsCreator().ProfileUrl(x => x.Hash("hash")));
   }
 }

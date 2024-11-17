@@ -1,4 +1,4 @@
-using System.Globalization;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -36,7 +36,7 @@ public static class IMailRuLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IMailRuLikeButtonWidget.Size(string)"/>
-  public static IMailRuLikeButtonWidget Size(this IMailRuLikeButtonWidget widget, short size) => widget is not null ? widget.Size(size.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IMailRuLikeButtonWidget Size(this IMailRuLikeButtonWidget widget, short size) => widget is not null ? widget.Size(size.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Vertical size of button.</para>

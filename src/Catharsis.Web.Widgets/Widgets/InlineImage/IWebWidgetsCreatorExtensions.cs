@@ -21,7 +21,7 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <param name="builder">Delegate that performs configuration of the widget.</param>
   /// <returns>HTML contents of configured and rendered widget.</returns>
   /// <exception cref="ArgumentNullException">If either <paramref name="creator"/> or <paramref name="builder"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="InlineImage(IWebWidgetCreator)"/>
+  /// <seealso cref="InlineImage(IWebWidgetsCreator)"/>
   public static string InlineImage(this IWebWidgetsCreator creator, Action<IInlineImageWidget> builder)
   {
     if (creator is null) throw new ArgumentNullException(nameof(creator));

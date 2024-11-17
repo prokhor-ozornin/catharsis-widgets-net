@@ -1,4 +1,4 @@
-using System.Globalization;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -36,5 +36,5 @@ public static class IVkontakteCommentsWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IVkontakteCommentsWidget.Width(string)"/>
-  public static IVkontakteCommentsWidget Width(this IVkontakteCommentsWidget widget, short width) => widget is not null ? widget.Width(width.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IVkontakteCommentsWidget Width(this IVkontakteCommentsWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 }

@@ -16,7 +16,7 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IFacebookActivityFeedWidgetExtensions.Actions(null, Enumerable.Empty<string>().ToArray()));
 
     Assert.False(new FacebookActivityFeedWidget().Actions().Any());
-    Assert.True(new FacebookActivityFeedWidget().Actions("first", "second").Actions().SequenceEqual(new [] { "first", "second" }));
+    Assert.True(new FacebookActivityFeedWidget().Actions("first", "second").Actions().SequenceEqual(["first", "second"]));
   }
 
   /// <summary>

@@ -63,7 +63,7 @@ public sealed class VkontakteCommentsWidgetTests
     var widget = new VkontakteCommentsWidget();
     Assert.False(widget.Attach().Any());
     Assert.True(ReferenceEquals(widget.Attach("first", "second"), widget));
-    Assert.True(widget.Attach().SequenceEqual(new [] { "first", "second" }));
+    Assert.True(widget.Attach().SequenceEqual(["first", "second"]));
   }
 
   /// <summary>

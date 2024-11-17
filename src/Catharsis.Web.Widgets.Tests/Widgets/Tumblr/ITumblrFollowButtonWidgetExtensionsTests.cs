@@ -1,3 +1,4 @@
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -15,7 +16,7 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ITumblrFollowButtonWidgetExtensions.Type(null, TumblrFollowButtonType.First));
 
-    new TumblrFollowButtonWidget().Do(widget =>
+    new TumblrFollowButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Type(TumblrFollowButtonType.First), widget));
       Assert.Equal(1, widget.Type());
@@ -32,7 +33,7 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ITumblrFollowButtonWidgetExtensions.ColorScheme(null, TumblrFollowButtonColorScheme.Dark));
 
-    new TumblrFollowButtonWidget().Do(widget =>
+    new TumblrFollowButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.ColorScheme(TumblrFollowButtonColorScheme.Dark), widget));
       Assert.Equal("dark", widget.ColorScheme());

@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+﻿using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -9,6 +9,15 @@ namespace Catharsis.Web.Widgets;
 public static class IFacebookCommentsWidgetExtensions
 {
   /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="widget"></param>
+  /// <param name="url"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException"></exception>
+  public static IFacebookCommentsWidget Url(this IFacebookCommentsWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+
+  /// <summary>
   ///   <para>The width of the widget.</para>
   /// </summary>
   /// <param name="widget">Widget to call method on.</param>
@@ -16,7 +25,7 @@ public static class IFacebookCommentsWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookCommentsWidget.Width(string)"/>
-  public static IFacebookCommentsWidget Width(this IFacebookCommentsWidget widget, short width) => widget is not null ? widget.Width(width.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookCommentsWidget Width(this IFacebookCommentsWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>

@@ -157,7 +157,7 @@ public sealed class TwitterTweetButtonWidgetTests
 
     var widget = new TwitterTweetButtonWidget();
     Assert.False(widget.HashTags().Any());
-    var tags = new [] { "first", "second", "third" };
+    var tags = new[] { "first", "second", "third" };
     Assert.True(ReferenceEquals(widget.HashTags(tags), widget));
     Assert.True(widget.HashTags().SequenceEqual(tags));
   }

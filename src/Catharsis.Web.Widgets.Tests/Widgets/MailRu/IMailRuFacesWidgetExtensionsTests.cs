@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,7 +16,7 @@ public sealed class IMailRuFacesWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IMailRuFacesWidgetExtensions.Font(null, MailRuFacesFont.Arial));
 
-    new MailRuFacesWidget().Do(widget =>
+    new MailRuFacesWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Font(MailRuFacesFont.Tahoma), widget));
       Assert.Equal("Tahoma", widget.Font());
@@ -30,7 +31,7 @@ public sealed class IMailRuFacesWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IMailRuFacesWidgetExtensions.Height(null, 0));
 
-    new MailRuFacesWidget().Do(widget =>
+    new MailRuFacesWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Height(1), widget));
       Assert.Equal("1", widget.Height());
@@ -45,7 +46,7 @@ public sealed class IMailRuFacesWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IMailRuFacesWidgetExtensions.Width(null, 0));
 
-    new MailRuFacesWidget().Do(widget =>
+    new MailRuFacesWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Width(1), widget));
       Assert.Equal("1", widget.Width());

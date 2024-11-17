@@ -12,10 +12,10 @@ public sealed class LiveJournalWidgetsCreatorExtensionsTests
   [Fact]
   public void LikeButton_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ILiveJournalWidgetsCreatorExtensions.LikeButton(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => ILiveJournalWidgetsCreatorExtensions.LikeButton(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new LiveJournalWidgetsCreator().LikeButton(null));
 
-    Assert.Equal(new LiveJournalWidgetsCreator().LikeButton().ToHtml(), new LiveJournalWidgetsCreator().LikeButton(x => { }));
+    Assert.Equal(new LiveJournalWidgetsCreator().LikeButton().ToHtml(), new LiveJournalWidgetsCreator().LikeButton(_ => { }));
   }
 
   /// <summary>
@@ -23,9 +23,9 @@ public sealed class LiveJournalWidgetsCreatorExtensionsTests
   [Fact]
   public void RepostButton_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ILiveJournalWidgetsCreatorExtensions.RepostButton(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => ILiveJournalWidgetsCreatorExtensions.RepostButton(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new LiveJournalWidgetsCreator().RepostButton(null));
 
-    Assert.Equal(new LiveJournalWidgetsCreator().RepostButton().ToHtml(), new LiveJournalWidgetsCreator().RepostButton(x => { }));
+    Assert.Equal(new LiveJournalWidgetsCreator().RepostButton().ToHtml(), new LiveJournalWidgetsCreator().RepostButton(_ => { }));
   }
 }

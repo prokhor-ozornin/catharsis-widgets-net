@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets;
 public sealed partial class WebWidgetsCreatorExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.Tumblr(HtmlHelper)"/> method.</para>
+  ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.Tumblr(IWebWidgetsCreator)"/> method.</para>
   /// </summary>
   [Fact]
   public void Tumblr_Method()

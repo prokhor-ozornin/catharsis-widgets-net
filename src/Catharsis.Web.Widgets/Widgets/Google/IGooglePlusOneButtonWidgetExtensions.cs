@@ -1,4 +1,4 @@
-using System.Globalization;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -16,7 +16,7 @@ public static class IGooglePlusOneButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IGooglePlusOneButtonWidget.Width(string)"/>
-  public static IGooglePlusOneButtonWidget Width(this IGooglePlusOneButtonWidget widget, short width) => widget is not null ? widget.Width(width.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IGooglePlusOneButtonWidget Width(this IGooglePlusOneButtonWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Size of the button.</para>

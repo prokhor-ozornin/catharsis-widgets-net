@@ -25,4 +25,13 @@ public static class IYandexLikeButtonWidgetExtensions
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IYandexLikeButtonWidget.Layout(string)"/>
   public static IYandexLikeButtonWidget Layout(this IYandexLikeButtonWidget widget, YandexLikeButtonLayout layout) => widget is not null ? widget.Layout(layout.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="widget"></param>
+  /// <param name="url"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException"></exception>
+  public static IYandexLikeButtonWidget Url(this IYandexLikeButtonWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
 }

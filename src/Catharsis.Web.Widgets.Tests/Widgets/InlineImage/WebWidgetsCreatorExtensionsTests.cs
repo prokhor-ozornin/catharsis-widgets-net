@@ -10,15 +10,15 @@ public sealed partial class WebWidgetsCreatorExtensionsTests
   /// <summary>
   ///   <para>Performs testing of following methods :</para>
   ///   <list type="bullet">
-  ///     <item><description><see cref="IWebWidgetsCreatorExtensions.InlineImage(HtmlHelper)"/></description></item>
-  ///     <item><description><see cref="IWebWidgetsCreatorExtensions.InlineImage(HtmlHelper, Action{IInlineImageWidget})"/></description></item>
+  ///     <item><description><see cref="IWebWidgetsCreatorExtensions.InlineImage(IWebWidgetsCreator)"/></description></item>
+  ///     <item><description><see cref="IWebWidgetsCreatorExtensions.InlineImage(IWebWidgetsCreator, Action{IInlineImageWidget})"/></description></item>
   ///   </list>
   /// </summary>
   [Fact]
   public void InlineImage_Methods()
   {
     Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.InlineImage(null));
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.InlineImage(null, builder => { }));
+    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.InlineImage(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new MockHtmlHelper().InlineImage(null));
 
     Assert.NotNull(html.InlineImage());

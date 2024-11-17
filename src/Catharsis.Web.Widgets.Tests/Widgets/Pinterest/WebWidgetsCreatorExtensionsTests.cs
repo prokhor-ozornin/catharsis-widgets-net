@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets;
 public sealed partial class WebWidgetsCreatorExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.Pinterest(HtmlHelper)"/> method.</para>
+  ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.Pinterest(IWebWidgetsCreator)"/> method.</para>
   /// </summary>
   [Fact]
   public void Pinterest_Method()

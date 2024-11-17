@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,12 +16,12 @@ public sealed class IVkontakteRecommendationsWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IVkontakteRecommendationsWidgetExtensions.Limit(null, VkontakteRecommendationsLimit.Five));
 
-    new VkontakteRecommendationsWidget().Do(widget =>
+    new VkontakteRecommendationsWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Limit(VkontakteRecommendationsLimit.Five), widget));
       Assert.Equal(5, widget.Limit().Value);
     });
-    new VkontakteRecommendationsWidget().Do(widget => Assert.Equal(10, widget.Limit(VkontakteRecommendationsLimit.Ten).Limit().Value));
-    new VkontakteRecommendationsWidget().Do(widget => Assert.Equal(3, widget.Limit(VkontakteRecommendationsLimit.Three).Limit().Value));
+    new VkontakteRecommendationsWidget().With(widget => Assert.Equal(10, widget.Limit(VkontakteRecommendationsLimit.Ten).Limit().Value));
+    new VkontakteRecommendationsWidget().With(widget => Assert.Equal(3, widget.Limit(VkontakteRecommendationsLimit.Three).Limit().Value));
   }
 }

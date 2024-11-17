@@ -21,6 +21,15 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTests
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="IFacebookLikeButtonWidgetExtensions.Url(IFacebookLikeButtonWidget, Uri)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Url_Method()
+  {
+    throw new NotImplementedException();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookLikeButtonWidgetExtensions.Width(IFacebookLikeButtonWidget, short)"/> method.</para>
   /// </summary>
   [Fact]

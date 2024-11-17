@@ -1,4 +1,5 @@
 using System.Globalization;
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -17,7 +18,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture));
     Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.Language(new TwitterTweetButtonWidget(), null));
 
-    new TwitterTweetButtonWidget().Do(widget =>
+    new TwitterTweetButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
       Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Language());
@@ -32,7 +33,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.Size(null, TwitterTweetButtonSize.Large));
 
-    new TwitterTweetButtonWidget().Do(widget =>
+    new TwitterTweetButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Size(TwitterTweetButtonSize.Large), widget));
       Assert.Equal("large", widget.Size());
@@ -48,7 +49,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.CounterPosition(null, TwitterTweetButtonCountBoxPosition.Horizontal));
 
-    new TwitterTweetButtonWidget().Do(widget =>
+    new TwitterTweetButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.CounterPosition(TwitterTweetButtonCountBoxPosition.Horizontal), widget));
       Assert.Equal("horizontal", widget.CounterPosition());
@@ -66,7 +67,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.HashTags(null, Enumerable.Empty<string>().ToArray()));
     Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.HashTags(new TwitterTweetButtonWidget(), null));
 
-    new TwitterTweetButtonWidget().Do(widget =>
+    new TwitterTweetButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.HashTags(Enumerable.Empty<string>().ToArray()), widget));
       Assert.False(widget.HashTags().Any());
@@ -83,7 +84,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(null, Enumerable.Empty<string>().ToArray()));
     Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(new TwitterTweetButtonWidget(), null));
 
-    new TwitterTweetButtonWidget().Do(widget =>
+    new TwitterTweetButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.RelatedAccounts(Enumerable.Empty<string>().ToArray()), widget));
       Assert.False(widget.RelatedAccounts().Any());

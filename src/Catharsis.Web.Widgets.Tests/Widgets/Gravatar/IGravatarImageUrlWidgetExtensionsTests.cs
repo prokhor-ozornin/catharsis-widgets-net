@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -22,29 +23,29 @@ public sealed class IGravatarImageUrlWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IGravatarImageUrlWidgetExtensions.Default(null, GravatarDefaultImage.NotFound));
     Assert.Throws<ArgumentException>(() => new GravatarImageUrlWidget().Default(string.Empty));
 
-    new GravatarImageUrlWidget().Do(widget =>
+    new GravatarImageUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Default("url"), widget));
-      var parameters = widget.Field("parameters").To<Dictionary<string, object>>();
+      var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
       Assert.Equal(1, parameters.Count);
       Assert.Equal("default", parameters.Single().Key);
       Assert.Equal("url", parameters.Single().Value);
     });
 
-    new GravatarImageUrlWidget().Do(widget =>
+    new GravatarImageUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Default(GravatarDefaultImage.Blank), widget));
-      var parameters = widget.Field("parameters").To<Dictionary<string, object>>();
+      var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
       Assert.Equal(1, parameters.Count);
       Assert.Equal("default", parameters.Single().Key);
       Assert.Equal("blank", parameters.Single().Value);
     });
-    new GravatarImageUrlWidget().Do(widget => Assert.Equal("identicon", widget.Default(GravatarDefaultImage.IdentIcon).Field("parameters").To<Dictionary<string, object>>().Single().Value));
-    new GravatarImageUrlWidget().Do(widget => Assert.Equal("monsterid", widget.Default(GravatarDefaultImage.MonsterId).Field("parameters").To<Dictionary<string, object>>().Single().Value));
-    new GravatarImageUrlWidget().Do(widget => Assert.Equal("mm", widget.Default(GravatarDefaultImage.MysteryMan).Field("parameters").To<Dictionary<string, object>>().Single().Value));
-    new GravatarImageUrlWidget().Do(widget => Assert.Equal("404", widget.Default(GravatarDefaultImage.NotFound).Field("parameters").To<Dictionary<string, object>>().Single().Value));
-    new GravatarImageUrlWidget().Do(widget => Assert.Equal("retro", widget.Default(GravatarDefaultImage.Retro).Field("parameters").To<Dictionary<string, object>>().Single().Value));
-    new GravatarImageUrlWidget().Do(widget => Assert.Equal("wavatar", widget.Default(GravatarDefaultImage.Wavatar).Field("parameters").To<Dictionary<string, object>>().Single().Value));
+    new GravatarImageUrlWidget().With(widget => Assert.Equal("identicon", widget.Default(GravatarDefaultImage.IdentIcon).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
+    new GravatarImageUrlWidget().With(widget => Assert.Equal("monsterid", widget.Default(GravatarDefaultImage.MonsterId).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
+    new GravatarImageUrlWidget().With(widget => Assert.Equal("mm", widget.Default(GravatarDefaultImage.MysteryMan).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
+    new GravatarImageUrlWidget().With(widget => Assert.Equal("404", widget.Default(GravatarDefaultImage.NotFound).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
+    new GravatarImageUrlWidget().With(widget => Assert.Equal("retro", widget.Default(GravatarDefaultImage.Retro).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
+    new GravatarImageUrlWidget().With(widget => Assert.Equal("wavatar", widget.Default(GravatarDefaultImage.Wavatar).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
   }
 
   /// <summary>
@@ -57,7 +58,7 @@ public sealed class IGravatarImageUrlWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => new GravatarImageUrlWidget().Email(null));
     Assert.Throws<ArgumentException>(() => new GravatarImageUrlWidget().Email(string.Empty));
 
-    new GravatarImageUrlWidget().Do(widget =>
+    new GravatarImageUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Email("prokhor.ozornin@yandex.ru"), widget));
       Assert.Equal("61b98d241eaa1ce237c979e7a8181d13", widget.Hash());
@@ -74,10 +75,10 @@ public sealed class IGravatarImageUrlWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IGravatarImageUrlWidgetExtensions.ForceDefault(null));
 
-    new GravatarImageUrlWidget().Do(widget =>
+    new GravatarImageUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.ForceDefault(), widget));
-      var parameters = widget.Field("parameters").To<Dictionary<string, object>>();
+      var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
       Assert.Equal(1, parameters.Count);
       Assert.Equal("forcedefault", parameters.Single().Key);
       Assert.Equal("y", parameters.Single().Value);
@@ -99,26 +100,26 @@ public sealed class IGravatarImageUrlWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IGravatarImageUrlWidgetExtensions.Rating(null, GravatarImageRating.G));
     Assert.Throws<ArgumentException>(() => new GravatarImageUrlWidget().Rating(string.Empty));
 
-    new GravatarImageUrlWidget().Do(widget =>
+    new GravatarImageUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Rating("rating"), widget));
-      var parameters = widget.Field("parameters").To<Dictionary<string, object>>();
+      var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
       Assert.Equal(1, parameters.Count);
       Assert.Equal("rating", parameters.Single().Key);
       Assert.Equal("rating", parameters.Single().Value);
     });
 
-    new GravatarImageUrlWidget().Do(widget =>
+    new GravatarImageUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Rating(GravatarImageRating.G), widget));
-      var parameters = widget.Field("parameters").To<Dictionary<string, object>>();
+      var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
       Assert.Equal(1, parameters.Count);
       Assert.Equal("rating", parameters.Single().Key);
       Assert.Equal("g", parameters.Single().Value);
     });
-    new GravatarImageUrlWidget().Do(widget => Assert.Equal("pg", widget.Rating(GravatarImageRating.PG).Field("parameters").To<Dictionary<string, object>>().Single().Value));
-    new GravatarImageUrlWidget().Do(widget => Assert.Equal("r", widget.Rating(GravatarImageRating.R).Field("parameters").To<Dictionary<string, object>>().Single().Value));
-    new GravatarImageUrlWidget().Do(widget => Assert.Equal("x", widget.Rating(GravatarImageRating.X).Field("parameters").To<Dictionary<string, object>>().Single().Value));
+    new GravatarImageUrlWidget().With(widget => Assert.Equal("pg", widget.Rating(GravatarImageRating.PG).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
+    new GravatarImageUrlWidget().With(widget => Assert.Equal("r", widget.Rating(GravatarImageRating.R).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
+    new GravatarImageUrlWidget().With(widget => Assert.Equal("x", widget.Rating(GravatarImageRating.X).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
   }
 
   /// <summary>
@@ -129,10 +130,10 @@ public sealed class IGravatarImageUrlWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IGravatarImageUrlWidgetExtensions.Size(null, 0));
 
-    new GravatarImageUrlWidget().Do(widget =>
+    new GravatarImageUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Size(1), widget));
-      var parameters = widget.Field("parameters").To<Dictionary<string, object>>();
+      var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
       Assert.Equal(1, parameters.Count);
       Assert.Equal("size", parameters.Single().Key);
       Assert.Equal((short) 1, parameters.Single().Value);

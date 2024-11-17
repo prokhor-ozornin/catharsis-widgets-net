@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,7 +16,7 @@ public sealed class IPinterestProfileWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IPinterestProfileWidgetExtensions.Height(null, 0));
 
-    new PinterestProfileWidget().Do(widget =>
+    new PinterestProfileWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Height(1), widget));
       Assert.Equal("1", widget.Height());
@@ -30,7 +31,7 @@ public sealed class IPinterestProfileWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IPinterestProfileWidgetExtensions.Width(null, 0));
 
-    new PinterestProfileWidget().Do(widget =>
+    new PinterestProfileWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Width(1), widget));
       Assert.Equal("1", widget.Width());
@@ -45,7 +46,7 @@ public sealed class IPinterestProfileWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IPinterestProfileWidgetExtensions.Header(null));
 
-    new PinterestProfileWidget().Do(widget =>
+    new PinterestProfileWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Header(), widget));
       Assert.Equal("115", widget.Image());
@@ -62,7 +63,7 @@ public sealed class IPinterestProfileWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IPinterestProfileWidgetExtensions.Image(null, 0));
 
-    new PinterestProfileWidget().Do(widget =>
+    new PinterestProfileWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Image(1), widget));
       Assert.Equal("1", widget.Image());
@@ -77,7 +78,7 @@ public sealed class IPinterestProfileWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IPinterestProfileWidgetExtensions.Sidebar(null));
 
-    new PinterestProfileWidget().Do(widget =>
+    new PinterestProfileWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Sidebar(), widget));
       Assert.Equal("60", widget.Image());
@@ -94,7 +95,7 @@ public sealed class IPinterestProfileWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IPinterestProfileWidgetExtensions.Square(null));
 
-    new PinterestProfileWidget().Do(widget =>
+    new PinterestProfileWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Square(), widget));
       Assert.Equal("80", widget.Image());

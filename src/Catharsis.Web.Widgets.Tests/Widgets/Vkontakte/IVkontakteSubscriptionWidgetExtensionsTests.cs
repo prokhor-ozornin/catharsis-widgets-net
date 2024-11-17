@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,12 +16,12 @@ public sealed class IVkontakteSubscriptionWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IVkontakteSubscriptionWidgetExtensions.Layout(null, VkontakteSubscriptionButtonLayout.Button));
 
-    new VkontakteSubscriptionWidget().Do(widget =>
+    new VkontakteSubscriptionWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Layout(VkontakteSubscriptionButtonLayout.Button), widget));
       Assert.Equal(0, widget.Layout());
     });
-    new VkontakteSubscriptionWidget().Do(widget => Assert.Equal(1, widget.Layout(VkontakteSubscriptionButtonLayout.LightButton).Layout()));
-    new VkontakteSubscriptionWidget().Do(widget => Assert.Equal(2, widget.Layout(VkontakteSubscriptionButtonLayout.Link).Layout()));
+    new VkontakteSubscriptionWidget().With(widget => Assert.Equal(1, widget.Layout(VkontakteSubscriptionButtonLayout.LightButton).Layout()));
+    new VkontakteSubscriptionWidget().With(widget => Assert.Equal(2, widget.Layout(VkontakteSubscriptionButtonLayout.Link).Layout()));
   }
 }

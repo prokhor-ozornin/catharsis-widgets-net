@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -17,7 +18,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => new GravatarProfileUrlWidget().Email(null));
     Assert.Throws<ArgumentException>(() => new GravatarProfileUrlWidget().Email(string.Empty));
 
-    new GravatarProfileUrlWidget().Do(widget =>
+    new GravatarProfileUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Email("prokhor.ozornin@yandex.ru"), widget));
       Assert.Equal("61b98d241eaa1ce237c979e7a8181d13", widget.Hash());
@@ -34,16 +35,16 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IGravatarProfileUrlWidgetExtensions.Json(null));
 
-    new GravatarProfileUrlWidget().Do(widget =>
+    new GravatarProfileUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Json(), widget));
       Assert.Equal("json", widget.Format());
     });
-    new GravatarProfileUrlWidget().Do(widget =>
+    new GravatarProfileUrlWidget().With(widget =>
     {
       Assert.Equal("json", widget.Json("callback").Format());
         
-      var parameters = widget.Field("parameters").To<IDictionary<string, object>>();
+      var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
       Assert.Equal(1, parameters.Count);
       Assert.Equal("callback", parameters.Single().Key);
       Assert.Equal("callback", parameters.Single().Value);
@@ -58,7 +59,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IGravatarProfileUrlWidgetExtensions.Xml(null));
 
-    new GravatarProfileUrlWidget().Do(widget =>
+    new GravatarProfileUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Xml(), widget));
       Assert.Equal("xml", widget.Format());
@@ -73,7 +74,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IGravatarProfileUrlWidgetExtensions.Php(null));
 
-    new GravatarProfileUrlWidget().Do(widget =>
+    new GravatarProfileUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Php(), widget));
       Assert.Equal("php", widget.Format());
@@ -88,7 +89,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IGravatarProfileUrlWidgetExtensions.Vcf(null));
 
-    new GravatarProfileUrlWidget().Do(widget =>
+    new GravatarProfileUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Vcf(), widget));
       Assert.Equal("vcf", widget.Format());
@@ -103,16 +104,16 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IGravatarProfileUrlWidgetExtensions.Qr(null));
 
-    new GravatarProfileUrlWidget().Do(widget =>
+    new GravatarProfileUrlWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Qr(), widget));
       Assert.Equal("qr", widget.Format());
     });
-    new GravatarProfileUrlWidget().Do(widget =>
+    new GravatarProfileUrlWidget().With(widget =>
     {
       Assert.Equal("qr", widget.Qr(1).Format());
 
-      var parameters = widget.Field("parameters").To<IDictionary<string, object>>();
+      var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
       Assert.Equal(1, parameters.Count);
       Assert.Equal("size", parameters.Single().Key);
       Assert.Equal((short) 1, parameters.Single().Value);

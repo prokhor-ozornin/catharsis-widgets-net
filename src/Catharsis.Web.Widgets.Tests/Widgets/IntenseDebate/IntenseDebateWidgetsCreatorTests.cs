@@ -3,14 +3,14 @@ using Xunit;
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="IntenseDebateHtmlHelper"/>.</para>
+///   <para>Tests set for class <see cref="IntenseDebateWidgetsCreator"/>.</para>
 /// </summary>
 public sealed class IntenseDebateWidgetsCreatorTests
 {
   private readonly HtmlHelper html = new MockHtmlHelper();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IntenseDebateHtmlHelper.Comments()"/> method.</para>
+  ///   <para>Performs testing of <see cref="IntenseDebateWidgetsCreator.Comments()"/> method.</para>
   /// </summary>
   [Fact]
   public void Comments_Method()
@@ -20,7 +20,7 @@ public sealed class IntenseDebateWidgetsCreatorTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IntenseDebateHtmlHelper.Link()"/> method.</para>
+  ///   <para>Performs testing of <see cref="IntenseDebateWidgetsCreator.Link()"/> method.</para>
   /// </summary>
   [Fact]
   public void Link_Method()

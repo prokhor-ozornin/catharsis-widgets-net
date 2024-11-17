@@ -1,3 +1,4 @@
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -15,7 +16,7 @@ public sealed class ITumblrShareButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ITumblrShareButtonWidgetExtensions.Type(null, 0));
 
-    new TumblrShareButtonWidget().Do(widget =>
+    new TumblrShareButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Type(TumblrShareButtonType.First), widget));
       Assert.Equal(1, widget.Type());
@@ -33,7 +34,7 @@ public sealed class ITumblrShareButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ITumblrShareButtonWidgetExtensions.ColorScheme(null, TumblrShareButtonColorScheme.Gray));
 
-    new TumblrShareButtonWidget().Do(widget =>
+    new TumblrShareButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.ColorScheme(TumblrShareButtonColorScheme.Gray), widget));
       Assert.Equal("gray", widget.ColorScheme(TumblrShareButtonColorScheme.Gray).ColorScheme());

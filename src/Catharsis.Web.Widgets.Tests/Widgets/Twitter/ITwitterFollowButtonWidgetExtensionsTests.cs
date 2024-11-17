@@ -1,4 +1,5 @@
 using System.Globalization;
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -17,7 +18,7 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => ITwitterFollowButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture));
     Assert.Throws<ArgumentNullException>(() => ITwitterFollowButtonWidgetExtensions.Language(new TwitterFollowButtonWidget(), null));
 
-    new TwitterFollowButtonWidget().Do(widget =>
+    new TwitterFollowButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
       Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Language());
@@ -32,7 +33,7 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ITwitterFollowButtonWidgetExtensions.Size(null, TwitterFollowButtonSize.Large));
 
-    new TwitterFollowButtonWidget().Do(widget =>
+    new TwitterFollowButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Size(TwitterFollowButtonSize.Large), widget));
       Assert.Equal("large", widget.Size());
@@ -48,7 +49,7 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ITwitterFollowButtonWidgetExtensions.Alignment(null, TwitterFollowButtonAlignment.Left));
 
-    new TwitterFollowButtonWidget().Do(widget =>
+    new TwitterFollowButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Alignment(TwitterFollowButtonAlignment.Left), widget));
       Assert.Equal("left", widget.Alignment());

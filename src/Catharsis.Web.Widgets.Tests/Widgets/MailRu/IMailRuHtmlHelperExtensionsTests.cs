@@ -13,10 +13,10 @@ public sealed class MailRuWidgetsCreatorExtensionsTests
   [Fact]
   public void Faces_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Faces(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Faces(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new MailRuWidgetsCreator().Faces(null));
 
-    Assert.Equal(new MailRuWidgetsCreator().Faces().ToHtml(), new MailRuWidgetsCreator().Faces(x => { }));
+    Assert.Equal(new MailRuWidgetsCreator().Faces().ToHtml(), new MailRuWidgetsCreator().Faces(_ => { }));
     Assert.Equal(new MailRuWidgetsCreator().Faces().Domain("domain").ToHtml(), new MailRuWidgetsCreator().Faces(x => x.Domain("domain")));
   }
 
@@ -26,10 +26,10 @@ public sealed class MailRuWidgetsCreatorExtensionsTests
   [Fact]
   public void Groups_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Groups(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Groups(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new MailRuWidgetsCreator().Groups(null));
 
-    Assert.Equal(new MailRuWidgetsCreator().Groups().ToHtml(), new MailRuWidgetsCreator().Groups(x => { }));
+    Assert.Equal(new MailRuWidgetsCreator().Groups().ToHtml(), new MailRuWidgetsCreator().Groups(_ => { }));
     Assert.Equal(new MailRuWidgetsCreator().Groups().Account("account").ToHtml(), new MailRuWidgetsCreator().Groups(x => x.Account("account")));
   }
 
@@ -39,10 +39,10 @@ public sealed class MailRuWidgetsCreatorExtensionsTests
   [Fact]
   public void Icq_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Icq(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Icq(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new MailRuWidgetsCreator().Icq(null));
 
-    Assert.Equal(new MailRuWidgetsCreator().Icq().ToHtml(), new MailRuWidgetsCreator().Icq(x => { }));
+    Assert.Equal(new MailRuWidgetsCreator().Icq().ToHtml(), new MailRuWidgetsCreator().Icq(_ => { }));
     Assert.Equal(new MailRuWidgetsCreator().Icq().Account("account").ToHtml(), new MailRuWidgetsCreator().Icq(x => x.Account("account")));
   }
 
@@ -52,10 +52,10 @@ public sealed class MailRuWidgetsCreatorExtensionsTests
   [Fact]
   public void LikeButton_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.LikeButton(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.LikeButton(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new MailRuWidgetsCreator().LikeButton(null));
 
-    Assert.Equal(new MailRuWidgetsCreator().LikeButton().ToHtml(), new MailRuWidgetsCreator().LikeButton(x => { }));
+    Assert.Equal(new MailRuWidgetsCreator().LikeButton().ToHtml(), new MailRuWidgetsCreator().LikeButton(_ => { }));
     Assert.Equal(new MailRuWidgetsCreator().LikeButton().Type(MailRuLikeButtonType.All).ToHtml(), new MailRuWidgetsCreator().LikeButton(x => x.Type(MailRuLikeButtonType.All)));
   }
 
@@ -65,10 +65,10 @@ public sealed class MailRuWidgetsCreatorExtensionsTests
   [Fact]
   public void Video_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Video(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IMailRuWidgetsCreatorExtensions.Video(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new MailRuWidgetsCreator().Video(null));
 
-    Assert.Equal(new MailRuWidgetsCreator().Video().ToHtml(), new MailRuWidgetsCreator().Video(x => { }));
+    Assert.Equal(new MailRuWidgetsCreator().Video().ToHtml(), new MailRuWidgetsCreator().Video(_ => { }));
     Assert.Equal(new MailRuWidgetsCreator().Video().ToHtml(), new MailRuWidgetsCreator().Video(x => x.Id("id")));
   }
 }

@@ -13,10 +13,10 @@ public sealed class RuTubeWidgetCreatorExtensionsTests
   [Fact]
   public void Video_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IRuTubeWidgetCreatorExtensions.Video(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IRuTubeWidgetCreatorExtensions.Video(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new RuTubeWidgetCreator().Video(null));
 
-    Assert.Equal(new RuTubeWidgetCreator().Video().ToHtml(), new RuTubeWidgetCreator().Video(x => { }));
+    Assert.Equal(new RuTubeWidgetCreator().Video().ToHtml(), new RuTubeWidgetCreator().Video(_ => { }));
     Assert.Equal(new RuTubeWidgetCreator().Video().Id("id").ToHtml(), new RuTubeWidgetCreator().Video(x => x.Id("id")));
   }
 }

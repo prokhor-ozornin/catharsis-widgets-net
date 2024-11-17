@@ -1,4 +1,4 @@
-using System.Globalization;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -37,7 +37,7 @@ public static class ISurfingbirdSurfButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ISurfingbirdSurfButtonWidget.Width(string)"/>
-  public static ISurfingbirdSurfButtonWidget Width(this ISurfingbirdSurfButtonWidget widget, short width) => widget is not null ? widget.Width(width.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static ISurfingbirdSurfButtonWidget Width(this ISurfingbirdSurfButtonWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Vertical height of the button.</para>
@@ -47,7 +47,7 @@ public static class ISurfingbirdSurfButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ISurfingbirdSurfButtonWidget.Height(string)"/>
-  public static ISurfingbirdSurfButtonWidget Height(this ISurfingbirdSurfButtonWidget widget, short height) => widget is not null ? widget.Height(height.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static ISurfingbirdSurfButtonWidget Height(this ISurfingbirdSurfButtonWidget widget, short height) => widget is not null ? widget.Height(height.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Text label's color.</para>

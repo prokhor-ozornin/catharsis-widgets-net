@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,7 +16,7 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IYandexMoneyPaymentFormWidgetExtensions.Sum(null, 0));
 
-    new YandexMoneyPaymentFormWidget().Do(widget =>
+    new YandexMoneyPaymentFormWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Sum(1.0), widget));
       Assert.Equal((decimal)1.0, widget.Sum());
@@ -30,13 +31,13 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IYandexMoneyPaymentFormWidgetExtensions.Text(null, YandexMoneyPaymentFormText.Pay));
 
-    new YandexMoneyPaymentFormWidget().Do(widget =>
+    new YandexMoneyPaymentFormWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Text(YandexMoneyPaymentFormText.Pay), widget));
       Assert.Equal(1, widget.Text());
     });
-    new YandexMoneyPaymentFormWidget().Do(widget => Assert.Equal(2, widget.Text(YandexMoneyPaymentFormText.Buy).Text()));
-    new YandexMoneyPaymentFormWidget().Do(widget => Assert.Equal(3, widget.Text(YandexMoneyPaymentFormText.Transfer).Text()));
-    new YandexMoneyPaymentFormWidget().Do(widget => Assert.Equal(4, widget.Text(YandexMoneyPaymentFormText.Give).Text()));
+    new YandexMoneyPaymentFormWidget().With(widget => Assert.Equal(2, widget.Text(YandexMoneyPaymentFormText.Buy).Text()));
+    new YandexMoneyPaymentFormWidget().With(widget => Assert.Equal(3, widget.Text(YandexMoneyPaymentFormText.Transfer).Text()));
+    new YandexMoneyPaymentFormWidget().With(widget => Assert.Equal(4, widget.Text(YandexMoneyPaymentFormText.Give).Text()));
   }
 }

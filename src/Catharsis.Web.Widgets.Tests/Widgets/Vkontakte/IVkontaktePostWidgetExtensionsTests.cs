@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,7 +16,7 @@ public sealed class IVkontaktePostWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IVkontaktePostWidgetExtensions.Id(null, 0));
 
-    new VkontaktePostWidget().Do(widget =>
+    new VkontaktePostWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Id(1), widget));
       Assert.Equal("1", widget.Id());
@@ -30,7 +31,7 @@ public sealed class IVkontaktePostWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IVkontaktePostWidgetExtensions.Owner(null, 0));
 
-    new VkontaktePostWidget().Do(widget =>
+    new VkontaktePostWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Owner(1), widget));
       Assert.Equal("1", widget.Owner());
@@ -45,7 +46,7 @@ public sealed class IVkontaktePostWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IVkontaktePostWidgetExtensions.Width(null, 0));
 
-    new VkontaktePostWidget().Do(widget =>
+    new VkontaktePostWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Width(1), widget));
       Assert.Equal("1", widget.Width());

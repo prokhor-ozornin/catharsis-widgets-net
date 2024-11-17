@@ -1,4 +1,4 @@
-using System.Globalization;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -26,7 +26,7 @@ public static class IVkontakteCommunityWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IVkontakteCommunityWidget.Width(string)"/>
-  public static IVkontakteCommunityWidget Width(this IVkontakteCommunityWidget widget, short width) => widget is not null ? widget.Width(width.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IVkontakteCommunityWidget Width(this IVkontakteCommunityWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Vertical height of widget.</para>
@@ -36,5 +36,5 @@ public static class IVkontakteCommunityWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IVkontakteCommunityWidget.Height(string)"/>
-  public static IVkontakteCommunityWidget Height(this IVkontakteCommunityWidget widget, short height) => widget is not null ? widget.Height(height.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IVkontakteCommunityWidget Height(this IVkontakteCommunityWidget widget, short height) => widget is not null ? widget.Height(height.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 }

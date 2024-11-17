@@ -1,4 +1,5 @@
 using System.Globalization;
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -17,12 +18,12 @@ public sealed class IYandexSharePanelWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IYandexSharePanelWidgetExtensions.Services(null));
     Assert.Throws<ArgumentNullException>(() => IYandexSharePanelWidgetExtensions.Services(new YandexSharePanelWidget(), null));
 
-    new YandexSharePanelWidget().Do(widget =>
+    new YandexSharePanelWidget().With(widget =>
     {
-      Assert.True(ReferenceEquals(widget.Services(new string[] { }), widget));
+      Assert.True(ReferenceEquals(widget.Services(Array.Empty<string>()), widget));
       Assert.False(widget.Services().Any());
     });
-    new YandexSharePanelWidget().Do(widget => Assert.True(widget.Services(new[] { "first", "second" }).Services().SequenceEqual(new[] { "first", "second" })));
+    new YandexSharePanelWidget().With(widget => Assert.True(widget.Services(["first", "second"]).Services().SequenceEqual(new[] { "first", "second" })));
   }
 
   /// <summary>
@@ -34,7 +35,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IYandexSharePanelWidgetExtensions.Language(null, CultureInfo.InvariantCulture));
     Assert.Throws<ArgumentNullException>(() => IYandexSharePanelWidgetExtensions.Language(new YandexSharePanelWidget(), null));
 
-    new YandexSharePanelWidget().Do(widget =>
+    new YandexSharePanelWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
       Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Language());
@@ -49,13 +50,13 @@ public sealed class IYandexSharePanelWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IYandexSharePanelWidgetExtensions.Layout(null, YandexSharePanelLayout.Button));
 
-    new YandexSharePanelWidget().Do(widget =>
+    new YandexSharePanelWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Layout(YandexSharePanelLayout.Button), widget));
       Assert.Equal("button", widget.Layout());
     });
-    new YandexSharePanelWidget().Do(widget => Assert.Equal("icon", widget.Layout(YandexSharePanelLayout.Icon).Layout()));
-    new YandexSharePanelWidget().Do(widget => Assert.Equal("link", widget.Layout(YandexSharePanelLayout.Link).Layout()));
-    new YandexSharePanelWidget().Do(widget => Assert.Equal("none", widget.Layout(YandexSharePanelLayout.None).Layout()));
+    new YandexSharePanelWidget().With(widget => Assert.Equal("icon", widget.Layout(YandexSharePanelLayout.Icon).Layout()));
+    new YandexSharePanelWidget().With(widget => Assert.Equal("link", widget.Layout(YandexSharePanelLayout.Link).Layout()));
+    new YandexSharePanelWidget().With(widget => Assert.Equal("none", widget.Layout(YandexSharePanelLayout.None).Layout()));
   }
 }

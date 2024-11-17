@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+﻿using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -29,6 +29,15 @@ public static class IFacebookFacePileWidgetExtensions
   public static IFacebookFacePileWidget PhotoSize(this IFacebookFacePileWidget widget, FacebookFacePilePhotoSize size) => widget is not null ? widget.PhotoSize(size.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="widget"></param>
+  /// <param name="url"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException"></exception>
+  public static IFacebookFacePileWidget Url(this IFacebookFacePileWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+
+  /// <summary>
   ///   <para>The width of the widget in pixels.</para>
   /// </summary>
   /// <param name="widget">Widget to call method on.</param>
@@ -36,7 +45,7 @@ public static class IFacebookFacePileWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFacePileWidget.Width(string)"/>
-  public static IFacebookFacePileWidget Width(this IFacebookFacePileWidget widget, short width) => widget is not null ? widget.Width(width.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFacePileWidget Width(this IFacebookFacePileWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The height of the widget in pixels.</para>
@@ -46,7 +55,7 @@ public static class IFacebookFacePileWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFacePileWidget.Height(string)"/>
-  public static IFacebookFacePileWidget Height(this IFacebookFacePileWidget widget, short height) => widget is not null ? widget.Height(height.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFacePileWidget Height(this IFacebookFacePileWidget widget, short height) => widget is not null ? widget.Height(height.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>

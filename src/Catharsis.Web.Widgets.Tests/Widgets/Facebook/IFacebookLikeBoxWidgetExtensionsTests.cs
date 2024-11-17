@@ -40,4 +40,13 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTests
     Assert.Equal("dark", new FacebookLikeBoxWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
     Assert.Equal("light", new FacebookLikeBoxWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());
   }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="IFacebookLikeBoxWidgetExtensions.Url(IFacebookLikeBoxWidget, Uri)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Url_Method()
+  {
+    throw new NotImplementedException();
+  }
 }

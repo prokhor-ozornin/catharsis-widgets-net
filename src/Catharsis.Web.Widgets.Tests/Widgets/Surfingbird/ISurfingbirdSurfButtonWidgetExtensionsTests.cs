@@ -1,3 +1,4 @@
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -15,13 +16,13 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Layout(null, SurfingbirdSurfButtonLayout.Common));
 
-    new SurfingbirdSurfButtonWidget().Do(widget =>
+    new SurfingbirdSurfButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Layout(SurfingbirdSurfButtonLayout.Common), widget));
       Assert.Equal("common", widget.Layout());
     });
-    new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("micro", widget.Layout(SurfingbirdSurfButtonLayout.Micro).Layout()));
-    new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("vert", widget.Layout(SurfingbirdSurfButtonLayout.Vertical).Layout()));
+    new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("micro", widget.Layout(SurfingbirdSurfButtonLayout.Micro).Layout()));
+    new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("vert", widget.Layout(SurfingbirdSurfButtonLayout.Vertical).Layout()));
   }
 
   /// <summary>
@@ -32,7 +33,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, 1));
 
-    new SurfingbirdSurfButtonWidget().Do(widget =>
+    new SurfingbirdSurfButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Width(1), widget));
       Assert.Equal("1", widget.Width());
@@ -47,7 +48,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, 1));
 
-    new SurfingbirdSurfButtonWidget().Do(widget =>
+    new SurfingbirdSurfButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Height(1), widget));
       Assert.Equal("1", widget.Height());
@@ -62,12 +63,12 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Color(null, SurfingbirdSurfButtonColor.Blue));
 
-    new SurfingbirdSurfButtonWidget().Do(widget =>
+    new SurfingbirdSurfButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Color(SurfingbirdSurfButtonColor.Blue), widget));
       Assert.Equal("blue", widget.Color());
     });
-    new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("gray", widget.Color(SurfingbirdSurfButtonColor.Gray).Color()));
-    new SurfingbirdSurfButtonWidget().Do(widget => Assert.Equal("green", widget.Color(SurfingbirdSurfButtonColor.Green).Color()));
+    new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("gray", widget.Color(SurfingbirdSurfButtonColor.Gray).Color()));
+    new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("green", widget.Color(SurfingbirdSurfButtonColor.Green).Color()));
   }
 }

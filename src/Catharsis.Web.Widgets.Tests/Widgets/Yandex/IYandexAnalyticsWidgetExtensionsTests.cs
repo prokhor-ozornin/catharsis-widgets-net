@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -17,7 +18,7 @@ public sealed class IYandexAnalyticsWidgetExtensionsTests
     Assert.Throws<ArgumentNullException>(() => IYandexAnalyticsWidgetExtensions.Language(null, CultureInfo.InvariantCulture));
     Assert.Throws<ArgumentNullException>(() => IYandexAnalyticsWidgetExtensions.Language(new YandexAnalyticsWidget(), null));
 
-    new YandexAnalyticsWidget().Do(widget =>
+    new YandexAnalyticsWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Language(CultureInfo.InvariantCulture), widget));
       Assert.Equal(CultureInfo.InvariantCulture.TwoLetterISOLanguageName, widget.Language());

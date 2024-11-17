@@ -1,4 +1,4 @@
-using System.Globalization;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -29,6 +29,15 @@ public static class IFacebookLikeButtonWidgetExtensions
   }
 
   /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="widget"></param>
+  /// <param name="url"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException"></exception>
+  public static IFacebookLikeButtonWidget Url(this IFacebookLikeButtonWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+
+  /// <summary>
   ///   <para>The width of the button. The layout you choose affects the minimum and default widths you can use.</para>
   /// </summary>
   /// <param name="widget">Widget to call method on.</param>
@@ -36,7 +45,7 @@ public static class IFacebookLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookLikeButtonWidget.Width(string)"/>
-  public static IFacebookLikeButtonWidget Width(this IFacebookLikeButtonWidget widget, short width) => widget is not null ? widget.Width(width.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookLikeButtonWidget Width(this IFacebookLikeButtonWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The verb to display on the button.</para>

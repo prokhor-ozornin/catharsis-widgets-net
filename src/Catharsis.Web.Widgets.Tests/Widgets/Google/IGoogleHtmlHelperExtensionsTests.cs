@@ -13,10 +13,10 @@ public sealed class GoogleWidgetsCreatorExtensionsTests
   [Fact]
   public void Analytics_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGoogleWidgetsCreatorExtensions.Analytics(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IGoogleWidgetsCreatorExtensions.Analytics(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new GoogleWidgetsCreator().Analytics(null));
 
-    Assert.Equal(new GoogleWidgetsCreator().Analytics().ToHtml(), new GoogleWidgetsCreator().Analytics(x => { }));
+    Assert.Equal(new GoogleWidgetsCreator().Analytics().ToHtml(), new GoogleWidgetsCreator().Analytics(_ => { }));
     Assert.Equal(new GoogleWidgetsCreator().Analytics().Account("account").Domain("domain").ToHtml(), new GoogleWidgetsCreator().Analytics(x => x.Account("account").Domain("domain")));
   }
 
@@ -35,10 +35,10 @@ public sealed class GoogleWidgetsCreatorExtensionsTests
   [Fact]
   public void PlusOneButton_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGoogleWidgetsCreatorExtensions.PlusOneButton(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IGoogleWidgetsCreatorExtensions.PlusOneButton(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new GoogleWidgetsCreator().PlusOneButton(null));
 
-    Assert.Equal(new GoogleWidgetsCreator().PlusOneButton().ToHtml(), new GoogleWidgetsCreator().PlusOneButton(x => { }));
+    Assert.Equal(new GoogleWidgetsCreator().PlusOneButton().ToHtml(), new GoogleWidgetsCreator().PlusOneButton(_ => { }));
     Assert.Equal(new GoogleWidgetsCreator().PlusOneButton().Url("url").ToHtml(), new GoogleWidgetsCreator().PlusOneButton(x => x.Url("url")));
   }
 }

@@ -80,7 +80,7 @@ public sealed class VideoJSPlayerWidgetTests
     var widget = new VideoJSPlayerWidget();
     Assert.False(widget.Videos().Any());
     Assert.True(ReferenceEquals(widget.Videos(new MediaSource("url", "contentType")), widget));
-    Assert.True(widget.Videos().SequenceEqual(new [] { new MediaSource("url", "contentType") }));
+    Assert.True(widget.Videos().SequenceEqual([new MediaSource("url", "contentType")]));
   }
 
   /// <summary>

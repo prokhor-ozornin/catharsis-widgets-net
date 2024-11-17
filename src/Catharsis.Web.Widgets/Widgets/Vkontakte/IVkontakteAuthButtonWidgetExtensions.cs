@@ -16,7 +16,7 @@ public static class IVkontakteAuthButtonWidgetExtensions
   /// <param name="width">Width of button.</param>
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IVkontakteAuthButtonWidget Width(this IVkontakteAuthButtonWidget widget, short width) => widget is not null ? widget.Width(width.ToString(CultureInfo.InvariantCulture)) : throw new ArgumentNullException(nameof(widget));
+  public static IVkontakteAuthButtonWidget Width(this IVkontakteAuthButtonWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Uses "standard" authentication mode with URL redirection.</para>

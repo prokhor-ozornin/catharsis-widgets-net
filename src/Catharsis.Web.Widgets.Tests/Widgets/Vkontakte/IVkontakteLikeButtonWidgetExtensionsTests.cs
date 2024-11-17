@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,12 +16,12 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Verb(null, VkontakteLikeButtonVerb.Interest));
 
-    new VkontakteLikeButtonWidget().Do(widget =>
+    new VkontakteLikeButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Verb(VkontakteLikeButtonVerb.Like), widget));
       Assert.Equal(0, widget.Verb().Value);
     });
-    new VkontakteLikeButtonWidget().Do(widget => Assert.Equal(1, widget.Verb(VkontakteLikeButtonVerb.Interest).Verb().Value));
+    new VkontakteLikeButtonWidget().With(widget => Assert.Equal(1, widget.Verb(VkontakteLikeButtonVerb.Interest).Verb().Value));
   }
 
   /// <summary>
@@ -31,14 +32,14 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Width(null, 0));
 
-    new VkontakteLikeButtonWidget().Do(widget =>
+    new VkontakteLikeButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Layout(VkontakteLikeButtonLayout.Button), widget));
       Assert.Equal("button", widget.Layout());
     });
-    new VkontakteLikeButtonWidget().Do(widget => Assert.Equal("full", widget.Layout(VkontakteLikeButtonLayout.Full).Layout()));
-    new VkontakteLikeButtonWidget().Do(widget => Assert.Equal("mini", widget.Layout(VkontakteLikeButtonLayout.Mini).Layout()));
-    new VkontakteLikeButtonWidget().Do(widget => Assert.Equal("vertical", widget.Layout(VkontakteLikeButtonLayout.Vertical).Layout()));
+    new VkontakteLikeButtonWidget().With(widget => Assert.Equal("full", widget.Layout(VkontakteLikeButtonLayout.Full).Layout()));
+    new VkontakteLikeButtonWidget().With(widget => Assert.Equal("mini", widget.Layout(VkontakteLikeButtonLayout.Mini).Layout()));
+    new VkontakteLikeButtonWidget().With(widget => Assert.Equal("vertical", widget.Layout(VkontakteLikeButtonLayout.Vertical).Layout()));
   }
 
   /// <summary>
@@ -49,7 +50,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Width(null, 0));
 
-    new VkontakteLikeButtonWidget().Do(widget =>
+    new VkontakteLikeButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Width(1), widget));
       Assert.Equal("1", widget.Width());
@@ -64,7 +65,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Height(null, 0));
 
-    new VkontakteLikeButtonWidget().Do(widget =>
+    new VkontakteLikeButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Height(1), widget));
       Assert.Equal("1", widget.Height());

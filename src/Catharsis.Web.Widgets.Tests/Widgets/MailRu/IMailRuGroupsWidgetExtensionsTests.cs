@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,7 +16,7 @@ public sealed class IMailRuGroupsWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IMailRuGroupsWidgetExtensions.Height(null, 0));
 
-    new MailRuGroupsWidget().Do(widget =>
+    new MailRuGroupsWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Height(1), widget));
       Assert.Equal("1", widget.Height());
@@ -30,7 +31,7 @@ public sealed class IMailRuGroupsWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IMailRuGroupsWidgetExtensions.Width(null, 0));
 
-    new MailRuGroupsWidget().Do(widget =>
+    new MailRuGroupsWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Width(1), widget));
       Assert.Equal("1", widget.Width());

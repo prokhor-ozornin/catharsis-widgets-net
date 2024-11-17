@@ -13,10 +13,10 @@ public sealed class YouTubeWidgetCreatorExtensionsTests
   [Fact]
   public void Video_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYouTubeWidgetCreatorExtensions.Video(null, widget => { }));
+    Assert.Throws<ArgumentNullException>(() => IYouTubeWidgetCreatorExtensions.Video(null, _ => { }));
     Assert.Throws<ArgumentNullException>(() => new YouTubeWidgetCreator().Video(null));
 
-    Assert.Equal(new YouTubeWidgetCreator().Video().ToHtml(), new YouTubeWidgetCreator().Video(x => { }));
+    Assert.Equal(new YouTubeWidgetCreator().Video().ToHtml(), new YouTubeWidgetCreator().Video(_ => { }));
     Assert.Equal(new YouTubeWidgetCreator().Video().Id("id").ToHtml(), new YouTubeWidgetCreator().Video(x => x.Id("id")));
   }
 }

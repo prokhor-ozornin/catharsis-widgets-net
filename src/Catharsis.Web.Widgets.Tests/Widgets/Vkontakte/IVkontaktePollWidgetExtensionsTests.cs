@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Extensions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -15,10 +16,19 @@ public sealed class IVkontaktePollWidgetExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IVkontaktePollWidgetExtensions.Width(null, 0));
 
-    new VkontaktePollWidget().Do(widget =>
+    new VkontaktePollWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Width(1), widget));
       Assert.Equal("1", widget.Width());
     });
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="IVkontaktePollWidgetExtensions.Url(IVkontaktePollWidget, Uri)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Url_Method()
+  {
+    throw new NotImplementedException();
   }
 }

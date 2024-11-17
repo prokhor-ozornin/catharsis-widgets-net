@@ -7,6 +7,15 @@
 public static class IYandexMoneyDonateFormWidgetExtensions
 {
   /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="widget"></param>
+  /// <param name="url"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException"></exception>
+  public static IYandexMoneyDonateFormWidget ProjectSite(this IYandexMoneyDonateFormWidget widget, Uri url) => widget is not null ? widget.ProjectSite(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+
+  /// <summary>
   ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
   /// </summary>
   /// <param name="widget">Widget to call method on.</param>

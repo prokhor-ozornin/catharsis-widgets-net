@@ -65,9 +65,9 @@ public sealed class GravatarImageUrlWidgetTests
     Assert.Throws<ArgumentException>(() => new GravatarImageUrlWidget().Parameter(string.Empty, new object()));
 
     var widget = new GravatarImageUrlWidget();
-    Assert.False(widget.Field("parameters").To<IDictionary<string, object>>().Any());
+    Assert.False(widget.GetFieldValue<IDictionary<string, object>>("parameters").Any());
     Assert.True(ReferenceEquals(widget.Parameter("name", "value"), widget));
-    var parameters = widget.Field("parameters").To<IDictionary<string, object>>();
+    var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
     Assert.Equal(1, parameters.Count);
     Assert.Equal("value", parameters["name"]);
   }
