@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class SoundCloudWidgetCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly ISoundCloudWidgetCreator widgets = Widgets.Web.SoundCloud();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="SoundCloudWidgetCreator.ProfileIcon()"/> method.</para>
@@ -15,7 +15,7 @@ public sealed class SoundCloudWidgetCreatorTests
   [Fact]
   public void ProfileIcon_Method()
   {
-    Assert.False(ReferenceEquals(this.html.SoundCloud().ProfileIcon(), this.html.SoundCloud().ProfileIcon()));
-    Assert.True(this.html.SoundCloud().ProfileIcon() is SoundCloudProfileIconWidget);
+    Assert.False(ReferenceEquals(widgets.ProfileIcon(), widgets.ProfileIcon()));
+    Assert.True(widgets.ProfileIcon() is SoundCloudProfileIconWidget);
   }
 }

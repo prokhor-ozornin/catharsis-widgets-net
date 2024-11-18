@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class DisqusWidgetsCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IDisqusWidgetsCreator widgets = Widgets.Web.Disqus();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="DisqusWidgetsCreator.Comments()"/> method.</para>
@@ -15,7 +15,7 @@ public sealed class DisqusWidgetsCreatorTests
   [Fact]
   public void Comments_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Disqus().Comments(), this.html.Disqus().Comments()));
-    Assert.True(this.html.Disqus().Comments() is DisqusCommentsWidget);
+    Assert.False(ReferenceEquals(widgets.Comments(), widgets.Comments()));
+    Assert.True(widgets.Comments() is DisqusCommentsWidget);
   }
 }

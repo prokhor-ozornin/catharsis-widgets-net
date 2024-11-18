@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets;
 /// <seealso cref="RuTubeWidgetCreator"/>
 public sealed class RuTubeWidgetCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IRuTubeWidgetCreator widgets = Widgets.Web.RuTube();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="RuTubeWidgetCreator.Video()"/> method.</para>
@@ -16,7 +16,7 @@ public sealed class RuTubeWidgetCreatorTests
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(this.html.RuTube().Video(), this.html.RuTube().Video()));
-    Assert.True(this.html.RuTube().Video() is RuTubeVideoWidget);
+    Assert.False(ReferenceEquals(widgets, widgets));
+    Assert.True(widgets is RuTubeVideoWidget);
   }
 }

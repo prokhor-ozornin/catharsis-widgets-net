@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IMailRuWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class MailRuWidgetsCreatorExtensionsTests
+public sealed class IMailRuWidgetsCreatorExtensionsTests
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IMailRuWidgetsCreatorExtensions.Faces(IMailRuWidgetsCreator, Action{IMailRuFacesWidget})"/> method.</para>

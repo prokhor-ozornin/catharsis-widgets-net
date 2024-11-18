@@ -5,8 +5,10 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IWebWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed partial class WebWidgetsCreatorExtensionsTests
+public sealed class WebWidgetsCreatorExtensionsTests
 {
+  private readonly IWebWidgetsCreator creator = Widgets.Web;
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.Cackle(IWebWidgetsCreator)"/> method.</para>
   /// </summary>
@@ -15,7 +17,7 @@ public sealed partial class WebWidgetsCreatorExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Cackle(null));
 
-    Assert.NotNull(html.Cackle());
-    Assert.True(ReferenceEquals(html.Cackle(), html.Cackle()));
+    Assert.NotNull(creator.Cackle());
+    Assert.True(ReferenceEquals(creator.Cackle(), creator.Cackle()));
   }
 }

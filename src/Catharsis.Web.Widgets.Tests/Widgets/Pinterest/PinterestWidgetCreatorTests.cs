@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class PinterestWidgetCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IPinterestWidgetCreator widgets = Widgets.Web.Pinterest();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="PinterestWidgetCreator.Board()"/> method.</para>
@@ -15,8 +15,8 @@ public sealed class PinterestWidgetCreatorTests
   [Fact]
   public void Board_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Pinterest().Board(), this.html.Pinterest().Board()));
-    Assert.True(this.html.Pinterest().Board() is PinterestBoardWidget);
+    Assert.False(ReferenceEquals(widgets.Board(), widgets.Board()));
+    Assert.True(widgets.Board() is PinterestBoardWidget);
   }
 
   /// <summary>
@@ -25,8 +25,8 @@ public sealed class PinterestWidgetCreatorTests
   [Fact]
   public void FollowButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Pinterest().FollowButton(), this.html.Pinterest().FollowButton()));
-    Assert.True(this.html.Pinterest().FollowButton() is PinterestFollowButtonWidget);
+    Assert.False(ReferenceEquals(widgets.FollowButton(), widgets.FollowButton()));
+    Assert.True(widgets.FollowButton() is PinterestFollowButtonWidget);
   }
 
   /// <summary>
@@ -35,8 +35,8 @@ public sealed class PinterestWidgetCreatorTests
   [Fact]
   public void PinItButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Pinterest().PinItButton(), this.html.Pinterest().PinItButton()));
-    Assert.True(this.html.Pinterest().PinItButton() is PinterestPinItButtonWidget);
+    Assert.False(ReferenceEquals(widgets.PinItButton(), widgets.PinItButton()));
+    Assert.True(widgets.PinItButton() is PinterestPinItButtonWidget);
   }
 
   /// <summary>
@@ -45,8 +45,8 @@ public sealed class PinterestWidgetCreatorTests
   [Fact]
   public void Pin_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Pinterest().Pin(), this.html.Pinterest().Pin()));
-    Assert.True(this.html.Pinterest().Pin() is PinterestPinWidget);
+    Assert.False(ReferenceEquals(widgets.Pin(), widgets.Pin()));
+    Assert.True(widgets.Pin() is PinterestPinWidget);
   }
 
   /// <summary>
@@ -55,7 +55,7 @@ public sealed class PinterestWidgetCreatorTests
   [Fact]
   public void Profile_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Pinterest().Profile(), this.html.Pinterest().Profile()));
-    Assert.True(this.html.Pinterest().Profile() is PinterestProfileWidget);
+    Assert.False(ReferenceEquals(widgets.Profile(), widgets.Profile()));
+    Assert.True(widgets.Profile() is PinterestProfileWidget);
   }
 }

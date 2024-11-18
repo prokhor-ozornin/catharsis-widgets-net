@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class YandexWidgetCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IYandexWidgetCreator widgets = Widgets.Web.Yandex();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YandexWidgetCreator.LikeButton()"/> method.</para>
@@ -15,8 +15,8 @@ public sealed class YandexWidgetCreatorTests
   [Fact]
   public void LikeButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Yandex().LikeButton(), this.html.Yandex().LikeButton()));
-    Assert.True(this.html.Yandex().LikeButton() is YandexLikeButtonWidget);
+    Assert.False(ReferenceEquals(widgets.LikeButton(), widgets.LikeButton()));
+    Assert.True(widgets.LikeButton() is YandexLikeButtonWidget);
   }
 
   /// <summary>
@@ -25,8 +25,8 @@ public sealed class YandexWidgetCreatorTests
   [Fact]
   public void MoneyButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Yandex().MoneyButton(), this.html.Yandex().MoneyButton()));
-    Assert.True(this.html.Yandex().MoneyButton() is YandexMoneyButtonWidget);
+    Assert.False(ReferenceEquals(widgets.MoneyButton(), widgets.MoneyButton()));
+    Assert.True(widgets.MoneyButton() is YandexMoneyButtonWidget);
   }
 
   /// <summary>
@@ -35,8 +35,8 @@ public sealed class YandexWidgetCreatorTests
   [Fact]
   public void MoneyDonateForm_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Yandex().MoneyDonateForm(), this.html.Yandex().MoneyDonateForm()));
-    Assert.True(this.html.Yandex().MoneyDonateForm() is YandexMoneyDonateFormWidget);
+    Assert.False(ReferenceEquals(widgets.MoneyDonateForm(), widgets.MoneyDonateForm()));
+    Assert.True(widgets.MoneyDonateForm() is YandexMoneyDonateFormWidget);
   }
 
   /// <summary>
@@ -45,8 +45,8 @@ public sealed class YandexWidgetCreatorTests
   [Fact]
   public void MoneyPaymentForm_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Yandex().MoneyPaymentForm(), this.html.Yandex().MoneyPaymentForm()));
-    Assert.True(this.html.Yandex().MoneyPaymentForm() is YandexMoneyPaymentFormWidget);
+    Assert.False(ReferenceEquals(widgets.MoneyPaymentForm(), widgets.MoneyPaymentForm()));
+    Assert.True(widgets.MoneyPaymentForm() is YandexMoneyPaymentFormWidget);
   }
 
   /// <summary>
@@ -55,8 +55,8 @@ public sealed class YandexWidgetCreatorTests
   [Fact]
   public void Share_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Yandex().SharePanel(), this.html.Yandex().SharePanel()));
-    Assert.True(this.html.Yandex().SharePanel() is YandexSharePanelWidget);
+    Assert.False(ReferenceEquals(widgets.SharePanel(), widgets.SharePanel()));
+    Assert.True(widgets.SharePanel() is YandexSharePanelWidget);
   }
 
   /// <summary>
@@ -65,7 +65,7 @@ public sealed class YandexWidgetCreatorTests
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Yandex().Video(), this.html.Yandex().Video()));
-    Assert.True(this.html.Yandex().Video() is YandexVideoWidget);
+    Assert.False(ReferenceEquals(widgets.Video(), widgets.Video()));
+    Assert.True(widgets.Video() is YandexVideoWidget);
   }
 }

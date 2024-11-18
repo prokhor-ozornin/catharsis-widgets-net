@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class FacebookWidgetsCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IFacebookWidgetsCreator widgets = Widgets.Web.Facebook();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.Initialize()"/> method.</para>
@@ -15,8 +15,8 @@ public sealed class FacebookWidgetsCreatorTests
   [Fact]
   public void Initialize_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Facebook().Initialize(), this.html.Facebook().Initialize()));
-    Assert.True(this.html.Facebook().Initialize() is FacebookInitializationWidget);
+    Assert.False(ReferenceEquals(widgets.Initialize(), widgets.Initialize()));
+    Assert.True(widgets.Initialize() is FacebookInitializationWidget);
   }
 
   /// <summary>
@@ -25,8 +25,8 @@ public sealed class FacebookWidgetsCreatorTests
   [Fact]
   public void ActivityFeed_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Facebook().ActivityFeed(), this.html.Facebook().ActivityFeed()));
-    Assert.True(this.html.Facebook().ActivityFeed() is FacebookActivityFeedWidget);
+    Assert.False(ReferenceEquals(widgets.ActivityFeed(), widgets.ActivityFeed()));
+    Assert.True(widgets.ActivityFeed() is FacebookActivityFeedWidget);
   }
 
   /// <summary>
@@ -35,8 +35,8 @@ public sealed class FacebookWidgetsCreatorTests
   [Fact]
   public void RecommendationsFeed_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Facebook().RecommendationsFeed(), this.html.Facebook().RecommendationsFeed()));
-    Assert.True(this.html.Facebook().RecommendationsFeed() is FacebookRecommendationsFeedWidget);
+    Assert.False(ReferenceEquals(widgets.RecommendationsFeed(), widgets.RecommendationsFeed()));
+    Assert.True(widgets.RecommendationsFeed() is FacebookRecommendationsFeedWidget);
   }
 
   /// <summary>
@@ -45,18 +45,18 @@ public sealed class FacebookWidgetsCreatorTests
   [Fact]
   public void Comments_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Facebook().Comments(), this.html.Facebook().Comments()));
-    Assert.True(this.html.Facebook().Comments() is FacebookCommentsWidget);
+    Assert.False(ReferenceEquals(widgets.Comments(), widgets.Comments()));
+    Assert.True(widgets.Comments() is FacebookCommentsWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.FacePile"/> method.</para>
+  ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.FacePile()"/> method.</para>
   /// </summary>
   [Fact]
   public void Facepile_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Facebook().Facepile(), this.html.Facebook().Facepile()));
-    Assert.True(this.html.Facebook().Facepile() is FacebookFacepileWidget);
+    Assert.False(ReferenceEquals(widgets.FacePile(), widgets.FacePile()));
+    Assert.True(widgets.FacePile() is FacebookFacePileWidget);
   }
 
   /// <summary>
@@ -65,8 +65,8 @@ public sealed class FacebookWidgetsCreatorTests
   [Fact]
   public void FollowButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Facebook().FollowButton(), this.html.Facebook().FollowButton()));
-    Assert.True(this.html.Facebook().FollowButton() is FacebookFollowButtonWidget);
+    Assert.False(ReferenceEquals(widgets.FollowButton(), widgets.FollowButton()));
+    Assert.True(widgets.FollowButton() is FacebookFollowButtonWidget);
   }
 
   /// <summary>
@@ -75,8 +75,8 @@ public sealed class FacebookWidgetsCreatorTests
   [Fact]
   public void LikeButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Facebook().LikeButton(), this.html.Facebook().LikeButton()));
-    Assert.True(this.html.Facebook().LikeButton() is FacebookLikeButtonWidget);
+    Assert.False(ReferenceEquals(widgets.LikeButton(), widgets.LikeButton()));
+    Assert.True(widgets.LikeButton() is FacebookLikeButtonWidget);
   }
 
   /// <summary>
@@ -85,8 +85,8 @@ public sealed class FacebookWidgetsCreatorTests
   [Fact]
   public void LikeBox_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Facebook().LikeBox(), this.html.Facebook().LikeBox()));
-    Assert.True(this.html.Facebook().LikeBox() is FacebookLikeBoxWidget);
+    Assert.False(ReferenceEquals(widgets.LikeBox(), widgets.LikeBox()));
+    Assert.True(widgets.LikeBox() is FacebookLikeBoxWidget);
   }
 
   /// <summary>
@@ -95,8 +95,8 @@ public sealed class FacebookWidgetsCreatorTests
   [Fact]
   public void Post_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Facebook().Post(), this.html.Facebook().Post()));
-    Assert.True(this.html.Facebook().Post() is FacebookPostWidget);
+    Assert.False(ReferenceEquals(widgets.Post(), widgets.Post()));
+    Assert.True(widgets.Post() is FacebookPostWidget);
   }
 
   /// <summary>
@@ -105,8 +105,8 @@ public sealed class FacebookWidgetsCreatorTests
   [Fact]
   public void SendButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Facebook().SendButton(), this.html.Facebook().SendButton()));
-    Assert.True(this.html.Facebook().SendButton() is FacebookSendButtonWidget);
+    Assert.False(ReferenceEquals(widgets.SendButton(), widgets.SendButton()));
+    Assert.True(widgets.SendButton() is FacebookSendButtonWidget);
   }
 
   /// <summary>
@@ -115,7 +115,7 @@ public sealed class FacebookWidgetsCreatorTests
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Facebook().Video(), this.html.Facebook().Video()));
-    Assert.True(this.html.Facebook().Video() is FacebookVideoWidget);
+    Assert.False(ReferenceEquals(widgets.Video(), widgets.Video()));
+    Assert.True(widgets.Video() is FacebookVideoWidget);
   }
 }

@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class YouTubeWidgetCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IYouTubeWidgetCreator widgets = Widgets.Web.YouTube();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YouTubeWidgetCreator.Video()"/> method.</para>
@@ -15,7 +15,7 @@ public sealed class YouTubeWidgetCreatorTests
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(this.html.YouTube().Video(), this.html.YouTube().Video()));
-    Assert.True(this.html.YouTube().Video() is YouTubeVideoWidget);
+    Assert.False(ReferenceEquals(widgets.Video(), widgets.Video()));
+    Assert.True(widgets.Video() is YouTubeVideoWidget);
   }
 }

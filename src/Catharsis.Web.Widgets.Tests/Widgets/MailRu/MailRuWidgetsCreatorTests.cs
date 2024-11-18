@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class MailRuWidgetsCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IMailRuWidgetsCreator widgets = Widgets.Web.MailRu();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MailRuWidgetsCreator.Faces()"/> method.</para>
@@ -15,8 +15,8 @@ public sealed class MailRuWidgetsCreatorTests
   [Fact]
   public void Faces_Method()
   {
-    Assert.False(ReferenceEquals(this.html.MailRu().Faces(), this.html.MailRu().Faces()));
-    Assert.True(this.html.MailRu().Faces() is MailRuFacesWidget);
+    Assert.False(ReferenceEquals(widgets.Faces(), widgets.Faces()));
+    Assert.True(widgets.Faces() is MailRuFacesWidget);
   }
 
   /// <summary>
@@ -25,8 +25,8 @@ public sealed class MailRuWidgetsCreatorTests
   [Fact]
   public void Groups_Method()
   {
-    Assert.False(ReferenceEquals(this.html.MailRu().Groups(), this.html.MailRu().Groups()));
-    Assert.True(this.html.MailRu().Groups() is MailRuGroupsWidget);
+    Assert.False(ReferenceEquals(widgets.Groups(), widgets.Groups()));
+    Assert.True(widgets.Groups() is MailRuGroupsWidget);
   }
 
   /// <summary>
@@ -35,8 +35,8 @@ public sealed class MailRuWidgetsCreatorTests
   [Fact]
   public void Icq_Method()
   {
-    Assert.False(ReferenceEquals(this.html.MailRu().Icq(), this.html.MailRu().Icq()));
-    Assert.True(this.html.MailRu().Icq() is MailRuIcqWidget);
+    Assert.False(ReferenceEquals(widgets.Icq(), widgets.Icq()));
+    Assert.True(widgets.Icq() is MailRuIcqWidget);
   }
 
   /// <summary>
@@ -45,8 +45,8 @@ public sealed class MailRuWidgetsCreatorTests
   [Fact]
   public void LikeButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.MailRu().LikeButton(), this.html.MailRu().LikeButton()));
-    Assert.True(this.html.MailRu().LikeButton() is MailRuLikeButtonWidget);
+    Assert.False(ReferenceEquals(widgets.LikeButton(), widgets.LikeButton()));
+    Assert.True(widgets.LikeButton() is MailRuLikeButtonWidget);
   }
 
   /// <summary>
@@ -55,7 +55,7 @@ public sealed class MailRuWidgetsCreatorTests
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(this.html.MailRu().Video(), this.html.MailRu().Video()));
-    Assert.True(this.html.MailRu().Video() is MailRuVideoWidget);
+    Assert.False(ReferenceEquals(widgets.Video(), widgets.Video()));
+    Assert.True(widgets.Video() is MailRuVideoWidget);
   }
 }

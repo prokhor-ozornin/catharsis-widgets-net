@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class CackleWidgetsCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly ICackleWidgetsCreator widgets = Widgets.Web.Cackle();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="CackleWidgetsCreator.Comments()"/> method.</para>
@@ -15,8 +15,8 @@ public sealed class CackleWidgetsCreatorTests
   [Fact]
   public void Comments_Method()
   {
-    Assert.False(ReferenceEquals(html.Cackle().Comments(), html.Cackle().Comments()));
-    Assert.True(html.Cackle().Comments() is CackleCommentsWidget);
+    Assert.False(ReferenceEquals(widgets.Comments(), widgets.Comments()));
+    Assert.True(widgets.Comments() is CackleCommentsWidget);
   }
 
   /// <summary>
@@ -25,8 +25,8 @@ public sealed class CackleWidgetsCreatorTests
   [Fact]
   public void CommentsCount_Method()
   {
-    Assert.False(ReferenceEquals(html.Cackle().CommentsCount(), html.Cackle().CommentsCount()));
-    Assert.True(html.Cackle().CommentsCount() is CackleCommentsCountWidget);
+    Assert.False(ReferenceEquals(widgets.CommentsCount(), widgets.CommentsCount()));
+    Assert.True(widgets.CommentsCount() is CackleCommentsCountWidget);
   }
 
   /// <summary>
@@ -35,8 +35,8 @@ public sealed class CackleWidgetsCreatorTests
   [Fact]
   public void LatestComments_Method()
   {
-    Assert.False(ReferenceEquals(html.Cackle().LatestComments(), html.Cackle().LatestComments()));
-    Assert.True(html.Cackle().LatestComments() is CackleLatestCommentsWidget);
+    Assert.False(ReferenceEquals(widgets.LatestComments(), widgets.LatestComments()));
+    Assert.True(widgets.LatestComments() is CackleLatestCommentsWidget);
   }
 
   /// <summary>
@@ -45,7 +45,7 @@ public sealed class CackleWidgetsCreatorTests
   [Fact]
   public void Login_Method()
   {
-    Assert.False(ReferenceEquals(html.Cackle().Login(), html.Cackle().Login()));
-    Assert.True(html.Cackle().Login() is CackleLoginWidget);
+    Assert.False(ReferenceEquals(widgets.Login(), widgets.Login()));
+    Assert.True(widgets.Login() is CackleLoginWidget);
   }
 }

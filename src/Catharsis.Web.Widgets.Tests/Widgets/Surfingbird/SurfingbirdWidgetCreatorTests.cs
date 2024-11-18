@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class SurfingbirdWidgetCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly ISurfingbirdWidgetCreator widgets = Widgets.Web.Surfingbird();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="SurfingbirdWidgetCreator.SurfButton()"/> method.</para>
@@ -15,7 +15,7 @@ public sealed class SurfingbirdWidgetCreatorTests
   [Fact]
   public void SurfButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Surfingbird().SurfButton(), this.html.Surfingbird().SurfButton()));
-    Assert.True(this.html.Surfingbird().SurfButton() is SurfingbirdSurfButtonWidget);
+    Assert.False(ReferenceEquals(widgets.SurfButton(), widgets.SurfButton()));
+    Assert.True(widgets.SurfButton() is SurfingbirdSurfButtonWidget);
   }
 }

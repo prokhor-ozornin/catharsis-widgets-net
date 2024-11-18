@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class GravatarWidgetsCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IGravatarWidgetsCreator widgets = Widgets.Web.Gravatar();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="GravatarWidgetsCreator.ImageUrl()"/> method.</para>
@@ -15,8 +15,8 @@ public sealed class GravatarWidgetsCreatorTests
   [Fact]
   public void ImageLink_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Gravatar().ImageUrl(), this.html.Gravatar().ImageUrl()));
-    Assert.True(this.html.Gravatar().ImageUrl() is GravatarImageUrlWidget);
+    Assert.False(ReferenceEquals(widgets.ImageUrl(), widgets.ImageUrl()));
+    Assert.True(widgets.ImageUrl() is GravatarImageUrlWidget);
   }
 
   /// <summary>
@@ -25,7 +25,7 @@ public sealed class GravatarWidgetsCreatorTests
   [Fact]
   public void ProfileLink_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Gravatar().ProfileUrl(), this.html.Gravatar().ProfileUrl()));
-    Assert.True(this.html.Gravatar().ProfileUrl() is GravatarProfileUrlWidget);
+    Assert.False(ReferenceEquals(widgets.ProfileUrl(), widgets.ProfileUrl()));
+    Assert.True(widgets.ProfileUrl() is GravatarProfileUrlWidget);
   }
 }

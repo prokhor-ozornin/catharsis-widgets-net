@@ -5,8 +5,10 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IIntenseDebateWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IntenseDebateWidgetsCreatorExtensionsTests
+public sealed class IIntenseDebateWidgetsCreatorExtensionsTests
 {
+  private readonly IIntenseDebateWidgetsCreator widgets = Widgets.Web.IntenseDebate();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IIntenseDebateWidgetsCreatorExtensions.Comments(IIntenseDebateWidgetsCreator, Action{IIntenseDebateCommentsWidget})"/> method.</para>
   /// </summary>
@@ -14,9 +16,9 @@ public sealed class IntenseDebateWidgetsCreatorExtensionsTests
   public void Comments_Method()
   {
     Assert.Throws<ArgumentNullException>(() => IIntenseDebateWidgetsCreatorExtensions.Comments(null, _ => { }));
-    Assert.Throws<ArgumentNullException>(() => new IntenseDebateHtmlHelper().Comments(null));
+    Assert.Throws<ArgumentNullException>(() => widgets.Comments(null));
 
-    Assert.Equal(new IntenseDebateHtmlHelper().Comments().ToHtml(), new IntenseDebateHtmlHelper().Comments(x => { }));
-    Assert.Equal(new IntenseDebateHtmlHelper().Comments().Account("account").ToHtml(), new IntenseDebateHtmlHelper().Comments(x => x.Account("account")));
+    Assert.Equal(widgets.Comments().ToHtml(), widgets.Comments(_ => { }));
+    Assert.Equal(widgets.Comments().Account("account").ToHtml(), widgets.Comments(x => x.Account("account")));
   }
 }

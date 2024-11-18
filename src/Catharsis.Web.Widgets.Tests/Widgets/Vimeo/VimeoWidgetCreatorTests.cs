@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class VimeoWidgetCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IVimeoWidgetCreator widgets = Widgets.Web.Vimeo();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="VimeoWidgetCreator.Video()"/> method.</para>
@@ -15,7 +15,7 @@ public sealed class VimeoWidgetCreatorTests
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Vimeo().Video(), this.html.Vimeo().Video()));
-    Assert.True(this.html.Vimeo().Video() is VimeoVideoWidget);
+    Assert.False(ReferenceEquals(widgets.Video(), widgets.Video()));
+    Assert.True(widgets.Video() is VimeoVideoWidget);
   }
 }

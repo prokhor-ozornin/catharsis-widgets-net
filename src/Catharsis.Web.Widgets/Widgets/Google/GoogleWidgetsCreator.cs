@@ -6,7 +6,7 @@ public class GoogleWidgetsCreator : IGoogleWidgetsCreator
   /// <inheritdoc cref="IGoogleWidgetsCreator.Analytics()"/>
   public IGoogleAnalyticsWidget Analytics() => new GoogleAnalyticsWidget();
 
-  /// <inheritdoc cref="IGoogleHtmlHelper.Map()"/>
+  /// <inheritdoc cref="IGoogleWidgetsCreator.Map()"/>
   //public IGoogleMapWidget Map() => new GoogleMapWidget();
 
   /// <inheritdoc cref="IGoogleWidgetsCreator.PlusOneButton()"/>

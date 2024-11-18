@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class TumblrWidgetCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly ITumblrWidgetCreator widgets = Widgets.Web.Tumblr();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="TumblrWidgetCreator.FollowButton()"/> method.</para>
@@ -15,8 +15,8 @@ public sealed class TumblrWidgetCreatorTests
   [Fact]
   public void FollowButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Tumblr().FollowButton(), this.html.Tumblr().FollowButton()));
-    Assert.True(this.html.Tumblr().FollowButton() is TumblrFollowButtonWidget);
+    Assert.False(ReferenceEquals(widgets.FollowButton(), widgets.FollowButton()));
+    Assert.True(widgets.FollowButton() is TumblrFollowButtonWidget);
   }
 
   /// <summary>
@@ -25,7 +25,7 @@ public sealed class TumblrWidgetCreatorTests
   [Fact]
   public void ShareButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Tumblr().ShareButton(), this.html.Tumblr().ShareButton()));
-    Assert.True(this.html.Tumblr().ShareButton() is TumblrShareButtonWidget);
+    Assert.False(ReferenceEquals(widgets.ShareButton(), widgets.ShareButton()));
+    Assert.True(widgets.ShareButton() is TumblrShareButtonWidget);
   }
 }

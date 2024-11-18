@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class VideoJsWidgetCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IVideoJSWidgetCreator widgets = Widgets.Web.VideoJS();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="VideoJsWidgetCreator.Player()"/> method.</para>
@@ -15,7 +15,7 @@ public sealed class VideoJsWidgetCreatorTests
   [Fact]
   public void Player_Method()
   {
-    Assert.False(ReferenceEquals(this.html.VideoJS().Player(), this.html.VideoJS().Player()));
-    Assert.True(this.html.VideoJS().Player() is VideoJSPlayerWidget);
+    Assert.False(ReferenceEquals(widgets.Player(), widgets.Player()));
+    Assert.True(widgets.Player() is VideoJSPlayerWidget);
   }
 }

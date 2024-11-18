@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class LiveJournalWidgetsCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly ILiveJournalWidgetsCreator widgets = Widgets.Web.LiveJournal();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="LiveJournalWidgetsCreator.LikeButton()"/> method.</para>
@@ -15,8 +15,8 @@ public sealed class LiveJournalWidgetsCreatorTests
   [Fact]
   public void LikeButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.LiveJournal().LikeButton(), this.html.LiveJournal().LikeButton()));
-    Assert.True(this.html.LiveJournal().LikeButton() is LiveJournalLikeButtonWidget);
+    Assert.False(ReferenceEquals(widgets.LikeButton(), widgets.LikeButton()));
+    Assert.True(widgets.LikeButton() is LiveJournalLikeButtonWidget);
   }
 
   /// <summary>
@@ -25,7 +25,7 @@ public sealed class LiveJournalWidgetsCreatorTests
   [Fact]
   public void RepostButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.LiveJournal().RepostButton(), this.html.LiveJournal().RepostButton()));
-    Assert.True(this.html.LiveJournal().RepostButton() is LiveJournalRepostButtonWidget);
+    Assert.False(ReferenceEquals(widgets.RepostButton(), widgets.RepostButton()));
+    Assert.True(widgets.RepostButton() is LiveJournalRepostButtonWidget);
   }
 }

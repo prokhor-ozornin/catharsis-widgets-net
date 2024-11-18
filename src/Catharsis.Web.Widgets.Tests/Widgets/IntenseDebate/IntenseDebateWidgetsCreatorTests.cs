@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class IntenseDebateWidgetsCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IIntenseDebateWidgetsCreator widgets = Widgets.Web.IntenseDebate();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IntenseDebateWidgetsCreator.Comments()"/> method.</para>
@@ -15,8 +15,8 @@ public sealed class IntenseDebateWidgetsCreatorTests
   [Fact]
   public void Comments_Method()
   {
-    Assert.False(ReferenceEquals(this.html.IntenseDebate().Comments(), this.html.IntenseDebate().Comments()));
-    Assert.True(this.html.IntenseDebate().Comments() is IntenseDebateCommentsWidget);
+    Assert.False(ReferenceEquals(widgets.Comments(), widgets.Comments()));
+    Assert.True(widgets.Comments() is IntenseDebateCommentsWidget);
   }
 
   /// <summary>
@@ -25,7 +25,7 @@ public sealed class IntenseDebateWidgetsCreatorTests
   [Fact]
   public void Link_Method()
   {
-    Assert.False(ReferenceEquals(this.html.IntenseDebate().Link(), this.html.IntenseDebate().Link()));
-    Assert.True(this.html.IntenseDebate().Link() is IntenseDebateLinkWidget);
+    Assert.False(ReferenceEquals(widgets.Link(), widgets.Link()));
+    Assert.True(widgets.Link() is IntenseDebateLinkWidget);
   }
 }

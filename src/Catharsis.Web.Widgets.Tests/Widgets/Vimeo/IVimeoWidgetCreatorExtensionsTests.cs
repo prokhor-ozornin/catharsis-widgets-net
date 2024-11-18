@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IVimeoWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class VimeoWidgetCreatorExtensionsTests
+public sealed class IVimeoWidgetCreatorExtensionsTests
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IVimeoWidgetCreatorExtensions.Video(IVimeoWidgetCreator, Action{IVimeoVideoWidget})"/> method.</para>

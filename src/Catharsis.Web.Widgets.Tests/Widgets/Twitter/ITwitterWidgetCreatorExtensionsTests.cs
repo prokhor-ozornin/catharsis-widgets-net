@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="ITwitterWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class TwitterWidgetCreatorExtensionsTests
+public sealed class ITwitterWidgetCreatorExtensionsTests
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="ITwitterWidgetCreatorExtensions.FollowButton(ITwitterWidgetCreator, Action{ITwitterFollowButtonWidget})"/> method.</para>

@@ -5,8 +5,10 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IWebWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed partial class WebWidgetsCreatorExtensionsTests
+public sealed class WebWidgetsCreatorExtensionsTests
 {
+  private readonly IWebWidgetsCreator widgets = Widgets.Web;
+
   /// <summary>
   ///   <para>Performs testing of following methods :</para>
   ///   <list type="bullet">
@@ -19,13 +21,13 @@ public sealed partial class WebWidgetsCreatorExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.InlineImage(null));
     Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.InlineImage(null, _ => { }));
-    Assert.Throws<ArgumentNullException>(() => new MockHtmlHelper().InlineImage(null));
+    Assert.Throws<ArgumentNullException>(() => widgets.InlineImage(null));
 
-    Assert.NotNull(html.InlineImage());
-    Assert.False(ReferenceEquals(html.InlineImage(), html.InlineImage()));
-    Assert.Equal(html.InlineImage().ToString(), html.InlineImage().ToString());
+    Assert.NotNull(widgets.InlineImage());
+    Assert.False(ReferenceEquals(widgets.InlineImage(), widgets.InlineImage()));
+    Assert.Equal(widgets.InlineImage().ToString(), widgets.InlineImage().ToString());
 
-    Assert.Equal(new MockHtmlHelper().InlineImage().ToHtml(), new MockHtmlHelper().InlineImage(x => { }));
-    Assert.Equal(new MockHtmlHelper().InlineImage().Contents(Guid.Empty.ToByteArray()).ToHtml(), new MockHtmlHelper().InlineImage(x => x.Contents(Guid.Empty.ToByteArray())));
+    Assert.Equal(widgets.InlineImage().ToHtml(), widgets.InlineImage(_ => { }));
+    Assert.Equal(widgets.InlineImage().Contents(Guid.Empty.ToByteArray()).ToHtml(), widgets.InlineImage(x => x.Contents(Guid.Empty.ToByteArray())));
   }
 }

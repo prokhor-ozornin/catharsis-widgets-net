@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class TwitterWidgetCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly ITwitterWidgetCreator widgets = Widgets.Web.Twitter();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="TwitterWidgetCreator.FollowButton()"/> method.</para>
@@ -15,8 +15,8 @@ public sealed class TwitterWidgetCreatorTests
   [Fact]
   public void Follow_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Twitter().FollowButton(), this.html.Twitter().FollowButton()));
-    Assert.True(this.html.Twitter().FollowButton() is TwitterFollowButtonWidget);
+    Assert.False(ReferenceEquals(widgets.FollowButton(), widgets.FollowButton()));
+    Assert.True(widgets.FollowButton() is TwitterFollowButtonWidget);
   }
 
   /// <summary>
@@ -27,7 +27,7 @@ public sealed class TwitterWidgetCreatorTests
   {
     Assert.Throws<ArgumentNullException>(() => new TwitterWidgetCreator().TweetButton(null));
 
-    Assert.False(ReferenceEquals(this.html.Twitter().TweetButton(), this.html.Twitter().TweetButton()));
-    Assert.True(this.html.Twitter().TweetButton() is TwitterTweetButtonWidget);
+    Assert.False(ReferenceEquals(widgets.TweetButton(), widgets.TweetButton()));
+    Assert.True(widgets.TweetButton() is TwitterTweetButtonWidget);
   }
 }

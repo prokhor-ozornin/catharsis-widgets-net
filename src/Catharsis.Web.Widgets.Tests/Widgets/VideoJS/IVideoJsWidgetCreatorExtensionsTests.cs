@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IVideoJSWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class VideoJsWidgetCreatorExtensionsTests
+public sealed class IVideoJsWidgetCreatorExtensionsTests
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IVideoJSWidgetCreatorExtensions.Player(IVideoJSWidgetCreator, Action{IVideoJSPlayerWidget})"/> method.</para>

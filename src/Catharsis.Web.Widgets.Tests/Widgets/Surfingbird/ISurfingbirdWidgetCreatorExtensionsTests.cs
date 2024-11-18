@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="ISurfingbirdWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class SurfingbirdWidgetCreatorExtensionsTests
+public sealed class ISurfingbirdWidgetCreatorExtensionsTests
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="ISurfingbirdWidgetCreatorExtensions.SurfButton(ISurfingbirdWidgetCreator, Action{ISurfingbirdSurfButtonWidget})"/> method.</para>

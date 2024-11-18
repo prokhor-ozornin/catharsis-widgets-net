@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IGravatarWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class GravatarWidgetsCreatorExtensionsTests
+public sealed class IGravatarWidgetsCreatorExtensionsTests
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IGravatarWidgetsCreatorExtensions.ImageUrl(IGravatarWidgetsCreator, Action{IGravatarImageUrlWidget})"/> method.</para>

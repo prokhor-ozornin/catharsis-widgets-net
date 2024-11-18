@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// </summary>
 public sealed class GoogleWidgetsCreatorTests
 {
-  private readonly HtmlHelper html = new MockHtmlHelper();
+  private readonly IGoogleWidgetsCreator widgets = Widgets.Web.Google();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="GoogleWidgetsCreator.Analytics()"/> method.</para>
@@ -15,18 +15,18 @@ public sealed class GoogleWidgetsCreatorTests
   [Fact]
   public void Analytics_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Google().Analytics(), this.html.Google().Analytics()));
-    Assert.True(this.html.Google().Analytics() is GoogleAnalyticsWidget);
+    Assert.False(ReferenceEquals(widgets.Analytics(), widgets.Analytics()));
+    Assert.True(widgets.Analytics() is GoogleAnalyticsWidget);
   }
 
   /*/// <summary>
-  ///   <para>Performs testing of <see cref="GoogleHtmlHelper.Map()"/> method.</para>
+  ///   <para>Performs testing of <see cref="GoogleWidgetsCreator.Map()"/> method.</para>
   /// </summary>
   [Fact]
   public void Map_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Google().Map(), this.html.Google().Map()));
-    Assert.True(this.html.Google().Map() is GoogleMapWidget);
+    Assert.False(ReferenceEquals(widgets.Map(), widgets.Map()));
+    Assert.True(widgets.Map() is GoogleMapWidget);
   }*/
 
   /// <summary>
@@ -35,7 +35,7 @@ public sealed class GoogleWidgetsCreatorTests
   [Fact]
   public void PlusOneButton_Method()
   {
-    Assert.False(ReferenceEquals(this.html.Google().PlusOneButton(), this.html.Google().PlusOneButton()));
-    Assert.True(this.html.Google().PlusOneButton() is GooglePlusOneButtonWidget);
+    Assert.False(ReferenceEquals(widgets.PlusOneButton(), widgets.PlusOneButton()));
+    Assert.True(widgets.PlusOneButton() is GooglePlusOneButtonWidget);
   }
 }

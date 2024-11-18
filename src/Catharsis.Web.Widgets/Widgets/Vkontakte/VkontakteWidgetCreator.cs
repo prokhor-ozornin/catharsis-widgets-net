@@ -27,7 +27,7 @@ public class VkontakteWidgetCreator : IVkontakteWidgetCreator
   /// <inheritdoc cref="IVkontakteWidgetCreator.Recommendations()"/>
   public IVkontakteRecommendationsWidget Recommendations() => new VkontakteRecommendationsWidget();
 
-  /// <inheritdoc cref="IVkontakteHtmlHelper.ShareButton()"/>
+  /// <inheritdoc cref="IVkontakteWidgetCreator.ShareButton()"/>
   //public IVkontakteShareButtonWidget ShareButton() => new VkontakteShareButtonWidget();
 
   /// <inheritdoc cref="IVkontakteWidgetCreator.Subscription()"/>

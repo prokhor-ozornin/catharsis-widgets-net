@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Set of extension methods for interface <see cref="IDisqusWidgetsCreator"/>.</para>
 /// </summary>
 /// <seealso cref="IDisqusWidgetsCreator"/>
-public static class IDisqusHtmlHelperExtensions
+public static class IDisqusWidgetsCreatorExtensions
 {
   /// <summary>
   ///   <para>Creates new Disqus comments widget.</para>
