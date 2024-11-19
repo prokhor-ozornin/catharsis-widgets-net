@@ -119,7 +119,7 @@ public sealed class FacebookSendButtonWidgetTests
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(@"<div class=""fb-send""></div>", new FacebookSendButtonWidget().ToString());
-    Assert.Equal(@"<div class=""fb-send"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-ref=""trackLabel"" data-width=""width""></div>", new FacebookSendButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).KidsMode(true).Width("width").Height("height").TrackLabel("trackLabel").ToString());
+    Assert.Equal("""<div class="fb-send"></div>""", new FacebookSendButtonWidget().ToString());
+    Assert.Equal("""<div class="fb-send" data-colorscheme="dark" data-height="height" data-href="url" data-kid-directed-site="true" data-ref="trackLabel" data-width="width"></div>""", new FacebookSendButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).KidsMode(true).Width("width").Height("height").TrackLabel("trackLabel").ToString());
   }
 }

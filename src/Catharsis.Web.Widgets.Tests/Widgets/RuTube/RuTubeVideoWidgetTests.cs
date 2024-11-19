@@ -76,6 +76,6 @@ public sealed class RuTubeVideoWidgetTests
     Assert.Equal(string.Empty, new RuTubeVideoWidget().Id("id").Height("height").ToString());
     Assert.Equal(string.Empty, new RuTubeVideoWidget().Id("id").Width("width").ToString());
     Assert.Equal(string.Empty, new RuTubeVideoWidget().Height("height").Width("width").ToString());
-    Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" scrolling=""no"" src=""http://rutube.ru/embed/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new RuTubeVideoWidget().Id("id").Height("height").Width("width").ToString());
+    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" scrolling="no" src="http://rutube.ru/embed/id" webkitallowfullscreen="true" width="width"></iframe>""", new RuTubeVideoWidget().Id("id").Height("height").Width("width").ToString());
   }
 }

@@ -109,7 +109,7 @@ public sealed class PinterestBoardWidgetTests
     Assert.Equal(string.Empty, new PinterestBoardWidget().ToString());
     Assert.Equal(string.Empty, new PinterestBoardWidget().Account("account").ToString());
     Assert.Equal(string.Empty, new PinterestBoardWidget().Id("id").ToString());
-    Assert.Equal(@"<a data-pin-do=""embedBoard"" href=""http://www.pinterest.com/account/id""></a>", new PinterestBoardWidget().Account("account").Id("id").ToString());
-    Assert.Equal(@"<a data-pin-board-width=""width"" data-pin-do=""embedBoard"" data-pin-scale-height=""height"" data-pin-scale-width=""image"" href=""http://www.pinterest.com/account/id""></a>", new PinterestBoardWidget().Account("account").Id("id").Width("width").Height("height").Image("image").ToString());
+    Assert.Equal("""<a data-pin-do="embedBoard" href="http://www.pinterest.com/account/id"></a>""", new PinterestBoardWidget().Account("account").Id("id").ToString());
+    Assert.Equal("""<a data-pin-board-width="width" data-pin-do="embedBoard" data-pin-scale-height="height" data-pin-scale-width="image" href="http://www.pinterest.com/account/id"></a>""", new PinterestBoardWidget().Account("account").Id("id").Width("width").Height("height").Image("image").ToString());
   }
 }

@@ -106,7 +106,7 @@ public sealed class YandexLikeButtonWidgetTests
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.True(new YandexLikeButtonWidget().ToString().Contains(@"<a name=""ya-share"" size=""large"" type=""button""></a>"));
-    Assert.True(new YandexLikeButtonWidget().Layout("icon").Size("small").Text("text").Url("url").Title("title").ToString().Contains(@"<a name=""ya-share"" share_text=""text"" share_title=""title"" share_url=""url"" size=""small"" type=""icon""></a>"));
+    Assert.True(new YandexLikeButtonWidget().ToString().Contains("""<a name="ya-share" size="large" type="button"></a>"""));
+    Assert.True(new YandexLikeButtonWidget().Layout("icon").Size("small").Text("text").Url("url").Title("title").ToString().Contains("""<a name="ya-share" share_text="text" share_title="title" share_url="url" size="small" type="icon"></a>"""));
   }
 }

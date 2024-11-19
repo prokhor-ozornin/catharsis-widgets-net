@@ -45,7 +45,7 @@ public sealed class CackleLoginWidgetTests
     Assert.Equal(string.Empty, new CackleLoginWidget().ToString());
 
     var html = new CackleLoginWidget().Account("account").ToString();
-    Assert.True(html.Contains(@"<div id=""mc-login""></div>"));
-    Assert.True(html.Contains(@"{""widget"":""Login"",""id"":""account""}"));
+    Assert.True(html.Contains("""<div id="mc-login"></div>"""));
+    Assert.True(html.Contains("""{"widget":"Login","id":"account"}"""));
   }
 }

@@ -13,6 +13,6 @@ public sealed class LiveJournalLikeButtonWidgetTests
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(@"<lj-like buttons=""repost""/>", new LiveJournalLikeButtonWidget().ToString());
+    Assert.Equal("""<lj-like buttons="repost"/>""", new LiveJournalLikeButtonWidget().ToString());
   }
 }

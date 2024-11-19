@@ -110,7 +110,7 @@ public sealed class VkontaktePostWidgetTests
     Assert.Equal(string.Empty, new VkontaktePostWidget().Owner("owner").Hash("hash").ToString());
     Assert.Equal(string.Empty, new VkontaktePostWidget().Id("id").Owner("owner").ToString());
     Assert.Equal(string.Empty, new VkontaktePostWidget().Id("id").Hash("hash").ToString());
-    Assert.Equal(@"<div id=""vk_post_owner_id""></div><script type=""text/javascript"">(function() { window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post(""vk_post_owner_id"", owner, id, ""hash"", {}) || setTimeout(arguments.callee, 50); }());</script>", new VkontaktePostWidget().Id("id").Owner("owner").Hash("hash").ToString());
-    Assert.Equal(@"<div id=""elementId""></div><script type=""text/javascript"">(function() { window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post(""elementId"", owner, id, ""hash"", {""width"":""width""}) || setTimeout(arguments.callee, 50); }());</script>", new VkontaktePostWidget().Id("id").Owner("owner").Hash("hash").ElementId("elementId").Width("width").ToString());
+    Assert.Equal("""<div id="vk_post_owner_id"></div><script type="text/javascript">(function() { window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post("vk_post_owner_id", owner, id, "hash", {}) || setTimeout(arguments.callee, 50); }());</script>""", new VkontaktePostWidget().Id("id").Owner("owner").Hash("hash").ToString());
+    Assert.Equal("""<div id="elementId"></div><script type="text/javascript">(function() { window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post("elementId", owner, id, "hash", {"width":"width"}) || setTimeout(arguments.callee, 50); }());</script>""", new VkontaktePostWidget().Id("id").Owner("owner").Hash("hash").ElementId("elementId").Width("width").ToString());
   }
 }

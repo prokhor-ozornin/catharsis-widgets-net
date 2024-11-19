@@ -104,7 +104,7 @@ public sealed class VimeoVideoWidgetTests
     Assert.Equal(string.Empty, new VimeoVideoWidget().Id("id").Height("height").ToString());
     Assert.Equal(string.Empty, new VimeoVideoWidget().Id("id").Width("width").ToString());
     Assert.Equal(string.Empty, new VimeoVideoWidget().Height("height").Width("width").ToString());
-    Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://player.vimeo.com/video/id?badge=0"" webkitallowfullscreen=""true"" width=""width""></iframe>", new VimeoVideoWidget().Id("id").Height("height").Width("width").ToString());
-    Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1"" webkitallowfullscreen=""true"" width=""width""></iframe>", new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay(true).Loop(true).ToString());
+    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0" webkitallowfullscreen="true" width="width"></iframe>""", new VimeoVideoWidget().Id("id").Height("height").Width("width").ToString());
+    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1" webkitallowfullscreen="true" width="width"></iframe>""", new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay(true).Loop(true).ToString());
   }
 }

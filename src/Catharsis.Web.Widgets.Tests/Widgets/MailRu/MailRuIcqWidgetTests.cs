@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Xml.Linq;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -58,10 +59,10 @@ public sealed class MailRuIcqWidgetTests
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(@"<script src=""http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"" type=""text/javascript""></script>", new MailRuIcqWidget().ToString());
+    Assert.Equal(new XElement("script", new XAttribute("src", "http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"), new XAttribute("type", "text/javascript")).ToString(), new MailRuIcqWidget().ToString());
 
     var html = new MailRuIcqWidget().Account("account").Language("en").ToString();
     Assert.True(html.Contains("window.ICQ = {siteOwner:'account'};"));
-    Assert.True(html.Contains(@"<script src=""http://c.icq.com/siteim/icqbar/js/partners/initbar_en.js"" type=""text/javascript""></script>"));
+    Assert.True(html.Contains("""<script src="http://c.icq.com/siteim/icqbar/js/partners/initbar_en.js" type="text/javascript"></script>"""));
   }
 }

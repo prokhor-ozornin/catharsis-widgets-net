@@ -156,7 +156,7 @@ public sealed class FacebookLikeBoxWidgetTests
   public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new FacebookLikeBoxWidget().ToString());
-    Assert.Equal(@"<div class=""fb-like-box"" data-href=""https://www.facebook.com/pages/Clear-Words/515749945120070""></div>", new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").ToString());
-    Assert.Equal(@"<div class=""fb-like-box"" data-colorscheme=""dark"" data-force-wall=""true"" data-header=""true"" data-height=""height"" data-href=""https://www.facebook.com/pages/Clear-Words/515749945120070"" data-show-border=""true"" data-show-faces=""true"" data-stream=""true"" data-width=""width""></div>", new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Wall(true).Header(true).Border(true).Faces(true).Stream(true).ToString());
+    Assert.Equal("""<div class="fb-like-box" data-href="https://www.facebook.com/pages/Clear-Words/515749945120070"></div>""", new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").ToString());
+    Assert.Equal("""<div class="fb-like-box" data-colorscheme="dark" data-force-wall="true" data-header="true" data-height="height" data-href="https://www.facebook.com/pages/Clear-Words/515749945120070" data-show-border="true" data-show-faces="true" data-stream="true" data-width="width"></div>""", new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Wall(true).Header(true).Border(true).Faces(true).Stream(true).ToString());
   }
 }

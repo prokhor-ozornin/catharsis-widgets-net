@@ -58,8 +58,8 @@ public sealed class LiveJournalRepostButtonWidgetTests
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(@"<lj-repost></lj-repost>", new LiveJournalRepostButtonWidget().ToString());
-    Assert.Equal(@"<lj-repost button=""title""></lj-repost>", new LiveJournalRepostButtonWidget().Title("title").ToString());
-    Assert.Equal(@"<lj-repost button=""title"">text</lj-repost>", new LiveJournalRepostButtonWidget().Title("title").Text("text").ToString());
+    Assert.Equal("<lj-repost></lj-repost>", new LiveJournalRepostButtonWidget().ToString());
+    Assert.Equal("""<lj-repost button="title"></lj-repost>""", new LiveJournalRepostButtonWidget().Title("title").ToString());
+    Assert.Equal("""<lj-repost button="title">text</lj-repost>""", new LiveJournalRepostButtonWidget().Title("title").Text("text").ToString());
   }
 }

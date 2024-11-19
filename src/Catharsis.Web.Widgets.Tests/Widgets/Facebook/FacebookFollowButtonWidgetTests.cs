@@ -133,7 +133,7 @@ public sealed class FacebookFollowButtonWidgetTests
   public void ToHtml_Method()
   {
     Assert.Equal(string.Empty, new FacebookFollowButtonWidget().ToString());
-    Assert.Equal(@"<div class=""fb-follow"" data-href=""url""></div>", new FacebookFollowButtonWidget().Url("url").ToString());
-    Assert.Equal(@"<div class=""fb-follow"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-show-faces=""true"" data-width=""width""></div>", new FacebookFollowButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).KidsMode(true).Layout(FacebookButtonLayout.BoxCount).Faces(true).Width("width").Height("height").ToString());
+    Assert.Equal("""<div class="fb-follow" data-href="url"></div>""", new FacebookFollowButtonWidget().Url("url").ToString());
+    Assert.Equal("""<div class="fb-follow" data-colorscheme="dark" data-height="height" data-href="url" data-kid-directed-site="true" data-layout="box_count" data-show-faces="true" data-width="width"></div>""", new FacebookFollowButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).KidsMode(true).Layout(FacebookButtonLayout.BoxCount).Faces(true).Width("width").Height("height").ToString());
   }
 }

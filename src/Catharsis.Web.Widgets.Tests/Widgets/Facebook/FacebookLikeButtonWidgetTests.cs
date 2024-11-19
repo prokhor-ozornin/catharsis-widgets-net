@@ -148,8 +148,8 @@ public sealed class FacebookLikeButtonWidgetTests
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(@"<div class=""fb-like""></div>", new FacebookLikeButtonWidget().ToString());
-    Assert.Equal(@"<div class=""fb-like"" data-href=""url""></div>", new FacebookLikeButtonWidget().Url("url").ToString());
-    Assert.Equal(@"<div class=""fb-like"" data-action=""recommend"" data-colorscheme=""dark"" data-href=""url"" data-kid-directed-site=""true"" data-layout=""box_count"" data-ref=""trackLabel"" data-show-faces=""true"" data-width=""width""></div>", new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).ColorScheme(FacebookColorScheme.Dark).Url("url").KidsMode(true).Layout(FacebookButtonLayout.BoxCount).TrackLabel("trackLabel").Faces(true).Width("width").ToString());
+    Assert.Equal("""<div class="fb-like"></div>""", new FacebookLikeButtonWidget().ToString());
+    Assert.Equal("""<div class="fb-like" data-href="url"></div>""", new FacebookLikeButtonWidget().Url("url").ToString());
+    Assert.Equal("""<div class="fb-like" data-action="recommend" data-colorscheme="dark" data-href="url" data-kid-directed-site="true" data-layout="box_count" data-ref="trackLabel" data-show-faces="true" data-width="width"></div>""", new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).ColorScheme(FacebookColorScheme.Dark).Url("url").KidsMode(true).Layout(FacebookButtonLayout.BoxCount).TrackLabel("trackLabel").Faces(true).Width("width").ToString());
   }
 }

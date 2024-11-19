@@ -154,13 +154,13 @@ public sealed class VkontakteCommunityWidgetTests
     Assert.Equal(string.Empty, new VkontakteCommunityWidget().ToString());
 
     var html = new VkontakteCommunityWidget().Account("account").ToString();
-    Assert.True(html.Contains(@"<div id=""vk_groups_account""></div>"));
-    Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-    Assert.True(html.Contains(@"VK.Widgets.Group(""vk_groups_account"", {""mode"":0}, ""account"");"));
+    Assert.True(html.Contains("""<div id="vk_groups_account"></div>"""));
+    Assert.True(html.Contains("""<script type="text/javascript">"""));
+    Assert.True(html.Contains("""VK.Widgets.Group("vk_groups_account", {"mode":0}, "account");"""));
 
     html = new VkontakteCommunityWidget().Account("account").Width("width").Height("height").Mode(VkontakteCommunityMode.News).ElementId("elementId").BackgroundColor("backgroundColor").TextColor("textColor").ButtonColor("buttonColor").ToString();
-    Assert.True(html.Contains(@"<div id=""elementId""></div>"));
-    Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-    Assert.True(html.Contains(@"VK.Widgets.Group(""elementId"", {""mode"":2,""wide"":1,""width"":""width"",""height"":""height"",""color1"":""backgroundColor"",""color2"":""textColor"",""color3"":""buttonColor""}, ""account"");"));
+    Assert.True(html.Contains("""<div id="elementId"></div>"""));
+    Assert.True(html.Contains("""<script type="text/javascript">"""));
+    Assert.True(html.Contains("""VK.Widgets.Group("elementId", {"mode":2,"wide":1,"width":"width","height":"height","color1":"backgroundColor","color2":"textColor","color3":"buttonColor"}, "account");"""));
   }
 }

@@ -45,7 +45,9 @@ public sealed class DisqusCommentsWidgetTests
     Assert.Equal(string.Empty, new DisqusCommentsWidget().ToString());
 
     var html = new DisqusCommentsWidget().Account("account").ToString();
-    Assert.True(html.Contains(@"<div id=""disqus_thread""></div>"));
-    Assert.True(html.Contains(@"var disqus_shortname = ""account"""));
+    Assert.True(html.Contains("""<div id="disqus_thread"></div>"""));
+    Assert.True(html.Contains("""
+                              var disqus_shortname = "account"
+                              """));
   }
 }

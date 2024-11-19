@@ -79,6 +79,6 @@ public sealed class FacebookVideoWidgetTests
     Assert.Equal(string.Empty, new FacebookVideoWidget().Id("id").Height("height").ToString());
     Assert.Equal(string.Empty, new FacebookVideoWidget().Id("width").Height("height").ToString());
 
-    Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://www.facebook.com/video/embed?video_id=id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new FacebookVideoWidget().Id("id").Width("width").Height("height").ToString());
+    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.facebook.com/video/embed?video_id=id" webkitallowfullscreen="true" width="width"></iframe>""", new FacebookVideoWidget().Id("id").Width("width").Height("height").ToString());
   }
 }

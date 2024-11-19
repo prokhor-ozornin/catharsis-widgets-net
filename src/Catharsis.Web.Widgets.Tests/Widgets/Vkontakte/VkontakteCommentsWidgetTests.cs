@@ -124,13 +124,13 @@ public sealed class VkontakteCommentsWidgetTests
   public void ToHtml_Method()
   {
     var html = new VkontakteCommentsWidget().ToString();
-    Assert.True(html.Contains(@"<div id=""vk_comments""></div>"));
-    Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-    Assert.True(html.Contains(@"VK.Widgets.Comments(""vk_comments"", {""limit"":5,""attach"":false});"));
+    Assert.True(html.Contains("""<div id="vk_comments"></div>"""));
+    Assert.True(html.Contains("""<script type="text/javascript">"""));
+    Assert.True(html.Contains("""VK.Widgets.Comments("vk_comments", {"limit":5,"attach":false});"""));
 
     html = new VkontakteCommentsWidget().Limit(10).Attach(VkontakteCommentsAttach.All).Width("width").AutoPublish(true).AutoUpdate(true).ElementId("elementId").Mini(true).ToString();
-    Assert.True(html.Contains(@"<div id=""elementId""></div>"));
-    Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-    Assert.True(html.Contains(@"VK.Widgets.Comments(""elementId"", {""limit"":10,""attach"":""*"",""width"":""width"",""autoPublish"":1,""norealtime"":0,""mini"":1});"));
+    Assert.True(html.Contains("""<div id="elementId"></div>"""));
+    Assert.True(html.Contains("""<script type="text/javascript">"""));
+    Assert.True(html.Contains("""VK.Widgets.Comments("elementId", {"limit":10,"attach":"*","width":"width","autoPublish":1,"norealtime":0,"mini":1});"""));
   }
 }

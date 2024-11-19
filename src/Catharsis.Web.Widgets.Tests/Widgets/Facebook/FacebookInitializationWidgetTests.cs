@@ -45,7 +45,7 @@ public sealed class FacebookInitializationWidgetTests
     Assert.Equal(string.Empty, new FacebookInitializationWidget().ToString());
 
     var html = new FacebookInitializationWidget().AppId("appId").ToString();
-    Assert.True(html.Contains(@"<div id=""fb-root""></div>"));
-    Assert.True(html.Contains(@"//connect.facebook.net/en_US/all.js#xfbml=1&appId=appId"));
+    Assert.True(html.Contains("""<div id="fb-root"></div>"""));
+    Assert.True(html.Contains("//connect.facebook.net/en_US/all.js#xfbml=1&appId=appId"));
   }
 }

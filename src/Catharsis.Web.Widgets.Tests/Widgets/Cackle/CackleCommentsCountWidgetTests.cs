@@ -56,7 +56,7 @@ public sealed class CackleCommentsCountWidgetTests
     using (new AssertionScope())
     {
       Validate(string.Empty, new CackleCommentsCountWidget());
-      Validate(@"{""widget"":""CommentCount"",""id"":""account""}", new CackleCommentsCountWidget().Account("account"));
+      Validate("""{"widget":"CommentCount","id":"account"}""", new CackleCommentsCountWidget().Account("account"));
     }
 
     return;

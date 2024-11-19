@@ -97,11 +97,11 @@ public sealed class CackleLatestCommentsWidgetTests
     Assert.Equal(string.Empty, new CackleLatestCommentsWidget().ToString());
 
     var html = new CackleLatestCommentsWidget().Account("account").ToString();
-    Assert.True(html.Contains(@"<div id=""mc-last""></div>"));
-    Assert.True(html.Contains(@"{""widget"":""CommentRecent"",""id"":""account"",""size"":5,""avatarSize"":32,""textSize"":150,""titleSize"":40}"));
+    Assert.True(html.Contains("""<div id="mc-last"></div>"""));
+    Assert.True(html.Contains("""{"widget":"CommentRecent","id":"account","size":5,"avatarSize":32,"textSize":150,"titleSize":40}"""));
 
     html = new CackleLatestCommentsWidget().Account("account").Max(1).AvatarSize(2).TextSize(3).TitleSize(4).ToString();
-    Assert.True(html.Contains(@"<div id=""mc-last""></div>"));
-    Assert.True(html.Contains(@"{""widget"":""CommentRecent"",""id"":""account"",""size"":1,""avatarSize"":2,""textSize"":3,""titleSize"":4}"));
+    Assert.True(html.Contains("""<div id="mc-last"></div>"""));
+    Assert.True(html.Contains("""{"widget":"CommentRecent","id":"account","size":1,"avatarSize":2,"textSize":3,"titleSize":4}"""));
   }
 }

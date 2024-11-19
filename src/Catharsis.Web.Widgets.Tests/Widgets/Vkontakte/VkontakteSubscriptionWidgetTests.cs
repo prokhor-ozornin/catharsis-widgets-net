@@ -87,11 +87,15 @@ public sealed class VkontakteSubscriptionWidgetTests
     Assert.Equal(string.Empty, new VkontakteSubscriptionWidget().ToString());
 
     var html = new VkontakteSubscriptionWidget().Account("account").ToString();
-    Assert.True(html.Contains(@"<div id=""vk_subscribe_account""></div>"));
-    Assert.True(html.Contains(@"VK.Widgets.Subscribe(""vk_subscribe_account"", {""mode"":0}, ""account"""));
+    Assert.True(html.Contains("""<div id="vk_subscribe_account"></div>"""));
+    Assert.True(html.Contains("""
+                              VK.Widgets.Subscribe("vk_subscribe_account", {"mode":0}, "account"
+                              """));
 
     html = new VkontakteSubscriptionWidget().Account("account").Layout(VkontakteSubscriptionButtonLayout.LightButton).ElementId("elementId").OnlyButton(true).ToString();
-    Assert.True(html.Contains(@"<div id=""elementId""></div>"));
-    Assert.True(html.Contains(@"VK.Widgets.Subscribe(""elementId"", {""mode"":1,""soft"":1}, ""account"""));
+    Assert.True(html.Contains("""<div id="elementId"></div>"""));
+    Assert.True(html.Contains("""
+                              VK.Widgets.Subscribe("elementId", {"mode":1,"soft":1}, "account"
+                              """));
   }
 }

@@ -76,17 +76,29 @@ public sealed class IntenseDebateCommentsWidgetTests
     Assert.Equal(string.Empty, new IntenseDebateCommentsWidget().ToString());
 
     var html = new IntenseDebateCommentsWidget().Account("account").ToString();
-    Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-    Assert.True(html.Contains(@"var idcomments_acct = ""account"";"));
-    Assert.True(html.Contains(@"var idcomments_post_id = """""));
-    Assert.True(html.Contains(@"var idcomments_post_url = """""));
-    Assert.True(html.Contains(@"var idcomments_post_title = """""));
+    Assert.True(html.Contains("""<script type="text/javascript">"""));
+    Assert.True(html.Contains("""var idcomments_acct = "account";"""));
+    Assert.True(html.Contains("""
+                              var idcomments_post_id = ""
+                              """));
+    Assert.True(html.Contains("""
+                              var idcomments_post_url = ""
+                              """));
+    Assert.True(html.Contains("""
+                              var idcomments_post_title = ""
+                              """));
 
     html = new IntenseDebateCommentsWidget().Account("account").PostId("postId").PostUrl("postUrl").PostTitle("postTitle").ToString();
-    Assert.True(html.Contains(@"<script type=""text/javascript"">"));
-    Assert.True(html.Contains(@"var idcomments_acct = ""account"";"));
-    Assert.True(html.Contains(@"var idcomments_post_id = ""postId"""));
-    Assert.True(html.Contains(@"var idcomments_post_url = ""postUrl"""));
-    Assert.True(html.Contains(@"var idcomments_post_title = ""postTitle"""));
+    Assert.True(html.Contains("""<script type="text/javascript">"""));
+    Assert.True(html.Contains("""var idcomments_acct = "account";"""));
+    Assert.True(html.Contains("""
+                              var idcomments_post_id = "postId"
+                              """));
+    Assert.True(html.Contains("""
+                              var idcomments_post_url = "postUrl"
+                              """));
+    Assert.True(html.Contains("""
+                              var idcomments_post_title = "postTitle"
+                              """));
   }
 }

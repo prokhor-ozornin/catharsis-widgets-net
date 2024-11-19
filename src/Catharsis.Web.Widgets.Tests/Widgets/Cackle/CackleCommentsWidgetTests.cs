@@ -1,5 +1,6 @@
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -43,10 +44,15 @@ public sealed class CackleCommentsWidgetTests
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new CackleCommentsWidget().ToString());
+    using (new AssertionScope())
+    {
+      Validate(string.Empty, new CackleCommentsWidget());
+      Validate("""<div id="mc-container"></div>""", new CackleCommentsWidget().Account("account"));
+      Validate("""{"widget":"Comment","id":"account"}""", new CackleCommentsWidget().Account("account"));
+    }
 
-    var html = new CackleCommentsWidget().Account("account").ToString();
-    Assert.True(html.Contains(@"<div id=""mc-container""></div>"));
-    Assert.True(html.Contains(@"{""widget"":""Comment"",""id"":""account""}"));
+    return;
+
+    static void Validate(string result, ICackleCommentsWidget widget) => widget.ToHtml().Should().NotBeSameAs(widget.ToHtml()).And.Contain(result);
   }
 }

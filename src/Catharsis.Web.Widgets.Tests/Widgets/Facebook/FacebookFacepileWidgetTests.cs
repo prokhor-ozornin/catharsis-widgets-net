@@ -134,7 +134,7 @@ public sealed class FacebookFacepileWidgetTests
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(@"<div class=""fb-facepile""></div>", new FacebookFacepileWidget().ToString());
-    Assert.Equal(@"<div class=""fb-facepile"" data-action=""actions"" data-colorscheme=""dark"" data-height=""height"" data-href=""url"" data-max-rows=""10"" data-size=""large"" data-width=""width""></div>", new FacebookFacepileWidget().Url("url").Actions("actions").PhotoSize(FacebookFacePilePhotoSize.Large).Width("width").Height("height").MaxRows(10).ColorScheme(FacebookColorScheme.Dark).ToString());
+    Assert.Equal("""<div class="fb-facepile"></div>""", new FacebookFacepileWidget().ToString());
+    Assert.Equal("""<div class="fb-facepile" data-action="actions" data-colorscheme="dark" data-height="height" data-href="url" data-max-rows="10" data-size="large" data-width="width"></div>""", new FacebookFacepileWidget().Url("url").Actions("actions").PhotoSize(FacebookFacePilePhotoSize.Large).Width("width").Height("height").MaxRows(10).ColorScheme(FacebookColorScheme.Dark).ToString());
   }
 }

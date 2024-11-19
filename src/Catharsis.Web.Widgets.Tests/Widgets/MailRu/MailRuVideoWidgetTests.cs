@@ -78,6 +78,6 @@ public sealed class MailRuVideoWidgetTests
     Assert.Equal(string.Empty, new MailRuVideoWidget().Id("id").Height("height").ToString());
     Assert.Equal(string.Empty, new MailRuVideoWidget().Id("id").Width("width").ToString());
     Assert.Equal(string.Empty, new MailRuVideoWidget().Height("height").Width("width").ToString());
-    Assert.Equal(@"<iframe allowfullscreen=""true"" frameborder=""0"" height=""height"" mozallowfullscreen=""true"" src=""http://api.video.mail.ru/videos/embed/mail/id"" webkitallowfullscreen=""true"" width=""width""></iframe>", new MailRuVideoWidget().Id("id").Height("height").Width("width").ToString());
+    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://api.video.mail.ru/videos/embed/mail/id" webkitallowfullscreen="true" width="width"></iframe>""", new MailRuVideoWidget().Id("id").Height("height").Width("width").ToString());
   }
 }

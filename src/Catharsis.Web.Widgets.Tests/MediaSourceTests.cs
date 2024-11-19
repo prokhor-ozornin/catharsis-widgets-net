@@ -86,12 +86,12 @@ public sealed class MediaSourceTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MediaSource.ToHtmlString()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MediaSource.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
-    Assert.Equal(@"<source src=""url"" type=""contentType""></source>", new MediaSource("url", "contentType").ToHtmlString());
+    Assert.Equal("""<source src="url" type="contentType"></source>""", new MediaSource("url", "contentType").ToHtmlString());
   }
 
   /// <summary>
@@ -100,6 +100,6 @@ public sealed class MediaSourceTests
   [Fact]
   public void ToString_Method()
   {
-    Assert.Equal(@"<source src=""url"" type=""contentType""></source>", new MediaSource("url", "contentType").ToHtmlString());
+    Assert.Equal("""<source src="url" type="contentType"></source>""", new MediaSource("url", "contentType").ToHtmlString());
   }
 }

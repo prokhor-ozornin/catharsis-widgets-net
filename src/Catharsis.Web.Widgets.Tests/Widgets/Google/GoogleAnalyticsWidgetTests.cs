@@ -64,6 +64,6 @@ public sealed class GoogleAnalyticsWidgetTests
 
     var html = new GoogleAnalyticsWidget().Account("account").Domain("domain").ToString();
     Assert.True(html.Contains("//www.google-analytics.com/analytics.js"));
-    Assert.True(html.Contains(@"ga(""create"", ""account"", ""domain"");"));
+    Assert.True(html.Contains("""ga("create", "account", "domain");"""));
   }
 }
