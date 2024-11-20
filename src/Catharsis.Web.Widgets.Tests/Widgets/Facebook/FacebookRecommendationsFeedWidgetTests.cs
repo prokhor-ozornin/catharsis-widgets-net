@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -40,10 +42,19 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
     Assert.Throws<ArgumentNullException>(() => new FacebookRecommendationsFeedWidget().Domain(null));
     Assert.Throws<ArgumentException>(() => new FacebookRecommendationsFeedWidget().Domain(string.Empty));
 
-    var widget = new FacebookRecommendationsFeedWidget();
-    Assert.Null(widget.Domain());
-    Assert.True(ReferenceEquals(widget.Domain("domain"), widget));
-    Assert.Equal("domain", widget.Domain());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookRecommendationsFeedWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string scheme, IFacebookRecommendationsFeedWidget widget)
+    {
+      widget.Domain(scheme).Should().BeSameAs(widget);
+      widget.Domain().Should().Be(scheme);
+    }
   }
 
   /// <summary>
@@ -55,10 +66,19 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
     Assert.Throws<ArgumentNullException>(() => new FacebookRecommendationsFeedWidget().AppId(null));
     Assert.Throws<ArgumentException>(() => new FacebookRecommendationsFeedWidget().AppId(string.Empty));
 
-    var widget = new FacebookRecommendationsFeedWidget();
-    Assert.Null(widget.AppId());
-    Assert.True(ReferenceEquals(widget.AppId("appId"), widget));
-    Assert.Equal("appId", widget.AppId());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookRecommendationsFeedWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IFacebookRecommendationsFeedWidget widget)
+    {
+      widget.AppId(id).Should().BeSameAs(widget);
+      widget.AppId().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -69,10 +89,19 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
   {
     Assert.Throws<ArgumentNullException>(() => new FacebookRecommendationsFeedWidget().Actions(null));
 
-    var widget = new FacebookRecommendationsFeedWidget();
-    Assert.False(widget.Actions().Any());
-    Assert.True(ReferenceEquals(widget.Actions(new[] { "first", "second" }), widget));
-    Assert.True(widget.Actions().SequenceEqual(new[] { "first", "second" }));
+    using (new AssertionScope())
+    {
+      var widget = new FacebookRecommendationsFeedWidget();
+      new[] { Enumerable.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(IEnumerable<string> actions, IFacebookRecommendationsFeedWidget widget)
+    {
+      widget.Actions(actions).Should().BeSameAs(widget);
+      widget.Actions().Should().Equal(actions);
+    }
   }
 
   /// <summary>
@@ -84,10 +113,19 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
     Assert.Throws<ArgumentNullException>(() => new FacebookRecommendationsFeedWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new FacebookRecommendationsFeedWidget().Width(string.Empty));
 
-    var widget = new FacebookRecommendationsFeedWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookRecommendationsFeedWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IFacebookRecommendationsFeedWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -99,10 +137,19 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
     Assert.Throws<ArgumentNullException>(() => new FacebookRecommendationsFeedWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new FacebookRecommendationsFeedWidget().Height(string.Empty));
 
-    var widget = new FacebookRecommendationsFeedWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookRecommendationsFeedWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IFacebookRecommendationsFeedWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -114,10 +161,19 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
     Assert.Throws<ArgumentNullException>(() => new FacebookRecommendationsFeedWidget().ColorScheme(null));
     Assert.Throws<ArgumentException>(() => new FacebookRecommendationsFeedWidget().ColorScheme(string.Empty));
 
-    var widget = new FacebookRecommendationsFeedWidget();
-    Assert.Null(widget.ColorScheme());
-    Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-    Assert.Equal("colorScheme", widget.ColorScheme());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookRecommendationsFeedWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string scheme, IFacebookRecommendationsFeedWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme);
+    }
   }
 
   /// <summary>
@@ -126,10 +182,19 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
   [Fact]
   public void Header_Method()
   {
-    var widget = new FacebookRecommendationsFeedWidget();
-    Assert.Null(widget.Header());
-    Assert.True(ReferenceEquals(widget.Header(true), widget));
-    Assert.True(widget.Header().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookRecommendationsFeedWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IFacebookRecommendationsFeedWidget widget)
+    {
+      widget.Header(enabled).Should().BeSameAs(widget);
+      widget.Header().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -141,10 +206,19 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
     Assert.Throws<ArgumentNullException>(() => new FacebookRecommendationsFeedWidget().LinkTarget(null));
     Assert.Throws<ArgumentException>(() => new FacebookRecommendationsFeedWidget().LinkTarget(string.Empty));
 
-    var widget = new FacebookRecommendationsFeedWidget();
-    Assert.Null(widget.LinkTarget());
-    Assert.True(ReferenceEquals(widget.LinkTarget("linkTarget"), widget));
-    Assert.Equal("linkTarget", widget.LinkTarget());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookRecommendationsFeedWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string target, IFacebookRecommendationsFeedWidget widget)
+    {
+      widget.LinkTarget(target).Should().BeSameAs(widget);
+      widget.LinkTarget().Should().Be(target);
+    }
   }
 
   /// <summary>
@@ -153,10 +227,19 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
   [Fact]
   public void MaxAge_Method()
   {
-    var widget = new FacebookRecommendationsFeedWidget();
-    Assert.Null(widget.MaxAge());
-    Assert.True(ReferenceEquals(widget.MaxAge(1), widget));
-    Assert.Equal(1, widget.MaxAge().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookRecommendationsFeedWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte max, IFacebookRecommendationsFeedWidget widget)
+    {
+      widget.MaxAge(max).Should().BeSameAs(widget);
+      widget.MaxAge().Should().Be(max);
+    }
   }
 
   /// <summary>
@@ -168,10 +251,19 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
     Assert.Throws<ArgumentNullException>(() => new FacebookRecommendationsFeedWidget().TrackLabel(null));
     Assert.Throws<ArgumentException>(() => new FacebookRecommendationsFeedWidget().TrackLabel(string.Empty));
 
-    var widget = new FacebookRecommendationsFeedWidget();
-    Assert.Null(widget.TrackLabel());
-    Assert.True(ReferenceEquals(widget.TrackLabel("trackLabel"), widget));
-    Assert.Equal("trackLabel", widget.TrackLabel());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookRecommendationsFeedWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string label, IFacebookRecommendationsFeedWidget widget)
+    {
+      widget.TrackLabel(label).Should().BeSameAs(widget);
+      widget.TrackLabel().Should().Be(label);
+    }
   }
 
   /// <summary>

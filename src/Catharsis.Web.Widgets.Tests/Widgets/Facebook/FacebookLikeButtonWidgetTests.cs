@@ -1,5 +1,7 @@
 using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -38,10 +40,19 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
     Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().ColorScheme(null));
     Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().ColorScheme(string.Empty));
 
-    var widget = new FacebookLikeButtonWidget();
-    Assert.Null(widget.ColorScheme());
-    Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-    Assert.Equal("colorScheme", widget.ColorScheme());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string scheme, IFacebookLikeButtonWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme);
+    }
   }
 
   /// <summary>
@@ -50,10 +61,19 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
   [Fact]
   public void Faces_Method()
   {
-    var widget = new FacebookLikeButtonWidget();
-    Assert.Null(widget.Faces());
-    Assert.True(ReferenceEquals(widget.Faces(true), widget));
-    Assert.True(widget.Faces().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IFacebookLikeButtonWidget widget)
+    {
+      widget.Faces(enabled).Should().BeSameAs(widget);
+      widget.Faces().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -62,10 +82,19 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
   [Fact]
   public void KidsMode_Method()
   {
-    var widget = new FacebookLikeButtonWidget();
-    Assert.Null(widget.KidsMode());
-    Assert.True(ReferenceEquals(widget.KidsMode(true), widget));
-    Assert.True(widget.KidsMode().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IFacebookLikeButtonWidget widget)
+    {
+      widget.KidsMode(enabled).Should().BeSameAs(widget);
+      widget.KidsMode().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -77,10 +106,19 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
     Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().Layout(null));
     Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Layout(string.Empty));
 
-    var widget = new FacebookLikeButtonWidget();
-    Assert.Null(widget.Layout());
-    Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-    Assert.Equal("layout", widget.Layout());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string layout, IFacebookLikeButtonWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be(layout);
+    }
   }
 
   /// <summary>
@@ -92,10 +130,19 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
     Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().TrackLabel(null));
     Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().TrackLabel(string.Empty));
 
-    var widget = new FacebookLikeButtonWidget();
-    Assert.Null(widget.TrackLabel());
-    Assert.True(ReferenceEquals(widget.TrackLabel("trackLabel"), widget));
-    Assert.Equal("trackLabel", widget.TrackLabel());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string label, IFacebookLikeButtonWidget widget)
+    {
+      widget.TrackLabel(label).Should().BeSameAs(widget);
+      widget.TrackLabel().Should().Be(label);
+    }
   }
 
   /// <summary>
@@ -107,10 +154,19 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
     Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Url(string.Empty));
 
-    var widget = new FacebookLikeButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IFacebookLikeButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
     
   /// <summary>
@@ -122,10 +178,19 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
     Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().Verb(null));
     Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Verb(string.Empty));
 
-    var widget = new FacebookLikeButtonWidget();
-    Assert.Null(widget.Verb());
-    Assert.True(ReferenceEquals(widget.Verb("verb"), widget));
-    Assert.Equal("verb", widget.Verb());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string verb, IFacebookLikeButtonWidget widget)
+    {
+      widget.Verb(verb).Should().BeSameAs(widget);
+      widget.Verb().Should().Be(verb);
+    }
   }
 
   /// <summary>
@@ -137,10 +202,19 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
     Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Width(string.Empty));
 
-    var widget = new FacebookLikeButtonWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IFacebookLikeButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>

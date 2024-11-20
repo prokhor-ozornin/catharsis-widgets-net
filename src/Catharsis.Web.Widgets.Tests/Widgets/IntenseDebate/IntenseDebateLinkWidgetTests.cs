@@ -44,10 +44,19 @@ public sealed class IntenseDebateLinkWidgetTests : ClassTest<IntenseDebateLinkWi
     Assert.Throws<ArgumentNullException>(() => new IntenseDebateLinkWidget().PostId(null));
     Assert.Throws<ArgumentException>(() => new IntenseDebateLinkWidget().PostId(string.Empty));
 
-    var widget = new IntenseDebateLinkWidget();
-    Assert.Null(widget.PostId());
-    Assert.True(ReferenceEquals(widget.PostId("postId"), widget));
-    Assert.Equal("postId", widget.PostId());
+    using (new AssertionScope())
+    {
+      var widget = new IntenseDebateLinkWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IIntenseDebateLinkWidget widget)
+    {
+      widget.PostId(id).Should().BeSameAs(widget);
+      widget.PostId().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -59,10 +68,19 @@ public sealed class IntenseDebateLinkWidgetTests : ClassTest<IntenseDebateLinkWi
     Assert.Throws<ArgumentNullException>(() => new IntenseDebateLinkWidget().PostUrl(null));
     Assert.Throws<ArgumentException>(() => new IntenseDebateLinkWidget().PostUrl(string.Empty));
 
-    var widget = new IntenseDebateLinkWidget();
-    Assert.Null(widget.PostUrl());
-    Assert.True(ReferenceEquals(widget.PostUrl("postUrl"), widget));
-    Assert.Equal("postUrl", widget.PostUrl());
+    using (new AssertionScope())
+    {
+      var widget = new IntenseDebateLinkWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IIntenseDebateLinkWidget widget)
+    {
+      widget.PostUrl(url).Should().BeSameAs(widget);
+      widget.PostUrl().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -74,10 +92,19 @@ public sealed class IntenseDebateLinkWidgetTests : ClassTest<IntenseDebateLinkWi
     Assert.Throws<ArgumentNullException>(() => new IntenseDebateLinkWidget().PostTitle(null));
     Assert.Throws<ArgumentException>(() => new IntenseDebateLinkWidget().PostTitle(string.Empty));
 
-    var widget = new IntenseDebateLinkWidget();
-    Assert.Null(widget.PostTitle());
-    Assert.True(ReferenceEquals(widget.PostTitle("postTitle"), widget));
-    Assert.Equal("postTitle", widget.PostTitle());
+    using (new AssertionScope())
+    {
+      var widget = new IntenseDebateLinkWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string title, IIntenseDebateLinkWidget widget)
+    {
+      widget.PostTitle(title).Should().BeSameAs(widget);
+      widget.PostTitle().Should().Be(title);
+    }
   }
 
   /// <summary>

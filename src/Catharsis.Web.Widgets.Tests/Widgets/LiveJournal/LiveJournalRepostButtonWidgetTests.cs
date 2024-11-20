@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -32,10 +34,19 @@ public sealed class LiveJournalRepostButtonWidgetTests : ClassTest<LiveJournalRe
     Assert.Throws<ArgumentNullException>(() => new LiveJournalRepostButtonWidget().Text(null));
     Assert.Throws<ArgumentException>(() => new LiveJournalRepostButtonWidget().Text(string.Empty));
 
-    var widget = new LiveJournalRepostButtonWidget();
-    Assert.Null(widget.Text());
-    Assert.True(ReferenceEquals(widget.Text("text"), widget));
-    Assert.Equal("text", widget.Text());
+    using (new AssertionScope())
+    {
+      var widget = new LiveJournalRepostButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string text, ILiveJournalRepostButtonWidget widget)
+    {
+      widget.Text(text).Should().BeSameAs(widget);
+      widget.Text().Should().Be(text);
+    }
   }
 
   /// <summary>
@@ -47,10 +58,19 @@ public sealed class LiveJournalRepostButtonWidgetTests : ClassTest<LiveJournalRe
     Assert.Throws<ArgumentNullException>(() => new LiveJournalRepostButtonWidget().Title(null));
     Assert.Throws<ArgumentException>(() => new LiveJournalRepostButtonWidget().Title(string.Empty));
 
-    var widget = new LiveJournalRepostButtonWidget();
-    Assert.Null(widget.Title());
-    Assert.True(ReferenceEquals(widget.Title("title"), widget));
-    Assert.Equal("title", widget.Title());
+    using (new AssertionScope())
+    {
+      var widget = new LiveJournalRepostButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string title, ILiveJournalRepostButtonWidget widget)
+    {
+      widget.Title(title).Should().BeSameAs(widget);
+      widget.Title().Should().Be(title);
+    }
   }
 
   /// <summary>

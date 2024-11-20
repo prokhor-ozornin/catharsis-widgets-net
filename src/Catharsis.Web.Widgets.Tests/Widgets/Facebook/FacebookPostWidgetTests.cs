@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -32,10 +34,19 @@ public sealed class FacebookPostWidgetTests : ClassTest<FacebookPostWidget>
     Assert.Throws<ArgumentNullException>(() => new FacebookPostWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new FacebookPostWidget().Url(string.Empty));
 
-    var widget = new FacebookPostWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookPostWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IFacebookPostWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -47,10 +58,19 @@ public sealed class FacebookPostWidgetTests : ClassTest<FacebookPostWidget>
     Assert.Throws<ArgumentNullException>(() => new FacebookPostWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new FacebookPostWidget().Width(string.Empty));
 
-    var widget = new FacebookPostWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookPostWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IFacebookPostWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>

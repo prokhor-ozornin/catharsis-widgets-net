@@ -2,6 +2,7 @@
 using FluentAssertions;
 using Xunit;
 using Catharsis.Extensions;
+using FluentAssertions.Execution;
 
 namespace Catharsis.Web.Widgets;
 
@@ -34,10 +35,19 @@ public sealed class GravatarProfileUrlWidgetTests : ClassTest<GravatarProfileUrl
     Assert.Throws<ArgumentNullException>(() => new GravatarProfileUrlWidget().Hash(null));
     Assert.Throws<ArgumentException>(() => new GravatarProfileUrlWidget().Hash(string.Empty));
 
-    var widget = new GravatarProfileUrlWidget();
-    Assert.Null(widget.Hash());
-    Assert.True(ReferenceEquals(widget.Hash("hash"), widget));
-    Assert.Equal("hash", widget.Hash());
+    using (new AssertionScope())
+    {
+      var widget = new GravatarProfileUrlWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string hash, IGravatarProfileUrlWidget widget)
+    {
+      widget.Hash(hash).Should().BeSameAs(widget);
+      widget.Hash().Should().Be(hash);
+    }
   }
 
   /// <summary>
@@ -49,10 +59,19 @@ public sealed class GravatarProfileUrlWidgetTests : ClassTest<GravatarProfileUrl
     Assert.Throws<ArgumentNullException>(() => new GravatarProfileUrlWidget().Format(null));
     Assert.Throws<ArgumentException>(() => new GravatarProfileUrlWidget().Format(string.Empty));
 
-    var widget = new GravatarProfileUrlWidget();
-    Assert.Null(widget.Format());
-    Assert.True(ReferenceEquals(widget.Format("format"), widget));
-    Assert.Equal("format", widget.Format());
+    using (new AssertionScope())
+    {
+      var widget = new GravatarProfileUrlWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string format, IGravatarProfileUrlWidget widget)
+    {
+      widget.Format(format).Should().BeSameAs(widget);
+      widget.Format().Should().Be(format);
+    }
   }
 
   /// <summary>

@@ -44,10 +44,19 @@ public sealed class IntenseDebateCommentsWidgetTests : ClassTest<IntenseDebateCo
     Assert.Throws<ArgumentNullException>(() => new IntenseDebateCommentsWidget().PostId(null));
     Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().PostId(string.Empty));
 
-    var widget = new IntenseDebateCommentsWidget();
-    Assert.Null(widget.PostId());
-    Assert.True(ReferenceEquals(widget.PostId("postId"), widget));
-    Assert.Equal("postId", widget.PostId());
+    using (new AssertionScope())
+    {
+      var widget = new IntenseDebateCommentsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IIntenseDebateCommentsWidget widget)
+    {
+      widget.PostId(id).Should().BeSameAs(widget);
+      widget.PostId().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -59,10 +68,19 @@ public sealed class IntenseDebateCommentsWidgetTests : ClassTest<IntenseDebateCo
     Assert.Throws<ArgumentNullException>(() => new IntenseDebateCommentsWidget().PostUrl(null));
     Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().PostUrl(string.Empty));
 
-    var widget = new IntenseDebateCommentsWidget();
-    Assert.Null(widget.PostUrl());
-    Assert.True(ReferenceEquals(widget.PostUrl("postUrl"), widget));
-    Assert.Equal("postUrl", widget.PostUrl());
+    using (new AssertionScope())
+    {
+      var widget = new IntenseDebateCommentsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IIntenseDebateCommentsWidget widget)
+    {
+      widget.PostUrl(url).Should().BeSameAs(widget);
+      widget.PostUrl().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -74,10 +92,19 @@ public sealed class IntenseDebateCommentsWidgetTests : ClassTest<IntenseDebateCo
     Assert.Throws<ArgumentNullException>(() => new IntenseDebateCommentsWidget().PostTitle(null));
     Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().PostTitle(string.Empty));
 
-    var widget = new IntenseDebateCommentsWidget();
-    Assert.Null(widget.PostTitle());
-    Assert.True(ReferenceEquals(widget.PostTitle("postTitle"), widget));
-    Assert.Equal("postTitle", widget.PostTitle());
+    using (new AssertionScope())
+    {
+      var widget = new IntenseDebateCommentsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string title, IIntenseDebateCommentsWidget widget)
+    {
+      widget.PostTitle(title).Should().BeSameAs(widget);
+      widget.PostTitle().Should().Be(title);
+    }
   }
 
   /// <summary>

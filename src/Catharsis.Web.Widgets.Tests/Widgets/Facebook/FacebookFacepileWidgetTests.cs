@@ -1,5 +1,9 @@
-﻿using Catharsis.Commons;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -36,10 +40,19 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
   {
     Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().Actions(null));
 
-    var widget = new FacebookFacePileWidget();
-    Assert.False(widget.Actions().Any());
-    Assert.True(ReferenceEquals(widget.Actions(new[] { "first", "second" }), widget));
-    Assert.True(widget.Actions().SequenceEqual(new[] { "first", "second" }));
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFacePileWidget();
+      new[] { Enumerable.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(IEnumerable<string> actions, IFacebookFacePileWidget widget)
+    {
+      widget.Actions(actions).Should().BeSameAs(widget);
+      widget.Actions().Should().Equal(actions);
+    }
   }
 
   /// <summary>
@@ -51,10 +64,19 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
     Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().ColorScheme(null));
     Assert.Throws<ArgumentException>(() => new FacebookFacePileWidget().ColorScheme(string.Empty));
 
-    var widget = new FacebookFacePileWidget();
-    Assert.Null(widget.ColorScheme());
-    Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-    Assert.Equal("colorScheme", widget.ColorScheme());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFacePileWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string scheme, IFacebookFacePileWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme);
+    }
   }
 
   /// <summary>
@@ -66,10 +88,19 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
     Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new FacebookFacePileWidget().Height(string.Empty));
 
-    var widget = new FacebookFacePileWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFacePileWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IFacebookFacePileWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -78,10 +109,19 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
   [Fact]
   public void MaxRows_Method()
   {
-    var widget = new FacebookFacePileWidget();
-    Assert.Null(widget.MaxRows());
-    Assert.True(ReferenceEquals(widget.MaxRows(1), widget));
-    Assert.Equal(1, widget.MaxRows().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFacePileWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte count, IFacebookFacePileWidget widget)
+    {
+      widget.MaxRows(count).Should().BeSameAs(widget);
+      widget.MaxRows().Should().Be(count);
+    }
   }
 
   /// <summary>
@@ -93,10 +133,19 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
     Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().PhotoSize(null));
     Assert.Throws<ArgumentException>(() => new FacebookFacePileWidget().PhotoSize(string.Empty));
 
-    var widget = new FacebookFacePileWidget();
-    Assert.Null(widget.PhotoSize());
-    Assert.True(ReferenceEquals(widget.PhotoSize("photoSize"), widget));
-    Assert.Equal("photoSize", widget.PhotoSize());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFacePileWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string size, IFacebookFacePileWidget widget)
+    {
+      widget.PhotoSize(size).Should().BeSameAs(widget);
+      widget.PhotoSize().Should().Be(size);
+    }
   }
 
   /// <summary>
@@ -108,10 +157,19 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
     Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new FacebookFacePileWidget().Url(string.Empty));
 
-    var widget = new FacebookFacePileWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFacePileWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IFacebookFacePileWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -123,10 +181,19 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
     Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new FacebookFacePileWidget().Width(string.Empty));
 
-    var widget = new FacebookFacePileWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFacePileWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IFacebookFacePileWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>

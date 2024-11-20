@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -31,10 +33,19 @@ public sealed class FacebookInitializationWidgetTests : ClassTest<FacebookInitia
     Assert.Throws<ArgumentNullException>(() => new FacebookInitializationWidget().AppId(null));
     Assert.Throws<ArgumentException>(() => new FacebookInitializationWidget().AppId(string.Empty));
 
-    var widget = new FacebookInitializationWidget();
-    Assert.Null(widget.AppId());
-    Assert.True(ReferenceEquals(widget.AppId("appId"), widget));
-    Assert.Equal("appId", widget.AppId());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookInitializationWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IFacebookInitializationWidget widget)
+    {
+      widget.AppId(id).Should().BeSameAs(widget);
+      widget.AppId().Should().Be(id);
+    }
   }
 
   /// <summary>

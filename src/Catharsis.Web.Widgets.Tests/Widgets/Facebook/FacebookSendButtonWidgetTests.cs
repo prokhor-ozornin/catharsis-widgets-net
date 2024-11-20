@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -36,10 +38,19 @@ public sealed class FacebookSendButtonWidgetTests : ClassTest<FacebookSendButton
     Assert.Throws<ArgumentNullException>(() => new FacebookSendButtonWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new FacebookSendButtonWidget().Url(string.Empty));
 
-    var widget = new FacebookSendButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookSendButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IFacebookSendButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -51,10 +62,19 @@ public sealed class FacebookSendButtonWidgetTests : ClassTest<FacebookSendButton
     Assert.Throws<ArgumentNullException>(() => new FacebookSendButtonWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new FacebookSendButtonWidget().Width(string.Empty));
 
-    var widget = new FacebookSendButtonWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookSendButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IFacebookSendButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -66,10 +86,19 @@ public sealed class FacebookSendButtonWidgetTests : ClassTest<FacebookSendButton
     Assert.Throws<ArgumentNullException>(() => new FacebookSendButtonWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new FacebookSendButtonWidget().Height(string.Empty));
 
-    var widget = new FacebookSendButtonWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookSendButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IFacebookSendButtonWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -81,10 +110,19 @@ public sealed class FacebookSendButtonWidgetTests : ClassTest<FacebookSendButton
     Assert.Throws<ArgumentNullException>(() => new FacebookSendButtonWidget().ColorScheme(null));
     Assert.Throws<ArgumentException>(() => new FacebookSendButtonWidget().ColorScheme(string.Empty));
 
-    var widget = new FacebookSendButtonWidget();
-    Assert.Null(widget.ColorScheme());
-    Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-    Assert.Equal("colorScheme", widget.ColorScheme());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookSendButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string scheme, IFacebookSendButtonWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme);
+    }
   }
 
   /// <summary>
@@ -93,10 +131,19 @@ public sealed class FacebookSendButtonWidgetTests : ClassTest<FacebookSendButton
   [Fact]
   public void KidsMode_Method()
   {
-    var widget = new FacebookSendButtonWidget();
-    Assert.Null(widget.KidsMode());
-    Assert.True(ReferenceEquals(widget.KidsMode(true), widget));
-    Assert.True(widget.KidsMode().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookSendButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IFacebookSendButtonWidget widget)
+    {
+      widget.KidsMode(enabled).Should().BeSameAs(widget);
+      widget.KidsMode().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -108,10 +155,19 @@ public sealed class FacebookSendButtonWidgetTests : ClassTest<FacebookSendButton
     Assert.Throws<ArgumentNullException>(() => new FacebookSendButtonWidget().TrackLabel(null));
     Assert.Throws<ArgumentException>(() => new FacebookSendButtonWidget().TrackLabel(string.Empty));
 
-    var widget = new FacebookSendButtonWidget();
-    Assert.Null(widget.TrackLabel());
-    Assert.True(ReferenceEquals(widget.TrackLabel("trackLabel"), widget));
-    Assert.Equal("trackLabel", widget.TrackLabel());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookSendButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string label, IFacebookSendButtonWidget widget)
+    {
+      widget.TrackLabel(label).Should().BeSameAs(widget);
+      widget.TrackLabel().Should().Be(label);
+    }
   }
 
   /// <summary>

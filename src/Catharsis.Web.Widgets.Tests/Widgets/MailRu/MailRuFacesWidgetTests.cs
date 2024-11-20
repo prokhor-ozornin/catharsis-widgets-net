@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -41,10 +43,19 @@ public sealed class MailRuFacesWidgetTests : ClassTest<MailRuFacesWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().BackgroundColor(null));
     Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().BackgroundColor(string.Empty));
 
-    var widget = new MailRuFacesWidget();
-    Assert.Null(widget.BackgroundColor());
-    Assert.True(ReferenceEquals(widget.BackgroundColor("backgroundColor"), widget));
-    Assert.Equal("backgroundColor", widget.BackgroundColor());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IMailRuFacesWidget widget)
+    {
+      widget.BackgroundColor(color).Should().BeSameAs(widget);
+      widget.BackgroundColor().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -56,10 +67,19 @@ public sealed class MailRuFacesWidgetTests : ClassTest<MailRuFacesWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().BorderColor(null));
     Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().BorderColor(string.Empty));
 
-    var widget = new MailRuFacesWidget();
-    Assert.Null(widget.BorderColor());
-    Assert.True(ReferenceEquals(widget.BorderColor("borderColor"), widget));
-    Assert.Equal("borderColor", widget.BorderColor());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IMailRuFacesWidget widget)
+    {
+      widget.BorderColor(color).Should().BeSameAs(widget);
+      widget.BorderColor().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -71,10 +91,19 @@ public sealed class MailRuFacesWidgetTests : ClassTest<MailRuFacesWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().Domain(null));
     Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().Domain(string.Empty));
 
-    var widget = new MailRuFacesWidget();
-    Assert.Null(widget.Domain());
-    Assert.True(ReferenceEquals(widget.Domain("domain"), widget));
-    Assert.Equal("domain", widget.Domain());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string domain, IMailRuFacesWidget widget)
+    {
+      widget.Domain(domain).Should().BeSameAs(widget);
+      widget.Domain().Should().Be(domain);
+    }
   }
 
   /// <summary>
@@ -86,10 +115,19 @@ public sealed class MailRuFacesWidgetTests : ClassTest<MailRuFacesWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().Font(null));
     Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().Font(string.Empty));
 
-    var widget = new MailRuFacesWidget();
-    Assert.Equal(MailRuFacesFont.Arial.ToString(), widget.Font());
-    Assert.True(ReferenceEquals(widget.Font("font"), widget));
-    Assert.Equal("font", widget.Font());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string font, IMailRuFacesWidget widget)
+    {
+      widget.Font(font).Should().BeSameAs(widget);
+      widget.Font().Should().Be(font);
+    }
   }
 
   /// <summary>
@@ -101,10 +139,19 @@ public sealed class MailRuFacesWidgetTests : ClassTest<MailRuFacesWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().Height(string.Empty));
 
-    var widget = new MailRuFacesWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IMailRuFacesWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -116,10 +163,19 @@ public sealed class MailRuFacesWidgetTests : ClassTest<MailRuFacesWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().HyperlinkColor(null));
     Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().HyperlinkColor(string.Empty));
 
-    var widget = new MailRuFacesWidget();
-    Assert.Null(widget.HyperlinkColor());
-    Assert.True(ReferenceEquals(widget.HyperlinkColor("hyperlinkColor"), widget));
-    Assert.Equal("hyperlinkColor", widget.HyperlinkColor());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IMailRuFacesWidget widget)
+    {
+      widget.HyperlinkColor(color).Should().BeSameAs(widget);
+      widget.HyperlinkColor().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -131,10 +187,19 @@ public sealed class MailRuFacesWidgetTests : ClassTest<MailRuFacesWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().TextColor(null));
     Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().TextColor(string.Empty));
 
-    var widget = new MailRuFacesWidget();
-    Assert.Null(widget.TextColor());
-    Assert.True(ReferenceEquals(widget.TextColor("textColor"), widget));
-    Assert.Equal("textColor", widget.TextColor());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IMailRuFacesWidget widget)
+    {
+      widget.TextColor(color).Should().BeSameAs(widget);
+      widget.TextColor().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -143,10 +208,19 @@ public sealed class MailRuFacesWidgetTests : ClassTest<MailRuFacesWidget>
   [Fact]
   public void Title_Method()
   {
-    var widget = new MailRuFacesWidget();
-    Assert.True(widget.Title());
-    Assert.True(ReferenceEquals(widget.Title(false), widget));
-    Assert.False(widget.Title());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IMailRuFacesWidget widget)
+    {
+      widget.Title(enabled).Should().BeSameAs(widget);
+      widget.Title().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -158,10 +232,19 @@ public sealed class MailRuFacesWidgetTests : ClassTest<MailRuFacesWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().TitleColor(null));
     Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().TitleColor(string.Empty));
 
-    var widget = new MailRuFacesWidget();
-    Assert.Null(widget.TitleColor());
-    Assert.True(ReferenceEquals(widget.TitleColor("titleColor"), widget));
-    Assert.Equal("titleColor", widget.TitleColor());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IMailRuFacesWidget widget)
+    {
+      widget.TitleColor(color).Should().BeSameAs(widget);
+      widget.TitleColor().Should().Be(color);
+    }
   }
     
   /// <summary>
@@ -173,10 +256,19 @@ public sealed class MailRuFacesWidgetTests : ClassTest<MailRuFacesWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().TitleText(null));
     Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().TitleText(string.Empty));
 
-    var widget = new MailRuFacesWidget();
-    Assert.Null(widget.TitleText());
-    Assert.True(ReferenceEquals(widget.TitleText("titleText"), widget));
-    Assert.Equal("titleText", widget.TitleText());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string text, IMailRuFacesWidget widget)
+    {
+      widget.TitleText(text).Should().BeSameAs(widget);
+      widget.TitleText().Should().Be(text);
+    }
   }
 
   /// <summary>
@@ -188,10 +280,19 @@ public sealed class MailRuFacesWidgetTests : ClassTest<MailRuFacesWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuFacesWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new MailRuFacesWidget().Width(string.Empty));
 
-    var widget = new MailRuFacesWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IMailRuFacesWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>

@@ -1,5 +1,7 @@
 using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -37,10 +39,19 @@ public sealed class GooglePlusOneButtonWidgetTests : ClassTest<GooglePlusOneButt
     Assert.Throws<ArgumentNullException>(() => new GooglePlusOneButtonWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Url(string.Empty));
 
-    var widget = new GooglePlusOneButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new GooglePlusOneButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -52,10 +63,19 @@ public sealed class GooglePlusOneButtonWidgetTests : ClassTest<GooglePlusOneButt
     Assert.Throws<ArgumentNullException>(() => new GooglePlusOneButtonWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Width(string.Empty));
 
-    var widget = new GooglePlusOneButtonWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new GooglePlusOneButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -67,10 +87,19 @@ public sealed class GooglePlusOneButtonWidgetTests : ClassTest<GooglePlusOneButt
     Assert.Throws<ArgumentNullException>(() => new GooglePlusOneButtonWidget().Size(null));
     Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Size(string.Empty));
 
-    var widget = new GooglePlusOneButtonWidget();
-    Assert.Null(widget.Size());
-    Assert.True(ReferenceEquals(widget.Size("size"), widget));
-    Assert.Equal("size", widget.Size());
+    using (new AssertionScope())
+    {
+      var widget = new GooglePlusOneButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string size, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size);
+    }
   }
 
   /// <summary>
@@ -82,10 +111,19 @@ public sealed class GooglePlusOneButtonWidgetTests : ClassTest<GooglePlusOneButt
     Assert.Throws<ArgumentNullException>(() => new GooglePlusOneButtonWidget().Alignment(null));
     Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Alignment(string.Empty));
 
-    var widget = new GooglePlusOneButtonWidget();
-    Assert.Null(widget.Alignment());
-    Assert.True(ReferenceEquals(widget.Alignment("alignment"), widget));
-    Assert.Equal("alignment", widget.Alignment());
+    using (new AssertionScope())
+    {
+      var widget = new GooglePlusOneButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string alignment, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Alignment(alignment).Should().BeSameAs(widget);
+      widget.Alignment().Should().Be(alignment);
+    }
   }
 
   /// <summary>
@@ -97,10 +135,19 @@ public sealed class GooglePlusOneButtonWidgetTests : ClassTest<GooglePlusOneButt
     Assert.Throws<ArgumentNullException>(() => new GooglePlusOneButtonWidget().Annotation(null));
     Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Annotation(string.Empty));
 
-    var widget = new GooglePlusOneButtonWidget();
-    Assert.Null(widget.Annotation());
-    Assert.True(ReferenceEquals(widget.Annotation("annotation"), widget));
-    Assert.Equal("annotation", widget.Annotation());
+    using (new AssertionScope())
+    {
+      var widget = new GooglePlusOneButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string annotation, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Annotation(annotation).Should().BeSameAs(widget);
+      widget.Annotation().Should().Be(annotation);
+    }
   }
 
   /// <summary>
@@ -112,10 +159,19 @@ public sealed class GooglePlusOneButtonWidgetTests : ClassTest<GooglePlusOneButt
     Assert.Throws<ArgumentNullException>(() => new GooglePlusOneButtonWidget().Callback(null));
     Assert.Throws<ArgumentException>(() => new GooglePlusOneButtonWidget().Callback(string.Empty));
 
-    var widget = new GooglePlusOneButtonWidget();
-    Assert.Null(widget.Callback());
-    Assert.True(ReferenceEquals(widget.Callback("callback"), widget));
-    Assert.Equal("callback", widget.Callback());
+    using (new AssertionScope())
+    {
+      var widget = new GooglePlusOneButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string callback, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Callback(callback).Should().BeSameAs(widget);
+      widget.Callback().Should().Be(callback);
+    }
   }
 
   /// <summary>
@@ -124,10 +180,19 @@ public sealed class GooglePlusOneButtonWidgetTests : ClassTest<GooglePlusOneButt
   [Fact]
   public void Recommendations_Method()
   {
-    var widget = new GooglePlusOneButtonWidget();
-    Assert.Null(widget.Recommendations());
-    Assert.True(ReferenceEquals(widget.Recommendations(true), widget));
-    Assert.True(widget.Recommendations().Value);
+    using (new AssertionScope())
+    {
+      var widget = new GooglePlusOneButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Recommendations(enabled).Should().BeSameAs(widget);
+      widget.Recommendations().Should().Be(enabled);
+    }
   }
 
   /// <summary>

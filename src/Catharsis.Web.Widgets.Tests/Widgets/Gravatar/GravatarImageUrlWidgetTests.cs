@@ -2,6 +2,7 @@
 using FluentAssertions;
 using Xunit;
 using Catharsis.Extensions;
+using FluentAssertions.Execution;
 
 namespace Catharsis.Web.Widgets;
 
@@ -34,10 +35,19 @@ public sealed class GravatarImageUrlWidgetTests : ClassTest<GravatarImageUrlWidg
     Assert.Throws<ArgumentNullException>(() => new GravatarImageUrlWidget().Extension(null));
     Assert.Throws<ArgumentException>(() => new GravatarImageUrlWidget().Extension(string.Empty));
 
-    var widget = new GravatarImageUrlWidget();
-    Assert.Null(widget.Extension());
-    Assert.True(ReferenceEquals(widget.Extension("extension"), widget));
-    Assert.Equal("extension", widget.Extension());
+    using (new AssertionScope())
+    {
+      var widget = new GravatarImageUrlWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string extension, IGravatarImageUrlWidget widget)
+    {
+      widget.Extension(extension).Should().BeSameAs(widget);
+      widget.Extension().Should().Be(extension);
+    }
   }
 
   /// <summary>
@@ -49,10 +59,19 @@ public sealed class GravatarImageUrlWidgetTests : ClassTest<GravatarImageUrlWidg
     Assert.Throws<ArgumentNullException>(() => new GravatarImageUrlWidget().Hash(null));
     Assert.Throws<ArgumentException>(() => new GravatarImageUrlWidget().Hash(string.Empty));
 
-    var widget = new GravatarImageUrlWidget();
-    Assert.Null(widget.Hash());
-    Assert.True(ReferenceEquals(widget.Hash("hash"), widget));
-    Assert.Equal("hash", widget.Hash());
+    using (new AssertionScope())
+    {
+      var widget = new GravatarImageUrlWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string hash, IGravatarImageUrlWidget widget)
+    {
+      widget.Hash(hash).Should().BeSameAs(widget);
+      widget.Hash().Should().Be(hash);
+    }
   }
 
   /// <summary>

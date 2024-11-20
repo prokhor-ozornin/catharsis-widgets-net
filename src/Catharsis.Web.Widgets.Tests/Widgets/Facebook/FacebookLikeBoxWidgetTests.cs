@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -36,10 +38,19 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
   [Fact]
   public void Border_Method()
   {
-    var widget = new FacebookLikeBoxWidget();
-    Assert.Null(widget.Border());
-    Assert.True(ReferenceEquals(widget.Border(true), widget));
-    Assert.True(widget.Border().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeBoxWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IFacebookLikeBoxWidget widget)
+    {
+      widget.Border(enabled).Should().BeSameAs(widget);
+      widget.Border().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -51,10 +62,19 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
     Assert.Throws<ArgumentNullException>(() => new FacebookLikeBoxWidget().ColorScheme(null));
     Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().ColorScheme(string.Empty));
 
-    var widget = new FacebookLikeBoxWidget();
-    Assert.Null(widget.ColorScheme());
-    Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-    Assert.Equal("colorScheme", widget.ColorScheme());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeBoxWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string scheme, IFacebookLikeBoxWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme);
+    }
   }
 
   /// <summary>
@@ -63,10 +83,19 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
   [Fact]
   public void Faces_Method()
   {
-    var widget = new FacebookLikeBoxWidget();
-    Assert.Null(widget.Faces());
-    Assert.True(ReferenceEquals(widget.Faces(true), widget));
-    Assert.True(widget.Faces().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeBoxWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IFacebookLikeBoxWidget widget)
+    {
+      widget.Faces(enabled).Should().BeSameAs(widget);
+      widget.Faces().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -75,10 +104,19 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
   [Fact]
   public void Header_Method()
   {
-    var widget = new FacebookLikeBoxWidget();
-    Assert.Null(widget.Header());
-    Assert.True(ReferenceEquals(widget.Header(true), widget));
-    Assert.True(widget.Header().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeBoxWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IFacebookLikeBoxWidget widget)
+    {
+      widget.Header(enabled).Should().BeSameAs(widget);
+      widget.Header().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -90,10 +128,19 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
     Assert.Throws<ArgumentNullException>(() => new FacebookLikeBoxWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().Height(string.Empty));
 
-    var widget = new FacebookLikeBoxWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeBoxWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IFacebookLikeBoxWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -102,10 +149,19 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
   [Fact]
   public void Stream_Method()
   {
-    var widget = new FacebookLikeBoxWidget();
-    Assert.Null(widget.Stream());
-    Assert.True(ReferenceEquals(widget.Stream(true), widget));
-    Assert.True(widget.Stream().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeBoxWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IFacebookLikeBoxWidget widget)
+    {
+      widget.Stream(enabled).Should().BeSameAs(widget);
+      widget.Stream().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -117,10 +173,19 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
     Assert.Throws<ArgumentNullException>(() => new FacebookLikeBoxWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().Url(string.Empty));
 
-    var widget = new FacebookLikeBoxWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeBoxWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IFacebookLikeBoxWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -129,10 +194,19 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
   [Fact]
   public void Wall_Method()
   {
-    var widget = new FacebookLikeBoxWidget();
-    Assert.Null(widget.Wall());
-    Assert.True(ReferenceEquals(widget.Wall(true), widget));
-    Assert.True(widget.Wall().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeBoxWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IFacebookLikeBoxWidget widget)
+    {
+      widget.Wall(enabled).Should().BeSameAs(widget);
+      widget.Wall().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -144,10 +218,19 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
     Assert.Throws<ArgumentNullException>(() => new FacebookLikeBoxWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().Width(string.Empty));
 
-    var widget = new FacebookLikeBoxWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeBoxWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IFacebookLikeBoxWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>

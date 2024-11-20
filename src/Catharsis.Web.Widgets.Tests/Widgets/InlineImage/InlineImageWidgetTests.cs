@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 using Convert = System.Convert;
 
@@ -32,10 +34,19 @@ public sealed class InlineImageWidgetTests : ClassTest<InlineImageWidget>
   {
     Assert.Throws<ArgumentNullException>(() => new InlineImageWidget().Contents(null));
 
-    var widget = new InlineImageWidget();
-    Assert.Null(widget.Contents());
-    Assert.True(ReferenceEquals(widget.Contents(Guid.Empty.ToByteArray()), widget));
-    Assert.True(widget.Contents().SequenceEqual(Guid.Empty.ToByteArray()));
+    using (new AssertionScope())
+    {
+      var widget = new InlineImageWidget();
+      new[] { Array.Empty<byte>(), new Random().ByteSequence(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte[] contents, IInlineImageWidget widget)
+    {
+      widget.Contents(contents).Should().BeSameAs(widget);
+      widget.Contents().Should().Equal(contents);
+    }
   }
 
   /// <summary>
@@ -47,10 +58,19 @@ public sealed class InlineImageWidgetTests : ClassTest<InlineImageWidget>
     Assert.Throws<ArgumentNullException>(() => new InlineImageWidget().Format(null));
     Assert.Throws<ArgumentException>(() => new InlineImageWidget().Format(string.Empty));
 
-    var widget = new InlineImageWidget();
-    Assert.Null(widget.Format());
-    Assert.True(ReferenceEquals(widget.Format("format"), widget));
-    Assert.Equal("format", widget.Format());
+    using (new AssertionScope())
+    {
+      var widget = new InlineImageWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string format, IInlineImageWidget widget)
+    {
+      widget.Format(format).Should().BeSameAs(widget);
+      widget.Format().Should().Be(format);
+    }
   }
 
   /// <summary>

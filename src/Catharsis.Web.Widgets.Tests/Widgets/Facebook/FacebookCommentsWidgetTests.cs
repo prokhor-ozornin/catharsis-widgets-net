@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -36,10 +38,19 @@ public sealed class FacebookCommentsWidgetTests : ClassTest<FacebookCommentsWidg
     Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().ColorScheme(null));
     Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().ColorScheme(string.Empty));
 
-    var widget = new FacebookCommentsWidget();
-    Assert.Null(widget.ColorScheme());
-    Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-    Assert.Equal("colorScheme", widget.ColorScheme());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookCommentsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string scheme, IFacebookCommentsWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme);
+    }
   }
 
   /// <summary>
@@ -48,10 +59,19 @@ public sealed class FacebookCommentsWidgetTests : ClassTest<FacebookCommentsWidg
   [Fact]
   public void Mobile_Method()
   {
-    var widget = new FacebookCommentsWidget();
-    Assert.Null(widget.Mobile());
-    Assert.True(ReferenceEquals(widget.Mobile(true), widget));
-    Assert.True(widget.Mobile().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookCommentsWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool mobile, IFacebookCommentsWidget widget)
+    {
+      widget.Mobile(mobile).Should().BeSameAs(widget);
+      widget.Mobile().Should().Be(mobile);
+    }
   }
 
   /// <summary>
@@ -63,10 +83,19 @@ public sealed class FacebookCommentsWidgetTests : ClassTest<FacebookCommentsWidg
     Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Order(null));
     Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().Order(string.Empty));
 
-    var widget = new FacebookCommentsWidget();
-    Assert.Null(widget.Order());
-    Assert.True(ReferenceEquals(widget.Order("order"), widget));
-    Assert.Equal("order", widget.Order());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookCommentsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string order, IFacebookCommentsWidget widget)
+    {
+      widget.Order(order).Should().BeSameAs(widget);
+      widget.Order().Should().Be(order);
+    }
   }
 
   /// <summary>
@@ -75,10 +104,19 @@ public sealed class FacebookCommentsWidgetTests : ClassTest<FacebookCommentsWidg
   [Fact]
   public void Posts_Method()
   {
-    var widget = new FacebookCommentsWidget();
-    Assert.Null(widget.Posts());
-    Assert.True(ReferenceEquals(widget.Posts(1), widget));
-    Assert.Equal(1, widget.Posts().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookCommentsWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte count, IFacebookCommentsWidget widget)
+    {
+      widget.Posts(count).Should().BeSameAs(widget);
+      widget.Posts().Should().Be(count);
+    }
   }
 
   /// <summary>
@@ -90,10 +128,19 @@ public sealed class FacebookCommentsWidgetTests : ClassTest<FacebookCommentsWidg
     Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().Url(string.Empty));
 
-    var widget = new FacebookCommentsWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookCommentsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IFacebookCommentsWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -105,10 +152,19 @@ public sealed class FacebookCommentsWidgetTests : ClassTest<FacebookCommentsWidg
     Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().Width(string.Empty));
 
-    var widget = new FacebookCommentsWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookCommentsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IFacebookCommentsWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>

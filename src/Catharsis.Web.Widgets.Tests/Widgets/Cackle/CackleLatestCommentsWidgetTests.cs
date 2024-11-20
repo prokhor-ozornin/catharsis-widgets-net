@@ -100,10 +100,19 @@ public sealed class CackleLatestCommentsWidgetTests : ClassTest<CackleLatestComm
   [Fact]
   public void TextSize_Method()
   {
-    var widget = new CackleLatestCommentsWidget();
-    Assert.Equal(150, widget.TextSize());
-    Assert.True(ReferenceEquals(widget.TextSize(1), widget));
-    Assert.Equal(1, widget.TextSize());
+    using (new AssertionScope())
+    {
+      var widget = new CackleLatestCommentsWidget();
+      new[] { int.MinValue, int.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(int size, ICackleLatestCommentsWidget widget)
+    {
+      widget.TextSize(size).Should().BeSameAs(widget);
+      widget.TextSize().Should().Be(size);
+    }
   }
 
   /// <summary>
@@ -112,10 +121,19 @@ public sealed class CackleLatestCommentsWidgetTests : ClassTest<CackleLatestComm
   [Fact]
   public void TitleSize_Method()
   {
-    var widget = new CackleLatestCommentsWidget();
-    Assert.Equal(40, widget.TitleSize());
-    Assert.True(ReferenceEquals(widget.TitleSize(1), widget));
-    Assert.Equal(1, widget.TitleSize());
+    using (new AssertionScope())
+    {
+      var widget = new CackleLatestCommentsWidget();
+      new[] { int.MinValue, int.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(int size, ICackleLatestCommentsWidget widget)
+    {
+      widget.TitleSize(size).Should().BeSameAs(widget);
+      widget.TitleSize().Should().Be(size);
+    }
   }
 
   /// <summary>

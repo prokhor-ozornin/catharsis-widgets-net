@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -37,10 +39,19 @@ public sealed class FacebookFollowButtonWidgetTests : ClassTest<FacebookFollowBu
     Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().ColorScheme(null));
     Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().ColorScheme(string.Empty));
 
-    var widget = new FacebookFollowButtonWidget();
-    Assert.Null(widget.ColorScheme());
-    Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-    Assert.Equal("colorScheme", widget.ColorScheme());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string scheme, IFacebookFollowButtonWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme);
+    }
   }
 
   /// <summary>
@@ -49,10 +60,19 @@ public sealed class FacebookFollowButtonWidgetTests : ClassTest<FacebookFollowBu
   [Fact]
   public void Faces_Method()
   {
-    var widget = new FacebookFollowButtonWidget();
-    Assert.Null(widget.Faces());
-    Assert.True(ReferenceEquals(widget.Faces(true), widget));
-    Assert.True(widget.Faces().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFollowButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IFacebookFollowButtonWidget widget)
+    {
+      widget.Faces(enabled).Should().BeSameAs(widget);
+      widget.Faces().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -64,10 +84,19 @@ public sealed class FacebookFollowButtonWidgetTests : ClassTest<FacebookFollowBu
     Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Height(string.Empty));
 
-    var widget = new FacebookFollowButtonWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IFacebookFollowButtonWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -76,10 +105,19 @@ public sealed class FacebookFollowButtonWidgetTests : ClassTest<FacebookFollowBu
   [Fact]
   public void KidsMode_Method()
   {
-    var widget = new FacebookFollowButtonWidget();
-    Assert.Null(widget.KidsMode());
-    Assert.True(ReferenceEquals(widget.KidsMode(true), widget));
-    Assert.True(widget.KidsMode().Value);
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFollowButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IFacebookFollowButtonWidget widget)
+    {
+      widget.KidsMode(enabled).Should().BeSameAs(widget);
+      widget.KidsMode().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -91,10 +129,19 @@ public sealed class FacebookFollowButtonWidgetTests : ClassTest<FacebookFollowBu
     Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().Layout(null));
     Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Layout(string.Empty));
 
-    var widget = new FacebookFollowButtonWidget();
-    Assert.Null(widget.Layout());
-    Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-    Assert.Equal("layout", widget.Layout());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string layout, IFacebookFollowButtonWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be(layout);
+    }
   }
 
   /// <summary>
@@ -106,10 +153,19 @@ public sealed class FacebookFollowButtonWidgetTests : ClassTest<FacebookFollowBu
     Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Url(string.Empty));
 
-    var widget = new FacebookFollowButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IFacebookFollowButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -121,10 +177,19 @@ public sealed class FacebookFollowButtonWidgetTests : ClassTest<FacebookFollowBu
     Assert.Throws<ArgumentNullException>(() => new FacebookFollowButtonWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new FacebookFollowButtonWidget().Width(string.Empty));
 
-    var widget = new FacebookFollowButtonWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IFacebookFollowButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>

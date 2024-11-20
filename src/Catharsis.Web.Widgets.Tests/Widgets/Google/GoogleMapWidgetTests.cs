@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -15,7 +16,9 @@ public sealed class GoogleMapWidgetTests : ClassTest<GoogleMapWidget>
   [Fact]
   public void Constructors()
   {
-    throw new NotImplementedException();
+    typeof(GoogleMapWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IGoogleMapWidget>();
+
+    var widget = new GoogleMapWidget();
   }
 
   /// <summary>
