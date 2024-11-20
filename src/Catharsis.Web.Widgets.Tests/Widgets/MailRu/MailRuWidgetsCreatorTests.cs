@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="MailRuWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class MailRuWidgetsCreatorTests
+public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
 {
   private readonly IMailRuWidgetsCreator widgets = Widgets.Web.MailRu();
 

@@ -1,4 +1,7 @@
+using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +9,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="CackleLatestCommentsWidget"/>.</para>
 /// </summary>
-public sealed class CackleLatestCommentsWidgetTests
+public sealed class CackleLatestCommentsWidgetTests : ClassTest<CackleLatestCommentsWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -34,10 +37,19 @@ public sealed class CackleLatestCommentsWidgetTests
     Assert.Throws<ArgumentNullException>(() => new CackleLatestCommentsWidget().Account(null));
     Assert.Throws<ArgumentException>(() => new CackleLatestCommentsWidget().Account(string.Empty));
 
-    var widget = new CackleLatestCommentsWidget();
-    Assert.Null(widget.Account());
-    Assert.True(ReferenceEquals(widget.Account("account"), widget));
-    Assert.Equal("account", widget.Account());
+    using (new AssertionScope())
+    {
+      var widget = new CackleLatestCommentsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string account, ICackleLatestCommentsWidget widget)
+    {
+      widget.Account(account).Should().BeSameAs(widget);
+      widget.Account().Should().Be(account);
+    }
   }
 
   /// <summary>
@@ -46,10 +58,19 @@ public sealed class CackleLatestCommentsWidgetTests
   [Fact]
   public void AvatarSize_Method()
   {
-    var widget = new CackleLatestCommentsWidget();
-    Assert.Equal(32, widget.AvatarSize());
-    Assert.True(ReferenceEquals(widget.AvatarSize(1), widget));
-    Assert.Equal(1, widget.AvatarSize());
+    using (new AssertionScope())
+    {
+      var widget = new CackleLatestCommentsWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short size, ICackleLatestCommentsWidget widget)
+    {
+      widget.AvatarSize(size).Should().BeSameAs(widget);
+      widget.AvatarSize().Should().Be(size);
+    }
   }
 
   /// <summary>
@@ -58,10 +79,19 @@ public sealed class CackleLatestCommentsWidgetTests
   [Fact]
   public void Max_Method()
   {
-    var widget = new CackleLatestCommentsWidget();
-    Assert.Equal(5, widget.Max());
-    Assert.True(ReferenceEquals(widget.Max(1), widget));
-    Assert.Equal(1, widget.Max());
+    using (new AssertionScope())
+    {
+      var widget = new CackleLatestCommentsWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte max, ICackleLatestCommentsWidget widget)
+    {
+      widget.Max(max).Should().BeSameAs(widget);
+      widget.Max().Should().Be(max);
+    }
   }
 
   /// <summary>

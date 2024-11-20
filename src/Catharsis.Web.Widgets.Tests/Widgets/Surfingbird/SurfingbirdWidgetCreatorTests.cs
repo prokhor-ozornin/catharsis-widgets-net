@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="SurfingbirdWidgetCreator"/>.</para>
 /// </summary>
-public sealed class SurfingbirdWidgetCreatorTests
+public sealed class SurfingbirdWidgetCreatorTests : ClassTest<SurfingbirdWidgetCreator>
 {
   private readonly ISurfingbirdWidgetCreator widgets = Widgets.Web.Surfingbird();
 

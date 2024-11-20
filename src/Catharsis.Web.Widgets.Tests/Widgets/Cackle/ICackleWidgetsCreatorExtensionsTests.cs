@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="ICackleWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class CackleWidgetsCreatorExtensionsTests
+public sealed class CackleWidgetsCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="ICackleWidgetsCreatorExtensions.Comments(ICackleWidgetsCreator, Action{ICackleCommentsWidget})"/> method.</para>

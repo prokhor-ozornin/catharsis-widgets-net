@@ -1,4 +1,5 @@
-﻿using Catharsis.Extensions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IVkontakteAuthButtonWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IVkontakteAuthButtonWidgetExtensionsTests
+public sealed class IVkontakteAuthButtonWidgetExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IVkontakteAuthButtonWidgetExtensions.Width(IVkontakteAuthButtonWidget, short)"/> method.</para>

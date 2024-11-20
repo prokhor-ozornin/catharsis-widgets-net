@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="ITwitterWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class ITwitterWidgetCreatorExtensionsTests
+public sealed class ITwitterWidgetCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="ITwitterWidgetCreatorExtensions.FollowButton(ITwitterWidgetCreator, Action{ITwitterFollowButtonWidget})"/> method.</para>

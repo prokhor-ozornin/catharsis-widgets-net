@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="IPinterestWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IPinterestWidgetCreatorExtensionsTests
+public sealed class IPinterestWidgetCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IPinterestWidgetCreatorExtensions.Board(IPinterestWidgetCreator, Action{IPinterestBoardWidget})"/> method.</para>

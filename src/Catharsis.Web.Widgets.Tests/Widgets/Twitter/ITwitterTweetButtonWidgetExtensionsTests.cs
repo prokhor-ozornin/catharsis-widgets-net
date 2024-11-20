@@ -1,4 +1,5 @@
 using System.Globalization;
+using Catharsis.Commons;
 using Catharsis.Extensions;
 using Xunit;
 
@@ -7,7 +8,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="ITwitterTweetButtonWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class ITwitterTweetButtonWidgetExtensionsTests
+public sealed class ITwitterTweetButtonWidgetExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="ITwitterTweetButtonWidgetExtensions.Language(ITwitterTweetButtonWidget, CultureInfo)"/> method.</para>

@@ -1,4 +1,5 @@
-﻿using Catharsis.Extensions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IMailRuFacesWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IMailRuFacesWidgetExtensionsTests
+public sealed class IMailRuFacesWidgetExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IMailRuFacesWidgetExtensions.Font(IMailRuFacesWidget, MailRuFacesFont)"/> method.</para>

@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="YouTubeWidgetCreator"/>.</para>
 /// </summary>
-public sealed class YouTubeWidgetCreatorTests
+public sealed class YouTubeWidgetCreatorTests : ClassTest<YouTubeWidgetCreator>
 {
   private readonly IYouTubeWidgetCreator widgets = Widgets.Web.YouTube();
 

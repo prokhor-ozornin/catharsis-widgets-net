@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="IInlineImageExtensions"/>.</para>
 /// </summary>
-public sealed class IInlineImageExtensionsTests
+public sealed class IInlineImageExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IInlineImageExtensions.Jpg(IInlineImageWidget)"/> method.</para>

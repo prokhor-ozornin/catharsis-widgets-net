@@ -1,5 +1,8 @@
 ﻿using System.Text;
+using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -7,7 +10,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="YandexMoneyDonateFormWidget"/>.</para>
 /// </summary>
-public sealed class YandexMoneyDonateFormWidgetTests
+public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDonateFormWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -43,10 +46,19 @@ public sealed class YandexMoneyDonateFormWidgetTests
     Assert.Throws<ArgumentNullException>(() => new YandexMoneyDonateFormWidget().Account(null));
     Assert.Throws<ArgumentException>(() => new YandexMoneyDonateFormWidget().Account(string.Empty));
 
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.Null(widget.Account());
-    Assert.True(ReferenceEquals(widget.Account("account"), widget));
-    Assert.Equal("account", widget.Account());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string account, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.Account(account).Should().BeSameAs(widget);
+      widget.Account().Should().Be(account);
+    }
   }
 
   /// <summary>

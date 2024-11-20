@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="VideoJsWidgetCreator"/>.</para>
 /// </summary>
-public sealed class VideoJsWidgetCreatorTests
+public sealed class VideoJsWidgetCreatorTests : ClassTest<VideoJsWidgetCreator>
 {
   private readonly IVideoJSWidgetCreator widgets = Widgets.Web.VideoJS();
 

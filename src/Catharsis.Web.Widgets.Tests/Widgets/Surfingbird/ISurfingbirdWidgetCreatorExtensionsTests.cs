@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="ISurfingbirdWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class ISurfingbirdWidgetCreatorExtensionsTests
+public sealed class ISurfingbirdWidgetCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="ISurfingbirdWidgetCreatorExtensions.SurfButton(ISurfingbirdWidgetCreator, Action{ISurfingbirdSurfButtonWidget})"/> method.</para>

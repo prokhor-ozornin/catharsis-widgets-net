@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="IFacebookSendButtonWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IFacebookSendButtonWidgetExtensionsTests
+public sealed class IFacebookSendButtonWidgetExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookSendButtonWidgetExtensions.Width(IFacebookSendButtonWidget, short)"/> method.</para>

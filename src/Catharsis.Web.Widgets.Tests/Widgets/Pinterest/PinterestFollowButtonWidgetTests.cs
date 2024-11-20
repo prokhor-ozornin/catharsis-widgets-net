@@ -1,4 +1,7 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +9,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="PinterestFollowButtonWidget"/>.</para>
 /// </summary>
-public sealed class PinterestFollowButtonWidgetTests
+public sealed class PinterestFollowButtonWidgetTests : ClassTest<PinterestFollowButtonWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -31,10 +34,19 @@ public sealed class PinterestFollowButtonWidgetTests
     Assert.Throws<ArgumentNullException>(() => new PinterestFollowButtonWidget().Account(null));
     Assert.Throws<ArgumentException>(() => new PinterestFollowButtonWidget().Account(string.Empty));
 
-    var widget = new PinterestFollowButtonWidget();
-    Assert.Null(widget.Account());
-    Assert.True(ReferenceEquals(widget.Account("account"), widget));
-    Assert.Equal("account", widget.Account());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string account, IPinterestFollowButtonWidget widget)
+    {
+      widget.Account(account).Should().BeSameAs(widget);
+      widget.Account().Should().Be(account);
+    }
   }
 
   /// <summary>

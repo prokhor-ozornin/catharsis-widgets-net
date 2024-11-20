@@ -3,17 +3,17 @@
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
-///   <para>Tests set for class <see cref="TagBuilderExtensions"/>.</para>
+///   <para>Tests set for interface <see cref="ITagBuilderExtensions"/>.</para>
 /// </summary>
-public sealed class TagBuilderExtensionsTests
+public sealed class ITagBuilderExtensionsTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="TagBuilderExtensions.Attribute(TagBuilder, string, object)"/> method.</para>
+  ///   <para>Performs testing of <see cref="ITagBuilderExtensions.Attribute(ITagBuilder, string, object)"/> method.</para>
   /// </summary>
   [Fact]
   public void Attribute_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => TagBuilderExtensions.Attribute(null, "name", new object()));
+    Assert.Throws<ArgumentNullException>(() => ITagBuilderExtensions.Attribute(null, "name", new object()));
     Assert.Throws<ArgumentNullException>(() => new TagBuilder("tag").Attribute(null, new object()));
     Assert.Throws<ArgumentException>(() => new TagBuilder("tag").Attribute(string.Empty, new object()));
 
@@ -30,12 +30,16 @@ public sealed class TagBuilderExtensionsTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TagBuilderExtensions.Attributes(TagBuilder, object)"/> method.</para>
+  ///   <para>Performs testing of following methods :</para>
+  ///   <list type="bullet">
+  ///     <item><description><see cref="ITagBuilderExtensions.Attributes(ITagBuilder, IEnumerable{ValueTuple{string, object}})"/></description></item>
+  ///     <item><description><see cref="ITagBuilderExtensions.Attributes(ITagBuilder, object)"/></description></item>
+  ///   </list>
   /// </summary>
   [Fact]
-  public void Attributes_Method()
+  public void Attributes_Methods()
   {
-    Assert.Throws<ArgumentNullException>(() => TagBuilderExtensions.Attributes(null, new object()));
+    Assert.Throws<ArgumentNullException>(() => ITagBuilderExtensions.Attributes(null, new object()));
     Assert.Throws<ArgumentNullException>(() => new TagBuilder("tag").Attributes(null));
 
     var builder = new TagBuilder("tag");
@@ -53,7 +57,7 @@ public sealed class TagBuilderExtensionsTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TagBuilderExtensions.CssClass(TagBuilder, string)"/> method.</para>
+  ///   <para>Performs testing of <see cref="ITagBuilderExtensions.CssClass(ITagBuilder, string)"/> method.</para>
   /// </summary>
   [Fact]
   public void CssClass_Method()
@@ -68,7 +72,20 @@ public sealed class TagBuilderExtensionsTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TagBuilderExtensions.CssStyle(TagBuilder, string)"/> method.</para>
+  ///   <para>Performs testing of following methods :</para>
+  ///   <list type="bullet">
+  ///     <item><description><see cref="ITagBuilderExtensions.CssClasses(ITagBuilder, IEnumerable{string})"/></description></item>
+  ///     <item><description><see cref="ITagBuilderExtensions.CssClasses(ITagBuilder, string[])"/></description></item>
+  ///   </list>
+  /// </summary>
+  [Fact]
+  public void CssClasses_Methods()
+  {
+    throw new NotImplementedException();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="ITagBuilderExtensions.CssStyle(ITagBuilder, string)"/> method.</para>
   /// </summary>
   [Fact]
   public void CssStyle_Method()
@@ -83,16 +100,21 @@ public sealed class TagBuilderExtensionsTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TagBuilderExtensions.InnerHtml(TagBuilder, string)"/> method.</para>
+  ///   <para>Performs testing of following methods :</para>
+  ///   <list type="bullet">
+  ///     <item><description><see cref="ITagBuilderExtensions.CssStyles(ITagBuilder, IEnumerable{ValueTuple{string, string}})"/></description></item>
+  ///     <item><description><see cref="ITagBuilderExtensions.CssStyles(ITagBuilder, IEnumerable{ValueTuple{string, object}})"/></description></item>
+  ///   </list>
   /// </summary>
   [Fact]
-  public void InnerHtml_Method()
+  public void CssStyles_Methods()
   {
-    Assert.Throws<ArgumentNullException>(() => TagBuilderExtensions.InnerHtml(null, string.Empty));
+    Assert.Throws<ArgumentNullException>(() => new TagBuilder("tag").CssStyle(null));
+    Assert.Throws<ArgumentException>(() => new TagBuilder("tag").CssStyle(string.Empty));
 
-    var builder = new TagBuilder("tag");
-    Assert.True(ReferenceEquals(builder.InnerHtml(string.Empty), builder));
-    Assert.Equal(string.Empty, builder.InnerHtml);
-    Assert.Equal("html", builder.InnerHtml("html").InnerHtml);
+    var attributes = new TagBuilder("tag").CssStyle("cssStyle").Attributes;
+    Assert.Equal(1, attributes.Count);
+    Assert.Equal("style", attributes.Single().Key);
+    Assert.Equal("cssStyle", attributes.Single().Value);
   }
 }

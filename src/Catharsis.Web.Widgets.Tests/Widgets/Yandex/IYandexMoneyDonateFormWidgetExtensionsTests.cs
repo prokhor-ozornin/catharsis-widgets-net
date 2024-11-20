@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IYandexMoneyDonateFormWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IYandexMoneyDonateFormWidgetExtensionsTests
+public sealed class IYandexMoneyDonateFormWidgetExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexMoneyDonateFormWidgetExtensions.ProjectSite(IYandexMoneyDonateFormWidget, Uri)"/> method.</para>

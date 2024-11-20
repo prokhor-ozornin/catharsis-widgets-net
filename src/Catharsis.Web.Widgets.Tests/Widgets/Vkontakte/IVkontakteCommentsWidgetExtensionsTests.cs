@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Catharsis.Extensions;
 using Xunit;
 
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IVkontakteCommentsWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IVkontakteCommentsWidgetExtensionsTests
+public sealed class IVkontakteCommentsWidgetExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IVkontakteCommentsWidgetExtensions.Limit(IVkontakteCommentsWidget, VkontakteCommentsLimit)"/> method.</para>

@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IntenseDebateWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class IntenseDebateWidgetsCreatorTests
+public sealed class IntenseDebateWidgetsCreatorTests : ClassTest<IntenseDebateWidgetsCreator>
 {
   private readonly IIntenseDebateWidgetsCreator widgets = Widgets.Web.IntenseDebate();
 

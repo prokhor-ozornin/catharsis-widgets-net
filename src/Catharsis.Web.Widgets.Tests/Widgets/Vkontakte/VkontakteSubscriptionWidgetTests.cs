@@ -1,4 +1,7 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +9,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontakteSubscriptionWidget"/>.</para>
 /// </summary>
-public sealed class VkontakteSubscriptionWidgetTests
+public sealed class VkontakteSubscriptionWidgetTests : ClassTest<VkontakteSubscriptionWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -33,10 +36,19 @@ public sealed class VkontakteSubscriptionWidgetTests
     Assert.Throws<ArgumentNullException>(() => new VkontakteSubscriptionWidget().Account(null));
     Assert.Throws<ArgumentException>(() => new VkontakteSubscriptionWidget().Account(string.Empty));
 
-    var widget = new VkontakteSubscriptionWidget();
-    Assert.Null(widget.Account());
-    Assert.True(ReferenceEquals(widget.Account("account"), widget));
-    Assert.Equal("account", widget.Account());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteSubscriptionWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string account, IVkontakteSubscriptionWidget widget)
+    {
+      widget.Account(account).Should().BeSameAs(widget);
+      widget.Account().Should().Be(account);
+    }
   }
 
   /// <summary>

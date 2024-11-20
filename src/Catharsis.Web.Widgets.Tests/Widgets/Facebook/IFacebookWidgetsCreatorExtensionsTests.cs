@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IFacebookWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IFacebookWidgetsCreatorExtensionsTests
+public sealed class IFacebookWidgetsCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookWidgetsCreatorExtensions.Initialize(IFacebookWidgetsCreator, Action{IFacebookInitializationWidget})"/> method.</para>

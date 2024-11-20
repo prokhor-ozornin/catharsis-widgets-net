@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="IRuTubeWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IRuTubeWidgetCreatorExtensionsTests
+public sealed class IRuTubeWidgetCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IRuTubeWidgetCreatorExtensions.Video(IRuTubeWidgetCreator, Action{IRuTubeVideoWidget})"/> method.</para>

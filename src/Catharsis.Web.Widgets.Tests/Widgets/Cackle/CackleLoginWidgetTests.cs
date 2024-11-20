@@ -1,4 +1,7 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +9,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="CackleLoginWidget"/>.</para>
 /// </summary>
-public sealed class CackleLoginWidgetTests
+public sealed class CackleLoginWidgetTests : ClassTest<CackleLoginWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -30,10 +33,19 @@ public sealed class CackleLoginWidgetTests
     Assert.Throws<ArgumentNullException>(() => new CackleLoginWidget().Account(null));
     Assert.Throws<ArgumentException>(() => new CackleLoginWidget().Account(string.Empty));
 
-    var widget = new CackleLoginWidget();
-    Assert.Null(widget.Account());
-    Assert.True(ReferenceEquals(widget.Account("account"), widget));
-    Assert.Equal("account", widget.Account());
+    using (new AssertionScope())
+    {
+      var widget = new CackleLoginWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string account, ICackleLoginWidget widget)
+    {
+      widget.Account(account).Should().BeSameAs(widget);
+      widget.Account().Should().Be(account);
+    }
   }
 
   /// <summary>

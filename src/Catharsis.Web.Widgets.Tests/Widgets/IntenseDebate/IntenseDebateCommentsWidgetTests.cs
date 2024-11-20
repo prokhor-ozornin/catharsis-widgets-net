@@ -1,3 +1,7 @@
+using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions.Execution;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +9,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IntenseDebateCommentsWidget"/>.</para>
 /// </summary>
-public sealed class IntenseDebateCommentsWidgetTests
+public sealed class IntenseDebateCommentsWidgetTests : ClassTest<IntenseDebateCommentsWidget>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IntenseDebateCommentsWidget.Account(string)"/> method.</para>
@@ -16,10 +20,19 @@ public sealed class IntenseDebateCommentsWidgetTests
     Assert.Throws<ArgumentNullException>(() => new IntenseDebateCommentsWidget().Account(null));
     Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().Account(string.Empty));
 
-    var widget = new IntenseDebateCommentsWidget();
-    Assert.Null(widget.Account());
-    Assert.True(ReferenceEquals(widget.Account("account"), widget));
-    Assert.Equal("account", widget.Account());
+    using (new AssertionScope())
+    {
+      var widget = new IntenseDebateCommentsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string account, IIntenseDebateCommentsWidget widget)
+    {
+      widget.Account(account).Should().BeSameAs(widget);
+      widget.Account().Should().Be(account);
+    }
   }
 
   /// <summary>

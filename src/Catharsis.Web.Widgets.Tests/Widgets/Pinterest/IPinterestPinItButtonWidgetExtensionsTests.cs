@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using Catharsis.Commons;
 using Catharsis.Extensions;
 using Xunit;
 
@@ -7,7 +8,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IPinterestPinItButtonWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IPinterestPinItButtonWidgetExtensionsTests
+public sealed class IPinterestPinItButtonWidgetExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IPinterestPinItButtonWidgetExtensions.Gray(IPinterestPinItButtonWidget)"/> method.</para>

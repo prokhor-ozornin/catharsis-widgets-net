@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Test set for class <see cref="DisqusWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class DisqusWidgetsCreatorTests
+public sealed class DisqusWidgetsCreatorTests : ClassTest<DisqusWidgetsCreator>
 {
   private readonly IDisqusWidgetsCreator widgets = Widgets.Web.Disqus();
 

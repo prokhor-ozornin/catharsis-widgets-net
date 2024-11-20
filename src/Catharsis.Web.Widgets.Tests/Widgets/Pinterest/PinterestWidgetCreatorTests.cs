@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="PinterestWidgetCreator"/>.</para>
 /// </summary>
-public sealed class PinterestWidgetCreatorTests
+public sealed class PinterestWidgetCreatorTests : ClassTest<PinterestWidgetCreator>
 {
   private readonly IPinterestWidgetCreator widgets = Widgets.Web.Pinterest();
 

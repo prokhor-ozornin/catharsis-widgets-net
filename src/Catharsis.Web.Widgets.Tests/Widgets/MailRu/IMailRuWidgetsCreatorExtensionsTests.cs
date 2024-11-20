@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IMailRuWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IMailRuWidgetsCreatorExtensionsTests
+public sealed class IMailRuWidgetsCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IMailRuWidgetsCreatorExtensions.Faces(IMailRuWidgetsCreator, Action{IMailRuFacesWidget})"/> method.</para>

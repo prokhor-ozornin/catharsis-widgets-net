@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="WebWidgetsStyles"/>.</para>
 /// </summary>
-public sealed class WebWidgetsStylesTests
+public sealed class WebWidgetsStylesTests : ClassTest<WebWidgetsStyles>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="WebWidgetsStyles.Render()"/> method.</para>

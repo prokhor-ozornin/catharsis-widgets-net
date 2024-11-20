@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="YandexWidgetCreator"/>.</para>
 /// </summary>
-public sealed class YandexWidgetCreatorTests
+public sealed class YandexWidgetCreatorTests : ClassTest<YandexWidgetCreator>
 {
   private readonly IYandexWidgetCreator widgets = Widgets.Web.Yandex();
 

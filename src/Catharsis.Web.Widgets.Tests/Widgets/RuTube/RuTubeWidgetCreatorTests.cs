@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Tests set for class <see cref="RuTubeWidgetCreator"/>.</para>
 /// </summary>
 /// <seealso cref="RuTubeWidgetCreator"/>
-public sealed class RuTubeWidgetCreatorTests
+public sealed class RuTubeWidgetCreatorTests : ClassTest<RuTubeWidgetCreator>
 {
   private readonly IRuTubeWidgetCreator widgets = Widgets.Web.RuTube();
 

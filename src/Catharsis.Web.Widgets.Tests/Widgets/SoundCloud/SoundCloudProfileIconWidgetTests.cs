@@ -1,4 +1,7 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +9,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="SoundCloudProfileIconWidget"/>.</para>
 /// </summary>
-public sealed class SoundCloudProfileIconWidgetTests
+public sealed class SoundCloudProfileIconWidgetTests : ClassTest<SoundCloudProfileIconWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -32,10 +35,19 @@ public sealed class SoundCloudProfileIconWidgetTests
     Assert.Throws<ArgumentNullException>(() => new SoundCloudProfileIconWidget().Account(null));
     Assert.Throws<ArgumentException>(() => new SoundCloudProfileIconWidget().Account(string.Empty));
 
-    var widget = new SoundCloudProfileIconWidget();
-    Assert.Null(widget.Account());
-    Assert.True(ReferenceEquals(widget.Account("account"), widget));
-    Assert.Equal("account", widget.Account());
+    using (new AssertionScope())
+    {
+      var widget = new SoundCloudProfileIconWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string account, ISoundCloudProfileIconWidget widget)
+    {
+      widget.Account(account).Should().BeSameAs(widget);
+      widget.Account().Should().Be(account);
+    }
   }
 
   /// <summary>

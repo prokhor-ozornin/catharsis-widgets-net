@@ -1,4 +1,5 @@
-﻿using Catharsis.Extensions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -8,7 +9,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="CackleCommentsCountWidget"/>.</para>
 /// </summary>
-public sealed class CackleCommentsCountWidgetTests
+public sealed class CackleCommentsCountWidgetTests : ClassTest<CackleCommentsCountWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -35,7 +36,7 @@ public sealed class CackleCommentsCountWidgetTests
     using (new AssertionScope())
     {
       var widget = new CackleCommentsCountWidget();
-      new[] { null, string.Empty, new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
 
     return;

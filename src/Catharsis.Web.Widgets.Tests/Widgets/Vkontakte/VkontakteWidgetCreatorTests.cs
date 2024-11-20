@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontakteWidgetCreator"/>.</para>
 /// </summary>
-public sealed class VkontakteWidgetCreatorTests
+public sealed class VkontakteWidgetCreatorTests : ClassTest<VkontakteWidgetCreator>
 {
   private readonly IVkontakteWidgetCreator widgets = Widgets.Web.Vkontakte();
 

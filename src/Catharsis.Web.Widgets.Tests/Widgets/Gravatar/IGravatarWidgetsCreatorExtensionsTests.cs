@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="IGravatarWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IGravatarWidgetsCreatorExtensionsTests
+public sealed class IGravatarWidgetsCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IGravatarWidgetsCreatorExtensions.ImageUrl(IGravatarWidgetsCreator, Action{IGravatarImageUrlWidget})"/> method.</para>

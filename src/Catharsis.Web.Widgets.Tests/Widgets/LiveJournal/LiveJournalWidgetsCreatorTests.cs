@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="LiveJournalWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class LiveJournalWidgetsCreatorTests
+public sealed class LiveJournalWidgetsCreatorTests : ClassTest<LiveJournalWidgetsCreator>
 {
   private readonly ILiveJournalWidgetsCreator widgets = Widgets.Web.LiveJournal();
 

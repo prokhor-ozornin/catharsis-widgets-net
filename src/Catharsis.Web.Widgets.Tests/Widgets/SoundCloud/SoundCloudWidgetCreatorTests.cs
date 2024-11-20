@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="SoundCloudWidgetCreator"/>.</para>
 /// </summary>
-public sealed class SoundCloudWidgetCreatorTests
+public sealed class SoundCloudWidgetCreatorTests : ClassTest<SoundCloudWidgetCreator>
 {
   private readonly ISoundCloudWidgetCreator widgets = Widgets.Web.SoundCloud();
 

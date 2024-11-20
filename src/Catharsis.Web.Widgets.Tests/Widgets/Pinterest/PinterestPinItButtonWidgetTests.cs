@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="PinterestPinItButtonWidget"/>.</para>
 /// </summary>
-public sealed class PinterestPinItButtonWidgetTests
+public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItButtonWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontakteCommentsWidget"/>.</para>
 /// </summary>
-public sealed class VkontakteCommentsWidgetTests
+public sealed class VkontakteCommentsWidgetTests : ClassTest<VkontakteCommentsWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

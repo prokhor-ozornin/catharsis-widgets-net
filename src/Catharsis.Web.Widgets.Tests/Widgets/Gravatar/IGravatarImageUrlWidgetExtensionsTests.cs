@@ -1,4 +1,5 @@
-﻿using Catharsis.Extensions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IGravatarImageUrlWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IGravatarImageUrlWidgetExtensionsTests
+public sealed class IGravatarImageUrlWidgetExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of following methods :</para>

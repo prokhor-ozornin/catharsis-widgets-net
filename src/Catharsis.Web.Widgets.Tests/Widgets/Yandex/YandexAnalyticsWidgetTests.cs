@@ -1,4 +1,7 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +9,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="YandexAnalyticsWidget"/>.</para>
 /// </summary>
-public sealed class YandexAnalyticsWidgetTests
+public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -37,10 +40,19 @@ public sealed class YandexAnalyticsWidgetTests
     Assert.Throws<ArgumentNullException>(() => new YandexAnalyticsWidget().Account(null));
     Assert.Throws<ArgumentException>(() => new YandexAnalyticsWidget().Account(string.Empty));
 
-    var widget = new YandexAnalyticsWidget();
-    Assert.Null(widget.Account());
-    Assert.True(ReferenceEquals(widget.Account("account"), widget));
-    Assert.Equal("account", widget.Account());
+    using (new AssertionScope())
+    {
+      var widget = new YandexAnalyticsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string account, IYandexAnalyticsWidget widget)
+    {
+      widget.Account(account).Should().BeSameAs(widget);
+      widget.Account().Should().Be(account);
+    }
   }
 
   /// <summary>

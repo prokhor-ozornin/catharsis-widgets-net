@@ -1,4 +1,7 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +9,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="TwitterFollowButtonWidget"/>.</para>
 /// </summary>
-public sealed class TwitterFollowButtonWidgetTests
+public sealed class TwitterFollowButtonWidgetTests : ClassTest<TwitterFollowButtonWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -37,10 +40,19 @@ public sealed class TwitterFollowButtonWidgetTests
     Assert.Throws<ArgumentNullException>(() => new TwitterFollowButtonWidget().Account(null));
     Assert.Throws<ArgumentException>(() => new TwitterFollowButtonWidget().Account(string.Empty));
 
-    var widget = new TwitterFollowButtonWidget();
-    Assert.Null(widget.Account());
-    Assert.True(ReferenceEquals(widget.Account("account"), widget));
-    Assert.Equal("account", widget.Account());
+    using (new AssertionScope())
+    {
+      var widget = new TwitterFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string account, ITwitterFollowButtonWidget widget)
+    {
+      widget.Account(account).Should().BeSameAs(widget);
+      widget.Account().Should().Be(account);
+    }
   }
 
   /// <summary>

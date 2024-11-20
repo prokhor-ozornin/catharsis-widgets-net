@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using FluentAssertions;
 using Xunit;
 
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="FacebookLikeButtonWidget"/>.</para>
 /// </summary>
-public sealed class FacebookLikeButtonWidgetTests
+public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButtonWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

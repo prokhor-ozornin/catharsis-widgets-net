@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IYandexWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class IYandexWidgetCreatorExtensionsTests
+public sealed class IYandexWidgetCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexWidgetCreatorExtensions.Analytics(IYandexWidgetCreator, Action{IYandexAnalyticsWidget})"/> method.</para>

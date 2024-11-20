@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 using Catharsis.Extensions;
 
@@ -7,7 +8,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="GravatarProfileUrlWidget"/>.</para>
 /// </summary>
-public sealed class GravatarProfileUrlWidgetTests
+public sealed class GravatarProfileUrlWidgetTests : ClassTest<GravatarProfileUrlWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

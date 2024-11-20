@@ -1,4 +1,7 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -6,7 +9,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="GoogleAnalyticsWidget"/>.</para>
 /// </summary>
-public sealed class GoogleAnalyticsWidgetTests
+public sealed class GoogleAnalyticsWidgetTests : ClassTest<GoogleAnalyticsWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -31,10 +34,19 @@ public sealed class GoogleAnalyticsWidgetTests
     Assert.Throws<ArgumentNullException>(() => new GoogleAnalyticsWidget().Account(null));
     Assert.Throws<ArgumentException>(() => new GoogleAnalyticsWidget().Account(string.Empty));
 
-    var widget = new GoogleAnalyticsWidget();
-    Assert.Null(widget.Account());
-    Assert.True(ReferenceEquals(widget.Account("account"), widget));
-    Assert.Equal("account", widget.Account());
+    using (new AssertionScope())
+    {
+      var widget = new GoogleAnalyticsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string account, IGoogleAnalyticsWidget widget)
+    {
+      widget.Account(account).Should().BeSameAs(widget);
+      widget.Account().Should().Be(account);
+    }
   }
 
   /// <summary>
@@ -46,10 +58,19 @@ public sealed class GoogleAnalyticsWidgetTests
     Assert.Throws<ArgumentNullException>(() => new GoogleAnalyticsWidget().Domain(null));
     Assert.Throws<ArgumentException>(() => new GoogleAnalyticsWidget().Domain(string.Empty));
 
-    var widget = new GoogleAnalyticsWidget();
-    Assert.Null(widget.Domain());
-    Assert.True(ReferenceEquals(widget.Domain("domain"), widget));
-    Assert.Equal("domain", widget.Domain());
+    using (new AssertionScope())
+    {
+      var widget = new GoogleAnalyticsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string domain, IGoogleAnalyticsWidget widget)
+    {
+      widget.Domain(domain).Should().BeSameAs(widget);
+      widget.Domain().Should().Be(domain);
+    }
   }
 
   /// <summary>

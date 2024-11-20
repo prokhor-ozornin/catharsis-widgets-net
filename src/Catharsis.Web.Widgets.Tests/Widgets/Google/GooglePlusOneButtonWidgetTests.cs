@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using FluentAssertions;
 using Xunit;
 
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="GooglePlusOneButtonWidget"/>.</para>
 /// </summary>
-public sealed class GooglePlusOneButtonWidgetTests
+public sealed class GooglePlusOneButtonWidgetTests : ClassTest<GooglePlusOneButtonWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

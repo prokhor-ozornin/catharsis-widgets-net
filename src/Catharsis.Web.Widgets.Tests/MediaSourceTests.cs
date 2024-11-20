@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="MediaSource"/>.</para>
 /// </summary>
-public sealed class MediaSourceTests
+public sealed class MediaSourceTests : ClassTest<MediaSource>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

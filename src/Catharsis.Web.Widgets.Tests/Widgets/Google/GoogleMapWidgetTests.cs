@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="GoogleMapWidget"/>.</para>
 /// </summary>
-public sealed class GoogleMapWidgetTests
+public sealed class GoogleMapWidgetTests : ClassTest<GoogleMapWidget>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

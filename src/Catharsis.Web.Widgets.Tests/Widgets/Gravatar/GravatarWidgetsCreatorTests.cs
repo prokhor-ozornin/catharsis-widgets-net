@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="GravatarWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class GravatarWidgetsCreatorTests
+public sealed class GravatarWidgetsCreatorTests : ClassTest<GravatarWidgetsCreator>
 {
   private readonly IGravatarWidgetsCreator widgets = Widgets.Web.Gravatar();
 

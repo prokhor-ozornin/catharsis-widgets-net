@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="TumblrWidgetCreator"/></para>
 /// </summary>
-public sealed class TumblrWidgetCreatorTests
+public sealed class TumblrWidgetCreatorTests : ClassTest<TumblrWidgetCreator>
 {
   private readonly ITumblrWidgetCreator widgets = Widgets.Web.Tumblr();
 

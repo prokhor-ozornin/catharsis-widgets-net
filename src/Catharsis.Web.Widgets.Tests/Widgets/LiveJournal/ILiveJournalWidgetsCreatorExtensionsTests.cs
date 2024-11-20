@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="ILiveJournalWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class ILiveJournalWidgetsCreatorExtensionsTests
+public sealed class ILiveJournalWidgetsCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="ILiveJournalWidgetsCreatorExtensions.LikeButton(ILiveJournalWidgetsCreator, Action{ILiveJournalLikeButtonWidget}"/> method.</para></summary>

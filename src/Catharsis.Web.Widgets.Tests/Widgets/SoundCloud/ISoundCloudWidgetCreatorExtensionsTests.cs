@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 
 namespace Catharsis.Web.Widgets;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="ISoundCloudWidgetCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class ISoundCloudWidgetCreatorExtensionsTests
+public sealed class ISoundCloudWidgetCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="ISoundCloudWidgetCreatorExtensions.ProfileIcon(ISoundCloudWidgetCreator, Action{ISoundCloudProfileIconWidget}"/> method.</para>

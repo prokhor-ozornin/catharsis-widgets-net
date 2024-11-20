@@ -8,10 +8,10 @@ namespace Catharsis.Web.Widgets;
 public sealed class WebWidgetTests
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="WebWidget.ToHtml"/> method.</para>
+  ///   <para>Performs testing of <see cref="WebWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToHtmlString_Method()
+  public void ToHtml_Method()
   {
     var widget = new MockWebWidget();
     Assert.Equal(MockWebWidget.Contents, widget.ToHtml());

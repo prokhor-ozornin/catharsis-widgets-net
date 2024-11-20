@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="FacebookWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class FacebookWidgetsCreatorTests
+public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreator>
 {
   private readonly IFacebookWidgetsCreator widgets = Widgets.Web.Facebook();
 

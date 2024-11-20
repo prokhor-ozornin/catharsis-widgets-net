@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Catharsis.Extensions;
 using Xunit;
 
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="IYandexLikeButtonWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IYandexLikeButtonWidgetExtensionsTests
+public sealed class IYandexLikeButtonWidgetExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexLikeButtonWidgetExtensions.Size(IYandexLikeButtonWidget, YandexLikeButtonSize)"/> method.</para>

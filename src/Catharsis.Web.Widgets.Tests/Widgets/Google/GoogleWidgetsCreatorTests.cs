@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -5,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Tests set for class <see cref="GoogleWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class GoogleWidgetsCreatorTests
+public sealed class GoogleWidgetsCreatorTests : ClassTest<GoogleWidgetsCreator>
 {
   private readonly IGoogleWidgetsCreator widgets = Widgets.Web.Google();
 
