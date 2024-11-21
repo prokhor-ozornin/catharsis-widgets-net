@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -37,10 +39,19 @@ public sealed class MailRuLikeButtonWidgetTests : ClassTest<MailRuLikeButtonWidg
     Assert.Throws<ArgumentNullException>(() => new MailRuLikeButtonWidget().Type(null));
     Assert.Throws<ArgumentException>(() => new MailRuLikeButtonWidget().Type(string.Empty));
 
-    var widget = new MailRuLikeButtonWidget();
-    Assert.Equal("combo", widget.Type());
-    Assert.True(ReferenceEquals(widget.Type("type"), widget));
-    Assert.Equal("type", widget.Type());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string type, IMailRuLikeButtonWidget widget)
+    {
+      widget.Type(type).Should().BeSameAs(widget);
+      widget.Type().Should().Be(type);
+    }
   }
 
   /// <summary>
@@ -49,10 +60,22 @@ public sealed class MailRuLikeButtonWidgetTests : ClassTest<MailRuLikeButtonWidg
   [Fact]
   public void Size_Method()
   {
-    var widget = new MailRuLikeButtonWidget();
-    Assert.Equal("20", widget.Size());
-    Assert.True(ReferenceEquals(widget.Size("1"), widget));
-    Assert.Equal("1", widget.Size());
+    Assert.Throws<ArgumentNullException>(() => new MailRuLikeButtonWidget().Size(null));
+    Assert.Throws<ArgumentException>(() => new MailRuLikeButtonWidget().Size(string.Empty));
+
+    using (new AssertionScope())
+    {
+      var widget = new MailRuLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string size, IMailRuLikeButtonWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size);
+    }
   }
 
   /// <summary>
@@ -61,10 +84,19 @@ public sealed class MailRuLikeButtonWidgetTests : ClassTest<MailRuLikeButtonWidg
   [Fact]
   public void Layout_Method()
   {
-    var widget = new MailRuLikeButtonWidget();
-    Assert.Equal((byte)MailRuLikeButtonLayout.First, widget.Layout());
-    Assert.True(ReferenceEquals(widget.Layout(1), widget));
-    Assert.Equal(1, widget.Layout());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuLikeButtonWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte layout, IMailRuLikeButtonWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be(layout);
+    }
   }
 
   /// <summary>
@@ -73,10 +105,19 @@ public sealed class MailRuLikeButtonWidgetTests : ClassTest<MailRuLikeButtonWidg
   [Fact]
   public void Text_Method()
   {
-    var widget = new MailRuLikeButtonWidget();
-    Assert.True(widget.Text());
-    Assert.True(ReferenceEquals(widget.Text(false), widget));
-    Assert.False(widget.Text());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuLikeButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IMailRuLikeButtonWidget widget)
+    {
+      widget.Text(enabled).Should().BeSameAs(widget);
+      widget.Text().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -85,10 +126,19 @@ public sealed class MailRuLikeButtonWidgetTests : ClassTest<MailRuLikeButtonWidg
   [Fact]
   public void TextType_Method()
   {
-    var widget = new MailRuLikeButtonWidget();
-    Assert.Equal((byte)MailRuLikeButtonTextType.First, widget.TextType());
-    Assert.True(ReferenceEquals(widget.TextType(2), widget));
-    Assert.Equal(2, widget.TextType());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuLikeButtonWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte type, IMailRuLikeButtonWidget widget)
+    {
+      widget.TextType(type).Should().BeSameAs(widget);
+      widget.TextType().Should().Be(type);
+    }
   }
 
   /// <summary>
@@ -97,10 +147,19 @@ public sealed class MailRuLikeButtonWidgetTests : ClassTest<MailRuLikeButtonWidg
   [Fact]
   public void Counter_Method()
   {
-    var widget = new MailRuLikeButtonWidget();
-    Assert.True(widget.Counter());
-    Assert.True(ReferenceEquals(widget.Counter(false), widget));
-    Assert.False(widget.Counter());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuLikeButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IMailRuLikeButtonWidget widget)
+    {
+      widget.Counter(enabled).Should().BeSameAs(widget);
+      widget.Counter().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -112,10 +171,19 @@ public sealed class MailRuLikeButtonWidgetTests : ClassTest<MailRuLikeButtonWidg
     Assert.Throws<ArgumentNullException>(() => new MailRuLikeButtonWidget().CounterPosition(null));
     Assert.Throws<ArgumentNullException>(() => new MailRuLikeButtonWidget().CounterPosition(null));
 
-    var widget = new MailRuLikeButtonWidget();
-    Assert.Equal(MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant(), widget.CounterPosition());
-    Assert.True(ReferenceEquals(widget.CounterPosition("counterPosition"), widget));
-    Assert.Equal("counterPosition", widget.CounterPosition());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string position, IMailRuLikeButtonWidget widget)
+    {
+      widget.CounterPosition(position).Should().BeSameAs(widget);
+      widget.CounterPosition().Should().Be(position);
+    }
   }
 
   /// <summary>

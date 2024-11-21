@@ -59,10 +59,19 @@ public sealed class MailRuIcqWidgetTests : ClassTest<MailRuIcqWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuIcqWidget().Language(null));
     Assert.Throws<ArgumentException>(() => new MailRuIcqWidget().Language(string.Empty));
 
-    var widget = new MailRuIcqWidget();
-    Assert.Null(widget.Language());
-    Assert.True(ReferenceEquals(widget.Language("language"), widget));
-    Assert.Equal("language", widget.Language());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuIcqWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string language, IMailRuIcqWidget widget)
+    {
+      widget.Language(language).Should().BeSameAs(widget);
+      widget.Language().Should().Be(language);
+    }
   }
 
   /// <summary>

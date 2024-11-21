@@ -64,10 +64,19 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().BackgroundColor(null));
     Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().BackgroundColor(string.Empty));
 
-    var widget = new MailRuGroupsWidget();
-    Assert.Null(widget.BackgroundColor());
-    Assert.True(ReferenceEquals(widget.BackgroundColor("backgroundColor"), widget));
-    Assert.Equal("backgroundColor", widget.BackgroundColor());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuGroupsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IMailRuGroupsWidget widget)
+    {
+      widget.BackgroundColor(color).Should().BeSameAs(widget);
+      widget.BackgroundColor().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -79,10 +88,19 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().ButtonColor(null));
     Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().ButtonColor(string.Empty));
 
-    var widget = new MailRuGroupsWidget();
-    Assert.Null(widget.ButtonColor());
-    Assert.True(ReferenceEquals(widget.ButtonColor("buttonColor"), widget));
-    Assert.Equal("buttonColor", widget.ButtonColor());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuGroupsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IMailRuGroupsWidget widget)
+    {
+      widget.ButtonColor(color).Should().BeSameAs(widget);
+      widget.ButtonColor().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -94,10 +112,19 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().Domain(null));
     Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().Domain(string.Empty));
 
-    var widget = new MailRuGroupsWidget();
-    Assert.Null(widget.Domain());
-    Assert.True(ReferenceEquals(widget.Domain("domain"), widget));
-    Assert.Equal("domain", widget.Domain());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuGroupsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IMailRuGroupsWidget widget)
+    {
+      widget.Domain(color).Should().BeSameAs(widget);
+      widget.Domain().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -109,10 +136,19 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().Height(string.Empty));
 
-    var widget = new MailRuGroupsWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuGroupsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IMailRuGroupsWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -121,10 +157,19 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
   [Fact]
   public void Subscribers_Method()
   {
-    var widget = new MailRuGroupsWidget();
-    Assert.True(widget.Subscribers());
-    Assert.True(ReferenceEquals(widget.Subscribers(false), widget));
-    Assert.False(widget.Subscribers());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuGroupsWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IMailRuGroupsWidget widget)
+    {
+      widget.Subscribers(enabled).Should().BeSameAs(widget);
+      widget.Subscribers().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -136,10 +181,19 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().TextColor(null));
     Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().TextColor(string.Empty));
 
-    var widget = new MailRuGroupsWidget();
-    Assert.Null(widget.TextColor());
-    Assert.True(ReferenceEquals(widget.TextColor("textColor"), widget));
-    Assert.Equal("textColor", widget.TextColor());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuGroupsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IMailRuGroupsWidget widget)
+    {
+      widget.TextColor(color).Should().BeSameAs(widget);
+      widget.TextColor().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -151,10 +205,19 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().Width(string.Empty));
 
-    var widget = new MailRuGroupsWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuGroupsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IMailRuGroupsWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>

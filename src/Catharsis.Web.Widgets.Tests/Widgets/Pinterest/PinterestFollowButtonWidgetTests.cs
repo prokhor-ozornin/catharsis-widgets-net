@@ -58,10 +58,19 @@ public sealed class PinterestFollowButtonWidgetTests : ClassTest<PinterestFollow
     Assert.Throws<ArgumentNullException>(() => new PinterestFollowButtonWidget().Label(null));
     Assert.Throws<ArgumentException>(() => new PinterestFollowButtonWidget().Label(string.Empty));
 
-    var widget = new PinterestFollowButtonWidget();
-    Assert.Equal("Follow", widget.Label());
-    Assert.True(ReferenceEquals(widget.Label("label"), widget));
-    Assert.Equal("label", widget.Label());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string label, IPinterestFollowButtonWidget widget)
+    {
+      widget.Label(label).Should().BeSameAs(widget);
+      widget.Label().Should().Be(label);
+    }
   }
 
   /// <summary>

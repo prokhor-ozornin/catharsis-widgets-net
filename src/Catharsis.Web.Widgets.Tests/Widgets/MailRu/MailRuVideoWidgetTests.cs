@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -33,10 +35,19 @@ public sealed class MailRuVideoWidgetTests : ClassTest<MailRuVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuVideoWidget().Id(null));
     Assert.Throws<ArgumentException>(() => new MailRuVideoWidget().Id(string.Empty));
 
-    var widget = new MailRuVideoWidget();
-    Assert.Null(widget.Id());
-    Assert.True(ReferenceEquals(widget.Id("id"), widget));
-    Assert.Equal("id", widget.Id());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IMailRuVideoWidget widget)
+    {
+      widget.Id(id).Should().BeSameAs(widget);
+      widget.Id().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -48,10 +59,19 @@ public sealed class MailRuVideoWidgetTests : ClassTest<MailRuVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuVideoWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new MailRuVideoWidget().Width(string.Empty));
 
-    var widget = new MailRuVideoWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IMailRuVideoWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -63,10 +83,19 @@ public sealed class MailRuVideoWidgetTests : ClassTest<MailRuVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new MailRuVideoWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new MailRuVideoWidget().Height(string.Empty));
 
-    var widget = new MailRuVideoWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IMailRuVideoWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
