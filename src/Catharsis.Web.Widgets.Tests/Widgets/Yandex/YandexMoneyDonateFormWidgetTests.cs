@@ -70,10 +70,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
     Assert.Throws<ArgumentNullException>(() => new YandexMoneyDonateFormWidget().DescriptionText(null));
     Assert.Throws<ArgumentException>(() => new YandexMoneyDonateFormWidget().DescriptionText(string.Empty));
 
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.Null(widget.DescriptionText());
-    Assert.True(ReferenceEquals(widget.DescriptionText("descriptionText"), widget));
-    Assert.Equal("descriptionText", widget.DescriptionText());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string description, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.DescriptionText(description).Should().BeSameAs(widget);
+      widget.DescriptionText().Should().Be(description);
+    }
   }
 
   /// <summary>
@@ -82,10 +91,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void Sum_Method()
   {
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.Null(widget.Sum());
-    Assert.True(ReferenceEquals(widget.Sum(1), widget));
-    Assert.Equal(1, widget.Sum());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { decimal.MinValue, decimal.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(decimal sum, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.Sum(sum).Should().BeSameAs(widget);
+      widget.Sum().Should().Be(sum);
+    }
   }
 
   /// <summary>
@@ -94,10 +112,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void Cards_Method()
   {
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.True(widget.Cards());
-    Assert.True(ReferenceEquals(widget.Cards(false), widget));
-    Assert.False(widget.Cards());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.Cards(enabled).Should().BeSameAs(widget);
+      widget.Cards().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -106,10 +133,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void Text_Method()
   {
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.Equal((byte) YandexMoneyDonateFormText.Donate, widget.Text());
-    Assert.True(ReferenceEquals(widget.Text(1), widget));
-    Assert.Equal(1, widget.Text());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte text, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.Text(text).Should().BeSameAs(widget);
+      widget.Text().Should().Be(text);
+    }
   }
 
   /// <summary>
@@ -121,10 +157,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
     Assert.Throws<ArgumentNullException>(() => new YandexMoneyDonateFormWidget().ProjectName(null));
     Assert.Throws<ArgumentException>(() => new YandexMoneyDonateFormWidget().ProjectName(string.Empty));
 
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.Null(widget.ProjectName());
-    Assert.True(ReferenceEquals(widget.ProjectName("projectName"), widget));
-    Assert.Equal("projectName", widget.ProjectName());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string name, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.ProjectName(name).Should().BeSameAs(widget);
+      widget.ProjectName().Should().Be(name);
+    }
   }
 
   /// <summary>
@@ -136,10 +181,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
     Assert.Throws<ArgumentNullException>(() => new YandexMoneyDonateFormWidget().ProjectSite(null));
     Assert.Throws<ArgumentException>(() => new YandexMoneyDonateFormWidget().ProjectSite(string.Empty));
 
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.Null(widget.ProjectSite());
-    Assert.True(ReferenceEquals(widget.ProjectSite("projectSite"), widget));
-    Assert.Equal("projectSite", widget.ProjectSite());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string name, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.ProjectSite(name).Should().BeSameAs(widget);
+      widget.ProjectSite().Should().Be(name);
+    }
   }
 
   /// <summary>
@@ -148,10 +202,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void AskPayerComment_Method()
   {
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.False(widget.AskPayerComment());
-    Assert.True(ReferenceEquals(widget.AskPayerComment(true), widget));
-    Assert.True(widget.AskPayerComment());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.AskPayerComment(enabled).Should().BeSameAs(widget);
+      widget.AskPayerComment().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -163,10 +226,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
     Assert.Throws<ArgumentNullException>(() => new YandexMoneyDonateFormWidget().CommentHint(null));
     Assert.Throws<ArgumentException>(() => new YandexMoneyDonateFormWidget().CommentHint(string.Empty));
 
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.Null(widget.CommentHint());
-    Assert.True(ReferenceEquals(widget.CommentHint("commentHint"), widget));
-    Assert.Equal("commentHint", widget.CommentHint());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string hint, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.CommentHint(hint).Should().BeSameAs(widget);
+      widget.CommentHint().Should().Be(hint);
+    }
   }
 
   /// <summary>
@@ -175,10 +247,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void AskPayerFullName_Method()
   {
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.False(widget.AskPayerFullName());
-    Assert.True(ReferenceEquals(widget.AskPayerFullName(true), widget));
-    Assert.True(widget.AskPayerFullName());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.AskPayerFullName(enabled).Should().BeSameAs(widget);
+      widget.AskPayerFullName().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -187,10 +268,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void AskPayerEmail_Method()
   {
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.False(widget.AskPayerEmail());
-    Assert.True(ReferenceEquals(widget.AskPayerEmail(true), widget));
-    Assert.True(widget.AskPayerEmail());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.AskPayerEmail(enabled).Should().BeSameAs(widget);
+      widget.AskPayerEmail().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -199,10 +289,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void AskPayerPhone_Method()
   {
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.False(widget.AskPayerPhone());
-    Assert.True(ReferenceEquals(widget.AskPayerPhone(true), widget));
-    Assert.True(widget.AskPayerPhone());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.AskPayerPhone(enabled).Should().BeSameAs(widget);
+      widget.AskPayerPhone().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -211,10 +310,19 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void ShowDescription_Method()
   {
-    var widget = new YandexMoneyDonateFormWidget();
-    Assert.False(widget.Description());
-    Assert.True(ReferenceEquals(widget.Description(true), widget));
-    Assert.True(widget.Description());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.Description(enabled).Should().BeSameAs(widget);
+      widget.Description().Should().Be(enabled);
+    }
   }
 
   /// <summary>

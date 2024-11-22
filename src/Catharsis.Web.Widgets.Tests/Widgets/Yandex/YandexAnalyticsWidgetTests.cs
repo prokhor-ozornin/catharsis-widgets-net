@@ -61,10 +61,19 @@ public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget
   [Fact]
   public void WebVisor_Method()
   {
-    var widget = new YandexAnalyticsWidget();
-    Assert.True(widget.WebVisor());
-    Assert.True(ReferenceEquals(widget.WebVisor(false), widget));
-    Assert.False(widget.WebVisor());
+    using (new AssertionScope())
+    {
+      var widget = new YandexAnalyticsWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
+    {
+      widget.WebVisor(enabled).Should().BeSameAs(widget);
+      widget.WebVisor().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -73,10 +82,19 @@ public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget
   [Fact]
   public void ClickMap_Method()
   {
-    var widget = new YandexAnalyticsWidget();
-    Assert.True(widget.ClickMap());
-    Assert.True(ReferenceEquals(widget.ClickMap(false), widget));
-    Assert.False(widget.ClickMap());
+    using (new AssertionScope())
+    {
+      var widget = new YandexAnalyticsWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
+    {
+      widget.ClickMap(enabled).Should().BeSameAs(widget);
+      widget.ClickMap().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -85,10 +103,19 @@ public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget
   [Fact]
   public void TrackLinks_Method()
   {
-    var widget = new YandexAnalyticsWidget();
-    Assert.True(widget.TrackLinks());
-    Assert.True(ReferenceEquals(widget.TrackLinks(false), widget));
-    Assert.False(widget.TrackLinks());
+    using (new AssertionScope())
+    {
+      var widget = new YandexAnalyticsWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
+    {
+      widget.TrackLinks(enabled).Should().BeSameAs(widget);
+      widget.TrackLinks().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -97,10 +124,19 @@ public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget
   [Fact]
   public void TrackHash_Method()
   {
-    var widget = new YandexAnalyticsWidget();
-    Assert.True(widget.TrackHash());
-    Assert.True(ReferenceEquals(widget.TrackHash(false), widget));
-    Assert.False(widget.TrackHash());
+    using (new AssertionScope())
+    {
+      var widget = new YandexAnalyticsWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
+    {
+      widget.TrackHash(enabled).Should().BeSameAs(widget);
+      widget.TrackHash().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -109,10 +145,19 @@ public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget
   [Fact]
   public void Accurate_Method()
   {
-    var widget = new YandexAnalyticsWidget();
-    Assert.True(widget.Accurate());
-    Assert.True(ReferenceEquals(widget.Accurate(false), widget));
-    Assert.False(widget.Accurate());
+    using (new AssertionScope())
+    {
+      var widget = new YandexAnalyticsWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
+    {
+      widget.Accurate(enabled).Should().BeSameAs(widget);
+      widget.Accurate().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -121,10 +166,19 @@ public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget
   [Fact]
   public void NoIndex_Method()
   {
-    var widget = new YandexAnalyticsWidget();
-    Assert.False(widget.NoIndex());
-    Assert.True(ReferenceEquals(widget.NoIndex(true), widget));
-    Assert.True(widget.NoIndex());
+    using (new AssertionScope())
+    {
+      var widget = new YandexAnalyticsWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
+    {
+      widget.NoIndex(enabled).Should().BeSameAs(widget);
+      widget.NoIndex().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -136,10 +190,19 @@ public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget
     Assert.Throws<ArgumentNullException>(() => new YandexAnalyticsWidget().Language(null));
     Assert.Throws<ArgumentException>(() => new YandexAnalyticsWidget().Language(string.Empty));
 
-    var widget = new YandexAnalyticsWidget();
-    Assert.Null(widget.Language());
-    Assert.True(ReferenceEquals(widget.Language("language"), widget));
-    Assert.Equal("language", widget.Language());
+    using (new AssertionScope())
+    {
+      var widget = new YandexAnalyticsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string language, IYandexAnalyticsWidget widget)
+    {
+      widget.Language(language).Should().BeSameAs(widget);
+      widget.Language().Should().Be(language);
+    }
   }
 
   /// <summary>

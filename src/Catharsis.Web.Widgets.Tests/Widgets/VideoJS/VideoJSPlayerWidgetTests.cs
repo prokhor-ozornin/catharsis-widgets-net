@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -34,10 +36,19 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
     Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Width(string.Empty));
 
-    var widget = new VideoJSPlayerWidget();
-    Assert.Null(widget.Extra());
-    Assert.True(ReferenceEquals(widget.Extra("extra"), widget));
-    Assert.Equal("extra", widget.Extra());
+    using (new AssertionScope())
+    {
+      var widget = new VideoJSPlayerWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string extra, IVideoJSPlayerWidget widget)
+    {
+      widget.Extra(extra).Should().BeSameAs(widget);
+      widget.Extra().Should().Be(extra);
+    }
   }
 
   /// <summary>
@@ -49,10 +60,19 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
     Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Width(string.Empty));
 
-    var widget = new VideoJSPlayerWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new VideoJSPlayerWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IVideoJSPlayerWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -64,10 +84,19 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
     Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Height(string.Empty));
 
-    var widget = new VideoJSPlayerWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new VideoJSPlayerWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IVideoJSPlayerWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -78,10 +107,19 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
   {
     Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Videos(null));
 
-    var widget = new VideoJSPlayerWidget();
-    Assert.False(widget.Videos().Any());
-    Assert.True(ReferenceEquals(widget.Videos(new MediaSource("url", "contentType")), widget));
-    Assert.True(widget.Videos().SequenceEqual([new MediaSource("url", "contentType")]));
+    using (new AssertionScope())
+    {
+      var widget = new VideoJSPlayerWidget();
+      new[] { Enumerable.Empty<IMediaSource>(), [new MediaSource("url", "contentType")] }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(IEnumerable<IMediaSource> videos, IVideoJSPlayerWidget widget)
+    {
+      widget.Videos(videos).Should().BeSameAs(widget);
+      widget.Videos().Should().Equal(videos);
+    }
   }
 
   /// <summary>

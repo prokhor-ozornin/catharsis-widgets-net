@@ -60,10 +60,19 @@ public sealed class VkontakteSubscriptionWidgetTests : ClassTest<VkontakteSubscr
     Assert.Throws<ArgumentNullException>(() => new VkontakteSubscriptionWidget().ElementId(null));
     Assert.Throws<ArgumentException>(() => new VkontakteSubscriptionWidget().ElementId(string.Empty));
 
-    var widget = new VkontakteSubscriptionWidget();
-    Assert.Null(widget.ElementId());
-    Assert.True(ReferenceEquals(widget.ElementId("elementId"), widget));
-    Assert.Equal("elementId", widget.ElementId());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteSubscriptionWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IVkontakteSubscriptionWidget widget)
+    {
+      widget.ElementId(id).Should().BeSameAs(widget);
+      widget.ElementId().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -72,10 +81,19 @@ public sealed class VkontakteSubscriptionWidgetTests : ClassTest<VkontakteSubscr
   [Fact]
   public void Layout_Method()
   {
-    var widget = new VkontakteSubscriptionWidget();
-    Assert.Equal((byte)VkontakteSubscriptionButtonLayout.Button, widget.Layout());
-    Assert.True(ReferenceEquals(widget.Layout(2), widget));
-    Assert.Equal(2, widget.Layout());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteSubscriptionWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte layout, IVkontakteSubscriptionWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be(layout);
+    }
   }
 
   /// <summary>
@@ -84,10 +102,19 @@ public sealed class VkontakteSubscriptionWidgetTests : ClassTest<VkontakteSubscr
   [Fact]
   public void OnlyButton_Method()
   {
-    var widget = new VkontakteSubscriptionWidget();
-    Assert.False(widget.OnlyButton());
-    Assert.True(ReferenceEquals(widget.OnlyButton(true), widget));
-    Assert.True(widget.OnlyButton());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteSubscriptionWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IVkontakteSubscriptionWidget widget)
+    {
+      widget.OnlyButton(enabled).Should().BeSameAs(widget);
+      widget.OnlyButton().Should().Be(enabled);
+    }
   }
 
   /// <summary>

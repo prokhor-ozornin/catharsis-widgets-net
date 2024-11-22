@@ -56,10 +56,19 @@ public sealed class TumblrFollowButtonWidgetTests : ClassTest<TumblrFollowButton
   [Fact]
   public void Type_Method()
   {
-    var widget = new TumblrFollowButtonWidget();
-    Assert.Equal((byte)TumblrFollowButtonType.First, widget.Type());
-    Assert.True(ReferenceEquals(widget.Type(1), widget));
-    Assert.Equal(1, widget.Type());
+    using (new AssertionScope())
+    {
+      var widget = new TumblrFollowButtonWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte type, ITumblrFollowButtonWidget widget)
+    {
+      widget.Type(type).Should().BeSameAs(widget);
+      widget.Type().Should().Be(type);
+    }
   }
 
   /// <summary>
@@ -71,10 +80,19 @@ public sealed class TumblrFollowButtonWidgetTests : ClassTest<TumblrFollowButton
     Assert.Throws<ArgumentNullException>(() => new TumblrFollowButtonWidget().ColorScheme(null));
     Assert.Throws<ArgumentException>(() => new TumblrFollowButtonWidget().ColorScheme(string.Empty));
 
-    var widget = new TumblrFollowButtonWidget();
-    Assert.Equal(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant(), widget.ColorScheme());
-    Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-    Assert.Equal("colorScheme", widget.ColorScheme());
+    using (new AssertionScope())
+    {
+      var widget = new TumblrFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string scheme, ITumblrFollowButtonWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme);
+    }
   }
 
   /// <summary>

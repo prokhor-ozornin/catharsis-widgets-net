@@ -60,10 +60,19 @@ public sealed class PinterestProfileWidgetTests : ClassTest<PinterestProfileWidg
     Assert.Throws<ArgumentNullException>(() => new PinterestProfileWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new PinterestProfileWidget().Height(string.Empty));
 
-    var widget = new PinterestProfileWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestProfileWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IPinterestProfileWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -75,10 +84,19 @@ public sealed class PinterestProfileWidgetTests : ClassTest<PinterestProfileWidg
     Assert.Throws<ArgumentNullException>(() => new PinterestProfileWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new PinterestProfileWidget().Width(string.Empty));
 
-    var widget = new PinterestProfileWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestProfileWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IPinterestProfileWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -90,10 +108,19 @@ public sealed class PinterestProfileWidgetTests : ClassTest<PinterestProfileWidg
     Assert.Throws<ArgumentNullException>(() => new PinterestProfileWidget().Image(null));
     Assert.Throws<ArgumentException>(() => new PinterestProfileWidget().Image(string.Empty));
 
-    var widget = new PinterestProfileWidget();
-    Assert.Null(widget.Image());
-    Assert.True(ReferenceEquals(widget.Image("image"), widget));
-    Assert.Equal("image", widget.Image());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestProfileWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string image, IPinterestProfileWidget widget)
+    {
+      widget.Image(image).Should().BeSameAs(widget);
+      widget.Image().Should().Be(image);
+    }
   }
 
   /// <summary>

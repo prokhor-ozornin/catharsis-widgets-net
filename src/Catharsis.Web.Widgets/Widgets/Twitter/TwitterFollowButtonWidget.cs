@@ -64,9 +64,9 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   public string Language() => language;
 
   /// <inheritdoc cref="ITwitterFollowButtonWidget.ScreenName(bool)"/>
-  public ITwitterFollowButtonWidget ScreenName(bool name)
+  public ITwitterFollowButtonWidget ScreenName(bool enabled)
   {
-    this.screenName = name;
+    screenName = enabled;
     return this;
   }
 

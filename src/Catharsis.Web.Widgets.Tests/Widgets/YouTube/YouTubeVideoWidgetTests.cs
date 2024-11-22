@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -35,10 +37,19 @@ public sealed class YouTubeVideoWidgetTests : ClassTest<YouTubeVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new YouTubeVideoWidget().Id(null));
     Assert.Throws<ArgumentException>(() => new YouTubeVideoWidget().Id(string.Empty));
 
-    var widget = new YouTubeVideoWidget();
-    Assert.Null(widget.Id());
-    Assert.True(ReferenceEquals(widget.Id("id"), widget));
-    Assert.Equal("id", widget.Id());
+    using (new AssertionScope())
+    {
+      var widget = new YouTubeVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IYouTubeVideoWidget widget)
+    {
+      widget.Id(id).Should().BeSameAs(widget);
+      widget.Id().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -50,10 +61,19 @@ public sealed class YouTubeVideoWidgetTests : ClassTest<YouTubeVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new YouTubeVideoWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new YouTubeVideoWidget().Width(string.Empty));
 
-    var widget = new YouTubeVideoWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new YouTubeVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IYouTubeVideoWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -65,10 +85,19 @@ public sealed class YouTubeVideoWidgetTests : ClassTest<YouTubeVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new YouTubeVideoWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new YouTubeVideoWidget().Height(string.Empty));
 
-    var widget = new YouTubeVideoWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new YouTubeVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IYouTubeVideoWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -77,10 +106,19 @@ public sealed class YouTubeVideoWidgetTests : ClassTest<YouTubeVideoWidget>
   [Fact]
   public void PrivateMode_Method()
   {
-    var widget = new YouTubeVideoWidget();
-    Assert.False(widget.PrivateMode());
-    Assert.True(ReferenceEquals(widget.PrivateMode(true), widget));
-    Assert.True(widget.PrivateMode());
+    using (new AssertionScope())
+    {
+      var widget = new YouTubeVideoWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYouTubeVideoWidget widget)
+    {
+      widget.PrivateMode(enabled).Should().BeSameAs(widget);
+      widget.PrivateMode().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -89,10 +127,19 @@ public sealed class YouTubeVideoWidgetTests : ClassTest<YouTubeVideoWidget>
   [Fact]
   public void SecureMode_Method()
   {
-    var widget = new YouTubeVideoWidget();
-    Assert.False(widget.SecureMode());
-    Assert.True(ReferenceEquals(widget.SecureMode(true), widget));
-    Assert.True(widget.SecureMode());
+    using (new AssertionScope())
+    {
+      var widget = new YouTubeVideoWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYouTubeVideoWidget widget)
+    {
+      widget.SecureMode(enabled).Should().BeSameAs(widget);
+      widget.SecureMode().Should().Be(enabled);
+    }
   }
 
   /// <summary>

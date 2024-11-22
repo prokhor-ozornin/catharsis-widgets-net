@@ -70,9 +70,9 @@ public interface ITwitterFollowButtonWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to show user's screen name. Default is <c>true</c>.</para>
   /// </summary>
-  /// <param name="name"><c>true</c> to show screen name, <c>false</c> to hide.</param>
+  /// <param name="enabled"><c>true</c> to show screen name, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
-  ITwitterFollowButtonWidget ScreenName(bool name);
+  ITwitterFollowButtonWidget ScreenName(bool enabled);
 
   /// <summary>
   ///   <para>Whether to show user's screen name. Default is <c>true</c>.</para>

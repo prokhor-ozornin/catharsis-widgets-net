@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -38,10 +40,19 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
     Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Color(null));
     Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Color(string.Empty));
 
-    var widget = new PinterestPinItButtonWidget();
-    Assert.Equal("gray", widget.Color());
-    Assert.True(ReferenceEquals(widget.Color("color"), widget));
-    Assert.Equal("color", widget.Color());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestPinItButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IPinterestPinItButtonWidget widget)
+    {
+      widget.Color(color).Should().BeSameAs(widget);
+      widget.Color().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -50,10 +61,19 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
   [Fact]
   public void Counter_Method()
   {
-    var widget = new PinterestPinItButtonWidget();
-    Assert.Equal(PinterestPinItButtonPinCountPosition.None, widget.Counter());
-    Assert.True(ReferenceEquals(widget.Counter(PinterestPinItButtonPinCountPosition.Above), widget));
-    Assert.Equal(PinterestPinItButtonPinCountPosition.Above, widget.Counter());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestPinItButtonWidget();
+      Enum.GetValues<PinterestPinItButtonPinCountPosition>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(PinterestPinItButtonPinCountPosition position, IPinterestPinItButtonWidget widget)
+    {
+      widget.Counter(position).Should().BeSameAs(widget);
+      widget.Counter().Should().Be(position);
+    }
   }
 
   /// <summary>
@@ -65,10 +85,19 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
     Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Color(null));
     Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Color(string.Empty));
 
-    var widget = new PinterestPinItButtonWidget();
-    Assert.Null(widget.Description());
-    Assert.True(ReferenceEquals(widget.Description("description"), widget));
-    Assert.Equal("description", widget.Description());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestPinItButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string description, IPinterestPinItButtonWidget widget)
+    {
+      widget.Description(description).Should().BeSameAs(widget);
+      widget.Description().Should().Be(description);
+    }
   }
 
   /// <summary>
@@ -80,10 +109,19 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
     Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Image(null));
     Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Image(string.Empty));
 
-    var widget = new PinterestPinItButtonWidget();
-    Assert.Null(widget.Image());
-    Assert.True(ReferenceEquals(widget.Image("image"), widget));
-    Assert.Equal("image", widget.Image());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestPinItButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string image, IPinterestPinItButtonWidget widget)
+    {
+      widget.Image(image).Should().BeSameAs(widget);
+      widget.Image().Should().Be(image);
+    }
   }
 
   /// <summary>
@@ -95,10 +133,19 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
     Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Language(null));
     Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Language(string.Empty));
 
-    var widget = new PinterestPinItButtonWidget();
-    Assert.Equal("en", widget.Language());
-    Assert.True(ReferenceEquals(widget.Language("language"), widget));
-    Assert.Equal("language", widget.Language());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestPinItButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string language, IPinterestPinItButtonWidget widget)
+    {
+      widget.Language(language).Should().BeSameAs(widget);
+      widget.Language().Should().Be(language);
+    }
   }
 
   /// <summary>
@@ -107,10 +154,19 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
   [Fact]
   public void Shape_Method()
   {
-    var widget = new PinterestPinItButtonWidget();
-    Assert.Equal(PinterestPinItButtonShape.Rectangular, widget.Shape());
-    Assert.True(ReferenceEquals(widget.Shape(PinterestPinItButtonShape.Circular), widget));
-    Assert.Equal(PinterestPinItButtonShape.Circular, widget.Shape());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestPinItButtonWidget();
+      Enum.GetValues<PinterestPinItButtonShape>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(PinterestPinItButtonShape shape, IPinterestPinItButtonWidget widget)
+    {
+      widget.Shape(shape).Should().BeSameAs(widget);
+      widget.Shape().Should().Be(shape);
+    }
   }
 
   /// <summary>
@@ -119,10 +175,19 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
   [Fact]
   public void Size_Method()
   {
-    var widget = new PinterestPinItButtonWidget();
-    Assert.Equal(PinterestPinItButtonSize.Small, widget.Size());
-    Assert.True(ReferenceEquals(widget.Size(PinterestPinItButtonSize.Large), widget));
-    Assert.Equal(PinterestPinItButtonSize.Large, widget.Size());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestPinItButtonWidget();
+      Enum.GetValues<PinterestPinItButtonSize>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(PinterestPinItButtonSize size, IPinterestPinItButtonWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size);
+    }
   }
 
   /// <summary>
@@ -134,10 +199,19 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
     Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Url(string.Empty));
 
-    var widget = new PinterestPinItButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestPinItButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IPinterestPinItButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
 
   /// <summary>

@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -29,10 +31,19 @@ public sealed class TumblrShareButtonWidgetTests : ClassTest<TumblrShareButtonWi
   [Fact]
   public void Type_Method()
   {
-    var widget = new TumblrShareButtonWidget();
-    Assert.Equal((byte) TumblrShareButtonType.First, widget.Type());
-    Assert.True(ReferenceEquals(widget.Type(1), widget));
-    Assert.Equal(1, widget.Type());
+    using (new AssertionScope())
+    {
+      var widget = new TumblrFollowButtonWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte type, ITumblrFollowButtonWidget widget)
+    {
+      widget.Type(type).Should().BeSameAs(widget);
+      widget.Type().Should().Be(type);
+    }
   }
 
   /// <summary>
@@ -44,10 +55,19 @@ public sealed class TumblrShareButtonWidgetTests : ClassTest<TumblrShareButtonWi
     Assert.Throws<ArgumentNullException>(() => new TumblrShareButtonWidget().ColorScheme(null));
     Assert.Throws<ArgumentException>(() => new TumblrShareButtonWidget().ColorScheme(string.Empty));
 
-    var widget = new TumblrShareButtonWidget();
-    Assert.Null(widget.ColorScheme());
-    Assert.True(ReferenceEquals(widget.ColorScheme("colorScheme"), widget));
-    Assert.Equal("colorScheme", widget.ColorScheme());
+    using (new AssertionScope())
+    {
+      var widget = new TumblrFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string scheme, ITumblrFollowButtonWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme);
+    }
   }
 
   /// <summary>

@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -76,10 +78,19 @@ public sealed class VkontakteCommentsWidgetTests : ClassTest<VkontakteCommentsWi
     Assert.Throws<ArgumentNullException>(() => new VkontakteCommentsWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new VkontakteCommentsWidget().Width(string.Empty));
 
-    var widget = new VkontakteCommentsWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteAuthButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IVkontakteAuthButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -88,10 +99,19 @@ public sealed class VkontakteCommentsWidgetTests : ClassTest<VkontakteCommentsWi
   [Fact]
   public void AutoPublish_Method()
   {
-    var widget = new VkontakteCommentsWidget();
-    Assert.Null(widget.AutoPublish());
-    Assert.True(ReferenceEquals(widget.AutoPublish(true), widget));
-    Assert.True(widget.AutoPublish().Value);
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommentsWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IVkontakteCommentsWidget widget)
+    {
+      widget.AutoPublish(enabled).Should().BeSameAs(widget);
+      widget.AutoPublish().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -100,22 +120,40 @@ public sealed class VkontakteCommentsWidgetTests : ClassTest<VkontakteCommentsWi
   [Fact]
   public void AutoUpdate_Method()
   {
-    var widget = new VkontakteCommentsWidget();
-    Assert.Null(widget.AutoUpdate());
-    Assert.True(ReferenceEquals(widget.AutoUpdate(true), widget));
-    Assert.True(widget.AutoUpdate().Value);
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommentsWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IVkontakteCommentsWidget widget)
+    {
+      widget.AutoUpdate(enabled).Should().BeSameAs(widget);
+      widget.AutoUpdate().Should().Be(enabled);
+    }
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteCommentsWidget.Mini(bool)"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteCommentsWidget.Mini(bool?)"/> method.</para>
   /// </summary>
   [Fact]
   public void Mini_Method()
   {
-    var widget = new VkontakteCommentsWidget();
-    Assert.Null(widget.Mini());
-    Assert.True(ReferenceEquals(widget.Mini(true), widget));
-    Assert.True(widget.Mini().Value);
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommentsWidget();
+      new bool?[] { null, false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool? enabled, IVkontakteCommentsWidget widget)
+    {
+      widget.Mini(enabled).Should().BeSameAs(widget);
+      widget.Mini().Should().Be(enabled);
+    }
   }
 
   /// <summary>

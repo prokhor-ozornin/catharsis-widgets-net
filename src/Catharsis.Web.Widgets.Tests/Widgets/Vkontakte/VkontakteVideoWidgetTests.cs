@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -36,10 +38,19 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new VkontakteVideoWidget().Id(null));
     Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Id(string.Empty));
 
-    var widget = new VkontakteVideoWidget();
-    Assert.Null(widget.Id());
-    Assert.True(ReferenceEquals(widget.Id("id"), widget));
-    Assert.Equal("id", widget.Id());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IVkontakteVideoWidget widget)
+    {
+      widget.Id(id).Should().BeSameAs(widget);
+      widget.Id().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -51,10 +62,19 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new VkontakteVideoWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Width(string.Empty));
 
-    var widget = new VkontakteVideoWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IVkontakteVideoWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -66,10 +86,19 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new VkontakteVideoWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Height(string.Empty));
 
-    var widget = new VkontakteVideoWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IVkontakteVideoWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -78,10 +107,19 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
   [Fact]
   public void Hd_Method()
   {
-    var widget = new VkontakteVideoWidget();
-    Assert.False(widget.Hd());
-    Assert.True(ReferenceEquals(widget.Hd(true), widget));
-    Assert.True(widget.Hd());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteVideoWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool hd, IVkontakteVideoWidget widget)
+    {
+      widget.Hd(hd).Should().BeSameAs(widget);
+      widget.Hd().Should().Be(hd);
+    }
   }
 
   /// <summary>
@@ -93,10 +131,19 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new VkontakteVideoWidget().User(null));
     Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().User(string.Empty));
 
-    var widget = new VkontakteVideoWidget();
-    Assert.Null(widget.User());
-    Assert.True(ReferenceEquals(widget.User("user"), widget));
-    Assert.Equal("user", widget.User());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string user, IVkontakteVideoWidget widget)
+    {
+      widget.User(user).Should().BeSameAs(widget);
+      widget.User().Should().Be(user);
+    }
   }
 
   /// <summary>
@@ -108,10 +155,19 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new VkontakteVideoWidget().Hash(null));
     Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Hash(string.Empty));
 
-    var widget = new VkontakteVideoWidget();
-    Assert.Null(widget.Hash());
-    Assert.True(ReferenceEquals(widget.Hash("hash"), widget));
-    Assert.Equal("hash", widget.Hash());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string hash, IVkontakteVideoWidget widget)
+    {
+      widget.Hash(hash).Should().BeSameAs(widget);
+      widget.Hash().Should().Be(hash);
+    }
   }
 
   /// <summary>

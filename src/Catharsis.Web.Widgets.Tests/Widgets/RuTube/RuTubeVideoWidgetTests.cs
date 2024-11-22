@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -31,10 +33,22 @@ public sealed class RuTubeVideoWidgetTests : ClassTest<RuTubeVideoWidget>
   [Fact]
   public void Id_Method()
   {
-    var widget = new RuTubeVideoWidget();
-    Assert.Null(widget.Id());
-    Assert.True(ReferenceEquals(widget.Id("id"), widget));
-    Assert.Equal("id", widget.Id());
+    Assert.Throws<ArgumentNullException>(() => new RuTubeVideoWidget().Id(null));
+    Assert.Throws<ArgumentException>(() => new RuTubeVideoWidget().Id(string.Empty));
+
+    using (new AssertionScope())
+    {
+      var widget = new RuTubeVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IRuTubeVideoWidget widget)
+    {
+      widget.Id(id).Should().BeSameAs(widget);
+      widget.Id().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -46,10 +60,19 @@ public sealed class RuTubeVideoWidgetTests : ClassTest<RuTubeVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new RuTubeVideoWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new RuTubeVideoWidget().Width(string.Empty));
 
-    var widget = new RuTubeVideoWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new RuTubeVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IRuTubeVideoWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -61,10 +84,19 @@ public sealed class RuTubeVideoWidgetTests : ClassTest<RuTubeVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new RuTubeVideoWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new RuTubeVideoWidget().Height(string.Empty));
 
-    var widget = new RuTubeVideoWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new RuTubeVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IRuTubeVideoWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>

@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -35,10 +37,19 @@ public sealed class VkontakteAuthButtonWidgetTests : ClassTest<VkontakteAuthButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().ElementId(null));
     Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().ElementId(string.Empty));
 
-    var widget = new VkontakteAuthButtonWidget();
-    Assert.Null(widget.ElementId());
-    Assert.True(ReferenceEquals(widget.ElementId("elementId"), widget));
-    Assert.Equal("elementId", widget.ElementId());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteAuthButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IVkontakteAuthButtonWidget widget)
+    {
+      widget.ElementId(id).Should().BeSameAs(widget);
+      widget.ElementId().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -50,10 +61,19 @@ public sealed class VkontakteAuthButtonWidgetTests : ClassTest<VkontakteAuthButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().Width(string.Empty));
 
-    var widget = new VkontakteAuthButtonWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteAuthButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IVkontakteAuthButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -65,10 +85,19 @@ public sealed class VkontakteAuthButtonWidgetTests : ClassTest<VkontakteAuthButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().Url(string.Empty));
 
-    var widget = new VkontakteAuthButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteAuthButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IVkontakteAuthButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -77,10 +106,19 @@ public sealed class VkontakteAuthButtonWidgetTests : ClassTest<VkontakteAuthButt
   [Fact]
   public void Type_Method()
   {
-    var widget = new VkontakteAuthButtonWidget();
-    Assert.Equal(VkontakteAuthButtonType.Standard, widget.Type());
-    Assert.True(ReferenceEquals(widget.Type(VkontakteAuthButtonType.Dynamic), widget));
-    Assert.Equal(VkontakteAuthButtonType.Dynamic, widget.Type());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteAuthButtonWidget();
+      Enum.GetValues<VkontakteAuthButtonType>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(VkontakteAuthButtonType type, IVkontakteAuthButtonWidget widget)
+    {
+      widget.Type(type).Should().BeSameAs(widget);
+      widget.Type().Should().Be(type);
+    }
   }
 
   /// <summary>
@@ -92,10 +130,19 @@ public sealed class VkontakteAuthButtonWidgetTests : ClassTest<VkontakteAuthButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().Callback(null));
     Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().Callback(string.Empty));
 
-    var widget = new VkontakteAuthButtonWidget();
-    Assert.Null(widget.Callback());
-    Assert.True(ReferenceEquals(widget.Callback("callback"), widget));
-    Assert.Equal("callback", widget.Callback());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteAuthButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string callback, IVkontakteAuthButtonWidget widget)
+    {
+      widget.Callback(callback).Should().BeSameAs(widget);
+      widget.Callback().Should().Be(callback);
+    }
   }
 
   /// <summary>

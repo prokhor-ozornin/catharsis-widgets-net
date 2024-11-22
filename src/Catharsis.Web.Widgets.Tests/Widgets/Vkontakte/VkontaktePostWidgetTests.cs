@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -35,10 +37,19 @@ public sealed class VkontaktePostWidgetTests : ClassTest<VkontaktePostWidget>
     Assert.Throws<ArgumentNullException>(() => new VkontaktePostWidget().ElementId(null));
     Assert.Throws<ArgumentException>(() => new VkontaktePostWidget().ElementId(string.Empty));
 
-    var widget = new VkontaktePostWidget();
-    Assert.Null(widget.ElementId());
-    Assert.True(ReferenceEquals(widget.ElementId("elementId"), widget));
-    Assert.Equal("elementId", widget.ElementId());
+    using (new AssertionScope())
+    {
+      var widget = new VkontaktePostWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IVkontaktePostWidget widget)
+    {
+      widget.ElementId(id).Should().BeSameAs(widget);
+      widget.ElementId().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -50,10 +61,19 @@ public sealed class VkontaktePostWidgetTests : ClassTest<VkontaktePostWidget>
     Assert.Throws<ArgumentNullException>(() => new VkontaktePostWidget().Hash(null));
     Assert.Throws<ArgumentException>(() => new VkontaktePostWidget().Hash(string.Empty));
 
-    var widget = new VkontaktePostWidget();
-    Assert.Null(widget.Hash());
-    Assert.True(ReferenceEquals(widget.Hash("hash"), widget));
-    Assert.Equal("hash", widget.Hash());
+    using (new AssertionScope())
+    {
+      var widget = new VkontaktePostWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string hash, IVkontaktePostWidget widget)
+    {
+      widget.Hash(hash).Should().BeSameAs(widget);
+      widget.Hash().Should().Be(hash);
+    }
   }
 
   /// <summary>
@@ -65,10 +85,19 @@ public sealed class VkontaktePostWidgetTests : ClassTest<VkontaktePostWidget>
     Assert.Throws<ArgumentNullException>(() => new VkontaktePostWidget().Id(null));
     Assert.Throws<ArgumentException>(() => new VkontaktePostWidget().Id(string.Empty));
 
-    var widget = new VkontaktePostWidget();
-    Assert.Null(widget.Id());
-    Assert.True(ReferenceEquals(widget.Id("id"), widget));
-    Assert.Equal("id", widget.Id());
+    using (new AssertionScope())
+    {
+      var widget = new VkontaktePostWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IVkontaktePostWidget widget)
+    {
+      widget.Id(id).Should().BeSameAs(widget);
+      widget.Id().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -80,10 +109,19 @@ public sealed class VkontaktePostWidgetTests : ClassTest<VkontaktePostWidget>
     Assert.Throws<ArgumentNullException>(() => new VkontaktePostWidget().Owner(null));
     Assert.Throws<ArgumentException>(() => new VkontaktePostWidget().Owner(string.Empty));
 
-    var widget = new VkontaktePostWidget();
-    Assert.Null(widget.Owner());
-    Assert.True(ReferenceEquals(widget.Owner("owner"), widget));
-    Assert.Equal("owner", widget.Owner());
+    using (new AssertionScope())
+    {
+      var widget = new VkontaktePostWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string owner, IVkontaktePostWidget widget)
+    {
+      widget.Owner(owner).Should().BeSameAs(widget);
+      widget.Owner().Should().Be(owner);
+    }
   }
 
   /// <summary>
@@ -95,10 +133,19 @@ public sealed class VkontaktePostWidgetTests : ClassTest<VkontaktePostWidget>
     Assert.Throws<ArgumentNullException>(() => new VkontaktePostWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new VkontaktePostWidget().Width(string.Empty));
 
-    var widget = new VkontaktePostWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new VkontaktePostWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IVkontaktePostWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>

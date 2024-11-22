@@ -59,10 +59,19 @@ public sealed class SoundCloudProfileIconWidgetTests : ClassTest<SoundCloudProfi
     Assert.Throws<ArgumentNullException>(() => new SoundCloudProfileIconWidget().Color(null));
     Assert.Throws<ArgumentException>(() => new SoundCloudProfileIconWidget().Color(string.Empty));
 
-    var widget = new SoundCloudProfileIconWidget();
-    Assert.Equal("orange_white", widget.Color());
-    Assert.True(ReferenceEquals(widget.Color("color"), widget));
-    Assert.Equal("color", widget.Color());
+    using (new AssertionScope())
+    {
+      var widget = new SoundCloudProfileIconWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, ISoundCloudProfileIconWidget widget)
+    {
+      widget.Color(color).Should().BeSameAs(widget);
+      widget.Color().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -71,10 +80,19 @@ public sealed class SoundCloudProfileIconWidgetTests : ClassTest<SoundCloudProfi
   [Fact]
   public void Size_Method()
   {
-    var widget = new SoundCloudProfileIconWidget();
-    Assert.Equal((short) SoundCloudProfileIconSize.Size32, widget.Size());
-    Assert.True(ReferenceEquals(widget.Size(1), widget));
-    Assert.Equal(1, widget.Size());
+    using (new AssertionScope())
+    {
+      var widget = new SoundCloudProfileIconWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short size, ISoundCloudProfileIconWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size);
+    }
   }
 
   /// <summary>

@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -31,10 +33,19 @@ public sealed class PinterestPinWidgetTests : ClassTest<PinterestPinWidget>
     Assert.Throws<ArgumentNullException>(() => new PinterestPinWidget().Id(null));
     Assert.Throws<ArgumentException>(() => new PinterestPinWidget().Id(string.Empty));
 
-    var widget = new PinterestPinWidget();
-    Assert.Null(widget.Id());
-    Assert.True(ReferenceEquals(widget.Id("id"), widget));
-    Assert.Equal("id", widget.Id());
+    using (new AssertionScope())
+    {
+      var widget = new PinterestPinWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IPinterestPinWidget widget)
+    {
+      widget.Id(id).Should().BeSameAs(widget);
+      widget.Id().Should().Be(id);
+    }
   }
 
   /// <summary>

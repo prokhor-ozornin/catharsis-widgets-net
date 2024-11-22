@@ -67,10 +67,19 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
     Assert.Throws<ArgumentNullException>(() => new YandexMoneyButtonWidget().Color(null));
     Assert.Throws<ArgumentException>(() => new YandexMoneyButtonWidget().Color(string.Empty));
 
-    var widget = new YandexMoneyButtonWidget();
-    Assert.Equal("orange", widget.Color());
-    Assert.True(ReferenceEquals(widget.Color("color"), widget));
-    Assert.Equal("color", widget.Color());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IYandexMoneyButtonWidget widget)
+    {
+      widget.Color(color).Should().BeSameAs(widget);
+      widget.Color().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -82,10 +91,19 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
     Assert.Throws<ArgumentNullException>(() => new YandexMoneyButtonWidget().Description(null));
     Assert.Throws<ArgumentException>(() => new YandexMoneyButtonWidget().Description(string.Empty));
 
-    var widget = new YandexMoneyButtonWidget();
-    Assert.Null(widget.Description());
-    Assert.True(ReferenceEquals(widget.Description("description"), widget));
-    Assert.Equal("description", widget.Description());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IYandexMoneyButtonWidget widget)
+    {
+      widget.Color(color).Should().BeSameAs(widget);
+      widget.Color().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -94,10 +112,19 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
   [Fact]
   public void AskPayerFullName_Method()
   {
-    var widget = new YandexMoneyButtonWidget();
-    Assert.False(widget.AskPayerFullName());
-    Assert.True(ReferenceEquals(widget.AskPayerFullName(true), widget));
-    Assert.True(widget.AskPayerFullName());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyButtonWidget widget)
+    {
+      widget.AskPayerFullName(enabled).Should().BeSameAs(widget);
+      widget.AskPayerFullName().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -106,34 +133,61 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
   [Fact]
   public void AskPayerEmail_Method()
   {
-    var widget = new YandexMoneyButtonWidget();
-    Assert.False(widget.AskPayerEmail());
-    Assert.True(ReferenceEquals(widget.AskPayerEmail(true), widget));
-    Assert.True(widget.AskPayerEmail());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyButtonWidget();
+      new[] {false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyButtonWidget widget)
+    {
+      widget.AskPayerEmail(enabled).Should().BeSameAs(widget);
+      widget.AskPayerEmail().Should().Be(enabled);
+    }
   }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.AskPayerPhone(bool)"/> method.</para>
   /// </summary>
   [Fact]
-  public void PayerPhone_Method()
+  public void AskPayerPhone_Method()
   {
-    var widget = new YandexMoneyButtonWidget();
-    Assert.False(widget.AskPayerPhone());
-    Assert.True(ReferenceEquals(widget.AskPayerPhone(true), widget));
-    Assert.True(widget.AskPayerPhone());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyButtonWidget widget)
+    {
+      widget.AskPayerPhone(enabled).Should().BeSameAs(widget);
+      widget.AskPayerPhone().Should().Be(enabled);
+    }
   }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.AskPayerAddress(bool)"/> method.</para>
   /// </summary>
   [Fact]
-  public void PayerAddress_Method()
+  public void AskPayerAddress_Method()
   {
-    var widget = new YandexMoneyButtonWidget();
-    Assert.False(widget.AskPayerAddress());
-    Assert.True(ReferenceEquals(widget.AskPayerAddress(true), widget));
-    Assert.True(widget.AskPayerAddress());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyButtonWidget widget)
+    {
+      widget.AskPayerAddress(enabled).Should().BeSameAs(widget);
+      widget.AskPayerAddress().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -145,10 +199,19 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
     Assert.Throws<ArgumentNullException>(() => new YandexMoneyButtonWidget().Size(null));
     Assert.Throws<ArgumentException>(() => new YandexMoneyButtonWidget().Size(string.Empty));
 
-    var widget = new YandexMoneyButtonWidget();
-    Assert.Equal("l", widget.Size());
-    Assert.True(ReferenceEquals(widget.Size("size"), widget));
-    Assert.Equal("size", widget.Size());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string size, IYandexMoneyButtonWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size);
+    }
   }
 
   /// <summary>
@@ -157,10 +220,19 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
   [Fact]
   public void Sum_Method()
   {
-    var widget = new YandexMoneyButtonWidget();
-    Assert.Null(widget.Sum());
-    Assert.True(ReferenceEquals(widget.Sum(1), widget));
-    Assert.Equal(1, widget.Sum());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyButtonWidget();
+      new[] { decimal.MinValue, decimal.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(decimal sum, IYandexMoneyButtonWidget widget)
+    {
+      widget.Sum(sum).Should().BeSameAs(widget);
+      widget.Sum().Should().Be(sum);
+    }
   }
 
   /// <summary>
@@ -169,10 +241,19 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
   [Fact]
   public void Text_Method()
   {
-    var widget = new YandexMoneyButtonWidget();
-    Assert.Equal((byte) YandexMoneyButtonText.Pay, widget.Text());
-    Assert.True(ReferenceEquals(widget.Text(1), widget));
-    Assert.Equal(1, widget.Text());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyButtonWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte text, IYandexMoneyButtonWidget widget)
+    {
+      widget.Text(text).Should().BeSameAs(widget);
+      widget.Text().Should().Be(text);
+    }
   }
 
   /// <summary>
@@ -184,10 +265,19 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
     Assert.Throws<ArgumentNullException>(() => new YandexMoneyButtonWidget().Type(null));
     Assert.Throws<ArgumentException>(() => new YandexMoneyButtonWidget().Type(string.Empty));
 
-    var widget = new YandexMoneyButtonWidget();
-    Assert.Equal("yamoney-payment-type", widget.Type());
-    Assert.True(ReferenceEquals(widget.Type("type"), widget));
-    Assert.Equal("type", widget.Type());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string type, IYandexMoneyButtonWidget widget)
+    {
+      widget.Type(type).Should().BeSameAs(widget);
+      widget.Type().Should().Be(type);
+    }
   }
 
   /// <summary>

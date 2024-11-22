@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -40,10 +42,19 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().ElementId(null));
     Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().ElementId(string.Empty));
 
-    var widget = new VkontakteLikeButtonWidget();
-    Assert.Null(widget.ElementId());
-    Assert.True(ReferenceEquals(widget.ElementId("elementId"), widget));
-    Assert.Equal("elementId", widget.ElementId());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IVkontakteLikeButtonWidget widget)
+    {
+      widget.ElementId(id).Should().BeSameAs(widget);
+      widget.ElementId().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -55,10 +66,19 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Text(null));
     Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Text(string.Empty));
 
-    var widget = new VkontakteLikeButtonWidget();
-    Assert.Null(widget.Text());
-    Assert.True(ReferenceEquals(widget.Text("text"), widget));
-    Assert.Equal("text", widget.Text());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string text, IVkontakteLikeButtonWidget widget)
+    {
+      widget.Text(text).Should().BeSameAs(widget);
+      widget.Text().Should().Be(text);
+    }
   }
 
   /// <summary>
@@ -67,10 +87,19 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
   [Fact]
   public void Verb_Method()
   {
-    var widget = new VkontakteLikeButtonWidget();
-    Assert.Null(widget.Verb());
-    Assert.True(ReferenceEquals(widget.Verb(1), widget));
-    Assert.Equal(1, widget.Verb().Value);
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteLikeButtonWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte verb, IVkontakteLikeButtonWidget widget)
+    {
+      widget.Verb(verb).Should().BeSameAs(widget);
+      widget.Verb().Should().Be(verb);
+    }
   }
 
   /// <summary>
@@ -82,10 +111,19 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Layout(null));
     Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Layout(string.Empty));
 
-    var widget = new VkontakteLikeButtonWidget();
-    Assert.Null(widget.Layout());
-    Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-    Assert.Equal("layout", widget.Layout());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string layout, IVkontakteLikeButtonWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be(layout);
+    }
   }
 
   /// <summary>
@@ -97,10 +135,19 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Width(string.Empty));
 
-    var widget = new VkontakteLikeButtonWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IVkontakteLikeButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -112,10 +159,19 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Height(string.Empty));
 
-    var widget = new VkontakteLikeButtonWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IVkontakteLikeButtonWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -127,10 +183,19 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Title(null));
     Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Title(string.Empty));
 
-    var widget = new VkontakteLikeButtonWidget();
-    Assert.Null(widget.Title());
-    Assert.True(ReferenceEquals(widget.Title("title"), widget));
-    Assert.Equal("title", widget.Title());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string title, IVkontakteLikeButtonWidget widget)
+    {
+      widget.Title(title).Should().BeSameAs(widget);
+      widget.Title().Should().Be(title);
+    }
   }
 
   /// <summary>
@@ -142,10 +207,19 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Url(string.Empty));
 
-    var widget = new VkontakteLikeButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IVkontakteLikeButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -157,10 +231,19 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Description(null));
     Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Description(string.Empty));
 
-    var widget = new VkontakteLikeButtonWidget();
-    Assert.Null(widget.Description());
-    Assert.True(ReferenceEquals(widget.Description("description"), widget));
-    Assert.Equal("description", widget.Description());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string description, IVkontakteLikeButtonWidget widget)
+    {
+      widget.Description(description).Should().BeSameAs(widget);
+      widget.Description().Should().Be(description);
+    }
   }
 
   /// <summary>
@@ -172,10 +255,19 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
     Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Image(null));
     Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Image(string.Empty));
 
-    var widget = new VkontakteLikeButtonWidget();
-    Assert.Null(widget.Image());
-    Assert.True(ReferenceEquals(widget.Image("image"), widget));
-    Assert.Equal("image", widget.Image());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteLikeButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, IVkontakteLikeButtonWidget widget)
+    {
+      widget.Image(url).Should().BeSameAs(widget);
+      widget.Image().Should().Be(url);
+    }
   }
 
   /// <summary>

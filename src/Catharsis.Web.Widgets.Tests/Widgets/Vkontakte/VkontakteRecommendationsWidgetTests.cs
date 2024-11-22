@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -34,10 +36,22 @@ public sealed class VkontakteRecommendationsWidgetTests : ClassTest<VkontakteRec
   [Fact]
   public void ElementId_Method()
   {
-    var widget = new VkontakteRecommendationsWidget();
-    Assert.Null(widget.ElementId());
-    Assert.True(ReferenceEquals(widget.ElementId("elementId"), widget));
-    Assert.Equal("elementId", widget.ElementId());
+    Assert.Throws<ArgumentNullException>(() => new VkontakteRecommendationsWidget().ElementId(null));
+    Assert.Throws<ArgumentException>(() => new VkontakteRecommendationsWidget().ElementId(string.Empty));
+
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteRecommendationsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IVkontakteRecommendationsWidget widget)
+    {
+      widget.ElementId(id).Should().BeSameAs(widget);
+      widget.ElementId().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -46,10 +60,19 @@ public sealed class VkontakteRecommendationsWidgetTests : ClassTest<VkontakteRec
   [Fact]
   public void Limit_Method()
   {
-    var widget = new VkontakteRecommendationsWidget();
-    Assert.Null(widget.Limit());
-    Assert.True(ReferenceEquals(widget.Limit(1), widget));
-    Assert.Equal((byte) 1, widget.Limit());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteRecommendationsWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte limit, IVkontakteRecommendationsWidget widget)
+    {
+      widget.Limit(limit).Should().BeSameAs(widget);
+      widget.Limit().Should().Be(limit);
+    }
   }
 
   /// <summary>
@@ -58,10 +81,19 @@ public sealed class VkontakteRecommendationsWidgetTests : ClassTest<VkontakteRec
   [Fact]
   public void Max_Method()
   {
-    var widget = new VkontakteRecommendationsWidget();
-    Assert.Null(widget.Max());
-    Assert.True(ReferenceEquals(widget.Max(1), widget));
-    Assert.Equal((short)1, widget.Max());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteRecommendationsWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short max, IVkontakteRecommendationsWidget widget)
+    {
+      widget.Max(max).Should().BeSameAs(widget);
+      widget.Max().Should().Be(max);
+    }
   }
 
   /// <summary>
@@ -70,10 +102,19 @@ public sealed class VkontakteRecommendationsWidgetTests : ClassTest<VkontakteRec
   [Fact]
   public void Period_Method()
   {
-    var widget = new VkontakteRecommendationsWidget();
-    Assert.Null(widget.Period());
-    Assert.True(ReferenceEquals(widget.Period(VkontakteRecommendationsPeriod.Day), widget));
-    Assert.Equal(VkontakteRecommendationsPeriod.Day, widget.Period());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteRecommendationsWidget();
+      Enum.GetValues<VkontakteRecommendationsPeriod>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(VkontakteRecommendationsPeriod period, IVkontakteRecommendationsWidget widget)
+    {
+      widget.Period(period).Should().BeSameAs(widget);
+      widget.Period().Should().Be(period);
+    }
   }
 
   /// <summary>
@@ -82,10 +123,19 @@ public sealed class VkontakteRecommendationsWidgetTests : ClassTest<VkontakteRec
   [Fact]
   public void Verb_Method()
   {
-    var widget = new VkontakteRecommendationsWidget();
-    Assert.Null(widget.Verb());
-    Assert.True(ReferenceEquals(widget.Verb(VkontakteRecommendationsVerb.Interest), widget));
-    Assert.Equal(VkontakteRecommendationsVerb.Interest, widget.Verb());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteRecommendationsWidget();
+      Enum.GetValues<VkontakteRecommendationsVerb>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(VkontakteRecommendationsVerb verb, IVkontakteRecommendationsWidget widget)
+    {
+      widget.Verb(verb).Should().BeSameAs(widget);
+      widget.Verb().Should().Be(verb);
+    }
   }
 
   /// <summary>
@@ -94,10 +144,19 @@ public sealed class VkontakteRecommendationsWidgetTests : ClassTest<VkontakteRec
   [Fact]
   public void Sorting_Method()
   {
-    var widget = new VkontakteRecommendationsWidget();
-    Assert.Null(widget.Sorting());
-    Assert.True(ReferenceEquals(widget.Sorting(VkontakteRecommendationsSorting.FriendLikes), widget));
-    Assert.Equal(VkontakteRecommendationsSorting.FriendLikes, widget.Sorting());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteRecommendationsWidget();
+      Enum.GetValues<VkontakteRecommendationsSorting>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(VkontakteRecommendationsSorting verb, IVkontakteRecommendationsWidget widget)
+    {
+      widget.Sorting(verb).Should().BeSameAs(widget);
+      widget.Sorting().Should().Be(verb);
+    }
   }
 
   /// <summary>
@@ -109,10 +168,19 @@ public sealed class VkontakteRecommendationsWidgetTests : ClassTest<VkontakteRec
     Assert.Throws<ArgumentNullException>(() => new VkontakteRecommendationsWidget().Target(null));
     Assert.Throws<ArgumentException>(() => new VkontakteRecommendationsWidget().Target(string.Empty));
 
-    var widget = new VkontakteRecommendationsWidget();
-    Assert.Null(widget.Target());
-    Assert.True(ReferenceEquals(widget.Target("target"), widget));
-    Assert.Equal("target", widget.Target());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteRecommendationsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string target, IVkontakteRecommendationsWidget widget)
+    {
+      widget.Target(target).Should().BeSameAs(widget);
+      widget.Target().Should().Be(target);
+    }
   }
 
   /// <summary>

@@ -40,10 +40,19 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
     Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().BackgroundColor(null));
     Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().BackgroundColor(string.Empty));
 
-    var widget = new VkontakteCommunityWidget();
-    Assert.Null(widget.BackgroundColor());
-    Assert.True(ReferenceEquals(widget.BackgroundColor("backgroundColor"), widget));
-    Assert.Equal("backgroundColor", widget.BackgroundColor());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommunityWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IVkontakteCommunityWidget widget)
+    {
+      widget.BackgroundColor(color).Should().BeSameAs(widget);
+      widget.BackgroundColor().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -55,10 +64,19 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
     Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().TextColor(null));
     Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().TextColor(string.Empty));
 
-    var widget = new VkontakteCommunityWidget();
-    Assert.Null(widget.TextColor());
-    Assert.True(ReferenceEquals(widget.TextColor("textColor"), widget));
-    Assert.Equal("textColor", widget.TextColor());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommunityWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IVkontakteCommunityWidget widget)
+    {
+      widget.TextColor(color).Should().BeSameAs(widget);
+      widget.TextColor().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -70,10 +88,19 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
     Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().ButtonColor(null));
     Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().ButtonColor(string.Empty));
 
-    var widget = new VkontakteCommunityWidget();
-    Assert.Null(widget.ButtonColor());
-    Assert.True(ReferenceEquals(widget.ButtonColor("buttonColor"), widget));
-    Assert.Equal("buttonColor", widget.ButtonColor());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommunityWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, IVkontakteCommunityWidget widget)
+    {
+      widget.ButtonColor(color).Should().BeSameAs(widget);
+      widget.ButtonColor().Should().Be(color);
+    }
   }
 
   /// <summary>
@@ -85,10 +112,19 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
     Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().ElementId(null));
     Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().ElementId(string.Empty));
 
-    var widget = new VkontakteCommunityWidget();
-    Assert.Null(widget.ElementId());
-    Assert.True(ReferenceEquals(widget.ElementId("elementId"), widget));
-    Assert.Equal("elementId", widget.ElementId());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommunityWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IVkontakteCommunityWidget widget)
+    {
+      widget.ElementId(id).Should().BeSameAs(widget);
+      widget.ElementId().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -121,10 +157,19 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
   [Fact]
   public void Mode_Method()
   {
-    var widget = new VkontakteCommunityWidget();
-    Assert.Equal((byte)VkontakteCommunityMode.Participants, widget.Mode());
-    Assert.True(ReferenceEquals(widget.Mode(1), widget));
-    Assert.Equal(1, widget.Mode());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommunityWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte mode, IVkontakteCommunityWidget widget)
+    {
+      widget.Mode(mode).Should().BeSameAs(widget);
+      widget.Mode().Should().Be(mode);
+    }
   }
 
   /// <summary>
@@ -136,10 +181,19 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
     Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().Width(string.Empty));
 
-    var widget = new VkontakteCommunityWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommunityWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IVkontakteCommunityWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -151,10 +205,19 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
     Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().Height(string.Empty));
 
-    var widget = new VkontakteCommunityWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommunityWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IVkontakteCommunityWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>

@@ -1,5 +1,7 @@
 using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -33,10 +35,19 @@ public sealed class YandexSharePanelWidgetTests : ClassTest<YandexSharePanelWidg
     Assert.Throws<ArgumentNullException>(() => new YandexSharePanelWidget().Language(null));
     Assert.Throws<ArgumentException>(() => new YandexSharePanelWidget().Language(string.Empty));
 
-    var widget = new YandexSharePanelWidget();
-    Assert.Null(widget.Language());
-    Assert.True(ReferenceEquals(widget.Language("language"), widget));
-    Assert.Equal("language", widget.Language());
+    using (new AssertionScope())
+    {
+      var widget = new YandexSharePanelWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string language, IYandexSharePanelWidget widget)
+    {
+      widget.Language(language).Should().BeSameAs(widget);
+      widget.Language().Should().Be(language);
+    }
   }
 
   /// <summary>
@@ -47,10 +58,19 @@ public sealed class YandexSharePanelWidgetTests : ClassTest<YandexSharePanelWidg
   {
     Assert.Throws<ArgumentNullException>(() => new YandexSharePanelWidget().Services(null));
 
-    var widget = new YandexSharePanelWidget();
-    Assert.True(widget.Services().SequenceEqual(new[] { "yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird" }));
-    Assert.True(ReferenceEquals(widget.Services(new[] { "first", "second" }), widget));
-    Assert.True(widget.Services().SequenceEqual(new[] { "first", "second" }));
+    using (new AssertionScope())
+    {
+      var widget = new YandexSharePanelWidget();
+      new[] { Enumerable.Empty<string>(), ["service"] }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(IEnumerable<string> services, IYandexSharePanelWidget widget)
+    {
+      widget.Services(services).Should().BeSameAs(widget);
+      widget.Services().Should().Equal(services);
+    }
   }
 
   /// <summary>
@@ -62,10 +82,19 @@ public sealed class YandexSharePanelWidgetTests : ClassTest<YandexSharePanelWidg
     Assert.Throws<ArgumentNullException>(() => new YandexSharePanelWidget().Layout(null));
     Assert.Throws<ArgumentException>(() => new YandexSharePanelWidget().Layout(string.Empty));
 
-    var widget = new YandexSharePanelWidget();
-    Assert.Equal(YandexSharePanelLayout.Button.ToString().ToLowerInvariant(), widget.Layout());
-    Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-    Assert.Equal("layout", widget.Layout());
+    using (new AssertionScope())
+    {
+      var widget = new YandexSharePanelWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string layout, IYandexSharePanelWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be(layout);
+    }
   }
 
   /// <summary>

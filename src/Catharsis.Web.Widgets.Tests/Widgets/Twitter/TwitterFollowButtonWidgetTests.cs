@@ -64,10 +64,19 @@ public sealed class TwitterFollowButtonWidgetTests : ClassTest<TwitterFollowButt
     Assert.Throws<ArgumentNullException>(() => new TwitterFollowButtonWidget().Language(null));
     Assert.Throws<ArgumentException>(() => new TwitterFollowButtonWidget().Language(string.Empty));
 
-    var widget = new TwitterFollowButtonWidget();
-    Assert.Null(widget.Language());
-    Assert.True(ReferenceEquals(widget.Language("language"), widget));
-    Assert.Equal("language", widget.Language());
+    using (new AssertionScope())
+    {
+      var widget = new TwitterFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string language, ITwitterFollowButtonWidget widget)
+    {
+      widget.Language(language).Should().BeSameAs(widget);
+      widget.Language().Should().Be(language);
+    }
   }
 
   /// <summary>
@@ -79,10 +88,19 @@ public sealed class TwitterFollowButtonWidgetTests : ClassTest<TwitterFollowButt
     Assert.Throws<ArgumentNullException>(() => new TwitterFollowButtonWidget().Size(null));
     Assert.Throws<ArgumentException>(() => new TwitterFollowButtonWidget().Size(string.Empty));
 
-    var widget = new TwitterFollowButtonWidget();
-    Assert.Null(widget.Size());
-    Assert.True(ReferenceEquals(widget.Size("size"), widget));
-    Assert.Equal("size", widget.Size());
+    using (new AssertionScope())
+    {
+      var widget = new TwitterFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string size, ITwitterFollowButtonWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size);
+    }
   }
 
   /// <summary>
@@ -94,10 +112,19 @@ public sealed class TwitterFollowButtonWidgetTests : ClassTest<TwitterFollowButt
     Assert.Throws<ArgumentNullException>(() => new TwitterFollowButtonWidget().Alignment(null));
     Assert.Throws<ArgumentException>(() => new TwitterFollowButtonWidget().Alignment(string.Empty));
 
-    var widget = new TwitterFollowButtonWidget();
-    Assert.Null(widget.Alignment());
-    Assert.True(ReferenceEquals(widget.Alignment("alignment"), widget));
-    Assert.Equal("alignment", widget.Alignment());
+    using (new AssertionScope())
+    {
+      var widget = new TwitterFollowButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string alignment, ITwitterFollowButtonWidget widget)
+    {
+      widget.Alignment(alignment).Should().BeSameAs(widget);
+      widget.Alignment().Should().Be(alignment);
+    }
   }
     
   /// <summary>
@@ -106,10 +133,19 @@ public sealed class TwitterFollowButtonWidgetTests : ClassTest<TwitterFollowButt
   [Fact]
   public void Counter_Method()
   {
-    var widget = new TwitterFollowButtonWidget();
-    Assert.Null(widget.Counter());
-    Assert.True(ReferenceEquals(widget.Counter(true), widget));
-    Assert.True(widget.Counter().Value);
+    using (new AssertionScope())
+    {
+      var widget = new TwitterFollowButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, ITwitterFollowButtonWidget widget)
+    {
+      widget.Counter(enabled).Should().BeSameAs(widget);
+      widget.Counter().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -118,10 +154,19 @@ public sealed class TwitterFollowButtonWidgetTests : ClassTest<TwitterFollowButt
   [Fact]
   public void ScreenName_Method()
   {
-    var widget = new TwitterFollowButtonWidget();
-    Assert.Null(widget.ScreenName());
-    Assert.True(ReferenceEquals(widget.ScreenName(true), widget));
-    Assert.True(widget.ScreenName().Value);
+    using (new AssertionScope())
+    {
+      var widget = new TwitterFollowButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, ITwitterFollowButtonWidget widget)
+    {
+      widget.ScreenName(enabled).Should().BeSameAs(widget);
+      widget.ScreenName().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -130,10 +175,19 @@ public sealed class TwitterFollowButtonWidgetTests : ClassTest<TwitterFollowButt
   [Fact]
   public void Suggestions_Method()
   {
-    var widget = new TwitterFollowButtonWidget();
-    Assert.Null(widget.Suggestions());
-    Assert.True(ReferenceEquals(widget.Suggestions(true), widget));
-    Assert.True(widget.Suggestions().Value);
+    using (new AssertionScope())
+    {
+      var widget = new TwitterFollowButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, ITwitterFollowButtonWidget widget)
+    {
+      widget.Suggestions(enabled).Should().BeSameAs(widget);
+      widget.Suggestions().Should().Be(enabled);
+    }
   }
 
   /// <summary>

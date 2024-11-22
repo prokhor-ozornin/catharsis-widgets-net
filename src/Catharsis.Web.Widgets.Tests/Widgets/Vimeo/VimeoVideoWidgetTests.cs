@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -35,10 +37,19 @@ public sealed class VimeoVideoWidgetTests : ClassTest<VimeoVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new VimeoVideoWidget().Id(null));
     Assert.Throws<ArgumentException>(() => new VimeoVideoWidget().Id(string.Empty));
 
-    var widget = new VimeoVideoWidget();
-    Assert.Null(widget.Id());
-    Assert.True(ReferenceEquals(widget.Id("id"), widget));
-    Assert.Equal("id", widget.Id());
+    using (new AssertionScope())
+    {
+      var widget = new VimeoVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IVimeoVideoWidget widget)
+    {
+      widget.Id(id).Should().BeSameAs(widget);
+      widget.Id().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -50,10 +61,19 @@ public sealed class VimeoVideoWidgetTests : ClassTest<VimeoVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new VimeoVideoWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new VimeoVideoWidget().Width(string.Empty));
 
-    var widget = new VimeoVideoWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new VimeoVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IVimeoVideoWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -65,10 +85,19 @@ public sealed class VimeoVideoWidgetTests : ClassTest<VimeoVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new VimeoVideoWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new VimeoVideoWidget().Height(string.Empty));
 
-    var widget = new VimeoVideoWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new VimeoVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, IVimeoVideoWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -77,10 +106,19 @@ public sealed class VimeoVideoWidgetTests : ClassTest<VimeoVideoWidget>
   [Fact]
   public void AutoPlay_Method()
   {
-    var widget = new VimeoVideoWidget();
-    Assert.False(widget.AutoPlay());
-    Assert.True(ReferenceEquals(widget.AutoPlay(true), widget));
-    Assert.True(widget.AutoPlay());
+    using (new AssertionScope())
+    {
+      var widget = new VimeoVideoWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IVimeoVideoWidget widget)
+    {
+      widget.AutoPlay(enabled).Should().BeSameAs(widget);
+      widget.AutoPlay().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -89,10 +127,19 @@ public sealed class VimeoVideoWidgetTests : ClassTest<VimeoVideoWidget>
   [Fact]
   public void Loop_Method()
   {
-    var widget = new VimeoVideoWidget();
-    Assert.False(widget.Loop());
-    Assert.True(ReferenceEquals(widget.Loop(true), widget));
-    Assert.True(widget.Loop());
+    using (new AssertionScope())
+    {
+      var widget = new VimeoVideoWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IVimeoVideoWidget widget)
+    {
+      widget.Loop(enabled).Should().BeSameAs(widget);
+      widget.Loop().Should().Be(enabled);
+    }
   }
 
   /// <summary>

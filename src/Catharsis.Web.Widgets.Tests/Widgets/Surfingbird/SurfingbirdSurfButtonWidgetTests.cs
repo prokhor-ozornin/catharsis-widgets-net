@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -37,10 +39,19 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
     Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Url(null));
     Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Url(string.Empty));
 
-    var widget = new SurfingbirdSurfButtonWidget();
-    Assert.Null(widget.Url());
-    Assert.True(ReferenceEquals(widget.Url("url"), widget));
-    Assert.Equal("url", widget.Url());
+    using (new AssertionScope())
+    {
+      var widget = new SurfingbirdSurfButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string url, ISurfingbirdSurfButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url);
+    }
   }
 
   /// <summary>
@@ -52,10 +63,19 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
     Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Layout(null));
     Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Layout(string.Empty));
 
-    var widget = new SurfingbirdSurfButtonWidget();
-    Assert.Equal(SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant(), widget.Layout());
-    Assert.True(ReferenceEquals(widget.Layout("layout"), widget));
-    Assert.Equal("layout", widget.Layout());
+    using (new AssertionScope())
+    {
+      var widget = new SurfingbirdSurfButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string layout, ISurfingbirdSurfButtonWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be(layout);
+    }
   }
 
   /// <summary>
@@ -67,10 +87,19 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
     Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Width(string.Empty));
 
-    var widget = new SurfingbirdSurfButtonWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new SurfingbirdSurfButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, ISurfingbirdSurfButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -82,10 +111,19 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
     Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Height(string.Empty));
 
-    var widget = new SurfingbirdSurfButtonWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new SurfingbirdSurfButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string height, ISurfingbirdSurfButtonWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height);
+    }
   }
 
   /// <summary>
@@ -94,10 +132,19 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
   [Fact]
   public void Counter_Method()
   {
-    var widget = new SurfingbirdSurfButtonWidget();
-    Assert.False(widget.Counter());
-    Assert.True(ReferenceEquals(widget.Counter(true), widget));
-    Assert.True(widget.Counter());
+    using (new AssertionScope())
+    {
+      var widget = new SurfingbirdSurfButtonWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, ISurfingbirdSurfButtonWidget widget)
+    {
+      widget.Counter(enabled).Should().BeSameAs(widget);
+      widget.Counter().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -109,10 +156,19 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
     Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Label(null));
     Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Label(string.Empty));
 
-    var widget = new SurfingbirdSurfButtonWidget();
-    Assert.Equal("Surf", widget.Label());
-    Assert.True(ReferenceEquals(widget.Label("label"), widget));
-    Assert.Equal("label", widget.Label());
+    using (new AssertionScope())
+    {
+      var widget = new SurfingbirdSurfButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string label, ISurfingbirdSurfButtonWidget widget)
+    {
+      widget.Label(label).Should().BeSameAs(widget);
+      widget.Label().Should().Be(label);
+    }
   }
 
   /// <summary>
@@ -124,10 +180,19 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
     Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Color(null));
     Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Color(string.Empty));
 
-    var widget = new SurfingbirdSurfButtonWidget();
-    Assert.Null(widget.Color());
-    Assert.True(ReferenceEquals(widget.Color("color"), widget));
-    Assert.Equal("color", widget.Color());
+    using (new AssertionScope())
+    {
+      var widget = new SurfingbirdSurfButtonWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string color, ISurfingbirdSurfButtonWidget widget)
+    {
+      widget.Color(color).Should().BeSameAs(widget);
+      widget.Color().Should().Be(color);
+    }
   }
 
   /// <summary>

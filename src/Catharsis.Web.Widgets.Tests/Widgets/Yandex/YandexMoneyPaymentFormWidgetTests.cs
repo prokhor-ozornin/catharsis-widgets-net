@@ -67,10 +67,19 @@ public sealed class YandexMoneyPaymentFormWidgetTests : ClassTest<YandexMoneyPay
     Assert.Throws<ArgumentNullException>(() => new YandexMoneyPaymentFormWidget().Description(null));
     Assert.Throws<ArgumentException>(() => new YandexMoneyPaymentFormWidget().Description(string.Empty));
 
-    var widget = new YandexMoneyPaymentFormWidget();
-    Assert.Null(widget.Description());
-    Assert.True(ReferenceEquals(widget.Description("description"), widget));
-    Assert.Equal("description", widget.Description());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyPaymentFormWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string description, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.Description(description).Should().BeSameAs(widget);
+      widget.Description().Should().Be(description);
+    }
   }
 
   /// <summary>
@@ -79,10 +88,19 @@ public sealed class YandexMoneyPaymentFormWidgetTests : ClassTest<YandexMoneyPay
   [Fact]
   public void Sum_Method()
   {
-    var widget = new YandexMoneyPaymentFormWidget();
-    Assert.Null(widget.Sum());
-    Assert.True(ReferenceEquals(widget.Sum(1), widget));
-    Assert.Equal(1, widget.Sum());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyPaymentFormWidget();
+      new[] { decimal.MinValue, decimal.MaxValue}.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(decimal sum, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.Sum(sum).Should().BeSameAs(widget);
+      widget.Sum().Should().Be(sum);
+    }
   }
 
   /// <summary>
@@ -91,10 +109,19 @@ public sealed class YandexMoneyPaymentFormWidgetTests : ClassTest<YandexMoneyPay
   [Fact]
   public void Cards_Method()
   {
-    var widget = new YandexMoneyPaymentFormWidget();
-    Assert.True(widget.Cards());
-    Assert.True(ReferenceEquals(widget.Cards(false), widget));
-    Assert.False(widget.Cards());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyPaymentFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.Cards(enabled).Should().BeSameAs(widget);
+      widget.Cards().Should().Be(enabled);
+    }
   }
 
   /// <summary>
@@ -103,10 +130,19 @@ public sealed class YandexMoneyPaymentFormWidgetTests : ClassTest<YandexMoneyPay
   [Fact]
   public void Text_Method()
   {
-    var widget = new YandexMoneyPaymentFormWidget();
-    Assert.Equal((byte)YandexMoneyPaymentFormText.Pay, widget.Text());
-    Assert.True(ReferenceEquals(widget.Text(1), widget));
-    Assert.Equal(1, widget.Text());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyPaymentFormWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte text, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.Text(text).Should().BeSameAs(widget);
+      widget.Text().Should().Be(text);
+    }
   }
 
   /// <summary>
@@ -115,70 +151,124 @@ public sealed class YandexMoneyPaymentFormWidgetTests : ClassTest<YandexMoneyPay
   [Fact]
   public void AskPayerPurpose_Method()
   {
-    var widget = new YandexMoneyPaymentFormWidget();
-    Assert.False(widget.AskPayerPurpose());
-    Assert.True(ReferenceEquals(widget.AskPayerPurpose(true), widget));
-    Assert.True(widget.AskPayerPurpose());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyPaymentFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.AskPayerPurpose(enabled).Should().BeSameAs(widget);
+      widget.AskPayerPurpose().Should().Be(enabled);
+    }
   }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YandexMoneyPaymentFormWidget.AskPayerComment(bool)"/> method.</para>
   /// </summary>
   [Fact]
-  public void PayerComment_Method()
+  public void AskPayerComment_Method()
   {
-    var widget = new YandexMoneyPaymentFormWidget();
-    Assert.False(widget.AskPayerComment());
-    Assert.True(ReferenceEquals(widget.AskPayerComment(true), widget));
-    Assert.True(widget.AskPayerComment());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyPaymentFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.AskPayerComment(enabled).Should().BeSameAs(widget);
+      widget.AskPayerComment().Should().Be(enabled);
+    }
   }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YandexMoneyPaymentFormWidget.AskPayerFullName(bool)"/> method.</para>
   /// </summary>
   [Fact]
-  public void PayerFullName_Method()
+  public void AskPayerFullName_Method()
   {
-    var widget = new YandexMoneyPaymentFormWidget();
-    Assert.False(widget.AskPayerFullName());
-    Assert.True(ReferenceEquals(widget.AskPayerFullName(true), widget));
-    Assert.True(widget.AskPayerFullName());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyPaymentFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.AskPayerFullName(enabled).Should().BeSameAs(widget);
+      widget.AskPayerFullName().Should().Be(enabled);
+    }
   }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YandexMoneyPaymentFormWidget.AskPayerEmail(bool)"/> method.</para>
   /// </summary>
   [Fact]
-  public void PayerEmail_Method()
+  public void AskPayerEmail_Method()
   {
-    var widget = new YandexMoneyPaymentFormWidget();
-    Assert.False(widget.AskPayerEmail());
-    Assert.True(ReferenceEquals(widget.AskPayerEmail(true), widget));
-    Assert.True(widget.AskPayerEmail());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyPaymentFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.AskPayerEmail(enabled).Should().BeSameAs(widget);
+      widget.AskPayerEmail().Should().Be(enabled);
+    }
   }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YandexMoneyPaymentFormWidget.AskPayerPhone(bool)"/> method.</para>
   /// </summary>
   [Fact]
-  public void PayerPhone_Method()
+  public void AskPayerPhone_Method()
   {
-    var widget = new YandexMoneyPaymentFormWidget();
-    Assert.False(widget.AskPayerPhone());
-    Assert.True(ReferenceEquals(widget.AskPayerPhone(true), widget));
-    Assert.True(widget.AskPayerPhone());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyPaymentFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.AskPayerPhone(enabled).Should().BeSameAs(widget);
+      widget.AskPayerPhone().Should().Be(enabled);
+    }
   }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YandexMoneyPaymentFormWidget.AskPayerAddress(bool)"/> method.</para>
   /// </summary>
   [Fact]
-  public void PayerAddress_Method()
+  public void AskPayerAddress_Method()
   {
-    var widget = new YandexMoneyPaymentFormWidget();
-    Assert.False(widget.AskPayerAddress());
-    Assert.True(ReferenceEquals(widget.AskPayerAddress(true), widget));
-    Assert.True(widget.AskPayerAddress());
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyPaymentFormWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.AskPayerAddress(enabled).Should().BeSameAs(widget);
+      widget.AskPayerAddress().Should().Be(enabled);
+    }
   }
 
   /// <summary>

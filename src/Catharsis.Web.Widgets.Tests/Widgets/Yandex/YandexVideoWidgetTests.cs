@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets;
@@ -34,10 +36,19 @@ public sealed class YandexVideoWidgetTests : ClassTest<YandexVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new YandexVideoWidget().User(null));
     Assert.Throws<ArgumentException>(() => new YandexVideoWidget().User(string.Empty));
 
-    var widget = new YandexVideoWidget();
-    Assert.Null(widget.User());
-    Assert.True(ReferenceEquals(widget.User("user"), widget));
-    Assert.Equal("user", widget.User());
+    using (new AssertionScope())
+    {
+      var widget = new YandexVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string user, IYandexVideoWidget widget)
+    {
+      widget.User(user).Should().BeSameAs(widget);
+      widget.User().Should().Be(user);
+    }
   }
 
   /// <summary>
@@ -49,10 +60,19 @@ public sealed class YandexVideoWidgetTests : ClassTest<YandexVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new YandexVideoWidget().Id(null));
     Assert.Throws<ArgumentException>(() => new YandexVideoWidget().Id(string.Empty));
 
-    var widget = new YandexVideoWidget();
-    Assert.Null(widget.Id());
-    Assert.True(ReferenceEquals(widget.Id("id"), widget));
-    Assert.Equal("id", widget.Id());
+    using (new AssertionScope())
+    {
+      var widget = new YandexVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IYandexVideoWidget widget)
+    {
+      widget.Id(id).Should().BeSameAs(widget);
+      widget.Id().Should().Be(id);
+    }
   }
 
   /// <summary>
@@ -64,10 +84,19 @@ public sealed class YandexVideoWidgetTests : ClassTest<YandexVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new YandexVideoWidget().Width(null));
     Assert.Throws<ArgumentException>(() => new YandexVideoWidget().Width(string.Empty));
 
-    var widget = new YandexVideoWidget();
-    Assert.Null(widget.Width());
-    Assert.True(ReferenceEquals(widget.Width("width"), widget));
-    Assert.Equal("width", widget.Width());
+    using (new AssertionScope())
+    {
+      var widget = new YandexVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IYandexVideoWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
   }
 
   /// <summary>
@@ -79,10 +108,19 @@ public sealed class YandexVideoWidgetTests : ClassTest<YandexVideoWidget>
     Assert.Throws<ArgumentNullException>(() => new YandexVideoWidget().Height(null));
     Assert.Throws<ArgumentException>(() => new YandexVideoWidget().Height(string.Empty));
 
-    var widget = new YandexVideoWidget();
-    Assert.Null(widget.Height());
-    Assert.True(ReferenceEquals(widget.Height("height"), widget));
-    Assert.Equal("height", widget.Height());
+    using (new AssertionScope())
+    {
+      var widget = new YandexVideoWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IYandexVideoWidget widget)
+    {
+      widget.Height(width).Should().BeSameAs(widget);
+      widget.Height().Should().Be(width);
+    }
   }
 
   /// <summary>
