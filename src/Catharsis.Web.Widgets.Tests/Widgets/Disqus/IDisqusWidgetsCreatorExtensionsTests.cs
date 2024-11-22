@@ -1,12 +1,12 @@
 using Catharsis.Commons;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="IDisqusWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed class DisqusWidgetsCreatorExtensionsTests : UnitTest
+public sealed class IDisqusWidgetsCreatorExtensionsTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IDisqusWidgetsCreatorExtensions.Comments(IDisqusWidgetsCreator, Action{IDisqusCommentsWidget})"/> method.</para>

@@ -5,7 +5,7 @@ using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="MailRuIcqWidget"/>.</para>

@@ -1,7 +1,8 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="GravatarWidgetsCreator"/>.</para>
@@ -16,8 +17,7 @@ public sealed class GravatarWidgetsCreatorTests : ClassTest<GravatarWidgetsCreat
   [Fact]
   public void ImageLink_Method()
   {
-    Assert.False(ReferenceEquals(widgets.ImageUrl(), widgets.ImageUrl()));
-    Assert.True(widgets.ImageUrl() is GravatarImageUrlWidget);
+    widgets.ImageUrl().Should().BeOfType<GravatarImageUrlWidget>().And.NotBeSameAs(widgets.ImageUrl());
   }
 
   /// <summary>
@@ -26,7 +26,6 @@ public sealed class GravatarWidgetsCreatorTests : ClassTest<GravatarWidgetsCreat
   [Fact]
   public void ProfileLink_Method()
   {
-    Assert.False(ReferenceEquals(widgets.ProfileUrl(), widgets.ProfileUrl()));
-    Assert.True(widgets.ProfileUrl() is GravatarProfileUrlWidget);
+    widgets.ProfileUrl().Should().BeOfType<GravatarProfileUrlWidget>().And.NotBeSameAs(widgets.ProfileUrl());
   }
 }

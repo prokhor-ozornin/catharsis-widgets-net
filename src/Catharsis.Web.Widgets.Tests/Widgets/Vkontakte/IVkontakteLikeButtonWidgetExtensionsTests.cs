@@ -2,7 +2,7 @@
 using Catharsis.Extensions;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Test set for class <see cref="IVkontakteLikeButtonWidgetExtensions"/>.</para>

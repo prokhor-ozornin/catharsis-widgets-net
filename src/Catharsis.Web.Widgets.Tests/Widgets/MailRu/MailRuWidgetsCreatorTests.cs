@@ -1,7 +1,8 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="MailRuWidgetsCreator"/>.</para>
@@ -16,8 +17,7 @@ public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
   [Fact]
   public void Faces_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Faces(), widgets.Faces()));
-    Assert.True(widgets.Faces() is MailRuFacesWidget);
+    widgets.Faces().Should().BeOfType<MailRuFacesWidget>().And.NotBeSameAs(widgets.Faces());
   }
 
   /// <summary>
@@ -26,8 +26,7 @@ public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
   [Fact]
   public void Groups_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Groups(), widgets.Groups()));
-    Assert.True(widgets.Groups() is MailRuGroupsWidget);
+    widgets.Groups().Should().BeOfType<MailRuGroupsWidget>().And.NotBeSameAs(widgets.Groups());
   }
 
   /// <summary>
@@ -36,8 +35,7 @@ public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
   [Fact]
   public void Icq_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Icq(), widgets.Icq()));
-    Assert.True(widgets.Icq() is MailRuIcqWidget);
+    widgets.Icq().Should().BeOfType<MailRuIcqWidget>().And.NotBeSameAs(widgets.Icq());
   }
 
   /// <summary>
@@ -46,8 +44,7 @@ public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
   [Fact]
   public void LikeButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.LikeButton(), widgets.LikeButton()));
-    Assert.True(widgets.LikeButton() is MailRuLikeButtonWidget);
+    widgets.LikeButton().Should().BeOfType<MailRuLikeButtonWidget>().And.NotBeSameAs(widgets.LikeButton());
   }
 
   /// <summary>
@@ -56,7 +53,6 @@ public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Video(), widgets.Video()));
-    Assert.True(widgets.Video() is MailRuVideoWidget);
+    widgets.Video().Should().BeOfType<MailRuVideoWidget>().And.NotBeSameAs(widgets.Video());
   }
 }

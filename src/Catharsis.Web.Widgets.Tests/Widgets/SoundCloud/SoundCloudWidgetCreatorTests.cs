@@ -1,17 +1,17 @@
 ﻿using Catharsis.Commons;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
-///   <para>Tests set for class <see cref="SoundCloudWidgetCreator"/>.</para>
+///   <para>Tests set for class <see cref="SoundCloudWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class SoundCloudWidgetCreatorTests : ClassTest<SoundCloudWidgetCreator>
+public sealed class SoundCloudWidgetCreatorTests : ClassTest<SoundCloudWidgetsCreator>
 {
-  private readonly ISoundCloudWidgetCreator widgets = Widgets.Web.SoundCloud();
+  private readonly ISoundCloudWidgetsCreator widgets = Widgets.Web.SoundCloud();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="SoundCloudWidgetCreator.ProfileIcon()"/> method.</para>
+  ///   <para>Performs testing of <see cref="SoundCloudWidgetsCreator.ProfileIcon()"/> method.</para>
   /// </summary>
   [Fact]
   public void ProfileIcon_Method()

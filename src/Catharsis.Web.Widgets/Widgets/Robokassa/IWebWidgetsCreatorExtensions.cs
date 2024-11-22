@@ -6,7 +6,7 @@
 /// <seealso cref="IWebWidgetsCreator"/>
 public static partial class IWebWidgetsCreatorExtensions
 {
-  private static IRobokassaWidgetCreator robokassa;
+  private static IRobokassaWidgetsCreator robokassa;
 
   /// <summary>
   ///   <para>Initializes HTML helper object for rendering of Pinterest widgets.</para>
@@ -14,5 +14,5 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
-  public static IRobokassaWidgetCreator Robokassa(this IWebWidgetsCreator creator) => creator is not null ? robokassa ??= new RobokassaWidgetCreator() : throw new ArgumentNullException(nameof(creator));
+  public static IRobokassaWidgetsCreator Robokassa(this IWebWidgetsCreator creator) => creator is not null ? robokassa ??= new RobokassaWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

@@ -1,7 +1,8 @@
 using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Test set for class <see cref="DisqusWidgetsCreator"/>.</para>
@@ -16,7 +17,6 @@ public sealed class DisqusWidgetsCreatorTests : ClassTest<DisqusWidgetsCreator>
   [Fact]
   public void Comments_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Comments(), widgets.Comments()));
-    Assert.True(widgets.Comments() is DisqusCommentsWidget);
+    widgets.Comments().Should().BeOfType<DisqusCommentsWidget>().And.NotBeSameAs(widgets.Comments());
   }
 }

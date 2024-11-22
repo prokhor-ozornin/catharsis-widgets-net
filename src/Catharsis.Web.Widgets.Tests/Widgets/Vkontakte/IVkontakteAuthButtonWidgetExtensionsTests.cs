@@ -2,7 +2,7 @@
 using Catharsis.Extensions;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="IVkontakteAuthButtonWidgetExtensions"/>.</para>

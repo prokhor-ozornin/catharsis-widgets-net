@@ -1,17 +1,17 @@
 ﻿using Catharsis.Commons;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
-///   <para>Tests set for class <see cref="TumblrWidgetCreator"/></para>
+///   <para>Tests set for class <see cref="TumblrWidgetsCreator"/></para>
 /// </summary>
-public sealed class TumblrWidgetCreatorTests : ClassTest<TumblrWidgetCreator>
+public sealed class TumblrWidgetCreatorTests : ClassTest<TumblrWidgetsCreator>
 {
-  private readonly ITumblrWidgetCreator widgets = Widgets.Web.Tumblr();
+  private readonly ITumblrWidgetsCreator widgets = Widgets.Web.Tumblr();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TumblrWidgetCreator.FollowButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="TumblrWidgetsCreator.FollowButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void FollowButton_Method()
@@ -21,7 +21,7 @@ public sealed class TumblrWidgetCreatorTests : ClassTest<TumblrWidgetCreator>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TumblrWidgetCreator.ShareButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="TumblrWidgetsCreator.ShareButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void ShareButton_Method()

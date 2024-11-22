@@ -1,17 +1,17 @@
 ﻿using Catharsis.Commons;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
-///   <para>Tests set for class <see cref="VideoJsWidgetCreator"/>.</para>
+///   <para>Tests set for class <see cref="VideoJSWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class VideoJsWidgetCreatorTests : ClassTest<VideoJsWidgetCreator>
+public sealed class VideoJsWidgetCreatorTests : ClassTest<VideoJSWidgetsCreator>
 {
-  private readonly IVideoJSWidgetCreator widgets = Widgets.Web.VideoJS();
+  private readonly IVideoJSWidgetsCreator widgets = Widgets.Web.VideoJS();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VideoJsWidgetCreator.Player()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VideoJSWidgetsCreator.Player()"/> method.</para>
   /// </summary>
   [Fact]
   public void Player_Method()

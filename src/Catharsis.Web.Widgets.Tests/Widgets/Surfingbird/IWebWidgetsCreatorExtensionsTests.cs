@@ -1,0 +1,22 @@
+using Catharsis.Commons;
+using Xunit;
+
+namespace Catharsis.Web.Widgets.Tests;
+
+/// <summary>
+///   <para>Tests set for class <see cref="IWebWidgetsCreatorExtensions"/>.</para>
+/// </summary>
+public sealed partial class IWebWidgetsCreatorExtensionsTests
+{
+  /// <summary>
+  ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.Surfingbird(IWebWidgetsCreator)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Surfingbird_Method()
+  {
+    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Surfingbird(null));
+
+    Assert.NotNull(html.Surfingbird());
+    Assert.True(ReferenceEquals(html.Surfingbird(), html.Surfingbird()));
+  }
+}

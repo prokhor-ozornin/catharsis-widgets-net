@@ -1,4 +1,4 @@
-﻿namespace Catharsis.Web.Widgets;
+﻿namespace Catharsis.Web.Widgets.Tests;
 
 internal sealed class MockWebWidget : WebWidget
 {

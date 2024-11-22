@@ -1,7 +1,8 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="LiveJournalWidgetsCreator"/>.</para>
@@ -16,8 +17,7 @@ public sealed class LiveJournalWidgetsCreatorTests : ClassTest<LiveJournalWidget
   [Fact]
   public void LikeButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.LikeButton(), widgets.LikeButton()));
-    Assert.True(widgets.LikeButton() is LiveJournalLikeButtonWidget);
+    widgets.LikeButton().Should().BeOfType<LiveJournalLikeButtonWidget>().And.NotBeSameAs(widgets.LikeButton());
   }
 
   /// <summary>
@@ -26,7 +26,6 @@ public sealed class LiveJournalWidgetsCreatorTests : ClassTest<LiveJournalWidget
   [Fact]
   public void RepostButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.RepostButton(), widgets.RepostButton()));
-    Assert.True(widgets.RepostButton() is LiveJournalRepostButtonWidget);
+    widgets.RepostButton().Should().BeOfType<LiveJournalRepostButtonWidget>().And.NotBeSameAs(widgets.RepostButton());
   }
 }

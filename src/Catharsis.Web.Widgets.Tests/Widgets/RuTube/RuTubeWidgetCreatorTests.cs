@@ -1,23 +1,23 @@
 ﻿using Catharsis.Commons;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
-///   <para>Tests set for class <see cref="RuTubeWidgetCreator"/>.</para>
+///   <para>Tests set for class <see cref="RuTubeWidgetsCreator"/>.</para>
 /// </summary>
-/// <seealso cref="RuTubeWidgetCreator"/>
-public sealed class RuTubeWidgetCreatorTests : ClassTest<RuTubeWidgetCreator>
+/// <seealso cref="RuTubeWidgetsCreator"/>
+public sealed class RuTubeWidgetsCreatorTests : ClassTest<RuTubeWidgetsCreator>
 {
-  private readonly IRuTubeWidgetCreator widgets = Widgets.Web.RuTube();
+  private readonly IRuTubeWidgetsCreator widgetses = Widgets.Web.RuTube();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="RuTubeWidgetCreator.Video()"/> method.</para>
+  ///   <para>Performs testing of <see cref="RuTubeWidgetsCreator.Video()"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(widgets, widgets));
-    Assert.True(widgets is RuTubeVideoWidget);
+    Assert.False(ReferenceEquals(widgetses, widgetses));
+    Assert.True(widgetses is RuTubeVideoWidget);
   }
 }

@@ -6,7 +6,7 @@
 /// <seealso cref="IWebWidgetsCreator"/>
 public static partial class IWebWidgetsCreatorExtensions
 {
-  private static IShare42WidgetCreator share42;
+  private static IShare42WidgetsCreator share42;
 
   /// <summary>
   ///   <para>Initializes HTML helper object for rendering of Share42 widgets.</para>
@@ -14,5 +14,5 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
-  public static IShare42WidgetCreator Share42(this IWebWidgetsCreator creator) => creator is not null ? share42 ??= new Share42WidgetCreator() : throw new ArgumentNullException(nameof(creator));
+  public static IShare42WidgetsCreator Share42(this IWebWidgetsCreator creator) => creator is not null ? share42 ??= new Share42WidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

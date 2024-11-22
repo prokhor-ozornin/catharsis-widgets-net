@@ -1,62 +1,62 @@
 ﻿using Catharsis.Commons;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
-///   <para>Tests set for class <see cref="PinterestWidgetCreator"/>.</para>
+///   <para>Tests set for class <see cref="PinterestWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class PinterestWidgetCreatorTests : ClassTest<PinterestWidgetCreator>
+public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCreator>
 {
-  private readonly IPinterestWidgetCreator widgets = Widgets.Web.Pinterest();
+  private readonly IPinterestWidgetsCreator widgetses = Widgets.Web.Pinterest();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestWidgetCreator.Board()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestWidgetsCreator.Board()"/> method.</para>
   /// </summary>
   [Fact]
   public void Board_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Board(), widgets.Board()));
-    Assert.True(widgets.Board() is PinterestBoardWidget);
+    Assert.False(ReferenceEquals(widgetses.Board(), widgetses.Board()));
+    Assert.True(widgetses.Board() is PinterestBoardWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestWidgetCreator.FollowButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestWidgetsCreator.FollowButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void FollowButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.FollowButton(), widgets.FollowButton()));
-    Assert.True(widgets.FollowButton() is PinterestFollowButtonWidget);
+    Assert.False(ReferenceEquals(widgetses.FollowButton(), widgetses.FollowButton()));
+    Assert.True(widgetses.FollowButton() is PinterestFollowButtonWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestWidgetCreator.PinItButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestWidgetsCreator.PinItButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void PinItButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.PinItButton(), widgets.PinItButton()));
-    Assert.True(widgets.PinItButton() is PinterestPinItButtonWidget);
+    Assert.False(ReferenceEquals(widgetses.PinItButton(), widgetses.PinItButton()));
+    Assert.True(widgetses.PinItButton() is PinterestPinItButtonWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestWidgetCreator.Pin()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestWidgetsCreator.Pin()"/> method.</para>
   /// </summary>
   [Fact]
   public void Pin_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Pin(), widgets.Pin()));
-    Assert.True(widgets.Pin() is PinterestPinWidget);
+    Assert.False(ReferenceEquals(widgetses.Pin(), widgetses.Pin()));
+    Assert.True(widgetses.Pin() is PinterestPinWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="PinterestWidgetCreator.Profile()"/> method.</para>
+  ///   <para>Performs testing of <see cref="PinterestWidgetsCreator.Profile()"/> method.</para>
   /// </summary>
   [Fact]
   public void Profile_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Profile(), widgets.Profile()));
-    Assert.True(widgets.Profile() is PinterestProfileWidget);
+    Assert.False(ReferenceEquals(widgetses.Profile(), widgetses.Profile()));
+    Assert.True(widgetses.Profile() is PinterestProfileWidget);
   }
 }

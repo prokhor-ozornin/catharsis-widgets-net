@@ -1,17 +1,17 @@
 ﻿using Catharsis.Commons;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
-///   <para>Tests set for class <see cref="VimeoWidgetCreator"/>.</para>
+///   <para>Tests set for class <see cref="VimeoWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class VimeoWidgetCreatorTests : ClassTest<VimeoWidgetCreator>
+public sealed class VimeoWidgetCreatorTests : ClassTest<VimeoWidgetsCreator>
 {
-  private readonly IVimeoWidgetCreator widgets = Widgets.Web.Vimeo();
+  private readonly IVimeoWidgetsCreator widgets = Widgets.Web.Vimeo();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VimeoWidgetCreator.Video()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VimeoWidgetsCreator.Video()"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()

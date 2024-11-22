@@ -1,0 +1,32 @@
+﻿using Catharsis.Commons;
+using FluentAssertions;
+using Xunit;
+
+namespace Catharsis.Web.Widgets.Tests;
+
+/// <summary>
+///   <para>Tests set for class <see cref="RobokassaPaymentFormWidget"/>.</para>
+/// </summary>
+public sealed class RobokassaPaymentFormWidgetTests : ClassTest<RobokassaPaymentFormWidget>
+{
+  /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="RobokassaPaymentFormWidget()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(RobokassaPaymentFormWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IRobokassaPaymentFormWidget>();
+
+    var widget = new RobokassaPaymentFormWidget();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="RobokassaPaymentFormWidget.ToHtml()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void ToHtml_Method()
+  {
+    throw new NotImplementedException();
+  }
+}

@@ -4,7 +4,7 @@ using FluentAssertions.Execution;
 using FluentAssertions;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="IntenseDebateLinkWidget"/>.</para>

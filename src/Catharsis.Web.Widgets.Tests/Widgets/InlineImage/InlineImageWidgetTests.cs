@@ -5,7 +5,7 @@ using FluentAssertions.Execution;
 using Xunit;
 using Convert = System.Convert;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="InlineImageWidget"/>.</para>

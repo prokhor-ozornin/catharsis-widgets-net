@@ -1,14 +1,14 @@
 ﻿using Catharsis.Commons;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
-///   <para>Tests set for class <see cref="VkontakteWidgetCreator"/>.</para>
+///   <para>Tests set for class <see cref="VkontakteWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class VkontakteWidgetCreatorTests : ClassTest<VkontakteWidgetCreator>
+public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCreator>
 {
-  private readonly IVkontakteWidgetCreator widgets = Widgets.Web.Vkontakte();
+  private readonly IVkontakteWidgetsCreator widgetses = Widgets.Web.Vkontakte();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IVkontakteWidgetCreator.AuthButton()"/> method.</para>
@@ -16,88 +16,88 @@ public sealed class VkontakteWidgetCreatorTests : ClassTest<VkontakteWidgetCreat
   /*[Fact]
   public void AuthButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.AuthButton(), widgets.AuthButton()));
-    Assert.True(widgets.AuthButton() is VkontakteAuthButtonWidget);
+    Assert.False(ReferenceEquals(widgetses.AuthButton(), widgetses.AuthButton()));
+    Assert.True(widgetses.AuthButton() is VkontakteAuthButtonWidget);
   }*/
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Video()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Video()"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Video(), widgets.Video()));
-    Assert.True(widgets.Video() is VkontakteVideoWidget);
+    Assert.False(ReferenceEquals(widgetses.Video(), widgetses.Video()));
+    Assert.True(widgetses.Video() is VkontakteVideoWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Initialize()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Initialize()"/> method.</para>
   /// </summary>
   [Fact]
   public void Initialize_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Initialize(), widgets.Initialize()));
-    Assert.True(widgets.Initialize() is VkontakteInitializationWidget);
+    Assert.False(ReferenceEquals(widgetses.Initialize(), widgetses.Initialize()));
+    Assert.True(widgetses.Initialize() is VkontakteInitializationWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Comments()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Comments()"/> method.</para>
   /// </summary>
   [Fact]
   public void Comments_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Comments(), widgets.Comments()));
-    Assert.True(widgets.Comments() is VkontakteCommentsWidget);
+    Assert.False(ReferenceEquals(widgetses.Comments(), widgetses.Comments()));
+    Assert.True(widgetses.Comments() is VkontakteCommentsWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Community()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Community()"/> method.</para>
   /// </summary>
   [Fact]
   public void Community_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Community(), widgets.Community()));
-    Assert.True(widgets.Community() is VkontakteCommunityWidget);
+    Assert.False(ReferenceEquals(widgetses.Community(), widgetses.Community()));
+    Assert.True(widgetses.Community() is VkontakteCommunityWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.LikeButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.LikeButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void Like_Method()
   {
-    Assert.False(ReferenceEquals(widgets.LikeButton(), widgets.LikeButton()));
-    Assert.True(widgets.LikeButton() is VkontakteLikeButtonWidget);
+    Assert.False(ReferenceEquals(widgetses.LikeButton(), widgetses.LikeButton()));
+    Assert.True(widgetses.LikeButton() is VkontakteLikeButtonWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Poll()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Poll()"/> method.</para>
   /// </summary>
   [Fact]
   public void Poll_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Poll(), widgets.Poll()));
-    Assert.True(widgets.Poll() is VkontaktePollWidget);
+    Assert.False(ReferenceEquals(widgetses.Poll(), widgetses.Poll()));
+    Assert.True(widgetses.Poll() is VkontaktePollWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Post()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Post()"/> method.</para>
   /// </summary>
   [Fact]
   public void Post_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Post(), widgets.Post()));
-    Assert.True(widgets.Post() is VkontaktePostWidget);
+    Assert.False(ReferenceEquals(widgetses.Post(), widgetses.Post()));
+    Assert.True(widgetses.Post() is VkontaktePostWidget);
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Recommendations()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Recommendations()"/> method.</para>
   /// </summary>
   [Fact]
   public void Recommendations_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Recommendations(), widgets.Recommendations()));
-    Assert.True(widgets.Recommendations() is VkontakteRecommendationsWidget);
+    Assert.False(ReferenceEquals(widgetses.Recommendations(), widgetses.Recommendations()));
+    Assert.True(widgetses.Recommendations() is VkontakteRecommendationsWidget);
   }
 
   /// <summary>
@@ -106,17 +106,17 @@ public sealed class VkontakteWidgetCreatorTests : ClassTest<VkontakteWidgetCreat
   /*[Fact]
   public void ShareButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.ShareButton(), widgets.ShareButton()));
-    Assert.True(widgets.ShareButton() is VkontakteShareButtonWidget);
+    Assert.False(ReferenceEquals(widgetses.ShareButton(), widgetses.ShareButton()));
+    Assert.True(widgetses.ShareButton() is VkontakteShareButtonWidget);
   }*/
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteWidgetCreator.Subscription()"/> method.</para>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Subscription()"/> method.</para>
   /// </summary>
   [Fact]
   public void Subscribe_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Subscription(), widgets.Subscription()));
-    Assert.True(widgets.Subscription() is VkontakteSubscriptionWidget);
+    Assert.False(ReferenceEquals(widgetses.Subscription(), widgetses.Subscription()));
+    Assert.True(widgetses.Subscription() is VkontakteSubscriptionWidget);
   }
 }

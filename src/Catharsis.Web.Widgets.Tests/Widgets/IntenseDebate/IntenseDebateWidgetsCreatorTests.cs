@@ -1,7 +1,8 @@
 using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="IntenseDebateWidgetsCreator"/>.</para>
@@ -16,8 +17,7 @@ public sealed class IntenseDebateWidgetsCreatorTests : ClassTest<IntenseDebateWi
   [Fact]
   public void Comments_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Comments(), widgets.Comments()));
-    Assert.True(widgets.Comments() is IntenseDebateCommentsWidget);
+    widgets.Comments().Should().BeOfType<IntenseDebateCommentsWidget>().And.NotBeSameAs(widgets.Comments());
   }
 
   /// <summary>
@@ -26,7 +26,6 @@ public sealed class IntenseDebateWidgetsCreatorTests : ClassTest<IntenseDebateWi
   [Fact]
   public void Link_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Link(), widgets.Link()));
-    Assert.True(widgets.Link() is IntenseDebateLinkWidget);
+    widgets.Link().Should().BeOfType<IntenseDebateLinkWidget>().And.NotBeSameAs(widgets.Link());
   }
 }

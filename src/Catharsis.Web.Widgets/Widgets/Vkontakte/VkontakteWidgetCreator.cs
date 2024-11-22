@@ -1,38 +1,38 @@
 namespace Catharsis.Web.Widgets;
 
-/// <inheritdoc cref="IVkontakteWidgetCreator"/>
-public class VkontakteWidgetCreator : IVkontakteWidgetCreator
+/// <inheritdoc cref="IVkontakteWidgetsCreator"/>
+public class VkontakteWidgetsCreator : IVkontakteWidgetsCreator
 {
-  /// <inheritdoc cref="IVkontakteWidgetCreator.AuthButton()"/>
+  /// <inheritdoc cref="IVkontakteWidgetsCreator.AuthButton()"/>
   public IVkontakteAuthButtonWidget AuthButton() => new VkontakteAuthButtonWidget();
 
-  /// <inheritdoc cref="IVkontakteWidgetCreator.Comments()"/>
+  /// <inheritdoc cref="IVkontakteWidgetsCreator.Comments()"/>
   public IVkontakteCommentsWidget Comments() => new VkontakteCommentsWidget();
 
-  /// <inheritdoc cref="IVkontakteWidgetCreator.Community()"/>
+  /// <inheritdoc cref="IVkontakteWidgetsCreator.Community()"/>
   public IVkontakteCommunityWidget Community() => new VkontakteCommunityWidget();
 
-  /// <inheritdoc cref="IVkontakteWidgetCreator.Initialize()"/>
+  /// <inheritdoc cref="IVkontakteWidgetsCreator.Initialize()"/>
   public IVkontakteInitializationWidget Initialize() => new VkontakteInitializationWidget();
 
-  /// <inheritdoc cref="IVkontakteWidgetCreator.LikeButton()"/>
+  /// <inheritdoc cref="IVkontakteWidgetsCreator.LikeButton()"/>
   public IVkontakteLikeButtonWidget LikeButton() => new VkontakteLikeButtonWidget();
 
-  /// <inheritdoc cref="IVkontakteWidgetCreator.Poll()"/>
+  /// <inheritdoc cref="IVkontakteWidgetsCreator.Poll()"/>
   public IVkontaktePollWidget Poll() => new VkontaktePollWidget();
 
-  /// <inheritdoc cref="IVkontakteWidgetCreator.Post()"/>
+  /// <inheritdoc cref="IVkontakteWidgetsCreator.Post()"/>
   public IVkontaktePostWidget Post() => new VkontaktePostWidget();
 
-  /// <inheritdoc cref="IVkontakteWidgetCreator.Recommendations()"/>
+  /// <inheritdoc cref="IVkontakteWidgetsCreator.Recommendations()"/>
   public IVkontakteRecommendationsWidget Recommendations() => new VkontakteRecommendationsWidget();
 
   /// <inheritdoc cref="IVkontakteWidgetCreator.ShareButton()"/>
   //public IVkontakteShareButtonWidget ShareButton() => new VkontakteShareButtonWidget();
 
-  /// <inheritdoc cref="IVkontakteWidgetCreator.Subscription()"/>
+  /// <inheritdoc cref="IVkontakteWidgetsCreator.Subscription()"/>
   public IVkontakteSubscriptionWidget Subscription() => new VkontakteSubscriptionWidget();
 
-  /// <inheritdoc cref="IVkontakteWidgetCreator.Video()"/>
+  /// <inheritdoc cref="IVkontakteWidgetsCreator.Video()"/>
   public IVkontakteVideoWidget Video() => new VkontakteVideoWidget();
 }

@@ -1,7 +1,8 @@
 using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="CackleWidgetsCreator"/>.</para>
@@ -16,8 +17,7 @@ public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
   [Fact]
   public void Comments_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Comments(), widgets.Comments()));
-    Assert.True(widgets.Comments() is CackleCommentsWidget);
+    widgets.Comments().Should().BeOfType<CackleCommentsWidget>().And.NotBeSameAs(widgets.Comments());
   }
 
   /// <summary>
@@ -26,8 +26,7 @@ public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
   [Fact]
   public void CommentsCount_Method()
   {
-    Assert.False(ReferenceEquals(widgets.CommentsCount(), widgets.CommentsCount()));
-    Assert.True(widgets.CommentsCount() is CackleCommentsCountWidget);
+    widgets.CommentsCount().Should().BeOfType<CackleCommentsCountWidget>().And.NotBeSameAs(widgets.CommentsCount());
   }
 
   /// <summary>
@@ -36,8 +35,7 @@ public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
   [Fact]
   public void LatestComments_Method()
   {
-    Assert.False(ReferenceEquals(widgets.LatestComments(), widgets.LatestComments()));
-    Assert.True(widgets.LatestComments() is CackleLatestCommentsWidget);
+    widgets.LatestComments().Should().BeOfType<CackleLatestCommentsWidget>().And.NotBeSameAs(widgets.LatestComments());
   }
 
   /// <summary>
@@ -46,7 +44,6 @@ public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
   [Fact]
   public void Login_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Login(), widgets.Login()));
-    Assert.True(widgets.Login() is CackleLoginWidget);
+    widgets.Login().Should().BeOfType<CackleWidgetsCreator>().And.NotBeSameAs(widgets.Login());
   }
 }

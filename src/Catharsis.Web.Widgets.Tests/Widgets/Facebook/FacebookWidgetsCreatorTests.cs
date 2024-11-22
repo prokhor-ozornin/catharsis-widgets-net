@@ -1,7 +1,8 @@
 using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="FacebookWidgetsCreator"/>.</para>
@@ -16,8 +17,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void Initialize_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Initialize(), widgets.Initialize()));
-    Assert.True(widgets.Initialize() is FacebookInitializationWidget);
+    widgets.Initialize().Should().BeOfType<FacebookInitializationWidget>().And.NotBeSameAs(widgets.Initialize());
   }
 
   /// <summary>
@@ -26,8 +26,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void ActivityFeed_Method()
   {
-    Assert.False(ReferenceEquals(widgets.ActivityFeed(), widgets.ActivityFeed()));
-    Assert.True(widgets.ActivityFeed() is FacebookActivityFeedWidget);
+    widgets.ActivityFeed().Should().BeOfType<FacebookActivityFeedWidget>().And.NotBeSameAs(widgets.ActivityFeed());
   }
 
   /// <summary>
@@ -36,8 +35,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void RecommendationsFeed_Method()
   {
-    Assert.False(ReferenceEquals(widgets.RecommendationsFeed(), widgets.RecommendationsFeed()));
-    Assert.True(widgets.RecommendationsFeed() is FacebookRecommendationsFeedWidget);
+    widgets.RecommendationsFeed().Should().BeOfType<FacebookRecommendationsFeedWidget>().And.NotBeSameAs(widgets.RecommendationsFeed());
   }
 
   /// <summary>
@@ -46,8 +44,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void Comments_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Comments(), widgets.Comments()));
-    Assert.True(widgets.Comments() is FacebookCommentsWidget);
+    widgets.Comments().Should().BeOfType<FacebookCommentsWidget>().And.NotBeSameAs(widgets.Comments());
   }
 
   /// <summary>
@@ -56,8 +53,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void Facepile_Method()
   {
-    Assert.False(ReferenceEquals(widgets.FacePile(), widgets.FacePile()));
-    Assert.True(widgets.FacePile() is FacebookFacePileWidget);
+    widgets.FacePile().Should().BeOfType<FacebookFacePileWidget>().And.NotBeSameAs(widgets.FacePile());
   }
 
   /// <summary>
@@ -66,8 +62,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void FollowButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.FollowButton(), widgets.FollowButton()));
-    Assert.True(widgets.FollowButton() is FacebookFollowButtonWidget);
+    widgets.FollowButton().Should().BeOfType<FacebookFollowButtonWidget>().And.NotBeSameAs(widgets.FollowButton());
   }
 
   /// <summary>
@@ -76,8 +71,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void LikeButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.LikeButton(), widgets.LikeButton()));
-    Assert.True(widgets.LikeButton() is FacebookLikeButtonWidget);
+    widgets.LikeButton().Should().BeOfType<FacebookLikeButtonWidget>().And.NotBeSameAs(widgets.LikeButton());
   }
 
   /// <summary>
@@ -86,8 +80,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void LikeBox_Method()
   {
-    Assert.False(ReferenceEquals(widgets.LikeBox(), widgets.LikeBox()));
-    Assert.True(widgets.LikeBox() is FacebookLikeBoxWidget);
+    widgets.LikeBox().Should().BeOfType<FacebookLikeBoxWidget>().And.NotBeSameAs(widgets.LikeBox());
   }
 
   /// <summary>
@@ -96,8 +89,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void Post_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Post(), widgets.Post()));
-    Assert.True(widgets.Post() is FacebookPostWidget);
+    widgets.Post().Should().BeOfType<FacebookPostWidget>().And.NotBeSameAs(widgets.Post());
   }
 
   /// <summary>
@@ -106,8 +98,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void SendButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.SendButton(), widgets.SendButton()));
-    Assert.True(widgets.SendButton() is FacebookSendButtonWidget);
+    widgets.SendButton().Should().BeOfType<FacebookSendButtonWidget>().And.NotBeSameAs(widgets.SendButton());
   }
 
   /// <summary>
@@ -116,7 +107,6 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Video(), widgets.Video()));
-    Assert.True(widgets.Video() is FacebookVideoWidget);
+    widgets.Video().Should().BeOfType<FacebookVideoWidget>().And.NotBeSameAs(widgets.Video());
   }
 }

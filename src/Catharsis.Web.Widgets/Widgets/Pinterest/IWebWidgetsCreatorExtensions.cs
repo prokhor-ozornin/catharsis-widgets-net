@@ -6,13 +6,13 @@
 /// <seealso cref="IWebWidgetsCreator"/>
 public static partial class IWebWidgetsCreatorExtensions
 {
-  private static IPinterestWidgetCreator pinterest;
+  private static IPinterestWidgetsCreator pinterest;
 
   /// <summary>
-  ///   <para>Initializes HTML helper object for rendering of Pinterest widgets.</para>
+  ///   <para>Initializes HTML helper object for rendering of Pinterest widgetses.</para>
   /// </summary>
   /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
-  public static IPinterestWidgetCreator Pinterest(this IWebWidgetsCreator creator) => creator is not null ? pinterest ??= new PinterestWidgetCreator() : throw new ArgumentNullException(nameof(creator));
+  public static IPinterestWidgetsCreator Pinterest(this IWebWidgetsCreator creator) => creator is not null ? pinterest ??= new PinterestWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

@@ -4,7 +4,7 @@ using Xunit;
 using Catharsis.Extensions;
 using FluentAssertions.Execution;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="GravatarProfileUrlWidget"/>.</para>

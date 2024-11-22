@@ -6,7 +6,7 @@
 /// <seealso cref="IWebWidgetsCreator"/>
 public static partial class IWebWidgetsCreatorExtensions
 {
-  private static IRuTubeWidgetCreator rutube;
+  private static IRuTubeWidgetsCreator rutube;
 
   /// <summary>
   ///   <para>Initializes HTML helper object for rendering of RuTube widgets.</para>
@@ -14,5 +14,5 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
-  public static IRuTubeWidgetCreator RuTube(this IWebWidgetsCreator creator) => creator is not null ? rutube ??= new RuTubeWidgetCreator() : throw new ArgumentNullException(nameof(creator));
+  public static IRuTubeWidgetsCreator RuTube(this IWebWidgetsCreator creator) => creator is not null ? rutube ??= new RuTubeWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

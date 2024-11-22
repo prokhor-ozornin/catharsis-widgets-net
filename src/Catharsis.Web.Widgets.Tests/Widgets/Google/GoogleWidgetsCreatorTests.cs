@@ -1,7 +1,8 @@
 using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="GoogleWidgetsCreator"/>.</para>
@@ -16,8 +17,7 @@ public sealed class GoogleWidgetsCreatorTests : ClassTest<GoogleWidgetsCreator>
   [Fact]
   public void Analytics_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Analytics(), widgets.Analytics()));
-    Assert.True(widgets.Analytics() is GoogleAnalyticsWidget);
+    widgets.Analytics().Should().BeOfType<GoogleAnalyticsWidget>().And.NotBeSameAs(widgets.Analytics());
   }
 
   /*/// <summary>
@@ -26,8 +26,7 @@ public sealed class GoogleWidgetsCreatorTests : ClassTest<GoogleWidgetsCreator>
   [Fact]
   public void Map_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Map(), widgets.Map()));
-    Assert.True(widgets.Map() is GoogleMapWidget);
+    widgetses.Map().Should().BeOfType<GoogleMapWidget>().And.NotBeSameAs(widgetses.Map());
   }*/
 
   /// <summary>
@@ -36,7 +35,6 @@ public sealed class GoogleWidgetsCreatorTests : ClassTest<GoogleWidgetsCreator>
   [Fact]
   public void PlusOneButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.PlusOneButton(), widgets.PlusOneButton()));
-    Assert.True(widgets.PlusOneButton() is GooglePlusOneButtonWidget);
+    widgets.PlusOneButton().Should().BeOfType<GooglePlusOneButtonWidget>().And.NotBeSameAs(widgets.PlusOneButton());
   }
 }

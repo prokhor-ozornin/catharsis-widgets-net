@@ -1,17 +1,17 @@
 using Catharsis.Commons;
 using Xunit;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
-///   <para>Tests set for class <see cref="YandexWidgetCreator"/>.</para>
+///   <para>Tests set for class <see cref="YandexWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class YandexWidgetCreatorTests : ClassTest<YandexWidgetCreator>
+public sealed class YandexWidgetCreatorTests : ClassTest<YandexWidgetsCreator>
 {
-  private readonly IYandexWidgetCreator widgets = Widgets.Web.Yandex();
+  private readonly IYandexWidgetsCreator widgets = Widgets.Web.Yandex();
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexWidgetCreator.LikeButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetsCreator.LikeButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void LikeButton_Method()
@@ -21,7 +21,7 @@ public sealed class YandexWidgetCreatorTests : ClassTest<YandexWidgetCreator>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexWidgetCreator.MoneyButton()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetsCreator.MoneyButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void MoneyButton_Method()
@@ -31,7 +31,7 @@ public sealed class YandexWidgetCreatorTests : ClassTest<YandexWidgetCreator>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexWidgetCreator.MoneyDonateForm()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetsCreator.MoneyDonateForm()"/> method.</para>
   /// </summary>
   [Fact]
   public void MoneyDonateForm_Method()
@@ -41,7 +41,7 @@ public sealed class YandexWidgetCreatorTests : ClassTest<YandexWidgetCreator>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexWidgetCreator.MoneyPaymentForm()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetsCreator.MoneyPaymentForm()"/> method.</para>
   /// </summary>
   [Fact]
   public void MoneyPaymentForm_Method()
@@ -51,7 +51,7 @@ public sealed class YandexWidgetCreatorTests : ClassTest<YandexWidgetCreator>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexWidgetCreator.SharePanel()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetsCreator.SharePanel()"/> method.</para>
   /// </summary>
   [Fact]
   public void Share_Method()
@@ -61,7 +61,7 @@ public sealed class YandexWidgetCreatorTests : ClassTest<YandexWidgetCreator>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="YandexWidgetCreator.Video()"/> method.</para>
+  ///   <para>Performs testing of <see cref="YandexWidgetsCreator.Video()"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()
