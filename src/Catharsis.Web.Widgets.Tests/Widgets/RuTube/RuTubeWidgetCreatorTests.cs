@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -9,7 +10,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <seealso cref="RuTubeWidgetsCreator"/>
 public sealed class RuTubeWidgetsCreatorTests : ClassTest<RuTubeWidgetsCreator>
 {
-  private readonly IRuTubeWidgetsCreator widgetses = Widgets.Web.RuTube();
+  private readonly IRuTubeWidgetsCreator widgets = Widgets.Web.RuTube();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="RuTubeWidgetsCreator.Video()"/> method.</para>
@@ -17,7 +18,6 @@ public sealed class RuTubeWidgetsCreatorTests : ClassTest<RuTubeWidgetsCreator>
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(widgetses, widgetses));
-    Assert.True(widgetses is RuTubeVideoWidget);
+    widgets.Video().Should().BeOfType<RuTubeVideoWidget>().And.NotBeSameAs(widgets.Video());
   }
 }

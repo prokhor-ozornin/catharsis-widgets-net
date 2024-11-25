@@ -1,4 +1,3 @@
-using Catharsis.Commons;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;

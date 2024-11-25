@@ -8,7 +8,6 @@ namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="RuTubeVideoWidget"/>.</para>
-/// 
 /// </summary>
 public sealed class RuTubeVideoWidgetTests : ClassTest<RuTubeVideoWidget>
 {
