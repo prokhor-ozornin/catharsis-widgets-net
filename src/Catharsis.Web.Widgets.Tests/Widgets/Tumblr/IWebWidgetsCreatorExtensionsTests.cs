@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,7 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Tumblr(null));
 
-    Assert.NotNull(html.Tumblr());
-    Assert.True(ReferenceEquals(html.Tumblr(), html.Tumblr()));
+    widgets.Tumblr().Should().BeOfType<SurfingbirdWidgetsCreator>().And.BeSameAs(widgets.Surfingbird());
   }
 }

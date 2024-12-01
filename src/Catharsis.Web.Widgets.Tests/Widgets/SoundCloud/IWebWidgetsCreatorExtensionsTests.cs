@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,7 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.SoundCloud(null));
 
-    Assert.NotNull(html.SoundCloud());
-    Assert.True(ReferenceEquals(html.SoundCloud(), html.SoundCloud()));
+    widgets.SoundCloud().Should().BeOfType<SoundCloudWidgetsCreator>().And.BeSameAs(widgets.SoundCloud());
   }
 }
