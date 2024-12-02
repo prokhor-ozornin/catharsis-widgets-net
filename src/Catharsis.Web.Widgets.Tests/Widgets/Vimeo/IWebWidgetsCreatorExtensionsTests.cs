@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,7 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Vimeo(null));
 
-    Assert.NotNull(html.Vimeo());
-    Assert.True(ReferenceEquals(html.Vimeo(), html.Vimeo()));
+    widgets.Vimeo().Should().BeOfType<VimeoWidgetsCreator>().And.BeSameAs(widgets.Vimeo());
   }
 }

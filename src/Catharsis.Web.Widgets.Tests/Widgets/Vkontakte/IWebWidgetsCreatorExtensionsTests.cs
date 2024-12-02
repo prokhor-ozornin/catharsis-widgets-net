@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,7 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Vkontakte(null));
 
-    Assert.NotNull(html.Vkontakte());
-    Assert.True(ReferenceEquals(html.Vkontakte(), html.Vkontakte()));
+    widgets.Vkontakte().Should().BeOfType<VkontakteWidgetsCreator>().And.BeSameAs(widgets.Vkontakte());
   }
 }

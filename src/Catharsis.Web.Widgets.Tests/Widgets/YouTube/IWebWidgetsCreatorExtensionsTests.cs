@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,7 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.YouTube(null));
 
-    Assert.NotNull(html.YouTube());
-    Assert.True(ReferenceEquals(html.YouTube(), html.YouTube()));
+    widgets.YouTube().Should().BeOfType<YouTubeWidgetsCreator>().And.BeSameAs(widgets.YouTube());
   }
 }

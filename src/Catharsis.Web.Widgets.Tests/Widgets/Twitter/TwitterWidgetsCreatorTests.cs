@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="TwitterWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class TwitterWidgetCreatorTests : ClassTest<TwitterWidgetsCreator>
+public sealed class TwitterWidgetsCreatorTests : ClassTest<TwitterWidgetsCreator>
 {
   private readonly ITwitterWidgetsCreator widgets = Widgets.Web.Twitter();
 

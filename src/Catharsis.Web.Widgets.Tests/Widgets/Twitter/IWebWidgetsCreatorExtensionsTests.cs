@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,7 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Twitter(null));
 
-    Assert.NotNull(html.Twitter());
-    Assert.True(ReferenceEquals(html.Twitter(), html.Twitter()));
+    widgets.Twitter().Should().BeOfType<TwitterWidgetsCreator>().And.BeSameAs(widgets.Twitter());
   }
 }

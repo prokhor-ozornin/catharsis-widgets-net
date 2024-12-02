@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,7 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Yandex(null));
 
-    Assert.NotNull(html.Yandex());
-    Assert.True(ReferenceEquals(html.Yandex(), html.Yandex()));
+    widgets.Yandex().Should().BeOfType<YandexWidgetsCreator>().And.BeSameAs(widgets.Yandex());
   }
 }

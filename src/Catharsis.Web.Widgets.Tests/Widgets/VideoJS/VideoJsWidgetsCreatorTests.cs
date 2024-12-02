@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="VideoJSWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class VideoJsWidgetCreatorTests : ClassTest<VideoJSWidgetsCreator>
+public sealed class VideoJsWidgetsCreatorTests : ClassTest<VideoJSWidgetsCreator>
 {
   private readonly IVideoJSWidgetsCreator widgets = Widgets.Web.VideoJS();
 
