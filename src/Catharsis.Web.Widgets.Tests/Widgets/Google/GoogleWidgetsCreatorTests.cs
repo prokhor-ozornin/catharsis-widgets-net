@@ -12,6 +12,16 @@ public sealed class GoogleWidgetsCreatorTests : ClassTest<GoogleWidgetsCreator>
   private readonly IGoogleWidgetsCreator widgets = Widgets.Web.Google();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="GoogleWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(GoogleWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IGoogleWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="GoogleWidgetsCreator.Analytics()"/> method.</para>
   /// </summary>
   [Fact]

@@ -13,6 +13,16 @@ public sealed class Share42WidgetsCreatorTests : ClassTest<Share42WidgetsCreator
   private readonly IShare42WidgetsCreator widgets = Widgets.Web.Share42();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="Share42WidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(Share42WidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IShare42WidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="Share42WidgetsCreator.Panel()"/> method.</para>
   /// </summary>
   [Fact]

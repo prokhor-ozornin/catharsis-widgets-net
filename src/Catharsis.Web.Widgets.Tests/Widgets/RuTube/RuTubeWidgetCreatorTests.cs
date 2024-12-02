@@ -13,6 +13,16 @@ public sealed class RuTubeWidgetsCreatorTests : ClassTest<RuTubeWidgetsCreator>
   private readonly IRuTubeWidgetsCreator widgets = Widgets.Web.RuTube();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="RuTubeWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(RuTubeWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IRuTubeWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="RuTubeWidgetsCreator.Video()"/> method.</para>
   /// </summary>
   [Fact]

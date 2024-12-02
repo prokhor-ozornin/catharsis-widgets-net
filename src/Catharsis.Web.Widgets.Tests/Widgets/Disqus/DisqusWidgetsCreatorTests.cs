@@ -12,6 +12,16 @@ public sealed class DisqusWidgetsCreatorTests : ClassTest<DisqusWidgetsCreator>
   private readonly IDisqusWidgetsCreator widgets = Widgets.Web.Disqus();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="DoubleGisWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(DoubleGisWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IDoubleGisWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="DisqusWidgetsCreator.Comments()"/> method.</para>
   /// </summary>
   [Fact]

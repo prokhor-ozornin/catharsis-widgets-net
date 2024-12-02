@@ -1,4 +1,5 @@
 using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -11,13 +12,31 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   private readonly IYandexWidgetsCreator widgets = Widgets.Web.Yandex();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="YandexWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(YandexWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IYandexWidgetsCreator>();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="YandexWidgetsCreator.Analytics()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Analytics_Method()
+  {
+    widgets.Analytics().Should().BeOfType<YandexAnalyticsWidget>().And.NotBeSameAs(widgets.Analytics());
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="YandexWidgetsCreator.LikeButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void LikeButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.LikeButton(), widgets.LikeButton()));
-    Assert.True(widgets.LikeButton() is YandexLikeButtonWidget);
+    widgets.LikeButton().Should().BeOfType<YandexLikeButtonWidget>().And.NotBeSameAs(widgets.LikeButton());
   }
 
   /// <summary>
@@ -26,8 +45,7 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   [Fact]
   public void MoneyButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.MoneyButton(), widgets.MoneyButton()));
-    Assert.True(widgets.MoneyButton() is YandexMoneyButtonWidget);
+    widgets.MoneyButton().Should().BeOfType<YandexMoneyButtonWidget>().And.NotBeSameAs(widgets.MoneyButton());
   }
 
   /// <summary>
@@ -36,8 +54,7 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   [Fact]
   public void MoneyDonateForm_Method()
   {
-    Assert.False(ReferenceEquals(widgets.MoneyDonateForm(), widgets.MoneyDonateForm()));
-    Assert.True(widgets.MoneyDonateForm() is YandexMoneyDonateFormWidget);
+    widgets.MoneyDonateForm().Should().BeOfType<YandexMoneyDonateFormWidget>().And.NotBeSameAs(widgets.MoneyDonateForm());
   }
 
   /// <summary>
@@ -46,18 +63,16 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   [Fact]
   public void MoneyPaymentForm_Method()
   {
-    Assert.False(ReferenceEquals(widgets.MoneyPaymentForm(), widgets.MoneyPaymentForm()));
-    Assert.True(widgets.MoneyPaymentForm() is YandexMoneyPaymentFormWidget);
+    widgets.MoneyPaymentForm().Should().BeOfType<YandexMoneyPaymentFormWidget>().And.NotBeSameAs(widgets.MoneyPaymentForm());
   }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YandexWidgetsCreator.SharePanel()"/> method.</para>
   /// </summary>
   [Fact]
-  public void Share_Method()
+  public void SharePanel_Method()
   {
-    Assert.False(ReferenceEquals(widgets.SharePanel(), widgets.SharePanel()));
-    Assert.True(widgets.SharePanel() is YandexSharePanelWidget);
+    widgets.SharePanel().Should().BeOfType<YandexSharePanelWidget>().And.NotBeSameAs(widgets.SharePanel());
   }
 
   /// <summary>
@@ -66,7 +81,6 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Video(), widgets.Video()));
-    Assert.True(widgets.Video() is YandexVideoWidget);
+    widgets.Video().Should().BeOfType<YandexVideoWidget>().And.NotBeSameAs(widgets.Video());
   }
 }

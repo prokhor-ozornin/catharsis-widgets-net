@@ -1,4 +1,5 @@
 using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -11,12 +12,21 @@ public sealed class YouTubeWidgetsCreatorTests : ClassTest<YouTubeWidgetsCreator
   private readonly IYouTubeWidgetsCreator widgets = Widgets.Web.YouTube();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="YouTubeWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(YouTubeWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IYouTubeWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="YouTubeWidgetsCreator.Video()"/> method.</para>
   /// </summary>
   [Fact]
   public void Video_Method()
   {
-    Assert.False(ReferenceEquals(widgets.Video(), widgets.Video()));
-    Assert.True(widgets.Video() is YouTubeVideoWidget);
+    widgets.Video().Should().BeOfType<YouTubeVideoWidget>().And.NotBeSameAs(widgets.Video());
   }
 }

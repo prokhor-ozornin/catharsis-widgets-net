@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -11,13 +12,22 @@ public sealed class TumblrWidgetsCreatorTests : ClassTest<TumblrWidgetsCreator>
   private readonly ITumblrWidgetsCreator widgets = Widgets.Web.Tumblr();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="TumblrWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(TumblrWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ITumblrWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="TumblrWidgetsCreator.FollowButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void FollowButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.FollowButton(), widgets.FollowButton()));
-    Assert.True(widgets.FollowButton() is TumblrFollowButtonWidget);
+    widgets.FollowButton().Should().BeOfType<TumblrFollowButtonWidget>().And.NotBeSameAs(widgets.FollowButton());
   }
 
   /// <summary>
@@ -26,7 +36,6 @@ public sealed class TumblrWidgetsCreatorTests : ClassTest<TumblrWidgetsCreator>
   [Fact]
   public void ShareButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.ShareButton(), widgets.ShareButton()));
-    Assert.True(widgets.ShareButton() is TumblrShareButtonWidget);
+    widgets.ShareButton().Should().BeOfType<TumblrShareButtonWidget>().And.NotBeSameAs(widgets.ShareButton());
   }
 }

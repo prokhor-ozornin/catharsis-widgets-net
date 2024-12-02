@@ -12,6 +12,16 @@ public sealed class IntenseDebateWidgetsCreatorTests : ClassTest<IntenseDebateWi
   private readonly IIntenseDebateWidgetsCreator widgets = Widgets.Web.IntenseDebate();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="IntenseDebateWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(IntenseDebateWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IIntenseDebateWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="IntenseDebateWidgetsCreator.Comments()"/> method.</para>
   /// </summary>
   [Fact]

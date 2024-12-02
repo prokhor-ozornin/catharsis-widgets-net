@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -8,7 +9,17 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCreator>
 {
-  private readonly IVkontakteWidgetsCreator widgetses = Widgets.Web.Vkontakte();
+  private readonly IVkontakteWidgetsCreator widgets = Widgets.Web.Vkontakte();
+
+  /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="VkontakteWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(VkontakteWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IVkontakteWidgetsCreator>();
+  }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IVkontakteWidgetCreator.AuthButton()"/> method.</para>
@@ -16,29 +27,8 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   /*[Fact]
   public void AuthButton_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.AuthButton(), widgetses.AuthButton()));
-    Assert.True(widgetses.AuthButton() is VkontakteAuthButtonWidget);
+    widgets.AuthButton().Should().BeOfType<VkontakteAuthButtonWidget>().And.NotBeSameAs(widgets.AuthButton());
   }*/
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Video()"/> method.</para>
-  /// </summary>
-  [Fact]
-  public void Video_Method()
-  {
-    Assert.False(ReferenceEquals(widgetses.Video(), widgetses.Video()));
-    Assert.True(widgetses.Video() is VkontakteVideoWidget);
-  }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Initialize()"/> method.</para>
-  /// </summary>
-  [Fact]
-  public void Initialize_Method()
-  {
-    Assert.False(ReferenceEquals(widgetses.Initialize(), widgetses.Initialize()));
-    Assert.True(widgetses.Initialize() is VkontakteInitializationWidget);
-  }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Comments()"/> method.</para>
@@ -46,8 +36,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Comments_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.Comments(), widgetses.Comments()));
-    Assert.True(widgetses.Comments() is VkontakteCommentsWidget);
+    widgets.Comments().Should().BeOfType<VkontakteCommentsWidget>().And.NotBeSameAs(widgets.Comments());
   }
 
   /// <summary>
@@ -56,18 +45,25 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Community_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.Community(), widgetses.Community()));
-    Assert.True(widgetses.Community() is VkontakteCommunityWidget);
+    widgets.Community().Should().BeOfType<VkontakteCommunityWidget>().And.NotBeSameAs(widgets.Community());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Initialize()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Initialize_Method()
+  {
+    widgets.Initialize().Should().BeOfType<VkontakteInitializationWidget>().And.NotBeSameAs(widgets.Initialize());
   }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.LikeButton()"/> method.</para>
   /// </summary>
   [Fact]
-  public void Like_Method()
+  public void LikeButton_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.LikeButton(), widgetses.LikeButton()));
-    Assert.True(widgetses.LikeButton() is VkontakteLikeButtonWidget);
+    widgets.LikeButton().Should().BeOfType<VkontakteLikeButtonWidget>().And.NotBeSameAs(widgets.LikeButton());
   }
 
   /// <summary>
@@ -76,8 +72,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Poll_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.Poll(), widgetses.Poll()));
-    Assert.True(widgetses.Poll() is VkontaktePollWidget);
+    widgets.Poll().Should().BeOfType<VkontaktePollWidget>().And.NotBeSameAs(widgets.Poll());
   }
 
   /// <summary>
@@ -86,8 +81,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Post_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.Post(), widgetses.Post()));
-    Assert.True(widgetses.Post() is VkontaktePostWidget);
+    widgets.Post().Should().BeOfType<VkontaktePostWidget>().And.NotBeSameAs(widgets.Post());
   }
 
   /// <summary>
@@ -96,8 +90,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Recommendations_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.Recommendations(), widgetses.Recommendations()));
-    Assert.True(widgetses.Recommendations() is VkontakteRecommendationsWidget);
+    widgets.Recommendations().Should().BeOfType<VkontakteRecommendationsWidget>().And.NotBeSameAs(widgets.Recommendations());
   }
 
   /// <summary>
@@ -106,8 +99,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   /*[Fact]
   public void ShareButton_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.ShareButton(), widgetses.ShareButton()));
-    Assert.True(widgetses.ShareButton() is VkontakteShareButtonWidget);
+    widgets.ShareButton().Should().BeOfType<VkontakteShareButtonWidget>().And.NotBeSameAs(widgets.ShareButton());
   }*/
 
   /// <summary>
@@ -116,7 +108,15 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Subscribe_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.Subscription(), widgetses.Subscription()));
-    Assert.True(widgetses.Subscription() is VkontakteSubscriptionWidget);
+    widgets.Subscription().Should().BeOfType<VkontakteSubscriptionWidget>().And.NotBeSameAs(widgets.Subscription());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteWidgetsCreator.Video()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Video_Method()
+  {
+    widgets.Video().Should().BeOfType<VkontakteVideoWidget>().And.NotBeSameAs(widgets.Video());
   }
 }

@@ -12,6 +12,16 @@ public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
   private readonly IMailRuWidgetsCreator widgets = Widgets.Web.MailRu();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="MailRuWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(MailRuWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IMailRuWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="MailRuWidgetsCreator.Faces()"/> method.</para>
   /// </summary>
   [Fact]

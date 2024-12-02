@@ -12,6 +12,16 @@ public sealed class GravatarWidgetsCreatorTests : ClassTest<GravatarWidgetsCreat
   private readonly IGravatarWidgetsCreator widgets = Widgets.Web.Gravatar();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="GravatarWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(GravatarWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IGravatarWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="GravatarWidgetsCreator.ImageUrl()"/> method.</para>
   /// </summary>
   [Fact]

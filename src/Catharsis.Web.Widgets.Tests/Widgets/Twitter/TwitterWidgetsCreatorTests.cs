@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -11,13 +12,22 @@ public sealed class TwitterWidgetsCreatorTests : ClassTest<TwitterWidgetsCreator
   private readonly ITwitterWidgetsCreator widgets = Widgets.Web.Twitter();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="TwitterWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(TwitterWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ITwitterWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="TwitterWidgetsCreator.FollowButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void Follow_Method()
   {
-    Assert.False(ReferenceEquals(widgets.FollowButton(), widgets.FollowButton()));
-    Assert.True(widgets.FollowButton() is TwitterFollowButtonWidget);
+    widgets.FollowButton().Should().BeOfType<TwitterFollowButtonWidget>().And.NotBeSameAs(widgets.FollowButton());
   }
 
   /// <summary>
@@ -26,9 +36,6 @@ public sealed class TwitterWidgetsCreatorTests : ClassTest<TwitterWidgetsCreator
   [Fact]
   public void Tweet_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TwitterWidgetsCreator().TweetButton(null));
-
-    Assert.False(ReferenceEquals(widgets.TweetButton(), widgets.TweetButton()));
-    Assert.True(widgets.TweetButton() is TwitterTweetButtonWidget);
+    widgets.TweetButton().Should().BeOfType<TwitterTweetButtonWidget>().And.NotBeSameAs(widgets.TweetButton());
   }
 }

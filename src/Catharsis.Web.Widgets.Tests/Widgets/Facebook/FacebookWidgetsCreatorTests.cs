@@ -12,6 +12,16 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   private readonly IFacebookWidgetsCreator widgets = Widgets.Web.Facebook();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="FacebookWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(FacebookWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IFacebookWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.Initialize()"/> method.</para>
   /// </summary>
   [Fact]

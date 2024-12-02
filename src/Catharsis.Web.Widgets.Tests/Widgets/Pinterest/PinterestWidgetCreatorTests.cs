@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -8,7 +9,17 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCreator>
 {
-  private readonly IPinterestWidgetsCreator widgetses = Widgets.Web.Pinterest();
+  private readonly IPinterestWidgetsCreator widgets = Widgets.Web.Pinterest();
+
+  /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="PinterestWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(PinterestWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IPinterestWidgetsCreator>();
+  }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="PinterestWidgetsCreator.Board()"/> method.</para>
@@ -16,8 +27,7 @@ public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCre
   [Fact]
   public void Board_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.Board(), widgetses.Board()));
-    Assert.True(widgetses.Board() is PinterestBoardWidget);
+    widgets.Board().Should().BeOfType<PinterestBoardWidget>().And.NotBeSameAs(widgets.Board());
   }
 
   /// <summary>
@@ -26,8 +36,7 @@ public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCre
   [Fact]
   public void FollowButton_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.FollowButton(), widgetses.FollowButton()));
-    Assert.True(widgetses.FollowButton() is PinterestFollowButtonWidget);
+    widgets.FollowButton().Should().BeOfType<PinterestFollowButtonWidget>().And.NotBeSameAs(widgets.FollowButton());
   }
 
   /// <summary>
@@ -36,8 +45,7 @@ public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCre
   [Fact]
   public void PinItButton_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.PinItButton(), widgetses.PinItButton()));
-    Assert.True(widgetses.PinItButton() is PinterestPinItButtonWidget);
+    widgets.PinItButton().Should().BeOfType<PinterestPinItButtonWidget>().And.NotBeSameAs(widgets.PinItButton());
   }
 
   /// <summary>
@@ -46,8 +54,7 @@ public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCre
   [Fact]
   public void Pin_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.Pin(), widgetses.Pin()));
-    Assert.True(widgetses.Pin() is PinterestPinWidget);
+    widgets.Pin().Should().BeOfType<PinterestPinWidget>().And.NotBeSameAs(widgets.Pin());
   }
 
   /// <summary>
@@ -56,7 +63,6 @@ public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCre
   [Fact]
   public void Profile_Method()
   {
-    Assert.False(ReferenceEquals(widgetses.Profile(), widgetses.Profile()));
-    Assert.True(widgetses.Profile() is PinterestProfileWidget);
+    widgets.Profile().Should().BeOfType<PinterestProfileWidget>().And.NotBeSameAs(widgets.Profile());
   }
 }

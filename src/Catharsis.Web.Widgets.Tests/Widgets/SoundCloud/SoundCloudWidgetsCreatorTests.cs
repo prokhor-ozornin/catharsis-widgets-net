@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -11,12 +12,21 @@ public sealed class SoundCloudWidgetsCreatorTests : ClassTest<SoundCloudWidgetsC
   private readonly ISoundCloudWidgetsCreator widgets = Widgets.Web.SoundCloud();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="SoundCloudWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(SoundCloudWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ISoundCloudWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="SoundCloudWidgetsCreator.ProfileIcon()"/> method.</para>
   /// </summary>
   [Fact]
   public void ProfileIcon_Method()
   {
-    Assert.False(ReferenceEquals(widgets.ProfileIcon(), widgets.ProfileIcon()));
-    Assert.True(widgets.ProfileIcon() is SoundCloudProfileIconWidget);
+    widgets.ProfileIcon().Should().BeOfType<SoundCloudProfileIconWidget>().And.NotBeSameAs(widgets.ProfileIcon());
   }
 }

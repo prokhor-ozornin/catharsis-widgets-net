@@ -12,6 +12,16 @@ public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
   private readonly ICackleWidgetsCreator widgets = Widgets.Web.Cackle();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="CackleWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(CackleWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ICackleWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="CackleWidgetsCreator.Comments()"/> method.</para>
   /// </summary>
   [Fact]

@@ -12,6 +12,16 @@ public sealed class LiveJournalWidgetsCreatorTests : ClassTest<LiveJournalWidget
   private readonly ILiveJournalWidgetsCreator widgets = Widgets.Web.LiveJournal();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="LiveJournalWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(LiveJournalWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ILiveJournalWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="LiveJournalWidgetsCreator.LikeButton()"/> method.</para>
   /// </summary>
   [Fact]

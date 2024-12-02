@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -11,12 +12,21 @@ public sealed class SurfingbirdWidgetsCreatorTests : ClassTest<SurfingbirdWidget
   private readonly ISurfingbirdWidgetsCreator widgets = Widgets.Web.Surfingbird();
 
   /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="SurfingbirdWidgetsCreator()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(SurfingbirdWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ISurfingbirdWidgetsCreator>();
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="SurfingbirdWidgetsCreator.SurfButton()"/> method.</para>
   /// </summary>
   [Fact]
   public void SurfButton_Method()
   {
-    Assert.False(ReferenceEquals(widgets.SurfButton(), widgets.SurfButton()));
-    Assert.True(widgets.SurfButton() is SurfingbirdSurfButtonWidget);
+    widgets.SurfButton().Should().BeOfType<SurfingbirdSurfButtonWidget>().And.NotBeSameAs(widgets.SurfButton());
   }
 }
