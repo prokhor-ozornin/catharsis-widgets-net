@@ -54,12 +54,17 @@ public sealed class DisqusCommentsWidgetTests : ClassTest<DisqusCommentsWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new DisqusCommentsWidget().ToString());
+    using (new AssertionScope())
+    {
+      Validate(string.Empty, new DisqusCommentsWidget());
+      Validate("""<div id="disqus_thread"></div>""", new DisqusCommentsWidget().Account("account"));
+      Validate("""
+               var disqus_shortname = "account"
+               """, new DisqusCommentsWidget().Account("account"));
+    }
 
-    var html = new DisqusCommentsWidget().Account("account").ToString();
-    Assert.True(html.Contains("""<div id="disqus_thread"></div>"""));
-    Assert.True(html.Contains("""
-                              var disqus_shortname = "account"
-                              """));
+    return;
+
+    static void Validate(string result, IDisqusCommentsWidget widget) => widget.ToHtml().Should().NotBeSameAs(widget.ToHtml()).And.Contain(result);
   }
 }

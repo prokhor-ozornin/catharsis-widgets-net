@@ -142,14 +142,17 @@ public sealed class CackleLatestCommentsWidgetTests : ClassTest<CackleLatestComm
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new CackleLatestCommentsWidget().ToString());
+    using (new AssertionScope())
+    {
+      Validate(string.Empty, new CackleLatestCommentsWidget());
+      Validate("""<div id="mc-last"></div>""", new CackleLatestCommentsWidget().Account("account"));
+      Validate("""{"widget":"CommentRecent","id":"account","size":5,"avatarSize":32,"textSize":150,"titleSize":40}""", new CackleLatestCommentsWidget().Account("account"));
+      Validate("""<div id="mc-last"></div>""", new CackleLatestCommentsWidget().Account("account").Max(1).AvatarSize(2).TextSize(3).TitleSize(4));
+      Validate("""{"widget":"CommentRecent","id":"account","size":1,"avatarSize":2,"textSize":3,"titleSize":4}""", new CackleLatestCommentsWidget().Account("account").Max(1).AvatarSize(2).TextSize(3).TitleSize(4));
+    }
 
-    var html = new CackleLatestCommentsWidget().Account("account").ToString();
-    Assert.True(html.Contains("""<div id="mc-last"></div>"""));
-    Assert.True(html.Contains("""{"widget":"CommentRecent","id":"account","size":5,"avatarSize":32,"textSize":150,"titleSize":40}"""));
+    return;
 
-    html = new CackleLatestCommentsWidget().Account("account").Max(1).AvatarSize(2).TextSize(3).TitleSize(4).ToString();
-    Assert.True(html.Contains("""<div id="mc-last"></div>"""));
-    Assert.True(html.Contains("""{"widget":"CommentRecent","id":"account","size":1,"avatarSize":2,"textSize":3,"titleSize":4}"""));
+    static void Validate(string result, ICackleLatestCommentsWidget widget) => widget.ToHtml().Should().NotBeSameAs(widget.ToHtml()).And.Contain(result);
   }
 }

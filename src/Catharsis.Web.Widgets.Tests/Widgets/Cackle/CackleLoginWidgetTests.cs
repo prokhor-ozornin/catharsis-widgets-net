@@ -54,10 +54,15 @@ public sealed class CackleLoginWidgetTests : ClassTest<CackleLoginWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new CackleLoginWidget().ToString());
+    using (new AssertionScope())
+    {
+      Validate(string.Empty, new CackleLoginWidget());
+      Validate("""<div id="mc-login"></div>""", new CackleLoginWidget().Account("account"));
+      Validate("""{"widget":"Login","id":"account"}""", new CackleLoginWidget().Account("account"));
+    }
 
-    var html = new CackleLoginWidget().Account("account").ToString();
-    Assert.True(html.Contains("""<div id="mc-login"></div>"""));
-    Assert.True(html.Contains("""{"widget":"Login","id":"account"}"""));
+    return;
+
+    static void Validate(string result, ICackleLoginWidget widget) => widget.ToHtml().Should().NotBeSameAs(widget.ToHtml()).And.Contain(result);
   }
 }
