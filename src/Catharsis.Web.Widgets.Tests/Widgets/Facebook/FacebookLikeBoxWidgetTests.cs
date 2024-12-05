@@ -239,8 +239,27 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new FacebookLikeBoxWidget().ToString());
-    Assert.Equal("""<div class="fb-like-box" data-href="https://www.facebook.com/pages/Clear-Words/515749945120070"></div>""", new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").ToString());
-    Assert.Equal("""<div class="fb-like-box" data-colorscheme="dark" data-force-wall="true" data-header="true" data-height="height" data-href="https://www.facebook.com/pages/Clear-Words/515749945120070" data-show-border="true" data-show-faces="true" data-stream="true" data-width="width"></div>""", new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Wall(true).Header(true).Border(true).Faces(true).Stream(true).ToString());
+    using (new AssertionScope())
+    {
+      Validate(new FacebookLikeBoxWidget());
+      Validate(new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070"), """<div class="fb-like-box" data-href="https://www.facebook.com/pages/Clear-Words/515749945120070"></div>""");
+      Validate(new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Wall(true).Header(true).Border(true).Faces(true).Stream(true), """<div class="fb-like-box" data-colorscheme="dark" data-force-wall="true" data-header="true" data-height="height" data-href="https://www.facebook.com/pages/Clear-Words/515749945120070" data-show-border="true" data-show-faces="true" data-stream="true" data-width="width"></div>""");
+    }
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

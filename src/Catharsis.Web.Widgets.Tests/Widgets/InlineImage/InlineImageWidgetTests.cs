@@ -79,8 +79,27 @@ public sealed class InlineImageWidgetTests : ClassTest<InlineImageWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new InlineImageWidget().ToString());
-    Assert.Equal($"<img src=\"data:image;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>", new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).ToString());
-    Assert.Equal($"<img src=\"data:jpg;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>", new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new InlineImageWidget());
+      Validate(new InlineImageWidget().Contents(Guid.Empty.ToByteArray()), $"<img src=\"data:image;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>");
+      Validate(new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg"), $"<img src=\"data:jpg;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>");
+    }
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

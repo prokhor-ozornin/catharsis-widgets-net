@@ -79,7 +79,26 @@ public sealed class FacebookPostWidgetTests : ClassTest<FacebookPostWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new FacebookPostWidget().ToString());
-    Assert.Equal("""<div class="fb-post" data-href="url" data-width="width"></div>""", new FacebookPostWidget().Url("url").Width("width").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new FacebookPostWidget());
+      Validate(new FacebookPostWidget().Url("url").Width("width"), """<div class="fb-post" data-href="url" data-width="width"></div>""");
+    }
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

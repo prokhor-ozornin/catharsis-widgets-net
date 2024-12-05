@@ -79,12 +79,28 @@ public sealed class GoogleAnalyticsWidgetTests : ClassTest<GoogleAnalyticsWidget
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new GoogleAnalyticsWidget().ToString());
-    Assert.Equal(string.Empty, new GoogleAnalyticsWidget().Account("account").ToString());
-    Assert.Equal(string.Empty, new GoogleAnalyticsWidget().Domain("domain").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new GoogleAnalyticsWidget());
+      Validate(new GoogleAnalyticsWidget().Account("account"));
+      Validate(new GoogleAnalyticsWidget().Domain("domain"));
+      Validate(new GoogleAnalyticsWidget().Account("account").Domain("domain"), "//www.google-analytics.com/analytics.js", """ga("create", "account", "domain");""");
+    }
 
-    var html = new GoogleAnalyticsWidget().Account("account").Domain("domain").ToString();
-    Assert.True(html.Contains("//www.google-analytics.com/analytics.js"));
-    Assert.True(html.Contains("""ga("create", "account", "domain");"""));
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

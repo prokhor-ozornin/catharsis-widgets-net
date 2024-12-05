@@ -104,10 +104,29 @@ public sealed class MailRuVideoWidgetTests : ClassTest<MailRuVideoWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new MailRuVideoWidget().ToString());
-    Assert.Equal(string.Empty, new MailRuVideoWidget().Id("id").Height("height").ToString());
-    Assert.Equal(string.Empty, new MailRuVideoWidget().Id("id").Width("width").ToString());
-    Assert.Equal(string.Empty, new MailRuVideoWidget().Height("height").Width("width").ToString());
-    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://api.video.mail.ru/videos/embed/mail/id" webkitallowfullscreen="true" width="width"></iframe>""", new MailRuVideoWidget().Id("id").Height("height").Width("width").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new MailRuVideoWidget());
+      Validate(new MailRuVideoWidget().Id("id").Height("height"));
+      Validate(new MailRuVideoWidget().Id("id").Width("width"));
+      Validate(new MailRuVideoWidget().Height("height").Width("width"));
+      Validate(new MailRuVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://api.video.mail.ru/videos/embed/mail/id" webkitallowfullscreen="true" width="width"></iframe>""");
+    }
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

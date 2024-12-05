@@ -56,15 +56,26 @@ public sealed class DisqusCommentsWidgetTests : ClassTest<DisqusCommentsWidget>
   {
     using (new AssertionScope())
     {
-      Validate(string.Empty, new DisqusCommentsWidget());
-      Validate("""<div id="disqus_thread"></div>""", new DisqusCommentsWidget().Account("account"));
-      Validate("""
-               var disqus_shortname = "account"
-               """, new DisqusCommentsWidget().Account("account"));
+      Validate(new DisqusCommentsWidget());
+      Validate(new DisqusCommentsWidget().Account("account"), """<div id="disqus_thread"></div>""", """
+                                                                                                    var disqus_shortname = "account"
+                                                                                                    """);
     }
 
     return;
 
-    static void Validate(string result, IDisqusCommentsWidget widget) => widget.ToHtml().Should().NotBeSameAs(widget.ToHtml()).And.Contain(result);
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

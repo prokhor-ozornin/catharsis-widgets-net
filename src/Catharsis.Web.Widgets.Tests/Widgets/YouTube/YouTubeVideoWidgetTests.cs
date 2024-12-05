@@ -154,5 +154,21 @@ public sealed class YouTubeVideoWidgetTests : ClassTest<YouTubeVideoWidget>
     Assert.Equal(string.Empty, new YouTubeVideoWidget().Height("height").Width("width").ToString());
     Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.youtube.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""", new YouTubeVideoWidget().Id("id").Height("height").Width("width").ToString());
     Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://www.youtube-nocookie.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""", new YouTubeVideoWidget().Id("id").Height("height").Width("width").PrivateMode(true).SecureMode(true).ToString());
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

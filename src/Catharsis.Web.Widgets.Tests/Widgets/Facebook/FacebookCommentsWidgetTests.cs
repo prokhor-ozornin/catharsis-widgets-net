@@ -173,7 +173,26 @@ public sealed class FacebookCommentsWidgetTests : ClassTest<FacebookCommentsWidg
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal("""<div class="fb-comments"></div>""", new FacebookCommentsWidget().ToString());
-    Assert.Equal("""<div class="fb-comments" data-colorscheme="dark" data-href="url" data-mobile="true" data-num-posts="1" data-order-by="reverse_time" data-width="width"></div>""", new FacebookCommentsWidget().Url("url").Posts(1).Width("width").ColorScheme(FacebookColorScheme.Dark).Mobile(true).Order(FacebookCommentsOrder.ReverseTime).ToString());
+    using (new AssertionScope())
+    {
+      Validate(new FacebookCommentsWidget(), """<div class="fb-comments"></div>""");
+      Validate(new FacebookCommentsWidget().Url("url").Posts(1).Width("width").ColorScheme(FacebookColorScheme.Dark).Mobile(true).Order(FacebookCommentsOrder.ReverseTime), """<div class="fb-comments" data-colorscheme="dark" data-href="url" data-mobile="true" data-num-posts="1" data-order-by="reverse_time" data-width="width"></div>""");
+    }
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

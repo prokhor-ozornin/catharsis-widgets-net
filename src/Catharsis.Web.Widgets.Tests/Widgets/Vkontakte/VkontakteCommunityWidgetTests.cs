@@ -237,5 +237,21 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
     Assert.True(html.Contains("""<div id="elementId"></div>"""));
     Assert.True(html.Contains("""<script type="text/javascript">"""));
     Assert.True(html.Contains("""VK.Widgets.Group("elementId", {"mode":2,"wide":1,"width":"width","height":"height","color1":"backgroundColor","color2":"textColor","color3":"buttonColor"}, "account");"""));
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

@@ -113,32 +113,40 @@ public sealed class IntenseDebateLinkWidgetTests : ClassTest<IntenseDebateLinkWi
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new IntenseDebateLinkWidget().ToString());
+    using (new AssertionScope())
+    {
+      Validate(new IntenseDebateLinkWidget());
+      Validate(new IntenseDebateLinkWidget().Account("account"), """<script type="text/javascript">""", """var idcomments_acct = "account";""", """
+                                                                                                                                                var idcomments_post_id = ""
+                                                                                                                                                """, """
+                                                                                                                                                     var idcomments_post_url = ""
+                                                                                                                                                     """, ("""
+                                                                                                                                                           var idcomments_post_title = ""
+                                                                                                                                                           """));
+    }
 
-    var html = new IntenseDebateLinkWidget().Account("account").ToString();
-    Assert.True(html.Contains("""<script type="text/javascript">"""));
-    Assert.True(html.Contains("""var idcomments_acct = "account";"""));
-    Assert.True(html.Contains("""
-                              var idcomments_post_id = ""
-                              """));
-    Assert.True(html.Contains("""
-                              var idcomments_post_url = ""
-                              """));
-    Assert.True(html.Contains("""
-                              var idcomments_post_title = ""
-                              """));
 
-    html = new IntenseDebateLinkWidget().Account("account").PostId("postId").PostUrl("postUrl").PostTitle("postTitle").ToString();
-    Assert.True(html.Contains("""<script type="text/javascript">"""));
-    Assert.True(html.Contains("""var idcomments_acct = "account";"""));
-    Assert.True(html.Contains("""
-                              var idcomments_post_id = "postId"
-                              """));
-    Assert.True(html.Contains("""
-                              var idcomments_post_url = "postUrl"
-                              """));
-    Assert.True(html.Contains("""
-                              var idcomments_post_title = "postTitle"
-                              """));
+    Validate(new IntenseDebateLinkWidget().Account("account").PostId("postId").PostUrl("postUrl").PostTitle("postTitle"), """<script type="text/javascript">""", """var idcomments_acct = "account";""", """
+                                                                                                                                                                                                         var idcomments_post_id = "postId"
+                                                                                                                                                                                                         """, """
+                                                                                                                                                                                                              var idcomments_post_url = "postUrl"
+                                                                                                                                                                                                              """, """
+                                                                                                                                                                                                                   var idcomments_post_title = "postTitle"
+                                                                                                                                                                                                                  """);
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

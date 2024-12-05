@@ -285,5 +285,21 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
     Assert.True(html.Contains("""<div id="elementId"></div>"""));
     Assert.True(html.Contains("""<script type="text/javascript">"""));
     Assert.True(html.Contains("""VK.Widgets.Like("elementId", {"type":"button","width":"width","pageTitle":"title","pageDescription":"description","pageUrl":"url","pageImage":"image","text":"text","height":"height","verb":1});"""));
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

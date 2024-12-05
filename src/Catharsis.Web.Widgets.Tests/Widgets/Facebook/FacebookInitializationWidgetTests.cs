@@ -54,10 +54,26 @@ public sealed class FacebookInitializationWidgetTests : ClassTest<FacebookInitia
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new FacebookInitializationWidget().ToString());
+    using (new AssertionScope())
+    {
+      Validate(new FacebookInitializationWidget());
+      Validate(new FacebookInitializationWidget().AppId("appId"), """<div id="fb-root"></div>""", "//connect.facebook.net/en_US/all.js#xfbml=1&appId=appId");
+    }
 
-    var html = new FacebookInitializationWidget().AppId("appId").ToString();
-    Assert.True(html.Contains("""<div id="fb-root"></div>"""));
-    Assert.True(html.Contains("//connect.facebook.net/en_US/all.js#xfbml=1&appId=appId"));
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

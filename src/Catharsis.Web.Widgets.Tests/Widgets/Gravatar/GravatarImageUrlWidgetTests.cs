@@ -98,9 +98,28 @@ public sealed class GravatarImageUrlWidgetTests : ClassTest<GravatarImageUrlWidg
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new GravatarImageUrlWidget().ToString());
-    Assert.Equal("http://www.gravatar.com/avatar/hash", new GravatarImageUrlWidget().Hash("hash").ToString());
-    Assert.Equal("http://www.gravatar.com/avatar/hash?name=value", new GravatarImageUrlWidget().Hash("hash").Parameter("name", "value").ToString());
-    Assert.Equal("http://www.gravatar.com/avatar/hash.extension?first=1&second=2", new GravatarImageUrlWidget().Hash("hash").Extension("extension").Parameter("first", 1).Parameter("second", 2).ToString());
+    using (new AssertionScope())
+    {
+      Validate(new GravatarImageUrlWidget());
+      Validate(new GravatarImageUrlWidget().Hash("hash"), "http://www.gravatar.com/avatar/hash");
+      Validate(new GravatarImageUrlWidget().Hash("hash").Parameter("name", "value"), "http://www.gravatar.com/avatar/hash?name=value");
+      Validate(new GravatarImageUrlWidget().Hash("hash").Extension("extension").Parameter("first", 1).Parameter("second", 2), "http://www.gravatar.com/avatar/hash.extension?first=1&second=2");
+    }
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

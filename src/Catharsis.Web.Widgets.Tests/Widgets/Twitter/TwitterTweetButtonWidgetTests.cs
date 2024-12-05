@@ -276,5 +276,21 @@ public sealed class TwitterTweetButtonWidgetTests : ClassTest<TwitterTweetButton
   {
     Assert.Equal($"""<a class="twitter-share-button" data-lang="{(HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)}" href="https://twitter.com/share"></a>""", new TwitterTweetButtonWidget().ToString());
     Assert.Equal("""<a class="twitter-hashtag-button" data-count="counterPosition" data-counturl="countUrl" data-dnt="true" data-hashtags="tags" data-lang="en" data-related="related" data-size="size" data-text="text" data-url="url" data-via="via" href="https://twitter.com/share"></a>""", new TwitterTweetButtonWidget().Language("en").Url("url").Via("via").Text("text").RelatedAccounts("related").CounterPosition("counterPosition").CountUrl("countUrl").HashTags("tags").Size("size").Suggestions(false).ToString());
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

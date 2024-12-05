@@ -157,5 +157,21 @@ public sealed class VkontakteAuthButtonWidgetTests : ClassTest<VkontakteAuthButt
     Assert.Equal("""<div id="vk_auth"></div><script type="text/javascript">VK.Widgets.Auth("vk_auth", {"authUrl":"url"});</script>""", new VkontakteAuthButtonWidget().Standard("url").ToString());
     Assert.Equal("""<div id="vk_auth"></div><script type="text/javascript">VK.Widgets.Auth("vk_auth", {"onAuth":"callback"});</script>""", new VkontakteAuthButtonWidget().Dynamic("callback").ToString());
     Assert.Equal("""<div id="elementId"></div><script type="text/javascript">VK.Widgets.Auth("elementId", {"authUrl":"url","width":"width"});</script>""", new VkontakteAuthButtonWidget().Standard("url").ElementId("elementId").Width("width").ToString());
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

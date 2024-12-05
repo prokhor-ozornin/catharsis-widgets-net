@@ -140,5 +140,21 @@ public sealed class IntenseDebateCommentsWidgetTests : ClassTest<IntenseDebateCo
     Assert.True(html.Contains("""
                               var idcomments_post_title = "postTitle"
                               """));
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

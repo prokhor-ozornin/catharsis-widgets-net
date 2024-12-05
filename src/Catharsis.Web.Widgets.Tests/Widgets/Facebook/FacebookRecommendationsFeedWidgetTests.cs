@@ -272,7 +272,26 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal("""<div class="fb-recommendations"></div>""", new FacebookRecommendationsFeedWidget().ToString());
-    Assert.Equal("""<div class="fb-recommendations" data-action="actions" data-app-id="appId" data-colorscheme="dark" data-header="true" data-height="height" data-linktarget="linkTarget" data-max-age="1" data-ref="trackLabel" data-site="domain" data-width="width"></div>""", new FacebookRecommendationsFeedWidget().Domain("domain").AppId("appId").Actions("actions").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Header(true).LinkTarget("linkTarget").MaxAge(1).TrackLabel("trackLabel").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new FacebookRecommendationsFeedWidget(), """<div class="fb-recommendations"></div>""");
+      Validate(new FacebookRecommendationsFeedWidget().Domain("domain").AppId("appId").Actions("actions").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Header(true).LinkTarget("linkTarget").MaxAge(1).TrackLabel("trackLabel"), """<div class="fb-recommendations" data-action="actions" data-app-id="appId" data-colorscheme="dark" data-header="true" data-height="height" data-linktarget="linkTarget" data-max-age="1" data-ref="trackLabel" data-site="domain" data-width="width"></div>""");
+    }
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

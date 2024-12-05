@@ -80,10 +80,26 @@ public sealed class MailRuIcqWidgetTests : ClassTest<MailRuIcqWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(new XElement("script", new XAttribute("src", "http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"), new XAttribute("type", "text/javascript")).ToString(), new MailRuIcqWidget().ToString());
+    using (new AssertionScope())
+    {
+      Validate(new MailRuIcqWidget(), new XElement("script", new XAttribute("src", "http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"), new XAttribute("type", "text/javascript")).ToString());
+      Validate(new MailRuIcqWidget().Account("account").Language("en"), "window.ICQ = {siteOwner:'account'};", """<script src="http://c.icq.com/siteim/icqbar/js/partners/initbar_en.js" type="text/javascript"></script>""");
+    }
 
-    var html = new MailRuIcqWidget().Account("account").Language("en").ToString();
-    Assert.True(html.Contains("window.ICQ = {siteOwner:'account'};"));
-    Assert.True(html.Contains("""<script src="http://c.icq.com/siteim/icqbar/js/partners/initbar_en.js" type="text/javascript"></script>"""));
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

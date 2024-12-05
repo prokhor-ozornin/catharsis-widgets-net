@@ -159,5 +159,21 @@ public sealed class PinterestBoardWidgetTests : ClassTest<PinterestBoardWidget>
     Assert.Equal(string.Empty, new PinterestBoardWidget().Id("id").ToString());
     Assert.Equal("""<a data-pin-do="embedBoard" href="http://www.pinterest.com/account/id"></a>""", new PinterestBoardWidget().Account("account").Id("id").ToString());
     Assert.Equal("""<a data-pin-board-width="width" data-pin-do="embedBoard" data-pin-scale-height="height" data-pin-scale-width="image" href="http://www.pinterest.com/account/id"></a>""", new PinterestBoardWidget().Account("account").Id("id").Width("width").Height("height").Image("image").ToString());
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

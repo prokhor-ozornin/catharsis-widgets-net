@@ -144,15 +144,25 @@ public sealed class CackleLatestCommentsWidgetTests : ClassTest<CackleLatestComm
   {
     using (new AssertionScope())
     {
-      Validate(string.Empty, new CackleLatestCommentsWidget());
-      Validate("""<div id="mc-last"></div>""", new CackleLatestCommentsWidget().Account("account"));
-      Validate("""{"widget":"CommentRecent","id":"account","size":5,"avatarSize":32,"textSize":150,"titleSize":40}""", new CackleLatestCommentsWidget().Account("account"));
-      Validate("""<div id="mc-last"></div>""", new CackleLatestCommentsWidget().Account("account").Max(1).AvatarSize(2).TextSize(3).TitleSize(4));
-      Validate("""{"widget":"CommentRecent","id":"account","size":1,"avatarSize":2,"textSize":3,"titleSize":4}""", new CackleLatestCommentsWidget().Account("account").Max(1).AvatarSize(2).TextSize(3).TitleSize(4));
+      Validate(new CackleLatestCommentsWidget());
+      Validate(new CackleLatestCommentsWidget().Account("account"), """<div id="mc-last"></div>""", """{"widget":"CommentRecent","id":"account","size":5,"avatarSize":32,"textSize":150,"titleSize":40}""");
+      Validate(new CackleLatestCommentsWidget().Account("account").Max(1).AvatarSize(2).TextSize(3).TitleSize(4), """<div id="mc-last"></div>""", """{"widget":"CommentRecent","id":"account","size":1,"avatarSize":2,"textSize":3,"titleSize":4}""");
     }
 
     return;
 
-    static void Validate(string result, ICackleLatestCommentsWidget widget) => widget.ToHtml().Should().NotBeSameAs(widget.ToHtml()).And.Contain(result);
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

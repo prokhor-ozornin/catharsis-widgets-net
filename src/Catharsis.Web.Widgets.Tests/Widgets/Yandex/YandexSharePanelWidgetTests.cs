@@ -105,5 +105,21 @@ public sealed class YandexSharePanelWidgetTests : ClassTest<YandexSharePanelWidg
   {
     Assert.Equal($"""<div class="yashare-auto-init" data-yashareL10n="{Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName}" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,pinterest,surfingbird" data-yashareType="button"></div>""", new YandexSharePanelWidget().ToString());
     Assert.Equal("""<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareQuickServices="yaru" data-yashareType="link"></div>""", new YandexSharePanelWidget().Services("yaru").Layout(YandexSharePanelLayout.Link).Language("ru").ToString());
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

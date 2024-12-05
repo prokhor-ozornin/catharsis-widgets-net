@@ -171,5 +171,21 @@ public sealed class VkontakteCommentsWidgetTests : ClassTest<VkontakteCommentsWi
     Assert.True(html.Contains("""<div id="elementId"></div>"""));
     Assert.True(html.Contains("""<script type="text/javascript">"""));
     Assert.True(html.Contains("""VK.Widgets.Comments("elementId", {"limit":10,"attach":"*","width":"width","autoPublish":1,"norealtime":0,"mini":1});"""));
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

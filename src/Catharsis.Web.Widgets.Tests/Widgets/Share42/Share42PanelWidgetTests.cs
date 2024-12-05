@@ -60,5 +60,21 @@ public sealed class Share42PanelWidgetTests : ClassTest<Share42PanelWidget>
     Assert.Equal(string.Empty, new RuTubeVideoWidget().Id("id").Width("width").ToString());
     Assert.Equal(string.Empty, new RuTubeVideoWidget().Height("height").Width("width").ToString());
     Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" scrolling="no" src="http://rutube.ru/embed/id" webkitallowfullscreen="true" width="width"></iframe>""", new RuTubeVideoWidget().Id("id").Height("height").Width("width").ToString());
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

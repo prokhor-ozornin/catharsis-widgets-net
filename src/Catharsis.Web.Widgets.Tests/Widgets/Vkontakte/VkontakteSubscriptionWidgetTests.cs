@@ -136,5 +136,21 @@ public sealed class VkontakteSubscriptionWidgetTests : ClassTest<VkontakteSubscr
     Assert.True(html.Contains("""
                               VK.Widgets.Subscribe("elementId", {"mode":1,"soft":1}, "account"
                               """));
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

@@ -256,5 +256,21 @@ public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget
     Assert.True(html.Contains("""
                               "ut":"noindex"
                               """));
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

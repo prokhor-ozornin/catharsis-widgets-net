@@ -2,6 +2,7 @@
 using FluentAssertions.Execution;
 using FluentAssertions;
 using Xunit;
+using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets.Tests;
 
@@ -30,11 +31,23 @@ public sealed class DoubleGisContactsMapWidgetTests : ClassTest<DoubleGisContact
   {
     using (new AssertionScope())
     {
-      Validate(string.Empty, new DoubleGisContactsMapWidget());
+      Validate(new DoubleGisContactsMapWidget());
     }
 
     return;
 
-    static void Validate(string result, IDoubleGisContactsMapWidget widget) => widget.ToHtml().Should().NotBeSameAs(widget.ToHtml()).And.Contain(result);
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

@@ -56,13 +56,24 @@ public sealed class CackleLoginWidgetTests : ClassTest<CackleLoginWidget>
   {
     using (new AssertionScope())
     {
-      Validate(string.Empty, new CackleLoginWidget());
-      Validate("""<div id="mc-login"></div>""", new CackleLoginWidget().Account("account"));
-      Validate("""{"widget":"Login","id":"account"}""", new CackleLoginWidget().Account("account"));
+      Validate(new CackleLoginWidget());
+      Validate(new CackleLoginWidget().Account("account"), """<div id="mc-login"></div>""", """{"widget":"Login","id":"account"}""");
     }
 
     return;
 
-    static void Validate(string result, ICackleLoginWidget widget) => widget.ToHtml().Should().NotBeSameAs(widget.ToHtml()).And.Contain(result);
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

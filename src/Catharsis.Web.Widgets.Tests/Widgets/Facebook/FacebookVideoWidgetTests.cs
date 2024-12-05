@@ -104,11 +104,29 @@ public sealed class FacebookVideoWidgetTests : ClassTest<FacebookVideoWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new FacebookVideoWidget().ToString());
-    Assert.Equal(string.Empty, new FacebookVideoWidget().Id("id").Width("width").ToString());
-    Assert.Equal(string.Empty, new FacebookVideoWidget().Id("id").Height("height").ToString());
-    Assert.Equal(string.Empty, new FacebookVideoWidget().Id("width").Height("height").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new FacebookVideoWidget());
+      Validate(new FacebookVideoWidget().Id("id").Width("width"));
+      Validate(new FacebookVideoWidget().Id("id").Height("height"));
+      Validate(new FacebookVideoWidget().Id("width").Height("height"));
+      Validate(new FacebookVideoWidget().Id("id").Width("width").Height("height"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.facebook.com/video/embed?video_id=id" webkitallowfullscreen="true" width="width"></iframe>""");
+    }
 
-    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.facebook.com/video/embed?video_id=id" webkitallowfullscreen="true" width="width"></iframe>""", new FacebookVideoWidget().Id("id").Width("width").Height("height").ToString());
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

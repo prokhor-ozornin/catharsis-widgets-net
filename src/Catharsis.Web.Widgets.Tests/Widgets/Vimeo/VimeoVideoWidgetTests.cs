@@ -154,5 +154,21 @@ public sealed class VimeoVideoWidgetTests : ClassTest<VimeoVideoWidget>
     Assert.Equal(string.Empty, new VimeoVideoWidget().Height("height").Width("width").ToString());
     Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0" webkitallowfullscreen="true" width="width"></iframe>""", new VimeoVideoWidget().Id("id").Height("height").Width("width").ToString());
     Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1" webkitallowfullscreen="true" width="width"></iframe>""", new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay(true).Loop(true).ToString());
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

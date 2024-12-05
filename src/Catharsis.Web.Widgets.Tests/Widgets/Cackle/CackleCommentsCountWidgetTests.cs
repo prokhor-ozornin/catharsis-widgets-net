@@ -56,12 +56,24 @@ public sealed class CackleCommentsCountWidgetTests : ClassTest<CackleCommentsCou
   {
     using (new AssertionScope())
     {
-      Validate(string.Empty, new CackleCommentsCountWidget());
-      Validate("""{"widget":"CommentCount","id":"account"}""", new CackleCommentsCountWidget().Account("account"));
+      Validate(new CackleCommentsCountWidget());
+      Validate(new CackleCommentsCountWidget().Account("account"), """{"widget":"CommentCount","id":"account"}""");
     }
 
     return;
 
-    static void Validate(string result, ICackleCommentsCountWidget widget) => widget.ToHtml().Should().NotBeSameAs(widget.ToHtml()).And.Contain(result);
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

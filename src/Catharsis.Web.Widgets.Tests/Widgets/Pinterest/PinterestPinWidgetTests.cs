@@ -56,5 +56,21 @@ public sealed class PinterestPinWidgetTests : ClassTest<PinterestPinWidget>
   {
     Assert.Equal(string.Empty, new PinterestPinWidget().ToString());
     Assert.Equal("""<a data-pin-do="embedPin" href="http://www.pinterest.com/pin/id"></a>""", new PinterestPinWidget().Id("id").ToString());
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

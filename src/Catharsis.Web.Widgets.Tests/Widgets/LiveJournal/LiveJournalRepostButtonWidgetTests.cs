@@ -79,8 +79,27 @@ public sealed class LiveJournalRepostButtonWidgetTests : ClassTest<LiveJournalRe
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal("<lj-repost></lj-repost>", new LiveJournalRepostButtonWidget().ToString());
-    Assert.Equal("""<lj-repost button="title"></lj-repost>""", new LiveJournalRepostButtonWidget().Title("title").ToString());
-    Assert.Equal("""<lj-repost button="title">text</lj-repost>""", new LiveJournalRepostButtonWidget().Title("title").Text("text").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new LiveJournalRepostButtonWidget(), "<lj-repost></lj-repost>");
+      Validate(new LiveJournalRepostButtonWidget().Title("title"), """<lj-repost button="title"></lj-repost>""");
+      Validate(new LiveJournalRepostButtonWidget().Title("title").Text("text"), """<lj-repost button="title">text</lj-repost>""");
+    }
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

@@ -132,5 +132,21 @@ public sealed class VkontaktePollWidgetTests : ClassTest<VkontaktePollWidget>
     Assert.Equal(string.Empty, new VkontaktePollWidget().ToString());
     Assert.Equal("""<div id="vk_poll_id"></div><script type="text/javascript">VK.Widgets.Poll("vk_poll_id", {}, "id");</script>""", new VkontaktePollWidget().Id("id").ToString());
     Assert.Equal("""<div id="elementId"></div><script type="text/javascript">VK.Widgets.Poll("elementId", {"pageUrl":"url","width":"width"}, "id");</script>""", new VkontaktePollWidget().Id("id").Url("url").Width("width").ElementId("elementId").ToString());
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }

@@ -59,5 +59,21 @@ public sealed class VkontakteInitializationWidgetTests : ClassTest<VkontakteInit
     var html = new VkontakteInitializationWidget().ApiId("id").ToString();
     Assert.True(html.Contains("""<script type="text/javascript">"""));
     Assert.True(html.Contains("VK.init({{apiId:id, onlyWidgets:true}});"));
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
   }
 }
