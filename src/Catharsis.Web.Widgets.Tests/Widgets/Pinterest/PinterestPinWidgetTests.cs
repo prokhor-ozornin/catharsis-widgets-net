@@ -54,8 +54,11 @@ public sealed class PinterestPinWidgetTests : ClassTest<PinterestPinWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new PinterestPinWidget().ToString());
-    Assert.Equal("""<a data-pin-do="embedPin" href="http://www.pinterest.com/pin/id"></a>""", new PinterestPinWidget().Id("id").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new PinterestPinWidget());
+      Validate(new PinterestPinWidget().Id("id"), """<a data-pin-do="embedPin" href="http://www.pinterest.com/pin/id"></a>""");
+    }
 
     return;
 

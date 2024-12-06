@@ -148,12 +148,15 @@ public sealed class YouTubeVideoWidgetTests : ClassTest<YouTubeVideoWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new YouTubeVideoWidget().ToString());
-    Assert.Equal(string.Empty, new YouTubeVideoWidget().Id("id").Height("height").ToString());
-    Assert.Equal(string.Empty, new YouTubeVideoWidget().Id("id").Width("width").ToString());
-    Assert.Equal(string.Empty, new YouTubeVideoWidget().Height("height").Width("width").ToString());
-    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.youtube.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""", new YouTubeVideoWidget().Id("id").Height("height").Width("width").ToString());
-    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://www.youtube-nocookie.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""", new YouTubeVideoWidget().Id("id").Height("height").Width("width").PrivateMode(true).SecureMode(true).ToString());
+    using (new AssertionScope())
+    {
+      Validate(new YouTubeVideoWidget());
+      Validate(new YouTubeVideoWidget().Id("id").Height("height"));
+      Validate(new YouTubeVideoWidget().Id("id").Width("width"));
+      Validate(new YouTubeVideoWidget().Height("height").Width("width"));
+      Validate(new YouTubeVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.youtube.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
+      Validate(new YouTubeVideoWidget().Id("id").Height("height").Width("width").PrivateMode(true).SecureMode(true), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://www.youtube-nocookie.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
+    }
 
     return;
 

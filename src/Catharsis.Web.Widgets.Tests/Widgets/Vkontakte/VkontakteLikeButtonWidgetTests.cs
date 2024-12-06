@@ -276,15 +276,11 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
   [Fact]
   public void ToHtml_Method()
   {
-    var html = new VkontakteLikeButtonWidget().ToString();
-    Assert.True(html.Contains("""<div id="vk_like"></div>"""));
-    Assert.True(html.Contains("""<script type="text/javascript">"""));
-    Assert.True(html.Contains("""VK.Widgets.Like("vk_like", {});"""));
-
-    html = new VkontakteLikeButtonWidget().Layout(VkontakteLikeButtonLayout.Button).ElementId("elementId").Width("width").Title("title").Description("description").Url("url").Image("image").Text("text").Height("height").Verb(1).ToString();
-    Assert.True(html.Contains("""<div id="elementId"></div>"""));
-    Assert.True(html.Contains("""<script type="text/javascript">"""));
-    Assert.True(html.Contains("""VK.Widgets.Like("elementId", {"type":"button","width":"width","pageTitle":"title","pageDescription":"description","pageUrl":"url","pageImage":"image","text":"text","height":"height","verb":1});"""));
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteLikeButtonWidget(), """<div id="vk_like"></div>""", """<script type="text/javascript">""", """VK.Widgets.Like("vk_like", {});""");
+      Validate(new VkontakteLikeButtonWidget().Layout(VkontakteLikeButtonLayout.Button).ElementId("elementId").Width("width").Title("title").Description("description").Url("url").Image("image").Text("text").Height("height").Verb(1), """<div id="elementId"></div>""", """<script type="text/javascript">""", """VK.Widgets.Like("elementId", {"type":"button","width":"width","pageTitle":"title","pageDescription":"description","pageUrl":"url","pageImage":"image","text":"text","height":"height","verb":1});""");
+    }
 
     return;
 

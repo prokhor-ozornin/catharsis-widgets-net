@@ -104,11 +104,14 @@ public sealed class RuTubeVideoWidgetTests : ClassTest<RuTubeVideoWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new RuTubeVideoWidget().ToString());
-    Assert.Equal(string.Empty, new RuTubeVideoWidget().Id("id").Height("height").ToString());
-    Assert.Equal(string.Empty, new RuTubeVideoWidget().Id("id").Width("width").ToString());
-    Assert.Equal(string.Empty, new RuTubeVideoWidget().Height("height").Width("width").ToString());
-    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" scrolling="no" src="http://rutube.ru/embed/id" webkitallowfullscreen="true" width="width"></iframe>""", new RuTubeVideoWidget().Id("id").Height("height").Width("width").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new RuTubeVideoWidget());
+      Validate(new RuTubeVideoWidget().Id("id").Height("height"));
+      Validate(new RuTubeVideoWidget().Id("id").Width("width"));
+      Validate(new RuTubeVideoWidget().Height("height").Width("width"));
+      Validate(new RuTubeVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" scrolling="no" src="http://rutube.ru/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
+    }
 
     return;
 

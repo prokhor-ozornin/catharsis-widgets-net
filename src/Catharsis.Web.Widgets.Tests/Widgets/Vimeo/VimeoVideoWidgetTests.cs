@@ -148,12 +148,15 @@ public sealed class VimeoVideoWidgetTests : ClassTest<VimeoVideoWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new VimeoVideoWidget().ToString());
-    Assert.Equal(string.Empty, new VimeoVideoWidget().Id("id").Height("height").ToString());
-    Assert.Equal(string.Empty, new VimeoVideoWidget().Id("id").Width("width").ToString());
-    Assert.Equal(string.Empty, new VimeoVideoWidget().Height("height").Width("width").ToString());
-    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0" webkitallowfullscreen="true" width="width"></iframe>""", new VimeoVideoWidget().Id("id").Height("height").Width("width").ToString());
-    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1" webkitallowfullscreen="true" width="width"></iframe>""", new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay(true).Loop(true).ToString());
+    using (new AssertionScope())
+    {
+      Validate(new VimeoVideoWidget());
+      Validate(new VimeoVideoWidget().Id("id").Height("height"));
+      Validate(new VimeoVideoWidget().Id("id").Width("width"));
+      Validate(new VimeoVideoWidget().Height("height").Width("width"));
+      Validate(new VimeoVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0" webkitallowfullscreen="true" width="width"></iframe>""");
+      Validate(new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay(true).Loop(true), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1" webkitallowfullscreen="true" width="width"></iframe>""");
+    }
 
     return;
 

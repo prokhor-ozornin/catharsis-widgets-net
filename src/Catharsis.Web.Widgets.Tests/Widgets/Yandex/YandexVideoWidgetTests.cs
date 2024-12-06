@@ -129,12 +129,15 @@ public sealed class YandexVideoWidgetTests : ClassTest<YandexVideoWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new YandexVideoWidget().ToString());
-    Assert.Equal(string.Empty, new YandexVideoWidget().Id("id").User("user").Width("width").ToString());
-    Assert.Equal(string.Empty, new YandexVideoWidget().Id("id").User("user").Height("height").ToString());
-    Assert.Equal(string.Empty, new YandexVideoWidget().Id("id").Width("width").Height("height").ToString());
-    Assert.Equal(string.Empty, new YandexVideoWidget().User("user").Width("width").Height("height").ToString());
-    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://video.yandex.ru/iframe/user/id" webkitallowfullscreen="true" width="width"></iframe>""", new YandexVideoWidget().Id("id").Height("height").Width("width").User("user").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new YandexVideoWidget());
+      Validate(new YandexVideoWidget().Id("id").User("user").Width("width"));
+      Validate(new YandexVideoWidget().Id("id").User("user").Height("height"));
+      Validate(new YandexVideoWidget().Id("id").Width("width").Height("height"));
+      Validate(new YandexVideoWidget().User("user").Width("width").Height("height"));
+      Validate(new YandexVideoWidget().Id("id").Height("height").Width("width").User("user"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://video.yandex.ru/iframe/user/id" webkitallowfullscreen="true" width="width"></iframe>""");
+    }
 
     return;
 

@@ -151,12 +151,15 @@ public sealed class VkontakteAuthButtonWidgetTests : ClassTest<VkontakteAuthButt
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new VkontakteAuthButtonWidget().ToString());
-    Assert.Equal(string.Empty, new VkontakteAuthButtonWidget().Type(VkontakteAuthButtonType.Standard).ToString());
-    Assert.Equal(string.Empty, new VkontakteAuthButtonWidget().Type(VkontakteAuthButtonType.Dynamic).ToString());
-    Assert.Equal("""<div id="vk_auth"></div><script type="text/javascript">VK.Widgets.Auth("vk_auth", {"authUrl":"url"});</script>""", new VkontakteAuthButtonWidget().Standard("url").ToString());
-    Assert.Equal("""<div id="vk_auth"></div><script type="text/javascript">VK.Widgets.Auth("vk_auth", {"onAuth":"callback"});</script>""", new VkontakteAuthButtonWidget().Dynamic("callback").ToString());
-    Assert.Equal("""<div id="elementId"></div><script type="text/javascript">VK.Widgets.Auth("elementId", {"authUrl":"url","width":"width"});</script>""", new VkontakteAuthButtonWidget().Standard("url").ElementId("elementId").Width("width").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteAuthButtonWidget());
+      Validate(new VkontakteAuthButtonWidget().Type(VkontakteAuthButtonType.Standard));
+      Validate(new VkontakteAuthButtonWidget().Type(VkontakteAuthButtonType.Dynamic));
+      Validate(new VkontakteAuthButtonWidget().Standard("url"), """<div id="vk_auth"></div><script type="text/javascript">VK.Widgets.Auth("vk_auth", {"authUrl":"url"});</script>""");
+      Validate(new VkontakteAuthButtonWidget().Dynamic("callback"), """<div id="vk_auth"></div><script type="text/javascript">VK.Widgets.Auth("vk_auth", {"onAuth":"callback"});</script>""");
+      Validate(new VkontakteAuthButtonWidget().Standard("url").ElementId("elementId").Width("width"), """<div id="elementId"></div><script type="text/javascript">VK.Widgets.Auth("elementId", {"authUrl":"url","width":"width"});</script>""");
+    }
 
     return;
 

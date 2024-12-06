@@ -220,12 +220,15 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new PinterestPinItButtonWidget().ToString());
-    Assert.Equal(string.Empty, new PinterestPinItButtonWidget().Url("url").Image("image").ToString());
-    Assert.Equal(string.Empty, new PinterestPinItButtonWidget().Url("url").Description("description").ToString());
-    Assert.Equal(string.Empty, new PinterestPinItButtonWidget().Image("image").Description("description").ToString());
-    Assert.Equal("""<a data-pin-color="gray" data-pin-config="none" data-pin-do="buttonPin" data-pin-height="20" data-pin-lang="en" data-pin-shape="rect" href="http://www.pinterest.com/pin/create/button/?url=url&amp;media=image&amp;description=description"><img src="http://assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png"/></a>""", new PinterestPinItButtonWidget().Url("url").Image("image").Description("description").ToString());
-    Assert.Equal("""<a data-pin-color="color" data-pin-config="above" data-pin-do="buttonPin" data-pin-height="28" data-pin-lang="language" data-pin-shape="rect" href="http://www.pinterest.com/pin/create/button/?url=url&amp;media=image&amp;description=description"><img src="http://assets.pinterest.com/images/pidgets/pinit_fg_language_rect_color_28.png"/></a>""", new PinterestPinItButtonWidget().Url("url").Image("image").Description("description").Color("color").Counter(PinterestPinItButtonPinCountPosition.Above).Language("language").Size(PinterestPinItButtonSize.Large).ToString());
+    using (new AssertionScope())
+    {
+      Validate(new PinterestPinItButtonWidget());
+      Validate(new PinterestPinItButtonWidget().Url("url").Image("image"));
+      Validate(new PinterestPinItButtonWidget().Url("url").Description("description"));
+      Validate(new PinterestPinItButtonWidget().Image("image").Description("description"));
+      Validate(new PinterestPinItButtonWidget().Url("url").Image("image").Description("description"), """<a data-pin-color="gray" data-pin-config="none" data-pin-do="buttonPin" data-pin-height="20" data-pin-lang="en" data-pin-shape="rect" href="http://www.pinterest.com/pin/create/button/?url=url&amp;media=image&amp;description=description"><img src="http://assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png"/></a>""");
+      Validate(new PinterestPinItButtonWidget().Url("url").Image("image").Description("description").Color("color").Counter(PinterestPinItButtonPinCountPosition.Above).Language("language").Size(PinterestPinItButtonSize.Large), """<a data-pin-color="color" data-pin-config="above" data-pin-do="buttonPin" data-pin-height="28" data-pin-lang="language" data-pin-shape="rect" href="http://www.pinterest.com/pin/create/button/?url=url&amp;media=image&amp;description=description"><img src="http://assets.pinterest.com/images/pidgets/pinit_fg_language_rect_color_28.png"/></a>""");
+    }
 
     return;
 

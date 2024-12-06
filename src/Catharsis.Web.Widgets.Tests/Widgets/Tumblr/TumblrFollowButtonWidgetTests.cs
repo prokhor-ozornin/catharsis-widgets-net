@@ -101,9 +101,12 @@ public sealed class TumblrFollowButtonWidgetTests : ClassTest<TumblrFollowButton
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new TumblrFollowButtonWidget().ToString());
-    Assert.Equal("""<iframe allowtransparency="true" border="0" class="btn" frameborder="0" height="25" scrolling="no" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&amp;tumblelog=account&amp;color_scheme=light" width="189"></iframe>""", new TumblrFollowButtonWidget().Account("account").ToString());
-    Assert.Equal("""<iframe allowtransparency="true" border="0" class="btn" frameborder="0" height="25" scrolling="no" src="http://platform.tumblr.com/v1/follow_button.html?button_type=2&amp;tumblelog=account&amp;color_scheme=dark" width="113"></iframe>""", new TumblrFollowButtonWidget().Account("account").Type(TumblrFollowButtonType.Second).ColorScheme(TumblrFollowButtonColorScheme.Dark).ToString());
+    using (new AssertionScope())
+    {
+      Validate(new TumblrFollowButtonWidget());
+      Validate(new TumblrFollowButtonWidget().Account("account"), """<iframe allowtransparency="true" border="0" class="btn" frameborder="0" height="25" scrolling="no" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&amp;tumblelog=account&amp;color_scheme=light" width="189"></iframe>""");
+      Validate(new TumblrFollowButtonWidget().Account("account").Type(TumblrFollowButtonType.Second).ColorScheme(TumblrFollowButtonColorScheme.Dark), """<iframe allowtransparency="true" border="0" class="btn" frameborder="0" height="25" scrolling="no" src="http://platform.tumblr.com/v1/follow_button.html?button_type=2&amp;tumblelog=account&amp;color_scheme=dark" width="113"></iframe>""");
+    }
 
     return;
 

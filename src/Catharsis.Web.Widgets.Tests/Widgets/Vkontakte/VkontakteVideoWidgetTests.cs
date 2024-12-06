@@ -176,15 +176,17 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new VkontakteVideoWidget().ToString());
-    Assert.Equal(string.Empty, new VkontakteVideoWidget().User("oid").Hash("hash").Width("width").Height("height").ToString());
-    Assert.Equal(string.Empty, new VkontakteVideoWidget().Id("id").Hash("hash").Width("width").Height("height").ToString());
-    Assert.Equal(string.Empty, new VkontakteVideoWidget().Id("id").User("user").Width("width").Height("height").ToString());
-    Assert.Equal(string.Empty, new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Height("height").ToString());
-    Assert.Equal(string.Empty, new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").ToString());
-
-    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=0" webkitallowfullscreen="true" width="width"></iframe>""", new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").ToString());
-    Assert.Equal("""<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=1" webkitallowfullscreen="true" width="width"></iframe>""", new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").Hd(true).ToString());
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteVideoWidget());
+      Validate(new VkontakteVideoWidget().User("oid").Hash("hash").Width("width").Height("height"));
+      Validate(new VkontakteVideoWidget().Id("id").Hash("hash").Width("width").Height("height"));
+      Validate(new VkontakteVideoWidget().Id("id").User("user").Width("width").Height("height"));
+      Validate(new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Height("height"));
+      Validate(new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width"));
+      Validate(new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=0" webkitallowfullscreen="true" width="width"></iframe>""");
+      Validate(new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").Hd(true), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=1" webkitallowfullscreen="true" width="width"></iframe>""");
+    }
 
     return;
 

@@ -129,9 +129,12 @@ public sealed class PinterestProfileWidgetTests : ClassTest<PinterestProfileWidg
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new PinterestProfileWidget().ToString());
-    Assert.Equal("""<a data-pin-do="embedUser" href="http://www.pinterest.com/account"></a>""", new PinterestProfileWidget().Account("account").ToString());
-    Assert.Equal("""<a data-pin-board-width="width" data-pin-do="embedUser" data-pin-scale-height="height" data-pin-scale-width="image" href="http://www.pinterest.com/account"></a>""", new PinterestProfileWidget().Account("account").Width("width").Height("height").Image("image").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new PinterestProfileWidget());
+      Validate(new PinterestProfileWidget().Account("account"), """<a data-pin-do="embedUser" href="http://www.pinterest.com/account"></a>""");
+      Validate(new PinterestProfileWidget().Account("account").Width("width").Height("height").Image("image"), """<a data-pin-board-width="width" data-pin-do="embedUser" data-pin-scale-height="height" data-pin-scale-width="image" href="http://www.pinterest.com/account"></a>""");
+    }
 
     return;
 

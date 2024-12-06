@@ -76,8 +76,11 @@ public sealed class TumblrShareButtonWidgetTests : ClassTest<TumblrShareButtonWi
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal("""<a href="http://www.tumblr.com/share" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:80px; height:20px; background:url(&#39;http://platform.tumblr.com/v1/share_1.png&#39;) top left no-repeat transparent;" title="Share on Tumblr">Share on Tumblr</a>""", new TumblrShareButtonWidget().ToString());
-    Assert.Equal("""<a href="http://www.tumblr.com/share" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:70px; height:20px; background:url(&#39;http://platform.tumblr.com/v1/share_2T.png&#39;) top left no-repeat transparent;" title="Share on Tumblr">Share on Tumblr</a>""", new TumblrShareButtonWidget().Type(TumblrShareButtonType.Second).ColorScheme(TumblrShareButtonColorScheme.Gray).ToString());
+    using (new AssertionScope())
+    {
+      Validate(new TumblrShareButtonWidget(), """<a href="http://www.tumblr.com/share" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:80px; height:20px; background:url(&#39;http://platform.tumblr.com/v1/share_1.png&#39;) top left no-repeat transparent;" title="Share on Tumblr">Share on Tumblr</a>""");
+      Validate(new TumblrShareButtonWidget().Type(TumblrShareButtonType.Second).ColorScheme(TumblrShareButtonColorScheme.Gray), """<a href="http://www.tumblr.com/share" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:70px; height:20px; background:url(&#39;http://platform.tumblr.com/v1/share_2T.png&#39;) top left no-repeat transparent;" title="Share on Tumblr">Share on Tumblr</a>""");
+    }
 
     return;
 

@@ -211,51 +211,56 @@ public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new YandexAnalyticsWidget().ToString());
+    using (new AssertionScope())
+    {
+      Validate(new YandexAnalyticsWidget());
       
-    var html = new YandexAnalyticsWidget().Account("account").ToString();
-    Assert.True(html.Contains($"Ya.Metrika.informer({{i: this, id: account, lang: '${Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName}'}})"));
-    Assert.True(html.Contains("yaCounteraccount"));
-    Assert.True(html.Contains("""
-                              "webvisor":true
-                              """));
-    Assert.True(html.Contains("""
-                              "clickmap":true
-                              """));
-    Assert.True(html.Contains("""
-                              "trackLinks":true
-                              """));
-    Assert.True(html.Contains("""
-                              "accurateTrackBounce":true
-                              """));
-    Assert.True(html.Contains("""
-                              "trackHash":true
-                              """));
-    Assert.False(html.Contains("""
-                               "ut":"noindex"
-                               """));
+      Validate(new YandexAnalyticsWidget().Account("account"),
+               $"Ya.Metrika.informer({{i: this, id: account, lang: '${Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName}'}})",
+               "yaCounteraccount",
+               """
+               "webvisor":true
+               """,
+               """
+               "clickmap":true
+               """,
+               """
+               "trackLinks":true
+               """,
+               """
+               "accurateTrackBounce":true
+               """,
+               """
+               "trackHash":true
+               """,
+               """
+               "ut":"noindex"
+               """
+               );
 
-    html = new YandexAnalyticsWidget().Account("account").Language("language").WebVisor(false).ClickMap(false).TrackLinks(false).Accurate(false).TrackHash(false).NoIndex(true).ToString();
-    Assert.True(html.Contains("Ya.Metrika.informer({i: this, id: account, lang: 'language'})"));
-    Assert.True(html.Contains("yaCounteraccount"));
-    Assert.True(html.Contains("""
-                              "webvisor":false
-                              """));
-    Assert.True(html.Contains("""
-                              "clickmap":false
-                              """));
-    Assert.True(html.Contains("""
-                              "trackLinks":false
-                              """));
-    Assert.True(html.Contains("""
-                              "accurateTrackBounce":false
-                              """));
-    Assert.True(html.Contains("""
-                              "trackHash":false
-                              """));
-    Assert.True(html.Contains("""
-                              "ut":"noindex"
-                              """));
+      Validate(new YandexAnalyticsWidget().Account("account").Language("language").WebVisor(false).ClickMap(false).TrackLinks(false).Accurate(false).TrackHash(false).NoIndex(true),
+               "Ya.Metrika.informer({i: this, id: account, lang: 'language'})",
+               "yaCounteraccount",
+               """
+               "webvisor":false
+               """,
+               """
+               "clickmap":false
+               """,
+               """
+               "trackLinks":false
+               """,
+               """
+               "accurateTrackBounce":false
+               """,
+               """
+               "trackHash":false
+               """,
+               """
+               "ut":"noindex"
+               """
+        );
+    }
 
     return;
 

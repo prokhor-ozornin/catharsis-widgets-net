@@ -1,4 +1,5 @@
-﻿using Catharsis.Commons;
+﻿using System.Net.Http;
+using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -274,8 +275,11 @@ public sealed class TwitterTweetButtonWidgetTests : ClassTest<TwitterTweetButton
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal($"""<a class="twitter-share-button" data-lang="{(HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)}" href="https://twitter.com/share"></a>""", new TwitterTweetButtonWidget().ToString());
-    Assert.Equal("""<a class="twitter-hashtag-button" data-count="counterPosition" data-counturl="countUrl" data-dnt="true" data-hashtags="tags" data-lang="en" data-related="related" data-size="size" data-text="text" data-url="url" data-via="via" href="https://twitter.com/share"></a>""", new TwitterTweetButtonWidget().Language("en").Url("url").Via("via").Text("text").RelatedAccounts("related").CounterPosition("counterPosition").CountUrl("countUrl").HashTags("tags").Size("size").Suggestions(false).ToString());
+    using (new AssertionScope())
+    {
+      Validate(new TwitterTweetButtonWidget(), $"""<a class="twitter-share-button" data-lang="{(HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)}" href="https://twitter.com/share"></a>""");
+      Validate(new TwitterTweetButtonWidget().Language("en").Url("url").Via("via").Text("text").RelatedAccounts("related").CounterPosition("counterPosition").CountUrl("countUrl").HashTags("tags").Size("size").Suggestions(false), """<a class="twitter-hashtag-button" data-count="counterPosition" data-counturl="countUrl" data-dnt="true" data-hashtags="tags" data-lang="en" data-related="related" data-size="size" data-text="text" data-url="url" data-via="via" href="https://twitter.com/share"></a>""");
+    }
 
     return;
 

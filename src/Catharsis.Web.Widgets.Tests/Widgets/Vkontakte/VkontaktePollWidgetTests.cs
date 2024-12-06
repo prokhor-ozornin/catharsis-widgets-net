@@ -129,9 +129,12 @@ public sealed class VkontaktePollWidgetTests : ClassTest<VkontaktePollWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new VkontaktePollWidget().ToString());
-    Assert.Equal("""<div id="vk_poll_id"></div><script type="text/javascript">VK.Widgets.Poll("vk_poll_id", {}, "id");</script>""", new VkontaktePollWidget().Id("id").ToString());
-    Assert.Equal("""<div id="elementId"></div><script type="text/javascript">VK.Widgets.Poll("elementId", {"pageUrl":"url","width":"width"}, "id");</script>""", new VkontaktePollWidget().Id("id").Url("url").Width("width").ElementId("elementId").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new VkontaktePollWidget());
+      Validate(new VkontaktePollWidget().Id("id"), """<div id="vk_poll_id"></div><script type="text/javascript">VK.Widgets.Poll("vk_poll_id", {}, "id");</script>""");
+      Validate(new VkontaktePollWidget().Id("id").Url("url").Width("width").ElementId("elementId"), """<div id="elementId"></div><script type="text/javascript">VK.Widgets.Poll("elementId", {"pageUrl":"url","width":"width"}, "id");</script>""");
+    }
 
     return;
 

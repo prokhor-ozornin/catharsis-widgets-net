@@ -123,19 +123,16 @@ public sealed class VkontakteSubscriptionWidgetTests : ClassTest<VkontakteSubscr
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new VkontakteSubscriptionWidget().ToString());
-
-    var html = new VkontakteSubscriptionWidget().Account("account").ToString();
-    Assert.True(html.Contains("""<div id="vk_subscribe_account"></div>"""));
-    Assert.True(html.Contains("""
-                              VK.Widgets.Subscribe("vk_subscribe_account", {"mode":0}, "account"
-                              """));
-
-    html = new VkontakteSubscriptionWidget().Account("account").Layout(VkontakteSubscriptionButtonLayout.LightButton).ElementId("elementId").OnlyButton(true).ToString();
-    Assert.True(html.Contains("""<div id="elementId"></div>"""));
-    Assert.True(html.Contains("""
-                              VK.Widgets.Subscribe("elementId", {"mode":1,"soft":1}, "account"
-                              """));
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteSubscriptionWidget());
+      Validate(new VkontakteSubscriptionWidget().Account("account"), """<div id="vk_subscribe_account"></div>""", """
+                                                                                                                  VK.Widgets.Subscribe("vk_subscribe_account", {"mode":0}, "account"
+                                                                                                                  """);
+      Validate(new VkontakteSubscriptionWidget().Account("account").Layout(VkontakteSubscriptionButtonLayout.LightButton).ElementId("elementId").OnlyButton(true), """<div id="elementId"></div>""", """
+                                                                                                                                                                                                      VK.Widgets.Subscribe("elementId", {"mode":1,"soft":1}, "account"
+                                                                                                                                                                                                      """);
+    }
 
     return;
 

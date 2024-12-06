@@ -162,15 +162,11 @@ public sealed class VkontakteCommentsWidgetTests : ClassTest<VkontakteCommentsWi
   [Fact]
   public void ToHtml_Method()
   {
-    var html = new VkontakteCommentsWidget().ToString();
-    Assert.True(html.Contains("""<div id="vk_comments"></div>"""));
-    Assert.True(html.Contains("""<script type="text/javascript">"""));
-    Assert.True(html.Contains("""VK.Widgets.Comments("vk_comments", {"limit":5,"attach":false});"""));
-
-    html = new VkontakteCommentsWidget().Limit(10).Attach(VkontakteCommentsAttach.All).Width("width").AutoPublish(true).AutoUpdate(true).ElementId("elementId").Mini(true).ToString();
-    Assert.True(html.Contains("""<div id="elementId"></div>"""));
-    Assert.True(html.Contains("""<script type="text/javascript">"""));
-    Assert.True(html.Contains("""VK.Widgets.Comments("elementId", {"limit":10,"attach":"*","width":"width","autoPublish":1,"norealtime":0,"mini":1});"""));
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteCommentsWidget(), """<div id="vk_comments"></div>""", """<script type="text/javascript">""", """VK.Widgets.Comments("vk_comments", {"limit":5,"attach":false});""");
+      Validate(new VkontakteCommentsWidget().Limit(10).Attach(VkontakteCommentsAttach.All).Width("width").AutoPublish(true).AutoUpdate(true).ElementId("elementId").Mini(true), """<div id="elementId"></div>""", """<script type="text/javascript">""", """VK.Widgets.Comments("elementId", {"limit":10,"attach":"*","width":"width","autoPublish":1,"norealtime":0,"mini":1});""");
+    }
 
     return;
 

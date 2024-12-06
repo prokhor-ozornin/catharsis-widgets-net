@@ -130,14 +130,17 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
   {
     var videos = new[] { new MediaSource("http://vjs.zencdn.net/v/oceans.mp4", VideoContentTypes.MP4), new MediaSource("http://vjs.zencdn.net/v/oceans.webm", VideoContentTypes.WebM) };
 
-    Assert.Equal(string.Empty, new VideoJSPlayerWidget().ToString());
-    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Width("width").ToString());
-    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Height("height").ToString());
-    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Width("width").Height("height").ToString());
-    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Videos(videos).ToString());
-    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Videos(videos).Width("width").ToString());
-    Assert.Equal(string.Empty, new VideoJSPlayerWidget().Videos(videos).Height("height").ToString());
-    Assert.Equal("""<video class="video-js vjs-default-skin" controls="controls" data-setup="{}" height="height" preload="auto" width="width"><source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source><source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm"></source><track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"></track></video>""", new VideoJSPlayerWidget().Videos(videos).Width("width").Height("height").Extra("""<track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"></track>""").ToString());
+    using (new AssertionScope())
+    {
+      Validate(new VideoJSPlayerWidget());
+      Validate(new VideoJSPlayerWidget().Width("width"));
+      Validate(new VideoJSPlayerWidget().Height("height"));
+      Validate(new VideoJSPlayerWidget().Width("width").Height("height"));
+      Validate(new VideoJSPlayerWidget().Videos(videos));
+      Validate(new VideoJSPlayerWidget().Videos(videos).Width("width"));
+      Validate(new VideoJSPlayerWidget().Videos(videos).Height("height"));
+      Validate(new VideoJSPlayerWidget().Videos(videos).Width("width").Height("height").Extra("""<track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"></track>"""), """<video class="video-js vjs-default-skin" controls="controls" data-setup="{}" height="height" preload="auto" width="width"><source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source><source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm"></source><track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"></track></video>""");
+    }
 
     return;
 
