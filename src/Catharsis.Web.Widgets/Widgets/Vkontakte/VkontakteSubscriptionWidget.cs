@@ -59,7 +59,7 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
   /// <inheritdoc cref="IVkontakteSubscriptionWidget.OnlyButton()"/>
   public bool OnlyButton() => onlyButton;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty())

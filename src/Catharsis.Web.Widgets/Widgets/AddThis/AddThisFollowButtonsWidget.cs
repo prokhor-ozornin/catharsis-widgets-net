@@ -3,6 +3,6 @@
 /// <inheritdoc cref="IAddThisFollowButtonsWidget"/>
 public class AddThisFollowButtonsWidget : WebWidget, IAddThisFollowButtonsWidget
 {
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => throw new NotImplementedException();
 }

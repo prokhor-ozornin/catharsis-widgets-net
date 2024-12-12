@@ -35,7 +35,7 @@ public class PinterestFollowButtonWidget : WebWidget, IPinterestFollowButtonWidg
   /// <inheritdoc cref="IPinterestFollowButtonWidget.Label()"/>
   public string Label() => label;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty() || Label().IsEmpty())

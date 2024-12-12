@@ -20,7 +20,7 @@ public class PinterestPinWidget : WebWidget, IPinterestPinWidget
   /// <inheritdoc cref="IPinterestPinWidget.Id()"/>
   public string Id() => id;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Id().IsEmpty())

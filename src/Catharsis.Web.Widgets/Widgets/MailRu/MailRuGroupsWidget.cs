@@ -115,7 +115,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   /// <inheritdoc cref="IMailRuGroupsWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty() || Width().IsEmpty() || Height().IsEmpty())

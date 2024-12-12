@@ -30,11 +30,11 @@ public sealed class CackleCommentsWidgetTests : ClassTest<CackleCommentsWidget>
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new CackleCommentsWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new CackleCommentsWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new CackleCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new CackleCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new CackleCommentsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

@@ -268,7 +268,7 @@ public sealed class ITagBuilderExtensionsTests
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => ITagBuilderExtensions.Spellcheck(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+      AssertionExtensions.Should(() => ITagBuilderExtensions.Spellcheck(null, true)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
       new bool?[] { null, false, true }.ForEach(value => Validate(value, builder));
     }
@@ -290,7 +290,7 @@ public sealed class ITagBuilderExtensionsTests
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => ITagBuilderExtensions.TabIndex(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+      AssertionExtensions.Should(() => ITagBuilderExtensions.TabIndex(null, uint.MaxValue)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
       new uint?[] { null, uint.MinValue, uint.MaxValue }.ForEach(value => Validate(value, builder));
     }
@@ -312,7 +312,7 @@ public sealed class ITagBuilderExtensionsTests
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => ITagBuilderExtensions.Title(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+      AssertionExtensions.Should(() => ITagBuilderExtensions.Title(null, "title")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
       new[] { null, string.Empty, "title" }.ForEach(value => Validate(value, builder));
     }
@@ -334,9 +334,9 @@ public sealed class ITagBuilderExtensionsTests
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => ITagBuilderExtensions.OnBlur(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnBlur(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "title" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
     }
 
     return;
@@ -354,7 +354,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnChange_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnChange(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnChange(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onchange", script);
+    }
   }
 
   /// <summary>
@@ -363,7 +376,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnClick_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnClick(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnClick(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onclick", script);
+    }
   }
 
   /// <summary>
@@ -372,7 +398,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnDoubleClick_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnDoubleClick(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnDoubleClick(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("ondblclick", script);
+    }
   }
 
   /// <summary>
@@ -381,7 +420,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnFocus_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnFocus(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnFocus(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onfocus", script);
+    }
   }
 
   /// <summary>
@@ -390,7 +442,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnKeyDown_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnKeyDown(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnKeyDown(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onkeydown", script);
+    }
   }
 
   /// <summary>
@@ -399,7 +464,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnKeyPress_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnKeyPress(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnKeyPress(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onkeypress", script);
+    }
   }
 
   /// <summary>
@@ -408,7 +486,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnKeyUp_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnKeyUp(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnKeyUp(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onkeyup", script);
+    }
   }
 
   /// <summary>
@@ -417,7 +508,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnLoad_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnLoad(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnLoad(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onload", script);
+    }
   }
 
   /// <summary>
@@ -426,7 +530,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnMouseDown_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseDown(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnMouseDown(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onmousedown", script);
+    }
   }
 
   /// <summary>
@@ -435,7 +552,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnMouseMove_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseMove(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnMouseMove(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onmousemove", script);
+    }
   }
 
   /// <summary>
@@ -444,7 +574,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnMouseOut_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseOut(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnMouseOut(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onmouseout", script);
+    }
   }
 
   /// <summary>
@@ -453,7 +596,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnMouseOver_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseOver(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnMouseOver(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onmouseover", script);
+    }
   }
 
   /// <summary>
@@ -462,7 +618,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnMouseUp_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseUp(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnMouseUp(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onmouseup", script);
+    }
   }
 
   /// <summary>
@@ -471,7 +640,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnReset_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnReset(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnReset(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onreset", script);
+    }
   }
 
   /// <summary>
@@ -480,7 +662,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnSelect_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnSelect(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnSelect(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onselect", script);
+    }
   }
 
   /// <summary>
@@ -489,7 +684,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnSubmit_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnSubmit(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnSubmit(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onsubmit", script);
+    }
   }
 
   /// <summary>
@@ -498,6 +706,19 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void OnUnload_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.OnUnload(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string script, ITagBuilder builder)
+    {
+      builder.OnUnload(script).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("onunload", script);
+    }
   }
 }

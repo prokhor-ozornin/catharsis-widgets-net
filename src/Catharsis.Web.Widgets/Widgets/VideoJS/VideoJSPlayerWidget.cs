@@ -61,7 +61,7 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
   /// <inheritdoc cref="IVideoJSPlayerWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (!Videos().Any() || Width().IsEmpty() || Height().IsEmpty())

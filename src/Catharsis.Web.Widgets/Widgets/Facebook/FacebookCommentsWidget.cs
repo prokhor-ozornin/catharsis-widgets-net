@@ -138,7 +138,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   /// <returns>Width of widget.</returns>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-href", Url())
       .Attribute("data-num-posts", Posts())

@@ -109,7 +109,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   /// <inheritdoc cref="ITwitterFollowButtonWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => Account().IsEmpty() ? string.Empty : 
     new TagBuilder("a")
       .Attribute("href", $"https://twitter.com/${Account()}")

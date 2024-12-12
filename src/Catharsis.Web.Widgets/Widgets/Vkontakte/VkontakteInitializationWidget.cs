@@ -21,7 +21,7 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
   /// <inheritdoc cref="IVkontakteInitializationWidget.ApiId()"/>
   public string ApiId() => apiId;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => ApiId().IsEmpty() ? string.Empty : 
     new TagBuilder("script")
       .Attribute("type", "text/javascript")

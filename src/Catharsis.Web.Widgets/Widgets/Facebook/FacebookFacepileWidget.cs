@@ -104,7 +104,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   /// <inheritdoc cref="IFacebookFacePileWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-href", Url() ?? (HttpContext.Current is not null ? HttpContext.Current.Request.Url.ToString() : null))
       .Attribute("data-action", Actions().Any() ? Actions().Join(",") : null)

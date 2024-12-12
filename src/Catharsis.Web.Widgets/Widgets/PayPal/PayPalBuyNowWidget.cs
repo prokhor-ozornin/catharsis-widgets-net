@@ -9,6 +9,6 @@ public class PayPalBuyNowWidget : WebWidget, IPayPalBuyNowWidget
   /// <inheritdoc cref="IPayPalBuyNowWidget.AsUrl()"/>
   public IPayPalBuyNowWidget AsUrl() => throw new NotImplementedException();
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => throw new NotImplementedException();
 }

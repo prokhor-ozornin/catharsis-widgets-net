@@ -70,7 +70,7 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
   /// <inheritdoc cref="IVimeoVideoWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Id().IsEmpty() || Width().IsEmpty() || Height().IsEmpty())

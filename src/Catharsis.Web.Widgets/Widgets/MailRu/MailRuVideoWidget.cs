@@ -48,7 +48,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
   /// <inheritdoc cref="IMailRuVideoWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Id().IsEmpty() || Height().IsEmpty() || Width().IsEmpty())

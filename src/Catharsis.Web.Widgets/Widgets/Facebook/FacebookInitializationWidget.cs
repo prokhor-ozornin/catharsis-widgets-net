@@ -21,7 +21,7 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
   /// <inheritdoc cref="IFacebookInitializationWidget.AppId()"/>
   public string AppId() => appId;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (AppId().IsEmpty())

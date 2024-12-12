@@ -3,6 +3,6 @@
 /// <inheritdoc cref="IDoubleGisMiniMapWidget"/>
 public class DoubleGisMiniMapWidget : WebWidget, IDoubleGisMiniMapWidget
 {
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => throw new NotImplementedException();
 }

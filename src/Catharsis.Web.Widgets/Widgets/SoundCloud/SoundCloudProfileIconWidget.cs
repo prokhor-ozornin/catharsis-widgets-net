@@ -45,7 +45,7 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
   /// <inheritdoc cref="ISoundCloudProfileIconWidget.Size()"/>
   public short Size() => size;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty())

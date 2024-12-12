@@ -3,6 +3,6 @@
 /// <inheritdoc cref="IAddThisSmartLayersWidget"/>
 public class AddThisSmartLayersWidget : WebWidget, IAddThisSmartLayersWidget
 {
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => throw new NotImplementedException();
 }

@@ -9,6 +9,6 @@ public class PayPalDonateWidget : WebWidget, IPayPalDonateWidget
   /// <inheritdoc cref="IPayPalDonateWidget.AsUrl()"/>
   public IPayPalDonateWidget AsUrl() => throw new NotImplementedException();
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => throw new NotImplementedException();
 }

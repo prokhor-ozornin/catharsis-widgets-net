@@ -153,7 +153,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     var config = new Dictionary<string, object>();

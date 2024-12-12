@@ -47,7 +47,7 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
   /// <inheritdoc cref="ITumblrFollowButtonWidget.Type()"/>
   public byte Type() => type;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty())

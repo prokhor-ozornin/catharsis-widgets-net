@@ -62,7 +62,7 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
   /// <inheritdoc cref="IPinterestProfileWidget.Image()"/>
   public string Image() => image;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   /// <returns>Widget's HTML markup.</returns>
   public override string ToHtml()
   {

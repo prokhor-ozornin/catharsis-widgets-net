@@ -48,7 +48,7 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
   /// <inheritdoc cref="IYandexSharePanelWidget.Services()"/>
   public IEnumerable<string> Services() => services;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() =>
     new TagBuilder("div")
       .Attribute("data-yashareL10n", Language() ?? (HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))

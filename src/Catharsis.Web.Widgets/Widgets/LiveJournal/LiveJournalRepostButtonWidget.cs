@@ -34,7 +34,7 @@ public class LiveJournalRepostButtonWidget : WebWidget, ILiveJournalRepostButton
   /// <inheritdoc cref="ILiveJournalRepostButtonWidget.Title()"/>
   public string Title() => title;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("lj-repost")
     .Attribute("button", Title())
     .Html(text)

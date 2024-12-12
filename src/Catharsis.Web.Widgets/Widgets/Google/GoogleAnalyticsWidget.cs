@@ -34,7 +34,7 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
   /// <inheritdoc cref="IGoogleAnalyticsWidget.Domain()"/>
   public string Domain() => domain;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty() || Domain().IsEmpty())

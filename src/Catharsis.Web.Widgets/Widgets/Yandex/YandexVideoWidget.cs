@@ -66,7 +66,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
   /// <inheritdoc cref="IYandexVideoWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Id().IsEmpty() || User().IsEmpty() || Height().IsEmpty() || Width().IsEmpty())

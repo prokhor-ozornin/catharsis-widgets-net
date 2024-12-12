@@ -5,7 +5,7 @@
 /// </summary>
 public abstract class WebWidget : IWebWidget
 {
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public abstract string ToHtml();
 
   /// <inheritdoc cref="object.ToString()"/>

@@ -117,7 +117,7 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => Url().IsEmpty() ? string.Empty : new TagBuilder("div")
       .Attribute("data-href", Url())
       .Attribute("data-width", Width())

@@ -92,7 +92,7 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
   /// <inheritdoc cref="IVkontakteCommentsWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     var config = new Dictionary<string, object>

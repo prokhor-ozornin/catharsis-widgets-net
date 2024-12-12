@@ -79,7 +79,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   /// <inheritdoc cref="IYandexLikeButtonWidget.Url()"/>
   public string Url() => url;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new StringBuilder()
       .Append(new TagBuilder("a")
         .Attribute("name", "ya-share")

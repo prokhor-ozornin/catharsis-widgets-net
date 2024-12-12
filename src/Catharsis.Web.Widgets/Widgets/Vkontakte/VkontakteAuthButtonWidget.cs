@@ -78,7 +78,7 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
   /// <inheritdoc cref="IVkontakteAuthButtonWidget.Callback()"/>
   public string Callback() => callback;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Type() == VkontakteAuthButtonType.Dynamic && Callback().IsEmpty())

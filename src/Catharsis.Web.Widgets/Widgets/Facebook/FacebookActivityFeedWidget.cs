@@ -152,7 +152,7 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-site", Domain())
       .Attribute("data-app-id", AppId())

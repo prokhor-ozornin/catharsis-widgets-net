@@ -102,7 +102,7 @@ public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
   /// <inheritdoc cref="IYandexAnalyticsWidget.WebVisor()"/>
   public bool WebVisor() => webVisor;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty())

@@ -66,7 +66,7 @@ public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
   /// <inheritdoc cref="ICackleLatestCommentsWidget.TitleSize()"/>
   public int TitleSize() => titleSize;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (account.IsEmpty())

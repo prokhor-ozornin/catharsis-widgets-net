@@ -112,7 +112,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
   /// <inheritdoc cref="IFacebookLikeButtonWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-action", Verb())
       .Attribute("data-layout", Layout())

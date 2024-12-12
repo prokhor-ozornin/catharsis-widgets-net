@@ -123,7 +123,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   /// <inheritdoc cref="IVkontakteCommunityWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     if (Account().IsEmpty())

@@ -98,7 +98,7 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Width()"/>
   public string Width() => width;
 
-  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
+  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => Url().IsEmpty() ? string.Empty : new TagBuilder("div")
       .Attribute("data-layout", Layout())
       .Attribute("data-show-faces", Faces())
