@@ -37,11 +37,11 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().ColorScheme(null));
-    Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().ColorScheme(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("scheme");
+
       var widget = new FacebookLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -103,11 +103,11 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
   [Fact]
   public void Layout_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().Layout(null));
-    Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Layout(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("layout");
+
       var widget = new FacebookLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -127,11 +127,11 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
   [Fact]
   public void TrackLabel_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().TrackLabel(null));
-    Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().TrackLabel(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().TrackLabel(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().TrackLabel(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("label");
+
       var widget = new FacebookLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -151,11 +151,11 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new FacebookLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -175,11 +175,11 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
   [Fact]
   public void Verb_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().Verb(null));
-    Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Verb(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Verb(null)).ThrowExactly<ArgumentNullException>().WithParameterName("verb");
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Verb(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("verb");
+
       var widget = new FacebookLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -199,11 +199,11 @@ public sealed class FacebookLikeButtonWidgetTests : ClassTest<FacebookLikeButton
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookLikeButtonWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new FacebookLikeButtonWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new FacebookLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

@@ -59,11 +59,11 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookLikeBoxWidget().ColorScheme(null));
-    Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().ColorScheme(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookLikeBoxWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
+      AssertionExtensions.Should(() => new FacebookLikeBoxWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("scheme");
+
       var widget = new FacebookLikeBoxWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -125,11 +125,11 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookLikeBoxWidget().Height(null));
-    Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().Height(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
+      AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("height");
+
       var widget = new FacebookLikeBoxWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -170,11 +170,11 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookLikeBoxWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new FacebookLikeBoxWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -215,11 +215,11 @@ public sealed class FacebookLikeBoxWidgetTests : ClassTest<FacebookLikeBoxWidget
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookLikeBoxWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new FacebookLikeBoxWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new FacebookLikeBoxWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

@@ -31,11 +31,11 @@ public sealed class FacebookPostWidgetTests : ClassTest<FacebookPostWidget>
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookPostWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new FacebookPostWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookPostWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new FacebookPostWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new FacebookPostWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -55,11 +55,11 @@ public sealed class FacebookPostWidgetTests : ClassTest<FacebookPostWidget>
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookPostWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new FacebookPostWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookPostWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new FacebookPostWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new FacebookPostWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

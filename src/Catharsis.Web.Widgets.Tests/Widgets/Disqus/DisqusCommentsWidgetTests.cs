@@ -30,11 +30,11 @@ public sealed class DisqusCommentsWidgetTests : ClassTest<DisqusCommentsWidget>
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new DisqusCommentsWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new DisqusCommentsWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new DisqusCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new DisqusCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new DisqusCommentsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

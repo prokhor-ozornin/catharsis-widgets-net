@@ -30,11 +30,12 @@ public sealed class FacebookInitializationWidgetTests : ClassTest<FacebookInitia
   [Fact]
   public void AppId_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookInitializationWidget().AppId(null));
-    Assert.Throws<ArgumentException>(() => new FacebookInitializationWidget().AppId(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookInitializationWidget().AppId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new FacebookInitializationWidget().AppId(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
+
       var widget = new FacebookInitializationWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

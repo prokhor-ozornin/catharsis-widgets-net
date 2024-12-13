@@ -35,11 +35,11 @@ public sealed class FacebookCommentsWidgetTests : ClassTest<FacebookCommentsWidg
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().ColorScheme(null));
-    Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().ColorScheme(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookCommentsWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
+      AssertionExtensions.Should(() => new FacebookCommentsWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("scheme");
+
       var widget = new FacebookCommentsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -80,11 +80,11 @@ public sealed class FacebookCommentsWidgetTests : ClassTest<FacebookCommentsWidg
   [Fact]
   public void Order_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Order(null));
-    Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().Order(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookCommentsWidget().Order(null)).ThrowExactly<ArgumentNullException>().WithParameterName("order");
+      AssertionExtensions.Should(() => new FacebookCommentsWidget().Order(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("order");
+
       var widget = new FacebookCommentsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -125,11 +125,11 @@ public sealed class FacebookCommentsWidgetTests : ClassTest<FacebookCommentsWidg
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookCommentsWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new FacebookCommentsWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new FacebookCommentsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -149,11 +149,11 @@ public sealed class FacebookCommentsWidgetTests : ClassTest<FacebookCommentsWidg
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookCommentsWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new FacebookCommentsWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookCommentsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new FacebookCommentsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new FacebookCommentsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

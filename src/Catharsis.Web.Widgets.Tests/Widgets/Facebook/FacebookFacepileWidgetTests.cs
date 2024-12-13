@@ -36,10 +36,10 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
   [Fact]
   public void Actions_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().Actions(null));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookFacePileWidget().Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("actions");
+
       var widget = new FacebookFacePileWidget();
       new[] { Enumerable.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
     }
@@ -59,11 +59,11 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().ColorScheme(null));
-    Assert.Throws<ArgumentException>(() => new FacebookFacePileWidget().ColorScheme(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookFacePileWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
+      AssertionExtensions.Should(() => new FacebookFacePileWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("scheme");
+
       var widget = new FacebookFacePileWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -83,11 +83,11 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().Height(null));
-    Assert.Throws<ArgumentException>(() => new FacebookFacePileWidget().Height(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookFacePileWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
+      AssertionExtensions.Should(() => new FacebookFacePileWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("height");
+
       var widget = new FacebookFacePileWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -128,11 +128,11 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
   [Fact]
   public void PhotoSize_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().PhotoSize(null));
-    Assert.Throws<ArgumentException>(() => new FacebookFacePileWidget().PhotoSize(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookFacePileWidget().PhotoSize(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
+      AssertionExtensions.Should(() => new FacebookFacePileWidget().PhotoSize(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("size");
+
       var widget = new FacebookFacePileWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -152,11 +152,11 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new FacebookFacePileWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookFacePileWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new FacebookFacePileWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new FacebookFacePileWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -176,11 +176,11 @@ public sealed class FacebookFacePileWidgetTests : ClassTest<FacebookFacePileWidg
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookFacePileWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new FacebookFacePileWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new FacebookFacePileWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new FacebookFacePileWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new FacebookFacePileWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
