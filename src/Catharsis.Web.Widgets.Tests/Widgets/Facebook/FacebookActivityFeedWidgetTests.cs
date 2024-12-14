@@ -40,12 +40,9 @@ public sealed class FacebookActivityFeedWidgetTests : ClassTest<FacebookActivity
   [Fact]
   public void Actions_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookActivityFeedWidget().Actions(null));
-
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("actions");
-
 
       var widget = new FacebookActivityFeedWidget();
       new[] { Enumerable.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
