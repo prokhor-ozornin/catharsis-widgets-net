@@ -33,11 +33,11 @@ public sealed class VkontaktePollWidgetTests : ClassTest<VkontaktePollWidget>
   [Fact]
   public void ElementId_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontaktePollWidget().ElementId(null));
-    Assert.Throws<ArgumentException>(() => new VkontaktePollWidget().ElementId(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontaktePollWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontaktePollWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new VkontaktePollWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -57,11 +57,11 @@ public sealed class VkontaktePollWidgetTests : ClassTest<VkontaktePollWidget>
   [Fact]
   public void Id_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontaktePollWidget().Id(null));
-    Assert.Throws<ArgumentException>(() => new VkontaktePollWidget().Id(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontaktePollWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontaktePollWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new VkontaktePollWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -81,11 +81,11 @@ public sealed class VkontaktePollWidgetTests : ClassTest<VkontaktePollWidget>
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontaktePollWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new VkontaktePollWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontaktePollWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new VkontaktePollWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new VkontaktePollWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -105,11 +105,11 @@ public sealed class VkontaktePollWidgetTests : ClassTest<VkontaktePollWidget>
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontaktePollWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new VkontaktePollWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontaktePollWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new VkontaktePollWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new VkontaktePollWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

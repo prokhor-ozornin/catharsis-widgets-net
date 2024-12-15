@@ -31,11 +31,11 @@ public sealed class PinterestFollowButtonWidgetTests : ClassTest<PinterestFollow
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestFollowButtonWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new PinterestFollowButtonWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new PinterestFollowButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -55,11 +55,11 @@ public sealed class PinterestFollowButtonWidgetTests : ClassTest<PinterestFollow
   [Fact]
   public void Label_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestFollowButtonWidget().Label(null));
-    Assert.Throws<ArgumentException>(() => new PinterestFollowButtonWidget().Label(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Label(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
+      AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Label(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("label");
+
       var widget = new PinterestFollowButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

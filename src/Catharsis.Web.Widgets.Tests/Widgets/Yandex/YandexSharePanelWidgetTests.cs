@@ -32,11 +32,11 @@ public sealed class YandexSharePanelWidgetTests : ClassTest<YandexSharePanelWidg
   [Fact]
   public void Language_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexSharePanelWidget().Language(null));
-    Assert.Throws<ArgumentException>(() => new YandexSharePanelWidget().Language(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexSharePanelWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
+      AssertionExtensions.Should(() => new YandexSharePanelWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("language");
+
       var widget = new YandexSharePanelWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -79,11 +79,11 @@ public sealed class YandexSharePanelWidgetTests : ClassTest<YandexSharePanelWidg
   [Fact]
   public void Layout_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexSharePanelWidget().Layout(null));
-    Assert.Throws<ArgumentException>(() => new YandexSharePanelWidget().Layout(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexSharePanelWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
+      AssertionExtensions.Should(() => new YandexSharePanelWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("layout");
+
       var widget = new YandexSharePanelWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

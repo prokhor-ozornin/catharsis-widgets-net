@@ -36,11 +36,11 @@ public sealed class VkontakteRecommendationsWidgetTests : ClassTest<VkontakteRec
   [Fact]
   public void ElementId_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteRecommendationsWidget().ElementId(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteRecommendationsWidget().ElementId(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new VkontakteRecommendationsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -165,11 +165,11 @@ public sealed class VkontakteRecommendationsWidgetTests : ClassTest<VkontakteRec
   [Fact]
   public void Target_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteRecommendationsWidget().Target(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteRecommendationsWidget().Target(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().Target(null)).ThrowExactly<ArgumentNullException>().WithParameterName("target");
+      AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().Target(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("target");
+
       var widget = new VkontakteRecommendationsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

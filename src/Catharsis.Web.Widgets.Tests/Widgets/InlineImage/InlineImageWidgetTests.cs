@@ -32,10 +32,10 @@ public sealed class InlineImageWidgetTests : ClassTest<InlineImageWidget>
   [Fact]
   public void Contents_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new InlineImageWidget().Contents(null));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new InlineImageWidget().Contents(null)).ThrowExactly<ArgumentNullException>().WithParameterName("contents");
+
       var widget = new InlineImageWidget();
       new[] { Array.Empty<byte>(), new Random().ByteSequence(16) }.ForEach(value => Validate(value, widget));
     }

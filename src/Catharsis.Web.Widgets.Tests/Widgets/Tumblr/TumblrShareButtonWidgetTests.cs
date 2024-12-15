@@ -52,11 +52,11 @@ public sealed class TumblrShareButtonWidgetTests : ClassTest<TumblrShareButtonWi
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TumblrShareButtonWidget().ColorScheme(null));
-    Assert.Throws<ArgumentException>(() => new TumblrShareButtonWidget().ColorScheme(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TumblrShareButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
+      AssertionExtensions.Should(() => new TumblrShareButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("scheme");
+
       var widget = new TumblrFollowButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

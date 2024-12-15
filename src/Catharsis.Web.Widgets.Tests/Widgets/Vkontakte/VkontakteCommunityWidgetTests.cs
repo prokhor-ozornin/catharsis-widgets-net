@@ -37,11 +37,11 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
   [Fact]
   public void BackgroundColor_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().BackgroundColor(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().BackgroundColor(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().BackgroundColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().BackgroundColor(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("color");
+
       var widget = new VkontakteCommunityWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -61,11 +61,11 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
   [Fact]
   public void TextColor_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().TextColor(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().TextColor(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().TextColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().TextColor(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("color");
+
       var widget = new VkontakteCommunityWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -85,11 +85,11 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
   [Fact]
   public void ButtonColor_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().ButtonColor(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().ButtonColor(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().ButtonColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().ButtonColor(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("color");
+
       var widget = new VkontakteCommunityWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -109,11 +109,11 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
   [Fact]
   public void ElementId_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().ElementId(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().ElementId(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new VkontakteCommunityWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -133,11 +133,11 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new VkontakteCommunityWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -178,11 +178,11 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new VkontakteCommunityWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -202,11 +202,11 @@ public sealed class VkontakteCommunityWidgetTests : ClassTest<VkontakteCommunity
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteCommunityWidget().Height(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteCommunityWidget().Height(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
+      AssertionExtensions.Should(() => new VkontakteCommunityWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("height");
+
       var widget = new VkontakteCommunityWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

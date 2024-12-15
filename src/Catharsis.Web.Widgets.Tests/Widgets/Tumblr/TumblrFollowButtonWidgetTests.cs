@@ -32,11 +32,11 @@ public sealed class TumblrFollowButtonWidgetTests : ClassTest<TumblrFollowButton
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TumblrFollowButtonWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new TumblrFollowButtonWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TumblrFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new TumblrFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new TumblrFollowButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -77,11 +77,11 @@ public sealed class TumblrFollowButtonWidgetTests : ClassTest<TumblrFollowButton
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TumblrFollowButtonWidget().ColorScheme(null));
-    Assert.Throws<ArgumentException>(() => new TumblrFollowButtonWidget().ColorScheme(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TumblrFollowButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
+      AssertionExtensions.Should(() => new TumblrFollowButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("scheme");
+
       var widget = new TumblrFollowButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

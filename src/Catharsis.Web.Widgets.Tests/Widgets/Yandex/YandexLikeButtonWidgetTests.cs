@@ -34,11 +34,11 @@ public sealed class YandexLikeButtonWidgetTests : ClassTest<YandexLikeButtonWidg
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexLikeButtonWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new YandexLikeButtonWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new YandexLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new YandexLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -58,11 +58,11 @@ public sealed class YandexLikeButtonWidgetTests : ClassTest<YandexLikeButtonWidg
   [Fact]
   public void Title_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexLikeButtonWidget().Title(null));
-    Assert.Throws<ArgumentException>(() => new YandexLikeButtonWidget().Title(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexLikeButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
+      AssertionExtensions.Should(() => new YandexLikeButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("title");
+
       var widget = new YandexLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -82,11 +82,11 @@ public sealed class YandexLikeButtonWidgetTests : ClassTest<YandexLikeButtonWidg
   [Fact]
   public void Size_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexLikeButtonWidget().Size(null));
-    Assert.Throws<ArgumentException>(() => new YandexLikeButtonWidget().Size(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexLikeButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
+      AssertionExtensions.Should(() => new YandexLikeButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("size");
+
       var widget = new YandexLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -106,11 +106,11 @@ public sealed class YandexLikeButtonWidgetTests : ClassTest<YandexLikeButtonWidg
   [Fact]
   public void Layout_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexLikeButtonWidget().Layout(null));
-    Assert.Throws<ArgumentException>(() => new YandexLikeButtonWidget().Layout(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
+      AssertionExtensions.Should(() => new YandexLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("layout");
+
       var widget = new YandexLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -130,11 +130,11 @@ public sealed class YandexLikeButtonWidgetTests : ClassTest<YandexLikeButtonWidg
   [Fact]
   public void Text_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexLikeButtonWidget().Text(null));
-    Assert.Throws<ArgumentException>(() => new YandexLikeButtonWidget().Text(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexLikeButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
+      AssertionExtensions.Should(() => new YandexLikeButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("text");
+
       var widget = new YandexLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

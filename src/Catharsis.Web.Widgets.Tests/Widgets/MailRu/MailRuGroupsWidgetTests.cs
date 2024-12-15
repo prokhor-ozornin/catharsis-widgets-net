@@ -37,11 +37,11 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new MailRuGroupsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -61,11 +61,11 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
   [Fact]
   public void BackgroundColor_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().BackgroundColor(null));
-    Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().BackgroundColor(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().BackgroundColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().BackgroundColor(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("color");
+
       var widget = new MailRuGroupsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -85,11 +85,11 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
   [Fact]
   public void ButtonColor_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().ButtonColor(null));
-    Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().ButtonColor(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().ButtonColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().ButtonColor(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("color");
+
       var widget = new MailRuGroupsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -109,11 +109,11 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
   [Fact]
   public void Domain_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().Domain(null));
-    Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().Domain(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("domain");
+
       var widget = new MailRuGroupsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -133,11 +133,11 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().Height(null));
-    Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().Height(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("height");
+
       var widget = new MailRuGroupsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -178,11 +178,11 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
   [Fact]
   public void TextColor_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().TextColor(null));
-    Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().TextColor(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().TextColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().TextColor(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("color");
+
       var widget = new MailRuGroupsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -202,11 +202,11 @@ public sealed class MailRuGroupsWidgetTests : ClassTest<MailRuGroupsWidget>
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuGroupsWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new MailRuGroupsWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new MailRuGroupsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new MailRuGroupsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IVkontakteCommentsWidget"/>
 public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
 {
-  private IEnumerable<string> attach = Enumerable.Empty<string>();
+  private IEnumerable<string> attach = [];
   private bool? autoPublish;
   private bool? autoUpdate;
   private string elementId;

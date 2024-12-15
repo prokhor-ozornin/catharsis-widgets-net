@@ -32,11 +32,11 @@ public sealed class MailRuVideoWidgetTests : ClassTest<MailRuVideoWidget>
   [Fact]
   public void Id_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuVideoWidget().Id(null));
-    Assert.Throws<ArgumentException>(() => new MailRuVideoWidget().Id(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new MailRuVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new MailRuVideoWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -56,11 +56,11 @@ public sealed class MailRuVideoWidgetTests : ClassTest<MailRuVideoWidget>
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuVideoWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new MailRuVideoWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new MailRuVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new MailRuVideoWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -80,11 +80,11 @@ public sealed class MailRuVideoWidgetTests : ClassTest<MailRuVideoWidget>
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuVideoWidget().Height(null));
-    Assert.Throws<ArgumentException>(() => new MailRuVideoWidget().Height(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
+      AssertionExtensions.Should(() => new MailRuVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("height");
+
       var widget = new MailRuVideoWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

@@ -34,11 +34,11 @@ public sealed class VkontakteAuthButtonWidgetTests : ClassTest<VkontakteAuthButt
   [Fact]
   public void ElementId_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().ElementId(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().ElementId(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new VkontakteAuthButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -58,11 +58,11 @@ public sealed class VkontakteAuthButtonWidgetTests : ClassTest<VkontakteAuthButt
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new VkontakteAuthButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -82,11 +82,11 @@ public sealed class VkontakteAuthButtonWidgetTests : ClassTest<VkontakteAuthButt
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new VkontakteAuthButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -127,11 +127,11 @@ public sealed class VkontakteAuthButtonWidgetTests : ClassTest<VkontakteAuthButt
   [Fact]
   public void Callback_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().Callback(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().Callback(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Callback(null)).ThrowExactly<ArgumentNullException>().WithParameterName("callback");
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Callback(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("callback");
+
       var widget = new VkontakteAuthButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

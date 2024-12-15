@@ -39,11 +39,11 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
   [Fact]
   public void ElementId_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().ElementId(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().ElementId(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new VkontakteLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -63,11 +63,11 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
   [Fact]
   public void Text_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Text(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Text(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("text");
+
       var widget = new VkontakteLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -108,11 +108,11 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
   [Fact]
   public void Layout_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Layout(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Layout(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("layout");
+
       var widget = new VkontakteLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -132,11 +132,11 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new VkontakteLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -156,11 +156,11 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Height(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Height(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("height");
+
       var widget = new VkontakteLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -180,11 +180,11 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
   [Fact]
   public void Title_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Title(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Title(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("title");
+
       var widget = new VkontakteLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -204,11 +204,11 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new VkontakteLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -228,11 +228,11 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
   [Fact]
   public void Description_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Description(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Description(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("description");
+
       var widget = new VkontakteLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -252,11 +252,11 @@ public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButt
   [Fact]
   public void Image_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteLikeButtonWidget().Image(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteLikeButtonWidget().Image(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("image");
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("image");
+
       var widget = new VkontakteLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

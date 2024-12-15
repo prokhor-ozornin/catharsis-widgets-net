@@ -17,11 +17,11 @@ public sealed class IntenseDebateCommentsWidgetTests : ClassTest<IntenseDebateCo
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new IntenseDebateCommentsWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new IntenseDebateCommentsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -41,11 +41,11 @@ public sealed class IntenseDebateCommentsWidgetTests : ClassTest<IntenseDebateCo
   [Fact]
   public void PostId_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new IntenseDebateCommentsWidget().PostId(null));
-    Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().PostId(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostId(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new IntenseDebateCommentsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -65,11 +65,11 @@ public sealed class IntenseDebateCommentsWidgetTests : ClassTest<IntenseDebateCo
   [Fact]
   public void PostUrl_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new IntenseDebateCommentsWidget().PostUrl(null));
-    Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().PostUrl(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostUrl(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostUrl(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new IntenseDebateCommentsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -89,11 +89,11 @@ public sealed class IntenseDebateCommentsWidgetTests : ClassTest<IntenseDebateCo
   [Fact]
   public void PostTitle_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new IntenseDebateCommentsWidget().PostTitle(null));
-    Assert.Throws<ArgumentException>(() => new IntenseDebateCommentsWidget().PostTitle(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostTitle(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
+      AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostTitle(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("title");
+
       var widget = new IntenseDebateCommentsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

@@ -31,11 +31,11 @@ public sealed class GoogleAnalyticsWidgetTests : ClassTest<GoogleAnalyticsWidget
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new GoogleAnalyticsWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new GoogleAnalyticsWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new GoogleAnalyticsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -55,11 +55,11 @@ public sealed class GoogleAnalyticsWidgetTests : ClassTest<GoogleAnalyticsWidget
   [Fact]
   public void Domain_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new GoogleAnalyticsWidget().Domain(null));
-    Assert.Throws<ArgumentException>(() => new GoogleAnalyticsWidget().Domain(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
+      AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("domain");
+
       var widget = new GoogleAnalyticsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

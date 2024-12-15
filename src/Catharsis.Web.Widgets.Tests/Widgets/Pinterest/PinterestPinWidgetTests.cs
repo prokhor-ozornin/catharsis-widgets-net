@@ -30,11 +30,11 @@ public sealed class PinterestPinWidgetTests : ClassTest<PinterestPinWidget>
   [Fact]
   public void Id_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestPinWidget().Id(null));
-    Assert.Throws<ArgumentException>(() => new PinterestPinWidget().Id(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestPinWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new PinterestPinWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new PinterestPinWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

@@ -33,11 +33,11 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
   [Fact]
   public void Extra_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VideoJSPlayerWidget().Extra(null)).ThrowExactly<ArgumentNullException>().WithParameterName("extra");
+      AssertionExtensions.Should(() => new VideoJSPlayerWidget().Extra(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("extra");
+
       var widget = new VideoJSPlayerWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -57,11 +57,11 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VideoJSPlayerWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new VideoJSPlayerWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new VideoJSPlayerWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -81,11 +81,11 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Height(null));
-    Assert.Throws<ArgumentException>(() => new VideoJSPlayerWidget().Height(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VideoJSPlayerWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
+      AssertionExtensions.Should(() => new VideoJSPlayerWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("height");
+
       var widget = new VideoJSPlayerWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

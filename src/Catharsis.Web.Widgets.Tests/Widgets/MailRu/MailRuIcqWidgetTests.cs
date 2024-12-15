@@ -32,11 +32,11 @@ public sealed class MailRuIcqWidgetTests : ClassTest<MailRuIcqWidget>
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuIcqWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new MailRuIcqWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuIcqWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new MailRuIcqWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new MailRuIcqWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -56,11 +56,11 @@ public sealed class MailRuIcqWidgetTests : ClassTest<MailRuIcqWidget>
   [Fact]
   public void Language_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuIcqWidget().Language(null));
-    Assert.Throws<ArgumentException>(() => new MailRuIcqWidget().Language(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuIcqWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
+      AssertionExtensions.Should(() => new MailRuIcqWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("language");
+
       var widget = new MailRuIcqWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

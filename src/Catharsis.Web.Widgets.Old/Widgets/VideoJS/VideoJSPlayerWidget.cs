@@ -18,7 +18,7 @@ namespace Catharsis.Web.Widgets
     private string extra;
     private string width;
     private string height;
-    private IEnumerable<IMediaSource> videos = Enumerable.Empty<IMediaSource>();
+    private IEnumerable<IMediaSource> videos = []
 
     /// <summary>
     ///   <para>Custom HTML code to be part of <c>video</c> tag.</para>

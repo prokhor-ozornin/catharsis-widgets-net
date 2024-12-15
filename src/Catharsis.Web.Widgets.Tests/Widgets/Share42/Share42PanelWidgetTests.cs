@@ -31,11 +31,11 @@ public sealed class Share42PanelWidgetTests : ClassTest<Share42PanelWidget>
   [Fact]
   public void Id_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new RuTubeVideoWidget().Id(null));
-    Assert.Throws<ArgumentException>(() => new RuTubeVideoWidget().Id(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new RuTubeVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new RuTubeVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new RuTubeVideoWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

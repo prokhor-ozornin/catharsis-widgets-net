@@ -13,8 +13,8 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   private string countUrl;
   private string counterPosition;
   private bool? suggestions;
-  private IEnumerable<string> accounts = Enumerable.Empty<string>();
-  private IEnumerable<string> tags = Enumerable.Empty<string>();
+  private IEnumerable<string> accounts = [];
+  private IEnumerable<string> tags = [];
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.CounterPosition(string)"/>
   public ITwitterTweetButtonWidget CounterPosition(string position)

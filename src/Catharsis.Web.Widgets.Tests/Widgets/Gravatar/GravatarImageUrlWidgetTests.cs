@@ -32,11 +32,11 @@ public sealed class GravatarImageUrlWidgetTests : ClassTest<GravatarImageUrlWidg
   [Fact]
   public void Extension_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new GravatarImageUrlWidget().Extension(null));
-    Assert.Throws<ArgumentException>(() => new GravatarImageUrlWidget().Extension(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new GravatarImageUrlWidget().Extension(null)).ThrowExactly<ArgumentNullException>().WithParameterName("extension");
+      AssertionExtensions.Should(() => new GravatarImageUrlWidget().Extension(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("extension");
+
       var widget = new GravatarImageUrlWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -56,11 +56,11 @@ public sealed class GravatarImageUrlWidgetTests : ClassTest<GravatarImageUrlWidg
   [Fact]
   public void Hash_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new GravatarImageUrlWidget().Hash(null));
-    Assert.Throws<ArgumentException>(() => new GravatarImageUrlWidget().Hash(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new GravatarImageUrlWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
+      AssertionExtensions.Should(() => new GravatarImageUrlWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("hash");
+
       var widget = new GravatarImageUrlWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

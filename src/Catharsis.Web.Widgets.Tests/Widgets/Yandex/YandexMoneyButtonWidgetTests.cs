@@ -40,11 +40,11 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyButtonWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyButtonWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new YandexMoneyButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -64,11 +64,11 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
   [Fact]
   public void Color_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyButtonWidget().Color(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyButtonWidget().Color(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
+      AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("color");
+
       var widget = new YandexMoneyButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -88,11 +88,11 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
   [Fact]
   public void Description_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyButtonWidget().Description(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyButtonWidget().Description(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
+      AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("description");
+
       var widget = new YandexMoneyButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -196,11 +196,11 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
   [Fact]
   public void Size_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyButtonWidget().Size(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyButtonWidget().Size(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
+      AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("size");
+
       var widget = new YandexMoneyButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -262,11 +262,11 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
   [Fact]
   public void Type_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyButtonWidget().Type(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyButtonWidget().Type(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Type(null)).ThrowExactly<ArgumentNullException>().WithParameterName("type");
+      AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Type(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("type");
+
       var widget = new YandexMoneyButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

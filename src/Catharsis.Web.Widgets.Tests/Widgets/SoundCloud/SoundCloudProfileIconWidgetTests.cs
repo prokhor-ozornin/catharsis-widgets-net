@@ -32,11 +32,11 @@ public sealed class SoundCloudProfileIconWidgetTests : ClassTest<SoundCloudProfi
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new SoundCloudProfileIconWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new SoundCloudProfileIconWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new SoundCloudProfileIconWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -56,11 +56,11 @@ public sealed class SoundCloudProfileIconWidgetTests : ClassTest<SoundCloudProfi
   [Fact]
   public void Color_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new SoundCloudProfileIconWidget().Color(null));
-    Assert.Throws<ArgumentException>(() => new SoundCloudProfileIconWidget().Color(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
+      AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("color");
+
       var widget = new SoundCloudProfileIconWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

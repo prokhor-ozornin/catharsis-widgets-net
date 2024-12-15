@@ -34,11 +34,11 @@ public sealed class PinterestBoardWidgetTests : ClassTest<PinterestBoardWidget>
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestBoardWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestBoardWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new PinterestBoardWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new PinterestBoardWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -58,11 +58,11 @@ public sealed class PinterestBoardWidgetTests : ClassTest<PinterestBoardWidget>
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestBoardWidget().Height(null));
-    Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().Height(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestBoardWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
+      AssertionExtensions.Should(() => new PinterestBoardWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("height");
+
       var widget = new PinterestBoardWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -82,11 +82,11 @@ public sealed class PinterestBoardWidgetTests : ClassTest<PinterestBoardWidget>
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestBoardWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestBoardWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new PinterestBoardWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new PinterestBoardWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -106,11 +106,11 @@ public sealed class PinterestBoardWidgetTests : ClassTest<PinterestBoardWidget>
   [Fact]
   public void Id_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestBoardWidget().Id(null));
-    Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().Id(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestBoardWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new PinterestBoardWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new PinterestBoardWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -130,11 +130,11 @@ public sealed class PinterestBoardWidgetTests : ClassTest<PinterestBoardWidget>
   [Fact]
   public void Image_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestBoardWidget().Image(null));
-    Assert.Throws<ArgumentException>(() => new PinterestBoardWidget().Image(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestBoardWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("image");
+      AssertionExtensions.Should(() => new PinterestBoardWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("image");
+
       var widget = new PinterestBoardWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

@@ -14,7 +14,7 @@ namespace Catharsis.Web.Widgets
   /// <seealso cref="https://developers.facebook.com/docs/plugins/facepile"/>
   public class FacebookFacepileWidget : HtmlWidget, IFacebookFacepileWidget
   {
-    private IEnumerable<string> actions = Enumerable.Empty<string>();
+    private IEnumerable<string> actions = [];
     private string colorScheme;
     private string height;
     private byte? maxRows;

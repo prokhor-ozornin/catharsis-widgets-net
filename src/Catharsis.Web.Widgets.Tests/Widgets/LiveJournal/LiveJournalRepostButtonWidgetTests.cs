@@ -31,11 +31,11 @@ public sealed class LiveJournalRepostButtonWidgetTests : ClassTest<LiveJournalRe
   [Fact]
   public void Text_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new LiveJournalRepostButtonWidget().Text(null));
-    Assert.Throws<ArgumentException>(() => new LiveJournalRepostButtonWidget().Text(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
+      AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("text");
+
       var widget = new LiveJournalRepostButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -55,11 +55,11 @@ public sealed class LiveJournalRepostButtonWidgetTests : ClassTest<LiveJournalRe
   [Fact]
   public void Title_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new LiveJournalRepostButtonWidget().Title(null));
-    Assert.Throws<ArgumentException>(() => new LiveJournalRepostButtonWidget().Title(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
+      AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("title");
+
       var widget = new LiveJournalRepostButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

@@ -36,11 +36,11 @@ public sealed class MailRuLikeButtonWidgetTests : ClassTest<MailRuLikeButtonWidg
   [Fact]
   public void Type_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuLikeButtonWidget().Type(null));
-    Assert.Throws<ArgumentException>(() => new MailRuLikeButtonWidget().Type(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Type(null)).ThrowExactly<ArgumentNullException>().WithParameterName("type");
+      AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Type(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("type");
+
       var widget = new MailRuLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -60,11 +60,11 @@ public sealed class MailRuLikeButtonWidgetTests : ClassTest<MailRuLikeButtonWidg
   [Fact]
   public void Size_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuLikeButtonWidget().Size(null));
-    Assert.Throws<ArgumentException>(() => new MailRuLikeButtonWidget().Size(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
+      AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("size");
+
       var widget = new MailRuLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -168,11 +168,11 @@ public sealed class MailRuLikeButtonWidgetTests : ClassTest<MailRuLikeButtonWidg
   [Fact]
   public void CounterPosition_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new MailRuLikeButtonWidget().CounterPosition(null));
-    Assert.Throws<ArgumentNullException>(() => new MailRuLikeButtonWidget().CounterPosition(null));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new MailRuLikeButtonWidget().CounterPosition(null)).ThrowExactly<ArgumentNullException>().WithParameterName("position");
+      AssertionExtensions.Should(() => new MailRuLikeButtonWidget().CounterPosition(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("position");
+
       var widget = new MailRuLikeButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

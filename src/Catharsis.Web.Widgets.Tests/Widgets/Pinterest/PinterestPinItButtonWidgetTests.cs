@@ -37,11 +37,11 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
   [Fact]
   public void Color_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Color(null));
-    Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Color(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
+      AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("color");
+
       var widget = new PinterestPinItButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -82,11 +82,11 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
   [Fact]
   public void Description_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Color(null));
-    Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Color(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
+      AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("description");
+
       var widget = new PinterestPinItButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -106,11 +106,11 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
   [Fact]
   public void Image_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Image(null));
-    Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Image(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("image");
+      AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("image");
+
       var widget = new PinterestPinItButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -130,11 +130,11 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
   [Fact]
   public void Language_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Language(null));
-    Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Language(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
+      AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("language");
+
       var widget = new PinterestPinItButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -196,11 +196,11 @@ public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItBu
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new PinterestPinItButtonWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new PinterestPinItButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

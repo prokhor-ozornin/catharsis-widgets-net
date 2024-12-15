@@ -37,11 +37,11 @@ public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexAnalyticsWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new YandexAnalyticsWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexAnalyticsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new YandexAnalyticsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new YandexAnalyticsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -187,11 +187,11 @@ public sealed class YandexAnalyticsWidgetTests : ClassTest<YandexAnalyticsWidget
   [Fact]
   public void Language_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexAnalyticsWidget().Language(null));
-    Assert.Throws<ArgumentException>(() => new YandexAnalyticsWidget().Language(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexAnalyticsWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
+      AssertionExtensions.Should(() => new YandexAnalyticsWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("language");
+
       var widget = new YandexAnalyticsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

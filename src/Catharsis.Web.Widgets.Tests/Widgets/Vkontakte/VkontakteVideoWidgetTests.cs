@@ -35,11 +35,11 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
   [Fact]
   public void Id_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteVideoWidget().Id(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Id(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontakteVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new VkontakteVideoWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -59,11 +59,11 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteVideoWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new VkontakteVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new VkontakteVideoWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -83,11 +83,11 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteVideoWidget().Height(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Height(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
+      AssertionExtensions.Should(() => new VkontakteVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("height");
+
       var widget = new VkontakteVideoWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -128,11 +128,11 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
   [Fact]
   public void User_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteVideoWidget().User(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().User(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteVideoWidget().User(null)).ThrowExactly<ArgumentNullException>().WithParameterName("user");
+      AssertionExtensions.Should(() => new VkontakteVideoWidget().User(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("user");
+
       var widget = new VkontakteVideoWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -152,11 +152,11 @@ public sealed class VkontakteVideoWidgetTests : ClassTest<VkontakteVideoWidget>
   [Fact]
   public void Hash_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteVideoWidget().Hash(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteVideoWidget().Hash(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteVideoWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
+      AssertionExtensions.Should(() => new VkontakteVideoWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("hash");
+
       var widget = new VkontakteVideoWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

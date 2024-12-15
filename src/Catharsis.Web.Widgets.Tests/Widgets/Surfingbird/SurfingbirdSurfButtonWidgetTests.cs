@@ -36,11 +36,11 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new SurfingbirdSurfButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -60,11 +60,11 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
   [Fact]
   public void Layout_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Layout(null));
-    Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Layout(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("layout");
+
       var widget = new SurfingbirdSurfButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -84,11 +84,11 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
       var widget = new SurfingbirdSurfButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -108,11 +108,11 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Height(null));
-    Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Height(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("height");
+
       var widget = new SurfingbirdSurfButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -153,11 +153,11 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
   [Fact]
   public void Label_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Label(null));
-    Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Label(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Label(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Label(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("label");
+
       var widget = new SurfingbirdSurfButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -177,11 +177,11 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
   [Fact]
   public void Color_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new SurfingbirdSurfButtonWidget().Color(null));
-    Assert.Throws<ArgumentException>(() => new SurfingbirdSurfButtonWidget().Color(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
+      AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("color");
+
       var widget = new SurfingbirdSurfButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

@@ -24,8 +24,8 @@ namespace Catharsis.Web.Widgets
     private string countUrl;
     private string counterPosition;
     private bool? suggestions;
-    private IEnumerable<string> accounts = Enumerable.Empty<string>();
-    private IEnumerable<string> tags = Enumerable.Empty<string>();
+    private IEnumerable<string> accounts = [];
+    private IEnumerable<string> tags = [];
 
     /// <summary>
     ///   <para>Count box position. Default is "horizontal".</para>

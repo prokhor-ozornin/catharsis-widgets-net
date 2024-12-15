@@ -40,11 +40,11 @@ public sealed class YandexMoneyPaymentFormWidgetTests : ClassTest<YandexMoneyPay
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyPaymentFormWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyPaymentFormWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new YandexMoneyPaymentFormWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -64,11 +64,11 @@ public sealed class YandexMoneyPaymentFormWidgetTests : ClassTest<YandexMoneyPay
   [Fact]
   public void Description_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyPaymentFormWidget().Description(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyPaymentFormWidget().Description(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
+      AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("description");
+
       var widget = new YandexMoneyPaymentFormWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

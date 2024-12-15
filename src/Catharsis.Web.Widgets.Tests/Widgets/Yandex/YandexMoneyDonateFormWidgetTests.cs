@@ -43,11 +43,11 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyDonateFormWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyDonateFormWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new YandexMoneyDonateFormWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -67,11 +67,11 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void DescriptionText_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyDonateFormWidget().DescriptionText(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyDonateFormWidget().DescriptionText(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().DescriptionText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
+      AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().DescriptionText(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("description");
+
       var widget = new YandexMoneyDonateFormWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -154,11 +154,11 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void ProjectName_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyDonateFormWidget().ProjectName(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyDonateFormWidget().ProjectName(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectName(null)).ThrowExactly<ArgumentNullException>().WithParameterName("name");
+      AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectName(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("name");
+
       var widget = new YandexMoneyDonateFormWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -178,11 +178,11 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void ProjectSite_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyDonateFormWidget().ProjectSite(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyDonateFormWidget().ProjectSite(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectSite(null)).ThrowExactly<ArgumentNullException>().WithParameterName("site");
+      AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectSite(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("site");
+
       var widget = new YandexMoneyDonateFormWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -223,11 +223,11 @@ public sealed class YandexMoneyDonateFormWidgetTests : ClassTest<YandexMoneyDona
   [Fact]
   public void CommentHint_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexMoneyDonateFormWidget().CommentHint(null));
-    Assert.Throws<ArgumentException>(() => new YandexMoneyDonateFormWidget().CommentHint(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().CommentHint(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hint");
+      AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().CommentHint(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("hint");
+
       var widget = new YandexMoneyDonateFormWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

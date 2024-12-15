@@ -33,11 +33,11 @@ public sealed class VkontakteSubscriptionWidgetTests : ClassTest<VkontakteSubscr
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteSubscriptionWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteSubscriptionWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("account");
+
       var widget = new VkontakteSubscriptionWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -57,11 +57,11 @@ public sealed class VkontakteSubscriptionWidgetTests : ClassTest<VkontakteSubscr
   [Fact]
   public void ElementId_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteSubscriptionWidget().ElementId(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteSubscriptionWidget().ElementId(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new VkontakteSubscriptionWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

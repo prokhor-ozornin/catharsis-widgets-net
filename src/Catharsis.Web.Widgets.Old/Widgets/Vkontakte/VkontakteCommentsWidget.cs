@@ -14,7 +14,7 @@ namespace Catharsis.Web.Widgets
   /// <seealso cref="http://vk.com/dev/Comments"/>
   public class VkontakteCommentsWidget : HtmlWidget, IVkontakteCommentsWidget
   {
-    private IEnumerable<string> attach = Enumerable.Empty<string>();
+    private IEnumerable<string> attach = [];
     private bool? autoPublish;
     private bool? autoUpdate;
     private string elementId;

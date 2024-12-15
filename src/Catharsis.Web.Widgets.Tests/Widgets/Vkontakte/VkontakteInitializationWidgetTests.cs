@@ -30,11 +30,11 @@ public sealed class VkontakteInitializationWidgetTests : ClassTest<VkontakteInit
   [Fact]
   public void ApiId_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteInitializationWidget().ApiId(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteInitializationWidget().ApiId(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
+
       var widget = new VkontakteInitializationWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

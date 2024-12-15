@@ -13,7 +13,7 @@ namespace Catharsis.Web.Widgets
   /// <seealso cref="https://developers.facebook.com/docs/plugins/recommendations"/>
   public class FacebookRecommendationsFeedWidget : HtmlWidget, IFacebookRecommendationsFeedWidget
   {
-    private IEnumerable<string> actions = Enumerable.Empty<string>();
+    private IEnumerable<string> actions = [];
     private string appId;
     private string colorScheme;
     private string domain;

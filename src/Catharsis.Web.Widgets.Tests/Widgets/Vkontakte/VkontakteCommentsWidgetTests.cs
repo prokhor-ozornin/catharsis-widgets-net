@@ -63,10 +63,21 @@ public sealed class VkontakteCommentsWidgetTests : ClassTest<VkontakteCommentsWi
   [Fact]
   public void Attach_Method()
   {
-    var widget = new VkontakteCommentsWidget();
-    Assert.False(widget.Attach().Any());
-    Assert.True(ReferenceEquals(widget.Attach("first", "second"), widget));
-    Assert.True(widget.Attach().SequenceEqual(["first", "second"]));
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => new VkontakteCommentsWidget().Attach(null)).ThrowExactly<ArgumentNullException>().WithParameterName("types");
+
+      var widget = new VkontakteCommentsWidget();
+      new string[][] { [string.Empty, "type"] }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string[] types, IVkontakteCommentsWidget widget)
+    {
+      widget.Attach(types).Should().BeSameAs(widget);
+      widget.Attach().Should().Equal(types);
+    }
   }
 
   /// <summary>
@@ -75,18 +86,18 @@ public sealed class VkontakteCommentsWidgetTests : ClassTest<VkontakteCommentsWi
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteCommentsWidget().Width(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteCommentsWidget().Width(string.Empty));
-
     using (new AssertionScope())
     {
-      var widget = new VkontakteAuthButtonWidget();
+      AssertionExtensions.Should(() => new VkontakteCommentsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new VkontakteCommentsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("width");
+
+      var widget = new VkontakteCommentsWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
 
     return;
 
-    static void Validate(string width, IVkontakteAuthButtonWidget widget)
+    static void Validate(string width, IVkontakteCommentsWidget widget)
     {
       widget.Width(width).Should().BeSameAs(widget);
       widget.Width().Should().Be(width);
