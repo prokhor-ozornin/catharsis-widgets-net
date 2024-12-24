@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Verb_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Verb(null, VkontakteLikeButtonVerb.Interest));
+    AssertionExtensions.Should(() => IVkontakteLikeButtonWidgetExtensions.Verb(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteLikeButtonWidget().With(widget =>
     {
@@ -31,7 +32,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Layout_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IVkontakteLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteLikeButtonWidget().With(widget =>
     {
@@ -49,7 +50,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IVkontakteLikeButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteLikeButtonWidget().With(widget =>
     {
@@ -64,7 +65,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteLikeButtonWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IVkontakteLikeButtonWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteLikeButtonWidget().With(widget =>
     {

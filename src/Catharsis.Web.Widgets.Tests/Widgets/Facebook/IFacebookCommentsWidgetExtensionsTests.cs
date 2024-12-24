@@ -1,4 +1,6 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,6 +16,9 @@ public sealed class IFacebookCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Url_Method()
   {
+    AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Url(null, "localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Url(new FacebookCommentsWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+
     throw new NotImplementedException();
   }
 
@@ -23,7 +28,7 @@ public sealed class IFacebookCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookCommentsWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookCommentsWidget().Width(1).Width());
   }
@@ -34,7 +39,7 @@ public sealed class IFacebookCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookCommentsWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
+    AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("dark", new FacebookCommentsWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
     Assert.Equal("light", new FacebookCommentsWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());
@@ -46,7 +51,7 @@ public sealed class IFacebookCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Order_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookCommentsWidgetExtensions.Order(null, FacebookCommentsOrder.Social));
+    AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Order(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("reverse_time", new FacebookCommentsWidget().Order(FacebookCommentsOrder.ReverseTime).Order());
     Assert.Equal("social", new FacebookCommentsWidget().Order(FacebookCommentsOrder.Social).Order());

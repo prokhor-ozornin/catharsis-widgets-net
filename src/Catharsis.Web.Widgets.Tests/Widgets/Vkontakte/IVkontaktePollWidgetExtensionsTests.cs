@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IVkontaktePollWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontaktePollWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IVkontaktePollWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontaktePollWidget().With(widget =>
     {

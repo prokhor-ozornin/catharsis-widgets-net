@@ -15,7 +15,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests : UnitTest
   [Fact]
   public void DoubleGis_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.DoubleGis(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.DoubleGis(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.DoubleGis().Should().BeOfType<DoubleGisWidgetsCreator>().And.BeSameAs(widgets.DoubleGis());
   }

@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,7 +15,7 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookFollowButtonWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookFollowButtonWidget().Width(1).Width());
   }
@@ -25,7 +26,7 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookFollowButtonWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookFollowButtonWidget().Height(1).Height());
   }
@@ -36,7 +37,7 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookFollowButtonWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
+    AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("dark", new FacebookFollowButtonWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
     Assert.Equal("light", new FacebookFollowButtonWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());
@@ -48,7 +49,7 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Layout_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookFollowButtonWidgetExtensions.Layout(null, FacebookButtonLayout.BoxCount));
+    AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("box_count", new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.BoxCount).Layout());
     Assert.Equal("button_count", new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.ButtonCount).Layout());

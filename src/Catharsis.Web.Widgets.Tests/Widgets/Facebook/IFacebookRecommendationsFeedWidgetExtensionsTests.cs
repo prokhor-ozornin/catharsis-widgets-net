@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,7 +15,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTests : UnitTest
   [Fact]
   public void Actions_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookRecommendationsFeedWidgetExtensions.Actions(null, Enumerable.Empty<string>().ToArray()));
+    AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Actions(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.False(new FacebookRecommendationsFeedWidget().Actions().Any());
     Assert.True(new FacebookRecommendationsFeedWidget().Actions("first", "second").Actions().SequenceEqual(new[] { "first", "second" }));
@@ -26,7 +27,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookRecommendationsFeedWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookRecommendationsFeedWidget().Width(1).Width());
   }
@@ -37,7 +38,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookRecommendationsFeedWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookRecommendationsFeedWidget().Height(1).Height());
   }
@@ -48,7 +49,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookRecommendationsFeedWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
+    AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("dark", new FacebookRecommendationsFeedWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
     Assert.Equal("light", new FacebookRecommendationsFeedWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());

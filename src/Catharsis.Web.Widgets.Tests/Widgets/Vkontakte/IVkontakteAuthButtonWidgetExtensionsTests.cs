@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteAuthButtonWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteAuthButtonWidget().With(widget =>
     {
@@ -30,9 +31,9 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Standard_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteAuthButtonWidgetExtensions.Standard(null, "url"));
-    Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().Standard(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().Standard(string.Empty));
+    AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Standard(null, "url")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Standard(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+    AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Standard(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
 
     new VkontakteAuthButtonWidget().With(widget =>
     {
@@ -48,9 +49,9 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Dynamic_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteAuthButtonWidgetExtensions.Dynamic(null, "callback"));
-    Assert.Throws<ArgumentNullException>(() => new VkontakteAuthButtonWidget().Dynamic(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteAuthButtonWidget().Dynamic(string.Empty));
+    AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Dynamic(null, "callback")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+    AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
 
     new VkontakteAuthButtonWidget().With(widget =>
     {

@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,7 +17,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Gray_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestPinItButtonWidgetExtensions.Gray(null));
+    AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Gray(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new PinterestPinItButtonWidget().With(widget =>
     {
@@ -31,8 +32,8 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Language_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestPinItButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture));
-    Assert.Throws<ArgumentNullException>(() => new PinterestPinItButtonWidget().Language((CultureInfo) null));
+    AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Language((CultureInfo) null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
     new PinterestPinItButtonWidget().With(widget =>
     {
@@ -47,7 +48,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Red_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestPinItButtonWidgetExtensions.Red(null));
+    AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Red(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new PinterestPinItButtonWidget().With(widget =>
     {
@@ -62,7 +63,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void White_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestPinItButtonWidgetExtensions.White(null));
+    AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.White(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new PinterestPinItButtonWidget().With(widget =>
     {

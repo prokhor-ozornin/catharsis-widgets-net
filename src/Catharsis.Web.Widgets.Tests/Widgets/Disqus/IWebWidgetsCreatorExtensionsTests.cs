@@ -14,7 +14,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void Disqus_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Disqus(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Disqus(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.Disqus().Should().BeOfType<DisqusWidgetsCreator>().And.BeSameAs(widgets.Disqus());
   }

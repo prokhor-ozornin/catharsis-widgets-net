@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,9 +16,9 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests : UnitTest
   [Fact]
   public void Email_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarProfileUrlWidgetExtensions.Email(null, "email"));
-    Assert.Throws<ArgumentNullException>(() => new GravatarProfileUrlWidget().Email(null));
-    Assert.Throws<ArgumentException>(() => new GravatarProfileUrlWidget().Email(string.Empty));
+    AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Email(null, "email")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Email(null)).ThrowExactly<ArgumentNullException>().WithParameterName("email");
+    AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Email(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("email");
 
     new GravatarProfileUrlWidget().With(widget =>
     {
@@ -34,7 +35,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests : UnitTest
   [Fact]
   public void Json_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarProfileUrlWidgetExtensions.Json(null));
+    AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Json(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new GravatarProfileUrlWidget().With(widget =>
     {
@@ -58,7 +59,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests : UnitTest
   [Fact]
   public void Xml_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarProfileUrlWidgetExtensions.Xml(null));
+    AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Xml(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new GravatarProfileUrlWidget().With(widget =>
     {
@@ -73,7 +74,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests : UnitTest
   [Fact]
   public void Php_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarProfileUrlWidgetExtensions.Php(null));
+    AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Php(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new GravatarProfileUrlWidget().With(widget =>
     {
@@ -88,7 +89,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests : UnitTest
   [Fact]
   public void Vcf_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarProfileUrlWidgetExtensions.Vcf(null));
+    AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Vcf(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new GravatarProfileUrlWidget().With(widget =>
     {
@@ -103,7 +104,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTests : UnitTest
   [Fact]
   public void Qr_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarProfileUrlWidgetExtensions.Qr(null));
+    AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Qr(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new GravatarProfileUrlWidget().With(widget =>
     {

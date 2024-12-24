@@ -1,4 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,10 +17,21 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTests : UnitTest
   [Fact]
   public void Actions_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookActivityFeedWidgetExtensions.Actions(null, Enumerable.Empty<string>().ToArray()));
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Actions(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.False(new FacebookActivityFeedWidget().Actions().Any());
-    Assert.True(new FacebookActivityFeedWidget().Actions("first", "second").Actions().SequenceEqual(["first", "second"]));
+      var widget = new FacebookActivityFeedWidget();
+      new[] { Array.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string[] actions, IFacebookActivityFeedWidget widget)
+    {
+      widget.Actions(actions).Should().BeSameAs(widget);
+      widget.Actions().Should().Equal(actions);
+    }
   }
 
   /// <summary>
@@ -26,6 +40,23 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new FacebookActivityFeedWidget();
+      new[] { Array.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string[] actions, IFacebookActivityFeedWidget widget)
+    {
+      widget.Actions(actions).Should().BeSameAs(widget);
+      widget.Actions().Should().Equal(actions);
+    }
+
+
     Assert.Throws<ArgumentNullException>(() => IFacebookActivityFeedWidgetExtensions.Width(null, 0));
 
     Assert.Equal("1", new FacebookActivityFeedWidget().Width(1).Width());
@@ -37,7 +68,7 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookActivityFeedWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookActivityFeedWidget().Height(1).Height());
   }
@@ -48,7 +79,7 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookActivityFeedWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
+    AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("dark", new FacebookActivityFeedWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
     Assert.Equal("light", new FacebookActivityFeedWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());

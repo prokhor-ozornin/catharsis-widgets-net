@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVideoJSPlayerWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VideoJSPlayerWidget().With(widget =>
     {
@@ -30,7 +31,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVideoJSPlayerWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VideoJSPlayerWidget().With(widget =>
     {
@@ -45,8 +46,8 @@ public sealed class IVideoJSPlayerWidgetExtensionsTests : UnitTest
   [Fact]
   public void Videos_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVideoJSPlayerWidgetExtensions.Videos(null, new IMediaSource[] {}));
-    Assert.Throws<ArgumentNullException>(() => IVideoJSPlayerWidgetExtensions.Videos(new VideoJSPlayerWidget(), null));
+    AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(new VideoJSPlayerWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("videos");
 
     new VideoJSPlayerWidget().With(widget =>
     {

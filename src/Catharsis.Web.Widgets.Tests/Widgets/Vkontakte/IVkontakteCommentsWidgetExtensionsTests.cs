@@ -1,5 +1,6 @@
 using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IVkontakteCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Limit_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteCommentsWidgetExtensions.Limit(null, VkontakteCommentsLimit.Limit10));
+    AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Limit(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteCommentsWidget().With(widget =>
     {
@@ -30,7 +31,7 @@ public sealed class IVkontakteCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Attach_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteCommentsWidgetExtensions.Attach(null, VkontakteCommentsAttach.All));
+    AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Attach(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteCommentsWidget().With(widget =>
     {
@@ -53,7 +54,7 @@ public sealed class IVkontakteCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteCommentsWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteCommentsWidget().With(widget =>
     {

@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,7 +15,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookLikeBoxWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookLikeBoxWidget().Width(1).Width());
   }
@@ -25,7 +26,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookLikeBoxWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookLikeBoxWidget().Height(1).Height());
   }
@@ -36,7 +37,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookLikeBoxWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
+    AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("dark", new FacebookLikeBoxWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
     Assert.Equal("light", new FacebookLikeBoxWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());

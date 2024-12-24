@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,7 +15,7 @@ public sealed class IFacebookSendButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookSendButtonWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookSendButtonWidget().Width(1).Width());
   }
@@ -25,7 +26,7 @@ public sealed class IFacebookSendButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookSendButtonWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookSendButtonWidget().Height(1).Height());
   }
@@ -36,7 +37,7 @@ public sealed class IFacebookSendButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookSendButtonWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
+    AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("dark", new FacebookSendButtonWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
     Assert.Equal("light", new FacebookSendButtonWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());

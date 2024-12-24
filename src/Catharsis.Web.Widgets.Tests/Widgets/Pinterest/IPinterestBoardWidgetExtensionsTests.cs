@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IPinterestBoardWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestBoardWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new PinterestBoardWidget().With(widget =>
     {
@@ -30,7 +31,7 @@ public sealed class IPinterestBoardWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestBoardWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new PinterestBoardWidget().With(widget =>
     {
@@ -45,7 +46,7 @@ public sealed class IPinterestBoardWidgetExtensionsTests : UnitTest
   [Fact]
   public void Header_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestBoardWidgetExtensions.Header(null));
+    AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Header(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new PinterestBoardWidget().With(widget =>
     {
@@ -62,7 +63,7 @@ public sealed class IPinterestBoardWidgetExtensionsTests : UnitTest
   [Fact]
   public void Image_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestBoardWidgetExtensions.Image(null, 0));
+    AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Image(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new PinterestBoardWidget().With(widget =>
     {
@@ -77,7 +78,7 @@ public sealed class IPinterestBoardWidgetExtensionsTests : UnitTest
   [Fact]
   public void Sidebar_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestBoardWidgetExtensions.Sidebar(null));
+    AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Sidebar(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new PinterestBoardWidget().With(widget =>
     {
@@ -94,8 +95,8 @@ public sealed class IPinterestBoardWidgetExtensionsTests : UnitTest
   [Fact]
   public void Square_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IPinterestBoardWidgetExtensions.Square(null));
-
+    AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Square(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    
     new PinterestBoardWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.Square(), widget));

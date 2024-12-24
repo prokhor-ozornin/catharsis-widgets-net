@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -11,13 +12,13 @@ namespace Catharsis.Web.Widgets.Tests;
 public sealed class IYandexAnalyticsWidgetExtensionsTests : UnitTest
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="IYandexAnalyticsWidgetExtensions.Language(IYandexAnalyticsWidget, CultureInfo})"/> method.</para>
+  ///   <para>Performs testing of <see cref="IYandexAnalyticsWidgetExtensions.Language(IYandexAnalyticsWidget, CultureInfo)"/> method.</para>
   /// </summary>
   [Fact]
   public void Language_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexAnalyticsWidgetExtensions.Language(null, CultureInfo.InvariantCulture));
-    Assert.Throws<ArgumentNullException>(() => IYandexAnalyticsWidgetExtensions.Language(new YandexAnalyticsWidget(), null));
+    AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(new YandexAnalyticsWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
     new YandexAnalyticsWidget().With(widget =>
     {

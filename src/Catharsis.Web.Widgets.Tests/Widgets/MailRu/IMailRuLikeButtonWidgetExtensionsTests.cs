@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,7 +15,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Type_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.Type(null, MailRuLikeButtonType.All));
+    AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("combo", new MailRuLikeButtonWidget().Type(MailRuLikeButtonType.All).Type());
     Assert.Equal("mm", new MailRuLikeButtonWidget().Type(MailRuLikeButtonType.MailRu).Type());
@@ -31,8 +32,8 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Methods()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.Size(null, (short) 0));
-    Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.Size(null, MailRuLikeButtonSize.Size100));
+    AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.Size(null, short.MaxValue)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.Size(null, MailRuLikeButtonSize.Size100)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new MailRuLikeButtonWidget().Size(1).Size());
     Assert.Equal("100", new MailRuLikeButtonWidget().Size(MailRuLikeButtonSize.Size100).Size());
@@ -50,7 +51,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Layout_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.Layout(null, MailRuLikeButtonLayout.First));
+    AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal(1, new MailRuLikeButtonWidget().Layout(MailRuLikeButtonLayout.First).Layout());
     Assert.Equal(2, new MailRuLikeButtonWidget().Layout(MailRuLikeButtonLayout.Second).Layout());
@@ -63,7 +64,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void TextType_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.TextType(null, 0));
+    AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.TextType(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal(1, new MailRuLikeButtonWidget().TextType(1).TextType());
     Assert.Equal(1, new MailRuLikeButtonWidget().TextType(MailRuLikeButtonTextType.First).TextType());
@@ -77,7 +78,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void CounterPosition_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuLikeButtonWidgetExtensions.CounterPosition(null, MailRuLikeButtonCounterPosition.Right));
+    AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.CounterPosition(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("right", new MailRuLikeButtonWidget().CounterPosition(MailRuLikeButtonCounterPosition.Right).CounterPosition());
     Assert.Equal("upper", new MailRuLikeButtonWidget().CounterPosition(MailRuLikeButtonCounterPosition.Upper).CounterPosition());

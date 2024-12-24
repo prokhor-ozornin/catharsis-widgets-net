@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Xunit;
 using Catharsis.Extensions;
+using FluentAssertions;
 
 namespace Catharsis.Web.Widgets.Tests;
 
@@ -24,7 +25,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTests : UnitTest
   [Fact]
   public void Sum_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, 0));
+    AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new YandexMoneyDonateFormWidget().With(widget =>
     {
@@ -39,7 +40,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTests : UnitTest
   [Fact]
   public void Text_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexMoneyDonateFormWidgetExtensions.Text(null, YandexMoneyDonateFormText.Donate));
+    AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new YandexMoneyDonateFormWidget().With(widget =>
     {

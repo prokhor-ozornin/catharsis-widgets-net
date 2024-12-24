@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IMailRuGroupsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuGroupsWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IMailRuGroupsWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new MailRuGroupsWidget().With(widget =>
     {
@@ -30,7 +31,7 @@ public sealed class IMailRuGroupsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuGroupsWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IMailRuGroupsWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new MailRuGroupsWidget().With(widget =>
     {

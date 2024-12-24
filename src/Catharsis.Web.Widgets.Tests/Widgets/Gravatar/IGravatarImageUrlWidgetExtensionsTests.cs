@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -19,10 +20,9 @@ public sealed class IGravatarImageUrlWidgetExtensionsTests : UnitTest
   [Fact]
   public void Default_Methods()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarImageUrlWidgetExtensions.Default(null, "url"));
-    Assert.Throws<ArgumentNullException>(() => new GravatarImageUrlWidget().Default(null));
-    Assert.Throws<ArgumentNullException>(() => IGravatarImageUrlWidgetExtensions.Default(null, GravatarDefaultImage.NotFound));
-    Assert.Throws<ArgumentException>(() => new GravatarImageUrlWidget().Default(string.Empty));
+    AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Default(null, "url")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => new GravatarImageUrlWidget().Default(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+    AssertionExtensions.Should(() => new GravatarImageUrlWidget().Default(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
 
     new GravatarImageUrlWidget().With(widget =>
     {
@@ -55,9 +55,9 @@ public sealed class IGravatarImageUrlWidgetExtensionsTests : UnitTest
   [Fact]
   public void Email_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarImageUrlWidgetExtensions.Email(null, "email"));
-    Assert.Throws<ArgumentNullException>(() => new GravatarImageUrlWidget().Email(null));
-    Assert.Throws<ArgumentException>(() => new GravatarImageUrlWidget().Email(string.Empty));
+    AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Email(null, "email")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => new GravatarImageUrlWidget().Email(null)).ThrowExactly<ArgumentNullException>().WithParameterName("email");
+    AssertionExtensions.Should(() => new GravatarImageUrlWidget().Email(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("email");
 
     new GravatarImageUrlWidget().With(widget =>
     {
@@ -74,7 +74,7 @@ public sealed class IGravatarImageUrlWidgetExtensionsTests : UnitTest
   [Fact]
   public void ForceDefault_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarImageUrlWidgetExtensions.ForceDefault(null));
+    AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.ForceDefault(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new GravatarImageUrlWidget().With(widget =>
     {
@@ -96,10 +96,10 @@ public sealed class IGravatarImageUrlWidgetExtensionsTests : UnitTest
   [Fact]
   public void Rating_Methods()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarImageUrlWidgetExtensions.Rating(null, "rating"));
-    Assert.Throws<ArgumentNullException>(() => new GravatarImageUrlWidget().Rating(null));
-    Assert.Throws<ArgumentNullException>(() => IGravatarImageUrlWidgetExtensions.Rating(null, GravatarImageRating.G));
-    Assert.Throws<ArgumentException>(() => new GravatarImageUrlWidget().Rating(string.Empty));
+    AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Rating(null, "rating")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => new GravatarImageUrlWidget().Rating(null)).ThrowExactly<ArgumentNullException>().WithParameterName("rating");
+    AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Rating(null, GravatarImageRating.G)).ThrowExactly<ArgumentNullException>().WithParameterName("rating");
+    AssertionExtensions.Should(() => new GravatarImageUrlWidget().Rating(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("rating");
 
     new GravatarImageUrlWidget().With(widget =>
     {
@@ -129,7 +129,7 @@ public sealed class IGravatarImageUrlWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGravatarImageUrlWidgetExtensions.Size(null, 0));
+    AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new GravatarImageUrlWidget().With(widget =>
     {

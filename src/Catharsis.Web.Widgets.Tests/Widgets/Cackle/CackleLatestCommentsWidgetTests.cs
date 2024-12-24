@@ -34,9 +34,6 @@ public sealed class CackleLatestCommentsWidgetTests : ClassTest<CackleLatestComm
   [Fact]
   public void Account_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new CackleLatestCommentsWidget().Account(null));
-    Assert.Throws<ArgumentException>(() => new CackleLatestCommentsWidget().Account(string.Empty));
-
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => new CackleLatestCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");

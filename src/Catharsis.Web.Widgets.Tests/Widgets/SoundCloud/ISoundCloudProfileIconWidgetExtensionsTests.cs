@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests : UnitTest
   [Fact]
   public void OrangeWhite_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.OrangeWhite(null));
+    AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.OrangeWhite(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new SoundCloudProfileIconWidget().With(widget =>
     {
@@ -30,7 +31,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests : UnitTest
   [Fact]
   public void WhiteOrange_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.WhiteOrange(null));
+    AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.WhiteOrange(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new SoundCloudProfileIconWidget().With(widget =>
     {
@@ -45,7 +46,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests : UnitTest
   [Fact]
   public void BlackWhite_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.BlackWhite(null));
+    AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.BlackWhite(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new SoundCloudProfileIconWidget().With(widget =>
     {
@@ -60,7 +61,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests : UnitTest
   [Fact]
   public void WhiteTransparent_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.WhiteTransparent(null));
+    AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.WhiteTransparent(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new SoundCloudProfileIconWidget().With(widget =>
     {
@@ -75,7 +76,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests : UnitTest
   [Fact]
   public void OrangeTransparent_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.OrangeTransparent(null));
+    AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.OrangeTransparent(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new SoundCloudProfileIconWidget().With(widget =>
     {
@@ -90,7 +91,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ISoundCloudProfileIconWidgetExtensions.Size(null, SoundCloudProfileIconSize.Size16));
+    AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new SoundCloudProfileIconWidget().With(widget =>
     {

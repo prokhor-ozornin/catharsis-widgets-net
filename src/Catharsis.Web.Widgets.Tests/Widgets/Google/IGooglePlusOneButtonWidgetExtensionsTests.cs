@@ -1,4 +1,5 @@
 using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,7 +15,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGooglePlusOneButtonWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new GooglePlusOneButtonWidget().Width(1).Width());
   }
@@ -25,7 +26,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGooglePlusOneButtonWidgetExtensions.Size(null, GooglePlusOneButtonSize.Standard));
+    AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("medium", new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Medium).Size());
     Assert.Equal("small", new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Small).Size());
@@ -39,7 +40,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Alignment_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGooglePlusOneButtonWidgetExtensions.Alignment(null, GooglePlusOneButtonAlignment.Left));
+    AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Alignment(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("left", new GooglePlusOneButtonWidget().Alignment(GooglePlusOneButtonAlignment.Left).Alignment());
     Assert.Equal("right", new GooglePlusOneButtonWidget().Alignment(GooglePlusOneButtonAlignment.Right).Alignment());
@@ -51,7 +52,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Annotation_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IGooglePlusOneButtonWidgetExtensions.Annotation(null, GooglePlusOneButtonAnnotation.None));
+    AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Annotation(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("bubble", new GooglePlusOneButtonWidget().Annotation(GooglePlusOneButtonAnnotation.Bubble).Annotation());
     Assert.Equal("inline", new GooglePlusOneButtonWidget().Annotation(GooglePlusOneButtonAnnotation.Inline).Annotation());

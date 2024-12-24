@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Color_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexMoneyButtonWidgetExtensions.Color(null, YandexMoneyButtonColor.Orange));
+    AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Color(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new YandexMoneyButtonWidget().With(widget =>
     {
@@ -32,7 +33,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexMoneyButtonWidgetExtensions.Size(null, YandexMoneyButtonSize.Large));
+    AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new YandexMoneyButtonWidget().With(widget =>
     {
@@ -49,7 +50,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Sum_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexMoneyButtonWidgetExtensions.Sum(null, 0));
+    AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new YandexMoneyButtonWidget().With(widget =>
     {
@@ -64,7 +65,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Text_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexMoneyButtonWidgetExtensions.Text(null, YandexMoneyButtonText.Pay));
+    AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new YandexMoneyButtonWidget().With(widget =>
     {
@@ -84,7 +85,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Type_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexMoneyButtonWidgetExtensions.Type(null, YandexMoneyButtonType.Wallet));
+    AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new YandexMoneyButtonWidget().With(widget =>
     {

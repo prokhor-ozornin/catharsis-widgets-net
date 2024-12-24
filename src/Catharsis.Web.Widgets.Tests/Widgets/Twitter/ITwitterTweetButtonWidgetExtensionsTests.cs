@@ -1,6 +1,7 @@
 using System.Globalization;
 using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,8 +17,8 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Language_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture));
-    Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.Language(new TwitterTweetButtonWidget(), null));
+    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Language(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
     new TwitterTweetButtonWidget().With(widget =>
     {
@@ -32,7 +33,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.Size(null, TwitterTweetButtonSize.Large));
+    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new TwitterTweetButtonWidget().With(widget =>
     {
@@ -48,7 +49,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void CounterPosition_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.CounterPosition(null, TwitterTweetButtonCountBoxPosition.Horizontal));
+    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.CounterPosition(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new TwitterTweetButtonWidget().With(widget =>
     {
@@ -65,14 +66,14 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void HashTags_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.HashTags(null, Enumerable.Empty<string>().ToArray()));
-    Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.HashTags(new TwitterTweetButtonWidget(), null));
+    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.HashTags(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.HashTags(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("tags");
 
     new TwitterTweetButtonWidget().With(widget =>
     {
       Assert.True(ReferenceEquals(widget.HashTags(Enumerable.Empty<string>().ToArray()), widget));
       Assert.False(widget.HashTags().Any());
-      Assert.True(widget.HashTags(new[] { "first", "second" }).HashTags().SequenceEqual(new[] { "first", "second" }));
+      Assert.True(widget.HashTags(["first", "second"]).HashTags().SequenceEqual(["first", "second"]));
     });
   }
 
@@ -82,8 +83,8 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void RelatedAccounts_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(null, Enumerable.Empty<string>().ToArray()));
-    Assert.Throws<ArgumentNullException>(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(new TwitterTweetButtonWidget(), null));
+    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("accounts");
 
     new TwitterTweetButtonWidget().With(widget =>
     {

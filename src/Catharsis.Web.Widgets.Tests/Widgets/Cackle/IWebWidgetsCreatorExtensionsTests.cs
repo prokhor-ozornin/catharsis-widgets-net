@@ -1,4 +1,5 @@
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,7 +15,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void Cackle_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Cackle(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Cackle(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.Cackle().Should().BeOfType<CackleWidgetsCreator>().And.BeSameAs(widgets.Cackle());
   }

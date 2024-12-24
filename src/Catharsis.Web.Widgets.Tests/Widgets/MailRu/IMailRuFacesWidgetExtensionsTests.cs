@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IMailRuFacesWidgetExtensionsTests : UnitTest
   [Fact]
   public void Font_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuFacesWidgetExtensions.Font(null, MailRuFacesFont.Arial));
+    AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Font(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new MailRuFacesWidget().With(widget =>
     {
@@ -30,7 +31,7 @@ public sealed class IMailRuFacesWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuFacesWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new MailRuFacesWidget().With(widget =>
     {
@@ -45,7 +46,7 @@ public sealed class IMailRuFacesWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IMailRuFacesWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new MailRuFacesWidget().With(widget =>
     {

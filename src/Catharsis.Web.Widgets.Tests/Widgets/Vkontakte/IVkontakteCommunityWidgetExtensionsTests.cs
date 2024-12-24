@@ -1,5 +1,6 @@
 using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IVkontakteCommunityWidgetExtensionsTests : UnitTest
   [Fact]
   public void Mode_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteCommunityWidgetExtensions.Mode(null, VkontakteCommunityMode.News));
+    AssertionExtensions.Should(() => IVkontakteCommunityWidgetExtensions.Mode(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteCommunityWidget().With(widget =>
     {
@@ -32,7 +33,7 @@ public sealed class IVkontakteCommunityWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteCommunityWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IVkontakteCommunityWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteCommunityWidget().With(widget =>
     {
@@ -47,7 +48,7 @@ public sealed class IVkontakteCommunityWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteCommunityWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IVkontakteCommunityWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteCommunityWidget().With(widget =>
     {

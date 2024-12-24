@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,7 +15,7 @@ public sealed class FacebookFacePileWidgetExtensionsTests : UnitTest
   [Fact]
   public void Actions_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookFacePileWidgetExtensions.Actions(null));
+    AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.False(new FacebookFacePileWidget().Actions().Any());
     Assert.Equal("actions", new FacebookFacePileWidget().Actions("actions").Actions().Single());
@@ -35,7 +36,7 @@ public sealed class FacebookFacePileWidgetExtensionsTests : UnitTest
   [Fact]
   public void PhotoSize_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookFacePileWidgetExtensions.PhotoSize(null, FacebookFacePilePhotoSize.Large));
+    AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.PhotoSize(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("large", new FacebookFacePileWidget().PhotoSize(FacebookFacePilePhotoSize.Large).PhotoSize());
     Assert.Equal("medium", new FacebookFacePileWidget().PhotoSize(FacebookFacePilePhotoSize.Medium).PhotoSize());
@@ -48,7 +49,7 @@ public sealed class FacebookFacePileWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookFacePileWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookFacePileWidget().Width(1).Width());
   }
@@ -59,7 +60,7 @@ public sealed class FacebookFacePileWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookFacePileWidgetExtensions.Height(null, 0));
+    AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookFacePileWidget().Height(1).Height());
   }
@@ -70,7 +71,7 @@ public sealed class FacebookFacePileWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookFacePileWidgetExtensions.ColorScheme(null, FacebookColorScheme.Dark));
+    AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("dark", new FacebookFacePileWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
     Assert.Equal("light", new FacebookFacePileWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());

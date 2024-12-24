@@ -1,5 +1,6 @@
 using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Layout_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Layout(null, SurfingbirdSurfButtonLayout.Common));
+    AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new SurfingbirdSurfButtonWidget().With(widget =>
     {
@@ -32,7 +33,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, 1));
+    AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new SurfingbirdSurfButtonWidget().With(widget =>
     {
@@ -47,7 +48,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, 1));
+    AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new SurfingbirdSurfButtonWidget().With(widget =>
     {
@@ -62,7 +63,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Color_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ISurfingbirdSurfButtonWidgetExtensions.Color(null, SurfingbirdSurfButtonColor.Blue));
+    AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Color(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new SurfingbirdSurfButtonWidget().With(widget =>
     {

@@ -1,4 +1,5 @@
 using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,7 +15,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Layout_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.Layout(null, FacebookButtonLayout.Standard));
+    AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("box_count", new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.BoxCount).Layout());
     Assert.Equal("button_count", new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.ButtonCount).Layout());
@@ -36,7 +37,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.Width(null, 0));
+    AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("1", new FacebookLikeButtonWidget().Width(1).Width());
   }
@@ -47,7 +48,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Verb_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.Verb(null, FacebookLikeButtonVerb.Like));
+    AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Verb(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("like", new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Like).Verb());
     Assert.Equal("recommend", new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).Verb());
@@ -59,7 +60,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IFacebookLikeButtonWidgetExtensions.ColorScheme(null, FacebookColorScheme.Light));
+    AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     Assert.Equal("dark", new FacebookLikeButtonWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
     Assert.Equal("light", new FacebookLikeButtonWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());

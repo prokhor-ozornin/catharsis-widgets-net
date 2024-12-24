@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTests : UnitTest
   [Fact]
   public void Sum_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexMoneyPaymentFormWidgetExtensions.Sum(null, 0));
+    AssertionExtensions.Should(() => IYandexMoneyPaymentFormWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new YandexMoneyPaymentFormWidget().With(widget =>
     {
@@ -30,7 +31,7 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTests : UnitTest
   [Fact]
   public void Text_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexMoneyPaymentFormWidgetExtensions.Text(null, YandexMoneyPaymentFormText.Pay));
+    AssertionExtensions.Should(() => IYandexMoneyPaymentFormWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new YandexMoneyPaymentFormWidget().With(widget =>
     {

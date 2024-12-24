@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IVkontakteRecommendationsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Limit_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontakteRecommendationsWidgetExtensions.Limit(null, VkontakteRecommendationsLimit.Five));
+    AssertionExtensions.Should(() => IVkontakteRecommendationsWidgetExtensions.Limit(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new VkontakteRecommendationsWidget().With(widget =>
     {

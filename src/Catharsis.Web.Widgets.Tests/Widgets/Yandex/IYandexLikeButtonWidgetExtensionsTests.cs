@@ -1,5 +1,6 @@
 using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +16,7 @@ public sealed class IYandexLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexLikeButtonWidgetExtensions.Size(null, YandexLikeButtonSize.Large));
+    AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Size(null, YandexLikeButtonSize.Large)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new YandexLikeButtonWidget().With(widget =>
     {
@@ -36,6 +37,7 @@ public sealed class IYandexLikeButtonWidgetExtensionsTests : UnitTest
       Assert.True(ReferenceEquals(widget.Layout(YandexLikeButtonLayout.Button), widget));
       Assert.Equal("button", widget.Layout());
     });
+
     new YandexLikeButtonWidget().With(widget => Assert.Equal("icon", widget.Layout(YandexLikeButtonLayout.Icon).Layout()));
   }
 

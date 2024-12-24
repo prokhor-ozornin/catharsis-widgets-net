@@ -1,6 +1,7 @@
 using System.Globalization;
 using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,8 +17,8 @@ public sealed class IYandexSharePanelWidgetExtensionsTests : UnitTest
   [Fact]
   public void Services_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexSharePanelWidgetExtensions.Services(null));
-    Assert.Throws<ArgumentNullException>(() => IYandexSharePanelWidgetExtensions.Services(new YandexSharePanelWidget(), null));
+    AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(new YandexSharePanelWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("services");
 
     new YandexSharePanelWidget().With(widget =>
     {
@@ -33,8 +34,8 @@ public sealed class IYandexSharePanelWidgetExtensionsTests : UnitTest
   [Fact]
   public void Language_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexSharePanelWidgetExtensions.Language(null, CultureInfo.InvariantCulture));
-    Assert.Throws<ArgumentNullException>(() => IYandexSharePanelWidgetExtensions.Language(new YandexSharePanelWidget(), null));
+    AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Language(new YandexSharePanelWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
 
     new YandexSharePanelWidget().With(widget =>
     {
@@ -49,7 +50,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTests : UnitTest
   [Fact]
   public void Layout_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IYandexSharePanelWidgetExtensions.Layout(null, YandexSharePanelLayout.Button));
+    AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
     new YandexSharePanelWidget().With(widget =>
     {
