@@ -14,7 +14,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void Vimeo_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Vimeo(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Vimeo(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.Vimeo().Should().BeOfType<VimeoWidgetsCreator>().And.BeSameAs(widgets.Vimeo());
   }

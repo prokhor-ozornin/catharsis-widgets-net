@@ -14,7 +14,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void IntenseDebate_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.IntenseDebate(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.IntenseDebate(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.IntenseDebate().Should().BeOfType<IntenseDebateWidgetsCreator>().And.BeSameAs(widgets.IntenseDebate());
   }

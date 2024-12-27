@@ -14,7 +14,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void YouTube_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.YouTube(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.YouTube(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.YouTube().Should().BeOfType<YouTubeWidgetsCreator>().And.BeSameAs(widgets.YouTube());
   }

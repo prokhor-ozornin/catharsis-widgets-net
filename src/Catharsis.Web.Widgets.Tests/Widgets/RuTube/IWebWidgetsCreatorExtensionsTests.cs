@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -13,9 +14,8 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void RuTube_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.RuTube(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.RuTube(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    Assert.NotNull(html.RuTube());
-    Assert.True(ReferenceEquals(html.RuTube(), html.RuTube()));
+    widgets.RuTube().Should().BeOfType<RuTubeWidgetsCreator>().And.BeSameAs(widgets.RuTube());
   }
 }

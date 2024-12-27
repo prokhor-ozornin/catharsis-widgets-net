@@ -14,7 +14,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void LiveJournal_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.LiveJournal(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.LiveJournal(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.LiveJournal().Should().BeOfType<LiveJournalWidgetsCreator>().And.BeSameAs(widgets.LiveJournal());
   }

@@ -14,7 +14,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void Google_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Google(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Google(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.Google().Should().BeOfType<GoogleWidgetsCreator>().And.BeSameAs(widgets.Google());
   }

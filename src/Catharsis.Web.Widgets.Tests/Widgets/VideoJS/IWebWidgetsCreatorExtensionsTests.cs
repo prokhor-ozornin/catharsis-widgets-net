@@ -14,7 +14,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void VideoJS_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.VideoJS(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.VideoJS(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.VideoJS().Should().BeOfType<VideoJSWidgetsCreator>().And.BeSameAs(widgets.VideoJS());
   }

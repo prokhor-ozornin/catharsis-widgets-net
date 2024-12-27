@@ -14,8 +14,8 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void Tumblr_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Tumblr(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Tumblr(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.Tumblr().Should().BeOfType<SurfingbirdWidgetsCreator>().And.BeSameAs(widgets.Surfingbird());
+    widgets.Tumblr().Should().BeOfType<TumblrWidgetsCreator>().And.BeSameAs(widgets.Tumblr());
   }
 }

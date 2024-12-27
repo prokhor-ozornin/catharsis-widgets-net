@@ -1,4 +1,3 @@
-using Catharsis.Commons;
 using FluentAssertions;
 using Xunit;
 
@@ -15,11 +14,8 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void Pinterest_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Pinterest(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Pinterest(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.Pinterest().Should().BeOfType<PinterestWidgetCreator>().And.BeSameAs(widgets.Pinterest());
-
-    Assert.NotNull(html.Pinterest());
-    Assert.True(ReferenceEquals(html.Pinterest(), html.Pinterest()));
+    widgets.Pinterest().Should().BeOfType<PinterestWidgetsCreator>().And.BeSameAs(widgets.Pinterest());
   }
 }

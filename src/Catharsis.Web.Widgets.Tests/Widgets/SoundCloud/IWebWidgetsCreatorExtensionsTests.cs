@@ -14,7 +14,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void SoundCloud_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.SoundCloud(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.SoundCloud(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.SoundCloud().Should().BeOfType<SoundCloudWidgetsCreator>().And.BeSameAs(widgets.SoundCloud());
   }

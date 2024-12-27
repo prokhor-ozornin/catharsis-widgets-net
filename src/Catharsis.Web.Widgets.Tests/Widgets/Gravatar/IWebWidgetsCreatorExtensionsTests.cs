@@ -14,7 +14,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void Gravatar_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Gravatar(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Gravatar(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.Gravatar().Should().BeOfType<GravatarWidgetsCreator>().And.BeSameAs(widgets.Gravatar());
   }

@@ -14,7 +14,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void Share42_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Share42(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Share42(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.Share42().Should().BeOfType<Share42WidgetsCreator>().And.BeSameAs(widgets.Share42());
   }

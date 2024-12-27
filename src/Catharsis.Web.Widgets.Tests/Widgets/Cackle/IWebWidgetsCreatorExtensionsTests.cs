@@ -1,5 +1,4 @@
 using FluentAssertions;
-using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;

@@ -14,7 +14,7 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void Vkontakte_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.Vkontakte(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Vkontakte(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
     widgets.Vkontakte().Should().BeOfType<VkontakteWidgetsCreator>().And.BeSameAs(widgets.Vkontakte());
   }
