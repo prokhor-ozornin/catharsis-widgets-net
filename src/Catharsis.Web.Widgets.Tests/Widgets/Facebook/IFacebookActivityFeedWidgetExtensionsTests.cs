@@ -45,21 +45,16 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTests : UnitTest
       AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new FacebookActivityFeedWidget();
-      new[] { Array.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
     }
 
     return;
 
-    static void Validate(string[] actions, IFacebookActivityFeedWidget widget)
+    static void Validate(short width, IFacebookActivityFeedWidget widget)
     {
-      widget.Actions(actions).Should().BeSameAs(widget);
-      widget.Actions().Should().Equal(actions);
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
     }
-
-
-    Assert.Throws<ArgumentNullException>(() => IFacebookActivityFeedWidgetExtensions.Width(null, 0));
-
-    Assert.Equal("1", new FacebookActivityFeedWidget().Width(1).Width());
   }
 
   /// <summary>
@@ -68,9 +63,21 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("1", new FacebookActivityFeedWidget().Height(1).Height());
+      var widget = new FacebookActivityFeedWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short height, IFacebookActivityFeedWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -79,9 +86,20 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("dark", new FacebookActivityFeedWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
-    Assert.Equal("light", new FacebookActivityFeedWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());
+      var widget = new FacebookActivityFeedWidget();
+      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(FacebookColorScheme scheme, IFacebookActivityFeedWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme.ToString().ToLowerInvariant());
+    }
   }
 }

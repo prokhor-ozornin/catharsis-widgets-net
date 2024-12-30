@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
+using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,13 +17,21 @@ public sealed class IVkontaktePostWidgetExtensionsTests : UnitTest
   [Fact]
   public void Id_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontaktePostWidgetExtensions.Id(null, 0));
-
-    new VkontaktePostWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Id(1), widget));
-      Assert.Equal("1", widget.Id());
-    });
+      AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Id(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new VkontaktePostWidget();
+      new[] { long.MinValue, long.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(long id, IVkontaktePostWidget widget)
+    {
+      widget.Id(id).Should().BeSameAs(widget);
+      widget.Id().Should().Be(id.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -30,13 +40,21 @@ public sealed class IVkontaktePostWidgetExtensionsTests : UnitTest
   [Fact]
   public void Owner_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontaktePostWidgetExtensions.Owner(null, 0));
-
-    new VkontaktePostWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Owner(1), widget));
-      Assert.Equal("1", widget.Owner());
-    });
+      AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Owner(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new VkontaktePostWidget();
+      new[] { long.MinValue, long.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(long owner, IVkontaktePostWidget widget)
+    {
+      widget.Owner(owner).Should().BeSameAs(widget);
+      widget.Owner().Should().Be(owner.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -45,12 +63,20 @@ public sealed class IVkontaktePostWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width()
   {
-    Assert.Throws<ArgumentNullException>(() => IVkontaktePostWidgetExtensions.Width(null, 0));
-
-    new VkontaktePostWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Width(1), widget));
-      Assert.Equal("1", widget.Width());
-    });
+      AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new VkontaktePostWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short width, IVkontaktePostWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
+    }
   }
 }

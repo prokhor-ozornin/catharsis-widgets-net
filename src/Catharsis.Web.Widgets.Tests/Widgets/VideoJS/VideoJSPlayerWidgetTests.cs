@@ -105,10 +105,10 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
   [Fact]
   public void Videos_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VideoJSPlayerWidget().Videos(null));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new VideoJSPlayerWidget().Videos(null)).ThrowExactly<ArgumentNullException>().WithParameterName("videos");
+
       var widget = new VideoJSPlayerWidget();
       new[] { Enumerable.Empty<IMediaSource>(), [new MediaSource("url", "contentType")] }.ForEach(value => Validate(value, widget));
     }

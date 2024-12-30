@@ -87,8 +87,6 @@ public sealed class FacebookRecommendationsFeedWidgetTests : ClassTest<FacebookR
   [Fact]
   public void Actions_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new FacebookRecommendationsFeedWidget().Actions(null));
-
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("actions");

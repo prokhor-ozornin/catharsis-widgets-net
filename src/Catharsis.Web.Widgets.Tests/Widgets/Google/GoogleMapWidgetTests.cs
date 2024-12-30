@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -23,13 +24,17 @@ public sealed class GoogleMapWidgetTests : ClassTest<GoogleMapWidget>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="GoogleMapWidget.Write(TextWriter)"/> method.</para>
+  ///   <para>Performs testing of <see cref="GravatarImageUrlWidget.ToHtml()"/> method.</para>
   /// </summary>
-  public void Write_Method()
+  [Fact]
+  public void ToHtml_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new GoogleMapWidget().Write(null));
+    using (new AssertionScope())
+    {
+      throw new NotImplementedException();
+    }
 
-    throw new NotImplementedException();
+    return;
 
     static void Validate(IWebWidget widget, params string[] html)
     {

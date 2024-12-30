@@ -40,11 +40,11 @@ public sealed class TwitterTweetButtonWidgetTests : ClassTest<TwitterTweetButton
   [Fact]
   public void Url_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().Url(null));
-    Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Url(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new TwitterTweetButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -64,11 +64,11 @@ public sealed class TwitterTweetButtonWidgetTests : ClassTest<TwitterTweetButton
   [Fact]
   public void Language_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().Language(null));
-    Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Language(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("language");
+
       var widget = new TwitterTweetButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -88,11 +88,11 @@ public sealed class TwitterTweetButtonWidgetTests : ClassTest<TwitterTweetButton
   [Fact]
   public void Text_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().Text(null));
-    Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Text(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("language");
+
       var widget = new TwitterTweetButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -112,11 +112,11 @@ public sealed class TwitterTweetButtonWidgetTests : ClassTest<TwitterTweetButton
   [Fact]
   public void Via_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().Via(null));
-    Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Via(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Via(null)).ThrowExactly<ArgumentNullException>().WithParameterName("via");
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Via(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("via");
+
       var widget = new TwitterTweetButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -136,11 +136,11 @@ public sealed class TwitterTweetButtonWidgetTests : ClassTest<TwitterTweetButton
   [Fact]
   public void Size_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().Size(null));
-    Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().Size(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("size");
+
       var widget = new TwitterTweetButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -160,11 +160,11 @@ public sealed class TwitterTweetButtonWidgetTests : ClassTest<TwitterTweetButton
   [Fact]
   public void CountUrl_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().CountUrl(null));
-    Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().CountUrl(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().CountUrl(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().CountUrl(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("url");
+
       var widget = new TwitterTweetButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -184,11 +184,11 @@ public sealed class TwitterTweetButtonWidgetTests : ClassTest<TwitterTweetButton
   [Fact]
   public void CounterPosition_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().CounterPosition(null));
-    Assert.Throws<ArgumentException>(() => new TwitterTweetButtonWidget().CounterPosition(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().CounterPosition(null)).ThrowExactly<ArgumentNullException>().WithParameterName("position");
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().CounterPosition(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("position");
+
       var widget = new TwitterTweetButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
@@ -229,10 +229,10 @@ public sealed class TwitterTweetButtonWidgetTests : ClassTest<TwitterTweetButton
   [Fact]
   public void HashTags_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().HashTags(null));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().HashTags(null)).ThrowExactly<ArgumentNullException>().WithParameterName("tags");
+
       var widget = new TwitterTweetButtonWidget();
       new[] { Enumerable.Empty<string>(), ["tag"] }.ForEach(value => Validate(value, widget));
     }
@@ -252,10 +252,10 @@ public sealed class TwitterTweetButtonWidgetTests : ClassTest<TwitterTweetButton
   [Fact]
   public void RelatedAccounts_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TwitterTweetButtonWidget().RelatedAccounts(null));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().RelatedAccounts(null)).ThrowExactly<ArgumentNullException>().WithParameterName("accounts");
+
       var widget = new TwitterTweetButtonWidget();
       new[] { Enumerable.Empty<string>(), ["tag"] }.ForEach(value => Validate(value, widget));
     }

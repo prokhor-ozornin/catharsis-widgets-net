@@ -37,7 +37,7 @@ public sealed class InlineImageWidgetTests : ClassTest<InlineImageWidget>
       AssertionExtensions.Should(() => new InlineImageWidget().Contents(null)).ThrowExactly<ArgumentNullException>().WithParameterName("contents");
 
       var widget = new InlineImageWidget();
-      new[] { Array.Empty<byte>(), new Random().ByteSequence(16) }.ForEach(value => Validate(value, widget));
+      new[] { Array.Empty<byte>(), new Random().ByteSequence(16).ToArray() }.ForEach(value => Validate(value, widget));
     }
 
     return;
@@ -55,11 +55,11 @@ public sealed class InlineImageWidgetTests : ClassTest<InlineImageWidget>
   [Fact]
   public void Format_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new InlineImageWidget().Format(null));
-    Assert.Throws<ArgumentException>(() => new InlineImageWidget().Format(string.Empty));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new InlineImageWidget().Format(null)).ThrowExactly<ArgumentNullException>().WithParameterName("format");
+      AssertionExtensions.Should(() => new InlineImageWidget().Format(null)).ThrowExactly<ArgumentException>().WithParameterName("format");
+
       var widget = new InlineImageWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }

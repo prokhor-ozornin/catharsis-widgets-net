@@ -56,10 +56,10 @@ public sealed class YandexSharePanelWidgetTests : ClassTest<YandexSharePanelWidg
   [Fact]
   public void Services_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new YandexSharePanelWidget().Services(null));
-
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => new YandexSharePanelWidget().Services(null)).ThrowExactly<ArgumentNullException>().WithParameterName("services");
+
       var widget = new YandexSharePanelWidget();
       new[] { Enumerable.Empty<string>(), ["service"] }.ForEach(value => Validate(value, widget));
     }

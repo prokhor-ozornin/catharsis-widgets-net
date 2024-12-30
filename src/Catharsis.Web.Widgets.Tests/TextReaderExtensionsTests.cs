@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,9 +15,9 @@ public sealed class TextReaderExtensionsTests : UnitTest
   [Fact]
   public void Json_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => TextReaderExtensions.Json(null));
+    AssertionExtensions.Should(() => TextReaderExtensions.Json(null)).ThrowExactly<ArgumentNullException>().WithParameterName("reader");
 
-    Assert.False(TextReader.Null.Json().Read());
+    TextReader.Null.Json().Read().Should().BeFalse();
     
     throw new NotImplementedException();
   }

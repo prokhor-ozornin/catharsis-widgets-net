@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
 
@@ -13,8 +14,7 @@ public sealed class StringExtensionsTests
   [Fact(Skip = "To be implemented")]
   public void Json_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => StringExtensions.Json<object>(null));
-    Assert.Throws<ArgumentException>(() => string.Empty.Json<object>());
+    AssertionExtensions.Should(() => StringExtensions.Json<object>(null)).ThrowExactly<ArgumentNullException>().WithParameterName("subject");
 
     throw new NotImplementedException();
   }

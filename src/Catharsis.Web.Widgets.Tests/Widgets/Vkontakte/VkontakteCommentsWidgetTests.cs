@@ -36,10 +36,19 @@ public sealed class VkontakteCommentsWidgetTests : ClassTest<VkontakteCommentsWi
   [Fact]
   public void Limit_Method()
   {
-    var widget = new VkontakteCommentsWidget();
-    Assert.Equal((byte)VkontakteCommentsLimit.Limit5, widget.Limit());
-    Assert.True(ReferenceEquals(widget.Limit(1), widget));
-    Assert.Equal(1, widget.Limit());
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommentsWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte limit, IVkontakteCommentsWidget widget)
+    {
+      widget.Limit(limit).Should().BeSameAs(widget);
+      widget.Limit().Should().Be(limit);
+    }
   }
 
   /// <summary>
@@ -48,13 +57,22 @@ public sealed class VkontakteCommentsWidgetTests : ClassTest<VkontakteCommentsWi
   [Fact]
   public void ElementId_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new VkontakteCommentsWidget().ElementId(null));
-    Assert.Throws<ArgumentException>(() => new VkontakteCommentsWidget().ElementId(string.Empty));
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => new VkontakteCommentsWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontakteCommentsWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
 
-    var widget = new VkontakteCommentsWidget();
-    Assert.Null(widget.ElementId());
-    Assert.True(ReferenceEquals(widget.ElementId("elementId"), widget));
-    Assert.Equal("elementId", widget.ElementId());
+      var widget = new VkontakteCommentsWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IVkontakteCommentsWidget widget)
+    {
+      widget.ElementId(id).Should().BeSameAs(widget);
+      widget.ElementId().Should().Be(id);
+    }
   }
 
   /// <summary>
