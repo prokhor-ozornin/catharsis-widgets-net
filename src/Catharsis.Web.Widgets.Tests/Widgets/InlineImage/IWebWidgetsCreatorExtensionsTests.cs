@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -19,9 +20,9 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   [Fact]
   public void InlineImage_Methods()
   {
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.InlineImage(null));
-    Assert.Throws<ArgumentNullException>(() => IWebWidgetsCreatorExtensions.InlineImage(null, _ => { }));
-    Assert.Throws<ArgumentNullException>(() => widgets.InlineImage(null));
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.InlineImage(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
+    AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.InlineImage(null, _ => { })).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
+    AssertionExtensions.Should(() => widgets.InlineImage(null)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
     Assert.NotNull(widgets.InlineImage());
     Assert.False(ReferenceEquals(widgets.InlineImage(), widgets.InlineImage()));

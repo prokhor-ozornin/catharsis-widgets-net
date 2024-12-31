@@ -1,5 +1,7 @@
 using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,9 +17,21 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("1", new GooglePlusOneButtonWidget().Width(1).Width());
+      var widget = new GooglePlusOneButtonWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short width, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -26,12 +40,21 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("medium", new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Medium).Size());
-    Assert.Equal("small", new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Small).Size());
-    Assert.Equal("standard", new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Standard).Size());
-    Assert.Equal("tall", new GooglePlusOneButtonWidget().Size(GooglePlusOneButtonSize.Tall).Size());
+      var widget = new GooglePlusOneButtonWidget();
+      Enum.GetValues<GooglePlusOneButtonSize>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(GooglePlusOneButtonSize size, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -40,10 +63,21 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Alignment_Method()
   {
-    AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Alignment(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Alignment(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("left", new GooglePlusOneButtonWidget().Alignment(GooglePlusOneButtonAlignment.Left).Alignment());
-    Assert.Equal("right", new GooglePlusOneButtonWidget().Alignment(GooglePlusOneButtonAlignment.Right).Alignment());
+      var widget = new GooglePlusOneButtonWidget();
+      Enum.GetValues<GooglePlusOneButtonAlignment>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(GooglePlusOneButtonAlignment alignment, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Alignment(alignment).Should().BeSameAs(widget);
+      widget.Alignment().Should().Be(alignment.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -52,10 +86,20 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Annotation_Method()
   {
-    AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Annotation(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Annotation(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("bubble", new GooglePlusOneButtonWidget().Annotation(GooglePlusOneButtonAnnotation.Bubble).Annotation());
-    Assert.Equal("inline", new GooglePlusOneButtonWidget().Annotation(GooglePlusOneButtonAnnotation.Inline).Annotation());
-    Assert.Equal("none", new GooglePlusOneButtonWidget().Annotation(GooglePlusOneButtonAnnotation.None).Annotation());
+      var widget = new GooglePlusOneButtonWidget();
+      Enum.GetValues<GooglePlusOneButtonAnnotation>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(GooglePlusOneButtonAnnotation annotation, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Annotation(annotation).Should().BeSameAs(widget);
+      widget.Annotation().Should().Be(annotation.ToString().ToLowerInvariant());
+    }
   }
 }

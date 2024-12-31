@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,10 +17,22 @@ public sealed class IFacebookCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Url_Method()
   {
-    AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Url(null, "localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Url(new FacebookCommentsWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Url(new FacebookCommentsWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-    throw new NotImplementedException();
+      var widget = new FacebookCommentsWidget();
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(Uri url, IFacebookCommentsWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url.ToString());
+    }
   }
 
   /// <summary>
@@ -28,9 +41,21 @@ public sealed class IFacebookCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("1", new FacebookCommentsWidget().Width(1).Width());
+      var widget = new FacebookCommentsWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short width, IFacebookCommentsWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -39,10 +64,21 @@ public sealed class IFacebookCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("dark", new FacebookCommentsWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
-    Assert.Equal("light", new FacebookCommentsWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());
+      var widget = new FacebookCommentsWidget();
+      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(FacebookColorScheme scheme, IFacebookCommentsWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -51,10 +87,20 @@ public sealed class IFacebookCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Order_Method()
   {
-    AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Order(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Order(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("reverse_time", new FacebookCommentsWidget().Order(FacebookCommentsOrder.ReverseTime).Order());
-    Assert.Equal("social", new FacebookCommentsWidget().Order(FacebookCommentsOrder.Social).Order());
-    Assert.Equal("time", new FacebookCommentsWidget().Order(FacebookCommentsOrder.Time).Order());
+      var widget = new FacebookCommentsWidget();
+      Enum.GetValues<FacebookCommentsOrder>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(FacebookCommentsOrder order, IFacebookCommentsWidget widget)
+    {
+      widget.Order(order).Should().BeSameAs(widget);
+      widget.Order().Should().Be(order.ToString().ToLowerInvariant());
+    }
   }
 }

@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -14,7 +15,7 @@ public sealed class ObjectExtensionsTests : UnitTest
   [Fact(Skip = "To be implemented")]
   public void Json_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ((object) null).Json());
+    AssertionExtensions.Should(() => ((object) null).Json()).ThrowExactly<ArgumentNullException>().WithParameterName("subject");
 
     throw new NotImplementedException();
   }

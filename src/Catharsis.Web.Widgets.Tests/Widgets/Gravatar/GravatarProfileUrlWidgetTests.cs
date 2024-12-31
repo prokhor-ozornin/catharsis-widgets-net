@@ -80,16 +80,23 @@ public sealed class GravatarProfileUrlWidgetTests : ClassTest<GravatarProfileUrl
   [Fact]
   public void Parameter_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new GravatarProfileUrlWidget().Parameter(null, new object()));
-    Assert.Throws<ArgumentNullException>(() => new GravatarProfileUrlWidget().Parameter("name", null));
-    Assert.Throws<ArgumentException>(() => new GravatarProfileUrlWidget().Parameter(string.Empty, new object()));
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Parameter(null, new object())).ThrowExactly<ArgumentNullException>().WithParameterName("name");
+      AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Parameter(string.Empty, new object())).ThrowExactly<ArgumentException>().WithParameterName("name");
+      AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Parameter("name", null)).ThrowExactly<ArgumentNullException>().WithParameterName("value");
 
-    var widget = new GravatarProfileUrlWidget();
-    Assert.False(widget.GetFieldValue<IDictionary<string, object>>("parameters").Any());
-    Assert.True(ReferenceEquals(widget.Parameter("name", "value"), widget));
-    var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
-    Assert.Equal(1, parameters.Count);
-    Assert.Equal("value", parameters["name"]);
+      var widget = new GravatarProfileUrlWidget();
+      Validate("id", Guid.NewGuid(), widget);
+    }
+
+    return;
+
+    static void Validate(string name, object value, IGravatarProfileUrlWidget widget)
+    {
+      widget.Parameter(name, value).Should().BeSameAs(widget);
+      widget.GetFieldValue<IDictionary<string, object>>("parameters").Should().Contain(name, value);
+    }
   }
 
   /// <summary>

@@ -115,6 +115,23 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void CssStyles_Methods()
   {
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.CssStyles(null, "key")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      new[] { null, string.Empty, "key" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string key, ITagBuilder builder)
+    {
+      builder.AccessKey(key).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("accesskey", key);
+    }
+
+
+
     Assert.Throws<ArgumentNullException>(() => new TagBuilder("tag").CssStyle(null));
     Assert.Throws<ArgumentException>(() => new TagBuilder("tag").CssStyle(string.Empty));
 

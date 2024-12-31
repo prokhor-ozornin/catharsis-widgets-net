@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
 
@@ -13,7 +14,7 @@ public sealed class IDictionaryExtensionsTests
   [Fact]
   public void ToUrlQuery_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => IDictionaryExtensions.ToUrlQuery(null));
+    AssertionExtensions.Should(() => IDictionaryExtensions.ToUrlQuery(null)).ThrowExactly<ArgumentNullException>().WithParameterName("dictionary");
 
     Assert.Equal(string.Empty, new Dictionary<string, object>().ToUrlQuery());
     Assert.Equal("name=value", new Dictionary<string, object> { { "name", "value" } }.ToUrlQuery());
