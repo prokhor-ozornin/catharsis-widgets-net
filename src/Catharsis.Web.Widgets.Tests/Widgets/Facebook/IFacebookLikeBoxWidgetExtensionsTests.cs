@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,7 +17,24 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new FacebookLikeBoxWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string width, IFacebookLikeBoxWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width);
+    }
+
+
+
 
     Assert.Equal("1", new FacebookLikeBoxWidget().Width(1).Width());
   }

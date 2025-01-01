@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,9 +17,21 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("1", new FacebookFollowButtonWidget().Width(1).Width());
+      var widget = new FacebookFollowButtonWidget();
+      new[] { short.MinValue, short.MaxValue) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short width, IFacebookFollowButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -26,9 +40,21 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("1", new FacebookFollowButtonWidget().Height(1).Height());
+      var widget = new FacebookFollowButtonWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short height, IFacebookFollowButtonWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -37,10 +63,21 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("dark", new FacebookFollowButtonWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
-    Assert.Equal("light", new FacebookFollowButtonWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());
+      var widget = new FacebookFollowButtonWidget();
+      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(FacebookColorScheme scheme, IFacebookFollowButtonWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -49,11 +86,21 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Layout_Method()
   {
-    AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("box_count", new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.BoxCount).Layout());
-    Assert.Equal("button_count", new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.ButtonCount).Layout());
-    Assert.Equal("standard", new FacebookFollowButtonWidget().Layout(FacebookButtonLayout.Standard).Layout());
+      var widget = new FacebookFollowButtonWidget();
+      Enum.GetValues<FacebookButtonLayout>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(FacebookButtonLayout layout, IFacebookFollowButtonWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be(layout.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -62,6 +109,21 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Url_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Url(new FacebookFollowButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+
+      var widget = new FacebookFollowButtonWidget();
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(Uri url, IFacebookFollowButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url.ToString());
+    }
   }
 }
