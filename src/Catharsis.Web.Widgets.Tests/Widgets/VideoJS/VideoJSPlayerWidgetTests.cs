@@ -100,7 +100,7 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.Videos(IEnumerable{IMediaSource})"/> method.</para>
+  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.Videos(IEnumerable{ValueTuple{string, string}})"/> method.</para>
   /// </summary>
   [Fact]
   public void Videos_Method()
@@ -110,12 +110,12 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Videos(null)).ThrowExactly<ArgumentNullException>().WithParameterName("videos");
 
       var widget = new VideoJSPlayerWidget();
-      new[] { Enumerable.Empty<IMediaSource>(), [new MediaSource("url", "contentType")] }.ForEach(value => Validate(value, widget));
+      new[] { Enumerable.Empty<(string Url, string ContentType)>(), [("url", "contentType")] }.ForEach(value => Validate(value, widget));
     }
 
     return;
 
-    static void Validate(IEnumerable<IMediaSource> videos, IVideoJSPlayerWidget widget)
+    static void Validate(IEnumerable<(string Url, string ContentType)> videos, IVideoJSPlayerWidget widget)
     {
       widget.Videos(videos).Should().BeSameAs(widget);
       widget.Videos().Should().Equal(videos);
@@ -128,7 +128,7 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    var videos = new[] { new MediaSource("http://vjs.zencdn.net/v/oceans.mp4", "video/mp4"), new MediaSource("http://vjs.zencdn.net/v/oceans.webm", "video/webm") };
+    var videos = new[] { ("http://vjs.zencdn.net/v/oceans.mp4", "video/mp4"), ("http://vjs.zencdn.net/v/oceans.webm", "video/webm") };
 
     using (new AssertionScope())
     {

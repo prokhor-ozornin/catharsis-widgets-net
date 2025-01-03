@@ -16,8 +16,6 @@ public sealed class IDictionaryExtensionsTests
   {
     AssertionExtensions.Should(() => IDictionaryExtensions.ToUrlQuery(null)).ThrowExactly<ArgumentNullException>().WithParameterName("dictionary");
 
-    Assert.Equal(string.Empty, new Dictionary<string, object>().ToUrlQuery());
-    Assert.Equal("name=value", new Dictionary<string, object> { { "name", "value" } }.ToUrlQuery());
-    Assert.Equal("first=1&second=2", new Dictionary<string, object> { { "first", 1 }, { "second", 2 } }.ToUrlQuery());
+    throw new NotImplementedException();
   }
 }

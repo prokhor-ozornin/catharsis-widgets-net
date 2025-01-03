@@ -37,12 +37,9 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentException"></exception>
   public static ITagBuilder Attributes(this ITagBuilder builder, IEnumerable<(string Name, object Value)> attributes)
   {
-    if (builder is null)
-      throw new ArgumentNullException(nameof(builder));
-    if (attributes is null)
-      throw new ArgumentNullException(nameof(attributes));
+    if (builder is null) throw new ArgumentNullException(nameof(builder));
 
-    attributes.ForEach(attribute => builder.Attribute(attribute.Name, attribute.Value));
+    attributes?.ForEach(attribute => builder.Attribute(attribute.Name, attribute.Value));
 
     return builder;
   }
@@ -56,12 +53,9 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentNullException"></exception>
   public static ITagBuilder Attributes(this ITagBuilder builder, object attributes)
   {
-    if (builder is null)
-      throw new ArgumentNullException(nameof(builder));
-    if (attributes is null)
-      throw new ArgumentNullException(nameof(attributes));
+    if (builder is null) throw new ArgumentNullException(nameof(builder));
 
-    return builder.Attributes(attributes.GetState());
+    return builder.Attributes(attributes?.GetState());
   }
 
   /// <summary>
@@ -109,8 +103,7 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentNullException"></exception>
   public static ITagBuilder CssStyle(this ITagBuilder builder, string style)
   {
-    if (builder is null)
-      throw new ArgumentNullException(nameof(builder));
+    if (builder is null) throw new ArgumentNullException(nameof(builder));
 
     return builder.Attribute("style", style);
   }
@@ -125,10 +118,7 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentException"></exception>
   public static ITagBuilder CssStyles(this ITagBuilder builder, IEnumerable<(string Name, string Value)> styles)
   {
-    if (builder is null)
-      throw new ArgumentNullException(nameof(builder));
-    if (styles is null)
-      throw new ArgumentNullException(nameof(styles));
+    if (builder is null) throw new ArgumentNullException(nameof(builder));
 
     throw new NotImplementedException();
   }

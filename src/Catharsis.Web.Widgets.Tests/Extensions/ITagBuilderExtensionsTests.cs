@@ -19,20 +19,7 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void Attribute_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => ITagBuilderExtensions.Attribute(null, "name", new object()));
-    Assert.Throws<ArgumentNullException>(() => new TagBuilder("tag").Attribute(null, new object()));
-    Assert.Throws<ArgumentException>(() => new TagBuilder("tag").Attribute(string.Empty, new object()));
-
-    var builder = new TagBuilder("tag");
-    Assert.False(builder.Attributes.Any());
-    Assert.True(ReferenceEquals(builder.Attribute("attribute", null), builder));
-    Assert.False(builder.Attributes.Any());
-
-    var attribute = new object();
-    builder.Attribute("attribute", attribute);
-    Assert.Equal(1, builder.Attributes.Count);
-    Assert.Equal("attribute", builder.Attributes.Single().Key);
-    Assert.Equal(attribute.ToString(), builder.Attributes.Single().Value);
+    throw new NotImplementedException();
   }
 
   /// <summary>
@@ -45,25 +32,7 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void Attributes_Methods()
   {
-    Assert.Throws<ArgumentNullException>(() => ITagBuilderExtensions.Attributes(null, new object()));
-    Assert.Throws<ArgumentNullException>(() => new TagBuilder("tag").Attributes(null));
-
-    var builder = new TagBuilder("tag");
-    Assert.False(builder.Attributes.Any());
-    Assert.True(ReferenceEquals(builder.Attributes(new object()), builder));
-    Assert.False(builder.Attributes.Any());
-
-    var attributes = new
-    {
-      First = "first",
-      Second = "second"
-    };
-    builder.Attributes(attributes);
-    Assert.Equal(2, builder.Attributes.Count);
-    Assert.Equal("First", builder.Attributes.First().Key);
-    Assert.Equal("first", builder.Attributes.First().Value);
-    Assert.Equal("Second", builder.Attributes.Last().Key);
-    Assert.Equal("second", builder.Attributes.Last().Value);
+    throw new NotImplementedException();
   }
 
   /// <summary>
@@ -72,13 +41,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void CssClass_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TagBuilder("tag").CssClass(null));
-    Assert.Throws<ArgumentException>(() => new TagBuilder("tag").CssClass(string.Empty));
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.CssClass(null, "class")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-    var attributes = new TagBuilder("tag").CssClass("cssClass").Attributes;
-    Assert.Equal(1, attributes.Count);
-    Assert.Equal("class", attributes.Single().Key);
-    Assert.Equal("cssClass", attributes.Single().Value);
+      new[] { null, string.Empty, "class" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string cssClass, ITagBuilder builder)
+    {
+      builder.CssClass(cssClass).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("class", cssClass);
+    }
   }
 
   /// <summary>
@@ -100,13 +76,20 @@ public sealed class ITagBuilderExtensionsTests
   [Fact]
   public void CssStyle_Method()
   {
-    Assert.Throws<ArgumentNullException>(() => new TagBuilder("tag").CssStyle(null));
-    Assert.Throws<ArgumentException>(() => new TagBuilder("tag").CssStyle(string.Empty));
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITagBuilderExtensions.CssStyle(null, "style")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-    var attributes = new TagBuilder("tag").CssStyle("cssStyle").Attributes;
-    Assert.Equal(1, attributes.Count);
-    Assert.Equal("style", attributes.Single().Key);
-    Assert.Equal("cssStyle", attributes.Single().Value);
+      new[] { null, string.Empty, "style" }.ForEach(value => Validate(value, builder));
+    }
+
+    return;
+
+    static void Validate(string style, ITagBuilder builder)
+    {
+      builder.CssStyle(style).Should().BeSameAs(builder);
+      builder.Attributes().Should().Contain("style", style);
+    }
   }
 
   /// <summary>
@@ -121,28 +104,25 @@ public sealed class ITagBuilderExtensionsTests
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => ITagBuilderExtensions.CssStyles(null, "key")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+      AssertionExtensions.Should(() => ITagBuilderExtensions.CssStyles(null, Enumerable.Empty<(string, string)>())).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "key" }.ForEach(value => Validate(value, builder));
+      throw new NotImplementedException();
+
+      static void Validate(IEnumerable<(string Name, string Value)> styles, ITagBuilder builder)
+      {
+      }
     }
 
-    return;
-
-    static void Validate(string key, ITagBuilder builder)
+    using (new AssertionScope())
     {
-      builder.AccessKey(key).Should().BeSameAs(builder);
-      builder.Attributes().Should().Contain("accesskey", key);
+      AssertionExtensions.Should(() => ITagBuilderExtensions.CssStyles(null, Enumerable.Empty<(string, object)>())).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+
+      throw new NotImplementedException();
+
+      static void Validate(IEnumerable<(string Name, object Value)> styles, ITagBuilder builder)
+      {
+      }
     }
-
-
-
-    Assert.Throws<ArgumentNullException>(() => new TagBuilder("tag").CssStyle(null));
-    Assert.Throws<ArgumentException>(() => new TagBuilder("tag").CssStyle(string.Empty));
-
-    var attributes = new TagBuilder("tag").CssStyle("cssStyle").Attributes;
-    Assert.Equal(1, attributes.Count);
-    Assert.Equal("style", attributes.Single().Key);
-    Assert.Equal("cssStyle", attributes.Single().Value);
   }
 
   /// <summary>

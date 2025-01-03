@@ -199,7 +199,7 @@ public sealed class TwitterFollowButtonWidgetTests : ClassTest<TwitterFollowButt
   {
     using (new AssertionScope())
     {
-      Validate(new TwitterFollowButtonWidget().Account("account"), $"""<a class="twitter-follow-button" data-lang="{(HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)}" href="https://twitter.com/account"></a>""");
+      Validate(new TwitterFollowButtonWidget().Account("account"), $"""<a class="twitter-follow-button" data-lang="{Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName}" href="https://twitter.com/account"></a>""");
       Validate(new TwitterFollowButtonWidget().Account("account").Language("en").Counter(true).Size("size").Width("width").Alignment("align").ScreenName(true).Suggestions(false), """<a class="twitter-follow-button" data-align="align" data-dnt="true" data-lang="en" data-show-count="true" data-show-screen-name="true" data-size="size" data-width="width" href="https://twitter.com/account"></a>""");
     }
 
