@@ -47,13 +47,13 @@ public interface IVideoJSPlayerWidget : IWebWidget
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="videos"/> is a <c>null</c> reference.</exception>
   /// <remarks>This attribute is required.</remarks>
-  IVideoJSPlayerWidget Videos(IEnumerable<IMediaSource> videos);
+  IVideoJSPlayerWidget Videos(IEnumerable<(string ContentType, string Url)> videos);
 
   /// <summary>
   ///   <para>Collection of video sources to use.</para>
   /// </summary>
   /// <returns>Collection of videos.</returns>
-  IEnumerable<IMediaSource> Videos();
+  IEnumerable<(string ContentType, string Url)> Videos();
 
   /// <summary>
   ///   <para>Horizontal width of video.</para>

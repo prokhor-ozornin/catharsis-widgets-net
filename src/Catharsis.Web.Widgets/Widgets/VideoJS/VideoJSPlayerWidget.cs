@@ -8,7 +8,7 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
   private string extra;
   private string width;
   private string height;
-  private IEnumerable<IMediaSource> videos = [];
+  private IEnumerable<(string ContentType, string Url)> videos = [];
 
   /// <inheritdoc cref="IVideoJSPlayerWidget.Extra(string)"/>
   public IVideoJSPlayerWidget Extra(string extra)
@@ -36,17 +36,15 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
   /// <inheritdoc cref="IVideoJSPlayerWidget.Height()"/>
   public string Height() => height;
 
-  /// <inheritdoc cref="IVideoJSPlayerWidget.Videos(IEnumerable{IMediaSource})"/>
-  public IVideoJSPlayerWidget Videos(IEnumerable<IMediaSource> videos)
+  /// <inheritdoc cref="IVideoJSPlayerWidget.Videos(IEnumerable{ValueTuple{string, string}})"/>
+  public IVideoJSPlayerWidget Videos(IEnumerable<(string ContentType, string Url)> videos)
   {
-    if (videos is null) throw new ArgumentNullException(nameof(videos));
-
-    this.videos = videos;
+    this.videos = videos ?? throw new ArgumentNullException(nameof(videos));
     return this;
   }
 
   /// <inheritdoc cref="IVideoJSPlayerWidget.Videos()"/>
-  public IEnumerable<IMediaSource> Videos() => videos;
+  public IEnumerable<(string ContentType, string Url)> Videos() => videos;
 
   /// <inheritdoc cref="IVideoJSPlayerWidget.Width(string)"/>
   public IVideoJSPlayerWidget Width(string width)

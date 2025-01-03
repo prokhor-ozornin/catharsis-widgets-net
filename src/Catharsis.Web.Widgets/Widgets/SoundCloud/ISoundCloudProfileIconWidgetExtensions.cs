@@ -59,5 +59,5 @@ public static class ISoundCloudProfileIconWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ISoundCloudProfileIconWidget.Color(string)"/>
-  public static ISoundCloudProfileIconWidget WhiteTransparent(this ISoundCloudProfileIconWidget widget) => widget is not null ? widget.Color("white_transparent") : throw new ArgumentNullException(nameof(widget))
+  public static ISoundCloudProfileIconWidget WhiteTransparent(this ISoundCloudProfileIconWidget widget) => widget is not null ? widget.Color("white_transparent") : throw new ArgumentNullException(nameof(widget));
 }

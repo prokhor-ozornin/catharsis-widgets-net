@@ -140,7 +140,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("a")
       .Attribute("href", "https://twitter.com/share")
-      .Attribute("data-lang", Language() ?? (HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
+      .Attribute("data-lang", Language() ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)
       .Attribute("data-url", Url())
       .Attribute("data-via", Via())
       .Attribute("data-text", Text())

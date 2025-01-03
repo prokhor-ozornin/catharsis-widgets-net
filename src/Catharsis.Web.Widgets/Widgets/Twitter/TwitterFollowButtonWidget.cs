@@ -113,7 +113,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   public override string ToHtml() => Account().IsEmpty() ? string.Empty : 
     new TagBuilder("a")
       .Attribute("href", $"https://twitter.com/${Account()}")
-      .Attribute("data-lang", Language() ?? (HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
+      .Attribute("data-lang", Language() ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)
       .Attribute("data-show-count", Counter())
       .Attribute("data-size", Size())
       .Attribute("data-width", Width())

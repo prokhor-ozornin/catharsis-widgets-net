@@ -125,6 +125,6 @@ public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
       config["ut"] = "noindex";
     }
 
-    return string.Format(resources.yandex_analytics, Account(), Language() ?? (HttpContext.Current is not null ? HttpContext.Current.Request.Language() : Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName), config.Json());
+    return string.Format(resources.yandex_analytics, Account(), Language() ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName, config.Json());
   }
 }
