@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <seealso cref="RuTubeWidgetsCreator"/>
 public sealed class RuTubeWidgetsCreatorTests : ClassTest<RuTubeWidgetsCreator>
 {
-  private readonly IRuTubeWidgetsCreator widgets = Widgets.Web.RuTube();
+  private readonly IRuTubeWidgetsCreator widgets = Widgets.Create.RuTube();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

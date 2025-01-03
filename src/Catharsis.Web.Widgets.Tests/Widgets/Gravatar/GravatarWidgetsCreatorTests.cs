@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class GravatarWidgetsCreatorTests : ClassTest<GravatarWidgetsCreator>
 {
-  private readonly IGravatarWidgetsCreator widgets = Widgets.Web.Gravatar();
+  private readonly IGravatarWidgetsCreator widgets = Widgets.Create.Gravatar();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

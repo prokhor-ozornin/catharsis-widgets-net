@@ -1,4 +1,5 @@
 ﻿using Catharsis.Extensions;
+using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
@@ -125,6 +126,6 @@ public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
       config["ut"] = "noindex";
     }
 
-    return string.Format(resources.yandex_analytics, Account(), Language() ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName, config.Json());
+    return string.Format(resources.yandex_analytics_html, Account(), Language() ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName, config.Json());
   }
 }

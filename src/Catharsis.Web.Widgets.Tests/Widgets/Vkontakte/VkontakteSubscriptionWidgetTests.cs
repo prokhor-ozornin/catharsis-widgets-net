@@ -21,8 +21,8 @@ public sealed class VkontakteSubscriptionWidgetTests : ClassTest<VkontakteSubscr
     typeof(VkontakteSubscriptionWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontakteSubscriptionWidget>();
 
     var widget = new VkontakteSubscriptionWidget();
-    Assert.Null(widget.Account().Should().BeNull());
-    Assert.Null(widget.ElementId().Should().BeNull());
+    widget.Account().Should().BeNull();
+    widget.ElementId().Should().BeNull();
     widget.Layout().Should().Be((byte) VkontakteSubscriptionButtonLayout.Button);
     widget.OnlyButton().Should().BeFalse();
   }

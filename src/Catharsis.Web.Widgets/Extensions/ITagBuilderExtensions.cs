@@ -37,8 +37,10 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentException"></exception>
   public static ITagBuilder Attributes(this ITagBuilder builder, IEnumerable<(string Name, object Value)> attributes)
   {
-    if (builder is null) throw new ArgumentNullException(nameof(builder));
-    if (attributes is null) throw new ArgumentNullException(nameof(attributes));
+    if (builder is null)
+      throw new ArgumentNullException(nameof(builder));
+    if (attributes is null)
+      throw new ArgumentNullException(nameof(attributes));
 
     attributes.ForEach(attribute => builder.Attribute(attribute.Name, attribute.Value));
 
@@ -54,8 +56,10 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentNullException"></exception>
   public static ITagBuilder Attributes(this ITagBuilder builder, object attributes)
   {
-    if (builder is null) throw new ArgumentNullException(nameof(builder));
-    if (attributes is null) throw new ArgumentNullException(nameof(attributes));
+    if (builder is null)
+      throw new ArgumentNullException(nameof(builder));
+    if (attributes is null)
+      throw new ArgumentNullException(nameof(attributes));
 
     return builder.Attributes(attributes.GetState());
   }
@@ -79,8 +83,10 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentException"></exception>
   public static ITagBuilder CssClasses(this ITagBuilder builder, IEnumerable<string> names)
   {
-    if (builder is null) throw new ArgumentNullException(nameof(builder));
-    if (names is null) throw new ArgumentNullException(nameof(names));
+    if (builder is null)
+      throw new ArgumentNullException(nameof(builder));
+    if (names is null)
+      throw new ArgumentNullException(nameof(names));
 
     return builder.Attribute("class", names.AsNotNullable().Select(it => it.Trim()).Join(" "));
   }
@@ -103,7 +109,8 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentNullException"></exception>
   public static ITagBuilder CssStyle(this ITagBuilder builder, string style)
   {
-    if (builder is null) throw new ArgumentNullException(nameof(builder));
+    if (builder is null)
+      throw new ArgumentNullException(nameof(builder));
 
     return builder.Attribute("style", style);
   }
@@ -118,8 +125,10 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentException"></exception>
   public static ITagBuilder CssStyles(this ITagBuilder builder, IEnumerable<(string Name, string Value)> styles)
   {
-    if (builder is null) throw new ArgumentNullException(nameof(builder));
-    if (styles is null) throw new ArgumentNullException(nameof(styles));
+    if (builder is null)
+      throw new ArgumentNullException(nameof(builder));
+    if (styles is null)
+      throw new ArgumentNullException(nameof(styles));
 
     throw new NotImplementedException();
   }
@@ -175,7 +184,8 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentNullException"></exception>
   public static ITagBuilder TextDirection(this ITagBuilder builder, TextDirection direction)
   {
-    if (builder is null) throw new ArgumentNullException(nameof(builder));
+    if (builder is null)
+      throw new ArgumentNullException(nameof(builder));
 
     var value = direction switch
     {
@@ -202,7 +212,7 @@ public static class ITagBuilderExtensions
   /// <param name="id"></param>
   /// <returns></returns>
   public static ITagBuilder Id(this ITagBuilder builder, string id) => builder.Attribute("id", id);
-  
+
   /// <summary>
   ///   <para></para>
   /// </summary>

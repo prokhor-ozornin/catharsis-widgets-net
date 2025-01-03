@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <seealso cref="Share42WidgetsCreator"/>
 public sealed class Share42WidgetsCreatorTests : ClassTest<Share42WidgetsCreator>
 {
-  private readonly IShare42WidgetsCreator widgets = Widgets.Web.Share42();
+  private readonly IShare42WidgetsCreator widgets = Widgets.Create.Share42();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class LiveJournalWidgetsCreatorTests : ClassTest<LiveJournalWidgetsCreator>
 {
-  private readonly ILiveJournalWidgetsCreator widgets = Widgets.Web.LiveJournal();
+  private readonly ILiveJournalWidgetsCreator widgets = Widgets.Create.LiveJournal();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
 {
-  private readonly ICackleWidgetsCreator widgets = Widgets.Web.Cackle();
+  private readonly ICackleWidgetsCreator widgets = Widgets.Create.Cackle();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

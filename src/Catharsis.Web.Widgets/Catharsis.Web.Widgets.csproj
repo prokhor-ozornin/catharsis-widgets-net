@@ -19,21 +19,11 @@
 
   <ItemGroup>
     <None Remove="packages.config" />
-    <None Remove="Scripts\WebWidgets\cackle.js" />
-    <None Remove="Scripts\WebWidgets\disqus.js" />
-    <None Remove="Scripts\WebWidgets\google_analytics.js" />
-    <None Remove="Scripts\WebWidgets\google_plusone.js" />
-    <None Remove="Scripts\WebWidgets\twitter_initialize.js" />
     <None Remove="web.config" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Scripts\WebWidgets\cackle.js" />
-    <Content Include="Scripts\WebWidgets\disqus.js" />
-    <Content Include="Scripts\WebWidgets\google_analytics.js" />
-    <Content Include="Scripts\WebWidgets\google_plusone.js" />
-    <Content Include="Scripts\WebWidgets\twitter_initialize.js" />
     <Content Include="web.config" />
   </ItemGroup>
 

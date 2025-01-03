@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class DisqusWidgetsCreatorTests : ClassTest<DisqusWidgetsCreator>
 {
-  private readonly IDisqusWidgetsCreator widgets = Widgets.Web.Disqus();
+  private readonly IDisqusWidgetsCreator widgets = Widgets.Create.Disqus();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

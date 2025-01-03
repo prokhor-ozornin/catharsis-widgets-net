@@ -36,5 +36,5 @@ public static class IVideoJSPlayerWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IVideoJSPlayerWidget.Videos(IEnumerable{ValueTuple{string, string}})"/>
-  public static IVideoJSPlayerWidget Videos(this IVideoJSPlayerWidget widget, params (string ContentType, string Url)[] videos) => widget is not null ? widget.Videos(videos) : throw new ArgumentNullException(nameof(widget));
+  public static IVideoJSPlayerWidget Videos(this IVideoJSPlayerWidget widget, params (string Url, string ContentType)[] videos) => widget is not null ? widget.Videos(videos) : throw new ArgumentNullException(nameof(widget));
 }

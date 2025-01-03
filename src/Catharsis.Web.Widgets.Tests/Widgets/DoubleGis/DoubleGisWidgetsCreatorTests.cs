@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class DoubleGisWidgetsCreatorTests : ClassTest<DoubleGisWidgetsCreator>
 {
-  private readonly IDoubleGisWidgetsCreator widgets = Widgets.Web.DoubleGis();
+  private readonly IDoubleGisWidgetsCreator widgets = Widgets.Create.DoubleGis();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

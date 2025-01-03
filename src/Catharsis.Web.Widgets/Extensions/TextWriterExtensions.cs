@@ -14,5 +14,5 @@ public static class TextWriterExtensions
   /// <param name="writer"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException">If <paramref name="writer"/> is a <c>null</c> reference.</exception>
-  public static JsonTextWriter Json(this TextWriter writer) => writer is not null ? new JsonTextWriter(writer) : throw new ArgumentNullException(nameof(writer));
+  public static JsonTextWriter AsJson(this TextWriter writer) => writer is not null ? new JsonTextWriter(writer) : throw new ArgumentNullException(nameof(writer));
 }

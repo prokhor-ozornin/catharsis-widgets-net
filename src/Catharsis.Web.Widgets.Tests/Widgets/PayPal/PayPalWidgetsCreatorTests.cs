@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class PayPalWidgetsCreatorTests : ClassTest<PayPalWidgetsCreator>
 {
-  private readonly IPayPalWidgetsCreator widgets = Widgets.Web.PayPal();
+  private readonly IPayPalWidgetsCreator widgets = Widgets.Create.PayPal();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

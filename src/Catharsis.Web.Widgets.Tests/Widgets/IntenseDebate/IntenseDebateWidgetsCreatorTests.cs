@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class IntenseDebateWidgetsCreatorTests : ClassTest<IntenseDebateWidgetsCreator>
 {
-  private readonly IIntenseDebateWidgetsCreator widgets = Widgets.Web.IntenseDebate();
+  private readonly IIntenseDebateWidgetsCreator widgets = Widgets.Create.IntenseDebate();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

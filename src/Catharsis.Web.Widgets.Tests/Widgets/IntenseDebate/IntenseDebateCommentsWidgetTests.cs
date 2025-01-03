@@ -113,33 +113,37 @@ public sealed class IntenseDebateCommentsWidgetTests : ClassTest<IntenseDebateCo
   [Fact]
   public void ToHtml_Method()
   {
-    Assert.Equal(string.Empty, new IntenseDebateCommentsWidget().ToString());
+    using (new AssertionScope())
+    {
+      Validate(new IntenseDebateCommentsWidget());
+      Validate(new IntenseDebateCommentsWidget().Account("account"),
+               """<script type="text/javascript">""",
+               """var idcomments_acct = "account";""",
+               """
+               var idcomments_post_id = ""
+               """,
+               """
+               var idcomments_post_url = ""
+               """,
+               """
+               var idcomments_post_title = ""
+               """               
+        );
+      Validate(new IntenseDebateCommentsWidget().Account("account").PostId("postId").PostUrl("postUrl").PostTitle("postTitle"),
+               """<script type="text/javascript">""",
+               """var idcomments_acct = "account";""",
+               """
+               var idcomments_post_id = "postId"
+               """,
+               """
+               var idcomments_post_url = "postUrl"
+               """,
+               """
+               var idcomments_post_title = "postTitle"
+               """
+        );
 
-    var html = new IntenseDebateCommentsWidget().Account("account").ToString();
-    Assert.True(html.Contains("""<script type="text/javascript">"""));
-    Assert.True(html.Contains("""var idcomments_acct = "account";"""));
-    Assert.True(html.Contains("""
-                              var idcomments_post_id = ""
-                              """));
-    Assert.True(html.Contains("""
-                              var idcomments_post_url = ""
-                              """));
-    Assert.True(html.Contains("""
-                              var idcomments_post_title = ""
-                              """));
-
-    html = new IntenseDebateCommentsWidget().Account("account").PostId("postId").PostUrl("postUrl").PostTitle("postTitle").ToString();
-    Assert.True(html.Contains("""<script type="text/javascript">"""));
-    Assert.True(html.Contains("""var idcomments_acct = "account";"""));
-    Assert.True(html.Contains("""
-                              var idcomments_post_id = "postId"
-                              """));
-    Assert.True(html.Contains("""
-                              var idcomments_post_url = "postUrl"
-                              """));
-    Assert.True(html.Contains("""
-                              var idcomments_post_title = "postTitle"
-                              """));
+    }
 
     return;
 

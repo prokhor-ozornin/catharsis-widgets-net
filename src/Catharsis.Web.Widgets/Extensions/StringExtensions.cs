@@ -21,7 +21,11 @@ namespace Catharsis.Web.Widgets
         subject,
         new JsonSerializerSettings
         {
-          Formatting = Formatting.None, DateTimeZoneHandling = DateTimeZoneHandling.Utc, DefaultValueHandling = DefaultValueHandling.Ignore, PreserveReferencesHandling = PreserveReferencesHandling.Objects, ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+          Formatting = Formatting.None,
+          DateTimeZoneHandling = DateTimeZoneHandling.Utc,
+          DefaultValueHandling = DefaultValueHandling.Ignore,
+          PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+          ReferenceLoopHandling = ReferenceLoopHandling.Ignore
         })
       : throw new ArgumentNullException(nameof(subject));
   }

@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class TumblrWidgetsCreatorTests : ClassTest<TumblrWidgetsCreator>
 {
-  private readonly ITumblrWidgetsCreator widgets = Widgets.Web.Tumblr();
+  private readonly ITumblrWidgetsCreator widgets = Widgets.Create.Tumblr();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

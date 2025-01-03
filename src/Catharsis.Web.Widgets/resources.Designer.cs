@@ -61,6 +61,23 @@ namespace Catharsis.Web.Widgets {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (function()
+        ///{
+        ///  var mc = document.createElement(&apos;script&apos;);
+        ///  mc.type = &apos;text/javascript&apos;;
+        ///  mc.async = true;
+        ///  mc.src = (&apos;https:&apos; == document.location.protocol ? &apos;https&apos; : &apos;http&apos;) + &apos;://cackle.me/widget.js&apos;;
+        ///  var s = document.getElementsByTagName(&apos;script&apos;)[0];
+        ///  s.parentNode.insertBefore(mc, s.nextSibling);
+        ///})();.
+        /// </summary>
+        internal static string cackle_js {
+            get {
+                return ResourceManager.GetString("cackle.js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
         ///&lt;script type=&quot;text/javascript&quot;&gt;
         ///    var disqus_shortname = &quot;{0}&quot;;
@@ -68,9 +85,25 @@ namespace Catharsis.Web.Widgets {
         ///&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
         ///&lt;a href=&quot;http://disqus.com&quot; class=&quot;dsq-brlink&quot;&gt;comments powered by &lt;span class=&quot;logo-disqus&quot;&gt;Disqus&lt;/span&gt;&lt;/a&gt;.
         /// </summary>
-        internal static string disqus_comments {
+        internal static string disqus_comments_html {
             get {
-                return ResourceManager.GetString("disqus_comments", resourceCulture);
+                return ResourceManager.GetString("disqus_comments.html", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (function()
+        ///{
+        ///    var dsq = document.createElement(&quot;script&quot;);
+        ///    dsq.type = &quot;text/javascript&quot;;
+        ///    dsq.async = true;
+        ///    dsq.src = &quot;http://&quot; + disqus_shortname + &quot;.disqus.com/embed.js&quot;;
+        ///    (document.getElementsByTagName(&quot;head&quot;)[0] || document.getElementsByTagName(&quot;body&quot;)[0]).appendChild(dsq);
+        ///})();.
+        /// </summary>
+        internal static string disqus_js {
+            get {
+                return ResourceManager.GetString("disqus.js", resourceCulture);
             }
         }
         
@@ -87,9 +120,9 @@ namespace Catharsis.Web.Widgets {
         ///}}(document, &apos;script&apos;, &apos;facebook-jssdk&apos;));
         ///&lt;/script&gt;.
         /// </summary>
-        internal static string facebook_initialize {
+        internal static string facebook_initialize_js {
             get {
-                return ResourceManager.GetString("facebook_initialize", resourceCulture);
+                return ResourceManager.GetString("facebook_initialize.js", resourceCulture);
             }
         }
         
@@ -109,25 +142,54 @@ namespace Catharsis.Web.Widgets {
         ///
         ///    ga(&quot;crea [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string google_analytics {
+        internal static string google_analytics_html {
             get {
-                return ResourceManager.GetString("google_analytics", resourceCulture);
+                return ResourceManager.GetString("google_analytics.html", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;script type=&quot;text/javascript&quot;&gt;
-        ///  var idcomments_acct = &quot;{0}&quot;;
-        ///  var idcomments_post_id = &quot;{1}&quot;;
-        ///  var idcomments_post_url = &quot;{2}&quot;;
-        ///  var idcomments_post_title = &quot;{3}&quot;;
-        ///&lt;/script&gt;
-        ///&lt;span id=&quot;IDCommentsPostTitle&quot; style=&quot;display:none&quot;&gt;&lt;/span&gt;
-        ///&lt;script src=&quot;http://www.intensedebate.com/js/genericCommentWrapperV2.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;.
+        ///   Looks up a localized string similar to (function (i, s, o, g, r, a, m) {
+        ///    i[&apos;GoogleAnalyticsObject&apos;] = r;
+        ///    i[r] = i[r] || function () {
+        ///        (i[r].q = i[r].q || []).push(arguments)
+        ///    }, i[r].l = 1 * new Date();
+        ///    a = s.createElement(o),
+        ///        m = s.getElementsByTagName(o)[0];
+        ///    a.async = 1;
+        ///    a.src = g;
+        ///    m.parentNode.insertBefore(a, m)
+        ///})(window, document, &apos;script&apos;, &apos;//www.google-analytics.com/analytics.js&apos;, &apos;ga&apos;);.
         /// </summary>
-        internal static string intensedebate_comments {
+        internal static string google_analytics_js {
             get {
-                return ResourceManager.GetString("intensedebate_comments", resourceCulture);
+                return ResourceManager.GetString("google_analytics.js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (function()
+        ///{
+        ///  var po = document.createElement(&apos;script&apos;);
+        ///  po.type = &apos;text/javascript&apos;;
+        ///  po.async = true;
+        ///  po.src = &apos;https://apis.google.com/js/plusone.js&apos;;
+        ///  var s = document.getElementsByTagName(&apos;script&apos;)[0];
+        ///  s.parentNode.insertBefore(po, s);
+        ///})();.
+        /// </summary>
+        internal static string google_plusone_js {
+            get {
+                return ResourceManager.GetString("google_plusone.js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string intensedebate_comments_html {
+            get {
+                return ResourceManager.GetString("intensedebate_comments.html", resourceCulture);
             }
         }
         
@@ -141,9 +203,28 @@ namespace Catharsis.Web.Widgets {
         ///&lt;span id=&quot;IDCommentsPostTitle&quot; style=&quot;display:none&quot;&gt;&lt;/span&gt;
         ///&lt;script src=&quot;http://www.intensedebate.com/js/genericLinkWrapperV2.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;.
         /// </summary>
-        internal static string intensedebate_link {
+        internal static string intensedebate_link_html {
             get {
-                return ResourceManager.GetString("intensedebate_link", resourceCulture);
+                return ResourceManager.GetString("intensedebate_link.html", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to !function (d, s, id)
+        ///{
+        ///  var js, fjs = d.getElementsByTagName(s)[0];
+        ///  if (!d.getElementById(id))
+        ///  {
+        ///    js = d.createElement(s);
+        ///    js.id = id;
+        ///    js.src = &quot;//platform.twitter.com/widgets.js&quot;;
+        ///    fjs.parentNode.insertBefore(js, fjs);
+        ///  }
+        ///}(document, &quot;script&quot;, &quot;twitter-wjs&quot;);.
+        /// </summary>
+        internal static string twitter_initialize_js {
+            get {
+                return ResourceManager.GetString("twitter_initialize.js", resourceCulture);
             }
         }
         
@@ -161,9 +242,9 @@ namespace Catharsis.Web.Widgets {
         ///&lt;/a&gt;
         ///&lt;!--  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string yandex_analytics {
+        internal static string yandex_analytics_html {
             get {
-                return ResourceManager.GetString("yandex_analytics", resourceCulture);
+                return ResourceManager.GetString("yandex_analytics.html", resourceCulture);
             }
         }
         
@@ -190,9 +271,9 @@ namespace Catharsis.Web.Widgets {
         ///    shareScript.charset = &quot;utf-8&quot;;
         ///    shareScript.src = Ya.STATIC_BASE + &quot;/js/api/ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string yandex_like {
+        internal static string yandex_like_html {
             get {
-                return ResourceManager.GetString("yandex_like", resourceCulture);
+                return ResourceManager.GetString("yandex_like.html", resourceCulture);
             }
         }
     }

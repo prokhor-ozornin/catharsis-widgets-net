@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class SurfingbirdWidgetsCreatorTests : ClassTest<SurfingbirdWidgetsCreator>
 {
-  private readonly ISurfingbirdWidgetsCreator widgets = Widgets.Web.Surfingbird();
+  private readonly ISurfingbirdWidgetsCreator widgets = Widgets.Create.Surfingbird();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

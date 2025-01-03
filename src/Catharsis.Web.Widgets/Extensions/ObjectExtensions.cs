@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Catharsis.Web.Widgets;
+namespace Catharsis.Web.Widgets.Extensions;
 
 /// <summary>
 ///   <para>Set of extension methods for class <see cref="object"/>.</para>
@@ -18,8 +18,10 @@ public static class ObjectExtensions
     ? JsonConvert.SerializeObject(subject,
       new JsonSerializerSettings
       {
-        Formatting = Formatting.None, DateTimeZoneHandling = DateTimeZoneHandling.Utc,
-        DefaultValueHandling = DefaultValueHandling.Ignore, ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+        Formatting = Formatting.None,
+        DateTimeZoneHandling = DateTimeZoneHandling.Utc,
+        DefaultValueHandling = DefaultValueHandling.Ignore,
+        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
       })
     : throw new ArgumentNullException(nameof(subject));
 }

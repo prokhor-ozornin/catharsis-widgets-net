@@ -11,7 +11,7 @@ public sealed class StringExtensionsTests
   /// <summary>
   ///   <para>Performs testing of <see cref="StringExtensions.Json{T}(string)"/> method.</para>
   /// </summary>
-  [Fact(Skip = "To be implemented")]
+  [Fact]
   public void Json_Method()
   {
     AssertionExtensions.Should(() => StringExtensions.Json<object>(null)).ThrowExactly<ArgumentNullException>().WithParameterName("subject");

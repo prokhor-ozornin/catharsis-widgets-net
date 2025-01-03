@@ -58,20 +58,26 @@ public sealed class IVideoJSPlayerWidgetExtensionsTests : UnitTest
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IVideoJSPlayerWidgetExtensions.Videos(IVideoJSPlayerWidget, IMediaSource[])"/> method.</para>
+  ///   <para>Performs testing of <see cref="IVideoJSPlayerWidgetExtensions.Videos(IVideoJSPlayerWidget, ValueTuple{string, string}[])"/> method.</para>
   /// </summary>
   [Fact]
   public void Videos_Method()
   {
-    AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(new VideoJSPlayerWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("videos");
-
-    new VideoJSPlayerWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Videos(Enumerable.Empty<IMediaSource>()), widget));
-      Assert.False(widget.Videos().Any());
-    });
+      AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(new VideoJSPlayerWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("videos");
 
-    new VideoJSPlayerWidget().With(widget => Assert.True(widget.Videos(new[] { new MediaSource("url", "contentType") }).Videos().SequenceEqual(new[] { new MediaSource("url", "contentType") })));
+      var widget = new VideoJSPlayerWidget();
+      new[] { Array.Empty<(string Url, string ContentType)>() }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate((string Url, string ContentType)[] videos, IVideoJSPlayerWidget widget)
+    {
+      IVideoJSPlayerWidgetExtensions.Videos(widget, videos).Should().BeSameAs(widget);
+      widget.Videos().Should().Equal(videos);
+    }
   }
 }

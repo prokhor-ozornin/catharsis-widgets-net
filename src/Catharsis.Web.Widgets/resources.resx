@@ -117,7 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="disqus_comments" xml:space="preserve">
+  <data name="cackle.js" xml:space="preserve">
+    <value>(function()
+{
+  var mc = document.createElement('script');
+  mc.type = 'text/javascript';
+  mc.async = true;
+  mc.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cackle.me/widget.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(mc, s.nextSibling);
+})();</value>
+  </data>
+  <data name="disqus.js" xml:space="preserve">
+    <value>(function()
+{
+    var dsq = document.createElement("script");
+    dsq.type = "text/javascript";
+    dsq.async = true;
+    dsq.src = "http://" + disqus_shortname + ".disqus.com/embed.js";
+    (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+})();</value>
+  </data>
+  <data name="disqus_comments.html" xml:space="preserve">
     <value>&lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script type="text/javascript"&gt;
     var disqus_shortname = "{0}";
@@ -125,7 +146,7 @@
 &lt;noscript&gt;Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
 &lt;a href="http://disqus.com" class="dsq-brlink"&gt;comments powered by &lt;span class="logo-disqus"&gt;Disqus&lt;/span&gt;&lt;/a&gt;</value>
   </data>
-  <data name="facebook_initialize" xml:space="preserve">
+  <data name="facebook_initialize.js" xml:space="preserve">
     <value>&lt;script type="text/javascript"&gt;
 (function(d, s, id)
  {{
@@ -138,7 +159,7 @@
 }}(document, 'script', 'facebook-jssdk'));
 &lt;/script&gt;</value>
   </data>
-  <data name="google_analytics" xml:space="preserve">
+  <data name="google_analytics.html" xml:space="preserve">
     <value>&lt;script type="text/javascript"&gt;
     (function (i, s, o, g, r, a, m) {{
         i['GoogleAnalyticsObject'] = r;
@@ -157,17 +178,34 @@
 
 &lt;/script&gt;</value>
   </data>
-  <data name="intensedebate_comments" xml:space="preserve">
-    <value>&lt;script type="text/javascript"&gt;
-  var idcomments_acct = "{0}";
-  var idcomments_post_id = "{1}";
-  var idcomments_post_url = "{2}";
-  var idcomments_post_title = "{3}";
-&lt;/script&gt;
-&lt;span id="IDCommentsPostTitle" style="display:none"&gt;&lt;/span&gt;
-&lt;script src="http://www.intensedebate.com/js/genericCommentWrapperV2.js" type="text/javascript"&gt;&lt;/script&gt;</value>
+  <data name="google_analytics.js" xml:space="preserve">
+    <value>(function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');</value>
   </data>
-  <data name="intensedebate_link" xml:space="preserve">
+  <data name="google_plusone.js" xml:space="preserve">
+    <value>(function()
+{
+  var po = document.createElement('script');
+  po.type = 'text/javascript';
+  po.async = true;
+  po.src = 'https://apis.google.com/js/plusone.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(po, s);
+})();</value>
+  </data>
+  <data name="intensedebate_comments.html" xml:space="preserve">
+    <value />
+  </data>
+  <data name="intensedebate_link.html" xml:space="preserve">
     <value>&lt;script type="text/javascript"&gt;
   var idcomments_acct = "{0}";
   var idcomments_post_id = "{1}";
@@ -177,7 +215,20 @@
 &lt;span id="IDCommentsPostTitle" style="display:none"&gt;&lt;/span&gt;
 &lt;script src="http://www.intensedebate.com/js/genericLinkWrapperV2.js" type="text/javascript"&gt;&lt;/script&gt;</value>
   </data>
-  <data name="yandex_analytics" xml:space="preserve">
+  <data name="twitter_initialize.js" xml:space="preserve">
+    <value>!function (d, s, id)
+{
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (!d.getElementById(id))
+  {
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }
+}(document, "script", "twitter-wjs");</value>
+  </data>
+  <data name="yandex_analytics.html" xml:space="preserve">
     <value>&lt;!-- Yandex.Metrika informer --&gt;
 &lt;a href="http://metrika.yandex.ru/stat/?id=12066574&amp;amp;from=informer" target="_blank" rel="nofollow"&gt;
   &lt;img src="//bs.yandex.ru/informer/12066574/3_1_FFFFFFFF_EFEFEFFF_0_pageviews" style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try
@@ -223,7 +274,7 @@
 &lt;/noscript&gt;
 &lt;!-- /Yandex.Metrika counter --&gt;</value>
   </data>
-  <data name="yandex_like" xml:space="preserve">
+  <data name="yandex_like.html" xml:space="preserve">
     <value>&lt;script type="text/javascript"&gt;
 if (window.Ya &amp;&amp; window.Ya.Share)
 {

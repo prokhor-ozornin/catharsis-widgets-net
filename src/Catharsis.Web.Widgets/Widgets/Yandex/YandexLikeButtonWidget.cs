@@ -89,6 +89,6 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
         .Attribute("share_url", Url())
         .Attribute("share_title", Title())
        )
-      .Append(resources.yandex_like)
+      .Append(resources.yandex_like_html)
       .ToString();
 }

@@ -42,6 +42,6 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
       return string.Empty;
     }
 
-    return string.Format(resources.google_analytics, Account(), Domain());
+    return string.Format(resources.google_analytics_js, Account(), Domain());
   }
 }

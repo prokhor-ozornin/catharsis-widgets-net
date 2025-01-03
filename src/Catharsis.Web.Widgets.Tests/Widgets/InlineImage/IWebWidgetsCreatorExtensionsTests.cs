@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed partial class IWebWidgetsCreatorExtensionsTests
 {
-  private readonly IWebWidgetsCreator widgets = Widgets.Web;
+  private readonly IWebWidgetsCreator widgets = Widgets.Create;
 
   /// <summary>
   ///   <para>Performs testing of following methods :</para>

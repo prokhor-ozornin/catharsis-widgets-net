@@ -21,8 +21,8 @@ public sealed class GravatarImageUrlWidgetTests : ClassTest<GravatarImageUrlWidg
     typeof(GravatarImageUrlWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IGravatarImageUrlWidget>();
   
     var widget = new GravatarImageUrlWidget();
-    Assert.Null(widget.Extension().Should().BeNull());
-    Assert.Null(widget.Hash().Should().BeNull());
+    widget.Extension().Should().BeNull();
+    widget.Hash().Should().BeNull();
     widget.GetFieldValue<IDictionary<string, object>>("parameters").Should().BeEmpty();
   }
 

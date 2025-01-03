@@ -37,14 +37,14 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
   public string Height() => height;
 
   /// <inheritdoc cref="IVideoJSPlayerWidget.Videos(IEnumerable{ValueTuple{string, string}})"/>
-  public IVideoJSPlayerWidget Videos(IEnumerable<(string ContentType, string Url)> videos)
+  public IVideoJSPlayerWidget Videos(IEnumerable<(string Url, string ContentType)> videos)
   {
     this.videos = videos ?? throw new ArgumentNullException(nameof(videos));
     return this;
   }
 
   /// <inheritdoc cref="IVideoJSPlayerWidget.Videos()"/>
-  public IEnumerable<(string ContentType, string Url)> Videos() => videos;
+  public IEnumerable<(string Url, string ContentType)> Videos() => videos;
 
   /// <inheritdoc cref="IVideoJSPlayerWidget.Width(string)"/>
   public IVideoJSPlayerWidget Width(string width)

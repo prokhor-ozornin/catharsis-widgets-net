@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class VideoJsWidgetsCreatorTests : ClassTest<VideoJSWidgetsCreator>
 {
-  private readonly IVideoJSWidgetsCreator widgets = Widgets.Web.VideoJS();
+  private readonly IVideoJSWidgetsCreator widgets = Widgets.Create.VideoJS();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

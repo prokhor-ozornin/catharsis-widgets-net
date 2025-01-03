@@ -128,7 +128,7 @@ public sealed class VideoJSPlayerWidgetTests : ClassTest<VideoJSPlayerWidget>
   [Fact]
   public void ToHtml_Method()
   {
-    var videos = new[] { new MediaSource("http://vjs.zencdn.net/v/oceans.mp4", VideoContentTypes.MP4), new MediaSource("http://vjs.zencdn.net/v/oceans.webm", VideoContentTypes.WebM) };
+    var videos = new[] { new MediaSource("http://vjs.zencdn.net/v/oceans.mp4", "video/mp4"), new MediaSource("http://vjs.zencdn.net/v/oceans.webm", "video/webm") };
 
     using (new AssertionScope())
     {

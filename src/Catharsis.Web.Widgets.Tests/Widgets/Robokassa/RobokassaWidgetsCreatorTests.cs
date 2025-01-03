@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class RobokassaWidgetsCreatorTests : ClassTest<RobokassaWidgetsCreator>
 {
-  private readonly IRobokassaWidgetsCreator widgets = Widgets.Web.Robokassa();
+  private readonly IRobokassaWidgetsCreator widgets = Widgets.Create.Robokassa();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

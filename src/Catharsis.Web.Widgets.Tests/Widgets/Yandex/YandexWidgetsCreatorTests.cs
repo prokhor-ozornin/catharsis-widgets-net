@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
 {
-  private readonly IYandexWidgetsCreator widgets = Widgets.Web.Yandex();
+  private readonly IYandexWidgetsCreator widgets = Widgets.Create.Yandex();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

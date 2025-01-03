@@ -12,5 +12,5 @@ public static partial class IWidgetsScriptsRendererExtensions
   /// <param name="renderer">JavaScript code renderer.</param>
   /// <returns>JavaScript code.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="renderer"/> is a <c>null</c> reference.</exception>
-  public static string Google(this IWidgetsScriptsRenderer renderer) => renderer is not null ? Scripts.Render("~/WebWidgets/Google") : throw new ArgumentNullException(nameof(renderer));
+  public static string GoogleAnalytics(this IWidgetsScriptsRenderer renderer) => renderer is not null ? resources.google_analytics_js : throw new ArgumentNullException(nameof(renderer));
 }

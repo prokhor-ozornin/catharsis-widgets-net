@@ -1,4 +1,5 @@
 using Catharsis.Extensions;
+using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 

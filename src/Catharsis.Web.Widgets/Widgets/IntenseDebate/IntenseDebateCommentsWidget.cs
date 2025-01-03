@@ -63,5 +63,5 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
   public string PostTitle() => postTitle;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => Account().IsEmpty() ? string.Empty : string.Format(resources.intensedebate_comments, Account(), PostId(), PostUrl(), PostTitle());
+  public override string ToHtml() => Account().IsEmpty() ? string.Empty : string.Format(resources.intensedebate_comments_html, Account(), PostId(), PostUrl(), PostTitle());
 }

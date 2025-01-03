@@ -27,7 +27,7 @@ public sealed class ITagBuilderExtensionsTests
     Assert.False(builder.Attributes.Any());
     Assert.True(ReferenceEquals(builder.Attribute("attribute", null), builder));
     Assert.False(builder.Attributes.Any());
-      
+
     var attribute = new object();
     builder.Attribute("attribute", attribute);
     Assert.Equal(1, builder.Attributes.Count);
@@ -52,8 +52,12 @@ public sealed class ITagBuilderExtensionsTests
     Assert.False(builder.Attributes.Any());
     Assert.True(ReferenceEquals(builder.Attributes(new object()), builder));
     Assert.False(builder.Attributes.Any());
-      
-    var attributes = new { First = "first", Second = "second" };
+
+    var attributes = new
+    {
+      First = "first",
+      Second = "second"
+    };
     builder.Attributes(attributes);
     Assert.Equal(2, builder.Attributes.Count);
     Assert.Equal("First", builder.Attributes.First().Key);

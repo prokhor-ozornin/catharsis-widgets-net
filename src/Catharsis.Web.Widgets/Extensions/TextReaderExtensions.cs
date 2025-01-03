@@ -14,5 +14,5 @@ public static class TextReaderExtensions
   /// <param name="reader"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException">If <paramref name="reader"/> is a <c>null</c> reference.</exception>
-  public static JsonTextReader Json(this TextReader reader) => reader is not null ? new JsonTextReader(reader) : throw new ArgumentNullException(nameof(reader));
+  public static JsonTextReader AsJson(this TextReader reader) => reader is not null ? new JsonTextReader(reader) : throw new ArgumentNullException(nameof(reader));
 }

@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCreator>
 {
-  private readonly IVkontakteWidgetsCreator widgets = Widgets.Web.Vkontakte();
+  private readonly IVkontakteWidgetsCreator widgets = Widgets.Create.Vkontakte();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

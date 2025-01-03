@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCreator>
 {
-  private readonly IPinterestWidgetsCreator widgets = Widgets.Web.Pinterest();
+  private readonly IPinterestWidgetsCreator widgets = Widgets.Create.Pinterest();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

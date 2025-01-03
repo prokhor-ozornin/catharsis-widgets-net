@@ -31,7 +31,7 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
 
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", "fb-root"))
-      .Append(string.Format(resources.facebook_initialize, AppId()))
+      .Append(string.Format(resources.facebook_initialize_js, AppId()))
       .ToString();
   }
 }

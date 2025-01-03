@@ -21,7 +21,7 @@ public sealed class YandexMoneyButtonWidgetTests : ClassTest<YandexMoneyButtonWi
     typeof(YandexMoneyButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexMoneyButtonWidget>();
 
     var widget = new YandexMoneyButtonWidget();
-    Assert.Null(widget.Account().Should().BeNull());
+    widget.Account().Should().BeNull();
     widget.AskPayerFullName().Should().BeFalse();
     widget.AskPayerEmail().Should().BeFalse();
     widget.AskPayerPhone().Should().BeFalse();

@@ -21,7 +21,7 @@ public sealed class SurfingbirdSurfButtonWidgetTests : ClassTest<SurfingbirdSurf
     typeof(SurfingbirdSurfButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ISurfingbirdSurfButtonWidget>();
 
     var widget = new SurfingbirdSurfButtonWidget();
-    Assert.Null(widget.Url().Should().BeNull());
+    widget.Url().Should().BeNull();
     widget.Layout().Should().Be(SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant());
     widget.Width().Should().BeNull();
     widget.Height().Should().BeNull();
