@@ -2,6 +2,7 @@ using System.Globalization;
 using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -17,14 +18,22 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Language_Method()
   {
-    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Language(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
-
-    new TwitterTweetButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
-      Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Language());
-    });
+      AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Language(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
+
+      var widget = new TwitterTweetButtonWidget();
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(CultureInfo culture, ITwitterTweetButtonWidget widget)
+    {
+      widget.Language(culture).Should().BeSameAs(widget);
+      widget.Language().Should().Be(culture.TwoLetterISOLanguageName);
+    }
   }
 
   /// <summary>
@@ -33,14 +42,21 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new TwitterTweetButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Size(TwitterTweetButtonSize.Large), widget));
-      Assert.Equal("large", widget.Size());
-      Assert.Equal("medium", widget.Size(TwitterTweetButtonSize.Medium).Size());
-    });
+      AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new TwitterTweetButtonWidget();
+      Enum.GetValues<TwitterTweetButtonSize>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(TwitterTweetButtonSize size, ITwitterTweetButtonWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -49,15 +65,21 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void CounterPosition_Method()
   {
-    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.CounterPosition(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new TwitterTweetButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.CounterPosition(TwitterTweetButtonCountBoxPosition.Horizontal), widget));
-      Assert.Equal("horizontal", widget.CounterPosition());
-      Assert.Equal("none", widget.CounterPosition(TwitterTweetButtonCountBoxPosition.None).CounterPosition());
-      Assert.Equal("vertical", widget.CounterPosition(TwitterTweetButtonCountBoxPosition.Vertical).CounterPosition());
-    });
+      AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.CounterPosition(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new TwitterTweetButtonWidget();
+      Enum.GetValues<TwitterTweetButtonCountBoxPosition>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(TwitterTweetButtonCountBoxPosition position, ITwitterTweetButtonWidget widget)
+    {
+      widget.CounterPosition(position).Should().BeSameAs(widget);
+      widget.CounterPosition().Should().Be(position.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -66,15 +88,22 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void HashTags_Method()
   {
-    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.HashTags(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.HashTags(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("tags");
-
-    new TwitterTweetButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.HashTags(Enumerable.Empty<string>().ToArray()), widget));
-      Assert.False(widget.HashTags().Any());
-      Assert.True(widget.HashTags(["first", "second"]).HashTags().SequenceEqual(["first", "second"]));
-    });
+      AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.HashTags(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.HashTags(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("tags");
+
+      var widget = new TwitterTweetButtonWidget();
+      new[] { Array.Empty<string>(), ["tag"] }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string[] tags, ITwitterTweetButtonWidget widget)
+    {
+      ITwitterTweetButtonWidgetExtensions.HashTags(widget, tags).Should().BeSameAs(widget);
+      widget.HashTags().Should().Equal(tags);
+    }
   }
 
   /// <summary>
@@ -83,14 +112,21 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void RelatedAccounts_Method()
   {
-    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("accounts");
-
-    new TwitterTweetButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.RelatedAccounts(Enumerable.Empty<string>().ToArray()), widget));
-      Assert.False(widget.RelatedAccounts().Any());
-      Assert.True(widget.RelatedAccounts(new[] { "first", "second" }).RelatedAccounts().SequenceEqual(new[] { "first", "second" }));
-    });
+      AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("accounts");
+
+      var widget = new TwitterTweetButtonWidget();
+      new[] { Array.Empty<string>(), ["tag"] }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string[] tags, ITwitterTweetButtonWidget widget)
+    {
+      ITwitterTweetButtonWidgetExtensions.RelatedAccounts(widget, tags).Should().BeSameAs(widget);
+      widget.RelatedAccounts().Should().Equal(tags);
+    }
   }
 }

@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,13 +17,21 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTests : UnitTest
   [Fact]
   public void Sum_Method()
   {
-    AssertionExtensions.Should(() => IYandexMoneyPaymentFormWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new YandexMoneyPaymentFormWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Sum(1.0), widget));
-      Assert.Equal((decimal)1.0, widget.Sum());
-    });
+      AssertionExtensions.Should(() => IYandexMoneyPaymentFormWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new YandexMoneyPaymentFormWidget();
+      new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(double sum, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.Sum(sum).Should().BeSameAs(widget);
+      widget.Sum().Should().Be((decimal) sum);
+    }
   }
 
   /// <summary>
@@ -31,15 +40,18 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTests : UnitTest
   [Fact]
   public void Text_Method()
   {
-    AssertionExtensions.Should(() => IYandexMoneyPaymentFormWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new YandexMoneyPaymentFormWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Text(YandexMoneyPaymentFormText.Pay), widget));
-      Assert.Equal(1, widget.Text());
-    });
-    new YandexMoneyPaymentFormWidget().With(widget => Assert.Equal(2, widget.Text(YandexMoneyPaymentFormText.Buy).Text()));
-    new YandexMoneyPaymentFormWidget().With(widget => Assert.Equal(3, widget.Text(YandexMoneyPaymentFormText.Transfer).Text()));
-    new YandexMoneyPaymentFormWidget().With(widget => Assert.Equal(4, widget.Text(YandexMoneyPaymentFormText.Give).Text()));
+      var widget = new YandexMoneyPaymentFormWidget();
+      Enum.GetValues<YandexMoneyPaymentFormText>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(YandexMoneyPaymentFormText text, IYandexMoneyPaymentFormWidget widget)
+    {
+      widget.Text(text).Should().BeSameAs(widget);
+      widget.Text().Should().Be((byte) text);
+    }
   }
 }

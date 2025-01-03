@@ -1,6 +1,7 @@
 using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,13 +17,21 @@ public sealed class IVkontakteCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Limit_Method()
   {
-    AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Limit(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new VkontakteCommentsWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Limit(1), widget));
-      Assert.Equal(1, widget.Limit());
-    });
+      AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Limit(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new VkontakteCommentsWidget();
+      Enum.GetValues<VkontakteCommentsLimit>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(VkontakteCommentsLimit limit, IVkontakteCommentsWidget widget)
+    {
+      widget.Limit(limit).Should().BeSameAs(widget);
+      widget.Limit().Should().Be((byte) limit);
+    }
   }
 
   /// <summary>
@@ -54,12 +63,20 @@ public sealed class IVkontakteCommentsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new VkontakteCommentsWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Width(1), widget));
-      Assert.Equal("1", widget.Width());
-    });
+      AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new VkontakteCommentsWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short width, IVkontakteCommentsWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
+    }
   }
 }

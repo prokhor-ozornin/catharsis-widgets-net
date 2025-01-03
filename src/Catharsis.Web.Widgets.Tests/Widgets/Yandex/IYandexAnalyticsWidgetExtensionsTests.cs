@@ -2,6 +2,7 @@
 using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -17,13 +18,21 @@ public sealed class IYandexAnalyticsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Language_Method()
   {
-    AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(new YandexAnalyticsWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
-
-    new YandexAnalyticsWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Language(CultureInfo.InvariantCulture), widget));
-      Assert.Equal(CultureInfo.InvariantCulture.TwoLetterISOLanguageName, widget.Language());
-    });
+      AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(new YandexAnalyticsWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
+
+      var widget = new YandexAnalyticsWidget();
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(CultureInfo culture, IYandexAnalyticsWidget widget)
+    {
+      widget.Language(culture).Should().BeSameAs(widget);
+      widget.Language().Should().Be(culture.TwoLetterISOLanguageName);
+    }
   }
 }

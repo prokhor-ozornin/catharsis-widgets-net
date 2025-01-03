@@ -1,6 +1,7 @@
 using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,15 +17,21 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Layout_Method()
   {
-    AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new SurfingbirdSurfButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Layout(SurfingbirdSurfButtonLayout.Common), widget));
-      Assert.Equal("common", widget.Layout());
-    });
-    new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("micro", widget.Layout(SurfingbirdSurfButtonLayout.Micro).Layout()));
-    new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("vert", widget.Layout(SurfingbirdSurfButtonLayout.Vertical).Layout()));
+      AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new SurfingbirdSurfButtonWidget();
+      Enum.GetValues<SurfingbirdSurfButtonLayout>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(SurfingbirdSurfButtonLayout layout, ISurfingbirdSurfButtonWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be(layout.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -33,13 +40,21 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new SurfingbirdSurfButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Width(1), widget));
-      Assert.Equal("1", widget.Width());
-    });
+      AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new SurfingbirdSurfButtonWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short width, ISurfingbirdSurfButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -48,13 +63,21 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new SurfingbirdSurfButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Height(1), widget));
-      Assert.Equal("1", widget.Height());
-    });
+      AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new SurfingbirdSurfButtonWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short height, ISurfingbirdSurfButtonWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -63,14 +86,20 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Color_Method()
   {
-    AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Color(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new SurfingbirdSurfButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Color(SurfingbirdSurfButtonColor.Blue), widget));
-      Assert.Equal("blue", widget.Color());
-    });
-    new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("gray", widget.Color(SurfingbirdSurfButtonColor.Gray).Color()));
-    new SurfingbirdSurfButtonWidget().With(widget => Assert.Equal("green", widget.Color(SurfingbirdSurfButtonColor.Green).Color()));
+      AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Color(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new SurfingbirdSurfButtonWidget();
+      Enum.GetValues<SurfingbirdSurfButtonColor>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(SurfingbirdSurfButtonColor color, ISurfingbirdSurfButtonWidget widget)
+    {
+      widget.Color(color).Should().BeSameAs(widget);
+      widget.Color().Should().Be(color.ToString().ToLowerInvariant());
+    }
   }
 }

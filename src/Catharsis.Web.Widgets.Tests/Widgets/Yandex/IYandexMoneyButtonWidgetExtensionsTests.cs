@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,15 +17,21 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Color_Method()
   {
-    AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Color(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new YandexMoneyButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Color(YandexMoneyButtonColor.Black), widget));
-      Assert.Equal("black", widget.Color());
-    });
-    new YandexMoneyButtonWidget().With(widget => Assert.Equal("orange", widget.Color(YandexMoneyButtonColor.Orange).Color()));
-    new YandexMoneyButtonWidget().With(widget => Assert.Equal("white", widget.Color(YandexMoneyButtonColor.White).Color()));
+      AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Color(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new YandexMoneyButtonWidget();
+      Enum.GetValues<YandexMoneyButtonColor>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(YandexMoneyButtonColor color, IYandexMoneyButtonWidget widget)
+    {
+      widget.Color(color).Should().BeSameAs(widget);
+      widget.Color().Should().Be(color.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -33,15 +40,21 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new YandexMoneyButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Size(YandexMoneyButtonSize.Large), widget));
-      Assert.Equal("l", widget.Size());
-    });
-    new YandexMoneyButtonWidget().With(widget => Assert.Equal("m", widget.Size(YandexMoneyButtonSize.Medium).Size()));
-    new YandexMoneyButtonWidget().With(widget => Assert.Equal("s", widget.Size(YandexMoneyButtonSize.Small).Size()));
+      AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new YandexMoneyButtonWidget();
+      Enum.GetValues<YandexMoneyButtonSize>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(YandexMoneyButtonSize size, IYandexMoneyButtonWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -50,13 +63,21 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Sum_Method()
   {
-    AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new YandexMoneyButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Sum(1.0), widget));
-      Assert.Equal((decimal) 1.0, widget.Sum());
-    });
+      AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new YandexMoneyButtonWidget();
+      new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(double sum, IYandexMoneyButtonWidget widget)
+    {
+      widget.Sum(sum).Should().BeSameAs(widget);
+      widget.Sum().Should().Be((decimal) sum);
+    }
   }
 
   /// <summary>
@@ -65,18 +86,21 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Text_Method()
   {
-    AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new YandexMoneyButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Text(YandexMoneyButtonText.Pay), widget));
-      Assert.Equal(1, widget.Text());
-    });
-    new YandexMoneyButtonWidget().With(widget => Assert.Equal(2, widget.Text(YandexMoneyButtonText.Buy).Text()));
-    new YandexMoneyButtonWidget().With(widget => Assert.Equal(3, widget.Text(YandexMoneyButtonText.Transfer).Text()));
-    new YandexMoneyButtonWidget().With(widget => Assert.Equal(4, widget.Text(YandexMoneyButtonText.Donate).Text()));
-    new YandexMoneyButtonWidget().With(widget => Assert.Equal(5, widget.Text(YandexMoneyButtonText.Give).Text()));
-    new YandexMoneyButtonWidget().With(widget => Assert.Equal(6, widget.Text(YandexMoneyButtonText.Support).Text()));
+      AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new YandexMoneyButtonWidget();
+      Enum.GetValues<YandexMoneyButtonText>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(YandexMoneyButtonText text, IYandexMoneyButtonWidget widget)
+    {
+      widget.Text(text).Should().BeSameAs(widget);
+      widget.Text().Should().Be((byte) text);
+    }
   }
 
   /// <summary>
@@ -85,13 +109,20 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Type_Method()
   {
-    AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new YandexMoneyButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Type(YandexMoneyButtonType.Card), widget));
-      Assert.Equal("any-card-payment-type", widget.Type());
-    });
-    new YandexMoneyButtonWidget().With(widget => Assert.Equal("yamoney-payment-type", widget.Type(YandexMoneyButtonType.Wallet).Type()));
+      AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new YandexMoneyButtonWidget();
+      Enum.GetValues<YandexMoneyButtonType>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(YandexMoneyButtonType type, IYandexMoneyButtonWidget widget)
+    {
+      widget.Type(type).Should().BeSameAs(widget);
+      widget.Type().Should().Be(type.ToString().ToLowerInvariant());
+    }
   }
 }

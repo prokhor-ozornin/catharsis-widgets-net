@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,13 +17,21 @@ public sealed class IVideoJSPlayerWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new VideoJSPlayerWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Width(1), widget));
-      Assert.Equal("1", widget.Width());
-    });
+      AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new VideoJSPlayerWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short width, IVideoJSPlayerWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -31,13 +40,21 @@ public sealed class IVideoJSPlayerWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new VideoJSPlayerWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Height(1), widget));
-      Assert.Equal("1", widget.Height());
-    });
+      AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new VideoJSPlayerWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short height, IVideoJSPlayerWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height.ToInvariantString());
+    }
   }
 
   /// <summary>

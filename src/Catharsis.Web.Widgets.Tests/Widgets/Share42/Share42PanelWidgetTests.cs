@@ -26,42 +26,56 @@ public sealed class Share42PanelWidgetTests : ClassTest<Share42PanelWidget>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="RuTubeVideoWidget.Id(string)"/> method.</para>
+  ///   <para>Performs testing of <see cref="Share42PanelWidget.Direction(Share42PanelDirection)"/> method.</para>
   /// </summary>
   [Fact]
-  public void Id_Method()
+  public void Direction_Method()
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => new RuTubeVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
-      AssertionExtensions.Should(() => new RuTubeVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("id");
-
-      var widget = new RuTubeVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      var widget = new Share42PanelWidget();
+      Enum.GetValues<Share42PanelDirection>().ForEach(value => Validate(value, widget));
     }
 
     return;
 
-    static void Validate(string id, IRuTubeVideoWidget widget)
+    static void Validate(Share42PanelDirection direction, IShare42PanelWidget widget)
     {
-      widget.Id(id).Should().BeSameAs(widget);
-      widget.Id().Should().Be(id);
+      widget.Direction(direction).Should().BeSameAs(widget);
+      widget.Direction().Should().Be(direction);
     }
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="RuTubeVideoWidget.ToHtml()"/> method.</para>
+  ///   <para>Performs testing of <see cref="Share42PanelWidget.Size(byte)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Size_Method()
+  {
+    using (new AssertionScope())
+    {
+      var widget = new Share42PanelWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte size, IShare42PanelWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size);
+    }
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="Share42PanelWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
   public void ToHtml_Method()
   {
     using (new AssertionScope())
     {
-      Validate(new RuTubeVideoWidget());
-      Validate(new RuTubeVideoWidget().Id("id").Height("height"));
-      Validate(new RuTubeVideoWidget().Id("id").Width("width"));
-      Validate(new RuTubeVideoWidget().Height("height").Width("width"));
-      Validate(new RuTubeVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" scrolling="no" src="http://rutube.ru/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
+      throw new NotImplementedException();
     }
 
     return;

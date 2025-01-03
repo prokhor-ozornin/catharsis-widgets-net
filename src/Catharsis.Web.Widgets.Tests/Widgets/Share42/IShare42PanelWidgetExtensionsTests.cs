@@ -1,4 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions.Execution;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -12,9 +15,23 @@ public sealed class IShare42PanelWidgetExtensionsTests : UnitTest
   ///   <para>Performs testing of <see cref="IShare42PanelWidgetExtensions.Horizontal(IShare42PanelWidget)"/> method.</para>
   /// </summary>
   [Fact]
-  public void Video_Method()
+  public void Horizontal_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IShare42PanelWidgetExtensions.Horizontal(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new Share42PanelWidget();
+      Validate(widget);
+    }
+
+    return;
+
+    static void Validate(IShare42PanelWidget widget)
+    {
+      widget.Horizontal().Should().BeSameAs(widget);
+      widget.Direction().Should().Be(Share42PanelDirection.Horizontal);
+    }
   }
 
   /// <summary>
@@ -23,7 +40,21 @@ public sealed class IShare42PanelWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IShare42PanelWidgetExtensions.Size(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new Share42PanelWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte size, IShare42PanelWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be((byte) size);
+    }
   }
 
   /// <summary>
@@ -32,6 +63,20 @@ public sealed class IShare42PanelWidgetExtensionsTests : UnitTest
   [Fact]
   public void Vertical_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IShare42PanelWidgetExtensions.Vertical(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new Share42PanelWidget();
+      Validate(widget);
+    }
+
+    return;
+
+    static void Validate(IShare42PanelWidget widget)
+    {
+      widget.Vertical().Should().BeSameAs(widget);
+      widget.Direction().Should().Be(Share42PanelDirection.Vertical);
+    }
   }
 }

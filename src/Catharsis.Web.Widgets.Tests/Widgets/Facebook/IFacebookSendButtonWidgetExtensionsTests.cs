@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -10,14 +12,50 @@ namespace Catharsis.Web.Widgets.Tests;
 public sealed class IFacebookSendButtonWidgetExtensionsTests : UnitTest
 {
   /// <summary>
+  ///   <para>Performs testing of <see cref="IFacebookSendButtonWidgetExtensions.Url(IFacebookSendButtonWidget, Uri)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Url_Method()
+  {
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Url(new FacebookSendButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+
+      var widget = new FacebookSendButtonWidget();
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(Uri url, IFacebookSendButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url.ToString());
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookSendButtonWidgetExtensions.Width(IFacebookSendButtonWidget, short)"/> method.</para>
   /// </summary>
   [Fact]
   public void Width_Method()
   {
-    AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("1", new FacebookSendButtonWidget().Width(1).Width());
+      var widget = new FacebookSendButtonWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short width, IFacebookSendButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -26,9 +64,21 @@ public sealed class IFacebookSendButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("1", new FacebookSendButtonWidget().Height(1).Height());
+      var widget = new FacebookSendButtonWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short height, IFacebookSendButtonWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -37,9 +87,20 @@ public sealed class IFacebookSendButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("dark", new FacebookSendButtonWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
-    Assert.Equal("light", new FacebookSendButtonWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());
+      var widget = new FacebookSendButtonWidget();
+      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(FacebookColorScheme scheme, IFacebookSendButtonWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme.ToString().ToLowerInvariant());
+    }
   }
 }

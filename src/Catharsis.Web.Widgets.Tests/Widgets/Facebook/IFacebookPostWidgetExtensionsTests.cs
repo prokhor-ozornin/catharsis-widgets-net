@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -10,13 +12,49 @@ namespace Catharsis.Web.Widgets.Tests;
 public sealed class IFacebookPostWidgetExtensionsTests : UnitTest
 {
   /// <summary>
+  ///   <para>Performs testing of <see cref="IFacebookPostWidgetExtensions.Url(IFacebookPostWidget, Uri)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Url_Method()
+  {
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Url(new FacebookPostWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+
+      var widget = new FacebookPostWidget();
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(Uri url, IFacebookPostWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url.ToString());
+    }
+  }
+  
+  /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookPostWidgetExtensions.Width(IFacebookPostWidget, short)"/> method.</para>
   /// </summary>
   [Fact]
   public void Width_Method()
   {
-    AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("1", new FacebookPostWidget().Width(1).Width());
+      var widget = new FacebookPostWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short width, IFacebookPostWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
+    }
   }
 }

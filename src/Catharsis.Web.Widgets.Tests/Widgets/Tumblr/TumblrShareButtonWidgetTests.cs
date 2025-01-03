@@ -33,13 +33,13 @@ public sealed class TumblrShareButtonWidgetTests : ClassTest<TumblrShareButtonWi
   {
     using (new AssertionScope())
     {
-      var widget = new TumblrFollowButtonWidget();
+      var widget = new TumblrShareButtonWidget();
       new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
     }
 
     return;
 
-    static void Validate(byte type, ITumblrFollowButtonWidget widget)
+    static void Validate(byte type, ITumblrShareButtonWidget widget)
     {
       widget.Type(type).Should().BeSameAs(widget);
       widget.Type().Should().Be(type);
@@ -57,13 +57,13 @@ public sealed class TumblrShareButtonWidgetTests : ClassTest<TumblrShareButtonWi
       AssertionExtensions.Should(() => new TumblrShareButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new TumblrShareButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("scheme");
 
-      var widget = new TumblrFollowButtonWidget();
+      var widget = new TumblrShareButtonWidget();
       new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
     }
 
     return;
 
-    static void Validate(string scheme, ITumblrFollowButtonWidget widget)
+    static void Validate(string scheme, ITumblrShareButtonWidget widget)
     {
       widget.ColorScheme(scheme).Should().BeSameAs(widget);
       widget.ColorScheme().Should().Be(scheme);

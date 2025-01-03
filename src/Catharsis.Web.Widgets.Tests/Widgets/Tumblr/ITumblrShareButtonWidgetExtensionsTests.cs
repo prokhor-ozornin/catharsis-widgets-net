@@ -1,6 +1,7 @@
 using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,16 +17,21 @@ public sealed class ITumblrShareButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Type_Method()
   {
-    AssertionExtensions.Should(() => ITumblrShareButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new TumblrShareButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Type(TumblrShareButtonType.First), widget));
-      Assert.Equal(1, widget.Type());
-      Assert.Equal(2, widget.Type(TumblrShareButtonType.Second).Type());
-      Assert.Equal(3, widget.Type(TumblrShareButtonType.Third).Type());
-      Assert.Equal(4, widget.Type(TumblrShareButtonType.Forth).Type());
-    });
+      AssertionExtensions.Should(() => ITumblrShareButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new TumblrShareButtonWidget();
+      Enum.GetValues<TumblrShareButtonType>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(TumblrShareButtonType type, ITumblrShareButtonWidget widget)
+    {
+      widget.Type(type).Should().BeSameAs(widget);
+      widget.Type().Should().Be((byte) type);
+    }
   }
 
   /// <summary>
@@ -34,13 +40,20 @@ public sealed class ITumblrShareButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    AssertionExtensions.Should(() => ITumblrShareButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new TumblrShareButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.ColorScheme(TumblrShareButtonColorScheme.Gray), widget));
-      Assert.Equal("gray", widget.ColorScheme(TumblrShareButtonColorScheme.Gray).ColorScheme());
-      Assert.Equal("light", widget.ColorScheme(TumblrShareButtonColorScheme.Light).ColorScheme());
-    });
+      AssertionExtensions.Should(() => ITumblrShareButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new TumblrShareButtonWidget();
+      Enum.GetValues<TumblrShareButtonColorScheme>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(TumblrShareButtonColorScheme scheme, ITumblrShareButtonWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme.ToString().ToLowerInvariant());
+    }
   }
 }

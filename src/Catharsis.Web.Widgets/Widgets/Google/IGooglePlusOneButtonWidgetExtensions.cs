@@ -9,6 +9,15 @@ namespace Catharsis.Web.Widgets;
 public static class IGooglePlusOneButtonWidgetExtensions
 {
   /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="widget"></param>
+  /// <param name="url"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException"></exception>
+  public static IGooglePlusOneButtonWidget Url(this IGooglePlusOneButtonWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+
+  /// <summary>
   ///   <para>If annotation is set to "inline", this parameter sets the width in pixels to use for the button and its inline annotation.</para>
   /// </summary>
   /// <param name="widget">Widget to call method on.</param>

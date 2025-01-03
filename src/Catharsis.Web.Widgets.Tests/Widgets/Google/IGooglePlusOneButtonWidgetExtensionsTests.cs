@@ -12,6 +12,30 @@ namespace Catharsis.Web.Widgets.Tests;
 public sealed class IGooglePlusOneButtonWidgetExtensionsTests : UnitTest
 {
   /// <summary>
+  ///   <para>Performs testing of <see cref="IGooglePlusOneButtonWidgetExtensions.Url(IGooglePlusOneButtonWidget, Uri)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Url_Method()
+  {
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Url(new GooglePlusOneButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+
+      var widget = new GooglePlusOneButtonWidget();
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(Uri url, IGooglePlusOneButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url.ToString());
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="IGooglePlusOneButtonWidgetExtensions.Width(IGooglePlusOneButtonWidget, short)"/> method.</para>
   /// </summary>
   [Fact]

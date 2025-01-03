@@ -1,6 +1,7 @@
 using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,15 +17,21 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Type_Method()
   {
-    AssertionExtensions.Should(() => ITumblrFollowButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new TumblrFollowButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Type(TumblrFollowButtonType.First), widget));
-      Assert.Equal(1, widget.Type());
-      Assert.Equal(2, widget.Type(TumblrFollowButtonType.Second).Type());
-      Assert.Equal(3, widget.Type(TumblrFollowButtonType.Third).Type());
-    });
+      AssertionExtensions.Should(() => ITumblrFollowButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new TumblrFollowButtonWidget();
+      Enum.GetValues<TumblrFollowButtonType>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(TumblrFollowButtonType type, ITumblrFollowButtonWidget widget)
+    {
+      widget.Type(type).Should().BeSameAs(widget);
+      widget.Type().Should().Be((byte) type);
+    }
   }
 
   /// <summary>
@@ -33,13 +40,20 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    AssertionExtensions.Should(() => ITumblrFollowButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new TumblrFollowButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.ColorScheme(TumblrFollowButtonColorScheme.Dark), widget));
-      Assert.Equal("dark", widget.ColorScheme());
-      Assert.Equal("light", widget.ColorScheme(TumblrFollowButtonColorScheme.Light).ColorScheme());
-    });
+      AssertionExtensions.Should(() => ITumblrFollowButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new TumblrFollowButtonWidget();
+      Enum.GetValues<TumblrFollowButtonColorScheme>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(TumblrFollowButtonColorScheme scheme, ITumblrFollowButtonWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme.ToString().ToLowerInvariant());
+    }
   }
 }

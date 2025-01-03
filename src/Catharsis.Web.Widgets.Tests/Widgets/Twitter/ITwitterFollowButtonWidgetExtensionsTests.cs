@@ -2,6 +2,7 @@ using System.Globalization;
 using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -17,14 +18,22 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Language_Method()
   {
-    AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Language(new TwitterFollowButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
-
-    new TwitterFollowButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
-      Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Language());
-    });
+      AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Language(new TwitterFollowButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
+
+      var widget = new TwitterFollowButtonWidget();
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(CultureInfo culture, ITwitterFollowButtonWidget widget)
+    {
+      widget.Language(culture).Should().BeSameAs(widget);
+      widget.Language().Should().Be(culture.TwoLetterISOLanguageName);
+    }
   }
 
   /// <summary>
@@ -33,14 +42,21 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new TwitterFollowButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Size(TwitterFollowButtonSize.Large), widget));
-      Assert.Equal("large", widget.Size());
-      Assert.Equal("medium", widget.Size(TwitterFollowButtonSize.Medium).Size());
-    });
+      AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new TwitterFollowButtonWidget();
+      Enum.GetValues<TwitterFollowButtonSize>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(TwitterFollowButtonSize size, ITwitterFollowButtonWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -49,13 +65,20 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Alignment_Method()
   {
-    AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Alignment(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new TwitterFollowButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Alignment(TwitterFollowButtonAlignment.Left), widget));
-      Assert.Equal("left", widget.Alignment());
-      Assert.Equal("right", widget.Alignment(TwitterFollowButtonAlignment.Right).Alignment());
-    });
+      AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Alignment(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new TwitterFollowButtonWidget();
+      Enum.GetValues<TwitterFollowButtonAlignment>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(TwitterFollowButtonAlignment alignment, ITwitterFollowButtonWidget widget)
+    {
+      widget.Alignment(alignment).Should().BeSameAs(widget);
+      widget.Alignment().Should().Be(alignment.ToString().ToLowerInvariant());
+    }
   }
 }

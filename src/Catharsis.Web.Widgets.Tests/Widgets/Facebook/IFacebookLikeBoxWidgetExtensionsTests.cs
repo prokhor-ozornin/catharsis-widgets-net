@@ -27,16 +27,11 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTests : UnitTest
 
     return;
 
-    static void Validate(string width, IFacebookLikeBoxWidget widget)
+    static void Validate(short width, IFacebookLikeBoxWidget widget)
     {
       widget.Width(width).Should().BeSameAs(widget);
-      widget.Width().Should().Be(width);
+      widget.Width().Should().Be(width.ToInvariantString());
     }
-
-
-
-
-    Assert.Equal("1", new FacebookLikeBoxWidget().Width(1).Width());
   }
 
   /// <summary>
@@ -45,9 +40,21 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("1", new FacebookLikeBoxWidget().Height(1).Height());
+      var widget = new FacebookLikeBoxWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short height, IFacebookLikeBoxWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -56,10 +63,21 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("dark", new FacebookLikeBoxWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
-    Assert.Equal("light", new FacebookLikeBoxWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());
+      var widget = new FacebookLikeBoxWidget();
+      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(FacebookColorScheme scheme, IFacebookLikeBoxWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -68,6 +86,21 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTests : UnitTest
   [Fact]
   public void Url_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Url(new FacebookLikeBoxWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+
+      var widget = new FacebookLikeBoxWidget();
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(Uri url, IFacebookLikeBoxWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url.ToString());
+    }
   }
 }

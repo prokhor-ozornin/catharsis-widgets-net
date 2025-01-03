@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,13 +17,21 @@ public sealed class IMailRuFacesWidgetExtensionsTests : UnitTest
   [Fact]
   public void Font_Method()
   {
-    AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Font(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new MailRuFacesWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Font(MailRuFacesFont.Tahoma), widget));
-      Assert.Equal("Tahoma", widget.Font());
-    });
+      AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Font(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new MailRuFacesWidget();
+      Enum.GetValues<MailRuFacesFont>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(MailRuFacesFont font, IMailRuFacesWidget widget)
+    {
+      widget.Font(font).Should().BeSameAs(widget);
+      widget.Font().Should().Be(font.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -31,13 +40,21 @@ public sealed class IMailRuFacesWidgetExtensionsTests : UnitTest
   [Fact]
   public void Height_Method()
   {
-    AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new MailRuFacesWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Height(1), widget));
-      Assert.Equal("1", widget.Height());
-    });
+      AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new MailRuFacesWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short height, IMailRuFacesWidget widget)
+    {
+      widget.Height(height).Should().BeSameAs(widget);
+      widget.Height().Should().Be(height.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -46,12 +63,20 @@ public sealed class IMailRuFacesWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new MailRuFacesWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Width(1), widget));
-      Assert.Equal("1", widget.Width());
-    });
+      AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new MailRuFacesWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short width, IMailRuFacesWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
+    }
   }
 }

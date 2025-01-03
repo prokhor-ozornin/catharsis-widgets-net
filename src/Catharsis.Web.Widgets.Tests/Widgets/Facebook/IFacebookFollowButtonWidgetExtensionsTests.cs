@@ -22,7 +22,7 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTests : UnitTest
       AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new FacebookFollowButtonWidget();
-      new[] { short.MinValue, short.MaxValue) }.ForEach(value => Validate(value, widget));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
     }
 
     return;

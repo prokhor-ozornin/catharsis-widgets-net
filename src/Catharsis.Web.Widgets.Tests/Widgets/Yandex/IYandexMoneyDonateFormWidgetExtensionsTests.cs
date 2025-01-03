@@ -2,6 +2,7 @@
 using Xunit;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 
 namespace Catharsis.Web.Widgets.Tests;
 
@@ -14,9 +15,24 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTests : UnitTest
   ///   <para>Performs testing of <see cref="IYandexMoneyDonateFormWidgetExtensions.ProjectSite(IYandexMoneyDonateFormWidget, Uri)"/> method.</para>
   /// </summary>
   [Fact]
-  public void Url_Method()
+  public void ProjectSite_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(new YandexMoneyDonateFormWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(Uri url, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.ProjectSite(url).Should().BeSameAs(widget);
+      widget.ProjectSite().Should().Be(url.ToString());
+    }
   }
 
   /// <summary>
@@ -25,13 +41,21 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTests : UnitTest
   [Fact]
   public void Sum_Method()
   {
-    AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new YandexMoneyDonateFormWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Sum(1.0), widget));
-      Assert.Equal((decimal)1.0, widget.Sum());
-    });
+      AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new YandexMoneyDonateFormWidget();
+      new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(double sum, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.Sum(sum).Should().BeSameAs(widget);
+      widget.Sum().Should().Be((decimal) sum);
+    }
   }
 
   /// <summary>
@@ -40,16 +64,20 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTests : UnitTest
   [Fact]
   public void Text_Method()
   {
-    AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new YandexMoneyDonateFormWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Text(YandexMoneyDonateFormText.Donate), widget));
-      Assert.Equal(1, widget.Text());
-    });
-    new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(2, widget.Text(YandexMoneyDonateFormText.Give).Text()));
-    new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(3, widget.Text(YandexMoneyDonateFormText.Transfer).Text()));
-    new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(4, widget.Text(YandexMoneyDonateFormText.Send).Text()));
-    new YandexMoneyDonateFormWidget().With(widget => Assert.Equal(5, widget.Text(YandexMoneyDonateFormText.Support).Text()));
+      AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new YandexMoneyDonateFormWidget();
+      Enum.GetValues<YandexMoneyDonateFormText>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(YandexMoneyDonateFormText text, IYandexMoneyDonateFormWidget widget)
+    {
+      widget.Text(text).Should().BeSameAs(widget);
+      widget.Text().Should().Be((byte) text);
+    }
   }
 }

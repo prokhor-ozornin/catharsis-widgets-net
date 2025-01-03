@@ -1,5 +1,7 @@
 using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -15,11 +17,21 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Layout_Method()
   {
-    AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("box_count", new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.BoxCount).Layout());
-    Assert.Equal("button_count", new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.ButtonCount).Layout());
-    Assert.Equal("standard", new FacebookLikeButtonWidget().Layout(FacebookButtonLayout.Standard).Layout());
+      var widget = new FacebookLikeButtonWidget();
+      Enum.GetValues<FacebookButtonLayout>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(FacebookButtonLayout layout, IFacebookLikeButtonWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be(layout.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -28,7 +40,22 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Url_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Url(new FacebookLikeButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+
+      var widget = new FacebookLikeButtonWidget();
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(Uri url, IFacebookLikeButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url.ToString());
+    }
   }
 
   /// <summary>
@@ -37,9 +64,21 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Width_Method()
   {
-    AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("1", new FacebookLikeButtonWidget().Width(1).Width());
+      var widget = new FacebookLikeButtonWidget();
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(short width, IFacebookLikeButtonWidget widget)
+    {
+      widget.Width(width).Should().BeSameAs(widget);
+      widget.Width().Should().Be(width.ToInvariantString());
+    }
   }
 
   /// <summary>
@@ -48,10 +87,21 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Verb_Method()
   {
-    AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Verb(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Verb(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("like", new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Like).Verb());
-    Assert.Equal("recommend", new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).Verb());
+      var widget = new FacebookLikeButtonWidget();
+      Enum.GetValues<FacebookLikeButtonVerb>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(FacebookLikeButtonVerb verb, IFacebookLikeButtonWidget widget)
+    {
+      widget.Verb(verb).Should().BeSameAs(widget);
+      widget.Verb().Should().Be(verb.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -60,9 +110,20 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void ColorScheme_Method()
   {
-    AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    Assert.Equal("dark", new FacebookLikeButtonWidget().ColorScheme(FacebookColorScheme.Dark).ColorScheme());
-    Assert.Equal("light", new FacebookLikeButtonWidget().ColorScheme(FacebookColorScheme.Light).ColorScheme());
+      var widget = new FacebookLikeButtonWidget();
+      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(FacebookColorScheme scheme, IFacebookLikeButtonWidget widget)
+    {
+      widget.ColorScheme(scheme).Should().BeSameAs(widget);
+      widget.ColorScheme().Should().Be(scheme.ToString().ToLowerInvariant());
+    }
   }
 }

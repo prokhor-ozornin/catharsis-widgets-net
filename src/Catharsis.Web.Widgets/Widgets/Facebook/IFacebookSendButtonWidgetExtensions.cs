@@ -9,6 +9,15 @@ namespace Catharsis.Web.Widgets;
 public static class IFacebookSendButtonWidgetExtensions
 {
   /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="widget"></param>
+  /// <param name="url"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException"></exception>
+  public static IFacebookSendButtonWidget Url(this IFacebookSendButtonWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+
+  /// <summary>
   ///   <para>The width of the button.</para>
   /// </summary>
   /// <param name="widget">Widget to call method on.</param>

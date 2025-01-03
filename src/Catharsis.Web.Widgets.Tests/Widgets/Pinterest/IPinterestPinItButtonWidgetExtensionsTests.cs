@@ -2,6 +2,7 @@
 using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -17,13 +18,21 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Gray_Method()
   {
-    AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Gray(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new PinterestPinItButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Gray(), widget));
-      Assert.Equal("gray", widget.Color());
-    });
+      AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Gray(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new PinterestPinItButtonWidget();
+      Validate(widget);
+    }
+
+    return;
+
+    static void Validate(IPinterestPinItButtonWidget widget)
+    {
+      widget.Gray().Should().BeSameAs(widget);
+      widget.Color().Should().Be("gray");
+    }
   }
 
   /// <summary>
@@ -32,14 +41,22 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Language_Method()
   {
-    AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Language((CultureInfo) null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
-
-    new PinterestPinItButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Language(CultureInfo.CurrentCulture), widget));
-      Assert.Equal(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, widget.Language());
-    });
+      AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Language((CultureInfo) null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
+
+      var widget = new PinterestPinItButtonWidget();
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(CultureInfo culture, IPinterestPinItButtonWidget widget)
+    {
+      widget.Language(culture).Should().BeSameAs(widget);
+      widget.Language().Should().Be(culture.TwoLetterISOLanguageName);
+    }
   }
 
   /// <summary>
@@ -48,13 +65,21 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Red_Method()
   {
-    AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Red(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new PinterestPinItButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Red(), widget));
-      Assert.Equal("red", widget.Color());
-    });
+      AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Red(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new PinterestPinItButtonWidget();
+      Validate(widget);
+    }
+
+    return;
+
+    static void Validate(IPinterestPinItButtonWidget widget)
+    {
+      widget.Red().Should().BeSameAs(widget);
+      widget.Color().Should().Be("red");
+    }
   }
 
   /// <summary>
@@ -63,12 +88,20 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void White_Method()
   {
-    AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.White(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new PinterestPinItButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.White(), widget));
-      Assert.Equal("white", widget.Color());
-    });
+      AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.White(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new PinterestPinItButtonWidget();
+      Validate(widget);
+    }
+
+    return;
+
+    static void Validate(IPinterestPinItButtonWidget widget)
+    {
+      widget.Red().Should().BeSameAs(widget);
+      widget.Color().Should().Be("white");
+    }
   }
 }

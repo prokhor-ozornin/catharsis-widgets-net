@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,14 +17,20 @@ public sealed class IVkontakteSubscriptionWidgetExtensionsTests : UnitTest
   [Fact]
   public void Layout_Method()
   {
-    AssertionExtensions.Should(() => IVkontakteSubscriptionWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new VkontakteSubscriptionWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Layout(VkontakteSubscriptionButtonLayout.Button), widget));
-      Assert.Equal(0, widget.Layout());
-    });
-    new VkontakteSubscriptionWidget().With(widget => Assert.Equal(1, widget.Layout(VkontakteSubscriptionButtonLayout.LightButton).Layout()));
-    new VkontakteSubscriptionWidget().With(widget => Assert.Equal(2, widget.Layout(VkontakteSubscriptionButtonLayout.Link).Layout()));
+      AssertionExtensions.Should(() => IVkontakteSubscriptionWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new VkontakteSubscriptionWidget();
+      Enum.GetValues<VkontakteSubscriptionButtonLayout>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(VkontakteSubscriptionButtonLayout layout, IVkontakteSubscriptionWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be((byte) layout);
+    }
   }
 }

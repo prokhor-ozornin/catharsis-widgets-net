@@ -1,6 +1,7 @@
 using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,14 +17,21 @@ public sealed class IYandexLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Size_Method()
   {
-    AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Size(null, YandexLikeButtonSize.Large)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new YandexLikeButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Size(YandexLikeButtonSize.Large), widget));
-      Assert.Equal("large", widget.Size());
-    });
-    new YandexLikeButtonWidget().With(widget => Assert.Equal("small", widget.Size(YandexLikeButtonSize.Small).Size()));
+      AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+
+      var widget = new YandexLikeButtonWidget();
+      Enum.GetValues<YandexLikeButtonSize>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(YandexLikeButtonSize size, IYandexLikeButtonWidget widget)
+    {
+      widget.Size(size).Should().BeSameAs(widget);
+      widget.Size().Should().Be(size.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -32,13 +40,21 @@ public sealed class IYandexLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Layout_Method()
   {
-    new YandexLikeButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Layout(YandexLikeButtonLayout.Button), widget));
-      Assert.Equal("button", widget.Layout());
-    });
+      AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-    new YandexLikeButtonWidget().With(widget => Assert.Equal("icon", widget.Layout(YandexLikeButtonLayout.Icon).Layout()));
+      var widget = new YandexLikeButtonWidget();
+      Enum.GetValues<YandexLikeButtonLayout>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(YandexLikeButtonLayout layout, IYandexLikeButtonWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.Layout().Should().Be(layout.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -47,6 +63,21 @@ public sealed class IYandexLikeButtonWidgetExtensionsTests : UnitTest
   [Fact]
   public void Url_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Url(new YandexLikeButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+
+      var widget = new YandexLikeButtonWidget();
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(Uri url, IYandexLikeButtonWidget widget)
+    {
+      widget.Url(url).Should().BeSameAs(widget);
+      widget.Url().Should().Be(url.ToString());
+    }
   }
 }

@@ -9,6 +9,13 @@ namespace Catharsis.Web.Widgets;
 /// <seealso cref="IFacebookPostWidget"/>
 public static class IFacebookPostWidgetExtensions
 {
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="widget"></param>
+  /// <param name="url"></param>
+  /// <returns></returns>
+  /// <exception cref="ArgumentNullException"></exception>
   public static IFacebookPostWidget Url(this IFacebookPostWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>

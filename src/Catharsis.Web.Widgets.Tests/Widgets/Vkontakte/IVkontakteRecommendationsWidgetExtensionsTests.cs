@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,14 +17,18 @@ public sealed class IVkontakteRecommendationsWidgetExtensionsTests : UnitTest
   [Fact]
   public void Limit_Method()
   {
-    AssertionExtensions.Should(() => IVkontakteRecommendationsWidgetExtensions.Limit(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-    new VkontakteRecommendationsWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Limit(VkontakteRecommendationsLimit.Five), widget));
-      Assert.Equal(5, widget.Limit().Value);
-    });
-    new VkontakteRecommendationsWidget().With(widget => Assert.Equal(10, widget.Limit(VkontakteRecommendationsLimit.Ten).Limit().Value));
-    new VkontakteRecommendationsWidget().With(widget => Assert.Equal(3, widget.Limit(VkontakteRecommendationsLimit.Three).Limit().Value));
+      var widget = new VkontakteRecommendationsWidget();
+      Enum.GetValues<VkontakteRecommendationsLimit>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(VkontakteRecommendationsLimit limit, IVkontakteRecommendationsWidget widget)
+    {
+      widget.Limit(limit).Should().BeSameAs(widget);
+      widget.Limit().Should().Be((byte) limit);
+    }
   }
 }
