@@ -7,16 +7,16 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IVkontakteLikeButtonWidget"/>
 public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
 {
-  private string elementId;
-  private string text;
-  private byte? verb;
-  private string layout;
-  private string width;
-  private string height;
-  private string title;
-  private string url;
-  private string description;
-  private string image;
+  private string ElementIdProperty { get; set; }
+  private string TextProperty { get; set; }
+  private byte? VerbProperty { get; set; }
+  private string LayoutProperty { get; set; }
+  private string WidthProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private string TitleProperty { get; set; }
+  private string UrlProperty { get; set; }
+  private string DescriptionProperty { get; set; }
+  private string ImageProperty { get; set; }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.ElementId(string)"/>
   public IVkontakteLikeButtonWidget ElementId(string id)
@@ -24,13 +24,13 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    elementId = id;
+    ElementIdProperty = id;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.ElementId()"/>
-  public string ElementId() => elementId;
+  public string ElementId() => ElementIdProperty;
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Height(string)"/>
   public IVkontakteLikeButtonWidget Height(string height)
@@ -38,13 +38,13 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Layout(string)"/>
   public IVkontakteLikeButtonWidget Layout(string layout)
@@ -52,13 +52,13 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (layout is null) throw new ArgumentNullException(nameof(layout));
     if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
 
-    this.layout = layout;
+    LayoutProperty = layout;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Layout()"/>
-  public string Layout() => layout;
+  public string Layout() => LayoutProperty;
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Description(string)"/>
   public IVkontakteLikeButtonWidget Description(string description)
@@ -66,13 +66,13 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (description is null) throw new ArgumentNullException(nameof(description));
     if (description.IsEmpty()) throw new ArgumentException(nameof(description));
 
-    this.description = description;
+    DescriptionProperty = description;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Description()"/>
-  public string Description() => description;
+  public string Description() => DescriptionProperty;
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Image(string)"/>
   public IVkontakteLikeButtonWidget Image(string url)
@@ -80,13 +80,13 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    image = url;
+    ImageProperty = url;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Image()"/>
-  public string Image() => image;
+  public string Image() => ImageProperty;
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Title(string)"/>
   public IVkontakteLikeButtonWidget Title(string title)
@@ -94,13 +94,13 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (title is null) throw new ArgumentNullException(nameof(title));
     if (title.IsEmpty()) throw new ArgumentException(nameof(title));
 
-    this.title = title;
+    TitleProperty = title;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Title()"/>
-  public string Title() => title;
+  public string Title() => TitleProperty;
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Url(string)"/>
   public IVkontakteLikeButtonWidget Url(string url)
@@ -108,13 +108,13 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.url = url;
+    UrlProperty = url;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Url()"/>
-  public string Url() => url;
+  public string Url() => UrlProperty;
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Text(string)"/>
   public IVkontakteLikeButtonWidget Text(string text)
@@ -122,23 +122,23 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (text is null) throw new ArgumentNullException(nameof(text));
     if (text.IsEmpty()) throw new ArgumentException(nameof(text));
 
-    this.text = text;
+    TextProperty = text;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Text()"/>
-  public string Text() => text;
+  public string Text() => TextProperty;
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Verb(byte)"/>
   public IVkontakteLikeButtonWidget Verb(byte verb)
   {
-    this.verb = verb;
+    VerbProperty = verb;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Verb()"/>
-  public byte? Verb() => verb;
+  public byte? Verb() => VerbProperty;
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Width(string)"/>
   public IVkontakteLikeButtonWidget Width(string width)
@@ -146,13 +146,13 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Surfingbird(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
     
-    widgets.Surfingbird().Should().BeOfType<SurfingbirdWidgetsCreator>().And.BeSameAs(widgets.Surfingbird());
+    Widgets.Surfingbird().Should().BeOfType<SurfingbirdWidgetsCreator>().And.BeSameAs(Widgets.Surfingbird());
   }
 }

@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="ICackleLoginWidget"/>
 public class CackleLoginWidget : WebWidget, ICackleLoginWidget
 {
-  private string account;
+  private string AccountProperty { get; set; }
 
   /// <inheritdoc cref="ICackleLoginWidget.Account(string)"/>
   public ICackleLoginWidget Account(string account)
@@ -15,18 +15,18 @@ public class CackleLoginWidget : WebWidget, ICackleLoginWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
       
     return this;
   }
 
   /// <inheritdoc cref="ICackleLoginWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (account.IsEmpty())
+    if (AccountProperty.IsEmpty())
     {
       return string.Empty;
     }

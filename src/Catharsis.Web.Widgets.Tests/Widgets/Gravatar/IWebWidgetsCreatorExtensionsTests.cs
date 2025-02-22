@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Gravatar(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.Gravatar().Should().BeOfType<GravatarWidgetsCreator>().And.BeSameAs(widgets.Gravatar());
+    Widgets.Gravatar().Should().BeOfType<GravatarWidgetsCreator>().And.BeSameAs(Widgets.Gravatar());
   }
 }

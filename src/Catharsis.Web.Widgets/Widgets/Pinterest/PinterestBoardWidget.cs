@@ -5,11 +5,11 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IPinterestBoardWidget"/>
 public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
 {
-  private string account;
-  private string height;
-  private string width;
-  private string id;
-  private string image;
+  private string AccountProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private string WidthProperty { get; set; }
+  private string IdProperty { get; set; }
+  private string ImageProperty { get; set; }
 
   /// <inheritdoc cref="IPinterestBoardWidget.Account(string)"/>
   public IPinterestBoardWidget Account(string account)
@@ -17,12 +17,12 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
     return this;
   }
 
   /// <inheritdoc cref="IPinterestBoardWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IPinterestBoardWidget.Height(string)"/>
   public IPinterestBoardWidget Height(string height)
@@ -30,12 +30,12 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
     return this;
   }
 
   /// <inheritdoc cref="IPinterestBoardWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IPinterestBoardWidget.Width(string)"/>
   public IPinterestBoardWidget Width(string width)
@@ -43,12 +43,12 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
     return this;
   }
 
   /// <inheritdoc cref="IPinterestBoardWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IPinterestBoardWidget.Id(string)"/>
   public IPinterestBoardWidget Id(string id)
@@ -56,12 +56,12 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.id = id;
+    IdProperty = id;
     return this;
   }
 
   /// <inheritdoc cref="IPinterestBoardWidget.Id()"/>
-  public string Id() => id;
+  public string Id() => IdProperty;
 
   /// <inheritdoc cref="IPinterestBoardWidget.Image(string)"/>
   public IPinterestBoardWidget Image(string width)
@@ -69,12 +69,12 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    image = width;
+    ImageProperty = width;
     return this;
   }
 
   /// <inheritdoc cref="IPinterestBoardWidget.Image()"/>
-  public string Image() => image;
+  public string Image() => ImageProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

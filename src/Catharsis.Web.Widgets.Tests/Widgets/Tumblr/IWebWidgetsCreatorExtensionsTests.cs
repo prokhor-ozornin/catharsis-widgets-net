@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Tumblr(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.Tumblr().Should().BeOfType<TumblrWidgetsCreator>().And.BeSameAs(widgets.Tumblr());
+    Widgets.Tumblr().Should().BeOfType<TumblrWidgetsCreator>().And.BeSameAs(Widgets.Tumblr());
   }
 }

@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCreator>
 {
-  private readonly IVkontakteWidgetsCreator widgets = Widgets.Create.Vkontakte();
+  private IVkontakteWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Vkontakte();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -36,7 +36,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Comments_Method()
   {
-    widgets.Comments().Should().BeOfType<VkontakteCommentsWidget>().And.NotBeSameAs(widgets.Comments());
+    Widgets.Comments().Should().BeOfType<VkontakteCommentsWidget>().And.NotBeSameAs(Widgets.Comments());
   }
 
   /// <summary>
@@ -45,7 +45,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Community_Method()
   {
-    widgets.Community().Should().BeOfType<VkontakteCommunityWidget>().And.NotBeSameAs(widgets.Community());
+    Widgets.Community().Should().BeOfType<VkontakteCommunityWidget>().And.NotBeSameAs(Widgets.Community());
   }
 
   /// <summary>
@@ -54,7 +54,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Initialize_Method()
   {
-    widgets.Initialize().Should().BeOfType<VkontakteInitializationWidget>().And.NotBeSameAs(widgets.Initialize());
+    Widgets.Initialize().Should().BeOfType<VkontakteInitializationWidget>().And.NotBeSameAs(Widgets.Initialize());
   }
 
   /// <summary>
@@ -63,7 +63,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void LikeButton_Method()
   {
-    widgets.LikeButton().Should().BeOfType<VkontakteLikeButtonWidget>().And.NotBeSameAs(widgets.LikeButton());
+    Widgets.LikeButton().Should().BeOfType<VkontakteLikeButtonWidget>().And.NotBeSameAs(Widgets.LikeButton());
   }
 
   /// <summary>
@@ -72,7 +72,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Poll_Method()
   {
-    widgets.Poll().Should().BeOfType<VkontaktePollWidget>().And.NotBeSameAs(widgets.Poll());
+    Widgets.Poll().Should().BeOfType<VkontaktePollWidget>().And.NotBeSameAs(Widgets.Poll());
   }
 
   /// <summary>
@@ -81,7 +81,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Post_Method()
   {
-    widgets.Post().Should().BeOfType<VkontaktePostWidget>().And.NotBeSameAs(widgets.Post());
+    Widgets.Post().Should().BeOfType<VkontaktePostWidget>().And.NotBeSameAs(Widgets.Post());
   }
 
   /// <summary>
@@ -90,7 +90,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Recommendations_Method()
   {
-    widgets.Recommendations().Should().BeOfType<VkontakteRecommendationsWidget>().And.NotBeSameAs(widgets.Recommendations());
+    Widgets.Recommendations().Should().BeOfType<VkontakteRecommendationsWidget>().And.NotBeSameAs(Widgets.Recommendations());
   }
 
   /// <summary>
@@ -108,7 +108,7 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Subscribe_Method()
   {
-    widgets.Subscription().Should().BeOfType<VkontakteSubscriptionWidget>().And.NotBeSameAs(widgets.Subscription());
+    Widgets.Subscription().Should().BeOfType<VkontakteSubscriptionWidget>().And.NotBeSameAs(Widgets.Subscription());
   }
 
   /// <summary>
@@ -117,6 +117,6 @@ public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCre
   [Fact]
   public void Video_Method()
   {
-    widgets.Video().Should().BeOfType<VkontakteVideoWidget>().And.NotBeSameAs(widgets.Video());
+    Widgets.Video().Should().BeOfType<VkontakteVideoWidget>().And.NotBeSameAs(Widgets.Video());
   }
 }

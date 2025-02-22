@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreator>
 {
-  private readonly IFacebookWidgetsCreator widgets = Widgets.Create.Facebook();
+  private IFacebookWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Facebook();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void Initialize_Method()
   {
-    widgets.Initialize().Should().BeOfType<FacebookInitializationWidget>().And.NotBeSameAs(widgets.Initialize());
+    Widgets.Initialize().Should().BeOfType<FacebookInitializationWidget>().And.NotBeSameAs(Widgets.Initialize());
   }
 
   /// <summary>
@@ -36,7 +36,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void ActivityFeed_Method()
   {
-    widgets.ActivityFeed().Should().BeOfType<FacebookActivityFeedWidget>().And.NotBeSameAs(widgets.ActivityFeed());
+    Widgets.ActivityFeed().Should().BeOfType<FacebookActivityFeedWidget>().And.NotBeSameAs(Widgets.ActivityFeed());
   }
 
   /// <summary>
@@ -45,7 +45,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void RecommendationsFeed_Method()
   {
-    widgets.RecommendationsFeed().Should().BeOfType<FacebookRecommendationsFeedWidget>().And.NotBeSameAs(widgets.RecommendationsFeed());
+    Widgets.RecommendationsFeed().Should().BeOfType<FacebookRecommendationsFeedWidget>().And.NotBeSameAs(Widgets.RecommendationsFeed());
   }
 
   /// <summary>
@@ -54,7 +54,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void Comments_Method()
   {
-    widgets.Comments().Should().BeOfType<FacebookCommentsWidget>().And.NotBeSameAs(widgets.Comments());
+    Widgets.Comments().Should().BeOfType<FacebookCommentsWidget>().And.NotBeSameAs(Widgets.Comments());
   }
 
   /// <summary>
@@ -63,7 +63,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void Facepile_Method()
   {
-    widgets.FacePile().Should().BeOfType<FacebookFacePileWidget>().And.NotBeSameAs(widgets.FacePile());
+    Widgets.FacePile().Should().BeOfType<FacebookFacePileWidget>().And.NotBeSameAs(Widgets.FacePile());
   }
 
   /// <summary>
@@ -72,7 +72,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void FollowButton_Method()
   {
-    widgets.FollowButton().Should().BeOfType<FacebookFollowButtonWidget>().And.NotBeSameAs(widgets.FollowButton());
+    Widgets.FollowButton().Should().BeOfType<FacebookFollowButtonWidget>().And.NotBeSameAs(Widgets.FollowButton());
   }
 
   /// <summary>
@@ -81,7 +81,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void LikeButton_Method()
   {
-    widgets.LikeButton().Should().BeOfType<FacebookLikeButtonWidget>().And.NotBeSameAs(widgets.LikeButton());
+    Widgets.LikeButton().Should().BeOfType<FacebookLikeButtonWidget>().And.NotBeSameAs(Widgets.LikeButton());
   }
 
   /// <summary>
@@ -90,7 +90,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void LikeBox_Method()
   {
-    widgets.LikeBox().Should().BeOfType<FacebookLikeBoxWidget>().And.NotBeSameAs(widgets.LikeBox());
+    Widgets.LikeBox().Should().BeOfType<FacebookLikeBoxWidget>().And.NotBeSameAs(Widgets.LikeBox());
   }
 
   /// <summary>
@@ -99,7 +99,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void Post_Method()
   {
-    widgets.Post().Should().BeOfType<FacebookPostWidget>().And.NotBeSameAs(widgets.Post());
+    Widgets.Post().Should().BeOfType<FacebookPostWidget>().And.NotBeSameAs(Widgets.Post());
   }
 
   /// <summary>
@@ -108,7 +108,7 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void SendButton_Method()
   {
-    widgets.SendButton().Should().BeOfType<FacebookSendButtonWidget>().And.NotBeSameAs(widgets.SendButton());
+    Widgets.SendButton().Should().BeOfType<FacebookSendButtonWidget>().And.NotBeSameAs(Widgets.SendButton());
   }
 
   /// <summary>
@@ -117,6 +117,6 @@ public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreat
   [Fact]
   public void Video_Method()
   {
-    widgets.Video().Should().BeOfType<FacebookVideoWidget>().And.NotBeSameAs(widgets.Video());
+    Widgets.Video().Should().BeOfType<FacebookVideoWidget>().And.NotBeSameAs(Widgets.Video());
   }
 }

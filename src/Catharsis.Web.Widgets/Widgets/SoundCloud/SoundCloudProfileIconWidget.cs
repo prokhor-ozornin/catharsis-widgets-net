@@ -1,14 +1,13 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ISoundCloudProfileIconWidget"/>
 public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidget
 {
-  private string account;
-  private string color = "orange_white";
-  private short size = (short) SoundCloudProfileIconSize.Size32;
+  private string AccountProperty { get; set; }
+  private string ColorProperty { get; set; } = "orange_white";
+  private short SizeProperty { get; set; } = (short) SoundCloudProfileIconSize.Size32;
 
   /// <inheritdoc cref="ISoundCloudProfileIconWidget.Account(string)"/>
   public ISoundCloudProfileIconWidget Account(string account)
@@ -16,12 +15,12 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
     return this;
   }
 
   /// <inheritdoc cref="ISoundCloudProfileIconWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="ISoundCloudProfileIconWidget.Color(string)"/>
   public ISoundCloudProfileIconWidget Color(string color)
@@ -29,22 +28,22 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    this.color = color;
+    ColorProperty = color;
     return this;
   }
 
   /// <inheritdoc cref="ISoundCloudProfileIconWidget.Size(short)"/>
-  public string Color() => color;
+  public string Color() => ColorProperty;
 
   /// <inheritdoc cref="ISoundCloudProfileIconWidget.Size(short)"/>
   public ISoundCloudProfileIconWidget Size(short size)
   {
-    this.size = size;
+    SizeProperty = size;
     return this;
   }
 
   /// <inheritdoc cref="ISoundCloudProfileIconWidget.Size()"/>
-  public short Size() => size;
+  public short Size() => SizeProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

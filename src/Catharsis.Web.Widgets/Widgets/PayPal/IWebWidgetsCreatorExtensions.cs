@@ -6,7 +6,7 @@
 /// <seealso cref="IWebWidgetsCreator"/>
 public static partial class IWebWidgetsCreatorExtensions
 {
-  private static IPayPalWidgetsCreator paypal;
+  private static IPayPalWidgetsCreator PayPalProperty { get; set; }
 
   /// <summary>
   ///   <para>Initializes HTML helper object for rendering of PayPal widgets.</para>
@@ -14,5 +14,5 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
-  public static IPayPalWidgetsCreator PayPal(this IWebWidgetsCreator creator) => creator is not null ? paypal ??= new PayPalWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
+  public static IPayPalWidgetsCreator PayPal(this IWebWidgetsCreator creator) => creator is not null ? PayPalProperty ??= new PayPalWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

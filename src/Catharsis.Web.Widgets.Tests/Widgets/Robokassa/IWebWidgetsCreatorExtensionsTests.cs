@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Robokassa(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.Robokassa().Should().BeOfType<RobokassaWidgetsCreator>().And.BeSameAs(widgets.Robokassa());
+    Widgets.Robokassa().Should().BeOfType<RobokassaWidgetsCreator>().And.BeSameAs(Widgets.Robokassa());
   }
 }

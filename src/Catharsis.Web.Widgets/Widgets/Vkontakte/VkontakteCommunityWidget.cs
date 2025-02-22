@@ -7,14 +7,14 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IVkontakteCommunityWidget"/>
 public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
 {
-  private string account;
-  private string backgroundColor;
-  private string buttonColor;
-  private string elementId;
-  private string height;
-  private byte mode = (byte)VkontakteCommunityMode.Participants;
-  private string textColor;
-  private string width;
+  private string AccountProperty { get; set; }
+  private string BackgroundColorProperty { get; set; }
+  private string ButtonColorProperty { get; set; }
+  private string ElementIdProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private byte ModeProperty { get; set; } = (byte) VkontakteCommunityMode.Participants;
+  private string TextColorProperty { get; set; }
+  private string WidthProperty { get; set; }
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.Account(string)"/>
   public IVkontakteCommunityWidget Account(string account)
@@ -22,13 +22,13 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.BackgroundColor(string)"/>
   public IVkontakteCommunityWidget BackgroundColor(string color)
@@ -36,13 +36,13 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    backgroundColor = color;
+    BackgroundColorProperty = color;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.BackgroundColor()"/>
-  public string BackgroundColor() => backgroundColor;
+  public string BackgroundColor() => BackgroundColorProperty;
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.TextColor(string)"/>
   public IVkontakteCommunityWidget TextColor(string color)
@@ -50,13 +50,13 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    textColor = color;
+    TextColorProperty = color;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.TextColor()"/>
-  public string TextColor() => textColor;
+  public string TextColor() => TextColorProperty;
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.ButtonColor(string)"/>
   public IVkontakteCommunityWidget ButtonColor(string color)
@@ -64,13 +64,13 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    buttonColor = color;
+    ButtonColorProperty = color;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.ButtonColor()"/>
-  public string ButtonColor() => buttonColor;
+  public string ButtonColor() => ButtonColorProperty;
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.ElementId(string)"/>
   public IVkontakteCommunityWidget ElementId(string id)
@@ -78,13 +78,13 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    elementId = id;
+    ElementIdProperty = id;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.ElementId()"/>
-  public string ElementId() => elementId;
+  public string ElementId() => ElementIdProperty;
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.Height(string)"/>
   public IVkontakteCommunityWidget Height(string height)
@@ -92,23 +92,23 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.Mode(byte)"/>
   public IVkontakteCommunityWidget Mode(byte mode)
   {
-    this.mode = mode;
+    ModeProperty = mode;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.Mode()"/>
-  public byte Mode() => mode;
+  public byte Mode() => ModeProperty;
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.Width(string)"/>
   public IVkontakteCommunityWidget Width(string width)
@@ -116,13 +116,13 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

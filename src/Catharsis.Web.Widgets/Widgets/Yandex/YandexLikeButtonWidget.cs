@@ -6,11 +6,11 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IYandexLikeButtonWidget"/>
 public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
 {
-  private string url;
-  private string title;
-  private string size = YandexLikeButtonSize.Large.ToString().ToLowerInvariant();
-  private string layout = YandexLikeButtonLayout.Button.ToString().ToLowerInvariant();
-  private string text;
+  private string UrlProperty { get; set; }
+  private string TitleProperty { get; set; }
+  private string SizeProperty { get; set; } = YandexLikeButtonSize.Large.ToString().ToLowerInvariant();
+  private string LayoutProperty { get; set; } = YandexLikeButtonLayout.Button.ToString().ToLowerInvariant();
+  private string TextProperty { get; set; }
 
   /// <inheritdoc cref="IYandexLikeButtonWidget.Layout(string)"/>
   public IYandexLikeButtonWidget Layout(string layout)
@@ -18,12 +18,12 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     if (layout is null) throw new ArgumentNullException(nameof(layout));
     if (layout.IsEmpty()) throw new ArgumentNullException(nameof(layout));
 
-    this.layout = layout;
+    LayoutProperty = layout;
     return this;
   }
 
   /// <inheritdoc cref="IYandexLikeButtonWidget.Layout()"/>
-  public string Layout() => layout;
+  public string Layout() => LayoutProperty;
 
   /// <inheritdoc cref="IYandexLikeButtonWidget.Size(string)"/>
   public IYandexLikeButtonWidget Size(string size)
@@ -31,12 +31,12 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
 
-    this.size = size;
+    SizeProperty = size;
     return this;
   }
 
   /// <inheritdoc cref="IYandexLikeButtonWidget.Size()"/>
-  public string Size() => size;
+  public string Size() => SizeProperty;
 
   /// <inheritdoc cref="IYandexLikeButtonWidget.Text(string)"/>
   public IYandexLikeButtonWidget Text(string text)
@@ -44,13 +44,12 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     if (text is null) throw new ArgumentNullException(nameof(text));
     if (text.IsEmpty()) throw new ArgumentException(nameof(text));
 
-    this.text = text;
-
+    TextProperty = text;
     return this;
   }
 
   /// <inheritdoc cref="IYandexLikeButtonWidget.Text()"/>
-  public string Text() => text;
+  public string Text() => TextProperty;
 
   /// <inheritdoc cref="IYandexLikeButtonWidget.Title(string)"/>
   public IYandexLikeButtonWidget Title(string title)
@@ -58,13 +57,12 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     if (title is null) throw new ArgumentNullException(nameof(title));
     if (title.IsEmpty()) throw new ArgumentException(nameof(title));
 
-
-    this.title = title;
+    TitleProperty = title;
     return this;
   }
 
   /// <inheritdoc cref="IYandexLikeButtonWidget.Title()"/>
-  public string Title() => title;
+  public string Title() => TitleProperty;
 
   /// <inheritdoc cref="IYandexLikeButtonWidget.Url(string)"/>
   public IYandexLikeButtonWidget Url(string url)
@@ -72,12 +70,12 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.url = url;
+    UrlProperty = url;
     return this;
   }
 
   /// <inheritdoc cref="IYandexLikeButtonWidget.Url()"/>
-  public string Url() => url;
+  public string Url() => UrlProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new StringBuilder()

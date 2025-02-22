@@ -6,17 +6,17 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IMailRuFacesWidget"/>
 public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
 {
-  private string backgroundColor;
-  private string borderColor;
-  private string domain;
-  private string font = MailRuFacesFont.Arial.ToString();
-  private string height;
-  private string hyperlinkColor;
-  private string textColor;
-  private bool title = true;
-  private string titleColor;
-  private string titleText;
-  private string width;
+  private string BackgroundColorProperty { get; set; }
+  private string BorderColorProperty { get; set; }
+  private string DomainProperty { get; set; }
+  private string FontProperty { get; set; } = MailRuFacesFont.Arial.ToString();
+  private string HeightProperty { get; set; }
+  private string HyperlinkColorProperty { get; set; }
+  private string TextColorProperty { get; set; }
+  private bool TitleProperty { get; set; } = true;
+  private string TitleColorProperty { get; set; }
+  private string TitleTextProperty { get; set; }
+  private string WidthProperty { get; set; }
 
   /// <inheritdoc cref="IMailRuFacesWidget.BackgroundColor(string)"/>
   public IMailRuFacesWidget BackgroundColor(string color)
@@ -24,12 +24,12 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    backgroundColor = color;
+    BackgroundColorProperty = color;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.BackgroundColor()"/>
-  public string BackgroundColor() => backgroundColor;
+  public string BackgroundColor() => BackgroundColorProperty;
 
   /// <inheritdoc cref="IMailRuFacesWidget.BorderColor(string)"/>
   public IMailRuFacesWidget BorderColor(string color)
@@ -37,12 +37,12 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    borderColor = color;
+    BorderColorProperty = color;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.BorderColor()"/>
-  public string BorderColor() => borderColor;
+  public string BorderColor() => BorderColorProperty;
 
   /// <inheritdoc cref="IMailRuFacesWidget.Domain(string)"/>
   public IMailRuFacesWidget Domain(string domain)
@@ -50,12 +50,12 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (domain is null) throw new ArgumentNullException(nameof(domain));
     if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
 
-    this.domain = domain;
+    DomainProperty = domain;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.Domain()"/>
-  public string Domain() => domain;
+  public string Domain() => DomainProperty;
 
   /// <inheritdoc cref="IMailRuFacesWidget.Font(string)"/>
   public IMailRuFacesWidget Font(string font)
@@ -63,12 +63,12 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (font is null) throw new ArgumentNullException(nameof(font));
     if (font.IsEmpty()) throw new ArgumentException(nameof(font));
 
-    this.font = font;
+    FontProperty = font;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.Font()"/>
-  public string Font() => font;
+  public string Font() => FontProperty;
 
   /// <inheritdoc cref="IMailRuFacesWidget.Height(string)"/>
   public IMailRuFacesWidget Height(string height)
@@ -76,12 +76,12 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IMailRuFacesWidget.HyperlinkColor(string)"/>
   public IMailRuFacesWidget HyperlinkColor(string color)
@@ -89,12 +89,12 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    hyperlinkColor = color;
+    HyperlinkColorProperty = color;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.HyperlinkColor()"/>
-  public string HyperlinkColor() => hyperlinkColor;
+  public string HyperlinkColor() => HyperlinkColorProperty;
 
   /// <inheritdoc cref="IMailRuFacesWidget.TextColor(string)"/>
   public IMailRuFacesWidget TextColor(string color)
@@ -102,22 +102,22 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    textColor = color;
+    TextColorProperty = color;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.TextColor()"/>
-  public string TextColor() => textColor;
+  public string TextColor() => TextColorProperty;
 
   /// <inheritdoc cref="IMailRuFacesWidget.Title(bool)"/>
   public IMailRuFacesWidget Title(bool enabled)
   {
-    title = enabled;
+    TitleProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.Title()"/>
-  public bool Title() => title;
+  public bool Title() => TitleProperty;
 
   /// <inheritdoc cref="IMailRuFacesWidget.TitleColor(string)"/>
   public IMailRuFacesWidget TitleColor(string color)
@@ -125,12 +125,12 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    titleColor = color;
+    TitleColorProperty = color;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.TitleColor()"/>
-  public string TitleColor() => titleColor;
+  public string TitleColor() => TitleColorProperty;
 
   /// <inheritdoc cref="IMailRuFacesWidget.TitleText(string)"/>
   public IMailRuFacesWidget TitleText(string title)
@@ -138,12 +138,12 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (title is null) throw new ArgumentNullException(nameof(title));
     if (title.IsEmpty()) throw new ArgumentException(nameof(title));
 
-    titleText = title;
+    TitleTextProperty = title;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.TitleText()"/>
-  public string TitleText() => titleText;
+  public string TitleText() => TitleTextProperty;
 
   /// <inheritdoc cref="IMailRuFacesWidget.Width(string)"/>
   public IMailRuFacesWidget Width(string width)
@@ -151,12 +151,12 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

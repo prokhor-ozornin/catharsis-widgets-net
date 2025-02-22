@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.VideoJS(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.VideoJS().Should().BeOfType<VideoJSWidgetsCreator>().And.BeSameAs(widgets.VideoJS());
+    Widgets.VideoJS().Should().BeOfType<VideoJSWidgetsCreator>().And.BeSameAs(Widgets.VideoJS());
   }
 }

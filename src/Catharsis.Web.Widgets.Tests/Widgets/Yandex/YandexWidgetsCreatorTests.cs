@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
 {
-  private readonly IYandexWidgetsCreator widgets = Widgets.Create.Yandex();
+  private IYandexWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Yandex();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   [Fact]
   public void Analytics_Method()
   {
-    widgets.Analytics().Should().BeOfType<YandexAnalyticsWidget>().And.NotBeSameAs(widgets.Analytics());
+    Widgets.Analytics().Should().BeOfType<YandexAnalyticsWidget>().And.NotBeSameAs(Widgets.Analytics());
   }
 
   /// <summary>
@@ -36,7 +36,7 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   [Fact]
   public void LikeButton_Method()
   {
-    widgets.LikeButton().Should().BeOfType<YandexLikeButtonWidget>().And.NotBeSameAs(widgets.LikeButton());
+    Widgets.LikeButton().Should().BeOfType<YandexLikeButtonWidget>().And.NotBeSameAs(Widgets.LikeButton());
   }
 
   /// <summary>
@@ -45,7 +45,7 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   [Fact]
   public void MoneyButton_Method()
   {
-    widgets.MoneyButton().Should().BeOfType<YandexMoneyButtonWidget>().And.NotBeSameAs(widgets.MoneyButton());
+    Widgets.MoneyButton().Should().BeOfType<YandexMoneyButtonWidget>().And.NotBeSameAs(Widgets.MoneyButton());
   }
 
   /// <summary>
@@ -54,7 +54,7 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   [Fact]
   public void MoneyDonateForm_Method()
   {
-    widgets.MoneyDonateForm().Should().BeOfType<YandexMoneyDonateFormWidget>().And.NotBeSameAs(widgets.MoneyDonateForm());
+    Widgets.MoneyDonateForm().Should().BeOfType<YandexMoneyDonateFormWidget>().And.NotBeSameAs(Widgets.MoneyDonateForm());
   }
 
   /// <summary>
@@ -63,7 +63,7 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   [Fact]
   public void MoneyPaymentForm_Method()
   {
-    widgets.MoneyPaymentForm().Should().BeOfType<YandexMoneyPaymentFormWidget>().And.NotBeSameAs(widgets.MoneyPaymentForm());
+    Widgets.MoneyPaymentForm().Should().BeOfType<YandexMoneyPaymentFormWidget>().And.NotBeSameAs(Widgets.MoneyPaymentForm());
   }
 
   /// <summary>
@@ -72,7 +72,7 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   [Fact]
   public void SharePanel_Method()
   {
-    widgets.SharePanel().Should().BeOfType<YandexSharePanelWidget>().And.NotBeSameAs(widgets.SharePanel());
+    Widgets.SharePanel().Should().BeOfType<YandexSharePanelWidget>().And.NotBeSameAs(Widgets.SharePanel());
   }
 
   /// <summary>
@@ -81,6 +81,6 @@ public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
   [Fact]
   public void Video_Method()
   {
-    widgets.Video().Should().BeOfType<YandexVideoWidget>().And.NotBeSameAs(widgets.Video());
+    Widgets.Video().Should().BeOfType<YandexVideoWidget>().And.NotBeSameAs(Widgets.Video());
   }
 }

@@ -3,26 +3,26 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IShare42PanelWidget"/>
 public class Share42PanelWidget : WebWidget, IShare42PanelWidget
 {
-  private Share42PanelDirection direction = Share42PanelDirection.Horizontal;
-  private byte size = (byte) Share42PanelSize.Size24;
+  private Share42PanelDirection DirectionProperty { get; set; } = Share42PanelDirection.Horizontal;
+  private byte SizeProperty { get; set; } = (byte) Share42PanelSize.Size24;
 
   /// <inheritdoc cref="IShare42PanelWidget.Size()"/>
-  public byte Size() => size;
+  public byte Size() => SizeProperty;
 
   /// <inheritdoc cref="IShare42PanelWidget.Size(byte)"/>
   public IShare42PanelWidget Size(byte size)
   {
-    this.size = size;
+    SizeProperty = size;
     return this;
   }
 
   /// <inheritdoc cref="IShare42PanelWidget.Direction()"/>
-  public Share42PanelDirection Direction() => direction;
+  public Share42PanelDirection Direction() => DirectionProperty;
 
   /// <inheritdoc cref="IShare42PanelWidget.Direction(Share42PanelDirection)"/>
   public IShare42PanelWidget Direction(Share42PanelDirection direction)
   {
-    this.direction = direction;
+    DirectionProperty = direction;
     return this;
   }
 

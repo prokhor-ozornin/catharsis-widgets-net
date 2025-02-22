@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class TwitterWidgetsCreatorTests : ClassTest<TwitterWidgetsCreator>
 {
-  private readonly ITwitterWidgetsCreator widgets = Widgets.Create.Twitter();
+  private ITwitterWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Twitter();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class TwitterWidgetsCreatorTests : ClassTest<TwitterWidgetsCreator
   [Fact]
   public void Follow_Method()
   {
-    widgets.FollowButton().Should().BeOfType<TwitterFollowButtonWidget>().And.NotBeSameAs(widgets.FollowButton());
+    Widgets.FollowButton().Should().BeOfType<TwitterFollowButtonWidget>().And.NotBeSameAs(Widgets.FollowButton());
   }
 
   /// <summary>
@@ -36,6 +36,6 @@ public sealed class TwitterWidgetsCreatorTests : ClassTest<TwitterWidgetsCreator
   [Fact]
   public void Tweet_Method()
   {
-    widgets.TweetButton().Should().BeOfType<TwitterTweetButtonWidget>().And.NotBeSameAs(widgets.TweetButton());
+    Widgets.TweetButton().Should().BeOfType<TwitterTweetButtonWidget>().And.NotBeSameAs(Widgets.TweetButton());
   }
 }

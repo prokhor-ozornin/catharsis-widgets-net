@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class GravatarWidgetsCreatorTests : ClassTest<GravatarWidgetsCreator>
 {
-  private readonly IGravatarWidgetsCreator widgets = Widgets.Create.Gravatar();
+  private IGravatarWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Gravatar();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class GravatarWidgetsCreatorTests : ClassTest<GravatarWidgetsCreat
   [Fact]
   public void ImageLink_Method()
   {
-    widgets.ImageUrl().Should().BeOfType<GravatarImageUrlWidget>().And.NotBeSameAs(widgets.ImageUrl());
+    Widgets.ImageUrl().Should().BeOfType<GravatarImageUrlWidget>().And.NotBeSameAs(Widgets.ImageUrl());
   }
 
   /// <summary>
@@ -36,6 +36,6 @@ public sealed class GravatarWidgetsCreatorTests : ClassTest<GravatarWidgetsCreat
   [Fact]
   public void ProfileLink_Method()
   {
-    widgets.ProfileUrl().Should().BeOfType<GravatarProfileUrlWidget>().And.NotBeSameAs(widgets.ProfileUrl());
+    Widgets.ProfileUrl().Should().BeOfType<GravatarProfileUrlWidget>().And.NotBeSameAs(Widgets.ProfileUrl());
   }
 }

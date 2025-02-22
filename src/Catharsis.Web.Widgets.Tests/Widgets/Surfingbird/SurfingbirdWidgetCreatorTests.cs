@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class SurfingbirdWidgetsCreatorTests : ClassTest<SurfingbirdWidgetsCreator>
 {
-  private readonly ISurfingbirdWidgetsCreator widgets = Widgets.Create.Surfingbird();
+  private ISurfingbirdWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Surfingbird();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,6 +27,6 @@ public sealed class SurfingbirdWidgetsCreatorTests : ClassTest<SurfingbirdWidget
   [Fact]
   public void SurfButton_Method()
   {
-    widgets.SurfButton().Should().BeOfType<SurfingbirdSurfButtonWidget>().And.NotBeSameAs(widgets.SurfButton());
+    Widgets.SurfButton().Should().BeOfType<SurfingbirdSurfButtonWidget>().And.NotBeSameAs(Widgets.SurfButton());
   }
 }

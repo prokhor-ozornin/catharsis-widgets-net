@@ -1,24 +1,23 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IYandexMoneyDonateFormWidget"/>
 public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidget
 {
-  private string account;
-  private bool description;
-  private decimal? sum;
-  private bool cards = true;
-  private byte text = (byte) YandexMoneyDonateFormText.Donate;
-  private string projectName;
-  private string projectSite;
-  private bool askPayerComment;
-  private string commentHint;
-  private bool askPayerFullName;
-  private bool askPayerEmail;
-  private bool askPayerPhone;
-  private string descriptionText;
+  private string AccountProperty { get; set; }
+  private bool DescriptionProperty { get; set; }
+  private decimal? SumProperty { get; set; }
+  private bool CardsProperty { get; set; } = true;
+  private byte TextProperty { get; set; } = (byte) YandexMoneyDonateFormText.Donate;
+  private string ProjectNameProperty { get; set; }
+  private string ProjectSiteProperty { get; set; }
+  private bool AskPayerCommentProperty { get; set; }
+  private string CommentHintProperty { get; set; }
+  private bool AskPayerFullNameProperty { get; set; }
+  private bool AskPayerEmailProperty { get; set; }
+  private bool AskPayerPhoneProperty { get; set; }
+  private string DescriptionTextProperty { get; set; }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Account(string)"/>
   public IYandexMoneyDonateFormWidget Account(string account)
@@ -26,22 +25,22 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Cards(bool)"/>
   public IYandexMoneyDonateFormWidget Cards(bool enabled)
   {
-    cards = enabled;
+    CardsProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Cards()"/>
-  public bool Cards() => cards;
+  public bool Cards() => CardsProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.DescriptionText(string)"/>
   public IYandexMoneyDonateFormWidget DescriptionText(string description)
@@ -49,22 +48,22 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     if (description is null) throw new ArgumentNullException(nameof(description));
     if (description.IsEmpty()) throw new ArgumentException(nameof(description));
 
-    descriptionText = description;
+    DescriptionTextProperty = description;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.DescriptionText()"/>
-  public string DescriptionText() => descriptionText;
+  public string DescriptionText() => DescriptionTextProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerComment(bool)"/>
   public IYandexMoneyDonateFormWidget AskPayerComment(bool enabled)
   {
-    askPayerComment = enabled;
+    AskPayerCommentProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerComment()"/>
-  public bool AskPayerComment() => askPayerComment;
+  public bool AskPayerComment() => AskPayerCommentProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.CommentHint(string)"/>
   public IYandexMoneyDonateFormWidget CommentHint(string hint)
@@ -72,42 +71,42 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     if (hint is null) throw new ArgumentNullException(nameof(hint));
     if (hint.IsEmpty()) throw new ArgumentException(nameof(hint));
 
-    commentHint = hint;
+    CommentHintProperty = hint;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.CommentHint()"/>
-  public string CommentHint() => commentHint;
+  public string CommentHint() => CommentHintProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerEmail(bool)"/>
   public IYandexMoneyDonateFormWidget AskPayerEmail(bool enabled)
   {
-    askPayerEmail = enabled;
+    AskPayerEmailProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerEmail()"/>
-  public bool AskPayerEmail() => askPayerEmail;
+  public bool AskPayerEmail() => AskPayerEmailProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerFullName(bool)"/>
   public IYandexMoneyDonateFormWidget AskPayerFullName(bool enabled)
   {
-    askPayerFullName = enabled;
+    AskPayerFullNameProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerFullName()"/>
-  public bool AskPayerFullName() => askPayerFullName;
+  public bool AskPayerFullName() => AskPayerFullNameProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerPhone(bool)"/>
   public IYandexMoneyDonateFormWidget AskPayerPhone(bool enabled)
   {
-    askPayerPhone = enabled;
+    AskPayerPhoneProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerPhone()"/>
-  public bool AskPayerPhone() => askPayerPhone;
+  public bool AskPayerPhone() => AskPayerPhoneProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.ProjectName(string)"/>
   public IYandexMoneyDonateFormWidget ProjectName(string name)
@@ -115,13 +114,13 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     if (name is null) throw new ArgumentNullException(nameof(name));
     if (name.IsEmpty()) throw new ArgumentException(nameof(name));
 
-    projectName = name;
+    ProjectNameProperty = name;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.ProjectName()"/>
-  public string ProjectName() => projectName;
+  public string ProjectName() => ProjectNameProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.ProjectSite(string)"/>
   public IYandexMoneyDonateFormWidget ProjectSite(string url)
@@ -129,43 +128,43 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    projectSite = url;
+    ProjectSiteProperty = url;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.ProjectSite()"/>
-  public string ProjectSite() => projectSite;
+  public string ProjectSite() => ProjectSiteProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Description(bool)"/>
   public IYandexMoneyDonateFormWidget Description(bool enabled)
   {
-    description = enabled;
+    DescriptionProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Description()"/>
-  public bool Description() => description;
+  public bool Description() => DescriptionProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Sum(decimal)"/>
   public IYandexMoneyDonateFormWidget Sum(decimal sum)
   {
-    this.sum = sum;
+    SumProperty = sum;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Sum()"/>
-  public decimal? Sum() => sum;
+  public decimal? Sum() => SumProperty;
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Text(byte)"/>
   public IYandexMoneyDonateFormWidget Text(byte text)
   {
-    this.text = text;
+    TextProperty = text;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Text()"/>
-  public byte Text() => text;
+  public byte Text() => TextProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
@@ -185,7 +184,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
       _ => 523
     };
 
-    if (!cards)
+    if (!CardsProperty)
     {
       width -= 69;
     }

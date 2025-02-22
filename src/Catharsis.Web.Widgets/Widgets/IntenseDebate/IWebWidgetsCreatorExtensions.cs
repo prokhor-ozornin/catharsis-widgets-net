@@ -6,7 +6,7 @@
 /// <seealso cref="IWebWidgetsCreator"/>
 public static partial class IWebWidgetsCreatorExtensions
 {
-  private static IIntenseDebateWidgetsCreator intensedebate;
+  private static IIntenseDebateWidgetsCreator IntenseDebateProperty { get; set; }
 
   /// <summary>
   ///   <para>Initializes HTML helper object for rendering of IntenseDebate widgets.</para>
@@ -14,5 +14,5 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
-  public static IIntenseDebateWidgetsCreator IntenseDebate(this IWebWidgetsCreator creator) => creator is not null ? intensedebate ??= new IntenseDebateWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
+  public static IIntenseDebateWidgetsCreator IntenseDebate(this IWebWidgetsCreator creator) => creator is not null ? IntenseDebateProperty ??= new IntenseDebateWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

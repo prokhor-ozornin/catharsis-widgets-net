@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IPinterestFollowButtonWidget"/>
 public class PinterestFollowButtonWidget : WebWidget, IPinterestFollowButtonWidget
 {
-  private string account;
-  private string label = "Follow";
+  private string AccountProperty { get; set; }
+  private string LabelProperty { get; set; } = "Follow";
 
   /// <inheritdoc cref="IPinterestFollowButtonWidget.Account(string)"/>
   public IPinterestFollowButtonWidget Account(string account)
@@ -14,13 +14,13 @@ public class PinterestFollowButtonWidget : WebWidget, IPinterestFollowButtonWidg
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
 
     return this;
   }
 
   /// <inheritdoc cref="IPinterestFollowButtonWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IPinterestFollowButtonWidget.Label(string)"/>
   public IPinterestFollowButtonWidget Label(string label)
@@ -28,12 +28,12 @@ public class PinterestFollowButtonWidget : WebWidget, IPinterestFollowButtonWidg
     if (label is null) throw new ArgumentNullException(nameof(label));
     if (label.IsEmpty()) throw new ArgumentException(nameof(label));
 
-    this.label = label;
+    LabelProperty = label;
     return this;
   }
 
   /// <inheritdoc cref="IPinterestFollowButtonWidget.Label()"/>
-  public string Label() => label;
+  public string Label() => LabelProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

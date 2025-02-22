@@ -6,7 +6,7 @@
 /// <seealso cref="IWebWidgetsCreator"/>
 public static partial class IWebWidgetsCreatorExtensions
 {
-  private static ICackleWidgetsCreator cackle;
+  private static ICackleWidgetsCreator CackleProperty { get; set; }
 
   /// <summary>
   ///   <para>Initializes HTML helper object for rendering of Cackle widgets.</para>
@@ -14,5 +14,5 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
-  public static ICackleWidgetsCreator Cackle(this IWebWidgetsCreator creator) => creator is not null ? cackle ??= new CackleWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
+  public static ICackleWidgetsCreator Cackle(this IWebWidgetsCreator creator) => creator is not null ? CackleProperty ??= new CackleWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

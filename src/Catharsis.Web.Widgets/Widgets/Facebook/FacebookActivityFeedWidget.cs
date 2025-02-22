@@ -1,32 +1,31 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookActivityFeedWidget"/>
 public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
 {
-  private IEnumerable<string> actions = [];
-  private string appId;
-  private string colorScheme;
-  private string domain;
-  private bool? header;
-  private string height;
-  private string linkTarget;
-  private byte? maxAge;
-  private bool? recommendations;
-  private string trackLabel;
-  private string width;
+  private IEnumerable<string> ActionsProperty { get; set; } = [];
+  private string AppIdProperty { get; set; }
+  private string ColorSchemeProperty { get; set; }
+  private string DomainProperty { get; set; }
+  private bool? HeaderProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private string LinkTargetProperty { get; set; }
+  private byte? MaxAgeProperty { get; set; }
+  private bool? RecommendationsProperty { get; set; }
+  private string TrackLabelProperty { get; set; }
+  private string WidthProperty { get; set; }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Actions(IEnumerable{string})"/>
   public IFacebookActivityFeedWidget Actions(IEnumerable<string> actions)
   {
-    this.actions = actions ?? throw new ArgumentNullException(nameof(actions));
+    ActionsProperty = actions ?? throw new ArgumentNullException(nameof(actions));
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Actions()"/>
-  public IEnumerable<string> Actions() => actions;
+  public IEnumerable<string> Actions() => ActionsProperty;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.AppId(string)"/>
   public IFacebookActivityFeedWidget AppId(string id)
@@ -34,13 +33,13 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.appId = id;
+    AppIdProperty = id;
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.AppId()"/>
-  public string AppId() => appId;
+  public string AppId() => AppIdProperty;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.ColorScheme(string)"/>
   public IFacebookActivityFeedWidget ColorScheme(string scheme)
@@ -48,13 +47,13 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = scheme;
+    ColorSchemeProperty = scheme;
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.ColorScheme()"/>
-  public string ColorScheme() => colorScheme;
+  public string ColorScheme() => ColorSchemeProperty;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Domain(string)"/>
   public IFacebookActivityFeedWidget Domain(string domain)
@@ -62,23 +61,23 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (domain is null) throw new ArgumentNullException(nameof(domain));
     if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
 
-    this.domain = domain;
+    DomainProperty = domain;
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Domain()"/>
-  public string Domain() => domain;
+  public string Domain() => DomainProperty;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Header(bool)"/>
   public IFacebookActivityFeedWidget Header(bool enabled)
   {
-    header = enabled;
+    HeaderProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Header()"/>
-  public bool? Header() => header;
+  public bool? Header() => HeaderProperty;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Height(string)"/>
   public IFacebookActivityFeedWidget Height(string height)
@@ -86,44 +85,44 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.LinkTarget(string)"/>
   public IFacebookActivityFeedWidget LinkTarget(string target)
   {
-    linkTarget = target ?? throw new ArgumentNullException(nameof(target));
+    LinkTargetProperty = target ?? throw new ArgumentNullException(nameof(target));
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.LinkTarget()"/>
-  public string LinkTarget() => linkTarget;
+  public string LinkTarget() => LinkTargetProperty;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.MaxAge(byte)"/>
   public IFacebookActivityFeedWidget MaxAge(byte age)
   {
-    this.maxAge = age;
+    MaxAgeProperty = age;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.MaxAge()"/>
-  public byte? MaxAge() => maxAge;
+  public byte? MaxAge() => MaxAgeProperty;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Recommendations(bool)"/>
   public IFacebookActivityFeedWidget Recommendations(bool enabled)
   {
-    recommendations = enabled;
+    RecommendationsProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Recommendations()"/>
-  public bool? Recommendations() => recommendations;
+  public bool? Recommendations() => RecommendationsProperty;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.TrackLabel(string)"/>
   public IFacebookActivityFeedWidget TrackLabel(string label)
@@ -131,13 +130,13 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (label is null) throw new ArgumentNullException(nameof(label));
     if (label.IsEmpty()) throw new ArgumentException(nameof(label));
 
-    trackLabel = label;
+    TrackLabelProperty = label;
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.TrackLabel()"/>
-  public string TrackLabel() => trackLabel;
+  public string TrackLabel() => TrackLabelProperty;
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Width(string)"/>
   public IFacebookActivityFeedWidget Width(string width)
@@ -145,13 +144,13 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")

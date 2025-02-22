@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class LiveJournalWidgetsCreatorTests : ClassTest<LiveJournalWidgetsCreator>
 {
-  private readonly ILiveJournalWidgetsCreator widgets = Widgets.Create.LiveJournal();
+  private ILiveJournalWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.LiveJournal();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class LiveJournalWidgetsCreatorTests : ClassTest<LiveJournalWidget
   [Fact]
   public void LikeButton_Method()
   {
-    widgets.LikeButton().Should().BeOfType<LiveJournalLikeButtonWidget>().And.NotBeSameAs(widgets.LikeButton());
+    Widgets.LikeButton().Should().BeOfType<LiveJournalLikeButtonWidget>().And.NotBeSameAs(Widgets.LikeButton());
   }
 
   /// <summary>
@@ -36,6 +36,6 @@ public sealed class LiveJournalWidgetsCreatorTests : ClassTest<LiveJournalWidget
   [Fact]
   public void RepostButton_Method()
   {
-    widgets.RepostButton().Should().BeOfType<LiveJournalRepostButtonWidget>().And.NotBeSameAs(widgets.RepostButton());
+    Widgets.RepostButton().Should().BeOfType<LiveJournalRepostButtonWidget>().And.NotBeSameAs(Widgets.RepostButton());
   }
 }

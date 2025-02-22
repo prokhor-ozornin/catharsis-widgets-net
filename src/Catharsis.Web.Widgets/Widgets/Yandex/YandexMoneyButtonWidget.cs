@@ -1,22 +1,21 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IYandexMoneyButtonWidget"/>
 public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
 {
-  private string account;
-  private string color = YandexMoneyButtonColor.Orange.ToString().ToLowerInvariant();
-  private string description;
-  private bool askPayerFullName;
-  private bool askPayerEmail;
-  private bool askPayerPhone;
-  private bool askPayerAddress;
-  private string size = "l";
-  private decimal? sum;
-  private byte text = (byte) YandexMoneyButtonText.Pay;
-  private string type = "yamoney-payment-type";
+  private string AccountProperty { get; set; }
+  private string ColorProperty { get; set; } = YandexMoneyButtonColor.Orange.ToString().ToLowerInvariant();
+  private string DescriptionProperty { get; set; }
+  private bool AskPayerFullNameProperty { get; set; }
+  private bool AskPayerEmailProperty { get; set; }
+  private bool AskPayerPhoneProperty { get; set; }
+  private bool AskPayerAddressProperty { get; set; }
+  private string SizeProperty { get; set; } = "l";
+  private decimal? SumProperty { get; set; }
+  private byte TextProperty { get; set; } = (byte) YandexMoneyButtonText.Pay;
+  private string TypeProperty { get; set; } = "yamoney-payment-type";
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Account(string)"/>
   public IYandexMoneyButtonWidget Account(string account)
@@ -24,13 +23,13 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Color(string)"/>
   public IYandexMoneyButtonWidget Color(string color)
@@ -38,13 +37,13 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    this.color = color;
+    ColorProperty = color;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Color()"/>
-  public string Color() => color;
+  public string Color() => ColorProperty;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Description(string)"/>
   public IYandexMoneyButtonWidget Description(string description)
@@ -52,52 +51,52 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     if (description is null) throw new ArgumentNullException(nameof(description));
     if (description.IsEmpty()) throw new ArgumentException(nameof(description));
 
-    this.description = description;
+    DescriptionProperty = description;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Description()"/>
-  public string Description() => description;
+  public string Description() => DescriptionProperty;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerFullName(bool)"/>
   public IYandexMoneyButtonWidget AskPayerFullName(bool enabled)
   {
-    askPayerFullName = enabled;
+    AskPayerFullNameProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerFullName()"/>
-  public bool AskPayerFullName() => askPayerFullName;
+  public bool AskPayerFullName() => AskPayerFullNameProperty;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerEmail(bool)"/>
   public IYandexMoneyButtonWidget AskPayerEmail(bool enabled)
   {
-    askPayerEmail = enabled;
+    AskPayerEmailProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerEmail()"/>
-  public bool AskPayerEmail() => askPayerEmail;
+  public bool AskPayerEmail() => AskPayerEmailProperty;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerPhone(bool)"/>
   public IYandexMoneyButtonWidget AskPayerPhone(bool enabled)
   {
-    askPayerPhone = enabled;
+    AskPayerPhoneProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerPhone()"/>
-  public bool AskPayerPhone() => askPayerPhone;
+  public bool AskPayerPhone() => AskPayerPhoneProperty;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerAddress(bool)"/>
   public IYandexMoneyButtonWidget AskPayerAddress(bool enabled)
   {
-    askPayerAddress = enabled;
+    AskPayerAddressProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerAddress()"/>
-  public bool AskPayerAddress() => askPayerAddress;
+  public bool AskPayerAddress() => AskPayerAddressProperty;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Size(string)"/>
   public IYandexMoneyButtonWidget Size(string size)
@@ -105,33 +104,33 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
 
-    this.size = size;
+    SizeProperty = size;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Size()"/>
-  public string Size() => size;
+  public string Size() => SizeProperty;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Sum(decimal)"/>
   public IYandexMoneyButtonWidget Sum(decimal sum)
   {
-    this.sum = sum;
+    SumProperty = sum;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Sum()"/>
-  public decimal? Sum() => sum;
+  public decimal? Sum() => SumProperty;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Text(byte)"/>
   public IYandexMoneyButtonWidget Text(byte text)
   {
-    this.text = text;
+    TextProperty = text;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Text()"/>
-  public byte Text() => text;
+  public byte Text() => TextProperty;
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Type(string)"/>
   public IYandexMoneyButtonWidget Type(string type)
@@ -139,12 +138,12 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     if (type is null) throw new ArgumentNullException(nameof(type));
     if (type.IsEmpty()) throw new ArgumentException(nameof(type));
 
-    this.type = type;
+    TypeProperty = type;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Type()"/>
-  public string Type() => type;
+  public string Type() => TypeProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

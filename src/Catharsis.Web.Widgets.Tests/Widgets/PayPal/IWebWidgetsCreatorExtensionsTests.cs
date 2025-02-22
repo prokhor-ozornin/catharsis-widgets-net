@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.PayPal(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.PayPal().Should().BeOfType<PayPalWidgetsCreator>().And.BeSameAs(widgets.PayPal());
+    Widgets.PayPal().Should().BeOfType<PayPalWidgetsCreator>().And.BeSameAs(Widgets.PayPal());
   }
 }

@@ -6,7 +6,7 @@
 /// <seealso cref="IWebWidgetsCreator"/>
 public static partial class IWebWidgetsCreatorExtensions
 {
-  private static IFacebookWidgetsCreator facebook;
+  private static IFacebookWidgetsCreator FacebookProperty { get; set; }
 
   /// <summary>
   ///   <para>Initializes HTML helper object for rendering of Facebook widgets.</para>
@@ -14,5 +14,5 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
-  public static IFacebookWidgetsCreator Facebook(this IWebWidgetsCreator creator) => creator is not null ? facebook ??= new FacebookWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
+  public static IFacebookWidgetsCreator Facebook(this IWebWidgetsCreator creator) => creator is not null ? FacebookProperty ??= new FacebookWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
 {
-  private readonly IMailRuWidgetsCreator widgets = Widgets.Create.MailRu();
+  private IMailRuWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.MailRu();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
   [Fact]
   public void Faces_Method()
   {
-    widgets.Faces().Should().BeOfType<MailRuFacesWidget>().And.NotBeSameAs(widgets.Faces());
+    Widgets.Faces().Should().BeOfType<MailRuFacesWidget>().And.NotBeSameAs(Widgets.Faces());
   }
 
   /// <summary>
@@ -36,7 +36,7 @@ public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
   [Fact]
   public void Groups_Method()
   {
-    widgets.Groups().Should().BeOfType<MailRuGroupsWidget>().And.NotBeSameAs(widgets.Groups());
+    Widgets.Groups().Should().BeOfType<MailRuGroupsWidget>().And.NotBeSameAs(Widgets.Groups());
   }
 
   /// <summary>
@@ -45,7 +45,7 @@ public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
   [Fact]
   public void Icq_Method()
   {
-    widgets.Icq().Should().BeOfType<MailRuIcqWidget>().And.NotBeSameAs(widgets.Icq());
+    Widgets.Icq().Should().BeOfType<MailRuIcqWidget>().And.NotBeSameAs(Widgets.Icq());
   }
 
   /// <summary>
@@ -54,7 +54,7 @@ public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
   [Fact]
   public void LikeButton_Method()
   {
-    widgets.LikeButton().Should().BeOfType<MailRuLikeButtonWidget>().And.NotBeSameAs(widgets.LikeButton());
+    Widgets.LikeButton().Should().BeOfType<MailRuLikeButtonWidget>().And.NotBeSameAs(Widgets.LikeButton());
   }
 
   /// <summary>
@@ -63,6 +63,6 @@ public sealed class MailRuWidgetsCreatorTests : ClassTest<MailRuWidgetsCreator>
   [Fact]
   public void Video_Method()
   {
-    widgets.Video().Should().BeOfType<MailRuVideoWidget>().And.NotBeSameAs(widgets.Video());
+    Widgets.Video().Should().BeOfType<MailRuVideoWidget>().And.NotBeSameAs(Widgets.Video());
   }
 }

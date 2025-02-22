@@ -1,17 +1,16 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookSendButtonWidget"/>
 public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
 {
-  private string url;
-  private string width;
-  private string height;
-  private string colorScheme;
-  private bool? kidsMode;
-  private string trackLabel;
+  private string UrlProperty { get; set; }
+  private string WidthProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private string ColorSchemeProperty { get; set; }
+  private bool? KidsModeProperty { get; set; }
+  private string TrackLabelProperty { get; set; }
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.ColorScheme(string)"/>
   public IFacebookSendButtonWidget ColorScheme(string scheme)
@@ -19,12 +18,12 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = scheme;
+    ColorSchemeProperty = scheme;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.ColorScheme()"/>
-  public string ColorScheme() => colorScheme;
+  public string ColorScheme() => ColorSchemeProperty;
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.Height(string)"/>
   public IFacebookSendButtonWidget Height(string height)
@@ -32,22 +31,22 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentNullException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.KidsMode(bool)"/>
   public IFacebookSendButtonWidget KidsMode(bool enabled)
   {
-    kidsMode = enabled;
+    KidsModeProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.KidsMode()"/>
-  public bool? KidsMode() => kidsMode;
+  public bool? KidsMode() => KidsModeProperty;
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.TrackLabel(string)"/>
   public IFacebookSendButtonWidget TrackLabel(string label)
@@ -55,12 +54,12 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
     if (label is null) throw new ArgumentNullException(nameof(label));
     if (label.IsEmpty()) throw new ArgumentException(nameof(label));
 
-    trackLabel = label;
+    TrackLabelProperty = label;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.TrackLabel()"/>
-  public string TrackLabel() => trackLabel;
+  public string TrackLabel() => TrackLabelProperty;
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.Url(string)"/>
   public IFacebookSendButtonWidget Url(string url)
@@ -68,12 +67,12 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.url = url;
+    UrlProperty = url;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.Url()"/>
-  public string Url() => url;
+  public string Url() => UrlProperty;
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.Width(string)"/>
   public IFacebookSendButtonWidget Width(string width)
@@ -81,12 +80,12 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookSendButtonWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")

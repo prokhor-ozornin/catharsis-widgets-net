@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Vkontakte(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.Vkontakte().Should().BeOfType<VkontakteWidgetsCreator>().And.BeSameAs(widgets.Vkontakte());
+    Widgets.Vkontakte().Should().BeOfType<VkontakteWidgetsCreator>().And.BeSameAs(Widgets.Vkontakte());
   }
 }

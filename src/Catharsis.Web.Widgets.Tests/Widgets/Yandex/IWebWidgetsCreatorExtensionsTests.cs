@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Yandex(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.Yandex().Should().BeOfType<YandexWidgetsCreator>().And.BeSameAs(widgets.Yandex());
+    Widgets.Yandex().Should().BeOfType<YandexWidgetsCreator>().And.BeSameAs(Widgets.Yandex());
   }
 }

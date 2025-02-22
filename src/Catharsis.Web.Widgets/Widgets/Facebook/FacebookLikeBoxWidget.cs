@@ -1,30 +1,29 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookLikeBoxWidget"/>
 public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
 {
-  private bool? border;
-  private string colorScheme;
-  private bool? faces;
-  private bool? header;
-  private string height;
-  private bool? stream;
-  private string url;
-  private bool? wall;
-  private string width;
+  private bool? BorderProperty { get; set; }
+  private string ColorSchemeProperty { get; set; }
+  private bool? FacesProperty { get; set; }
+  private bool? HeaderProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private bool? StreamProperty { get; set; }
+  private string UrlProperty { get; set; }
+  private bool? WallProperty { get; set; }
+  private string WidthProperty { get; set; }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Border(bool)"/>
   public IFacebookLikeBoxWidget Border(bool enabled)
   {
-    this.border = enabled;
+    BorderProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Border()"/>
-  public bool? Border() => border;
+  public bool? Border() => BorderProperty;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.ColorScheme(string)"/>
   public IFacebookLikeBoxWidget ColorScheme(string scheme)
@@ -32,32 +31,32 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = scheme;
+    ColorSchemeProperty = scheme;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.ColorScheme()"/>
-  public string ColorScheme() => colorScheme;
+  public string ColorScheme() => ColorSchemeProperty;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Faces(bool)"/>
   public IFacebookLikeBoxWidget Faces(bool enabled)
   {
-    faces = enabled;
+    FacesProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Faces()"/>
-  public bool? Faces() => faces;
+  public bool? Faces() => FacesProperty;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Header(bool)"/>
   public IFacebookLikeBoxWidget Header(bool enabled)
   {
-    header = enabled;
+    HeaderProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Header()"/>
-  public bool? Header() => header;
+  public bool? Header() => HeaderProperty;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Height(string)"/>
   public IFacebookLikeBoxWidget Height(string height)
@@ -65,22 +64,22 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Stream(bool)"/>
   public IFacebookLikeBoxWidget Stream(bool enabled)
   {
-    stream = enabled;
+    StreamProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Stream()"/>
-  public bool? Stream() => stream;
+  public bool? Stream() => StreamProperty;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Url(string)"/>
   public IFacebookLikeBoxWidget Url(string url)
@@ -88,22 +87,22 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.url = url;
+    UrlProperty = url;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Url()"/>
-  public string Url() => url;
+  public string Url() => UrlProperty;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Wall(bool)"/>
   public IFacebookLikeBoxWidget Wall(bool enabled)
   {
-    wall = enabled;
+    WallProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Wall()"/>
-  public bool? Wall() => wall;
+  public bool? Wall() => WallProperty;
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Width(string)"/>
   public IFacebookLikeBoxWidget Width(string width)
@@ -111,12 +110,12 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => Url().IsEmpty() ? string.Empty : new TagBuilder("div")

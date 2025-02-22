@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class RobokassaWidgetsCreatorTests : ClassTest<RobokassaWidgetsCreator>
 {
-  private readonly IRobokassaWidgetsCreator widgets = Widgets.Create.Robokassa();
+  private IRobokassaWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Robokassa();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,6 +27,6 @@ public sealed class RobokassaWidgetsCreatorTests : ClassTest<RobokassaWidgetsCre
   [Fact]
   public void PaymentForm_Method()
   {
-    widgets.PaymentForm().Should().BeOfType<RobokassaPaymentFormWidget>().And.NotBeSameAs(widgets.PaymentForm());
+    Widgets.PaymentForm().Should().BeOfType<RobokassaPaymentFormWidget>().And.NotBeSameAs(Widgets.PaymentForm());
   }
 }

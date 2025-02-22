@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IGoogleAnalyticsWidget"/>
 public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
 {
-  private string account;
-  private string domain;
+  private string AccountProperty { get; set; }
+  private string DomainProperty { get; set; }
 
   /// <inheritdoc cref="IGoogleAnalyticsWidget.Account(string)"/>
   public IGoogleAnalyticsWidget Account(string account)
@@ -14,12 +14,12 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
     return this;
   }
 
   /// <inheritdoc cref="IGoogleAnalyticsWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IGoogleAnalyticsWidget.Domain(string)"/>
   public IGoogleAnalyticsWidget Domain(string domain)
@@ -27,12 +27,12 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
     if (domain is null) throw new ArgumentNullException(nameof(domain));
     if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
 
-    this.domain = domain;
+    DomainProperty = domain;
     return this;
   }
 
   /// <inheritdoc cref="IGoogleAnalyticsWidget.Domain()"/>
-  public string Domain() => domain;
+  public string Domain() => DomainProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

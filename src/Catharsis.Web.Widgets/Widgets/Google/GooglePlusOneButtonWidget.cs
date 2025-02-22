@@ -1,18 +1,17 @@
 using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IGooglePlusOneButtonWidget"/>
 public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
 {
-  private string url;
-  private string width;
-  private string size;
-  private string alignment;
-  private string annotation;
-  private string callback;
-  private bool? recommendations;
+  private string UrlProperty { get; set; }
+  private string WidthProperty { get; set; }
+  private string SizeProperty { get; set; }
+  private string AlignmentProperty { get; set; }
+  private string AnnotationProperty { get; set; }
+  private string CallbackProperty { get; set; }
+  private bool? RecommendationsProperty { get; set; }
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Alignment(string)"/>
   public IGooglePlusOneButtonWidget Alignment(string alignment)
@@ -20,12 +19,12 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (alignment is null) throw new ArgumentNullException(nameof(alignment));
     if (alignment.IsEmpty()) throw new ArgumentException(nameof(alignment));
 
-    this.alignment = alignment;
+    AlignmentProperty = alignment;
     return this;
   }
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Alignment()"/>
-  public string Alignment() => alignment;
+  public string Alignment() => AlignmentProperty;
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Annotation(string)"/>
   public IGooglePlusOneButtonWidget Annotation(string annotation)
@@ -33,12 +32,12 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (annotation is null) throw new ArgumentNullException(nameof(annotation));
     if (annotation.IsEmpty()) throw new ArgumentException(nameof(annotation));
 
-    this.annotation = annotation;
+    AnnotationProperty = annotation;
     return this;
   }
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Annotation()"/>
-  public string Annotation() => annotation;
+  public string Annotation() => AnnotationProperty;
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Callback(string)"/>
   public IGooglePlusOneButtonWidget Callback(string callback)
@@ -46,22 +45,22 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (callback is null) throw new ArgumentNullException(nameof(callback));
     if (callback.IsEmpty()) throw new ArgumentException(nameof(callback));
 
-    this.callback = callback;
+    CallbackProperty = callback;
     return this;
   }
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Callback()"/>
-  public string Callback() => callback;
+  public string Callback() => CallbackProperty;
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Recommendations(bool)"/>
   public IGooglePlusOneButtonWidget Recommendations(bool enabled)
   {
-    recommendations = enabled;
+    RecommendationsProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Recommendations()"/>
-  public bool? Recommendations() => recommendations;
+  public bool? Recommendations() => RecommendationsProperty;
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Size(string)"/>
   public IGooglePlusOneButtonWidget Size(string size)
@@ -69,12 +68,12 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
 
-    this.size = size;
+    SizeProperty = size;
     return this;
   }
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Size()"/>
-  public string Size() => size;
+  public string Size() => SizeProperty;
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Url(string)"/>
   public IGooglePlusOneButtonWidget Url(string url)
@@ -82,12 +81,12 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.url = url;
+    UrlProperty = url;
     return this;
   }
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Url()"/>
-  public string Url() => url;
+  public string Url() => UrlProperty;
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Width(string)"/>
   public IGooglePlusOneButtonWidget Width(string width)
@@ -95,12 +94,12 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
     return this;
   }
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("g:plusone")

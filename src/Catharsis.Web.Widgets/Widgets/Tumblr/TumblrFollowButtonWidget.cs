@@ -1,14 +1,13 @@
 using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ITumblrFollowButtonWidget"/>
 public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
 {
-  private string account;
-  private byte type = (byte) TumblrFollowButtonType.First;
-  private string colorScheme = TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant();
+  private string AccountProperty { get; set; }
+  private byte TypeProperty { get; set; } = (byte) TumblrFollowButtonType.First;
+  private string ColorSchemeProperty { get; set; } = TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant();
 
   /// <inheritdoc cref="ITumblrFollowButtonWidget.Account(string)"/>
   public ITumblrFollowButtonWidget Account(string account)
@@ -16,13 +15,13 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
 
     return this;
   }
 
   /// <inheritdoc cref="ITumblrFollowButtonWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="ITumblrFollowButtonWidget.ColorScheme(string)"/>
   public ITumblrFollowButtonWidget ColorScheme(string scheme)
@@ -30,23 +29,23 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    colorScheme = scheme;
+    ColorSchemeProperty = scheme;
       
     return this;
   }
 
   /// <inheritdoc cref="ITumblrFollowButtonWidget.ColorScheme()"/>
-  public string ColorScheme() => colorScheme;
+  public string ColorScheme() => ColorSchemeProperty;
 
   /// <inheritdoc cref="ITumblrFollowButtonWidget.Type(byte)"/>
   public ITumblrFollowButtonWidget Type(byte type)
   {
-    this.type = type;
+    TypeProperty = type;
     return this;
   }
 
   /// <inheritdoc cref="ITumblrFollowButtonWidget.Type()"/>
-  public byte Type() => type;
+  public byte Type() => TypeProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

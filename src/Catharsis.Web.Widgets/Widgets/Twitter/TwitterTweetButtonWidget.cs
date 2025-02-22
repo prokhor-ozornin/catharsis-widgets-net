@@ -1,21 +1,20 @@
 using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="ITwitterTweetButtonWidget"/>
 public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
 {
-  private string url;
-  private string language;
-  private string text;
-  private string via;
-  private string size;
-  private string countUrl;
-  private string counterPosition;
-  private bool? suggestions;
-  private IEnumerable<string> accounts = [];
-  private IEnumerable<string> tags = [];
+  private string UrlProperty { get; set; }
+  private string LanguageProperty { get; set; }
+  private string TextProperty { get; set; }
+  private string ViaProperty { get; set; }
+  private string SizeProperty { get; set; }
+  private string CountUrlProperty { get; set; }
+  private string CounterPositionProperty { get; set; }
+  private bool? SuggestionsProperty { get; set; }
+  private IEnumerable<string> AccountsProperty { get; set; } = [];
+  private IEnumerable<string> TagsProperty { get; set; } = [];
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.CounterPosition(string)"/>
   public ITwitterTweetButtonWidget CounterPosition(string position)
@@ -23,12 +22,12 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (position is null) throw new ArgumentNullException(nameof(position));
     if (position.IsEmpty()) throw new ArgumentException(nameof(position));
 
-    counterPosition = position;
+    CounterPositionProperty = position;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.CounterPosition()"/>
-  public string CounterPosition() => counterPosition;
+  public string CounterPosition() => CounterPositionProperty;
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.CountUrl(string)"/>
   public ITwitterTweetButtonWidget CountUrl(string url)
@@ -36,22 +35,22 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    countUrl = url;
+    CountUrlProperty = url;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.CountUrl()"/>
-  public string CountUrl() => countUrl;
+  public string CountUrl() => CountUrlProperty;
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.HashTags(IEnumerable{string})"/>
   public ITwitterTweetButtonWidget HashTags(IEnumerable<string> tags)
   {
-    this.tags = tags ?? throw new ArgumentNullException(nameof(tags));
+    TagsProperty = tags ?? throw new ArgumentNullException(nameof(tags));
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.HashTags()"/>
-  public IEnumerable<string> HashTags() => tags;
+  public IEnumerable<string> HashTags() => TagsProperty;
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Language(string)"/>
   public ITwitterTweetButtonWidget Language(string language)
@@ -59,32 +58,32 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (language is null) throw new ArgumentNullException(nameof(language));
     if (language.IsEmpty()) throw new ArgumentException(nameof(language));
 
-    this.language = language;
+    LanguageProperty = language;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Language()"/>
-  public string Language() => language;
+  public string Language() => LanguageProperty;
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Suggestions(bool)"/>
   public ITwitterTweetButtonWidget Suggestions(bool enabled)
   {
-    suggestions = enabled;
+    SuggestionsProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Suggestions()"/>
-  public bool? Suggestions() => suggestions;
+  public bool? Suggestions() => SuggestionsProperty;
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.RelatedAccounts(IEnumerable{string})"/>
   public ITwitterTweetButtonWidget RelatedAccounts(IEnumerable<string> accounts)
   {
-    this.accounts = accounts ?? throw new ArgumentNullException(nameof(accounts));
+    AccountsProperty = accounts ?? throw new ArgumentNullException(nameof(accounts));
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.RelatedAccounts()"/>
-  public IEnumerable<string> RelatedAccounts() => accounts;
+  public IEnumerable<string> RelatedAccounts() => AccountsProperty;
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Size(string)"/>
   public ITwitterTweetButtonWidget Size(string size)
@@ -92,12 +91,12 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
 
-    this.size = size;
+    SizeProperty = size;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Size()"/>
-  public string Size() => size;
+  public string Size() => SizeProperty;
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Text(string)"/>
   public ITwitterTweetButtonWidget Text(string text)
@@ -105,12 +104,12 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (text is null) throw new ArgumentNullException(nameof(text));
     if (text.IsEmpty()) throw new ArgumentException(nameof(text));
 
-    this.text = text;
+    TextProperty = text;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Text()"/>
-  public string Text() => text;
+  public string Text() => TextProperty;
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Url(string)"/>
   public ITwitterTweetButtonWidget Url(string url)
@@ -118,12 +117,12 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.url = url;
+    UrlProperty = url;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Url()"/>
-  public string Url() => url;
+  public string Url() => UrlProperty;
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Via(string)"/>
   public ITwitterTweetButtonWidget Via(string account)
@@ -131,12 +130,12 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    via = account;
+    ViaProperty = account;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Via()"/>
-  public string Via() => via;
+  public string Via() => ViaProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("a")
@@ -151,6 +150,6 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
       .Attribute("data-hashtags", HashTags().Any() ? HashTags().Join(" ") : null)
       .Attribute("data-size", Size())
       .Attribute("data-dnt", Suggestions() is null ? null : !Suggestions())
-      .CssClass(tags.Any() ? "twitter-hashtag-button" : "twitter-share-button")
+      .CssClass(TagsProperty.Any() ? "twitter-hashtag-button" : "twitter-share-button")
       .ToString();
 }

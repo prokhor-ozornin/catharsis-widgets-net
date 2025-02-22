@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCreator>
 {
-  private readonly IPinterestWidgetsCreator widgets = Widgets.Create.Pinterest();
+  private IPinterestWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Pinterest();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCre
   [Fact]
   public void Board_Method()
   {
-    widgets.Board().Should().BeOfType<PinterestBoardWidget>().And.NotBeSameAs(widgets.Board());
+    Widgets.Board().Should().BeOfType<PinterestBoardWidget>().And.NotBeSameAs(Widgets.Board());
   }
 
   /// <summary>
@@ -36,7 +36,7 @@ public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCre
   [Fact]
   public void FollowButton_Method()
   {
-    widgets.FollowButton().Should().BeOfType<PinterestFollowButtonWidget>().And.NotBeSameAs(widgets.FollowButton());
+    Widgets.FollowButton().Should().BeOfType<PinterestFollowButtonWidget>().And.NotBeSameAs(Widgets.FollowButton());
   }
 
   /// <summary>
@@ -45,7 +45,7 @@ public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCre
   [Fact]
   public void PinItButton_Method()
   {
-    widgets.PinItButton().Should().BeOfType<PinterestPinItButtonWidget>().And.NotBeSameAs(widgets.PinItButton());
+    Widgets.PinItButton().Should().BeOfType<PinterestPinItButtonWidget>().And.NotBeSameAs(Widgets.PinItButton());
   }
 
   /// <summary>
@@ -54,7 +54,7 @@ public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCre
   [Fact]
   public void Pin_Method()
   {
-    widgets.Pin().Should().BeOfType<PinterestPinWidget>().And.NotBeSameAs(widgets.Pin());
+    Widgets.Pin().Should().BeOfType<PinterestPinWidget>().And.NotBeSameAs(Widgets.Pin());
   }
 
   /// <summary>
@@ -63,6 +63,6 @@ public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCre
   [Fact]
   public void Profile_Method()
   {
-    widgets.Profile().Should().BeOfType<PinterestProfileWidget>().And.NotBeSameAs(widgets.Profile());
+    Widgets.Profile().Should().BeOfType<PinterestProfileWidget>().And.NotBeSameAs(Widgets.Profile());
   }
 }

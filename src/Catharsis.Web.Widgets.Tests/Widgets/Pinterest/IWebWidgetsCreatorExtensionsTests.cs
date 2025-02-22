@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Pinterest(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.Pinterest().Should().BeOfType<PinterestWidgetsCreator>().And.BeSameAs(widgets.Pinterest());
+    Widgets.Pinterest().Should().BeOfType<PinterestWidgetsCreator>().And.BeSameAs(Widgets.Pinterest());
   }
 }

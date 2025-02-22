@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <seealso cref="Share42WidgetsCreator"/>
 public sealed class Share42WidgetsCreatorTests : ClassTest<Share42WidgetsCreator>
 {
-  private readonly IShare42WidgetsCreator widgets = Widgets.Create.Share42();
+  private IShare42WidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Share42();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -28,6 +28,6 @@ public sealed class Share42WidgetsCreatorTests : ClassTest<Share42WidgetsCreator
   [Fact]
   public void Panel_Method()
   {
-    widgets.Panel().Should().BeOfType<Share42PanelWidget>().And.NotBeSameAs(widgets.Panel());
+    Widgets.Panel().Should().BeOfType<Share42PanelWidget>().And.NotBeSameAs(Widgets.Panel());
   }
 }

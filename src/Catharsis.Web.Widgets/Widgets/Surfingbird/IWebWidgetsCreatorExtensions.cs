@@ -6,7 +6,7 @@
 /// <seealso cref="IWebWidgetsCreator"/>
 public static partial class IWebWidgetsCreatorExtensions
 {
-  private static ISurfingbirdWidgetsCreator surfingbird;
+  private static ISurfingbirdWidgetsCreator SurfingbirdProperty { get; set; }
 
   /// <summary>
   ///   <para>Initializes HTML helper object for rendering of Surfingbird widgets.</para>
@@ -14,5 +14,5 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
-  public static ISurfingbirdWidgetsCreator Surfingbird(this IWebWidgetsCreator creator) => creator is not null ? surfingbird ??= new SurfingbirdWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
+  public static ISurfingbirdWidgetsCreator Surfingbird(this IWebWidgetsCreator creator) => creator is not null ? SurfingbirdProperty ??= new SurfingbirdWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

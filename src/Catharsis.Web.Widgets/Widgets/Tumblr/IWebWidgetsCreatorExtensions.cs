@@ -6,7 +6,7 @@
 /// <seealso cref="IWebWidgetsCreator"/>
 public static partial class IWebWidgetsCreatorExtensions
 {
-  private static ITumblrWidgetsCreator tumblr;
+  private static ITumblrWidgetsCreator TumblrProperty { get; set; }
 
   /// <summary>
   ///   <para>Initializes HTML helper object for rendering of Tumblr widgets.</para>
@@ -14,5 +14,5 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
-  public static ITumblrWidgetsCreator Tumblr(this IWebWidgetsCreator creator) => creator is not null ? tumblr ??= new TumblrWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
+  public static ITumblrWidgetsCreator Tumblr(this IWebWidgetsCreator creator) => creator is not null ? TumblrProperty ??= new TumblrWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

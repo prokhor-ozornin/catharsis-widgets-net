@@ -7,11 +7,11 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="ICackleLatestCommentsWidget"/>
 public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
 {
-  private string account;
-  private short avatarSize = 32;
-  private byte max = 5;
-  private int textSize = 150;
-  private int titleSize = 40;
+  private string AccountProperty { get; set; }
+  private short AvatarSizeProperty { get; set; } = 32;
+  private byte MaxProperty { get; set; } = 5;
+  private int TextSizeProperty { get; set; } = 150;
+  private int TitleSizeProperty { get; set; } = 40;
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.Account(string)"/>
   public ICackleLatestCommentsWidget Account(string account)
@@ -19,58 +19,58 @@ public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
       
     return this;
   }
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.AvatarSize(short)"/>
   public ICackleLatestCommentsWidget AvatarSize(short size)
   {
-    avatarSize = size;
+    AvatarSizeProperty = size;
     return this;
   }
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.AvatarSize()"/>
-  public short AvatarSize() => avatarSize;
+  public short AvatarSize() => AvatarSizeProperty;
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.Max(byte)"/>
   public ICackleLatestCommentsWidget Max(byte count)
   {
-    this.max = count;
+    MaxProperty = count;
     return this;
   }
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.Max()"/>
-  public byte Max() => max;
+  public byte Max() => MaxProperty;
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.TextSize(int)"/>
   public ICackleLatestCommentsWidget TextSize(int size)
   {
-    textSize = size;
+    TextSizeProperty = size;
     return this;
   }
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.TextSize()"/>
-  public int TextSize() => textSize;
+  public int TextSize() => TextSizeProperty;
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.TitleSize(int)"/>
   public ICackleLatestCommentsWidget TitleSize(int size)
   {
-    titleSize = size;
+    TitleSizeProperty = size;
     return this;
   }
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.TitleSize()"/>
-  public int TitleSize() => titleSize;
+  public int TitleSize() => TitleSizeProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (account.IsEmpty())
+    if (AccountProperty.IsEmpty())
     {
       return string.Empty;
     }

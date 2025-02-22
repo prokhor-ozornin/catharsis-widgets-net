@@ -1,29 +1,28 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookFacePileWidget"/>
 public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
 {
-  private IEnumerable<string> actions = [];
-  private string colorScheme;
-  private string height;
-  private byte? maxRows;
-  private string photoSize;
-  private string url;
-  private string width;
+  private IEnumerable<string> ActionsProperty { get; set; } = [];
+  private string ColorSchemeProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private byte? MaxRowsProperty { get; set; }
+  private string PhotoSizeProperty { get; set; }
+  private string UrlProperty { get; set; }
+  private string WidthProperty { get; set; }
 
   /// <inheritdoc cref="IFacebookFacePileWidget.Actions(IEnumerable{string})"/>
   public IFacebookFacePileWidget Actions(IEnumerable<string> actions)
   {
-    this.actions = actions ?? throw new ArgumentNullException(nameof(actions));
+    ActionsProperty = actions ?? throw new ArgumentNullException(nameof(actions));
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFacePileWidget.Actions()"/>
-  public IEnumerable<string> Actions() => actions;
+  public IEnumerable<string> Actions() => ActionsProperty;
 
   /// <inheritdoc cref="IFacebookFacePileWidget.ColorScheme(string)"/>
   public IFacebookFacePileWidget ColorScheme(string scheme)
@@ -31,13 +30,13 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = scheme;
+    ColorSchemeProperty = scheme;
       
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFacePileWidget.ColorScheme()"/>
-  public string ColorScheme() => colorScheme;
+  public string ColorScheme() => ColorSchemeProperty;
 
   /// <inheritdoc cref="IFacebookFacePileWidget.Height(string)"/>
   public IFacebookFacePileWidget Height(string height)
@@ -45,23 +44,23 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFacePileWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IFacebookFacePileWidget.MaxRows(byte)"/>
   public IFacebookFacePileWidget MaxRows(byte count)
   {
-    this.maxRows = count;
+    MaxRowsProperty = count;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFacePileWidget.MaxRows()"/>
-  public byte? MaxRows() => maxRows;
+  public byte? MaxRows() => MaxRowsProperty;
 
   /// <inheritdoc cref="IFacebookFacePileWidget.PhotoSize(string)"/>
   public IFacebookFacePileWidget PhotoSize(string size)
@@ -69,13 +68,13 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
 
-    photoSize = size;
+    PhotoSizeProperty = size;
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFacePileWidget.PhotoSize()"/>
-  public string PhotoSize() => photoSize;
+  public string PhotoSize() => PhotoSizeProperty;
 
   /// <inheritdoc cref="IFacebookFacePileWidget.Url(string)"/>
   public IFacebookFacePileWidget Url(string url)
@@ -83,13 +82,13 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.url = url;
+    UrlProperty = url;
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFacePileWidget.Url()"/>
-  public string Url() => url;
+  public string Url() => UrlProperty;
 
   /// <inheritdoc cref="IFacebookFacePileWidget.Width(string)"/>
   public IFacebookFacePileWidget Width(string width)
@@ -97,13 +96,13 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
 
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFacePileWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")

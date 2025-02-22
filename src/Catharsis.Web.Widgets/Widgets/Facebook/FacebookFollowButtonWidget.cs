@@ -1,18 +1,17 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookFollowButtonWidget"/>
 public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
 {
-  private string colorScheme;
-  private bool? faces;
-  private string height;
-  private bool? kidsMode;
-  private string layout;
-  private string url;
-  private string width;
+  private string ColorSchemeProperty;
+  private bool? FacesProperty;
+  private string HeightProperty;
+  private bool? KidsModeProperty;
+  private string LayoutProperty;
+  private string UrlProperty;
+  private string WidthProperty;
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.ColorScheme(string)"/>
   public IFacebookFollowButtonWidget ColorScheme(string scheme)
@@ -20,22 +19,22 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = scheme;
+    ColorSchemeProperty = scheme;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.ColorScheme()"/>
-  public string ColorScheme() => colorScheme;
+  public string ColorScheme() => ColorSchemeProperty;
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Faces(bool)"/>
   public IFacebookFollowButtonWidget Faces(bool enabled)
   {
-    faces = enabled;
+    FacesProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Faces()"/>
-  public bool? Faces() => faces;
+  public bool? Faces() => FacesProperty;
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Height(string)"/>
   public IFacebookFollowButtonWidget Height(string height)
@@ -43,22 +42,22 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.KidsMode(bool)"/>
   public IFacebookFollowButtonWidget KidsMode(bool enabled)
   {
-    kidsMode = enabled;
+    KidsModeProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.KidsMode()"/>
-  public bool? KidsMode() => kidsMode;
+  public bool? KidsMode() => KidsModeProperty;
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Layout(string)"/>
   public IFacebookFollowButtonWidget Layout(string layout)
@@ -66,12 +65,12 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     if (layout is null) throw new ArgumentNullException(nameof(layout));
     if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
 
-    this.layout = layout;
+    LayoutProperty = layout;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Layout()"/>
-  public string Layout() => layout;
+  public string Layout() => LayoutProperty;
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Url(string)"/>
   public IFacebookFollowButtonWidget Url(string url)
@@ -79,12 +78,12 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.url = url;
+    UrlProperty = url;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Url()"/>
-  public string Url() => url;
+  public string Url() => UrlProperty;
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Width(string)"/>
   public IFacebookFollowButtonWidget Width(string width)
@@ -92,12 +91,12 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => Url().IsEmpty() ? string.Empty : new TagBuilder("div")

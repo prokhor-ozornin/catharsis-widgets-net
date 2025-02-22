@@ -1,14 +1,13 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookVideoWidget"/>
 public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
 {
-  private string id;
-  private string width;
-  private string height;
+  private string IdProperty { get; set; }
+  private string WidthProperty { get; set; }
+  private string HeightProperty { get; set; }
 
   /// <inheritdoc cref="IFacebookVideoWidget.Id(string)"/>
   public IFacebookVideoWidget Id(string id)
@@ -16,12 +15,12 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.id = id;
+    IdProperty = id;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookVideoWidget.Id()"/>
-  public string Id() => id;
+  public string Id() => IdProperty;
 
   /// <inheritdoc cref="IFacebookVideoWidget.Height(string)"/>
   public IFacebookVideoWidget Height(string height)
@@ -29,12 +28,12 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookVideoWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IFacebookVideoWidget.Width(string)"/>
   public IFacebookVideoWidget Width(string width)
@@ -42,12 +41,12 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookVideoWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
@@ -58,7 +57,7 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     }
 
     return new TagBuilder("iframe")
-      .Attribute("src", $"http://www.facebook.com/video/embed?video_id=${id}")
+      .Attribute("src", $"http://www.facebook.com/video/embed?video_id=${IdProperty}")
       .Attribute("width", Width())
       .Attribute("height", Height())
       .Attribute("frameborder", 0)

@@ -6,7 +6,7 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IFacebookInitializationWidget"/>
 public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWidget
 {
-  private string appId;
+  private string AppIdProperty { get; set; }
 
   /// <inheritdoc cref="IFacebookInitializationWidget.AppId(string)"/>
   public IFacebookInitializationWidget AppId(string id)
@@ -14,12 +14,12 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    appId = id;
+    AppIdProperty = id;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookInitializationWidget.AppId()"/>
-  public string AppId() => appId;
+  public string AppId() => AppIdProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

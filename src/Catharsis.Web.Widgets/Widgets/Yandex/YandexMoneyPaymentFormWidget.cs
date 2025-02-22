@@ -1,22 +1,21 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IYandexMoneyPaymentFormWidget"/>
 public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWidget
 {
-  private string account;
-  private string description;
-  private decimal? sum;
-  private bool cards = true;
-  private byte text = (byte) YandexMoneyPaymentFormText.Pay;
-  private bool askPayerPurpose;
-  private bool askPayerComment;
-  private bool askPayerFullName;
-  private bool askPayerEmail;
-  private bool askPayerPhone;
-  private bool askPayerAddress;
+  private string AccountProperty { get; set; }
+  private string DescriptionProperty { get; set; }
+  private decimal? SumProperty { get; set; }
+  private bool CardsProperty { get; set; } = true;
+  private byte TextProperty { get; set; } = (byte) YandexMoneyPaymentFormText.Pay;
+  private bool AskPayerPurposeProperty { get; set; }
+  private bool AskPayerCommentProperty { get; set; }
+  private bool AskPayerFullNameProperty { get; set; }
+  private bool AskPayerEmailProperty { get; set; }
+  private bool AskPayerPhoneProperty { get; set; }
+  private bool AskPayerAddressProperty { get; set; }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Account(string)"/>
   public IYandexMoneyPaymentFormWidget Account(string account)
@@ -24,23 +23,23 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Cards(bool)"/>
   public IYandexMoneyPaymentFormWidget Cards(bool enabled)
   {
-    cards = enabled;
+    CardsProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Cards()"/>
-  public bool Cards() => cards;
+  public bool Cards() => CardsProperty;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Description(string)"/>
   public IYandexMoneyPaymentFormWidget Description(string description)
@@ -48,93 +47,93 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
     if (description is null) throw new ArgumentNullException(nameof(description));
     if (description.IsEmpty()) throw new ArgumentException(nameof(description));
 
-    this.description = description;
+    DescriptionProperty = description;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Description()"/>
-  public string Description() => description;
+  public string Description() => DescriptionProperty;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerAddress(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerAddress(bool enabled)
   {
-    askPayerAddress = enabled;
+    AskPayerAddressProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerAddress()"/>
-  public bool AskPayerAddress() => askPayerAddress;
+  public bool AskPayerAddress() => AskPayerAddressProperty;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerComment(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerComment(bool enabled)
   {
-    askPayerComment = enabled;
+    AskPayerCommentProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerComment()"/>
-  public bool AskPayerComment() => askPayerComment;
+  public bool AskPayerComment() => AskPayerCommentProperty;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerEmail(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerEmail(bool enabled)
   {
-    askPayerEmail = enabled;
+    AskPayerEmailProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerEmail()"/>
-  public bool AskPayerEmail() => askPayerEmail;
+  public bool AskPayerEmail() => AskPayerEmailProperty;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerFullName(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerFullName(bool enabled)
   {
-    askPayerFullName = enabled;
+    AskPayerFullNameProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerFullName()"/>
-  public bool AskPayerFullName() => askPayerFullName;
+  public bool AskPayerFullName() => AskPayerFullNameProperty;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPhone(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerPhone(bool enabled)
   {
-    askPayerPhone = enabled;
+    AskPayerPhoneProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPhone()"/>
-  public bool AskPayerPhone() => askPayerPhone;
+  public bool AskPayerPhone() => AskPayerPhoneProperty;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPurpose(bool)"/>
   public IYandexMoneyPaymentFormWidget AskPayerPurpose(bool enabled)
   {
-    askPayerPurpose = enabled;
+    AskPayerPurposeProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPurpose()"/>
-  public bool AskPayerPurpose() => askPayerPurpose;
+  public bool AskPayerPurpose() => AskPayerPurposeProperty;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Sum(decimal)"/>
   public IYandexMoneyPaymentFormWidget Sum(decimal sum)
   {
-    this.sum = sum;
+    SumProperty = sum;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Sum()"/>
-  public decimal? Sum() => sum;
+  public decimal? Sum() => SumProperty;
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Text(byte)"/>
   public IYandexMoneyPaymentFormWidget Text(byte text)
   {
-    this.text = text;
+    TextProperty = text;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Text()"/>
-  public byte Text() => text;
+  public byte Text() => TextProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

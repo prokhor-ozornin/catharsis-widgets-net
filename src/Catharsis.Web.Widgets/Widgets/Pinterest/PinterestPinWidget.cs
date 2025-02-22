@@ -5,7 +5,7 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IPinterestPinWidget"/>
 public class PinterestPinWidget : WebWidget, IPinterestPinWidget
 {
-  private string id;
+  private string IdProperty { get; set; }
 
   /// <inheritdoc cref="IPinterestPinWidget.Id(string)"/>
   public IPinterestPinWidget Id(string id)
@@ -13,12 +13,12 @@ public class PinterestPinWidget : WebWidget, IPinterestPinWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.id = id;
+    IdProperty = id;
     return this;
   }
 
   /// <inheritdoc cref="IPinterestPinWidget.Id()"/>
-  public string Id() => id;
+  public string Id() => IdProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

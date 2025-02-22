@@ -1,17 +1,16 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookCommentsWidget"/>
 public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
 {
-  private string colorScheme;
-  private bool? mobile;
-  private string order;
-  private byte? posts;
-  private string url;
-  private string width;
+  private string ColorSchemeProperty { get; set; }
+  private bool? MobileProperty { get; set; }
+  private string OrderProperty { get; set; }
+  private byte? PostsProperty { get; set; }
+  private string UrlProperty { get; set; }
+  private string WidthProperty { get; set; }
 
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>
@@ -25,7 +24,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    this.colorScheme = scheme;
+    ColorSchemeProperty = scheme;
 
     return this;
   }
@@ -34,7 +33,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   ///   <para>The color scheme used by the widget.</para>
   /// </summary>
   /// <returns>Color scheme of widget.</returns>
-  public string ColorScheme() => colorScheme;
+  public string ColorScheme() => ColorSchemeProperty;
 
   /// <summary>
   ///   <para>A boolean value that specifies whether to show the mobile-optimized version or not. If not specified, auto-detection is used.</para>
@@ -43,7 +42,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   /// <returns>Reference to the current widget.</returns>
   public IFacebookCommentsWidget Mobile(bool enabled) 
   {
-    this.mobile = enabled;
+    MobileProperty = enabled;
     return this;
   }
 
@@ -51,7 +50,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   ///   <para>A boolean value that specifies whether to show the mobile-optimized version or not. If not specified, auto-detection is used.</para>
   /// </summary>
   /// <returns><c>true</c> to use mobile-optimized version, <c>false</c> otherwise.</returns>
-  public bool? Mobile() => mobile;
+  public bool? Mobile() => MobileProperty;
 
   /// <summary>
   ///   <para>The order to use when displaying comments.</para>
@@ -65,7 +64,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
     if (order is null) throw new ArgumentNullException(nameof(order));
     if (order.IsEmpty()) throw new ArgumentException(nameof(order));
 
-    this.order = order;
+    OrderProperty = order;
 
     return this;
   }
@@ -74,7 +73,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   ///   <para>The order to use when displaying comments.</para>
   /// </summary>
   /// <returns>Order of comments.</returns>
-  public string Order() => order;
+  public string Order() => OrderProperty;
 
   /// <summary>
   ///   <para>The number of comments to show by default. The minimum value is 1. Default is 10.</para>
@@ -83,7 +82,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   /// <returns>Reference to the current widget.</returns>
   public IFacebookCommentsWidget Posts(byte count)
   {
-    posts = count;
+    PostsProperty = count;
     return this;
   }
 
@@ -91,7 +90,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   ///   <para>The number of comments to show by default. The minimum value is 1. Default is 10.</para>
   /// </summary>
   /// <returns>Number of comments to show.</returns>
-  public byte? Posts() => posts;
+  public byte? Posts() => PostsProperty;
 
   /// <summary>
   ///   <para>The absolute URL that comments posted in the widget will be permanently associated with. Stories on Facebook about comments posted in the plugin will link to this URL. Default is current page URL.</para>
@@ -105,7 +104,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.url = url;
+    UrlProperty = url;
 
     return this;
   }
@@ -114,7 +113,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   ///   <para>The absolute URL that comments posted in the widget will be permanently associated with. Stories on Facebook about comments posted in the plugin will link to this URL. Default is current page URL.</para>
   /// </summary>
   /// <returns>URL of the page for comments.</returns>
-  public string Url() => url;
+  public string Url() => UrlProperty;
 
   /// <summary>
   ///   <para>The width of the widget. The mobile version of the Comments widget ignores the width parameter, and instead has a fluid width of 100%.</para>
@@ -128,7 +127,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
       
-    this.width = width;
+    WidthProperty = width;
 
     return this;
   }
@@ -137,7 +136,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   ///   <para>The width of the widget. The mobile version of the Comments widget ignores the width parameter, and instead has a fluid width of 100%.</para>
   /// </summary>
   /// <returns>Width of widget.</returns>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")

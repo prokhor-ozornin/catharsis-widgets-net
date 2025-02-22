@@ -7,13 +7,13 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IVkontakteRecommendationsWidget"/>
 public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendationsWidget
 {
-  private string elementId;
-  private byte? limit;
-  private short? max;
-  private VkontakteRecommendationsPeriod? period;
-  private VkontakteRecommendationsSorting? sorting;
-  private string target;
-  private VkontakteRecommendationsVerb? verb;
+  private string ElementIdProperty { get; set; }
+  private byte? LimitProperty { get; set; }
+  private short? MaxProperty { get; set; }
+  private VkontakteRecommendationsPeriod? PeriodProperty { get; set; }
+  private VkontakteRecommendationsSorting? SortingProperty { get; set; }
+  private string TargetProperty { get; set; }
+  private VkontakteRecommendationsVerb? VerbProperty { get; set; }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.ElementId(string)"/>
   public IVkontakteRecommendationsWidget ElementId(string id)
@@ -21,63 +21,63 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    elementId = id;
+    ElementIdProperty = id;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.ElementId()"/>
-  public string ElementId() => elementId;
+  public string ElementId() => ElementIdProperty;
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Limit(byte)"/>
   public IVkontakteRecommendationsWidget Limit(byte limit)
   {
-    this.limit = limit;
+    LimitProperty = limit;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Limit()"/>
-  public byte? Limit() => limit;
+  public byte? Limit() => LimitProperty;
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Max(short)"/>
   public IVkontakteRecommendationsWidget Max(short count)
   {
-    this.max = count;
+    MaxProperty = count;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Max()"/>
-  public short? Max() => max;
+  public short? Max() => MaxProperty;
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Period(VkontakteRecommendationsPeriod)"/>
   public IVkontakteRecommendationsWidget Period(VkontakteRecommendationsPeriod period)
   {
-    this.period = period;
+    PeriodProperty = period;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Period()"/>
-  public VkontakteRecommendationsPeriod? Period() => period;
+  public VkontakteRecommendationsPeriod? Period() => PeriodProperty;
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Verb(VkontakteRecommendationsVerb)"/>
   public IVkontakteRecommendationsWidget Verb(VkontakteRecommendationsVerb verb)
   {
-    this.verb = verb;
+    VerbProperty = verb;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Verb()"/>
-  public VkontakteRecommendationsVerb? Verb() => verb;
+  public VkontakteRecommendationsVerb? Verb() => VerbProperty;
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Sorting(VkontakteRecommendationsSorting)"/>
   public IVkontakteRecommendationsWidget Sorting(VkontakteRecommendationsSorting sorting)
   {
-    this.sorting = sorting;
+    SortingProperty = sorting;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Sorting()"/>
-  public VkontakteRecommendationsSorting? Sorting() => sorting;
+  public VkontakteRecommendationsSorting? Sorting() => SortingProperty;
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Target(string)"/>
   public IVkontakteRecommendationsWidget Target(string target)
@@ -85,13 +85,13 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
     if (target is null) throw new ArgumentNullException(nameof(target));
     if (target.IsEmpty()) throw new ArgumentException(nameof(target));
 
-    this.target = target;
+    TargetProperty = target;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Target()"/>
-  public string Target() => target;
+  public string Target() => TargetProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

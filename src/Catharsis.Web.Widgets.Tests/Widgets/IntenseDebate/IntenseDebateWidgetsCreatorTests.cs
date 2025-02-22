@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class IntenseDebateWidgetsCreatorTests : ClassTest<IntenseDebateWidgetsCreator>
 {
-  private readonly IIntenseDebateWidgetsCreator widgets = Widgets.Create.IntenseDebate();
+  private IIntenseDebateWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.IntenseDebate();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class IntenseDebateWidgetsCreatorTests : ClassTest<IntenseDebateWi
   [Fact]
   public void Comments_Method()
   {
-    widgets.Comments().Should().BeOfType<IntenseDebateCommentsWidget>().And.NotBeSameAs(widgets.Comments());
+    Widgets.Comments().Should().BeOfType<IntenseDebateCommentsWidget>().And.NotBeSameAs(Widgets.Comments());
   }
 
   /// <summary>
@@ -36,6 +36,6 @@ public sealed class IntenseDebateWidgetsCreatorTests : ClassTest<IntenseDebateWi
   [Fact]
   public void Link_Method()
   {
-    widgets.Link().Should().BeOfType<IntenseDebateLinkWidget>().And.NotBeSameAs(widgets.Link());
+    Widgets.Link().Should().BeOfType<IntenseDebateLinkWidget>().And.NotBeSameAs(Widgets.Link());
   }
 }

@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <seealso cref="RuTubeWidgetsCreator"/>
 public sealed class RuTubeWidgetsCreatorTests : ClassTest<RuTubeWidgetsCreator>
 {
-  private readonly IRuTubeWidgetsCreator widgets = Widgets.Create.RuTube();
+  private IRuTubeWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.RuTube();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -28,6 +28,6 @@ public sealed class RuTubeWidgetsCreatorTests : ClassTest<RuTubeWidgetsCreator>
   [Fact]
   public void Video_Method()
   {
-    widgets.Video().Should().BeOfType<RuTubeVideoWidget>().And.NotBeSameAs(widgets.Video());
+    Widgets.Video().Should().BeOfType<RuTubeVideoWidget>().And.NotBeSameAs(Widgets.Video());
   }
 }

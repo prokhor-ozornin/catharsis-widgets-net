@@ -6,13 +6,13 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IMailRuLikeButtonWidget"/>
 public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
 {
-  private string type = "combo";
-  private string size = "20";
-  private byte layout = (byte) MailRuLikeButtonLayout.First;
-  private bool text = true;
-  private byte textType = (byte) MailRuLikeButtonTextType.First;
-  private bool counter = true;
-  private string counterPosition = MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant();
+  private string TypeProperty { get; set; } = "combo";
+  private string SizeProperty { get; set; } = "20";
+  private byte LayoutProperty { get; set; } = (byte) MailRuLikeButtonLayout.First;
+  private bool TextProperty { get; set; } = true;
+  private byte TextTypeProperty { get; set; } = (byte) MailRuLikeButtonTextType.First;
+  private bool CounterProperty { get; set; } = true;
+  private string CounterPositionProperty { get; set; } = MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant();
 
   /// <summary>
   ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
@@ -21,7 +21,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <returns>Reference to the current widget.</returns>
   public IMailRuLikeButtonWidget Counter(bool enabled)
   {
-    counter = enabled;
+    CounterProperty = enabled;
     return this;
   }
 
@@ -29,7 +29,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
   /// </summary>
   /// <returns><c>true</c> to show share counter, <c>false</c> to hide.</returns>
-  public bool Counter() => counter;
+  public bool Counter() => CounterProperty;
 
   /// <summary>
   ///   <para>Position of a share counter.</para>
@@ -43,7 +43,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
     if (position is null) throw new ArgumentNullException(nameof(position));
     if (position.IsEmpty()) throw new ArgumentException(nameof(position));
 
-    counterPosition = position;
+    CounterPositionProperty = position;
     return this;
   }
 
@@ -51,7 +51,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   ///   <para>Position of a share counter.</para>
   /// </summary>
   /// <returns>Position of a counter.</returns>
-  public string CounterPosition() => counterPosition;
+  public string CounterPosition() => CounterPositionProperty;
 
   /// <summary>
   ///   <para>Visual layout/appearance of button.</para>
@@ -62,7 +62,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <exception cref="ArgumentException">If <paramref name="layout"/> is <see cref="string.Empty"/> string.</exception>
   public IMailRuLikeButtonWidget Layout(byte layout)
   {
-    this.layout = layout;
+    LayoutProperty = layout;
     return this;
   }
 
@@ -70,7 +70,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   ///   <para>Visual layout/appearance of button.</para>
   /// </summary>
   /// <returns>Visual layout of button.</returns>
-  public byte Layout() => layout;
+  public byte Layout() => LayoutProperty;
 
   /// <summary>
   ///   <para>Vertical size of button.</para>
@@ -79,7 +79,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <returns>Reference to the current widget.</returns>
   public IMailRuLikeButtonWidget Size(string size)
   {
-    this.size = size;
+    SizeProperty = size;
     return this;
   }
 
@@ -87,7 +87,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   ///   <para>Vertical size of button.</para>
   /// </summary>
   /// <returns>Vertical size of button.</returns>
-  public string Size() => size;
+  public string Size() => SizeProperty;
 
   /// <summary>
   ///   <para>Whether to show text label on button. Default is <c>true</c>.</para>
@@ -96,7 +96,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <returns>Reference to the current widget.</returns>
   public IMailRuLikeButtonWidget Text(bool enabled)
   {
-    this.text = enabled;
+    TextProperty = enabled;
     return this;
   }
 
@@ -104,7 +104,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   ///   <para>Whether to show text label on button. Default is <c>true</c>.</para>
   /// </summary>
   /// <returns><c>true</c> to show text label, <c>false</c> to hide.</returns>
-  public bool Text() => text;
+  public bool Text() => TextProperty;
 
   /// <summary>
   ///   <para>Type of button.</para>
@@ -118,7 +118,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
     if (type is null) throw new ArgumentNullException(nameof(type));
     if (type.IsEmpty()) throw new ArgumentException(nameof(type));
 
-    this.type = type;
+    TypeProperty = type;
     return this;
   }
 
@@ -126,7 +126,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   ///   <para>Type of button.</para>
   /// </summary>
   /// <returns>Type of button.</returns>
-  public string Type() => type;
+  public string Type() => TypeProperty;
 
   /// <summary>
   ///   <para>Type of text label to show on button.</para>
@@ -137,7 +137,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <exception cref="ArgumentException">If <paramref name="type"/> is <see cref="string.Empty"/> string.</exception>
   public IMailRuLikeButtonWidget TextType(byte type)
   {
-    textType = type;
+    TextTypeProperty = type;
     return this;
   }
 
@@ -145,7 +145,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   ///   <para>Type of text label to show on button.</para>
   /// </summary>
   /// <returns>Type of text label.</returns>
-  public byte TextType() => textType;
+  public byte TextType() => TextTypeProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

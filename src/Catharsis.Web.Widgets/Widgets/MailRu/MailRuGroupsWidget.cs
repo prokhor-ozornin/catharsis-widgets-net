@@ -6,14 +6,14 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IMailRuGroupsWidget"/>
 public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
 {
-  private string account;
-  private string backgroundColor;
-  private string buttonColor;
-  private string domain;
-  private string height;
-  private bool subscribers = true;
-  private string textColor;
-  private string width;
+  private string AccountProperty { get; set; }
+  private string BackgroundColorProperty { get; set; }
+  private string ButtonColorProperty { get; set; }
+  private string DomainProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private bool SubscribersProperty { get; set; } = true;
+  private string TextColorProperty { get; set; }
+  private string WidthProperty { get; set; }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Account(string)"/>
   public IMailRuGroupsWidget Account(string account)
@@ -21,12 +21,12 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IMailRuGroupsWidget.BackgroundColor(string)"/>
   public IMailRuGroupsWidget BackgroundColor(string color)
@@ -34,12 +34,12 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    backgroundColor = color;
+    BackgroundColorProperty = color;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.BackgroundColor()"/>
-  public string BackgroundColor() => backgroundColor;
+  public string BackgroundColor() => BackgroundColorProperty;
 
   /// <inheritdoc cref="IMailRuGroupsWidget.ButtonColor(string)"/>
   public IMailRuGroupsWidget ButtonColor(string color)
@@ -47,12 +47,12 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    buttonColor = color;
+    ButtonColorProperty = color;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.ButtonColor()"/>
-  public string ButtonColor() => buttonColor;
+  public string ButtonColor() => ButtonColorProperty;
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Domain(string)"/>
   public IMailRuGroupsWidget Domain(string domain)
@@ -60,12 +60,12 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (domain is null) throw new ArgumentNullException(nameof(domain));
     if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
 
-    this.domain = domain;
+    DomainProperty = domain;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Domain()"/>
-  public string Domain() => domain;
+  public string Domain() => DomainProperty;
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Height(string)"/>
   public IMailRuGroupsWidget Height(string height)
@@ -73,22 +73,22 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Subscribers(bool)"/>
   public IMailRuGroupsWidget Subscribers(bool enabled)
   {
-    subscribers = enabled;
+    SubscribersProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Subscribers()"/>
-  public bool Subscribers() => subscribers;
+  public bool Subscribers() => SubscribersProperty;
 
   /// <inheritdoc cref="IMailRuGroupsWidget.TextColor(string)"/>
   public IMailRuGroupsWidget TextColor(string color)
@@ -96,12 +96,12 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    textColor = color;
+    TextColorProperty = color;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.TextColor()"/>
-  public string TextColor() => textColor;
+  public string TextColor() => TextColorProperty;
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Width(string)"/>
   public IMailRuGroupsWidget Width(string width)
@@ -109,12 +109,12 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

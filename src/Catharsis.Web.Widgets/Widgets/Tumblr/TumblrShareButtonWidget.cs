@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="ITumblrShareButtonWidget"/>
 public class TumblrShareButtonWidget : WebWidget, ITumblrShareButtonWidget
 {
-  private byte type = (byte) TumblrShareButtonType.First;
-  private string colorScheme;
+  private byte TypeProperty { get; set; } = (byte) TumblrShareButtonType.First;
+  private string ColorSchemeProperty { get; set; }
 
   /// <inheritdoc cref="ITumblrShareButtonWidget.ColorScheme(string)"/>
   public ITumblrShareButtonWidget ColorScheme(string scheme)
@@ -14,23 +14,23 @@ public class TumblrShareButtonWidget : WebWidget, ITumblrShareButtonWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    colorScheme = scheme;
+    ColorSchemeProperty = scheme;
       
     return this;
   }
 
   /// <inheritdoc cref="ITumblrShareButtonWidget.ColorScheme()"/>
-  public string ColorScheme() => colorScheme;
+  public string ColorScheme() => ColorSchemeProperty;
 
   /// <inheritdoc cref="ITumblrShareButtonWidget.Type(byte)"/>
   public ITumblrShareButtonWidget Type(byte type)
   {
-    this.type = type;
+    TypeProperty = type;
     return this;
   }
 
   /// <inheritdoc cref="ITumblrShareButtonWidget.Type()"/>
-  public byte Type() => type;
+  public byte Type() => TypeProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

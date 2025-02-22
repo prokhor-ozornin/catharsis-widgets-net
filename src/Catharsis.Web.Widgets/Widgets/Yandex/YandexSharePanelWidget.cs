@@ -1,14 +1,13 @@
 using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IYandexSharePanelWidget"/>
 public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
 {
-  private string language;
-  private string layout = YandexSharePanelLayout.Button.ToString().ToLowerInvariant();
-  private IEnumerable<string> services = ["yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird"];
+  private string LanguageProperty { get; set; }
+  private string LayoutProperty { get; set; } = YandexSharePanelLayout.Button.ToString().ToLowerInvariant();
+  private IEnumerable<string> ServicesProperty { get; set; } = ["yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird"];
 
   /// <inheritdoc cref="IYandexSharePanelWidget.Language(string)"/>
   public IYandexSharePanelWidget Language(string language)
@@ -16,13 +15,12 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
     if (language is null) throw new ArgumentNullException(nameof(language));
     if (language.IsEmpty()) throw new ArgumentException(nameof(language));
 
-
-    this.language = language;
+    LanguageProperty = language;
     return this;
   }
 
   /// <inheritdoc cref="IYandexSharePanelWidget.Language()"/>
-  public string Language() => language;
+  public string Language() => LanguageProperty;
 
   /// <inheritdoc cref="IYandexSharePanelWidget.Layout(string)"/>
   public IYandexSharePanelWidget Layout(string layout)
@@ -30,24 +28,24 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
     if (layout is null) throw new ArgumentNullException(nameof(layout));
     if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
           
-    this.layout = layout;
+    LayoutProperty = layout;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexSharePanelWidget.Layout()"/>
-  public string Layout() => layout;
+  public string Layout() => LayoutProperty;
 
   /// <inheritdoc cref="IYandexSharePanelWidget.Services(IEnumerable{string})"/>
   public IYandexSharePanelWidget Services(IEnumerable<string> services)
   {
-    this.services = services ?? throw new ArgumentNullException(nameof(services));
+    ServicesProperty = services ?? throw new ArgumentNullException(nameof(services));
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexSharePanelWidget.Services()"/>
-  public IEnumerable<string> Services() => services;
+  public IEnumerable<string> Services() => ServicesProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() =>

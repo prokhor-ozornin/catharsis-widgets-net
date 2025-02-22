@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.MailRu(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.MailRu().Should().BeOfType<MailRuWidgetsCreator>().And.BeSameAs(widgets.MailRu());
+    Widgets.MailRu().Should().BeOfType<MailRuWidgetsCreator>().And.BeSameAs(Widgets.MailRu());
   }
 }

@@ -1,20 +1,19 @@
 ﻿using System.Web;
 using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IPinterestPinItButtonWidget"/>
 public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
 {
-  private string color = "gray";
-  private PinterestPinItButtonPinCountPosition counter = PinterestPinItButtonPinCountPosition.None;
-  private string description;
-  private string image;
-  private string language = "en";
-  private PinterestPinItButtonShape shape = PinterestPinItButtonShape.Rectangular;
-  private PinterestPinItButtonSize size = PinterestPinItButtonSize.Small;
-  private string url;
+  private string ColorProperty { get; set; } = "gray";
+  private PinterestPinItButtonPinCountPosition CounterProperty { get; set; } = PinterestPinItButtonPinCountPosition.None;
+  private string DescriptionProperty { get; set; }
+  private string ImageProperty { get; set; }
+  private string LanguageProperty { get; set; } = "en";
+  private PinterestPinItButtonShape ShapeProperty { get; set; } = PinterestPinItButtonShape.Rectangular;
+  private PinterestPinItButtonSize SizeProperty { get; set; } = PinterestPinItButtonSize.Small;
+  private string UrlProperty { get; set; }
 
   /// <summary>
   ///   <para>Background color of the button.</para>
@@ -28,7 +27,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    this.color = color;
+    ColorProperty = color;
     return this;
   }
 
@@ -36,7 +35,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   ///   <para>Background color of the button.</para>
   /// </summary>
   /// <returns>Button's color.</returns>
-  public string Color() => color;
+  public string Color() => ColorProperty;
 
   /// <summary>
   ///   <para>Position of button's pin counter.</para>
@@ -45,7 +44,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   /// <returns>Reference to the current widget.</returns>
   public IPinterestPinItButtonWidget Counter(PinterestPinItButtonPinCountPosition position)
   {
-    counter = position;
+    CounterProperty = position;
     return this;
   }
 
@@ -53,7 +52,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   ///   <para>Position of button's pin counter.</para>
   /// </summary>
   /// <returns>Pin counter's position.</returns>
-  public PinterestPinItButtonPinCountPosition Counter() => counter;
+  public PinterestPinItButtonPinCountPosition Counter() => CounterProperty;
 
   /// <summary>
   ///   <para>Description of the "pinned" image.</para>
@@ -68,7 +67,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     if (description is null) throw new ArgumentNullException(nameof(description));
     if (description.IsEmpty()) throw new ArgumentException(nameof(description));
 
-    this.description = description;
+    DescriptionProperty = description;
     return this;
   }
 
@@ -76,7 +75,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   ///   <para>Description of the "pinned" image.</para>
   /// </summary>
   /// <returns>Pin's description.</returns>
-  public string Description() => description;
+  public string Description() => DescriptionProperty;
 
   /// <summary>
   ///   <para>URL address of the "pinned" image.</para>
@@ -91,7 +90,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    image = url;
+    ImageProperty = url;
     return this;
   }
 
@@ -99,7 +98,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   ///   <para>URL address of the "pinned" image.</para>
   /// </summary>
   /// <returns>Pin's image URL.</returns>
-  public string Image() => image;
+  public string Image() => ImageProperty;
 
   /// <summary>
   ///   <para>Language of button's label.</para>
@@ -113,7 +112,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     if (language is null) throw new ArgumentNullException(nameof(language));
     if (language.IsEmpty()) throw new ArgumentException(nameof(language));
 
-    this.language = language;
+    LanguageProperty = language;
     return this;
   }
 
@@ -121,7 +120,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   ///   <para>Language of button's label.</para>
   /// </summary>
   /// <returns>Button's text language.</returns>
-  public string Language() => language;
+  public string Language() => LanguageProperty;
 
   /// <summary>
   ///   <para>Shape of the button.</para>
@@ -130,7 +129,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   /// <returns>Reference to the current widget.</returns>
   public IPinterestPinItButtonWidget Shape(PinterestPinItButtonShape shape)
   {
-    this.shape = shape;
+    ShapeProperty = shape;
     return this;
   }
 
@@ -138,7 +137,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   ///   <para>Shape of the button.</para>
   /// </summary>
   /// <returns>Button's shape.</returns>
-  public PinterestPinItButtonShape Shape() => shape;
+  public PinterestPinItButtonShape Shape() => ShapeProperty;
 
   /// <summary>
   ///   <para>Size of the button.</para>
@@ -148,7 +147,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   /// <remarks>Actual vertical size in pixels also depends on the button's shape.</remarks>
   public IPinterestPinItButtonWidget Size(PinterestPinItButtonSize size)
   {
-    this.size = size;
+    SizeProperty = size;
     return this;
   }
     
@@ -156,7 +155,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   ///   <para>Size of the button.</para>
   /// </summary>
   /// <returns>Button's size.</returns>
-  public PinterestPinItButtonSize Size() => size;
+  public PinterestPinItButtonSize Size() => SizeProperty;
 
   /// <summary>
   ///   <para>URL address of target web page for the button.</para>
@@ -171,7 +170,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.url = url;
+    UrlProperty = url;
     return this;
   }
 
@@ -179,7 +178,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   ///   <para>URL address of target web page for the button.</para>
   /// </summary>
   /// <returns>Button's target web page.</returns>
-  public string Url() => url;
+  public string Url() => UrlProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

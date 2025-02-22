@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Share42(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.Share42().Should().BeOfType<Share42WidgetsCreator>().And.BeSameAs(widgets.Share42());
+    Widgets.Share42().Should().BeOfType<Share42WidgetsCreator>().And.BeSameAs(Widgets.Share42());
   }
 }

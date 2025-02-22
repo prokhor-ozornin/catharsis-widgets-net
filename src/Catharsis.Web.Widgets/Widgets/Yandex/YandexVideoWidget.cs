@@ -1,15 +1,14 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IYandexVideoWidget"/>
 public class YandexVideoWidget : WebWidget, IYandexVideoWidget
 {
-  private string id;
-  private string width;
-  private string height;
-  private string user;
+  private string IdProperty { get; set; }
+  private string WidthProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private string UserProperty { get; set; }
 
   /// <inheritdoc cref="IYandexVideoWidget.Id(string)"/>
   public IYandexVideoWidget Id(string id)
@@ -17,13 +16,13 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.id = id;
+    IdProperty = id;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexVideoWidget.Id()"/>
-  public string Id() => id;
+  public string Id() => IdProperty;
 
   /// <inheritdoc cref="IYandexVideoWidget.Height(string)"/>
   public IYandexVideoWidget Height(string height)
@@ -31,13 +30,13 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexVideoWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IYandexVideoWidget.User(string)"/>
   public IYandexVideoWidget User(string user)
@@ -45,13 +44,13 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     if (user is null) throw new ArgumentNullException(nameof(user));
     if (user.IsEmpty()) throw new ArgumentException(nameof(user));
 
-    this.user = user;
+    UserProperty = user;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexVideoWidget.User()"/>
-  public string User() => user;
+  public string User() => UserProperty;
 
   /// <inheritdoc cref="IYandexVideoWidget.Width(string)"/>
   public IYandexVideoWidget Width(string width)
@@ -59,13 +58,13 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
 
     return this;
   }
 
   /// <inheritdoc cref="IYandexVideoWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

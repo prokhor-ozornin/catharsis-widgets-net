@@ -7,10 +7,10 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IVkontakteSubscriptionWidget"/>
 public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidget
 {
-  private string account;
-  private string elementId;
-  private byte layout = (byte) VkontakteSubscriptionButtonLayout.Button;
-  private bool onlyButton;
+  private string AccountProperty { get; set; }
+  private string ElementIdProperty { get; set; }
+  private byte LayoutProperty { get; set; } = (byte) VkontakteSubscriptionButtonLayout.Button;
+  private bool OnlyButtonProperty { get; set; }
 
   /// <inheritdoc cref="IVkontakteSubscriptionWidget.Account(string)"/>
   public IVkontakteSubscriptionWidget Account(string account)
@@ -18,13 +18,13 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteSubscriptionWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IVkontakteSubscriptionWidget.ElementId(string)"/>
   public IVkontakteSubscriptionWidget ElementId(string id)
@@ -32,33 +32,33 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    elementId = id;
+    ElementIdProperty = id;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteSubscriptionWidget.ElementId()"/>
-  public string ElementId() => elementId;
+  public string ElementId() => ElementIdProperty;
 
   /// <inheritdoc cref="IVkontakteSubscriptionWidget.Layout(byte)"/>
   public IVkontakteSubscriptionWidget Layout(byte layout)
   {
-    this.layout = layout;
+    LayoutProperty = layout;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteSubscriptionWidget.Layout()"/>
-  public byte Layout() => layout;
+  public byte Layout() => LayoutProperty;
 
   /// <inheritdoc cref="IVkontakteSubscriptionWidget.OnlyButton(bool)"/>
   public IVkontakteSubscriptionWidget OnlyButton(bool enabled)
   {
-    this.onlyButton = enabled;
+    OnlyButtonProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteSubscriptionWidget.OnlyButton()"/>
-  public bool OnlyButton() => onlyButton;
+  public bool OnlyButton() => OnlyButtonProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

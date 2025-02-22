@@ -11,7 +11,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class ITagBuilderExtensionsTests
 {
-  private readonly ITagBuilder builder = new TagBuilder("tag");
+  private ITagBuilder Builder { get; } = new TagBuilder("tag");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="ITagBuilderExtensions.Attribute(ITagBuilder, string, object)"/> method.</para>
@@ -45,7 +45,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.CssClass(null, "class")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "class" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "class" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -80,7 +80,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.CssStyle(null, "style")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "style" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "style" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -135,7 +135,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.AccessKey(null, "key")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "key" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "key" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -157,7 +157,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.ContentEditable(null, true)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new bool?[] { null, false, true }.ForEach(value => Validate(value, builder));
+      new bool?[] { null, false, true }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -179,7 +179,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.ContextMenu(null, "id")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "id" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "id" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -214,7 +214,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.Hidden(null, true)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new bool?[] { null, false, true }.ForEach(value => Validate(value, builder));
+      new bool?[] { null, false, true }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -236,7 +236,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.Id(null, "id")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "id" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "id" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -271,7 +271,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.Spellcheck(null, true)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new bool?[] { null, false, true }.ForEach(value => Validate(value, builder));
+      new bool?[] { null, false, true }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -293,7 +293,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.TabIndex(null, uint.MaxValue)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new uint?[] { null, uint.MinValue, uint.MaxValue }.ForEach(value => Validate(value, builder));
+      new uint?[] { null, uint.MinValue, uint.MaxValue }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -315,7 +315,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.Title(null, "title")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "title" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "title" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -337,7 +337,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnBlur(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -359,7 +359,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnChange(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -381,7 +381,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnClick(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -403,7 +403,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnDoubleClick(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -425,7 +425,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnFocus(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -447,7 +447,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnKeyDown(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -469,7 +469,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnKeyPress(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -491,7 +491,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnKeyUp(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -513,7 +513,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnLoad(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -535,7 +535,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseDown(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -557,7 +557,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseMove(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -579,7 +579,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseOut(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -601,7 +601,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseOver(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -623,7 +623,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseUp(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -645,7 +645,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnReset(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -667,7 +667,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnSelect(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -689,7 +689,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnSubmit(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;
@@ -711,7 +711,7 @@ public sealed class ITagBuilderExtensionsTests
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnUnload(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, builder));
+      new[] { null, string.Empty, "script" }.ForEach(value => Validate(value, Builder));
     }
 
     return;

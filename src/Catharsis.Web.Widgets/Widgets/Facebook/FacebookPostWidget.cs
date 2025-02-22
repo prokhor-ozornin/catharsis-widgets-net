@@ -1,13 +1,12 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IFacebookPostWidget"/>
 public class FacebookPostWidget : WebWidget, IFacebookPostWidget
 {
-  private string url;
-  private string width;
+  private string UrlProperty { get; set; }
+  private string WidthProperty { get; set; }
 
   /// <inheritdoc cref="IFacebookPostWidget.Url(string)"/>
   public IFacebookPostWidget Url(string url)
@@ -15,12 +14,12 @@ public class FacebookPostWidget : WebWidget, IFacebookPostWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    this.url = url;
+    UrlProperty = url;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookPostWidget.Url()"/>
-  public string Url() => url;
+  public string Url() => UrlProperty;
 
   /// <inheritdoc cref="IFacebookPostWidget.Width(string)"/>
   public IFacebookPostWidget Width(string width)
@@ -28,12 +27,12 @@ public class FacebookPostWidget : WebWidget, IFacebookPostWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookPostWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => Url().IsEmpty() ? string.Empty : new TagBuilder("div")

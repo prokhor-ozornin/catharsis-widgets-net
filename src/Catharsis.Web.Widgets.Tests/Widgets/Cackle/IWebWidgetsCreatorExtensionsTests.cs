@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Cackle(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.Cackle().Should().BeOfType<CackleWidgetsCreator>().And.BeSameAs(widgets.Cackle());
+    Widgets.Cackle().Should().BeOfType<CackleWidgetsCreator>().And.BeSameAs(Widgets.Cackle());
   }
 }

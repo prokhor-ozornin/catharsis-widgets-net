@@ -5,9 +5,9 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="ITagBuilder"/>
 public class TagBuilder : ITagBuilder
 {
-  protected string name;
-  protected string html;
-  protected readonly IDictionary<string, string> attributes = new SortedDictionary<string, string>();
+  protected string NameProperty { get; set; }
+  protected string HtmlProperty { get; set; }
+  protected IDictionary<string, string> AttributesProperty { get; } = new SortedDictionary<string, string>();
 
   /// <summary>
   ///   <para></para>
@@ -21,22 +21,22 @@ public class TagBuilder : ITagBuilder
     if (name is null) throw new ArgumentNullException(nameof(name));
     if (name.IsEmpty()) throw new ArgumentException(nameof(name));
 
-    this.name = name;
+    NameProperty = name;
     return this;
   }
 
   /// <inheritdoc cref="ITagBuilder.Name()"/>
-  public string Name() => name;
+  public string Name() => NameProperty;
 
   /// <inheritdoc cref="ITagBuilder.Attribute(string, string)"/>
   public ITagBuilder Html(string html)
   {
-    this.html = html ?? string.Empty;
+    HtmlProperty = html ?? string.Empty;
     return this;
   }
 
   /// <inheritdoc cref="ITagBuilder.Html()"/>
-  public string Html() => html;
+  public string Html() => HtmlProperty;
 
   /// <inheritdoc cref="ITagBuilder.Attribute(string, string)"/>
   public ITagBuilder Attribute(string name, string value)
@@ -44,7 +44,7 @@ public class TagBuilder : ITagBuilder
     if (name is null) throw new ArgumentNullException(nameof(name));
     if (name.IsEmpty()) throw new ArgumentException(nameof(name));
 
-    attributes[name] = value ?? string.Empty;
+    AttributesProperty[name] = value ?? string.Empty;
     
     return this;
   }

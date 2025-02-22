@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class VimeoWidgetsCreatorTests : ClassTest<VimeoWidgetsCreator>
 {
-  private readonly IVimeoWidgetsCreator widgets = Widgets.Create.Vimeo();
+  private IVimeoWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Vimeo();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,6 +27,6 @@ public sealed class VimeoWidgetsCreatorTests : ClassTest<VimeoWidgetsCreator>
   [Fact]
   public void Video_Method()
   {
-    widgets.Video().Should().BeOfType<VimeoVideoWidget>().And.NotBeSameAs(widgets.Video());
+    Widgets.Video().Should().BeOfType<VimeoVideoWidget>().And.NotBeSameAs(Widgets.Video());
   }
 }

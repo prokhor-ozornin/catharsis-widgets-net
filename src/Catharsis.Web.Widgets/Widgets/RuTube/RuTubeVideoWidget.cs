@@ -1,14 +1,13 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IRuTubeVideoWidget"/>
 public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
 {
-  private string id;
-  private string height;
-  private string width;
+  private string IdProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private string WidthProperty { get; set; }
 
   /// <inheritdoc cref="IRuTubeVideoWidget.Id(string)"/>
   public IRuTubeVideoWidget Id(string id)
@@ -16,12 +15,12 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.id = id;
+    IdProperty = id;
     return this;
   }
 
   /// <inheritdoc cref="IRuTubeVideoWidget.Id()"/>
-  public string Id() => id;
+  public string Id() => IdProperty;
 
   /// <inheritdoc cref="IRuTubeVideoWidget.Height(string)"/>
   public IRuTubeVideoWidget Height(string height)
@@ -29,12 +28,12 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
     return this;
   }
 
   /// <inheritdoc cref="IRuTubeVideoWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IRuTubeVideoWidget.Width(string)"/>
   public IRuTubeVideoWidget Width(string width)
@@ -42,12 +41,12 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
     return this;
   }
 
   /// <inheritdoc cref="IRuTubeVideoWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

@@ -6,7 +6,7 @@
 /// <seealso cref="IWebWidgetsCreator"/>
 public static partial class IWebWidgetsCreatorExtensions
 {
-  private static IVideoJSWidgetsCreator videoJS;
+  private static IVideoJSWidgetsCreator VideoJSProperty { get; set; }
 
   /// <summary>
   ///   <para>Initializes HTML helper object for rendering of VideoJS widgets.</para>
@@ -14,5 +14,5 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
-  public static IVideoJSWidgetsCreator VideoJS(this IWebWidgetsCreator creator) => creator is not null ? videoJS ??= new VideoJSWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
+  public static IVideoJSWidgetsCreator VideoJS(this IWebWidgetsCreator creator) => creator is not null ? VideoJSProperty ??= new VideoJSWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

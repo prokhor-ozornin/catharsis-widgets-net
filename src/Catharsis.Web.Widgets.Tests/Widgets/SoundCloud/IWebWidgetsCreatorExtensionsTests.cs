@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.SoundCloud(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.SoundCloud().Should().BeOfType<SoundCloudWidgetsCreator>().And.BeSameAs(widgets.SoundCloud());
+    Widgets.SoundCloud().Should().BeOfType<SoundCloudWidgetsCreator>().And.BeSameAs(Widgets.SoundCloud());
   }
 }

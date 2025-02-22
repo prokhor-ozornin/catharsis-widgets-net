@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class SoundCloudWidgetsCreatorTests : ClassTest<SoundCloudWidgetsCreator>
 {
-  private readonly ISoundCloudWidgetsCreator widgets = Widgets.Create.SoundCloud();
+  private ISoundCloudWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.SoundCloud();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,6 +27,6 @@ public sealed class SoundCloudWidgetsCreatorTests : ClassTest<SoundCloudWidgetsC
   [Fact]
   public void ProfileIcon_Method()
   {
-    widgets.ProfileIcon().Should().BeOfType<SoundCloudProfileIconWidget>().And.NotBeSameAs(widgets.ProfileIcon());
+    Widgets.ProfileIcon().Should().BeOfType<SoundCloudProfileIconWidget>().And.NotBeSameAs(Widgets.ProfileIcon());
   }
 }

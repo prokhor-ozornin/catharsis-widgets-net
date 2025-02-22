@@ -6,8 +6,8 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IMailRuIcqWidget"/>
 public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
 {
-  private string account;
-  private string language;
+  private string AccountProperty { get; set; }
+  private string LanguageProperty { get; set; }
 
   /// <inheritdoc cref="IMailRuIcqWidget.Account(string)"/>
   public IMailRuIcqWidget Account(string account)
@@ -15,12 +15,12 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    this.account = account;
+    AccountProperty = account;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuIcqWidget.Account()"/>
-  public string Account() => account;
+  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IMailRuIcqWidget.Language(string)"/>
   public IMailRuIcqWidget Language(string language)
@@ -28,12 +28,12 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
     if (language is null) throw new ArgumentNullException(nameof(language));
     if (language.IsEmpty()) throw new ArgumentException(nameof(language));
 
-    this.language = language;
+    LanguageProperty = language;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuIcqWidget.Language()"/>
-  public string Language() => language;
+  public string Language() => LanguageProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

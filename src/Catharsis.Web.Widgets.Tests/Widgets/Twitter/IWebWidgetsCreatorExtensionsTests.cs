@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTests
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Twitter(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    widgets.Twitter().Should().BeOfType<TwitterWidgetsCreator>().And.BeSameAs(widgets.Twitter());
+    Widgets.Twitter().Should().BeOfType<TwitterWidgetsCreator>().And.BeSameAs(Widgets.Twitter());
   }
 }

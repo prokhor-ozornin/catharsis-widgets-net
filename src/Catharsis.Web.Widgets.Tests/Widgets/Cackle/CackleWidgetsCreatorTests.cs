@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
 {
-  private readonly ICackleWidgetsCreator widgets = Widgets.Create.Cackle();
+  private ICackleWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Cackle();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
   [Fact]
   public void Comments_Method()
   {
-    widgets.Comments().Should().BeOfType<CackleCommentsWidget>().And.NotBeSameAs(widgets.Comments());
+    Widgets.Comments().Should().BeOfType<CackleCommentsWidget>().And.NotBeSameAs(Widgets.Comments());
   }
 
   /// <summary>
@@ -36,7 +36,7 @@ public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
   [Fact]
   public void CommentsCount_Method()
   {
-    widgets.CommentsCount().Should().BeOfType<CackleCommentsCountWidget>().And.NotBeSameAs(widgets.CommentsCount());
+    Widgets.CommentsCount().Should().BeOfType<CackleCommentsCountWidget>().And.NotBeSameAs(Widgets.CommentsCount());
   }
 
   /// <summary>
@@ -45,7 +45,7 @@ public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
   [Fact]
   public void LatestComments_Method()
   {
-    widgets.LatestComments().Should().BeOfType<CackleLatestCommentsWidget>().And.NotBeSameAs(widgets.LatestComments());
+    Widgets.LatestComments().Should().BeOfType<CackleLatestCommentsWidget>().And.NotBeSameAs(Widgets.LatestComments());
   }
 
   /// <summary>
@@ -54,6 +54,6 @@ public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
   [Fact]
   public void Login_Method()
   {
-    widgets.Login().Should().BeOfType<CackleWidgetsCreator>().And.NotBeSameAs(widgets.Login());
+    Widgets.Login().Should().BeOfType<CackleWidgetsCreator>().And.NotBeSameAs(Widgets.Login());
   }
 }

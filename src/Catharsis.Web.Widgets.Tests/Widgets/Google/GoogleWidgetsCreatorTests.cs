@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class GoogleWidgetsCreatorTests : ClassTest<GoogleWidgetsCreator>
 {
-  private readonly IGoogleWidgetsCreator widgets = Widgets.Create.Google();
+  private IGoogleWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Google();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class GoogleWidgetsCreatorTests : ClassTest<GoogleWidgetsCreator>
   [Fact]
   public void Analytics_Method()
   {
-    widgets.Analytics().Should().BeOfType<GoogleAnalyticsWidget>().And.NotBeSameAs(widgets.Analytics());
+    Widgets.Analytics().Should().BeOfType<GoogleAnalyticsWidget>().And.NotBeSameAs(Widgets.Analytics());
   }
 
   /*/// <summary>
@@ -45,6 +45,6 @@ public sealed class GoogleWidgetsCreatorTests : ClassTest<GoogleWidgetsCreator>
   [Fact]
   public void PlusOneButton_Method()
   {
-    widgets.PlusOneButton().Should().BeOfType<GooglePlusOneButtonWidget>().And.NotBeSameAs(widgets.PlusOneButton());
+    Widgets.PlusOneButton().Should().BeOfType<GooglePlusOneButtonWidget>().And.NotBeSameAs(Widgets.PlusOneButton());
   }
 }

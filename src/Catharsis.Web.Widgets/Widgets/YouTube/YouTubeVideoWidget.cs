@@ -1,16 +1,15 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IYouTubeVideoWidget"/>
 public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
 {
-  private string id;
-  private string width;
-  private string height;
-  private bool privateMode;
-  private bool secureMode;
+  private string IdProperty { get; set; }
+  private string WidthProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private bool PrivateModeProperty { get; set; }
+  private bool SecureModeProperty { get; set; }
 
   /// <inheritdoc cref="IYouTubeVideoWidget.Id(string)"/>
   public IYouTubeVideoWidget Id(string id)
@@ -18,13 +17,13 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.id = id;
+    IdProperty = id;
 
     return this;
   }
 
   /// <inheritdoc cref="IYouTubeVideoWidget.Id()"/>
-  public string Id() => id;
+  public string Id() => IdProperty;
 
   /// <inheritdoc cref="IYouTubeVideoWidget.Height(string)"/>
   public IYouTubeVideoWidget Height(string height)
@@ -32,33 +31,33 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
 
     return this;
   }
 
   /// <inheritdoc cref="IYouTubeVideoWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IYouTubeVideoWidget.PrivateMode(bool)"/>
   public IYouTubeVideoWidget PrivateMode(bool enabled)
   {
-    privateMode = enabled;
+    PrivateModeProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYouTubeVideoWidget.PrivateMode()"/>
-  public bool PrivateMode() => privateMode;
+  public bool PrivateMode() => PrivateModeProperty;
 
   /// <inheritdoc cref="IYouTubeVideoWidget.SecureMode(bool)"/>
   public IYouTubeVideoWidget SecureMode(bool enabled)
   {
-    secureMode = enabled;
+    SecureModeProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYouTubeVideoWidget.SecureMode()"/>
-  public bool SecureMode() => secureMode;
+  public bool SecureMode() => SecureModeProperty;
 
   /// <inheritdoc cref="IYouTubeVideoWidget.Width(string)"/>
   public IYouTubeVideoWidget Width(string width)
@@ -66,13 +65,13 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
 
     return this;
   }
 
   /// <inheritdoc cref="IYouTubeVideoWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

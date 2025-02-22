@@ -1,17 +1,16 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IVkontakteVideoWidget"/>
 public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
 {
-  private string id;
-  private string width;
-  private string height;
-  private bool hd;
-  private string user;
-  private string hash;
+  private string IdProperty { get; set; }
+  private string WidthProperty { get; set; }
+  private string HeightProperty { get; set; }
+  private bool HdProperty { get; set; }
+  private string UserProperty { get; set; }
+  private string HashProperty { get; set; }
 
   /// <inheritdoc cref="IVkontakteVideoWidget.Hash(string)"/>
   public IVkontakteVideoWidget Hash(string hash)
@@ -19,23 +18,23 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     if (hash is null) throw new ArgumentNullException(nameof(hash));
     if (hash.IsEmpty()) throw new ArgumentException(nameof(hash));
 
-    this.hash = hash;
+    HashProperty = hash;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteVideoWidget.Hash()"/>
-  public string Hash() => hash;
+  public string Hash() => HashProperty;
 
   /// <inheritdoc cref="IVkontakteVideoWidget.Hd(bool)"/>
   public IVkontakteVideoWidget Hd(bool enabled)
   {
-    hd = enabled;
+    HdProperty = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteVideoWidget.Hd()"/>
-  public bool Hd() => hd;
+  public bool Hd() => HdProperty;
 
   /// <inheritdoc cref="IVkontakteVideoWidget.Height(string)"/>
   public IVkontakteVideoWidget Height(string height)
@@ -43,13 +42,13 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    this.height = height;
+    HeightProperty = height;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteVideoWidget.Height()"/>
-  public string Height() => height;
+  public string Height() => HeightProperty;
 
   /// <inheritdoc cref="IVkontakteVideoWidget.Id(string)"/>
   public IVkontakteVideoWidget Id(string id)
@@ -57,13 +56,13 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    this.id = id;
+    IdProperty = id;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteVideoWidget.Id()"/>
-  public string Id() => id;
+  public string Id() => IdProperty;
 
   /// <inheritdoc cref="IVkontakteVideoWidget.User(string)"/>
   public IVkontakteVideoWidget User(string user)
@@ -71,13 +70,13 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     if (user is null) throw new ArgumentNullException(nameof(user));
     if (user.IsEmpty()) throw new ArgumentException(nameof(user));
       
-    this.user = user;
+    UserProperty = user;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteVideoWidget.User()"/>
-  public string User() => user;
+  public string User() => UserProperty;
 
   /// <inheritdoc cref="IVkontakteVideoWidget.Width(string)"/>
   public IVkontakteVideoWidget Width(string width)
@@ -85,13 +84,13 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    this.width = width;
+    WidthProperty = width;
 
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteVideoWidget.Width()"/>
-  public string Width() => width;
+  public string Width() => WidthProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()

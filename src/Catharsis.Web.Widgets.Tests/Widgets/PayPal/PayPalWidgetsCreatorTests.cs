@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class PayPalWidgetsCreatorTests : ClassTest<PayPalWidgetsCreator>
 {
-  private readonly IPayPalWidgetsCreator widgets = Widgets.Create.PayPal();
+  private IPayPalWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.PayPal();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class PayPalWidgetsCreatorTests : ClassTest<PayPalWidgetsCreator>
   [Fact]
   public void BuyGiftCertificate_Method()
   {
-    widgets.BuyGiftCertificate().Should().BeOfType<PayPalBuyGiftCertificateWidget>().And.NotBeSameAs(widgets.BuyGiftCertificate());
+    Widgets.BuyGiftCertificate().Should().BeOfType<PayPalBuyGiftCertificateWidget>().And.NotBeSameAs(Widgets.BuyGiftCertificate());
   }
 
   /// <summary>
@@ -36,7 +36,7 @@ public sealed class PayPalWidgetsCreatorTests : ClassTest<PayPalWidgetsCreator>
   [Fact]
   public void BuyNow_Method()
   {
-    widgets.BuyNow().Should().BeOfType<PayPalBuyNowWidget>().And.NotBeSameAs(widgets.BuyNow());
+    Widgets.BuyNow().Should().BeOfType<PayPalBuyNowWidget>().And.NotBeSameAs(Widgets.BuyNow());
   }
 
   /// <summary>
@@ -45,7 +45,7 @@ public sealed class PayPalWidgetsCreatorTests : ClassTest<PayPalWidgetsCreator>
   [Fact]
   public void Donate_Method()
   {
-    widgets.Donate().Should().BeOfType<PayPalDonateWidget>().And.NotBeSameAs(widgets.Donate());
+    Widgets.Donate().Should().BeOfType<PayPalDonateWidget>().And.NotBeSameAs(Widgets.Donate());
   }
 
   /// <summary>
@@ -54,6 +54,6 @@ public sealed class PayPalWidgetsCreatorTests : ClassTest<PayPalWidgetsCreator>
   [Fact]
   public void Subscribe_Method()
   {
-    widgets.Subscribe().Should().BeOfType<PayPalSubscribeWidget>().And.NotBeSameAs(widgets.Subscribe());
+    Widgets.Subscribe().Should().BeOfType<PayPalSubscribeWidget>().And.NotBeSameAs(Widgets.Subscribe());
   }
 }

@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class DisqusWidgetsCreatorTests : ClassTest<DisqusWidgetsCreator>
 {
-  private readonly IDisqusWidgetsCreator widgets = Widgets.Create.Disqus();
+  private IDisqusWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Disqus();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,6 +27,6 @@ public sealed class DisqusWidgetsCreatorTests : ClassTest<DisqusWidgetsCreator>
   [Fact]
   public void Comments_Method()
   {
-    widgets.Comments().Should().BeOfType<DisqusCommentsWidget>().And.NotBeSameAs(widgets.Comments());
+    Widgets.Comments().Should().BeOfType<DisqusCommentsWidget>().And.NotBeSameAs(Widgets.Comments());
   }
 }

@@ -5,8 +5,8 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="ILiveJournalRepostButtonWidget"/>
 public class LiveJournalRepostButtonWidget : WebWidget, ILiveJournalRepostButtonWidget
 {
-  private string text;
-  private string title;
+  private string TextProperty { get; set; }
+  private string TitleProperty { get; set; }
 
   /// <inheritdoc cref="ILiveJournalRepostButtonWidget.Text(string)"/>
   public ILiveJournalRepostButtonWidget Text(string text)
@@ -14,12 +14,12 @@ public class LiveJournalRepostButtonWidget : WebWidget, ILiveJournalRepostButton
     if (text is null) throw new ArgumentNullException(nameof(text));
     if (text.IsEmpty()) throw new ArgumentException(nameof(text));
 
-    this.text = text;
+    TextProperty = text;
     return this;
   }
 
   /// <inheritdoc cref="ILiveJournalRepostButtonWidget.Text()"/>
-  public string Text() => text;
+  public string Text() => TextProperty;
 
   /// <inheritdoc cref="ILiveJournalRepostButtonWidget.Title(string)"/>
   public ILiveJournalRepostButtonWidget Title(string title)
@@ -27,16 +27,16 @@ public class LiveJournalRepostButtonWidget : WebWidget, ILiveJournalRepostButton
     if (title is null) throw new ArgumentNullException(nameof(title));
     if (title.IsEmpty()) throw new ArgumentException(nameof(title));
 
-    this.title = title;
+    TitleProperty = title;
     return this;
   }
 
   /// <inheritdoc cref="ILiveJournalRepostButtonWidget.Title()"/>
-  public string Title() => title;
+  public string Title() => TitleProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("lj-repost")
     .Attribute("button", Title())
-    .Html(text)
+    .Html(TextProperty)
     .ToString();
 }

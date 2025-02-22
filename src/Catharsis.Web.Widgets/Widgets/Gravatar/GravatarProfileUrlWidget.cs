@@ -1,14 +1,13 @@
 ﻿using Catharsis.Extensions;
-using Catharsis.Web.Widgets.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
 /// <inheritdoc cref="IGravatarProfileUrlWidget"/>
 public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
 {
-  private string format;
-  private string hash;
-  private readonly IDictionary<string, object> parameters = new Dictionary<string, object>();
+  private string FormatProperty { get; set; }
+  private string HashProperty { get; set; }
+  private IDictionary<string, object> ParametersProperty { get; } = new Dictionary<string, object>();
 
   /// <inheritdoc cref="IGravatarProfileUrlWidget.Format(string)"/>
   public IGravatarProfileUrlWidget Format(string format)
@@ -16,12 +15,12 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
     if (format is null) throw new ArgumentNullException(nameof(format));
     if (format.IsEmpty()) throw new ArgumentException(nameof(format));
 
-    this.format = format;
+    FormatProperty = format;
     return this;
   }
 
   /// <inheritdoc cref="IGravatarProfileUrlWidget.Format()"/>
-  public string Format() => format;
+  public string Format() => FormatProperty;
 
   /// <inheritdoc cref="IGravatarProfileUrlWidget.Hash(string)"/>
   public IGravatarProfileUrlWidget Hash(string hash)
@@ -29,12 +28,12 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
     if (hash is null) throw new ArgumentNullException(nameof(hash));
     if (hash.IsEmpty()) throw new ArgumentException(nameof(hash));
 
-    this.hash = hash;
+    HashProperty = hash;
     return this;
   }
 
   /// <inheritdoc cref="IGravatarProfileUrlWidget.Hash()"/>
-  public string Hash() => hash;
+  public string Hash() => HashProperty;
 
   /// <inheritdoc cref="IGravatarProfileUrlWidget.Parameter(string, object)"/>
   public IGravatarProfileUrlWidget Parameter(string name, object value)
@@ -43,10 +42,10 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
     if (name.IsEmpty()) throw new ArgumentException(nameof(name));
     if (value is null) throw new ArgumentNullException(nameof(value));
 
-    parameters[name] = value;
+    ParametersProperty[name] = value;
     return this;
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => Hash().IsEmpty() ? string.Empty : $"http://www.gravatar.com/{Hash()}{(Format().IsEmpty() ? string.Empty : $".${Format()}")}{(parameters.Any() ? $"?${parameters.ToUrlQuery()}" : string.Empty)}";
+  public override string ToHtml() => Hash().IsEmpty() ? string.Empty : $"http://www.gravatar.com/{Hash()}{(Format().IsEmpty() ? string.Empty : $".${Format()}")}{(ParametersProperty.Any() ? $"?${ParametersProperty.ToUrlQuery()}" : string.Empty)}";
 }

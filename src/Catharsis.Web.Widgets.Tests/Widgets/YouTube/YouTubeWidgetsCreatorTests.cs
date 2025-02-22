@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class YouTubeWidgetsCreatorTests : ClassTest<YouTubeWidgetsCreator>
 {
-  private readonly IYouTubeWidgetsCreator widgets = Widgets.Create.YouTube();
+  private IYouTubeWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.YouTube();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,6 +27,6 @@ public sealed class YouTubeWidgetsCreatorTests : ClassTest<YouTubeWidgetsCreator
   [Fact]
   public void Video_Method()
   {
-    widgets.Video().Should().BeOfType<YouTubeVideoWidget>().And.NotBeSameAs(widgets.Video());
+    Widgets.Video().Should().BeOfType<YouTubeVideoWidget>().And.NotBeSameAs(Widgets.Video());
   }
 }

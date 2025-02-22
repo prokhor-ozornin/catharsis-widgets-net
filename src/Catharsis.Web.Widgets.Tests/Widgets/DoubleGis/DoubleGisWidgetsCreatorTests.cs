@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// </summary>
 public sealed class DoubleGisWidgetsCreatorTests : ClassTest<DoubleGisWidgetsCreator>
 {
-  private readonly IDoubleGisWidgetsCreator widgets = Widgets.Create.DoubleGis();
+  private IDoubleGisWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.DoubleGis();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -27,7 +27,7 @@ public sealed class DoubleGisWidgetsCreatorTests : ClassTest<DoubleGisWidgetsCre
   [Fact]
   public void ContactsMap_Method()
   {
-    widgets.ContactsMap().Should().BeOfType<DoubleGisContactsMapWidget>().And.NotBeSameAs(widgets.ContactsMap());
+    Widgets.ContactsMap().Should().BeOfType<DoubleGisContactsMapWidget>().And.NotBeSameAs(Widgets.ContactsMap());
   }
 
   /// <summary>
@@ -36,7 +36,7 @@ public sealed class DoubleGisWidgetsCreatorTests : ClassTest<DoubleGisWidgetsCre
   [Fact]
   public void Map_Method()
   {
-    widgets.Map().Should().BeOfType<DoubleGisMapWidget>().And.NotBeSameAs(widgets.Map());
+    Widgets.Map().Should().BeOfType<DoubleGisMapWidget>().And.NotBeSameAs(Widgets.Map());
   }
 
   /// <summary>
@@ -45,6 +45,6 @@ public sealed class DoubleGisWidgetsCreatorTests : ClassTest<DoubleGisWidgetsCre
   [Fact]
   public void MiniMap_Method()
   {
-    widgets.MiniMap().Should().BeOfType<DoubleGisMiniMapWidget>().And.NotBeSameAs(widgets.MiniMap());
+    Widgets.MiniMap().Should().BeOfType<DoubleGisMiniMapWidget>().And.NotBeSameAs(Widgets.MiniMap());
   }
 }
