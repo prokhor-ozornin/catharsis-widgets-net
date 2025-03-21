@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Test set for class <see cref="DisqusWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class DisqusWidgetsCreatorTests : ClassTest<DisqusWidgetsCreator>
+public sealed class DisqusWidgetsCreatorTests : UnitTest
 {
   private IDisqusWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Disqus();
 

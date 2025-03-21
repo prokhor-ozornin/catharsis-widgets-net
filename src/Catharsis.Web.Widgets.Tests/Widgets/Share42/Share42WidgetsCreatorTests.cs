@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets.Tests;
 ///   <para>Tests set for class <see cref="Share42WidgetsCreator"/>.</para>
 /// </summary>
 /// <seealso cref="Share42WidgetsCreator"/>
-public sealed class Share42WidgetsCreatorTests : ClassTest<Share42WidgetsCreator>
+public sealed class Share42WidgetsCreatorTests : UnitTest
 {
   private IShare42WidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Share42();
 

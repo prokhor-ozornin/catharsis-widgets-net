@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="YandexWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class YandexWidgetsCreatorTests : ClassTest<YandexWidgetsCreator>
+public sealed class YandexWidgetsCreatorTests : UnitTest
 {
   private IYandexWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Yandex();
 

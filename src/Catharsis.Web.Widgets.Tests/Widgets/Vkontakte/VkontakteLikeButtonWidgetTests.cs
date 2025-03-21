@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontakteLikeButtonWidget"/>.</para>
 /// </summary>
-public sealed class VkontakteLikeButtonWidgetTests : ClassTest<VkontakteLikeButtonWidget>
+public sealed class VkontakteLikeButtonWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

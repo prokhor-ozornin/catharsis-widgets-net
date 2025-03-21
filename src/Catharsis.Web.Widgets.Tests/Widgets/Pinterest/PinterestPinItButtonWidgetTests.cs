@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="PinterestPinItButtonWidget"/>.</para>
 /// </summary>
-public sealed class PinterestPinItButtonWidgetTests : ClassTest<PinterestPinItButtonWidget>
+public sealed class PinterestPinItButtonWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

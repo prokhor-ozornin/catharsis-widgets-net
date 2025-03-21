@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="LiveJournalLikeButtonWidget"/>.</para>
 /// </summary>
-public sealed class LiveJournalLikeButtonWidgetTests : ClassTest<LiveJournalLikeButtonWidget>
+public sealed class LiveJournalLikeButtonWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="LiveJournalLikeButtonWidget.ToHtml()"/> method.</para>

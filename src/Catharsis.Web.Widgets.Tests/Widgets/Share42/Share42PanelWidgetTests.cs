@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="Share42PanelWidget"/>.</para>
 /// </summary>
-public sealed class Share42PanelWidgetTests : ClassTest<Share42PanelWidget>
+public sealed class Share42PanelWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

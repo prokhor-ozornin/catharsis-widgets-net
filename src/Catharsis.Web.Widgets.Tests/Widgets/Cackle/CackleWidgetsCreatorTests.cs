@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="CackleWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class CackleWidgetsCreatorTests : ClassTest<CackleWidgetsCreator>
+public sealed class CackleWidgetsCreatorTests :UnitTest
 {
   private ICackleWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Cackle();
 

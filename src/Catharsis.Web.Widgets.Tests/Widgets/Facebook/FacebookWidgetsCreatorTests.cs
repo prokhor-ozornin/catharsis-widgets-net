@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="FacebookWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class FacebookWidgetsCreatorTests : ClassTest<FacebookWidgetsCreator>
+public sealed class FacebookWidgetsCreatorTests : UnitTest
 {
   private IFacebookWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Facebook();
 

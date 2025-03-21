@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="YandexMapWidget"/>.</para>
 /// </summary>
-public sealed class YandexMapWidgetTests : ClassTest<YandexMapWidget>
+public sealed class YandexMapWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

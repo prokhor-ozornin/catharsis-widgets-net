@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="DoubleGisWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class DoubleGisWidgetsCreatorTests : ClassTest<DoubleGisWidgetsCreator>
+public sealed class DoubleGisWidgetsCreatorTests : UnitTest
 {
   private IDoubleGisWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.DoubleGis();
 

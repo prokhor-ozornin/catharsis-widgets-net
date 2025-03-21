@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="DisqusCommentsWidget"/>.</para>
 /// </summary>
-public sealed class DisqusCommentsWidgetTests : ClassTest<DisqusCommentsWidget>
+public sealed class DisqusCommentsWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

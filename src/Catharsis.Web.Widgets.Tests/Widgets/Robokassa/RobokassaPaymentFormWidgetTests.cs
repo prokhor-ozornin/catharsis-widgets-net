@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="RobokassaPaymentFormWidget"/>.</para>
 /// </summary>
-public sealed class RobokassaPaymentFormWidgetTests : ClassTest<RobokassaPaymentFormWidget>
+public sealed class RobokassaPaymentFormWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

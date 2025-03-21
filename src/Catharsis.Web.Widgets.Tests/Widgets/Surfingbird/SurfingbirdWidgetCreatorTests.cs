@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="SurfingbirdWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class SurfingbirdWidgetsCreatorTests : ClassTest<SurfingbirdWidgetsCreator>
+public sealed class SurfingbirdWidgetsCreatorTests : UnitTest
 {
   private ISurfingbirdWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Surfingbird();
 

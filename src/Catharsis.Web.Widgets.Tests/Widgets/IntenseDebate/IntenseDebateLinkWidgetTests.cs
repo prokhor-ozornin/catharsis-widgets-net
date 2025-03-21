@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IntenseDebateLinkWidget"/>.</para>
 /// </summary>
-public sealed class IntenseDebateLinkWidgetTests : ClassTest<IntenseDebateLinkWidget>
+public sealed class IntenseDebateLinkWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IntenseDebateCommentsWidget.Account(string)"/> method.</para>

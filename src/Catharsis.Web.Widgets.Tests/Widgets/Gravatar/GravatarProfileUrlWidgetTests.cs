@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="GravatarProfileUrlWidget"/>.</para>
 /// </summary>
-public sealed class GravatarProfileUrlWidgetTests : ClassTest<GravatarProfileUrlWidget>
+public sealed class GravatarProfileUrlWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

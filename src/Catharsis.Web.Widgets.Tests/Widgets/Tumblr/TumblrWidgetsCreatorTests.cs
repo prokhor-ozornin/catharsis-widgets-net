@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="TumblrWidgetsCreator"/></para>
 /// </summary>
-public sealed class TumblrWidgetsCreatorTests : ClassTest<TumblrWidgetsCreator>
+public sealed class TumblrWidgetsCreatorTests : UnitTest
 {
   private ITumblrWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Tumblr();
 

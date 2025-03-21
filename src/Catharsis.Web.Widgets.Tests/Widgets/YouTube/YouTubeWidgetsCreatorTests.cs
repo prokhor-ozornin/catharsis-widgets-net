@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="YouTubeWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class YouTubeWidgetsCreatorTests : ClassTest<YouTubeWidgetsCreator>
+public sealed class YouTubeWidgetsCreatorTests : UnitTest
 {
   private IYouTubeWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.YouTube();
 

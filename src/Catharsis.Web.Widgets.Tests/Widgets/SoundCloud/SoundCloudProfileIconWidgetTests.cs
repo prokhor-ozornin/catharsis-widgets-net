@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="SoundCloudProfileIconWidget"/>.</para>
 /// </summary>
-public sealed class SoundCloudProfileIconWidgetTests : ClassTest<SoundCloudProfileIconWidget>
+public sealed class SoundCloudProfileIconWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

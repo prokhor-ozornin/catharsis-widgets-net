@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using Catharsis.Commons;
+﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -10,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="TwitterFollowButtonWidget"/>.</para>
 /// </summary>
-public sealed class TwitterFollowButtonWidgetTests : ClassTest<TwitterFollowButtonWidget>
+public sealed class TwitterFollowButtonWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

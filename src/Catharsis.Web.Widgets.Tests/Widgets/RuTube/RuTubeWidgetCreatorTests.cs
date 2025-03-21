@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets.Tests;
 ///   <para>Tests set for class <see cref="RuTubeWidgetsCreator"/>.</para>
 /// </summary>
 /// <seealso cref="RuTubeWidgetsCreator"/>
-public sealed class RuTubeWidgetsCreatorTests : ClassTest<RuTubeWidgetsCreator>
+public sealed class RuTubeWidgetsCreatorTests : UnitTest
 {
   private IRuTubeWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.RuTube();
 

@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="PinterestWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class PinterestWidgetsCreatorTests : ClassTest<PinterestWidgetsCreator>
+public sealed class PinterestWidgetsCreatorTests : UnitTest
 {
   private IPinterestWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Pinterest();
 

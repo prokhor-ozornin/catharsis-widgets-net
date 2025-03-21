@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="GoogleMapWidget"/>.</para>
 /// </summary>
-public sealed class GoogleMapWidgetTests : ClassTest<GoogleMapWidget>
+public sealed class GoogleMapWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

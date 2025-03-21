@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="RobokassaWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class RobokassaWidgetsCreatorTests : ClassTest<RobokassaWidgetsCreator>
+public sealed class RobokassaWidgetsCreatorTests : UnitTest
 {
   private IRobokassaWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Robokassa();
 

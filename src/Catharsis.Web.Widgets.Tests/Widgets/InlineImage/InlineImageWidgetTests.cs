@@ -10,7 +10,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="InlineImageWidget"/>.</para>
 /// </summary>
-public sealed class InlineImageWidgetTests : ClassTest<InlineImageWidget>
+public sealed class InlineImageWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

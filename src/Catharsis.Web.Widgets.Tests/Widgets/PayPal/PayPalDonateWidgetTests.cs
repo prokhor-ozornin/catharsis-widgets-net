@@ -8,7 +8,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="PayPalDonateWidget"/>.</para>
 /// </summary>
-public sealed class PayPalDonateWidgetTests : ClassTest<PayPalDonateWidget>
+public sealed class PayPalDonateWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

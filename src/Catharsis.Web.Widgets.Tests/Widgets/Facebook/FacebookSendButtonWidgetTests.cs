@@ -9,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="FacebookSendButtonWidget"/>.</para>
 /// </summary>
-public sealed class FacebookSendButtonWidgetTests : ClassTest<FacebookSendButtonWidget>
+public sealed class FacebookSendButtonWidgetTests : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

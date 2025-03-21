@@ -7,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontakteWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class VkontakteWidgetsCreatorTests : ClassTest<VkontakteWidgetsCreator>
+public sealed class VkontakteWidgetsCreatorTests : UnitTest
 {
   private IVkontakteWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Vkontakte();
 
