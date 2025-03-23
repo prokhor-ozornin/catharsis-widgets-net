@@ -4,8 +4,8 @@ namespace Catharsis.Web.Widgets;
 public class TwitterWidgetsCreator : ITwitterWidgetsCreator
 {
   /// <inheritdoc cref="ITwitterWidgetsCreator.FollowButton()"/>
-  public ITwitterFollowButtonWidget FollowButton() => new TwitterFollowButtonWidget();
+  public virtual ITwitterFollowButtonWidget FollowButton() => new TwitterFollowButtonWidget();
 
   /// <inheritdoc cref="ITwitterWidgetsCreator.TweetButton()"/>
-  public ITwitterTweetButtonWidget TweetButton() => new TwitterTweetButtonWidget();
+  public virtual ITwitterTweetButtonWidget TweetButton() => new TwitterTweetButtonWidget();
 }

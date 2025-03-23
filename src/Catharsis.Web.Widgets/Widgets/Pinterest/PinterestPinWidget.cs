@@ -5,10 +5,13 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IPinterestPinWidget"/>
 public class PinterestPinWidget : WebWidget, IPinterestPinWidget
 {
-  private string IdProperty { get; set; }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string IdProperty { get; set; }
 
   /// <inheritdoc cref="IPinterestPinWidget.Id(string)"/>
-  public IPinterestPinWidget Id(string id)
+  public virtual IPinterestPinWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
@@ -17,20 +20,17 @@ public class PinterestPinWidget : WebWidget, IPinterestPinWidget
     return this;
   }
 
-  /// <inheritdoc cref="IPinterestPinWidget.Id()"/>
-  public string Id() => IdProperty;
-
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (Id().IsEmpty())
+    if (IdProperty.IsEmpty())
     {
       return string.Empty;
     }
 
     return new TagBuilder("a")
       .Attribute("data-pin-do", "embedPin")
-      .Attribute("href", $"http://www.pinterest.com/pin/${Id()}")
+      .Attribute("href", $"http://www.pinterest.com/pin/${IdProperty}")
       .ToString();
   }
 }

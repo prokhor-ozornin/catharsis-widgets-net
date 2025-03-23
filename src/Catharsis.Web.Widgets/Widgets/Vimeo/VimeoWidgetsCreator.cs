@@ -4,5 +4,5 @@ namespace Catharsis.Web.Widgets;
 public class VimeoWidgetsCreator : IVimeoWidgetsCreator
 {
   /// <inheritdoc cref="IVimeoWidgetsCreator.Video()"/>
-  public IVimeoVideoWidget Video() => new VimeoVideoWidget();
+  public virtual IVimeoVideoWidget Video() => new VimeoVideoWidget();
 }

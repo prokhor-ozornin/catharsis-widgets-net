@@ -5,9 +5,20 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="ITagBuilder"/>
 public class TagBuilder : ITagBuilder
 {
-  protected string NameProperty { get; set; }
-  protected string HtmlProperty { get; set; }
-  protected IDictionary<string, string> AttributesProperty { get; } = new SortedDictionary<string, string>();
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string NameProperty { get; set; }
+  
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string HtmlProperty { get; set; }
+  
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual IDictionary<string, string> AttributesProperty { get; } = new SortedDictionary<string, string>();
 
   /// <summary>
   ///   <para></para>
@@ -16,7 +27,7 @@ public class TagBuilder : ITagBuilder
   public TagBuilder(string name) => Name(name);
 
   /// <inheritdoc cref="ITagBuilder.Name(string)"/>
-  public ITagBuilder Name(string name)
+  public virtual ITagBuilder Name(string name)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));
     if (name.IsEmpty()) throw new ArgumentException(nameof(name));
@@ -25,21 +36,15 @@ public class TagBuilder : ITagBuilder
     return this;
   }
 
-  /// <inheritdoc cref="ITagBuilder.Name()"/>
-  public string Name() => NameProperty;
-
   /// <inheritdoc cref="ITagBuilder.Attribute(string, string)"/>
-  public ITagBuilder Html(string html)
+  public virtual ITagBuilder Html(string html)
   {
     HtmlProperty = html ?? string.Empty;
     return this;
   }
 
-  /// <inheritdoc cref="ITagBuilder.Html()"/>
-  public string Html() => HtmlProperty;
-
   /// <inheritdoc cref="ITagBuilder.Attribute(string, string)"/>
-  public ITagBuilder Attribute(string name, string value)
+  public virtual ITagBuilder Attribute(string name, string value)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));
     if (name.IsEmpty()) throw new ArgumentException(nameof(name));
@@ -50,7 +55,7 @@ public class TagBuilder : ITagBuilder
   }
 
   /// <inheritdoc cref="ITagBuilder.Attributes()"/>
-  public IReadOnlyDictionary<string, string> Attributes() => throw new NotImplementedException();
+  public virtual IReadOnlyDictionary<string, string> Attributes() => throw new NotImplementedException();
 
   /// <inheritdoc cref="object.ToString()"/>
   public override string ToString()

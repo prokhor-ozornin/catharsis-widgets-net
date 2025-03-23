@@ -1,0 +1,153 @@
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
+using FluentAssertions;
+using FluentAssertions.Execution;
+using Xunit;
+
+namespace Catharsis.Web.Widgets.Tests;
+
+/// <summary>
+///   <para>Tests set for class <see cref="VkontakteSubscriptionWidget"/>.</para>
+/// </summary>
+public sealed class VkontakteSubscriptionWidgetTest : UnitTest
+{
+  /// <summary>
+  ///   <para>Performs testing of class constructor(s).</para>
+  /// </summary>
+  /// <seealso cref="VkontakteSubscriptionWidget()"/>
+  [Fact]
+  public void Constructors()
+  {
+    typeof(VkontakteSubscriptionWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontakteSubscriptionWidget>();
+
+    var widget = new VkontakteSubscriptionWidget();
+    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+    widget.GetPropertyValue<string>("ElementId").Should().BeNull();
+    widget.GetPropertyValue<byte>("LayoutProperty").Should().Be((byte) VkontakteSubscriptionButtonLayout.Button);
+    widget.GetPropertyValue<bool>("OnlyButtonProperty").Should().BeFalse();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteSubscriptionWidget.Account(string)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Account_Method()
+  {
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
+
+      var widget = new VkontakteSubscriptionWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string account, IVkontakteSubscriptionWidget widget)
+    {
+      widget.Account(account).Should().BeSameAs(widget);
+      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    }
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteSubscriptionWidget.ElementId(string)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void ElementId_Method()
+  {
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
+
+      var widget = new VkontakteSubscriptionWidget();
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(string id, IVkontakteSubscriptionWidget widget)
+    {
+      widget.ElementId(id).Should().BeSameAs(widget);
+      widget.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
+    }
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteSubscriptionWidget.Layout(byte)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Layout_Method()
+  {
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteSubscriptionWidget();
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(byte layout, IVkontakteSubscriptionWidget widget)
+    {
+      widget.Layout(layout).Should().BeSameAs(widget);
+      widget.GetPropertyValue<byte>("LayoutProperty").Should().Be(layout);
+    }
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteSubscriptionWidget.OnlyButton(bool)"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void OnlyButton_Method()
+  {
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteSubscriptionWidget();
+      new[] { false, true }.ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(bool enabled, IVkontakteSubscriptionWidget widget)
+    {
+      widget.OnlyButton(enabled).Should().BeSameAs(widget);
+      widget.GetPropertyValue<bool>("OnlyButtonProperty").Should().Be(enabled);
+    }
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteSubscriptionWidget.ToHtml()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void ToHtml_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteSubscriptionWidget());
+      Validate(new VkontakteSubscriptionWidget().Account("account"), """<div id="vk_subscribe_account"></div>""", """
+                                                                                                                  VK.Widgets.Subscribe("vk_subscribe_account", {"mode":0}, "account"
+                                                                                                                  """);
+      Validate(new VkontakteSubscriptionWidget().Account("account").Layout(VkontakteSubscriptionButtonLayout.LightButton).ElementId("elementId").OnlyButton(true), """<div id="elementId"></div>""", """
+                                                                                                                                                                                                      VK.Widgets.Subscribe("elementId", {"mode":1,"soft":1}, "account"
+                                                                                                                                                                                                      """);
+    }
+
+    return;
+
+    static void Validate(IWebWidget widget, params string[] html)
+    {
+      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
+
+      if (html.IsEmpty())
+      {
+        widget.ToHtml().Should().BeEmpty();
+      }
+      else
+      {
+        widget.ToHtml().Should().ContainAll(html);
+      }
+    }
+  }
+}

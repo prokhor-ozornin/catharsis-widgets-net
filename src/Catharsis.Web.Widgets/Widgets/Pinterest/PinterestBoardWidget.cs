@@ -5,14 +5,33 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IPinterestBoardWidget"/>
 public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
 {
-  private string AccountProperty { get; set; }
-  private string HeightProperty { get; set; }
-  private string WidthProperty { get; set; }
-  private string IdProperty { get; set; }
-  private string ImageProperty { get; set; }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string AccountProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string HeightProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string WidthProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string IdProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string ImageProperty { get; set; }
 
   /// <inheritdoc cref="IPinterestBoardWidget.Account(string)"/>
-  public IPinterestBoardWidget Account(string account)
+  public virtual IPinterestBoardWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
@@ -21,11 +40,8 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  /// <inheritdoc cref="IPinterestBoardWidget.Account()"/>
-  public string Account() => AccountProperty;
-
   /// <inheritdoc cref="IPinterestBoardWidget.Height(string)"/>
-  public IPinterestBoardWidget Height(string height)
+  public virtual IPinterestBoardWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
@@ -34,11 +50,8 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  /// <inheritdoc cref="IPinterestBoardWidget.Height()"/>
-  public string Height() => HeightProperty;
-
   /// <inheritdoc cref="IPinterestBoardWidget.Width(string)"/>
-  public IPinterestBoardWidget Width(string width)
+  public virtual IPinterestBoardWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
@@ -47,11 +60,8 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  /// <inheritdoc cref="IPinterestBoardWidget.Width()"/>
-  public string Width() => WidthProperty;
-
   /// <inheritdoc cref="IPinterestBoardWidget.Id(string)"/>
-  public IPinterestBoardWidget Id(string id)
+  public virtual IPinterestBoardWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
@@ -60,11 +70,8 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  /// <inheritdoc cref="IPinterestBoardWidget.Id()"/>
-  public string Id() => IdProperty;
-
   /// <inheritdoc cref="IPinterestBoardWidget.Image(string)"/>
-  public IPinterestBoardWidget Image(string width)
+  public virtual IPinterestBoardWidget Image(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
@@ -73,23 +80,20 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  /// <inheritdoc cref="IPinterestBoardWidget.Image()"/>
-  public string Image() => ImageProperty;
-
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (Account().IsEmpty() || Id().IsEmpty())
+    if (AccountProperty.IsEmpty() || IdProperty.IsEmpty())
     {
       return string.Empty;
     }
 
     return new TagBuilder("a")
       .Attribute("data-pin-do", "embedBoard")
-      .Attribute("href", $"http://www.pinterest.com/${Account()}/{Id()}")
-      .Attribute("data-pin-scale-width", Image())
-      .Attribute("data-pin-scale-height", Height())
-      .Attribute("data-pin-board-width", Width())
+      .Attribute("href", $"http://www.pinterest.com/${AccountProperty}/{IdProperty}")
+      .Attribute("data-pin-scale-width", ImageProperty)
+      .Attribute("data-pin-scale-height", HeightProperty)
+      .Attribute("data-pin-board-width", WidthProperty)
       .ToString();
   }
 }

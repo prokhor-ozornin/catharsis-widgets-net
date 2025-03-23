@@ -6,23 +6,11 @@ namespace Catharsis.Web.Widgets;
 public interface IShare42PanelWidget : IWebWidget
 {
   /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <returns></returns>
-  Share42PanelDirection Direction();
-
-  /// <summary>
   ///   <para>Specifies direction on panel (static horizontal or floating vertical).</para>
   /// </summary>
   /// <param name="direction">Direction of panel.</param>
   /// <returns>Reference to the current widget.</returns>
   IShare42PanelWidget Direction(Share42PanelDirection direction);
-
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <returns></returns>
-  byte Size();
 
   /// <summary>
   ///   <para>Specifies size of social icons.</para>

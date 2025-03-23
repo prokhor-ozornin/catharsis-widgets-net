@@ -5,12 +5,23 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IRuTubeVideoWidget"/>
 public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
 {
-  private string IdProperty { get; set; }
-  private string HeightProperty { get; set; }
-  private string WidthProperty { get; set; }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string IdProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string HeightProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string WidthProperty { get; set; }
 
   /// <inheritdoc cref="IRuTubeVideoWidget.Id(string)"/>
-  public IRuTubeVideoWidget Id(string id)
+  public virtual IRuTubeVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
@@ -19,11 +30,8 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IRuTubeVideoWidget.Id()"/>
-  public string Id() => IdProperty;
-
   /// <inheritdoc cref="IRuTubeVideoWidget.Height(string)"/>
-  public IRuTubeVideoWidget Height(string height)
+  public virtual IRuTubeVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
@@ -32,11 +40,8 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IRuTubeVideoWidget.Height()"/>
-  public string Height() => HeightProperty;
-
   /// <inheritdoc cref="IRuTubeVideoWidget.Width(string)"/>
-  public IRuTubeVideoWidget Width(string width)
+  public virtual IRuTubeVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
@@ -45,13 +50,10 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IRuTubeVideoWidget.Width()"/>
-  public string Width() => WidthProperty;
-
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (Id().IsEmpty() || Height().IsEmpty() || Width().IsEmpty())
+    if (IdProperty.IsEmpty() || HeightProperty.IsEmpty() || WidthProperty.IsEmpty())
     {
       return string.Empty;
     }
@@ -62,9 +64,9 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
       .Attribute("webkitallowfullscreen", true)
       .Attribute("mozallowfullscreen", true)
       .Attribute("scrolling", "no")
-      .Attribute("height", Height())
-      .Attribute("width", Width())
-      .Attribute("src", $"http://rutube.ru/embed/{Id()}")
+      .Attribute("height", HeightProperty)
+      .Attribute("width", WidthProperty)
+      .Attribute("src", $"http://rutube.ru/embed/{IdProperty}")
       .ToString();
   }
 }

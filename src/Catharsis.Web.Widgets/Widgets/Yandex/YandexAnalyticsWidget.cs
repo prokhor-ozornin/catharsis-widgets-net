@@ -6,17 +6,48 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IYandexAnalyticsWidget"/>
 public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
 {
-  private string AccountProperty { get; set; }
-  private bool WebVisorProperty { get; set; } = true;
-  private bool ClickMapProperty { get; set; } = true;
-  private bool TrackLinksProperty { get; set; } = true;
-  private bool TrackHashProperty { get; set; } = true;
-  private bool AccurateProperty { get; set; } = true;
-  private bool NoIndexProperty { get; set; }
-  private string LanguageProperty { get; set; }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string AccountProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual bool WebVisorProperty { get; set; } = true;
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual bool ClickMapProperty { get; set; } = true;
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual bool TrackLinksProperty { get; set; } = true;
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual bool TrackHashProperty { get; set; } = true;
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual bool AccurateProperty { get; set; } = true;
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual bool NoIndexProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string LanguageProperty { get; set; }
 
   /// <inheritdoc cref="IYandexAnalyticsWidget.Account(string)"/>
-  public IYandexAnalyticsWidget Account(string account)
+  public virtual IYandexAnalyticsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
@@ -26,31 +57,22 @@ public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IYandexAnalyticsWidget.Account()"/>
-  public string Account() => AccountProperty;
-
   /// <inheritdoc cref="IYandexAnalyticsWidget.Accurate(bool)"/>
-  public IYandexAnalyticsWidget Accurate(bool enabled)
+  public virtual IYandexAnalyticsWidget Accurate(bool enabled)
   {
     AccurateProperty = enabled;
     return this;
   }
 
-  /// <inheritdoc cref="IYandexAnalyticsWidget.Accurate()"/>
-  public bool Accurate() => AccurateProperty;
-
   /// <inheritdoc cref="IYandexAnalyticsWidget.ClickMap(bool)"/>
-  public IYandexAnalyticsWidget ClickMap(bool enabled)
+  public virtual IYandexAnalyticsWidget ClickMap(bool enabled)
   {
     ClickMapProperty = enabled;
     return this;
   }
 
-  /// <inheritdoc cref="IYandexAnalyticsWidget.ClickMap()"/>
-  public bool ClickMap() => ClickMapProperty;
-
   /// <inheritdoc cref="IYandexAnalyticsWidget.Language(string)"/>
-  public IYandexAnalyticsWidget Language(string language)
+  public virtual IYandexAnalyticsWidget Language(string language)
   {
     if (language is null) throw new ArgumentNullException(nameof(language));
     if (language.IsEmpty()) throw new ArgumentException(nameof(language));
@@ -60,72 +82,57 @@ public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IYandexAnalyticsWidget.Language()"/>
-  public string Language() => LanguageProperty;
-
   /// <inheritdoc cref="IYandexAnalyticsWidget.NoIndex(bool)"/>
-  public IYandexAnalyticsWidget NoIndex(bool enabled)
+  public virtual IYandexAnalyticsWidget NoIndex(bool enabled)
   {
     NoIndexProperty = enabled;
     return this;
   }
 
-  /// <inheritdoc cref="IYandexAnalyticsWidget.NoIndex()"/>
-  public bool NoIndex() => NoIndexProperty;
-
   /// <inheritdoc cref="IYandexAnalyticsWidget.TrackHash(bool)"/>
-  public IYandexAnalyticsWidget TrackHash(bool enabled)
+  public virtual IYandexAnalyticsWidget TrackHash(bool enabled)
   {
     TrackHashProperty = enabled;
     return this;
   }
 
-  /// <inheritdoc cref="IYandexAnalyticsWidget.TrackHash()"/>
-  public bool TrackHash() => TrackHashProperty;
-
   /// <inheritdoc cref="IYandexAnalyticsWidget.TrackLinks(bool)"/>
-  public IYandexAnalyticsWidget TrackLinks(bool enabled)
+  public virtual IYandexAnalyticsWidget TrackLinks(bool enabled)
   {
     TrackLinksProperty = enabled;
     return this;
   }
 
-  /// <inheritdoc cref="IYandexAnalyticsWidget.TrackLinks()"/>
-  public bool TrackLinks() => TrackLinksProperty;
-
   /// <inheritdoc cref="IYandexAnalyticsWidget.WebVisor(bool)"/>
-  public IYandexAnalyticsWidget WebVisor(bool enabled)
+  public virtual IYandexAnalyticsWidget WebVisor(bool enabled)
   {
     WebVisorProperty = enabled;
     return this;
   }
 
-  /// <inheritdoc cref="IYandexAnalyticsWidget.WebVisor()"/>
-  public bool WebVisor() => WebVisorProperty;
-
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (Account().IsEmpty())
+    if (AccountProperty.IsEmpty())
     {
       return string.Empty;
     }
 
     var config = new Dictionary<string, object>
     {
-      { "id", Account() },
-      { "webvisor", WebVisor() },
-      { "clickmap", ClickMap() },
-      { "trackLinks", TrackLinks() },
-      { "accurateTrackBounce", Accurate() },
-      { "trackHash", TrackHash() }
+      { "id", AccountProperty },
+      { "webvisor", WebVisorProperty },
+      { "clickmap", ClickMapProperty },
+      { "trackLinks", TrackLinksProperty },
+      { "accurateTrackBounce", AccurateProperty },
+      { "trackHash", TrackHashProperty }
     };
 
-    if (NoIndex())
+    if (NoIndexProperty)
     {
       config["ut"] = "noindex";
     }
 
-    return string.Format(resources.yandex_analytics_html, Account(), Language() ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName, config.Json());
+    return string.Format(resources.yandex_analytics_html, AccountProperty, LanguageProperty ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName, config.Json());
   }
 }

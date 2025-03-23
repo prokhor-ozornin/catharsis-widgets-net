@@ -4,14 +4,14 @@ namespace Catharsis.Web.Widgets;
 public class CackleWidgetsCreator : ICackleWidgetsCreator
 {
   /// <inheritdoc cref="ICackleWidgetsCreator.Comments()"/>
-  public ICackleCommentsWidget Comments() => new CackleCommentsWidget();
+  public virtual ICackleCommentsWidget Comments() => new CackleCommentsWidget();
 
   /// <inheritdoc cref="ICackleWidgetsCreator.CommentsCount()"/>
-  public ICackleCommentsCountWidget CommentsCount() => new CackleCommentsCountWidget();
+  public virtual ICackleCommentsCountWidget CommentsCount() => new CackleCommentsCountWidget();
 
   /// <inheritdoc cref="ICackleWidgetsCreator.LatestComments()"/>
-  public ICackleLatestCommentsWidget LatestComments() => new CackleLatestCommentsWidget();
+  public virtual ICackleLatestCommentsWidget LatestComments() => new CackleLatestCommentsWidget();
 
   /// <inheritdoc cref="ICackleWidgetsCreator.Login()"/>
-  public ICackleLoginWidget Login() => new CackleLoginWidget();
+  public virtual ICackleLoginWidget Login() => new CackleLoginWidget();
 }

@@ -15,21 +15,9 @@ public interface ITagBuilder
   /// <summary>
   ///   <para></para>
   /// </summary>
-  /// <returns></returns>
-  string Name();
-
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   /// <param name="html"></param>
   /// <returns></returns>
   ITagBuilder Html(string html);
-
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <returns></returns>
-  string Html();
 
   /// <summary>
   ///   <para></para>

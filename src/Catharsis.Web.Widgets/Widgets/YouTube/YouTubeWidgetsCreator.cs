@@ -4,5 +4,5 @@ namespace Catharsis.Web.Widgets;
 public class YouTubeWidgetsCreator : IYouTubeWidgetsCreator
 {
   /// <inheritdoc cref="IYouTubeWidgetsCreator.Video()"/>
-  public IYouTubeVideoWidget Video() => new YouTubeVideoWidget();
+  public virtual IYouTubeVideoWidget Video() => new YouTubeVideoWidget();
 }

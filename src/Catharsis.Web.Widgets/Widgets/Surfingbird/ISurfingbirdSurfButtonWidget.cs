@@ -18,23 +18,11 @@ public interface ISurfingbirdSurfButtonWidget : IWebWidget
   ISurfingbirdSurfButtonWidget Color(string color);
 
   /// <summary>
-  ///   <para>Text label's color. If not specified, default color combination is used.</para>
-  /// </summary>
-  /// <returns>Label's color.</returns>
-  string Color();
-
-  /// <summary>
   ///   <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>
   /// </summary>
   /// <param name="enabled"><c>true</c> to show counter, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   ISurfingbirdSurfButtonWidget Counter(bool enabled);
-
-  /// <summary>
-  ///   <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to show counter, <c>false</c> to hide.</returns>
-  bool Counter();
 
   /// <summary>
   ///   <para>Vertical height of the button. Default is 25px.</para>
@@ -46,12 +34,6 @@ public interface ISurfingbirdSurfButtonWidget : IWebWidget
   ISurfingbirdSurfButtonWidget Height(string height);
 
   /// <summary>
-  ///   <para>Vertical height of the button. Default is 25px.</para>
-  /// </summary>
-  /// <returns>Height of button.</returns>
-  string Height();
-
-  /// <summary>
   ///   <para>Text label to show on button. Default is "Surf".</para>
   /// </summary>
   /// <param name="label">Text label on button.</param>
@@ -59,12 +41,6 @@ public interface ISurfingbirdSurfButtonWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="label"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="label"/> is <see cref="string.Empty"/> string.</exception>
   ISurfingbirdSurfButtonWidget Label(string label);
-
-  /// <summary>
-  ///   <para>Text label to show on button. Default is "Surf".</para>
-  /// </summary>
-  /// <returns>Text label on button.</returns>
-  string Label();
 
   /// <summary>
   ///   <para>Layout/appearance of the button.</para>
@@ -76,12 +52,6 @@ public interface ISurfingbirdSurfButtonWidget : IWebWidget
   ISurfingbirdSurfButtonWidget Layout(string layout);
 
   /// <summary>
-  ///   <para>Layout/appearance of the button.</para>
-  /// </summary>
-  /// <returns>Layout of button.</returns>
-  string Layout();
-
-  /// <summary>
   ///   <para>Specifies URL address of web page to "like". Default is current web page.</para>
   /// </summary>
   /// <param name="url">URL of web page.</param>
@@ -91,12 +61,6 @@ public interface ISurfingbirdSurfButtonWidget : IWebWidget
   ISurfingbirdSurfButtonWidget Url(string url);
 
   /// <summary>
-  ///   <para>Specifies URL address of web page to "like". Default is current web page.</para>
-  /// </summary>
-  /// <returns>URL of web page.</returns>
-  string Url();
-
-  /// <summary>
   ///   <para>Horizontal width of the button. Default is 500px.</para>
   /// </summary>
   /// <param name="width">Width of button.</param>
@@ -104,10 +68,4 @@ public interface ISurfingbirdSurfButtonWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
   ISurfingbirdSurfButtonWidget Width(string width);
-
-  /// <summary>
-  ///   <para>Horizontal width of the button. Default is 500px.</para>
-  /// </summary>
-  /// <returns>Width of button.</returns>
-  string Width();
 }

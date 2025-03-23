@@ -6,9 +6,9 @@ namespace Catharsis.Web.Widgets;
 public interface ICackleWidgetsCreator
 {
   /// <summary>
-  ///   <para>Creates new Cackle comments widget.</para>
+  ///   <para></para>
   /// </summary>
-  /// <returns>Initialized widget with default options.</returns>
+  /// <returns></returns>
   ICackleCommentsWidget Comments();
 
   /// <summary>
@@ -18,9 +18,9 @@ public interface ICackleWidgetsCreator
   ICackleCommentsCountWidget CommentsCount();
 
   /// <summary>
-  ///   <para>Creates new Cackle latest comments widget.</para>
+  ///   <para></para>
   /// </summary>
-  /// <returns>Initialized widget with default options.</returns>
+  /// <returns></returns>
   ICackleLatestCommentsWidget LatestComments();
 
   /// <summary>

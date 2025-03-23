@@ -17,10 +17,4 @@ public interface IVkontakteInitializationWidget : IWebWidget
   /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>This attribute is required.</remarks>
   IVkontakteInitializationWidget ApiId(string id);
-
-  /// <summary>
-  ///   <para>API identifier of registered VKontakte application.</para>
-  /// </summary>
-  /// <returns>Application API ID.</returns>
-  string ApiId();
 }

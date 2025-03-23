@@ -4,5 +4,5 @@ namespace Catharsis.Web.Widgets;
 public class SurfingbirdWidgetsCreator : ISurfingbirdWidgetsCreator
 {
   /// <inheritdoc cref="ISurfingbirdWidgetsCreator.SurfButton()"/>
-  public ISurfingbirdSurfButtonWidget SurfButton() => new SurfingbirdSurfButtonWidget();
+  public virtual ISurfingbirdSurfButtonWidget SurfButton() => new SurfingbirdSurfButtonWidget();
 }

@@ -16,12 +16,6 @@ public interface IFacebookActivityFeedWidget : IWebWidget
   IFacebookActivityFeedWidget Actions(IEnumerable<string> actions);
 
   /// <summary>
-  ///   <para>Collection of Open Graph action types to show in the feed.</para>
-  /// </summary>
-  /// <returns></returns>
-  IEnumerable<string> Actions();
-
-  /// <summary>
   ///   <para>Display all actions associated with this app ID. This is usually inferred from the app ID you use to initiate the JavaScript SDK.</para>
   /// </summary>
   /// <param name="id">Facebook Application ID.</param>
@@ -29,12 +23,6 @@ public interface IFacebookActivityFeedWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="id"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
   IFacebookActivityFeedWidget AppId(string id);
-
-  /// <summary>
-  ///   <para>Display all actions associated with this app ID. This is usually inferred from the app ID you use to initiate the JavaScript SDK.</para>
-  /// </summary>
-  /// <returns>Facebook Application ID.</returns>
-  string AppId();
 
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>
@@ -46,12 +34,6 @@ public interface IFacebookActivityFeedWidget : IWebWidget
   IFacebookActivityFeedWidget ColorScheme(string scheme);
 
   /// <summary>
-  ///   <para>The color scheme used by the widget.</para>
-  /// </summary>
-  /// <returns>Color scheme of widget.</returns>
-  string ColorScheme();
-
-  /// <summary>
   ///   <para>The domain for which to show activity. Default is current domain.</para>
   /// </summary>
   /// <param name="domain">Site domain.</param>
@@ -61,23 +43,11 @@ public interface IFacebookActivityFeedWidget : IWebWidget
   IFacebookActivityFeedWidget Domain(string domain);
 
   /// <summary>
-  ///   <para>The domain for which to show activity. Default is current domain.</para>
-  /// </summary>
-  /// <returns>Site domain.</returns>
-  string Domain();
-
-  /// <summary>
   ///   <para>Whether to enabled the "Recent Activity" header above the feed or not. Default is <c>true</c>.</para>
   /// </summary>
   /// <param name="enabled"><c>true</c> to show header, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookActivityFeedWidget Header(bool enabled);
-
-  /// <summary>
-  ///   <para>Whether to show the "Recent Activity" header above the feed or not. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to show header, <c>false</c> to hide.</returns>
-  bool? Header();
 
   /// <summary>
   ///   <para>The height of the widget in pixels. Default is 300.</para>
@@ -89,12 +59,6 @@ public interface IFacebookActivityFeedWidget : IWebWidget
   IFacebookActivityFeedWidget Height(string height);
 
   /// <summary>
-  ///   <para>The height of the widget in pixels. Default is 300.</para>
-  /// </summary>
-  /// <returns>Height of widget.</returns>
-  string Height();
-
-  /// <summary>
   ///   <para>Determines what happens when people click on the links in the feed. Can be any of the standard HTML target values. Default is "_blank".</para>
   /// </summary>
   /// <param name="target">Hyperlinks HTML target attribute.</param>
@@ -104,12 +68,6 @@ public interface IFacebookActivityFeedWidget : IWebWidget
   IFacebookActivityFeedWidget LinkTarget(string target);
 
   /// <summary>
-  ///   <para>Determines what happens when people click on the links in the feed. Can be any of the standard HTML target values. Default is "_blank".</para>
-  /// </summary>
-  /// <returns>Hyperlinks HTML target attribute.</returns>
-  string LinkTarget();
-
-  /// <summary>
   ///   <para>Limit the created time of articles that are shown in the feed. Valid values are 1-180, which represents the age in days to limit to. Default is 0 (no limit).</para>
   /// </summary>
   /// <param name="age">Days age limit.</param>
@@ -117,23 +75,11 @@ public interface IFacebookActivityFeedWidget : IWebWidget
   IFacebookActivityFeedWidget MaxAge(byte age);
 
   /// <summary>
-  ///   <para>Limit the created time of articles that are shown in the feed. Valid values are 1-180, which represents the age in days to limit to. Default is 0 (no limit).</para>
-  /// </summary>
-  /// <returns>Days age limit.</returns>
-  byte? MaxAge();
-
-  /// <summary>
   ///   <para>Specifies whether to always show recommendations (Articles liked by a high amount of people) in the bottom half of the feed. Default is <c>false</c>.</para>
   /// </summary>
   /// <param name="enabled"><c>true</c> to show recommendations, <c>false</c> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookActivityFeedWidget Recommendations(bool enabled);
-
-  /// <summary>
-  ///   <para>Specifies whether to always show recommendations (Articles liked by a high amount of people) in the bottom half of the feed. Default is <c>false</c>.</para>
-  /// </summary>
-  /// <returns><c>true</c> to show recommendations, <c>false</c> to hide.</returns>
-  bool? Recommendations();
 
   /// <summary>
   ///   <para>A label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_).</para>
@@ -145,12 +91,6 @@ public interface IFacebookActivityFeedWidget : IWebWidget
   IFacebookActivityFeedWidget TrackLabel(string label);
 
   /// <summary>
-  ///   <para>A label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_).</para>
-  /// </summary>
-  /// <returns>Label for tracking referrals.</returns>
-  string TrackLabel();
-
-  /// <summary>
   ///   <para>The width of the widget in pixels. Default is 300.</para>
   /// </summary>
   /// <param name="width">Width of widget.</param>
@@ -158,10 +98,4 @@ public interface IFacebookActivityFeedWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
   IFacebookActivityFeedWidget Width(string width);
-
-  /// <summary>
-  ///   <para>The width of the widget in pixels. Default is 300.</para>
-  /// </summary>
-  /// <returns>Width of widget.</returns>
-  string Width();
 }

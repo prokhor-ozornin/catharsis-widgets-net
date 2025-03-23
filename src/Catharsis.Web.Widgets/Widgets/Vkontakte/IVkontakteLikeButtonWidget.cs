@@ -17,24 +17,12 @@ public interface IVkontakteLikeButtonWidget : IWebWidget
   IVkontakteLikeButtonWidget ElementId(string id);
 
   /// <summary>
-  ///   <para>Identifier of HTML container for the widget.</para>
-  /// </summary>
-  /// <returns>HTML element's identifier.</returns>
-  string ElementId();
-
-  /// <summary>
   ///   <para>Vertical height of the button in pixels. Default value is "22".</para>
   /// </summary>
   /// <param name="height">Height of button.</param>
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="height"/> is a <c>null</c> reference.</exception>
   IVkontakteLikeButtonWidget Height(string height);
-
-  /// <summary>
-  ///   <para>Vertical height of the button in pixels. Default value is "22".</para>
-  /// </summary>
-  /// <returns>Height of button.</returns>
-  string Height();
 
   /// <summary>
   ///   <para>Visual layout/appearance of the button.</para>
@@ -46,12 +34,6 @@ public interface IVkontakteLikeButtonWidget : IWebWidget
   IVkontakteLikeButtonWidget Layout(string layout);
 
   /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <returns>Layout of button.</returns>
-  string Layout();
-
-  /// <summary>
   ///   <para>Description of the page (to display in preview mode for record on the wall).</para>
   /// </summary>
   /// <param name="description">Description of the page.</param>
@@ -59,12 +41,6 @@ public interface IVkontakteLikeButtonWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="description"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="description"/> is <see cref="string.Empty"/> string.</exception>
   IVkontakteLikeButtonWidget Description(string description);
-
-  /// <summary>
-  ///   <para>Description of the page (to display in preview mode for record on the wall).</para>
-  /// </summary>
-  /// <returns>Description of the page.</returns>
-  string Description();
 
   /// <summary>
   ///   <para>URL of the thumbnail image (to display in preview mode for record on the wall).</para>
@@ -76,12 +52,6 @@ public interface IVkontakteLikeButtonWidget : IWebWidget
   IVkontakteLikeButtonWidget Image(string url);
 
   /// <summary>
-  ///   <para>URL of the thumbnail image (to display in preview mode for record on the wall).</para>
-  /// </summary>
-  /// <returns>URL of post's thumbnail image.</returns>
-  string Image();
-
-  /// <summary>
   ///   <para>Title of the page (to display in preview mode for record on the wall).</para>
   /// </summary>
   /// <param name="title">Title of the page.</param>
@@ -89,12 +59,6 @@ public interface IVkontakteLikeButtonWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="title"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="title"/> is <see cref="string.Empty"/> string.</exception>
   IVkontakteLikeButtonWidget Title(string title);
-
-  /// <summary>
-  ///   <para>Title of the page (to display in preview mode for record on the wall).</para>
-  /// </summary>
-  /// <returns>Title of the page.</returns>
-  string Title();
 
   /// <summary>
   ///   <para>URL of the page to "like" (this URL will be shown in a record on the wall). Default is URL of the current page.</para>
@@ -106,12 +70,6 @@ public interface IVkontakteLikeButtonWidget : IWebWidget
   IVkontakteLikeButtonWidget Url(string url);
 
   /// <summary>
-  ///   <para>URL of the page to "like" (this URL will be shown in a record on the wall). Default is URL of the current page.</para>
-  /// </summary>
-  /// <returns>URL of target web page.</returns>
-  string Url();
-
-  /// <summary>
   ///   <para>Text to be published on the wall when "Tell to friends" is pressed. Maximum length is 140 characters. Default value equals to page's title.</para>
   /// </summary>
   /// <param name="text">Text for publishing.</param>
@@ -121,23 +79,11 @@ public interface IVkontakteLikeButtonWidget : IWebWidget
   IVkontakteLikeButtonWidget Text(string text);
 
   /// <summary>
-  ///   <para>Text to be published on the wall when "Tell to friends" is pressed. Maximum length is 140 characters. Default value equals to page's title.</para>
-  /// </summary>
-  /// <returns>Text for publishing.</returns>
-  string Text();
-
-  /// <summary>
   ///   <para>Type of text to display on the button.</para>
   /// </summary>
   /// <param name="verb">Displayed button's verb.</param>
   /// <returns>Reference to the current widget.</returns>
   IVkontakteLikeButtonWidget Verb(byte verb);
-
-  /// <summary>
-  ///   <para>Type of text to display on the button.</para>
-  /// </summary>
-  /// <returns>Displayed button's verb.</returns>
-  byte? Verb();
 
   /// <summary>
   ///   <para>Width of button in pixels (integer value > 200, default value is 350). Parameter value has meaning only for a button with a text counter (layout = "full").</para>
@@ -147,10 +93,4 @@ public interface IVkontakteLikeButtonWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
   IVkontakteLikeButtonWidget Width(string width);
-
-  /// <summary>
-  ///   <para>Width of button in pixels (integer value > 200, default value is 350). Parameter value has meaning only for a button with a text counter (layout = "full").</para>
-  /// </summary>
-  /// <returns>Width of button.</returns>
-  string Width();
 }

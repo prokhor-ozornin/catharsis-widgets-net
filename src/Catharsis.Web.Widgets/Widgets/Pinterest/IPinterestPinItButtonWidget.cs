@@ -18,23 +18,11 @@ public interface IPinterestPinItButtonWidget : IWebWidget
   IPinterestPinItButtonWidget Color(string color);
 
   /// <summary>
-  ///   <para>Background color of the button.</para>
-  /// </summary>
-  /// <returns>Button's color.</returns>
-  string Color();
-
-  /// <summary>
   ///   <para>Position of button's pin counter.</para>
   /// </summary>
   /// <param name="position">Pin counter's position.</param>
   /// <returns>Reference to the current widget.</returns>
   IPinterestPinItButtonWidget Counter(PinterestPinItButtonPinCountPosition position);
-
-  /// <summary>
-  ///   <para>Position of button's pin counter.</para>
-  /// </summary>
-  /// <returns>Pin counter's position.</returns>
-  PinterestPinItButtonPinCountPosition Counter();
 
   /// <summary>
   ///   <para>Description of the "pinned" image.</para>
@@ -47,12 +35,6 @@ public interface IPinterestPinItButtonWidget : IWebWidget
   IPinterestPinItButtonWidget Description(string description);
 
   /// <summary>
-  ///   <para>Description of the "pinned" image.</para>
-  /// </summary>
-  /// <returns>Pin's description.</returns>
-  string Description();
-
-  /// <summary>
   ///   <para>URL address of the "pinned" image.</para>
   /// </summary>
   /// <param name="url">Pin's image URL.</param>
@@ -63,12 +45,6 @@ public interface IPinterestPinItButtonWidget : IWebWidget
   IPinterestPinItButtonWidget Image(string url);
 
   /// <summary>
-  ///   <para>URL address of the "pinned" image.</para>
-  /// </summary>
-  /// <returns>Pin's image URL.</returns>
-  string Image();
-    
-  /// <summary>
   ///   <para>Language of button's label.</para>
   /// </summary>
   /// <param name="language">Button's text language.</param>
@@ -78,23 +54,11 @@ public interface IPinterestPinItButtonWidget : IWebWidget
   IPinterestPinItButtonWidget Language(string language);
 
   /// <summary>
-  ///   <para>Language of button's label.</para>
-  /// </summary>
-  /// <returns>Button's text language.</returns>
-  string Language();
-
-  /// <summary>
   ///   <para>Shape of the button.</para>
   /// </summary>
   /// <param name="shape">Button's shape.</param>
   /// <returns>Reference to the current widget.</returns>
   IPinterestPinItButtonWidget Shape(PinterestPinItButtonShape shape);
-
-  /// <summary>
-  ///   <para>Shape of the button.</para>
-  /// </summary>
-  /// <returns>Button's shape.</returns>
-  PinterestPinItButtonShape Shape();
 
   /// <summary>
   ///   <para>Size of the button.</para>
@@ -105,12 +69,6 @@ public interface IPinterestPinItButtonWidget : IWebWidget
   IPinterestPinItButtonWidget Size(PinterestPinItButtonSize size);
 
   /// <summary>
-  ///   <para>Size of the button.</para>
-  /// </summary>
-  /// <returns>Button's size.</returns>
-  PinterestPinItButtonSize Size();
-
-  /// <summary>
   ///   <para>URL address of target web page for the button.</para>
   /// </summary>
   /// <param name="url">Button's target web page.</param>
@@ -119,10 +77,4 @@ public interface IPinterestPinItButtonWidget : IWebWidget
   /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>This attribute is required.</remarks>
   IPinterestPinItButtonWidget Url(string url);
-
-  /// <summary>
-  ///   <para>URL address of target web page for the button.</para>
-  /// </summary>
-  /// <returns>Button's target web page.</returns>
-  string Url();
 }

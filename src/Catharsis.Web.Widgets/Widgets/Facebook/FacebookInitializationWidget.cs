@@ -6,10 +6,13 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IFacebookInitializationWidget"/>
 public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWidget
 {
-  private string AppIdProperty { get; set; }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string AppIdProperty { get; set; }
 
   /// <inheritdoc cref="IFacebookInitializationWidget.AppId(string)"/>
-  public IFacebookInitializationWidget AppId(string id)
+  public virtual IFacebookInitializationWidget AppId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
@@ -18,20 +21,17 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
     return this;
   }
 
-  /// <inheritdoc cref="IFacebookInitializationWidget.AppId()"/>
-  public string AppId() => AppIdProperty;
-
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AppId().IsEmpty())
+    if (AppIdProperty.IsEmpty())
     {
       return string.Empty;
     }
 
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", "fb-root"))
-      .Append(string.Format(resources.facebook_initialize_js, AppId()))
+      .Append(string.Format(resources.facebook_initialize_js, AppIdProperty))
       .ToString();
   }
 }

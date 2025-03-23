@@ -5,12 +5,23 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IGravatarImageUrlWidget"/>
 public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
 {
-  private string ExtensionProperty { get; set; }
-  private string HashProperty { get; set; }
-  private IDictionary<string, object> ParametersProperty { get; } = new Dictionary<string, object>();
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string ExtensionProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string HashProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual IDictionary<string, object> ParametersProperty { get; } = new Dictionary<string, object>();
 
   /// <inheritdoc cref="IGravatarImageUrlWidget.Extension(string)"/>
-  public IGravatarImageUrlWidget Extension(string extension)
+  public virtual IGravatarImageUrlWidget Extension(string extension)
   {
     if (extension is null) throw new ArgumentNullException(nameof(extension));
     if (extension.IsEmpty()) throw new ArgumentException(nameof(extension));
@@ -19,11 +30,8 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
     return this;
   }
 
-  /// <inheritdoc cref="IGravatarImageUrlWidget.Extension(string)"/>
-  public string Extension() => ExtensionProperty;
-
   /// <inheritdoc cref="IGravatarImageUrlWidget.Hash(string)"/>
-  public IGravatarImageUrlWidget Hash(string hash)
+  public virtual IGravatarImageUrlWidget Hash(string hash)
   {
     if (hash is null) throw new ArgumentNullException(nameof(hash));
     if (hash.IsEmpty()) throw new ArgumentException(nameof(hash));
@@ -32,11 +40,8 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
     return this;
   }
 
-  /// <inheritdoc cref="IGravatarImageUrlWidget.Hash()"/>
-  public string Hash() => HashProperty;
-
   /// <inheritdoc cref="IGravatarImageUrlWidget.Parameter(string, object)"/>
-  public IGravatarImageUrlWidget Parameter(string name, object value)
+  public virtual IGravatarImageUrlWidget Parameter(string name, object value)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));
     if (name.IsEmpty()) throw new ArgumentException(nameof(name));
@@ -46,5 +51,5 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => Hash().IsEmpty() ? string.Empty : $"http://www.gravatar.com/avatar/{Hash()}{(Extension().IsEmpty() ? string.Empty : $".${Extension()}")}{(ParametersProperty.Any() ? $"?${ParametersProperty.ToUrlQuery()}" : string.Empty)}";
+  public override string ToHtml() => HashProperty.IsEmpty() ? string.Empty : $"http://www.gravatar.com/avatar/{HashProperty}{(ExtensionProperty.IsEmpty() ? string.Empty : $".${ExtensionProperty}")}{(ParametersProperty.Any() ? $"?${ParametersProperty.ToUrlQuery()}" : string.Empty)}";
 }

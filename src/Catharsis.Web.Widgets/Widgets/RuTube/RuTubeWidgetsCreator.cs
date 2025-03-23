@@ -4,5 +4,5 @@ namespace Catharsis.Web.Widgets;
 public class RuTubeWidgetsCreator : IRuTubeWidgetsCreator
 {
   /// <inheritdoc cref="IRuTubeWidgetsCreator.Video()"/>
-  public IRuTubeVideoWidget Video() => new RuTubeVideoWidget();
+  public virtual IRuTubeVideoWidget Video() => new RuTubeVideoWidget();
 }

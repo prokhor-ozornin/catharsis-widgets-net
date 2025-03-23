@@ -4,5 +4,5 @@ namespace Catharsis.Web.Widgets;
 public class DisqusWidgetsCreator : IDisqusWidgetsCreator
 {
   /// <inheritdoc cref="IDisqusWidgetsCreator.Comments()"/>
-  public IDisqusCommentsWidget Comments() => new DisqusCommentsWidget();
+  public virtual IDisqusCommentsWidget Comments() => new DisqusCommentsWidget();
 }

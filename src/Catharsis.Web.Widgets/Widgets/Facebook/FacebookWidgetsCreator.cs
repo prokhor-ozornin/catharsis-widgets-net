@@ -4,35 +4,35 @@ namespace Catharsis.Web.Widgets;
 public class FacebookWidgetsCreator : IFacebookWidgetsCreator
 {
   /// <inheritdoc cref="IFacebookWidgetsCreator.ActivityFeed()"/>
-  public IFacebookActivityFeedWidget ActivityFeed() => new FacebookActivityFeedWidget();
+  public virtual IFacebookActivityFeedWidget ActivityFeed() => new FacebookActivityFeedWidget();
 
   /// <inheritdoc cref="IFacebookWidgetsCreator.Comments()"/>
-  public IFacebookCommentsWidget Comments() => new FacebookCommentsWidget();
+  public virtual IFacebookCommentsWidget Comments() => new FacebookCommentsWidget();
 
   /// <inheritdoc cref="IFacebookWidgetsCreator.FacePile"/>
-  public IFacebookFacePileWidget FacePile() => new FacebookFacePileWidget();
+  public virtual IFacebookFacePileWidget FacePile() => new FacebookFacePileWidget();
 
   /// <inheritdoc cref="IFacebookWidgetsCreator.FollowButton()"/>
-  public IFacebookFollowButtonWidget FollowButton() => new FacebookFollowButtonWidget();
+  public virtual IFacebookFollowButtonWidget FollowButton() => new FacebookFollowButtonWidget();
 
   /// <inheritdoc cref="IFacebookWidgetsCreator.Initialize()"/>
-  public IFacebookInitializationWidget Initialize() => new FacebookInitializationWidget();
+  public virtual IFacebookInitializationWidget Initialize() => new FacebookInitializationWidget();
 
   /// <inheritdoc cref="IFacebookWidgetsCreator.LikeButton()"/>
-  public IFacebookLikeButtonWidget LikeButton() => new FacebookLikeButtonWidget();
+  public virtual IFacebookLikeButtonWidget LikeButton() => new FacebookLikeButtonWidget();
 
   /// <inheritdoc cref="IFacebookWidgetsCreator.LikeBox()"/>
-  public IFacebookLikeBoxWidget LikeBox() => new FacebookLikeBoxWidget();
+  public virtual IFacebookLikeBoxWidget LikeBox() => new FacebookLikeBoxWidget();
 
   /// <inheritdoc cref="IFacebookWidgetsCreator.Post()"/>
-  public IFacebookPostWidget Post() => new FacebookPostWidget();
+  public virtual IFacebookPostWidget Post() => new FacebookPostWidget();
 
   /// <inheritdoc cref="IFacebookWidgetsCreator.RecommendationsFeed()"/>
-  public IFacebookRecommendationsFeedWidget RecommendationsFeed() => new FacebookRecommendationsFeedWidget();
+  public virtual IFacebookRecommendationsFeedWidget RecommendationsFeed() => new FacebookRecommendationsFeedWidget();
 
   /// <inheritdoc cref="IFacebookWidgetsCreator.SendButton()"/>
-  public IFacebookSendButtonWidget SendButton() => new FacebookSendButtonWidget();
+  public virtual IFacebookSendButtonWidget SendButton() => new FacebookSendButtonWidget();
 
   /// <inheritdoc cref="IFacebookWidgetsCreator.Video()"/>
-  public IFacebookVideoWidget Video() => new FacebookVideoWidget();
+  public virtual IFacebookVideoWidget Video() => new FacebookVideoWidget();
 }

@@ -6,16 +6,43 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="ISurfingbirdSurfButtonWidget"/>
 public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidget
 {
-  private string UrlProperty { get; set; }
-  private string LayoutProperty { get; set; } = SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant();
-  private string WidthProperty { get; set; }
-  private string HeightProperty { get; set; }
-  private bool CounterProperty { get; set; }
-  private string LabelProperty { get; set; } = "Surf";
-  private string ColorProperty { get; set; }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string UrlProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string LayoutProperty { get; set; } = SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant();
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string WidthProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string HeightProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual bool CounterProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string LabelProperty { get; set; } = "Surf";
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string ColorProperty { get; set; }
 
   /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Color(string)"/>
-  public ISurfingbirdSurfButtonWidget Color(string color)
+  public virtual ISurfingbirdSurfButtonWidget Color(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
@@ -25,21 +52,15 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Color()"/>
-  public string Color() => ColorProperty;
-
   /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Counter(bool)"/>
-  public ISurfingbirdSurfButtonWidget Counter(bool enabled)
+  public virtual ISurfingbirdSurfButtonWidget Counter(bool enabled)
   {
     CounterProperty = enabled;
     return this;
   }
 
-  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Counter()"/>
-  public bool Counter() => CounterProperty;
-
   /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Height(string)"/>
-  public ISurfingbirdSurfButtonWidget Height(string height)
+  public virtual ISurfingbirdSurfButtonWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
@@ -49,11 +70,8 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Height()"/>
-  public string Height() => HeightProperty;
-
   /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Label(string)"/>
-  public ISurfingbirdSurfButtonWidget Label(string label)
+  public virtual ISurfingbirdSurfButtonWidget Label(string label)
   {
     if (label is null) throw new ArgumentNullException(nameof(label));
     if (label.IsEmpty()) throw new ArgumentException(nameof(label));
@@ -63,11 +81,8 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Label()"/>
-  public string Label() => LabelProperty;
-
   /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Layout(string)"/>
-  public ISurfingbirdSurfButtonWidget Layout(string layout)
+  public virtual ISurfingbirdSurfButtonWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
     if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
@@ -77,11 +92,8 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Layout()"/>
-  public string Layout() => LayoutProperty;
-
   /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Url(string)"/>
-  public ISurfingbirdSurfButtonWidget Url(string url)
+  public virtual ISurfingbirdSurfButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
@@ -91,11 +103,8 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Url()"/>
-  public string Url() => UrlProperty;
-
   /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Width(string)"/>
-  public ISurfingbirdSurfButtonWidget Width(string width)
+  public virtual ISurfingbirdSurfButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
@@ -105,31 +114,28 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  /// <inheritdoc cref="ISurfingbirdSurfButtonWidget.Width()"/>
-  public string Width() => WidthProperty;
-
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
     var config = new Dictionary<string, object>
     {
-      { "layout", $"{Layout()}{(Counter() ? string.Empty : "-nocount")}{(Color().IsEmpty() ? string.Empty : "-" + Color())}"
+      { "layout", $"{LayoutProperty}{(CounterProperty ? string.Empty : "-nocount")}{(ColorProperty.IsEmpty() ? string.Empty : "-" + ColorProperty)}"
       }
     };
 
-    if (!Url().IsEmpty())
+    if (!UrlProperty.IsEmpty())
     {
-      config["url"] = Url();
+      config["url"] = UrlProperty;
     }
 
-    if (!Width().IsEmpty())
+    if (!WidthProperty.IsEmpty())
     {
-      config["width"] = Width();
+      config["width"] = WidthProperty;
     }
     
-    if (!Height().IsEmpty())
+    if (!HeightProperty.IsEmpty())
     {
-      config["height"] = Height();
+      config["height"] = HeightProperty;
     }
 
     return new TagBuilder("a")
@@ -137,7 +143,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
       .Attribute("href", "http://surfingbird.ru/share")
       .Attribute("data-surf-config", config.Json())
       .CssClass("surfinbird__like_button")
-      .Html(Label())
+      .Html(LabelProperty)
       .ToString();
   }
 }

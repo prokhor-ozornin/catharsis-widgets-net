@@ -4,5 +4,5 @@
 public class VideoJSWidgetsCreator : IVideoJSWidgetsCreator
 {
   /// <inheritdoc cref="IVideoJSWidgetsCreator.Player()"/>
-  public IVideoJSPlayerWidget Player() => new VideoJSPlayerWidget();
+  public virtual IVideoJSPlayerWidget Player() => new VideoJSPlayerWidget();
 }

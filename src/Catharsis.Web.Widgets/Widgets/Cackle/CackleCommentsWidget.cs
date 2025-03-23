@@ -7,10 +7,13 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="ICackleCommentsWidget"/>
 public class CackleCommentsWidget : WebWidget, ICackleCommentsWidget
 {
-  private string AccountProperty { get; set; }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string AccountProperty { get; set; }
 
   /// <inheritdoc cref="ICackleCommentsWidget.Account(string)"/>
-  public ICackleCommentsWidget Account(string account)
+  public virtual ICackleCommentsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
@@ -18,9 +21,6 @@ public class CackleCommentsWidget : WebWidget, ICackleCommentsWidget
     AccountProperty = account;
     return this;
   }
-
-  /// <inheritdoc cref="ICackleCommentsWidget.Account()"/>
-  public string Account() => AccountProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
@@ -33,7 +33,7 @@ public class CackleCommentsWidget : WebWidget, ICackleCommentsWidget
     var config = new
     {
       widget = "Comment",
-      id = Account()
+      id = AccountProperty
     };
 
     return new StringBuilder()

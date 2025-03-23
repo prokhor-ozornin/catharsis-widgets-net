@@ -15,10 +15,4 @@ public interface IFacebookInitializationWidget : IWebWidget
   /// <exception cref="ArgumentException">If <paramref name="id"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>This attribute is required.</remarks>
   IFacebookInitializationWidget AppId(string id);
-
-  /// <summary>
-  ///   <para>Identifier of registered Facebook application.</para>
-  /// </summary>
-  /// <returns>Identifier of Facebook application.</returns>
-  string AppId();
 }

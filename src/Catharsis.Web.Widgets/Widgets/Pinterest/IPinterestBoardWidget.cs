@@ -19,12 +19,6 @@ public interface IPinterestBoardWidget : IWebWidget
   IPinterestBoardWidget Account(string account);
 
   /// <summary>
-  ///   <para>Pinterest user account.</para>
-  /// </summary>
-  /// <returns>Account name.</returns>
-  string Account();
-
-  /// <summary>
   ///   <para>Total height of board in pixels.</para>
   /// </summary>
   /// <param name="height">Board's height.</param>
@@ -33,12 +27,6 @@ public interface IPinterestBoardWidget : IWebWidget
   /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>Min: 60; leave blank for 175.</remarks>
   IPinterestBoardWidget Height(string height);
-
-  /// <summary>
-  ///   <para>Total height of board in pixels.</para>
-  /// </summary>
-  /// <returns>>Board's height.</returns>
-  string Height();
 
   /// <summary>
   ///   <para>Total width of board in pixels.</para>
@@ -51,12 +39,6 @@ public interface IPinterestBoardWidget : IWebWidget
   IPinterestBoardWidget Width(string width);
 
   /// <summary>
-  ///   <para>Total width of board in pixels.</para>
-  /// </summary>
-  /// <returns>Board's width.</returns>
-  string Width();
-
-  /// <summary>
   ///   <para>Identifier of account's board.</para>
   /// </summary>
   /// <param name="id">Board's identifier.</param>
@@ -67,12 +49,6 @@ public interface IPinterestBoardWidget : IWebWidget
   IPinterestBoardWidget Id(string id);
 
   /// <summary>
-  ///   <para>Identifier of account's board.</para>
-  /// </summary>
-  /// <returns>Board's identifier.</returns>
-  string Id();
-
-  /// <summary>
   ///   <para>Width of board's image in pixels.</para>
   /// </summary>
   /// <param name="width">Board's image width.</param>
@@ -81,10 +57,4 @@ public interface IPinterestBoardWidget : IWebWidget
   /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>Min: 60; leave blank for 92.</remarks>
   IPinterestBoardWidget Image(string width);
-
-  /// <summary>
-  ///   <para>Width of board's image in pixels.</para>
-  /// </summary>
-  /// <returns>Board's image width.</returns>
-  string Image();
 }

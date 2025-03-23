@@ -5,13 +5,28 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IIntenseDebateCommentsWidget"/>
 public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidget
 {
-  private string AccountProperty { get; set; }
-  private string PostIdProperty { get; set; }
-  private string PostUrlProperty { get; set; }
-  private string PostTitleProperty { get; set; }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string AccountProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string PostIdProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string PostUrlProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string PostTitleProperty { get; set; }
 
   /// <inheritdoc cref="IIntenseDebateCommentsWidget.Account(string)"/>
-  public IIntenseDebateCommentsWidget Account(string account)
+  public virtual IIntenseDebateCommentsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
@@ -20,11 +35,8 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
     return this;
   }
 
-  /// <inheritdoc cref="IIntenseDebateCommentsWidget.Account()"/>
-  public string Account() => AccountProperty;
-
   /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostId(string)"/>
-  public IIntenseDebateCommentsWidget PostId(string id)
+  public virtual IIntenseDebateCommentsWidget PostId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
@@ -33,11 +45,8 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
     return this;
   }
 
-  /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostId()"/>
-  public string PostId() => PostIdProperty;
-
   /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostUrl(string)"/>
-  public IIntenseDebateCommentsWidget PostUrl(string url)
+  public virtual IIntenseDebateCommentsWidget PostUrl(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
@@ -46,11 +55,8 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
     return this;
   }
 
-  /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostUrl()"/>
-  public string PostUrl() => PostUrlProperty;
-
   /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostTitle(string)"/>
-  public IIntenseDebateCommentsWidget PostTitle(string title)
+  public virtual IIntenseDebateCommentsWidget PostTitle(string title)
   {
     if (title is null) throw new ArgumentNullException(nameof(title));
     if (title.IsEmpty()) throw new ArgumentException(nameof(title));
@@ -59,9 +65,6 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
     return this;
   }
 
-  /// <inheritdoc cref="IIntenseDebateCommentsWidget.PostTitle()"/>
-  public string PostTitle() => PostTitleProperty;
-
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => Account().IsEmpty() ? string.Empty : string.Format(resources.intensedebate_comments_html, Account(), PostId(), PostUrl(), PostTitle());
+  public override string ToHtml() => AccountProperty.IsEmpty() ? string.Empty : string.Format(resources.intensedebate_comments_html, AccountProperty, PostIdProperty, PostUrlProperty, PostTitleProperty);
 }

@@ -6,17 +6,48 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IMailRuGroupsWidget"/>
 public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
 {
-  private string AccountProperty { get; set; }
-  private string BackgroundColorProperty { get; set; }
-  private string ButtonColorProperty { get; set; }
-  private string DomainProperty { get; set; }
-  private string HeightProperty { get; set; }
-  private bool SubscribersProperty { get; set; } = true;
-  private string TextColorProperty { get; set; }
-  private string WidthProperty { get; set; }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string AccountProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string BackgroundColorProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string ButtonColorProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string DomainProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string HeightProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual bool SubscribersProperty { get; set; } = true;
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string TextColorProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string WidthProperty { get; set; }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Account(string)"/>
-  public IMailRuGroupsWidget Account(string account)
+  public virtual IMailRuGroupsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
@@ -25,11 +56,8 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IMailRuGroupsWidget.Account()"/>
-  public string Account() => AccountProperty;
-
   /// <inheritdoc cref="IMailRuGroupsWidget.BackgroundColor(string)"/>
-  public IMailRuGroupsWidget BackgroundColor(string color)
+  public virtual IMailRuGroupsWidget BackgroundColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
@@ -38,11 +66,8 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IMailRuGroupsWidget.BackgroundColor()"/>
-  public string BackgroundColor() => BackgroundColorProperty;
-
   /// <inheritdoc cref="IMailRuGroupsWidget.ButtonColor(string)"/>
-  public IMailRuGroupsWidget ButtonColor(string color)
+  public virtual IMailRuGroupsWidget ButtonColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
@@ -51,11 +76,8 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IMailRuGroupsWidget.ButtonColor()"/>
-  public string ButtonColor() => ButtonColorProperty;
-
   /// <inheritdoc cref="IMailRuGroupsWidget.Domain(string)"/>
-  public IMailRuGroupsWidget Domain(string domain)
+  public virtual IMailRuGroupsWidget Domain(string domain)
   {
     if (domain is null) throw new ArgumentNullException(nameof(domain));
     if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
@@ -64,11 +86,8 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IMailRuGroupsWidget.Domain()"/>
-  public string Domain() => DomainProperty;
-
   /// <inheritdoc cref="IMailRuGroupsWidget.Height(string)"/>
-  public IMailRuGroupsWidget Height(string height)
+  public virtual IMailRuGroupsWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
@@ -77,21 +96,15 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IMailRuGroupsWidget.Height()"/>
-  public string Height() => HeightProperty;
-
   /// <inheritdoc cref="IMailRuGroupsWidget.Subscribers(bool)"/>
-  public IMailRuGroupsWidget Subscribers(bool enabled)
+  public virtual IMailRuGroupsWidget Subscribers(bool enabled)
   {
     SubscribersProperty = enabled;
     return this;
   }
 
-  /// <inheritdoc cref="IMailRuGroupsWidget.Subscribers()"/>
-  public bool Subscribers() => SubscribersProperty;
-
   /// <inheritdoc cref="IMailRuGroupsWidget.TextColor(string)"/>
-  public IMailRuGroupsWidget TextColor(string color)
+  public virtual IMailRuGroupsWidget TextColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
@@ -100,11 +113,8 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IMailRuGroupsWidget.TextColor()"/>
-  public string TextColor() => TextColorProperty;
-
   /// <inheritdoc cref="IMailRuGroupsWidget.Width(string)"/>
-  public IMailRuGroupsWidget Width(string width)
+  public virtual IMailRuGroupsWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
@@ -113,48 +123,45 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IMailRuGroupsWidget.Width()"/>
-  public string Width() => WidthProperty;
-
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (Account().IsEmpty() || Width().IsEmpty() || Height().IsEmpty())
+    if (AccountProperty.IsEmpty() || WidthProperty.IsEmpty() || HeightProperty.IsEmpty())
     {
       return string.Empty;
     }
 
     var config = new Dictionary<string, object>
     {
-      { "group", Account() },
+      { "group", AccountProperty },
       { "max_sub", 50 },
-      { "width", Width() },
-      { "height", Height() }
+      { "width", WidthProperty },
+      { "height", HeightProperty }
     };
 
-    if (Subscribers())
+    if (SubscribersProperty)
     {
       config["show_subscribers"] = true;
     }
     
-    if (!BackgroundColor().IsEmpty())
+    if (!BackgroundColorProperty.IsEmpty())
     {
-      config["background"] = BackgroundColor();
+      config["background"] = BackgroundColorProperty;
     }
     
-    if (!TextColor().IsEmpty())
+    if (!TextColorProperty.IsEmpty())
     {
-      config["color"] = TextColor();
+      config["color"] = TextColorProperty;
     }
     
-    if (!ButtonColor().IsEmpty())
+    if (!ButtonColorProperty.IsEmpty())
     {
-      config["button_background"] = ButtonColor();
+      config["button_background"] = ButtonColorProperty;
     }
     
-    if (!Domain().IsEmpty())
+    if (!DomainProperty.IsEmpty())
     {
-      config["domain"] = Domain();
+      config["domain"] = DomainProperty;
     }
 
     return new TagBuilder("a")

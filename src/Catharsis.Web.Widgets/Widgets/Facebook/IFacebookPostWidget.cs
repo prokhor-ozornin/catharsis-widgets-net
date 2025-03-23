@@ -18,12 +18,6 @@ public interface IFacebookPostWidget : IWebWidget
   IFacebookPostWidget Url(string url);
 
   /// <summary>
-  ///   <para>Specified URL address of Facebook post to embed.</para>
-  /// </summary>
-  /// <returns>URL of Facebook post.</returns>
-  string Url();
-
-  /// <summary>
   ///   <para>Specifies width of Facebook post area on page.</para>
   /// </summary>
   /// <param name="width">Width of post.</param>
@@ -31,10 +25,4 @@ public interface IFacebookPostWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
   IFacebookPostWidget Width(string width);
-
-  /// <summary>
-  ///   <para>Specifies width of Facebook post area on page.</para>
-  /// </summary>
-  /// <returns>Width of post.</returns>
-  string Width();
 }

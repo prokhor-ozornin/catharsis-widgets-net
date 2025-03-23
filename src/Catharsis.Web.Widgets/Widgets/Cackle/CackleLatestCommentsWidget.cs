@@ -7,14 +7,33 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="ICackleLatestCommentsWidget"/>
 public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
 {
-  private string AccountProperty { get; set; }
-  private short AvatarSizeProperty { get; set; } = 32;
-  private byte MaxProperty { get; set; } = 5;
-  private int TextSizeProperty { get; set; } = 150;
-  private int TitleSizeProperty { get; set; } = 40;
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string AccountProperty { get; set; }
+  
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual short AvatarSizeProperty { get; set; } = 32;
+  
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual byte MaxProperty { get; set; } = 5;
+  
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual int TextSizeProperty { get; set; } = 150;
+  
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual int TitleSizeProperty { get; set; } = 40;
 
   /// <inheritdoc cref="ICackleLatestCommentsWidget.Account(string)"/>
-  public ICackleLatestCommentsWidget Account(string account)
+  public virtual ICackleLatestCommentsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
@@ -24,48 +43,33 @@ public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
     return this;
   }
 
-  /// <inheritdoc cref="ICackleLatestCommentsWidget.Account()"/>
-  public string Account() => AccountProperty;
-
   /// <inheritdoc cref="ICackleLatestCommentsWidget.AvatarSize(short)"/>
-  public ICackleLatestCommentsWidget AvatarSize(short size)
+  public virtual ICackleLatestCommentsWidget AvatarSize(short size)
   {
     AvatarSizeProperty = size;
     return this;
   }
 
-  /// <inheritdoc cref="ICackleLatestCommentsWidget.AvatarSize()"/>
-  public short AvatarSize() => AvatarSizeProperty;
-
   /// <inheritdoc cref="ICackleLatestCommentsWidget.Max(byte)"/>
-  public ICackleLatestCommentsWidget Max(byte count)
+  public virtual ICackleLatestCommentsWidget Max(byte count)
   {
     MaxProperty = count;
     return this;
   }
 
-  /// <inheritdoc cref="ICackleLatestCommentsWidget.Max()"/>
-  public byte Max() => MaxProperty;
-
   /// <inheritdoc cref="ICackleLatestCommentsWidget.TextSize(int)"/>
-  public ICackleLatestCommentsWidget TextSize(int size)
+  public virtual ICackleLatestCommentsWidget TextSize(int size)
   {
     TextSizeProperty = size;
     return this;
   }
 
-  /// <inheritdoc cref="ICackleLatestCommentsWidget.TextSize()"/>
-  public int TextSize() => TextSizeProperty;
-
   /// <inheritdoc cref="ICackleLatestCommentsWidget.TitleSize(int)"/>
-  public ICackleLatestCommentsWidget TitleSize(int size)
+  public virtual ICackleLatestCommentsWidget TitleSize(int size)
   {
     TitleSizeProperty = size;
     return this;
   }
-
-  /// <inheritdoc cref="ICackleLatestCommentsWidget.TitleSize()"/>
-  public int TitleSize() => TitleSizeProperty;
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
@@ -78,11 +82,11 @@ public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
     var config = new
     {
       widget = "CommentRecent",
-      id = Account(),
-      size = Max(),
-      avatarSize = AvatarSize(),
-      textSize = TextSize(),
-      titleSize = TitleSize()
+      id = AccountProperty,
+      size = MaxProperty,
+      avatarSize = AvatarSizeProperty,
+      textSize = TextSizeProperty,
+      titleSize = TitleSizeProperty
     };
 
     return new StringBuilder()

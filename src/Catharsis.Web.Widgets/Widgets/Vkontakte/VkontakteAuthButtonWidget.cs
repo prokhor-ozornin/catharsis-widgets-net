@@ -7,14 +7,33 @@ namespace Catharsis.Web.Widgets;
 /// <inheritdoc cref="IVkontakteAuthButtonWidget"/>
 public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
 {
-  private string CallbackProperty { get; set; }
-  private string ElementIdProperty { get; set; }
-  private VkontakteAuthButtonType TypeProperty { get; set; } = VkontakteAuthButtonType.Standard;
-  private string UrlProperty { get; set; }
-  private string WidthProperty { get; set; }
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string CallbackProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string ElementIdProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual VkontakteAuthButtonType TypeProperty { get; set; } = VkontakteAuthButtonType.Standard;
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string UrlProperty { get; set; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  protected virtual string WidthProperty { get; set; }
 
   /// <inheritdoc cref="IVkontakteAuthButtonWidget.ElementId(string)"/>
-  public IVkontakteAuthButtonWidget ElementId(string id)
+  public virtual IVkontakteAuthButtonWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
@@ -24,11 +43,8 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
     return this;
   }
 
-  /// <inheritdoc cref="IVkontakteAuthButtonWidget.ElementId()"/>
-  public string ElementId() => ElementIdProperty;
-
   /// <inheritdoc cref="IVkontakteAuthButtonWidget.Width(string)"/>
-  public IVkontakteAuthButtonWidget Width(string width)
+  public virtual IVkontakteAuthButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
@@ -38,11 +54,8 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
     return this;
   }
 
-  /// <inheritdoc cref="IVkontakteAuthButtonWidget.Width()"/>
-  public string Width() => WidthProperty;
-
   /// <inheritdoc cref="IVkontakteAuthButtonWidget.Url(string)"/>
-  public IVkontakteAuthButtonWidget Url(string url)
+  public virtual IVkontakteAuthButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
@@ -52,21 +65,15 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
     return this;
   }
 
-  /// <inheritdoc cref="IVkontakteAuthButtonWidget.Url()"/>
-  public string Url() => UrlProperty;
-
   /// <inheritdoc cref="IVkontakteAuthButtonWidget.Type(VkontakteAuthButtonType)"/>
-  public IVkontakteAuthButtonWidget Type(VkontakteAuthButtonType type)
+  public virtual IVkontakteAuthButtonWidget Type(VkontakteAuthButtonType type)
   {
     TypeProperty = type;
     return this;
   }
 
-  /// <inheritdoc cref="IVkontakteAuthButtonWidget.Type()"/>
-  public VkontakteAuthButtonType Type() => TypeProperty;
-
   /// <inheritdoc cref="IVkontakteAuthButtonWidget.Callback(string)"/>
-  public IVkontakteAuthButtonWidget Callback(string callback)
+  public virtual IVkontakteAuthButtonWidget Callback(string callback)
   {
     if (callback is null) throw new ArgumentNullException(nameof(callback));
     if (callback.IsEmpty()) throw new ArgumentException(nameof(callback));
@@ -76,39 +83,36 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
     return this;
   }
 
-  /// <inheritdoc cref="IVkontakteAuthButtonWidget.Callback()"/>
-  public string Callback() => CallbackProperty;
-
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (Type() == VkontakteAuthButtonType.Dynamic && Callback().IsEmpty())
+    if (TypeProperty == VkontakteAuthButtonType.Dynamic && CallbackProperty.IsEmpty())
     {
       return string.Empty;
     }
 
-    if (Type() == VkontakteAuthButtonType.Standard && Url().IsEmpty())
+    if (TypeProperty == VkontakteAuthButtonType.Standard && UrlProperty.IsEmpty())
     {
       return string.Empty;
     }
 
-    var id = ElementId() ?? "vk_auth";
+    var id = ElementIdProperty ?? "vk_auth";
 
     var config = new Dictionary<string, object>();
     
-    if (!Callback().IsEmpty())
+    if (!CallbackProperty.IsEmpty())
     {
-      config["onAuth"] = Callback();
+      config["onAuth"] = CallbackProperty;
     }
     
-    if (!Url().IsEmpty())
+    if (!UrlProperty.IsEmpty())
     {
-      config["authUrl"] = Url();
+      config["authUrl"] = UrlProperty;
     }
     
-    if (!Width().IsEmpty())
+    if (!WidthProperty.IsEmpty())
     {
-      config["width"] = Width();
+      config["width"] = WidthProperty;
     }
 
     return new StringBuilder()

@@ -19,12 +19,6 @@ public interface IVideoJSPlayerWidget : IWebWidget
   IVideoJSPlayerWidget Extra(string extra);
 
   /// <summary>
-  ///   <para>Custom HTML code to be part of <c>video</c> tag.</para>
-  /// </summary>
-  /// <returns>Additional HTML code fragment.</returns>
-  string Extra();
-
-  /// <summary>
   ///   <para>Vertical height of video.</para>
   /// </summary>
   /// <param name="height">Height of video.</param>
@@ -33,12 +27,6 @@ public interface IVideoJSPlayerWidget : IWebWidget
   /// <exception cref="ArgumentException">If <paramref name="height"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>This attribute is required.</remarks>
   IVideoJSPlayerWidget Height(string height);
-
-  /// <summary>
-  ///   <para>Vertical height of video.</para>
-  /// </summary>
-  /// <returns>Height of video.</returns>
-  string Height();
 
   /// <summary>
   ///   <para>Collection of video sources to use.</para>
@@ -50,12 +38,6 @@ public interface IVideoJSPlayerWidget : IWebWidget
   IVideoJSPlayerWidget Videos(IEnumerable<(string Url, string ContentType)> videos);
 
   /// <summary>
-  ///   <para>Collection of video sources to use.</para>
-  /// </summary>
-  /// <returns>Collection of videos.</returns>
-  IEnumerable<(string Url, string ContentType)> Videos();
-
-  /// <summary>
   ///   <para>Horizontal width of video.</para>
   /// </summary>
   /// <param name="width">Width of video.</param>
@@ -64,10 +46,4 @@ public interface IVideoJSPlayerWidget : IWebWidget
   /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>This attribute is required.</remarks>
   IVideoJSPlayerWidget Width(string width);
-
-  /// <summary>
-  ///   <para>Horizontal width of video.</para>
-  /// </summary>
-  /// <returns>Width of video.</returns>
-  string Width();
 }

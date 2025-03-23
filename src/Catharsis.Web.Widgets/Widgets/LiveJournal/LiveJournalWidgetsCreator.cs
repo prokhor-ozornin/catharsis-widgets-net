@@ -4,8 +4,8 @@
 public class LiveJournalWidgetsCreator : ILiveJournalWidgetsCreator
 {
   /// <inheritdoc cref="ILiveJournalWidgetsCreator.LikeButton()"/>
-  public ILiveJournalLikeButtonWidget LikeButton() => new LiveJournalLikeButtonWidget();
+  public virtual ILiveJournalLikeButtonWidget LikeButton() => new LiveJournalLikeButtonWidget();
 
   /// <inheritdoc cref="ILiveJournalWidgetsCreator.RepostButton()"/>
-  public ILiveJournalRepostButtonWidget RepostButton() => new LiveJournalRepostButtonWidget();
+  public virtual ILiveJournalRepostButtonWidget RepostButton() => new LiveJournalRepostButtonWidget();
 }

@@ -4,5 +4,5 @@
 public class RobokassaWidgetsCreator : IRobokassaWidgetsCreator
 {
   /// <inheritdoc cref="IRobokassaWidgetsCreator.PaymentForm()"/>
-  public IRobokassaPaymentFormWidget PaymentForm() => new RobokassaPaymentFormWidget();
+  public virtual IRobokassaPaymentFormWidget PaymentForm() => new RobokassaPaymentFormWidget();
 }

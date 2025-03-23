@@ -4,8 +4,8 @@ namespace Catharsis.Web.Widgets;
 public class IntenseDebateWidgetsCreator : IIntenseDebateWidgetsCreator
 {
   /// <inheritdoc cref="IIntenseDebateWidgetsCreator.Comments()"/>
-  public IIntenseDebateCommentsWidget Comments() => new IntenseDebateCommentsWidget();
+  public virtual IIntenseDebateCommentsWidget Comments() => new IntenseDebateCommentsWidget();
 
   /// <inheritdoc cref="IIntenseDebateWidgetsCreator.Link()"/>
-  public IIntenseDebateLinkWidget Link() => new IntenseDebateLinkWidget();
+  public virtual IIntenseDebateLinkWidget Link() => new IntenseDebateLinkWidget();
 }

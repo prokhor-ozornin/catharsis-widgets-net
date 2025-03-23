@@ -17,10 +17,4 @@ public interface IDisqusCommentsWidget : IWebWidget
   /// <exception cref="ArgumentException">If <paramref name="account"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>This attribute is required.</remarks>
   IDisqusCommentsWidget Account(string account);
-
-  /// <summary>
-  ///   <para>Identifier of registered website in the "Disqus" comments system.</para>
-  /// </summary>
-  /// <returns>Identifier of website.</returns>
-  string Account();
 }

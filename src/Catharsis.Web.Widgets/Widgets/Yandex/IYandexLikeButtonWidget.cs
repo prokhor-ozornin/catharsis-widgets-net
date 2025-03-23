@@ -15,12 +15,6 @@ public interface IYandexLikeButtonWidget : IWebWidget
   IYandexLikeButtonWidget Layout(string layout);
 
   /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <returns>Layout of button.</returns>
-  string Layout();
-
-  /// <summary>
   ///   <para>Size of the button.</para>
   /// </summary>
   /// <param name="size">Size of button.</param>
@@ -28,12 +22,6 @@ public interface IYandexLikeButtonWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="size"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="size"/> is <see cref="string.Empty"/> string.</exception>
   IYandexLikeButtonWidget Size(string size);
-
-  /// <summary>
-  ///   <para>Size of the button.</para>
-  /// </summary>
-  /// <returns>Size of button.</returns>
-  string Size();
 
   /// <summary>
   ///   <para>Label text to draw on the button.</para>
@@ -45,12 +33,6 @@ public interface IYandexLikeButtonWidget : IWebWidget
   IYandexLikeButtonWidget Text(string text);
 
   /// <summary>
-  ///   <para>Label text to draw on the button.</para>
-  /// </summary>
-  /// <returns>Label text.</returns>
-  string Text();
-
-  /// <summary>
   ///   <para>Custom title text for shared page.</para>
   /// </summary>
   /// <param name="title">Title text.</param>
@@ -60,12 +42,6 @@ public interface IYandexLikeButtonWidget : IWebWidget
   IYandexLikeButtonWidget Title(string title);
 
   /// <summary>
-  ///   <para>Custom title text for shared page.</para>
-  /// </summary>
-  /// <returns>Title text.</returns>
-  string Title();
-
-  /// <summary>
   ///   <para>URL address of web page to share.</para>
   /// </summary>
   /// <param name="url">URL address of web page.</param>
@@ -73,10 +49,4 @@ public interface IYandexLikeButtonWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
   IYandexLikeButtonWidget Url(string url);
-    
-  /// <summary>
-  ///   <para>URL address of web page to share.</para>
-  /// </summary>
-  /// <returns>URL address of web page.</returns>
-  string Url();
 }

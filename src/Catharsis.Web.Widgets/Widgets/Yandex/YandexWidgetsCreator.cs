@@ -4,23 +4,23 @@ namespace Catharsis.Web.Widgets;
 public class YandexWidgetsCreator : IYandexWidgetsCreator
 {
   /// <inheritdoc cref="IYandexWidgetsCreator.Analytics()"/>
-  public IYandexAnalyticsWidget Analytics() => new YandexAnalyticsWidget();
+  public virtual IYandexAnalyticsWidget Analytics() => new YandexAnalyticsWidget();
 
   /// <inheritdoc cref="IYandexWidgetsCreator.LikeButton()"/>
-  public IYandexLikeButtonWidget LikeButton() => new YandexLikeButtonWidget();
+  public virtual IYandexLikeButtonWidget LikeButton() => new YandexLikeButtonWidget();
 
   /// <inheritdoc cref="IYandexWidgetsCreator.MoneyButton()"/>
-  public IYandexMoneyButtonWidget MoneyButton() => new YandexMoneyButtonWidget();
+  public virtual IYandexMoneyButtonWidget MoneyButton() => new YandexMoneyButtonWidget();
 
   /// <inheritdoc cref="IYandexWidgetsCreator.MoneyDonateForm()"/>
-  public IYandexMoneyDonateFormWidget MoneyDonateForm() => new YandexMoneyDonateFormWidget();
+  public virtual IYandexMoneyDonateFormWidget MoneyDonateForm() => new YandexMoneyDonateFormWidget();
 
   /// <inheritdoc cref="IYandexWidgetsCreator.MoneyPaymentForm()"/>
-  public IYandexMoneyPaymentFormWidget MoneyPaymentForm() => new YandexMoneyPaymentFormWidget();
+  public virtual IYandexMoneyPaymentFormWidget MoneyPaymentForm() => new YandexMoneyPaymentFormWidget();
 
   /// <inheritdoc cref="IYandexWidgetsCreator.SharePanel()"/>
-  public IYandexSharePanelWidget SharePanel() => new YandexSharePanelWidget();
+  public virtual IYandexSharePanelWidget SharePanel() => new YandexSharePanelWidget();
 
   /// <inheritdoc cref="IYandexWidgetsCreator.Video()"/>
-  public IYandexVideoWidget Video() => new YandexVideoWidget();
+  public virtual IYandexVideoWidget Video() => new YandexVideoWidget();
 }

@@ -4,11 +4,11 @@
 public class DoubleGisWidgetsCreator : IDoubleGisWidgetsCreator
 {
   /// <inheritdoc cref="IDoubleGisWidgetsCreator.ContactsMap()"/>
-  public IDoubleGisContactsMapWidget ContactsMap() => new DoubleGisContactsMapWidget();
+  public virtual IDoubleGisContactsMapWidget ContactsMap() => new DoubleGisContactsMapWidget();
 
   /// <inheritdoc cref="IDoubleGisWidgetsCreator.Map()"/>
-  public IDoubleGisMapWidget Map() => new DoubleGisMapWidget();
+  public virtual IDoubleGisMapWidget Map() => new DoubleGisMapWidget();
 
   /// <inheritdoc cref="IDoubleGisWidgetsCreator.MiniMap()"/>
-  public IDoubleGisMiniMapWidget MiniMap() => new DoubleGisMiniMapWidget();
+  public virtual IDoubleGisMiniMapWidget MiniMap() => new DoubleGisMiniMapWidget();
 }

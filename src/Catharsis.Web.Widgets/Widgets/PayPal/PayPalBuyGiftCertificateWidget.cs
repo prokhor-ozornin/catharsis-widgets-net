@@ -4,10 +4,10 @@
 public class PayPalBuyGiftCertificateWidget : WebWidget, IPayPalBuyGiftCertificateWidget
 {
   /// <inheritdoc cref="IPayPalBuyGiftCertificateWidget.AsForm()"/>
-  public IPayPalBuyGiftCertificateWidget AsForm() => throw new NotImplementedException();
+  public virtual IPayPalBuyGiftCertificateWidget AsForm() => throw new NotImplementedException();
 
   /// <inheritdoc cref="IPayPalBuyGiftCertificateWidget.AsUrl()"/>
-  public IPayPalBuyGiftCertificateWidget AsUrl() => throw new NotImplementedException();
+  public virtual IPayPalBuyGiftCertificateWidget AsUrl() => throw new NotImplementedException();
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => throw new NotImplementedException();

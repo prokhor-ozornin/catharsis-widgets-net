@@ -4,17 +4,17 @@
 public class PinterestWidgetsCreator : IPinterestWidgetsCreator
 {
   /// <inheritdoc cref="IPinterestWidgetsCreator.Board()"/>
-  public IPinterestBoardWidget Board() => new PinterestBoardWidget();
+  public virtual IPinterestBoardWidget Board() => new PinterestBoardWidget();
 
   /// <inheritdoc cref="IPinterestWidgetsCreator.FollowButton()"/>
-  public IPinterestFollowButtonWidget FollowButton() => new PinterestFollowButtonWidget();
+  public virtual IPinterestFollowButtonWidget FollowButton() => new PinterestFollowButtonWidget();
 
   /// <inheritdoc cref="IPinterestWidgetsCreator.PinItButton()"/>
-  public IPinterestPinItButtonWidget PinItButton() => new PinterestPinItButtonWidget();
+  public virtual IPinterestPinItButtonWidget PinItButton() => new PinterestPinItButtonWidget();
 
   /// <inheritdoc cref="IPinterestWidgetsCreator.Pin()"/>
-  public IPinterestPinWidget Pin() => new PinterestPinWidget();
+  public virtual IPinterestPinWidget Pin() => new PinterestPinWidget();
 
   /// <inheritdoc cref="IPinterestWidgetsCreator.Profile()"/>
-  public IPinterestProfileWidget Profile() => new PinterestProfileWidget();
+  public virtual IPinterestProfileWidget Profile() => new PinterestProfileWidget();
 }

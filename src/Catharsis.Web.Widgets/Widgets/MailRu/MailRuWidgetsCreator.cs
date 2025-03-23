@@ -4,17 +4,17 @@ namespace Catharsis.Web.Widgets;
 public class MailRuWidgetsCreator : IMailRuWidgetsCreator
 {
   /// <inheritdoc cref="IMailRuWidgetsCreator.Faces()"/>
-  public IMailRuFacesWidget Faces() => new MailRuFacesWidget();
+  public virtual IMailRuFacesWidget Faces() => new MailRuFacesWidget();
 
   /// <inheritdoc cref="IMailRuWidgetsCreator.Groups()"/>
-  public IMailRuGroupsWidget Groups() => new MailRuGroupsWidget();
+  public virtual IMailRuGroupsWidget Groups() => new MailRuGroupsWidget();
 
   /// <inheritdoc cref="IMailRuWidgetsCreator.Icq()"/>
-  public IMailRuIcqWidget Icq() => new MailRuIcqWidget();
+  public virtual IMailRuIcqWidget Icq() => new MailRuIcqWidget();
 
   /// <inheritdoc cref="IMailRuWidgetsCreator.LikeButton()"/>
-  public IMailRuLikeButtonWidget LikeButton() => new MailRuLikeButtonWidget();
+  public virtual IMailRuLikeButtonWidget LikeButton() => new MailRuLikeButtonWidget();
 
   /// <inheritdoc cref="IMailRuWidgetsCreator.Video()"/>
-  public IMailRuVideoWidget Video() => new MailRuVideoWidget();
+  public virtual IMailRuVideoWidget Video() => new MailRuVideoWidget();
 }

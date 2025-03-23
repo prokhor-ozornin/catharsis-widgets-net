@@ -4,5 +4,5 @@
 public class SoundCloudWidgetsCreator : ISoundCloudWidgetsCreator
 {
   /// <inheritdoc cref="ISoundCloudWidgetsCreator.ProfileIcon()"/>
-  public ISoundCloudProfileIconWidget ProfileIcon() => new SoundCloudProfileIconWidget();
+  public virtual ISoundCloudProfileIconWidget ProfileIcon() => new SoundCloudProfileIconWidget();
 }

@@ -4,11 +4,11 @@ namespace Catharsis.Web.Widgets;
 public class GoogleWidgetsCreator : IGoogleWidgetsCreator
 {
   /// <inheritdoc cref="IGoogleWidgetsCreator.Analytics()"/>
-  public IGoogleAnalyticsWidget Analytics() => new GoogleAnalyticsWidget();
+  public virtual IGoogleAnalyticsWidget Analytics() => new GoogleAnalyticsWidget();
 
   /// <inheritdoc cref="IGoogleWidgetsCreator.Map()"/>
-  //public IGoogleMapWidget Map() => new GoogleMapWidget();
+  //public virtual IGoogleMapWidget Map() => new GoogleMapWidget();
 
   /// <inheritdoc cref="IGoogleWidgetsCreator.PlusOneButton()"/>
-  public IGooglePlusOneButtonWidget PlusOneButton() => new GooglePlusOneButtonWidget();
+  public virtual IGooglePlusOneButtonWidget PlusOneButton() => new GooglePlusOneButtonWidget();
 }

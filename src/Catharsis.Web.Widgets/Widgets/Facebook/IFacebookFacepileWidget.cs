@@ -16,12 +16,6 @@ public interface IFacebookFacePileWidget : IWebWidget
   IFacebookFacePileWidget Actions(IEnumerable<string> actions);
 
   /// <summary>
-  ///   <para>Collection of Open Graph action types.</para>
-  /// </summary>
-  /// <returns>Collection of Facebook action types.</returns>
-  IEnumerable<string> Actions();
-
-  /// <summary>
   ///   <para>The color scheme used by the widget. Default is "light".</para>
   /// </summary>
   /// <param name="scheme">Color scheme of widget.</param>
@@ -29,12 +23,6 @@ public interface IFacebookFacePileWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="scheme"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="scheme"/> is <see cref="string.Empty"/> string.</exception>
   IFacebookFacePileWidget ColorScheme(string scheme);
-
-  /// <summary>
-  ///   <para>The color scheme used by the widget. Default is "light".</para>
-  /// </summary>
-  /// <returns>Color scheme of widget.</returns>
-  string ColorScheme();
 
   /// <summary>
   ///   <para>The height of the widget in pixels.</para>
@@ -46,23 +34,11 @@ public interface IFacebookFacePileWidget : IWebWidget
   IFacebookFacePileWidget Height(string height);
 
   /// <summary>
-  ///   <para>The height of the widget in pixels.</para>
-  /// </summary>
-  /// <returns>Height of widget.</returns>
-  string Height();
-
-  /// <summary>
   ///   <para>The maximum number of rows of faces to display. Default is 1.</para>
   /// </summary>
   /// <param name="count">Number of rows of faces to display.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookFacePileWidget MaxRows(byte count);
-
-  /// <summary>
-  ///   <para>The maximum number of rows of faces to display. Default is 1.</para>
-  /// </summary>
-  /// <returns>Number of rows of faces to display.</returns>
-  byte? MaxRows();
 
   /// <summary>
   ///   <para>Controls the size of the photos shown in the widget. Default is "medium".</para>
@@ -74,12 +50,6 @@ public interface IFacebookFacePileWidget : IWebWidget
   IFacebookFacePileWidget PhotoSize(string size);
 
   /// <summary>
-  ///   <para>Controls the size of the photos shown in the widget. Default is "medium".</para>
-  /// </summary>
-  /// <returns>Size of photos.</returns>
-  string PhotoSize();
-
-  /// <summary>
   ///   <para>Display photos of the people who have liked this absolute URL. Default is current page URL.</para>
   /// </summary>
   /// <param name="url">Target "liked" URL.</param>
@@ -89,12 +59,6 @@ public interface IFacebookFacePileWidget : IWebWidget
   IFacebookFacePileWidget Url(string url);
 
   /// <summary>
-  ///   <para>Display photos of the people who have liked this absolute URL. Default is current page URL.</para>
-  /// </summary>
-  /// <returns>Target "liked" URL.</returns>
-  string Url();
-
-  /// <summary>
   ///   <para>The width of the widget in pixels. Minimum is 200. Default is 300.</para>
   /// </summary>
   /// <param name="width">Width of widget.</param>
@@ -102,10 +66,4 @@ public interface IFacebookFacePileWidget : IWebWidget
   /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
   /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
   IFacebookFacePileWidget Width(string width);
-
-  /// <summary>
-  ///   <para>The width of the widget in pixels. Minimum is 200. Default is 300.</para>
-  /// </summary>
-  /// <returns>Width of widget.</returns>
-  string Width();
 }

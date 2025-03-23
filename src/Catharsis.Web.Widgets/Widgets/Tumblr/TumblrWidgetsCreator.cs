@@ -4,8 +4,8 @@ namespace Catharsis.Web.Widgets;
 public class TumblrWidgetsCreator : ITumblrWidgetsCreator
 {
   /// <inheritdoc cref="ITumblrWidgetsCreator.FollowButton()"/>
-  public ITumblrFollowButtonWidget FollowButton() => new TumblrFollowButtonWidget();
+  public virtual ITumblrFollowButtonWidget FollowButton() => new TumblrFollowButtonWidget();
 
   /// <inheritdoc cref="ITumblrWidgetsCreator.ShareButton()"/>
-  public ITumblrShareButtonWidget ShareButton() => new TumblrShareButtonWidget();
+  public virtual ITumblrShareButtonWidget ShareButton() => new TumblrShareButtonWidget();
 }
