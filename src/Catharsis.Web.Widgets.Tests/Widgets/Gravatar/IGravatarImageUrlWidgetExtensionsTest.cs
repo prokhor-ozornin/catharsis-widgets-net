@@ -21,19 +21,25 @@ public sealed class IGravatarImageUrlWidgetExtensionsTest : UnitTest
   [Fact]
   public void Default_Methods()
   {
-    AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Default(null, "url")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => new GravatarImageUrlWidget().Default(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
-    AssertionExtensions.Should(() => new GravatarImageUrlWidget().Default(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Default(null, "url")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => new GravatarImageUrlWidget().Default(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new GravatarImageUrlWidget().Default(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-    var widget = new GravatarImageUrlWidget();
-    widget.Default("url").Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("default", "url"));
-    widget.Default(GravatarDefaultImage.Blank).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("default", "blank"));
-    widget.Default(GravatarDefaultImage.IdentIcon).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("default", "identicon"));
-    widget.Default(GravatarDefaultImage.MonsterId).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("default", "monsterid"));
-    widget.Default(GravatarDefaultImage.MysteryMan).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("default", "mm"));
-    widget.Default(GravatarDefaultImage.NotFound).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("default", "404"));
-    widget.Default(GravatarDefaultImage.Retro).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("default", "retro"));
-    widget.Default(GravatarDefaultImage.Wavatar).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("default", "wavatar"));
+      var widget = new GravatarImageUrlWidget();
+      Validate(GravatarDefaultImage.Blank, "blank", widget);
+      Validate(GravatarDefaultImage.IdentIcon, "identicon", widget);
+      Validate(GravatarDefaultImage.MonsterId, "monsterid", widget);
+      Validate(GravatarDefaultImage.MysteryMan, "mm", widget);
+      Validate(GravatarDefaultImage.NotFound, "404", widget);
+      Validate(GravatarDefaultImage.Retro, "retro", widget);
+      Validate(GravatarDefaultImage.Wavatar, "wavatar", widget);
+    }
+
+    return;
+
+    static void Validate(GravatarDefaultImage image, string value, IGravatarImageUrlWidget widget) => widget.Default(image).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("default", value));
   }
 
   /// <summary>
@@ -86,31 +92,20 @@ public sealed class IGravatarImageUrlWidgetExtensionsTest : UnitTest
   [Fact]
   public void Rating_Methods()
   {
-    AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Rating(null, "rating")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => new GravatarImageUrlWidget().Rating(null)).ThrowExactly<ArgumentNullException>().WithParameterName("rating");
-    AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Rating(null, GravatarImageRating.G)).ThrowExactly<ArgumentNullException>().WithParameterName("rating");
-    AssertionExtensions.Should(() => new GravatarImageUrlWidget().Rating(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("rating");
-
-    new GravatarImageUrlWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Rating("rating"), widget));
-      var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
-      Assert.Equal(1, parameters.Count);
-      Assert.Equal("rating", parameters.Single().Key);
-      Assert.Equal("rating", parameters.Single().Value);
-    });
+      AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Rating(null, "rating")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => new GravatarImageUrlWidget().Rating(null)).ThrowExactly<ArgumentNullException>().WithParameterName("rating");
+      AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Rating(null, GravatarImageRating.G)).ThrowExactly<ArgumentNullException>().WithParameterName("rating");
+      AssertionExtensions.Should(() => new GravatarImageUrlWidget().Rating(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("rating");
 
-    new GravatarImageUrlWidget().With(widget =>
-    {
-      Assert.True(ReferenceEquals(widget.Rating(GravatarImageRating.G), widget));
-      var parameters = widget.GetFieldValue<IDictionary<string, object>>("parameters");
-      Assert.Equal(1, parameters.Count);
-      Assert.Equal("rating", parameters.Single().Key);
-      Assert.Equal("g", parameters.Single().Value);
-    });
-    new GravatarImageUrlWidget().With(widget => Assert.Equal("pg", widget.Rating(GravatarImageRating.PG).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
-    new GravatarImageUrlWidget().With(widget => Assert.Equal("r", widget.Rating(GravatarImageRating.R).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
-    new GravatarImageUrlWidget().With(widget => Assert.Equal("x", widget.Rating(GravatarImageRating.X).GetFieldValue<IDictionary<string, object>>("parameters").Single().Value));
+      var widget = new GravatarImageUrlWidget();
+      Enum.GetValues<GravatarImageRating>().ForEach(value => Validate(value, widget));
+    }
+
+    return;
+
+    static void Validate(GravatarImageRating rating, IGravatarImageUrlWidget widget) => widget.Rating(rating).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("rating", rating.ToString().ToLowerInvariant()));
   }
 
   /// <summary>
