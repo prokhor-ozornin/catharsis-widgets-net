@@ -39,11 +39,7 @@ public sealed class Share42PanelWidgetTest : UnitTest
 
     return;
 
-    static void Validate(Share42PanelDirection direction, IShare42PanelWidget widget)
-    {
-      widget.Direction(direction).Should().BeSameAs(widget);
-      widget.GetPropertyValue<Share42PanelDirection>("DirectionProperty").Should().Be(direction);
-    }
+    static void Validate(Share42PanelDirection direction, IShare42PanelWidget widget) => widget.Direction(direction).Should().BeSameAs(widget).And.Subject.GetPropertyValue<Share42PanelDirection>("DirectionProperty").Should().Be(direction);
   }
 
   /// <summary>
@@ -60,11 +56,7 @@ public sealed class Share42PanelWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte size, IShare42PanelWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("SizeProperty").Should().Be(size);
-    }
+    static void Validate(byte size, IShare42PanelWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("SizeProperty").Should().Be(size);
   }
 
   /// <summary>

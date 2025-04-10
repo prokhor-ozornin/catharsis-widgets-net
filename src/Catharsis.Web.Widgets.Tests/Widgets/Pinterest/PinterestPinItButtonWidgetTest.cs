@@ -48,11 +48,7 @@ public sealed class PinterestPinItButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IPinterestPinItButtonWidget widget)
-    {
-      widget.Color(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IPinterestPinItButtonWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -69,11 +65,7 @@ public sealed class PinterestPinItButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(PinterestPinItButtonPinCountPosition position, IPinterestPinItButtonWidget widget)
-    {
-      widget.Counter(position).Should().BeSameAs(widget);
-      widget.GetPropertyValue<PinterestPinItButtonPinCountPosition>("CounterProperty").Should().Be(position);
-    }
+    static void Validate(PinterestPinItButtonPinCountPosition position, IPinterestPinItButtonWidget widget) => widget.Counter(position).Should().BeSameAs(widget).And.Subject.GetPropertyValue<PinterestPinItButtonPinCountPosition>("CounterProperty").Should().Be(position);
   }
 
   /// <summary>
@@ -93,11 +85,7 @@ public sealed class PinterestPinItButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string description, IPinterestPinItButtonWidget widget)
-    {
-      widget.Description(description).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("DescriptionProperty").Should().Be(description);
-    }
+    static void Validate(string description, IPinterestPinItButtonWidget widget) => widget.Description(description).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DescriptionProperty").Should().Be(description);
   }
 
   /// <summary>
@@ -117,11 +105,7 @@ public sealed class PinterestPinItButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string image, IPinterestPinItButtonWidget widget)
-    {
-      widget.Image(image).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ImageProperty").Should().Be(image);
-    }
+    static void Validate(string image, IPinterestPinItButtonWidget widget) => widget.Image(image).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageProperty").Should().Be(image);
   }
 
   /// <summary>
@@ -141,11 +125,7 @@ public sealed class PinterestPinItButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string language, IPinterestPinItButtonWidget widget)
-    {
-      widget.Language(language).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
-    }
+    static void Validate(string language, IPinterestPinItButtonWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
   }
 
   /// <summary>
@@ -162,11 +142,7 @@ public sealed class PinterestPinItButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(PinterestPinItButtonShape shape, IPinterestPinItButtonWidget widget)
-    {
-      widget.Shape(shape).Should().BeSameAs(widget);
-      widget.GetPropertyValue<PinterestPinItButtonShape>("ShapeProperty").Should().Be(shape);
-    }
+    static void Validate(PinterestPinItButtonShape shape, IPinterestPinItButtonWidget widget) => widget.Shape(shape).Should().BeSameAs(widget).And.Subject.GetPropertyValue<PinterestPinItButtonShape>("ShapeProperty").Should().Be(shape);
   }
 
   /// <summary>
@@ -183,11 +159,7 @@ public sealed class PinterestPinItButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(PinterestPinItButtonSize size, IPinterestPinItButtonWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<PinterestPinItButtonSize>("SizeProperty").Should().Be(size);
-    }
+    static void Validate(PinterestPinItButtonSize size, IPinterestPinItButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<PinterestPinItButtonSize>("SizeProperty").Should().Be(size);
   }
 
   /// <summary>
@@ -207,11 +179,7 @@ public sealed class PinterestPinItButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, IPinterestPinItButtonWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, IPinterestPinItButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>

@@ -45,11 +45,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontakteAuthButtonWidget widget)
-    {
-      widget.ElementId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontakteAuthButtonWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -69,11 +65,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IVkontakteAuthButtonWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IVkontakteAuthButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -93,11 +85,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, IVkontakteAuthButtonWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, IVkontakteAuthButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -114,11 +102,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(VkontakteAuthButtonType type, IVkontakteAuthButtonWidget widget)
-    {
-      widget.Type(type).Should().BeSameAs(widget);
-      widget.GetPropertyValue<VkontakteAuthButtonType>("TypeProperty").Should().Be(type);
-    }
+    static void Validate(VkontakteAuthButtonType type, IVkontakteAuthButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteAuthButtonType>("TypeProperty").Should().Be(type);
   }
 
   /// <summary>
@@ -138,11 +122,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string callback, IVkontakteAuthButtonWidget widget)
-    {
-      widget.Callback(callback).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("CallbackProperty").Should().Be(callback);
-    }
+    static void Validate(string callback, IVkontakteAuthButtonWidget widget) => widget.Callback(callback).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CallbackProperty").Should().Be(callback);
   }
 
   /// <summary>

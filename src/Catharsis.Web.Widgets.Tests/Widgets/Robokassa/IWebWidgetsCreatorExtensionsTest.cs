@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IWebWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed partial class IWebWidgetsCreatorExtensionsTest
+public sealed partial class IWebWidgetsCreatorExtensionsTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.Robokassa(IWebWidgetsCreator)"/> method.</para>
@@ -16,6 +17,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTest
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Robokassa(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    Widgets.Robokassa().Should().BeOfType<RobokassaWidgetsCreator>().And.BeSameAs(Widgets.Robokassa());
+    Widgets.Create.Robokassa().Should().BeOfType<RobokassaWidgetsCreator>().And.BeSameAs(Widgets.Create.Robokassa());
   }
 }

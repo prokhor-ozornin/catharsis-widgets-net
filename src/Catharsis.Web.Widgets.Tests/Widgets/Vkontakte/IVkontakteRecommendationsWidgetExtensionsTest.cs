@@ -25,10 +25,6 @@ public sealed class IVkontakteRecommendationsWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(VkontakteRecommendationsLimit limit, IVkontakteRecommendationsWidget widget)
-    {
-      widget.Limit(limit).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("LimitProperty").Should().Be((byte) limit);
-    }
+    static void Validate(VkontakteRecommendationsLimit limit, IVkontakteRecommendationsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LimitProperty").Should().Be((byte) limit);
   }
 }

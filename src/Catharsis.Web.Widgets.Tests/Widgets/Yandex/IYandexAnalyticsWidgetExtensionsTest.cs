@@ -29,10 +29,6 @@ public sealed class IYandexAnalyticsWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(CultureInfo culture, IYandexAnalyticsWidget widget)
-    {
-      widget.Language(culture).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
-    }
+    static void Validate(CultureInfo culture, IYandexAnalyticsWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
   }
 }

@@ -50,11 +50,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(IEnumerable<string> actions, IFacebookActivityFeedWidget widget)
-    {
-      widget.Actions(actions).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().Equal(actions);
-    }
+    static void Validate(IEnumerable<string> actions, IFacebookActivityFeedWidget widget) => widget.Actions(actions).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().Equal(actions);
   }
 
   /// <summary>
@@ -74,11 +70,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IFacebookActivityFeedWidget widget)
-    {
-      widget.AppId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AppIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IFacebookActivityFeedWidget widget) => widget.AppId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AppIdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -98,11 +90,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string scheme, IFacebookActivityFeedWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
-    }
+    static void Validate(string scheme, IFacebookActivityFeedWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
   }
 
   /// <summary>
@@ -122,11 +110,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IFacebookActivityFeedWidget widget)
-    {
-      widget.Domain(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("DomainProperty").Should().Be(id);
-    }
+    static void Validate(string id, IFacebookActivityFeedWidget widget) => widget.Domain(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -143,11 +127,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IFacebookActivityFeedWidget widget)
-    {
-      widget.Header(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("HeaderProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IFacebookActivityFeedWidget widget) => widget.Header(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("HeaderProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -167,11 +147,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IFacebookActivityFeedWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IFacebookActivityFeedWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -191,11 +167,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string target, IFacebookActivityFeedWidget widget)
-    {
-      widget.LinkTarget(target).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LinkTargetProperty").Should().Be(target);
-    }
+    static void Validate(string target, IFacebookActivityFeedWidget widget) => widget.LinkTarget(target).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LinkTargetProperty").Should().Be(target);
   }
 
   /// <summary>
@@ -212,11 +184,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte max, IFacebookActivityFeedWidget widget)
-    {
-      widget.MaxAge(max).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte?>("MaxAgeProperty").Should().Be(max);
-    }
+    static void Validate(byte max, IFacebookActivityFeedWidget widget) => widget.MaxAge(max).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("MaxAgeProperty").Should().Be(max);
   }
 
   /// <summary>
@@ -233,11 +201,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IFacebookActivityFeedWidget widget)
-    {
-      widget.Recommendations(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("RecommendationsProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IFacebookActivityFeedWidget widget) => widget.Recommendations(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("RecommendationsProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -257,11 +221,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string label, IFacebookActivityFeedWidget widget)
-    {
-      widget.TrackLabel(label).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TrackLabel").Should().Be(label);
-    }
+    static void Validate(string label, IFacebookActivityFeedWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TrackLabel").Should().Be(label);
   }
 
   /// <summary>
@@ -281,11 +241,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IFacebookActivityFeedWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IFacebookActivityFeedWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>

@@ -43,11 +43,7 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, ISoundCloudProfileIconWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, ISoundCloudProfileIconWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -67,11 +63,7 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, ISoundCloudProfileIconWidget widget)
-    {
-      widget.Color(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, ISoundCloudProfileIconWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -88,11 +80,7 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
 
     return;
 
-    static void Validate(short size, ISoundCloudProfileIconWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<short>("SizeProperty").Should().Be(size);
-    }
+    static void Validate(short size, ISoundCloudProfileIconWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short>("SizeProperty").Should().Be(size);
   }
 
   /// <summary>

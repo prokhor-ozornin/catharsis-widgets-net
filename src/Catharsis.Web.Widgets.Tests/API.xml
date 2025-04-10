@@ -488,13 +488,9 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions.Gravatar(Catharsis.Web.Widgets.IWebWidgetsCreator)"/> method.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.IWebWidgetsCreatorExtensionsTest.InlineImage_Methods">
+        <member name="M:Catharsis.Web.Widgets.Tests.IWebWidgetsCreatorExtensionsTest.InlineImage_Method">
             <summary>
-              <para>Performs testing of following methods :</para>
-              <list type="bullet">
-                <item><description><see cref="M:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions.InlineImage(Catharsis.Web.Widgets.IWebWidgetsCreator)"/></description></item>
-                <item><description><see cref="M:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions.InlineImage(Catharsis.Web.Widgets.IWebWidgetsCreator,System.Action{Catharsis.Web.Widgets.IInlineImageWidget})"/></description></item>
-              </list>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions.InlineImage(Catharsis.Web.Widgets.IWebWidgetsCreator)"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IWebWidgetsCreatorExtensionsTest.IntenseDebate_Method">

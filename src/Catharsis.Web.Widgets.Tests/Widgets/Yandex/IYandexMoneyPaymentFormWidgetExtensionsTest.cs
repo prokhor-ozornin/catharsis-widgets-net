@@ -19,7 +19,7 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IYandexMoneyPaymentFormWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IYandexMoneyPaymentFormWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new YandexMoneyPaymentFormWidget();
       new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget));
@@ -27,11 +27,7 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(double sum, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.Sum(sum).Should().BeSameAs(widget);
-      widget.GetPropertyValue<decimal>("SumProperty").Should().Be((decimal) sum);
-    }
+    static void Validate(double sum, IYandexMoneyPaymentFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal>("SumProperty").Should().Be((decimal) sum);
   }
 
   /// <summary>
@@ -48,10 +44,6 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(YandexMoneyPaymentFormText text, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.Text(text).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("TextProperty").Should().Be((byte) text);
-    }
+    static void Validate(YandexMoneyPaymentFormText text, IYandexMoneyPaymentFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextProperty").Should().Be((byte) text);
   }
 }

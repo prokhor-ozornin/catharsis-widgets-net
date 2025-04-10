@@ -27,11 +27,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(MailRuLikeButtonType type, IMailRuLikeButtonWidget widget)
-    {
-      widget.Type(type).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TypeProperty").Should().Be(type.ToString().ToInvariantString());
-    }
+    static void Validate(MailRuLikeButtonType type, IMailRuLikeButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TypeProperty").Should().Be(type.ToString().ToInvariantString());
   }
 
   /// <summary>
@@ -51,11 +47,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
       var widget = new MailRuLikeButtonWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
 
-      static void Validate(short size, IMailRuLikeButtonWidget widget)
-      {
-        widget.Size(size).Should().BeSameAs(widget);
-        widget.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToInvariantString());
-      }
+      static void Validate(short size, IMailRuLikeButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToInvariantString());
     }
 
     using (new AssertionScope())
@@ -65,11 +57,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
       var widget = new MailRuLikeButtonWidget();
       Enum.GetValues<MailRuLikeButtonSize>().ForEach(value => Validate(value, widget));
 
-      static void Validate(MailRuLikeButtonSize size, IMailRuLikeButtonWidget widget)
-      {
-        widget.Size(size).Should().BeSameAs(widget);
-        widget.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToString().ToLowerInvariant());
-      }
+      static void Validate(MailRuLikeButtonSize size, IMailRuLikeButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToString().ToLowerInvariant());
     }
   }
 
@@ -89,11 +77,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(MailRuLikeButtonLayout layout, IMailRuLikeButtonWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("LayoutProperty").Should().Be((byte) layout);
-    }
+    static void Validate(MailRuLikeButtonLayout layout, IMailRuLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LayoutProperty").Should().Be((byte) layout);
   }
 
   /// <summary>
@@ -112,11 +96,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(MailRuLikeButtonTextType type, IMailRuLikeButtonWidget widget)
-    {
-      widget.TextType(type).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("TextTypeProperty").Should().Be((byte) type);
-    }
+    static void Validate(MailRuLikeButtonTextType type, IMailRuLikeButtonWidget widget) => widget.TextType(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextTypeProperty").Should().Be((byte) type);
   }
 
   /// <summary>
@@ -135,10 +115,6 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(MailRuLikeButtonCounterPosition position, IMailRuLikeButtonWidget widget)
-    {
-      widget.CounterPosition(position).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("CounterPositionProperty").Should().Be(position.ToString().ToLowerInvariant());
-    }
+    static void Validate(MailRuLikeButtonCounterPosition position, IMailRuLikeButtonWidget widget) => widget.CounterPosition(position).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CounterPositionProperty").Should().Be(position.ToString().ToLowerInvariant());
   }
 }

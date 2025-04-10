@@ -50,11 +50,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, ITwitterTweetButtonWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, ITwitterTweetButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -74,11 +70,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string language, ITwitterTweetButtonWidget widget)
-    {
-      widget.Language(language).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
-    }
+    static void Validate(string language, ITwitterTweetButtonWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
   }
 
   /// <summary>
@@ -98,11 +90,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string text, ITwitterTweetButtonWidget widget)
-    {
-      widget.Text(text).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TextProperty").Should().Be(text);
-    }
+    static void Validate(string text, ITwitterTweetButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextProperty").Should().Be(text);
   }
 
   /// <summary>
@@ -122,11 +110,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string via, ITwitterTweetButtonWidget widget)
-    {
-      widget.Via(via).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ViaProperty").Should().Be(via);
-    }
+    static void Validate(string via, ITwitterTweetButtonWidget widget) => widget.Via(via).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ViaProperty").Should().Be(via);
   }
 
   /// <summary>
@@ -146,11 +130,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string size, ITwitterTweetButtonWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("SizeProperty").Should().Be(size);
-    }
+    static void Validate(string size, ITwitterTweetButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size);
   }
 
   /// <summary>
@@ -170,11 +150,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, ITwitterTweetButtonWidget widget)
-    {
-      widget.CountUrl(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("CountUrl").Should().Be(url);
-    }
+    static void Validate(string url, ITwitterTweetButtonWidget widget) => widget.CountUrl(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CountUrl").Should().Be(url);
   }
 
   /// <summary>
@@ -194,11 +170,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string position, ITwitterTweetButtonWidget widget)
-    {
-      widget.CounterPosition(position).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("CounterPositionProperty").Should().Be(position);
-    }
+    static void Validate(string position, ITwitterTweetButtonWidget widget) => widget.CounterPosition(position).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CounterPositionProperty").Should().Be(position);
   }
 
   /// <summary>
@@ -215,11 +187,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, ITwitterTweetButtonWidget widget)
-    {
-      widget.Suggestions(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("SuggestionsProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, ITwitterTweetButtonWidget widget) => widget.Suggestions(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("SuggestionsProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -238,11 +206,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(IEnumerable<string> tags, ITwitterTweetButtonWidget widget)
-    {
-      widget.HashTags(tags).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IEnumerable<string>>("TagsProperty").Should().Equal(tags);
-    }
+    static void Validate(IEnumerable<string> tags, ITwitterTweetButtonWidget widget) => widget.HashTags(tags).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("TagsProperty").Should().Equal(tags);
   }
 
   /// <summary>
@@ -261,11 +225,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(IEnumerable<string> tags, ITwitterTweetButtonWidget widget)
-    {
-      widget.RelatedAccounts(tags).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IEnumerable<string>>("AccountsProperty").Should().Equal(tags);
-    }
+    static void Validate(IEnumerable<string> tags, ITwitterTweetButtonWidget widget) => widget.RelatedAccounts(tags).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("AccountsProperty").Should().Equal(tags);
   }
 
   /// <summary>

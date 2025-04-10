@@ -43,11 +43,7 @@ public sealed class GravatarImageUrlWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string extension, IGravatarImageUrlWidget widget)
-    {
-      widget.Extension(extension).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ExtensionProperty").Should().Be(extension);
-    }
+    static void Validate(string extension, IGravatarImageUrlWidget widget) => widget.Extension(extension).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ExtensionProperty").Should().Be(extension);
   }
 
   /// <summary>
@@ -67,11 +63,7 @@ public sealed class GravatarImageUrlWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string hash, IGravatarImageUrlWidget widget)
-    {
-      widget.Hash(hash).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HashProperty").Should().Be(hash);
-    }
+    static void Validate(string hash, IGravatarImageUrlWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashProperty").Should().Be(hash);
   }
 
   /// <summary>
@@ -92,11 +84,7 @@ public sealed class GravatarImageUrlWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string name, object value, IGravatarImageUrlWidget widget)
-    {
-      widget.Parameter(name, value).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").Should().Contain(name, value);
-    }
+    static void Validate(string name, object value, IGravatarImageUrlWidget widget) => widget.Parameter(name, value).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").Should().Contain(name, value);
   }
 
   /// <summary>

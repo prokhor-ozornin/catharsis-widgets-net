@@ -46,11 +46,7 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontakteVideoWidget widget)
-    {
-      widget.Id(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("IdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontakteVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -70,11 +66,7 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IVkontakteVideoWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IVkontakteVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -94,11 +86,7 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IVkontakteVideoWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IVkontakteVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -115,11 +103,7 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool hd, IVkontakteVideoWidget widget)
-    {
-      widget.Hd(hd).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("HdProperty").Should().Be(hd);
-    }
+    static void Validate(bool hd, IVkontakteVideoWidget widget) => widget.Hd(hd).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("HdProperty").Should().Be(hd);
   }
 
   /// <summary>
@@ -139,11 +123,7 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string user, IVkontakteVideoWidget widget)
-    {
-      widget.User(user).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UserProperty").Should().Be(user);
-    }
+    static void Validate(string user, IVkontakteVideoWidget widget) => widget.User(user).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UserProperty").Should().Be(user);
   }
 
   /// <summary>
@@ -163,11 +143,7 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string hash, IVkontakteVideoWidget widget)
-    {
-      widget.Hash(hash).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HashProperty").Should().Be(hash);
-    }
+    static void Validate(string hash, IVkontakteVideoWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashProperty").Should().Be(hash);
   }
 
   /// <summary>

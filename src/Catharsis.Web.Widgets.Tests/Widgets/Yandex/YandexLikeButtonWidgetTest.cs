@@ -45,11 +45,7 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, IYandexLikeButtonWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, IYandexLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -69,11 +65,7 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string title, IYandexLikeButtonWidget widget)
-    {
-      widget.Title(title).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TitleProperty").Should().Be(title);
-    }
+    static void Validate(string title, IYandexLikeButtonWidget widget) => widget.Title(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleProperty").Should().Be(title);
   }
 
   /// <summary>
@@ -93,11 +85,7 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string size, IYandexLikeButtonWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("SizeProperty").Should().Be(size);
-    }
+    static void Validate(string size, IYandexLikeButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size);
   }
 
   /// <summary>
@@ -117,11 +105,7 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string layout, IYandexLikeButtonWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
-    }
+    static void Validate(string layout, IYandexLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
   }
 
   /// <summary>
@@ -141,11 +125,7 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string text, IYandexLikeButtonWidget widget)
-    {
-      widget.Text(text).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TextProperty").Should().Be(text);
-    }
+    static void Validate(string text, IYandexLikeButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextProperty").Should().Be(text);
   }
 
   /// <summary>

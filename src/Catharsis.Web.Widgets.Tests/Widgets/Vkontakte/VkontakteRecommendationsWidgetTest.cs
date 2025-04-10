@@ -47,11 +47,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontakteRecommendationsWidget widget)
-    {
-      widget.ElementId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontakteRecommendationsWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -68,11 +64,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte limit, IVkontakteRecommendationsWidget widget)
-    {
-      widget.Limit(limit).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte?>("LimitProperty").Should().Be(limit);
-    }
+    static void Validate(byte limit, IVkontakteRecommendationsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("LimitProperty").Should().Be(limit);
   }
 
   /// <summary>
@@ -89,11 +81,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(short max, IVkontakteRecommendationsWidget widget)
-    {
-      widget.Max(max).Should().BeSameAs(widget);
-      widget.GetPropertyValue<short?>("MaxProperty").Should().Be(max);
-    }
+    static void Validate(short max, IVkontakteRecommendationsWidget widget) => widget.Max(max).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short?>("MaxProperty").Should().Be(max);
   }
 
   /// <summary>
@@ -110,11 +98,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(VkontakteRecommendationsPeriod period, IVkontakteRecommendationsWidget widget)
-    {
-      widget.Period(period).Should().BeSameAs(widget);
-      widget.GetPropertyValue<VkontakteRecommendationsPeriod?>("PeriodProperty").Should().Be(period);
-    }
+    static void Validate(VkontakteRecommendationsPeriod period, IVkontakteRecommendationsWidget widget) => widget.Period(period).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteRecommendationsPeriod?>("PeriodProperty").Should().Be(period);
   }
 
   /// <summary>
@@ -131,11 +115,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(VkontakteRecommendationsVerb verb, IVkontakteRecommendationsWidget widget)
-    {
-      widget.Verb(verb).Should().BeSameAs(widget);
-      widget.GetPropertyValue<VkontakteRecommendationsVerb?>("VerbProperty").Should().Be(verb);
-    }
+    static void Validate(VkontakteRecommendationsVerb verb, IVkontakteRecommendationsWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteRecommendationsVerb?>("VerbProperty").Should().Be(verb);
   }
 
   /// <summary>
@@ -152,11 +132,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(VkontakteRecommendationsSorting verb, IVkontakteRecommendationsWidget widget)
-    {
-      widget.Sorting(verb).Should().BeSameAs(widget);
-      widget.GetPropertyValue<VkontakteRecommendationsSorting?>("SortingProperty").Should().Be(verb);
-    }
+    static void Validate(VkontakteRecommendationsSorting verb, IVkontakteRecommendationsWidget widget) => widget.Sorting(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteRecommendationsSorting?>("SortingProperty").Should().Be(verb);
   }
 
   /// <summary>
@@ -176,11 +152,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string target, IVkontakteRecommendationsWidget widget)
-    {
-      widget.Target(target).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TargetProperty").Should().Be(target);
-    }
+    static void Validate(string target, IVkontakteRecommendationsWidget widget) => widget.Target(target).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TargetProperty").Should().Be(target);
   }
 
   /// <summary>

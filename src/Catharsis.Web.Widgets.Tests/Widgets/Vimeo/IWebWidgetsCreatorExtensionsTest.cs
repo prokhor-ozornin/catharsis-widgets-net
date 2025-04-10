@@ -1,3 +1,4 @@
+using Catharsis.Commons;
 using FluentAssertions;
 using Xunit;
 
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IWebWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed partial class IWebWidgetsCreatorExtensionsTest
+public sealed partial class IWebWidgetsCreatorExtensionsTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.Vimeo(IWebWidgetsCreator)"/> method.</para>
@@ -16,6 +17,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTest
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Vimeo(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    Widgets.Vimeo().Should().BeOfType<VimeoWidgetsCreator>().And.BeSameAs(Widgets.Vimeo());
+    Widgets.Create.Vimeo().Should().BeOfType<VimeoWidgetsCreator>().And.BeSameAs(Widgets.Create.Vimeo());
   }
 }

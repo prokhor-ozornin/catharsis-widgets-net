@@ -48,11 +48,7 @@ public sealed class VkontakteCommunityWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IVkontakteCommunityWidget widget)
-    {
-      widget.BackgroundColor(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("BackgroundColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IVkontakteCommunityWidget widget) => widget.BackgroundColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BackgroundColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -72,11 +68,7 @@ public sealed class VkontakteCommunityWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IVkontakteCommunityWidget widget)
-    {
-      widget.TextColor(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TextColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IVkontakteCommunityWidget widget) => widget.TextColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -96,11 +88,7 @@ public sealed class VkontakteCommunityWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IVkontakteCommunityWidget widget)
-    {
-      widget.ButtonColor(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ButtonColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IVkontakteCommunityWidget widget) => widget.ButtonColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ButtonColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -120,11 +108,7 @@ public sealed class VkontakteCommunityWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontakteCommunityWidget widget)
-    {
-      widget.ElementId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontakteCommunityWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -144,11 +128,7 @@ public sealed class VkontakteCommunityWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IVkontakteCommunityWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IVkontakteCommunityWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -165,11 +145,7 @@ public sealed class VkontakteCommunityWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte mode, IVkontakteCommunityWidget widget)
-    {
-      widget.Mode(mode).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("ModeProperty").Should().Be(mode);
-    }
+    static void Validate(byte mode, IVkontakteCommunityWidget widget) => widget.Mode(mode).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("ModeProperty").Should().Be(mode);
   }
 
   /// <summary>
@@ -189,11 +165,7 @@ public sealed class VkontakteCommunityWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IVkontakteCommunityWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IVkontakteCommunityWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -213,11 +185,7 @@ public sealed class VkontakteCommunityWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IVkontakteCommunityWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IVkontakteCommunityWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>

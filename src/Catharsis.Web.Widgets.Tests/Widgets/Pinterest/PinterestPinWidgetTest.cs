@@ -41,11 +41,7 @@ public sealed class PinterestPinWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IPinterestPinWidget widget)
-    {
-      widget.Id(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("IdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IPinterestPinWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(id);
   }
 
   /// <summary>

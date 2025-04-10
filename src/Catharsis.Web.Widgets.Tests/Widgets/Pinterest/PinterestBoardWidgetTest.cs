@@ -45,11 +45,7 @@ public sealed class PinterestBoardWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IPinterestBoardWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IPinterestBoardWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -69,11 +65,7 @@ public sealed class PinterestBoardWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IPinterestBoardWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IPinterestBoardWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -93,11 +85,7 @@ public sealed class PinterestBoardWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IPinterestBoardWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IPinterestBoardWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -117,11 +105,7 @@ public sealed class PinterestBoardWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IPinterestBoardWidget widget)
-    {
-      widget.Id(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("IdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IPinterestBoardWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -141,11 +125,7 @@ public sealed class PinterestBoardWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string image, IPinterestBoardWidget widget)
-    {
-      widget.Image(image).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ImageProperty").Should().Be(image);
-    }
+    static void Validate(string image, IPinterestBoardWidget widget) => widget.Image(image).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageProperty").Should().Be(image);
   }
 
   /// <summary>

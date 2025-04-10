@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -6,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IWebWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed partial class IWebWidgetsCreatorExtensionsTest
+public sealed partial class IWebWidgetsCreatorExtensionsTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.Share42(IWebWidgetsCreator)"/> method.</para>
@@ -16,6 +17,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTest
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Share42(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    Widgets.Share42().Should().BeOfType<Share42WidgetsCreator>().And.BeSameAs(Widgets.Share42());
+    Widgets.Create.Share42().Should().BeOfType<Share42WidgetsCreator>().And.BeSameAs(Widgets.Create.Share42());
   }
 }

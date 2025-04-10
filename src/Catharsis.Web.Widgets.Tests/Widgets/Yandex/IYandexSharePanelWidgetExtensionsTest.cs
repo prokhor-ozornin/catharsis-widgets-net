@@ -29,11 +29,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(string[] services, IYandexSharePanelWidget widget)
-    {
-      IYandexSharePanelWidgetExtensions.Services(widget, services).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IEnumerable<string>>("ServicesProperty").Should().Equal(services);
-    }
+    static void Validate(string[] services, IYandexSharePanelWidget widget) => IYandexSharePanelWidgetExtensions.Services(widget, services).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ServicesProperty").Should().Equal(services);
   }
 
   /// <summary>
@@ -53,11 +49,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(CultureInfo culture, IYandexSharePanelWidget widget)
-    {
-      widget.Language(culture).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
-    }
+    static void Validate(CultureInfo culture, IYandexSharePanelWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
   }
 
   /// <summary>
@@ -76,10 +68,6 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(YandexSharePanelLayout layout, IYandexSharePanelWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(layout.ToString().ToLowerInvariant());
-    }
+    static void Validate(YandexSharePanelLayout layout, IYandexSharePanelWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout.ToString().ToLowerInvariant());
   }
 }

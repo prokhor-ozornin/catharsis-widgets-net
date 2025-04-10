@@ -44,11 +44,7 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IVkontakteSubscriptionWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IVkontakteSubscriptionWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -68,11 +64,7 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontakteSubscriptionWidget widget)
-    {
-      widget.ElementId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontakteSubscriptionWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -89,11 +81,7 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte layout, IVkontakteSubscriptionWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("LayoutProperty").Should().Be(layout);
-    }
+    static void Validate(byte layout, IVkontakteSubscriptionWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LayoutProperty").Should().Be(layout);
   }
 
   /// <summary>
@@ -110,11 +98,7 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IVkontakteSubscriptionWidget widget)
-    {
-      widget.OnlyButton(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("OnlyButtonProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IVkontakteSubscriptionWidget widget) => widget.OnlyButton(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("OnlyButtonProperty").Should().Be(enabled);
   }
 
   /// <summary>

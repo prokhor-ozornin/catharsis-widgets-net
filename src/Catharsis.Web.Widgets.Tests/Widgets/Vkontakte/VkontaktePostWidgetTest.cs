@@ -45,11 +45,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontaktePostWidget widget)
-    {
-      widget.ElementId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontaktePostWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -69,11 +65,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string hash, IVkontaktePostWidget widget)
-    {
-      widget.Hash(hash).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HashProperty").Should().Be(hash);
-    }
+    static void Validate(string hash, IVkontaktePostWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashProperty").Should().Be(hash);
   }
 
   /// <summary>
@@ -93,11 +85,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontaktePostWidget widget)
-    {
-      widget.Id(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("IdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontaktePostWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -117,11 +105,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string owner, IVkontaktePostWidget widget)
-    {
-      widget.Owner(owner).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("OwnerProperty").Should().Be(owner);
-    }
+    static void Validate(string owner, IVkontaktePostWidget widget) => widget.Owner(owner).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OwnerProperty").Should().Be(owner);
   }
 
   /// <summary>
@@ -141,11 +125,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IVkontaktePostWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IVkontaktePostWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>

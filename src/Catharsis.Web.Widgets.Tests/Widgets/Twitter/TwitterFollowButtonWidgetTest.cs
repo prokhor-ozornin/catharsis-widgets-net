@@ -48,11 +48,7 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, ITwitterFollowButtonWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, ITwitterFollowButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -72,11 +68,7 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string language, ITwitterFollowButtonWidget widget)
-    {
-      widget.Language(language).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
-    }
+    static void Validate(string language, ITwitterFollowButtonWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
   }
 
   /// <summary>
@@ -96,11 +88,7 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string size, ITwitterFollowButtonWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("SizeProperty").Should().Be(size);
-    }
+    static void Validate(string size, ITwitterFollowButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size);
   }
 
   /// <summary>
@@ -120,11 +108,7 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string alignment, ITwitterFollowButtonWidget widget)
-    {
-      widget.Alignment(alignment).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AlignmentProperty").Should().Be(alignment);
-    }
+    static void Validate(string alignment, ITwitterFollowButtonWidget widget) => widget.Alignment(alignment).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AlignmentProperty").Should().Be(alignment);
   }
     
   /// <summary>
@@ -141,11 +125,7 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, ITwitterFollowButtonWidget widget)
-    {
-      widget.Counter(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("CounterProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, ITwitterFollowButtonWidget widget) => widget.Counter(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("CounterProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -162,11 +142,7 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, ITwitterFollowButtonWidget widget)
-    {
-      widget.ScreenName(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("ScreenNameProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, ITwitterFollowButtonWidget widget) => widget.ScreenName(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("ScreenNameProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -183,11 +159,7 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, ITwitterFollowButtonWidget widget)
-    {
-      widget.Suggestions(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("SuggestionsProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, ITwitterFollowButtonWidget widget) => widget.Suggestions(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("SuggestionsProperty").Should().Be(enabled);
   }
 
   /// <summary>

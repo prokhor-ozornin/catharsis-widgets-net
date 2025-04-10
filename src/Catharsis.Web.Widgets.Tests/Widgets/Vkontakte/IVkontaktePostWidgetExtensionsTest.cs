@@ -19,7 +19,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Id(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Id(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new VkontaktePostWidget();
       new[] { long.MinValue, long.MaxValue }.ForEach(value => Validate(value, widget));
@@ -27,11 +27,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(long id, IVkontaktePostWidget widget)
-    {
-      widget.Id(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("IdProperty").Should().Be(id.ToInvariantString());
-    }
+    static void Validate(long id, IVkontaktePostWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(id.ToInvariantString());
   }
 
   /// <summary>
@@ -42,7 +38,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Owner(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Owner(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new VkontaktePostWidget();
       new[] { long.MinValue, long.MaxValue }.ForEach(value => Validate(value, widget));
@@ -50,11 +46,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(long owner, IVkontaktePostWidget widget)
-    {
-      widget.Owner(owner).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("OwnerProperty").Should().Be(owner.ToInvariantString());
-    }
+    static void Validate(long owner, IVkontaktePostWidget widget) => widget.Owner(owner).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OwnerProperty").Should().Be(owner.ToInvariantString());
   }
 
   /// <summary>
@@ -65,7 +57,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new VkontaktePostWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -73,10 +65,6 @@ public sealed class IVkontaktePostWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IVkontaktePostWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
-    }
+    static void Validate(short width, IVkontaktePostWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
   }
 }

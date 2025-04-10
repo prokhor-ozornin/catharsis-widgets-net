@@ -44,11 +44,7 @@ public sealed class YandexVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string user, IYandexVideoWidget widget)
-    {
-      widget.User(user).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UserProperty").Should().Be(user);
-    }
+    static void Validate(string user, IYandexVideoWidget widget) => widget.User(user).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UserProperty").Should().Be(user);
   }
 
   /// <summary>
@@ -68,11 +64,7 @@ public sealed class YandexVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IYandexVideoWidget widget)
-    {
-      widget.Id(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("IdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IYandexVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -92,11 +84,7 @@ public sealed class YandexVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IYandexVideoWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IYandexVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -116,11 +104,7 @@ public sealed class YandexVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IYandexVideoWidget widget)
-    {
-      widget.Height(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(width);
-    }
+    static void Validate(string width, IYandexVideoWidget widget) => widget.Height(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(width);
   }
 
   /// <summary>

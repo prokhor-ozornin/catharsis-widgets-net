@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTest
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.RuTube(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    Widgets.RuTube().Should().BeOfType<RuTubeWidgetsCreator>().And.BeSameAs(Widgets.RuTube());
+    Widgets.Create.RuTube().Should().BeOfType<RuTubeWidgetsCreator>().And.BeSameAs(Widgets.Create.RuTube());
   }
 }

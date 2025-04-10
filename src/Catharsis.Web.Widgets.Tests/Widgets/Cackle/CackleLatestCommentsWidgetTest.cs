@@ -45,11 +45,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, ICackleLatestCommentsWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, ICackleLatestCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -66,11 +62,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(short size, ICackleLatestCommentsWidget widget)
-    {
-      widget.AvatarSize(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<short>("AvatarSizeProperty").Should().Be(size);
-    }
+    static void Validate(short size, ICackleLatestCommentsWidget widget) => widget.AvatarSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short>("AvatarSizeProperty").Should().Be(size);
   }
 
   /// <summary>
@@ -87,11 +79,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte max, ICackleLatestCommentsWidget widget)
-    {
-      widget.Max(max).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("MaxProperty").Should().Be(max);
-    }
+    static void Validate(byte max, ICackleLatestCommentsWidget widget) => widget.Max(max).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("MaxProperty").Should().Be(max);
   }
 
   /// <summary>
@@ -108,11 +96,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(int size, ICackleLatestCommentsWidget widget)
-    {
-      widget.TextSize(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<int>("TextSizeProperty").Should().Be(size);
-    }
+    static void Validate(int size, ICackleLatestCommentsWidget widget) => widget.TextSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<int>("TextSizeProperty").Should().Be(size);
   }
 
   /// <summary>
@@ -129,11 +113,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(int size, ICackleLatestCommentsWidget widget)
-    {
-      widget.TitleSize(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<int>("TitleSizeProperty").Should().Be(size);
-    }
+    static void Validate(int size, ICackleLatestCommentsWidget widget) => widget.TitleSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<int>("TitleSizeProperty").Should().Be(size);
   }
 
   /// <summary>

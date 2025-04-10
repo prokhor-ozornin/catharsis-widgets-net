@@ -43,11 +43,7 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string hash, IGravatarProfileUrlWidget widget)
-    {
-      widget.Hash(hash).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HashProperty").Should().Be(hash);
-    }
+    static void Validate(string hash, IGravatarProfileUrlWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashProperty").Should().Be(hash);
   }
 
   /// <summary>
@@ -67,11 +63,7 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string format, IGravatarProfileUrlWidget widget)
-    {
-      widget.Format(format).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("FormatProperty").Should().Be(format);
-    }
+    static void Validate(string format, IGravatarProfileUrlWidget widget) => widget.Format(format).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatProperty").Should().Be(format);
   }
 
   /// <summary>
@@ -92,11 +84,7 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string name, object value, IGravatarProfileUrlWidget widget)
-    {
-      widget.Parameter(name, value).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").Should().Contain(name, value);
-    }
+    static void Validate(string name, object value, IGravatarProfileUrlWidget widget) => widget.Parameter(name, value).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").Should().Contain(name, value);
   }
 
   /// <summary>

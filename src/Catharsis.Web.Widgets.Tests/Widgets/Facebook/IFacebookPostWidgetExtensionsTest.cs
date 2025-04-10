@@ -28,11 +28,7 @@ public sealed class IFacebookPostWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(Uri url, IFacebookPostWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
-    }
+    static void Validate(Uri url, IFacebookPostWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
   }
   
   /// <summary>
@@ -43,7 +39,7 @@ public sealed class IFacebookPostWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new FacebookPostWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -51,10 +47,6 @@ public sealed class IFacebookPostWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IFacebookPostWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
-    }
+    static void Validate(short width, IFacebookPostWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
   }
 }

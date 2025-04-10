@@ -4318,6 +4318,17 @@
             <exception cref="T:System.ArgumentNullException">If <paramref name="format"/> is a <c>null</c> reference.</exception>
             <exception cref="T:System.ArgumentException">If <paramref name="format"/> is <see cref="F:System.String.Empty"/> string.</exception>
         </member>
+        <member name="T:Catharsis.Web.Widgets.IInlineImageWidgetsCreator">
+            <summary>
+              <para>Helper factory class for managing inlime image widgets.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.IInlineImageWidgetsCreator.InlineImage">
+            <summary>
+              <para></para>
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Catharsis.Web.Widgets.InlineImageWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IInlineImageWidget"/>
         </member>
@@ -4339,6 +4350,12 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.InlineImageWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IHtmlContent.ToHtml"/>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.InlineImageWidgetsCreator">
+            <inheritdoc cref="T:Catharsis.Web.Widgets.IInlineImageWidgetsCreator"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.InlineImageWidgetsCreator.InlineImage">
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IInlineImageWidgetsCreator.InlineImage"/>
         </member>
         <member name="T:Catharsis.Web.Widgets.IIntenseDebateCommentsWidget">
             <summary>

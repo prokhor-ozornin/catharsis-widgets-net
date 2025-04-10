@@ -43,11 +43,7 @@ public sealed class MailRuIcqWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IMailRuIcqWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IMailRuIcqWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -67,11 +63,7 @@ public sealed class MailRuIcqWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string language, IMailRuIcqWidget widget)
-    {
-      widget.Language(language).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
-    }
+    static void Validate(string language, IMailRuIcqWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
   }
 
   /// <summary>

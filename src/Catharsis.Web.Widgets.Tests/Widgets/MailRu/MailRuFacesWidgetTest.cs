@@ -51,11 +51,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget)
-    {
-      widget.BackgroundColor(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("BackgroundColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IMailRuFacesWidget widget) => widget.BackgroundColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BackgroundColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -75,11 +71,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget)
-    {
-      widget.BorderColor(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("BorderColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IMailRuFacesWidget widget) => widget.BorderColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BorderColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -99,11 +91,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string domain, IMailRuFacesWidget widget)
-    {
-      widget.Domain(domain).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("DomainProperty").Should().Be(domain);
-    }
+    static void Validate(string domain, IMailRuFacesWidget widget) => widget.Domain(domain).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainProperty").Should().Be(domain);
   }
 
   /// <summary>
@@ -123,11 +111,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string font, IMailRuFacesWidget widget)
-    {
-      widget.Font(font).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("FontProperty").Should().Be(font);
-    }
+    static void Validate(string font, IMailRuFacesWidget widget) => widget.Font(font).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FontProperty").Should().Be(font);
   }
 
   /// <summary>
@@ -147,11 +131,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IMailRuFacesWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IMailRuFacesWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -171,11 +151,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget)
-    {
-      widget.HyperlinkColor(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HyperlinkColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IMailRuFacesWidget widget) => widget.HyperlinkColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HyperlinkColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -195,11 +171,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget)
-    {
-      widget.TextColor(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TextColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IMailRuFacesWidget widget) => widget.TextColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -216,11 +188,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IMailRuFacesWidget widget)
-    {
-      widget.Title(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("TitleProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IMailRuFacesWidget widget) => widget.Title(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TitleProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -240,11 +208,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget)
-    {
-      widget.TitleColor(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TitleColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IMailRuFacesWidget widget) => widget.TitleColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleColorProperty").Should().Be(color);
   }
     
   /// <summary>
@@ -264,11 +228,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string text, IMailRuFacesWidget widget)
-    {
-      widget.TitleText(text).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TitleTextProperty").Should().Be(text);
-    }
+    static void Validate(string text, IMailRuFacesWidget widget) => widget.TitleText(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleTextProperty").Should().Be(text);
   }
 
   /// <summary>
@@ -288,11 +248,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IMailRuFacesWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IMailRuFacesWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>

@@ -27,11 +27,7 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(TumblrFollowButtonType type, ITumblrFollowButtonWidget widget)
-    {
-      widget.Type(type).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) type);
-    }
+    static void Validate(TumblrFollowButtonType type, ITumblrFollowButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) type);
   }
 
   /// <summary>
@@ -50,10 +46,6 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(TumblrFollowButtonColorScheme scheme, ITumblrFollowButtonWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
-    }
+    static void Validate(TumblrFollowButtonColorScheme scheme, ITumblrFollowButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
   }
 }

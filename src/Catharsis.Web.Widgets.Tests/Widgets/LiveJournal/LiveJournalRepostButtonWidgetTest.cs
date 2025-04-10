@@ -42,11 +42,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string text, ILiveJournalRepostButtonWidget widget)
-    {
-      widget.Text(text).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TextProperty").Should().Be(text);
-    }
+    static void Validate(string text, ILiveJournalRepostButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextProperty").Should().Be(text);
   }
 
   /// <summary>
@@ -66,11 +62,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string title, ILiveJournalRepostButtonWidget widget)
-    {
-      widget.Title(title).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TitleProperty").Should().Be(title);
-    }
+    static void Validate(string title, ILiveJournalRepostButtonWidget widget) => widget.Title(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleProperty").Should().Be(title);
   }
 
   /// <summary>

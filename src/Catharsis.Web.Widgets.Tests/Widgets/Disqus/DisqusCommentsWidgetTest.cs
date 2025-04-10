@@ -41,11 +41,7 @@ public sealed class DisqusCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IDisqusCommentsWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IDisqusCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>

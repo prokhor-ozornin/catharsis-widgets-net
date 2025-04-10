@@ -19,7 +19,7 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new PinterestBoardWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -27,11 +27,7 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short height, IPinterestBoardWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
-    }
+    static void Validate(short height, IPinterestBoardWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
   }
 
   /// <summary>
@@ -42,7 +38,7 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new PinterestBoardWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -50,11 +46,7 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IPinterestBoardWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
-    }
+    static void Validate(short width, IPinterestBoardWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -90,7 +82,7 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Image(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Image(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new PinterestBoardWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -98,11 +90,7 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IPinterestBoardWidget widget)
-    {
-      widget.Image(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ImageProperty").Should().Be(width.ToInvariantString());
-    }
+    static void Validate(short width, IPinterestBoardWidget widget) => widget.Image(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageProperty").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>

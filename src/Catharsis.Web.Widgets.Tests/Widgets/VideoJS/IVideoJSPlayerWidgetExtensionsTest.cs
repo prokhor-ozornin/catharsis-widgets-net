@@ -19,7 +19,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new VideoJSPlayerWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -27,11 +27,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IVideoJSPlayerWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
-    }
+    static void Validate(short width, IVideoJSPlayerWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -42,7 +38,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new VideoJSPlayerWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -50,11 +46,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short height, IVideoJSPlayerWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
-    }
+    static void Validate(short height, IVideoJSPlayerWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
   }
 
   /// <summary>
@@ -74,10 +66,6 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate((string Url, string ContentType)[] videos, IVideoJSPlayerWidget widget)
-    {
-      IVideoJSPlayerWidgetExtensions.Videos(widget, videos).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IEnumerable<(string ContentType, string Url)>>("VideosProperty").Should().Equal(videos);
-    }
+    static void Validate((string Url, string ContentType)[] videos, IVideoJSPlayerWidget widget) => IVideoJSPlayerWidgetExtensions.Videos(widget, videos).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<(string ContentType, string Url)>>("VideosProperty").Should().Equal(videos);
   }
 }

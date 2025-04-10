@@ -27,11 +27,7 @@ public sealed class IVkontakteCommunityWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(VkontakteCommunityMode mode, IVkontakteCommunityWidget widget)
-    {
-      widget.Mode(mode).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("ModeProperty").Should().Be((byte) mode);
-    }
+    static void Validate(VkontakteCommunityMode mode, IVkontakteCommunityWidget widget) => widget.Mode(mode).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("ModeProperty").Should().Be((byte) mode);
   }
 
   /// <summary>
@@ -42,7 +38,7 @@ public sealed class IVkontakteCommunityWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IVkontakteCommunityWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IVkontakteCommunityWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new VkontakteCommunityWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -50,11 +46,7 @@ public sealed class IVkontakteCommunityWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IVkontakteCommunityWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
-    }
+    static void Validate(short width, IVkontakteCommunityWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -65,7 +57,7 @@ public sealed class IVkontakteCommunityWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IVkontakteCommunityWidgetExtensions.Height(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IVkontakteCommunityWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new VkontakteCommunityWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -73,10 +65,6 @@ public sealed class IVkontakteCommunityWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short height, IVkontakteCommunityWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
-    }
+    static void Validate(short height, IVkontakteCommunityWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
   }
 }

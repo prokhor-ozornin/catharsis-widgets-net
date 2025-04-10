@@ -46,11 +46,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string scheme, IFacebookCommentsWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
-    }
+    static void Validate(string scheme, IFacebookCommentsWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
   }
 
   /// <summary>
@@ -67,11 +63,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool mobile, IFacebookCommentsWidget widget)
-    {
-      widget.Mobile(mobile).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("MobileProperty").Should().Be(mobile);
-    }
+    static void Validate(bool mobile, IFacebookCommentsWidget widget) => widget.Mobile(mobile).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("MobileProperty").Should().Be(mobile);
   }
 
   /// <summary>
@@ -91,11 +83,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string order, IFacebookCommentsWidget widget)
-    {
-      widget.Order(order).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("OrderProperty").Should().Be(order);
-    }
+    static void Validate(string order, IFacebookCommentsWidget widget) => widget.Order(order).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OrderProperty").Should().Be(order);
   }
 
   /// <summary>
@@ -112,11 +100,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte count, IFacebookCommentsWidget widget)
-    {
-      widget.Posts(count).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte?>("PostsProperty").Should().Be(count);
-    }
+    static void Validate(byte count, IFacebookCommentsWidget widget) => widget.Posts(count).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("PostsProperty").Should().Be(count);
   }
 
   /// <summary>
@@ -136,11 +120,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, IFacebookCommentsWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, IFacebookCommentsWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -160,11 +140,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IFacebookCommentsWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IFacebookCommentsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>

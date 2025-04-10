@@ -42,11 +42,7 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IGoogleAnalyticsWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IGoogleAnalyticsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -66,11 +62,7 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string domain, IGoogleAnalyticsWidget widget)
-    {
-      widget.Domain(domain).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("DomainProperty").Should().Be(domain);
-    }
+    static void Validate(string domain, IGoogleAnalyticsWidget widget) => widget.Domain(domain).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainProperty").Should().Be(domain);
   }
 
   /// <summary>

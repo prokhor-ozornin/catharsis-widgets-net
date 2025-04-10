@@ -47,11 +47,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, IGooglePlusOneButtonWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, IGooglePlusOneButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -71,11 +67,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IGooglePlusOneButtonWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IGooglePlusOneButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -95,11 +87,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string size, IGooglePlusOneButtonWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("SizeProperty").Should().Be(size);
-    }
+    static void Validate(string size, IGooglePlusOneButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size);
   }
 
   /// <summary>
@@ -119,11 +107,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string alignment, IGooglePlusOneButtonWidget widget)
-    {
-      widget.Alignment(alignment).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AlignmentProperty").Should().Be(alignment);
-    }
+    static void Validate(string alignment, IGooglePlusOneButtonWidget widget) => widget.Alignment(alignment).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AlignmentProperty").Should().Be(alignment);
   }
 
   /// <summary>
@@ -143,11 +127,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string annotation, IGooglePlusOneButtonWidget widget)
-    {
-      widget.Annotation(annotation).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AnnotationProperty").Should().Be(annotation);
-    }
+    static void Validate(string annotation, IGooglePlusOneButtonWidget widget) => widget.Annotation(annotation).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AnnotationProperty").Should().Be(annotation);
   }
 
   /// <summary>
@@ -167,11 +147,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string callback, IGooglePlusOneButtonWidget widget)
-    {
-      widget.Callback(callback).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("CallbackProperty").Should().Be(callback);
-    }
+    static void Validate(string callback, IGooglePlusOneButtonWidget widget) => widget.Callback(callback).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CallbackProperty").Should().Be(callback);
   }
 
   /// <summary>
@@ -188,11 +164,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IGooglePlusOneButtonWidget widget)
-    {
-      widget.Recommendations(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("RecommendationsProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IGooglePlusOneButtonWidget widget) => widget.Recommendations(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("RecommendationsProperty").Should().Be(enabled);
   }
 
   /// <summary>

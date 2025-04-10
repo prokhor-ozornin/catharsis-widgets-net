@@ -27,10 +27,6 @@ public sealed class IVkontakteSubscriptionWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(VkontakteSubscriptionButtonLayout layout, IVkontakteSubscriptionWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("LayoutProperty").Should().Be((byte) layout);
-    }
+    static void Validate(VkontakteSubscriptionButtonLayout layout, IVkontakteSubscriptionWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LayoutProperty").Should().Be((byte) layout);
   }
 }

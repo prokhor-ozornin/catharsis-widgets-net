@@ -43,11 +43,7 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, ITumblrFollowButtonWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, ITumblrFollowButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -64,11 +60,7 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte type, ITumblrFollowButtonWidget widget)
-    {
-      widget.Type(type).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("TypeProperty").Should().Be(type);
-    }
+    static void Validate(byte type, ITumblrFollowButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeProperty").Should().Be(type);
   }
 
   /// <summary>
@@ -88,11 +80,7 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string scheme, ITumblrFollowButtonWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
-    }
+    static void Validate(string scheme, ITumblrFollowButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
   }
 
   /// <summary>

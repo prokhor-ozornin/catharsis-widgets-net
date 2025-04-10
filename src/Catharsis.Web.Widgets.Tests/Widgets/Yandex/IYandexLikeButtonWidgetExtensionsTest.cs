@@ -27,11 +27,7 @@ public sealed class IYandexLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(YandexLikeButtonSize size, IYandexLikeButtonWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToString().ToLowerInvariant());
-    }
+    static void Validate(YandexLikeButtonSize size, IYandexLikeButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -50,11 +46,7 @@ public sealed class IYandexLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(YandexLikeButtonLayout layout, IYandexLikeButtonWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(layout.ToString().ToLowerInvariant());
-    }
+    static void Validate(YandexLikeButtonLayout layout, IYandexLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -74,10 +66,6 @@ public sealed class IYandexLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(Uri url, IYandexLikeButtonWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
-    }
+    static void Validate(Uri url, IYandexLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
   }
 }

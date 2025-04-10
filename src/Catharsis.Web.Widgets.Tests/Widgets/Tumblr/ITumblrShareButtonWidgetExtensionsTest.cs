@@ -27,11 +27,7 @@ public sealed class ITumblrShareButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(TumblrShareButtonType type, ITumblrShareButtonWidget widget)
-    {
-      widget.Type(type).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) type);
-    }
+    static void Validate(TumblrShareButtonType type, ITumblrShareButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) type);
   }
 
   /// <summary>
@@ -50,10 +46,6 @@ public sealed class ITumblrShareButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(TumblrShareButtonColorScheme scheme, ITumblrShareButtonWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
-    }
+    static void Validate(TumblrShareButtonColorScheme scheme, ITumblrShareButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
   }
 }

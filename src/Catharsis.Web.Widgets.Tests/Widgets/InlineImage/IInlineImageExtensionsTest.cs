@@ -27,11 +27,7 @@ public sealed class IInlineImageExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(IInlineImageWidget widget)
-    {
-      widget.Jpg().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("FormatProperty").Should().Be("jpg");
-    }
+    static void Validate(IInlineImageWidget widget) => widget.Jpg().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatProperty").Should().Be("jpg");
   }
 
   /// <summary>
@@ -50,11 +46,7 @@ public sealed class IInlineImageExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(IInlineImageWidget widget)
-    {
-      widget.Png().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("FormatProperty").Should().Be("png");
-    }
+    static void Validate(IInlineImageWidget widget) => widget.Png().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatProperty").Should().Be("png");
   }
 
   /// <summary>
@@ -73,10 +65,6 @@ public sealed class IInlineImageExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(IInlineImageWidget widget)
-    {
-      widget.Gif().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("FormatProperty").Should().Be("gif");
-    }
+    static void Validate(IInlineImageWidget widget) => widget.Gif().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatProperty").Should().Be("gif");
   }
 }

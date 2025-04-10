@@ -27,11 +27,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(FacebookButtonLayout layout, IFacebookLikeButtonWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(layout.ToString().ToLowerInvariant());
-    }
+    static void Validate(FacebookButtonLayout layout, IFacebookLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -51,11 +47,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(Uri url, IFacebookLikeButtonWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
-    }
+    static void Validate(Uri url, IFacebookLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
   }
 
   /// <summary>
@@ -66,7 +58,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new FacebookLikeButtonWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -74,11 +66,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IFacebookLikeButtonWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
-    }
+    static void Validate(short width, IFacebookLikeButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -97,11 +85,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(FacebookLikeButtonVerb verb, IFacebookLikeButtonWidget widget)
-    {
-      widget.Verb(verb).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("VerbProperty").Should().Be(verb.ToString().ToLowerInvariant());
-    }
+    static void Validate(FacebookLikeButtonVerb verb, IFacebookLikeButtonWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.GetPropertyValue<string>("VerbProperty").Should().Be(verb.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -120,10 +104,6 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(FacebookColorScheme scheme, IFacebookLikeButtonWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
-    }
+    static void Validate(FacebookColorScheme scheme, IFacebookLikeButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
   }
 }

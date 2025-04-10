@@ -44,11 +44,7 @@ public sealed class VideoJSPlayerWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string extra, IVideoJSPlayerWidget widget)
-    {
-      widget.Extra(extra).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ExtraProperty").Should().Be(extra);
-    }
+    static void Validate(string extra, IVideoJSPlayerWidget widget) => widget.Extra(extra).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ExtraProperty").Should().Be(extra);
   }
 
   /// <summary>
@@ -68,11 +64,7 @@ public sealed class VideoJSPlayerWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IVideoJSPlayerWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IVideoJSPlayerWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -92,11 +84,7 @@ public sealed class VideoJSPlayerWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IVideoJSPlayerWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IVideoJSPlayerWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -115,11 +103,7 @@ public sealed class VideoJSPlayerWidgetTest : UnitTest
 
     return;
 
-    static void Validate(IEnumerable<(string Url, string ContentType)> videos, IVideoJSPlayerWidget widget)
-    {
-      widget.Videos(videos).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IEnumerable<(string ContentType, string Url)>>("VideosProperty").Should().Equal(videos);
-    }
+    static void Validate(IEnumerable<(string Url, string ContentType)> videos, IVideoJSPlayerWidget widget) => widget.Videos(videos).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<(string ContentType, string Url)>>("VideosProperty").Should().Equal(videos);
   }
 
   /// <summary>

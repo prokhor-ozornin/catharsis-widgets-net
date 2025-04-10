@@ -27,11 +27,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(YandexMoneyButtonColor color, IYandexMoneyButtonWidget widget)
-    {
-      widget.Color(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be(color.ToString().ToLowerInvariant());
-    }
+    static void Validate(YandexMoneyButtonColor color, IYandexMoneyButtonWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be(color.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -50,12 +46,8 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(YandexMoneyButtonSize size, IYandexMoneyButtonWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToString().ToLowerInvariant());
-    }
-  }
+    static void Validate(YandexMoneyButtonSize size, IYandexMoneyButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToString().ToLowerInvariant());
+      }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexMoneyButtonWidgetExtensions.Sum(IYandexMoneyButtonWidget, double)"/> method.</para>
@@ -65,7 +57,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new YandexMoneyButtonWidget();
       new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget));
@@ -73,11 +65,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(double sum, IYandexMoneyButtonWidget widget)
-    {
-      widget.Sum(sum).Should().BeSameAs(widget);
-      widget.GetPropertyValue<decimal>("SumProperty").Should().Be((decimal) sum);
-    }
+    static void Validate(double sum, IYandexMoneyButtonWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal>("SumProperty").Should().Be((decimal) sum);
   }
 
   /// <summary>
@@ -96,11 +84,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(YandexMoneyButtonText text, IYandexMoneyButtonWidget widget)
-    {
-      widget.Text(text).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("TextProperty").Should().Be((byte) text);
-    }
+    static void Validate(YandexMoneyButtonText text, IYandexMoneyButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextProperty").Should().Be((byte) text);
   }
 
   /// <summary>
@@ -119,10 +103,6 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(YandexMoneyButtonType type, IYandexMoneyButtonWidget widget)
-    {
-      widget.Type(type).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TypeProperty").Should().Be(type.ToString().ToLowerInvariant());
-    }
+    static void Validate(YandexMoneyButtonType type, IYandexMoneyButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TypeProperty").Should().Be(type.ToString().ToLowerInvariant());
   }
 }

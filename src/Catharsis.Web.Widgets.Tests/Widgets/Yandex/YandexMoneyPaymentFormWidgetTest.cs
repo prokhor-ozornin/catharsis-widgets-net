@@ -51,11 +51,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IYandexMoneyPaymentFormWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -75,11 +71,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string description, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.Description(description).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("DescriptionProperty").Should().Be(description);
-    }
+    static void Validate(string description, IYandexMoneyPaymentFormWidget widget) => widget.Description(description).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DescriptionProperty").Should().Be(description);
   }
 
   /// <summary>
@@ -96,11 +88,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(decimal sum, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.Sum(sum).Should().BeSameAs(widget);
-      widget.GetPropertyValue<decimal?>("SumProperty").Should().Be(sum);
-    }
+    static void Validate(decimal sum, IYandexMoneyPaymentFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal?>("SumProperty").Should().Be(sum);
   }
 
   /// <summary>
@@ -117,11 +105,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.Cards(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("CardsProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.Cards(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("CardsProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -138,11 +122,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte text, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.Text(text).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("TextProperty").Should().Be(text);
-    }
+    static void Validate(byte text, IYandexMoneyPaymentFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextProperty").Should().Be(text);
   }
 
   /// <summary>
@@ -159,11 +139,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.AskPayerPurpose(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("AskPayerPurposeProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerPurpose(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerPurposeProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -180,11 +156,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.AskPayerComment(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("AskPayerComment").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerComment(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerComment").Should().Be(enabled);
   }
 
   /// <summary>
@@ -201,11 +173,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.AskPayerFullName(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerFullName(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -222,11 +190,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.AskPayerEmail(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("AskPayerEmailProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerEmail(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerEmailProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -243,11 +207,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.AskPayerPhone(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerPhone(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -264,11 +224,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget)
-    {
-      widget.AskPayerAddress(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("AskPayerAddressProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerAddress(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerAddressProperty").Should().Be(enabled);
   }
 
   /// <summary>

@@ -48,11 +48,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IYandexAnalyticsWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IYandexAnalyticsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -69,11 +65,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
-    {
-      widget.WebVisor(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("WebVisorProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.WebVisor(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("WebVisorProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -90,11 +82,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
-    {
-      widget.ClickMap(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("ClickMapProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.ClickMap(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("ClickMapProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -111,11 +99,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
-    {
-      widget.TrackLinks(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("TrackLinksProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.TrackLinks(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TrackLinksProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -132,11 +116,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
-    {
-      widget.TrackHash(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("TrackHashProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.TrackHash(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TrackHashProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -153,11 +133,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
-    {
-      widget.Accurate(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("AccurateProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.Accurate(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AccurateProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -174,11 +150,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget)
-    {
-      widget.NoIndex(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("NoIndexProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.NoIndex(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("NoIndexProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -198,11 +170,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string language, IYandexAnalyticsWidget widget)
-    {
-      widget.Language(language).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
-    }
+    static void Validate(string language, IYandexAnalyticsWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
   }
 
   /// <summary>

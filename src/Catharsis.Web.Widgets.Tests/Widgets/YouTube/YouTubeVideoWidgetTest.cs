@@ -45,11 +45,7 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IYouTubeVideoWidget widget)
-    {
-      widget.Id(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("IdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IYouTubeVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -69,11 +65,7 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IYouTubeVideoWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IYouTubeVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -93,11 +85,7 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IYouTubeVideoWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IYouTubeVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -114,11 +102,7 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYouTubeVideoWidget widget)
-    {
-      widget.PrivateMode(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("PrivateModeProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYouTubeVideoWidget widget) => widget.PrivateMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("PrivateModeProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -135,11 +119,7 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYouTubeVideoWidget widget)
-    {
-      widget.SecureMode(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("SecureModeProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYouTubeVideoWidget widget) => widget.SecureMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("SecureModeProperty").Should().Be(enabled);
   }
 
   /// <summary>

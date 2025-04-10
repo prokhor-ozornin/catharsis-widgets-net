@@ -27,11 +27,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(ISoundCloudProfileIconWidget widget)
-    {
-      widget.OrangeWhite().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be("orange_white");
-    }
+    static void Validate(ISoundCloudProfileIconWidget widget) => widget.OrangeWhite().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("orange_white");
   }
 
   /// <summary>
@@ -50,11 +46,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(ISoundCloudProfileIconWidget widget)
-    {
-      widget.WhiteOrange().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be("white_orange");
-    }
+    static void Validate(ISoundCloudProfileIconWidget widget) => widget.WhiteOrange().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("white_orange");
   }
 
   /// <summary>
@@ -73,11 +65,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(ISoundCloudProfileIconWidget widget)
-    {
-      widget.BlackWhite().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be("black_white");
-    }
+    static void Validate(ISoundCloudProfileIconWidget widget) => widget.BlackWhite().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("black_white");
   }
 
   /// <summary>
@@ -96,11 +84,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(ISoundCloudProfileIconWidget widget)
-    {
-      widget.WhiteTransparent().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be("white_transparent");
-    }
+    static void Validate(ISoundCloudProfileIconWidget widget) => widget.WhiteTransparent().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("white_transparent");
   }
 
   /// <summary>
@@ -119,11 +103,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(ISoundCloudProfileIconWidget widget)
-    {
-      widget.OrangeTransparent().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be("orange_transparent");
-    }
+    static void Validate(ISoundCloudProfileIconWidget widget) => widget.OrangeTransparent().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("orange_transparent");
   }
 
   /// <summary>
@@ -142,10 +122,6 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(SoundCloudProfileIconSize size, ISoundCloudProfileIconWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<short>("SizeProperty").Should().Be((short) size);
-    }
+    static void Validate(SoundCloudProfileIconSize size, ISoundCloudProfileIconWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short>("SizeProperty").Should().Be((short) size);
   }
 }

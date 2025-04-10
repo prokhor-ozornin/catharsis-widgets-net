@@ -48,11 +48,7 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IMailRuGroupsWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IMailRuGroupsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -72,11 +68,7 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IMailRuGroupsWidget widget)
-    {
-      widget.BackgroundColor(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("BackgroundColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IMailRuGroupsWidget widget) => widget.BackgroundColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BackgroundColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -96,11 +88,7 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IMailRuGroupsWidget widget)
-    {
-      widget.ButtonColor(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ButtonColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IMailRuGroupsWidget widget) => widget.ButtonColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ButtonColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -120,11 +108,7 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IMailRuGroupsWidget widget)
-    {
-      widget.Domain(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("DomainProperty").Should().Be(color);
-    }
+    static void Validate(string color, IMailRuGroupsWidget widget) => widget.Domain(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -144,11 +128,7 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IMailRuGroupsWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IMailRuGroupsWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -165,11 +145,7 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IMailRuGroupsWidget widget)
-    {
-      widget.Subscribers(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("SubscribersProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IMailRuGroupsWidget widget) => widget.Subscribers(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("SubscribersProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -189,11 +165,7 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IMailRuGroupsWidget widget)
-    {
-      widget.TextColor(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TextColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IMailRuGroupsWidget widget) => widget.TextColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -213,11 +185,7 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IMailRuGroupsWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IMailRuGroupsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>

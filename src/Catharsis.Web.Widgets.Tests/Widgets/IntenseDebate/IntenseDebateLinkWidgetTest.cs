@@ -44,11 +44,7 @@ public sealed class IntenseDebateLinkWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IIntenseDebateLinkWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IIntenseDebateLinkWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -68,11 +64,7 @@ public sealed class IntenseDebateLinkWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IIntenseDebateLinkWidget widget)
-    {
-      widget.PostId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("PostIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IIntenseDebateLinkWidget widget) => widget.PostId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PostIdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -92,11 +84,7 @@ public sealed class IntenseDebateLinkWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, IIntenseDebateLinkWidget widget)
-    {
-      widget.PostUrl(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("PostUrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, IIntenseDebateLinkWidget widget) => widget.PostUrl(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PostUrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -116,11 +104,7 @@ public sealed class IntenseDebateLinkWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string title, IIntenseDebateLinkWidget widget)
-    {
-      widget.PostTitle(title).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("PostTitleProperty").Should().Be(title);
-    }
+    static void Validate(string title, IIntenseDebateLinkWidget widget) => widget.PostTitle(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PostTitleProperty").Should().Be(title);
   }
 
   /// <summary>

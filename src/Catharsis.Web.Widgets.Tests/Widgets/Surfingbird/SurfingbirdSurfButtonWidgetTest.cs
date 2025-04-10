@@ -47,11 +47,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, ISurfingbirdSurfButtonWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, ISurfingbirdSurfButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -71,11 +67,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string layout, ISurfingbirdSurfButtonWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
-    }
+    static void Validate(string layout, ISurfingbirdSurfButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
   }
 
   /// <summary>
@@ -95,11 +87,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, ISurfingbirdSurfButtonWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, ISurfingbirdSurfButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -119,11 +107,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, ISurfingbirdSurfButtonWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, ISurfingbirdSurfButtonWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -140,11 +124,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, ISurfingbirdSurfButtonWidget widget)
-    {
-      widget.Counter(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("CounterProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, ISurfingbirdSurfButtonWidget widget) => widget.Counter(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("CounterProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -164,11 +144,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string label, ISurfingbirdSurfButtonWidget widget)
-    {
-      widget.Label(label).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LabelProperty").Should().Be(label);
-    }
+    static void Validate(string label, ISurfingbirdSurfButtonWidget widget) => widget.Label(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LabelProperty").Should().Be(label);
   }
 
   /// <summary>
@@ -188,11 +164,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, ISurfingbirdSurfButtonWidget widget)
-    {
-      widget.Color(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, ISurfingbirdSurfButtonWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be(color);
   }
 
   /// <summary>

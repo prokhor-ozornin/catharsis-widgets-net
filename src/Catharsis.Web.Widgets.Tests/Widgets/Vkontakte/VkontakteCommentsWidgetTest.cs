@@ -44,11 +44,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte limit, IVkontakteCommentsWidget widget)
-    {
-      widget.Limit(limit).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("LimitProperty").Should().Be(limit);
-    }
+    static void Validate(byte limit, IVkontakteCommentsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LimitProperty").Should().Be(limit);
   }
 
   /// <summary>
@@ -68,11 +64,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontakteCommentsWidget widget)
-    {
-      widget.ElementId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontakteCommentsWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -91,11 +83,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string[] types, IVkontakteCommentsWidget widget)
-    {
-      widget.Attach(types).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IEnumerable<string>>("AttachProperty").Should().Equal(types);
-    }
+    static void Validate(string[] types, IVkontakteCommentsWidget widget) => widget.Attach(types).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("AttachProperty").Should().Equal(types);
   }
 
   /// <summary>
@@ -115,11 +103,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IVkontakteCommentsWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IVkontakteCommentsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -136,11 +120,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IVkontakteCommentsWidget widget)
-    {
-      widget.AutoPublish(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("AutoPublishProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IVkontakteCommentsWidget widget) => widget.AutoPublish(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("AutoPublishProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -157,11 +137,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IVkontakteCommentsWidget widget)
-    {
-      widget.AutoUpdate(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("AutoUpdateProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IVkontakteCommentsWidget widget) => widget.AutoUpdate(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("AutoUpdateProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -178,11 +154,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool? enabled, IVkontakteCommentsWidget widget)
-    {
-      widget.Mini(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("MiniProperty").Should().Be(enabled);
-    }
+    static void Validate(bool? enabled, IVkontakteCommentsWidget widget) => widget.Mini(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("MiniProperty").Should().Be(enabled);
   }
 
   /// <summary>

@@ -48,11 +48,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string scheme, IFacebookLikeButtonWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
-    }
+    static void Validate(string scheme, IFacebookLikeButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
   }
 
   /// <summary>
@@ -69,11 +65,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IFacebookLikeButtonWidget widget)
-    {
-      widget.Faces(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("FacesProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IFacebookLikeButtonWidget widget) => widget.Faces(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("FacesProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -90,11 +82,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IFacebookLikeButtonWidget widget)
-    {
-      widget.KidsMode(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("KidsModeProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IFacebookLikeButtonWidget widget) => widget.KidsMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("KidsModeProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -114,11 +102,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string layout, IFacebookLikeButtonWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
-    }
+    static void Validate(string layout, IFacebookLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
   }
 
   /// <summary>
@@ -138,11 +122,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string label, IFacebookLikeButtonWidget widget)
-    {
-      widget.TrackLabel(label).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TrackLabelProperty").Should().Be(label);
-    }
+    static void Validate(string label, IFacebookLikeButtonWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TrackLabelProperty").Should().Be(label);
   }
 
   /// <summary>
@@ -162,11 +142,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, IFacebookLikeButtonWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, IFacebookLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
     
   /// <summary>
@@ -186,11 +162,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string verb, IFacebookLikeButtonWidget widget)
-    {
-      widget.Verb(verb).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("VerbProperty").Should().Be(verb);
-    }
+    static void Validate(string verb, IFacebookLikeButtonWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("VerbProperty").Should().Be(verb);
   }
 
   /// <summary>
@@ -210,11 +182,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IFacebookLikeButtonWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IFacebookLikeButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>

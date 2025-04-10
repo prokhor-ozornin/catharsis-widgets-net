@@ -39,11 +39,7 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte type, ITumblrShareButtonWidget widget)
-    {
-      widget.Type(type).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("TypeProperty").Should().Be(type);
-    }
+    static void Validate(byte type, ITumblrShareButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeProperty").Should().Be(type);
   }
 
   /// <summary>
@@ -63,11 +59,7 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string scheme, ITumblrShareButtonWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
-    }
+    static void Validate(string scheme, ITumblrShareButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
   }
 
   /// <summary>

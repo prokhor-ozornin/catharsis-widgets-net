@@ -28,11 +28,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(Uri url, IYandexMoneyDonateFormWidget widget)
-    {
-      widget.ProjectSite(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ProjectSiteProperty").Should().Be(url.ToString());
-    }
+    static void Validate(Uri url, IYandexMoneyDonateFormWidget widget) => widget.ProjectSite(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ProjectSiteProperty").Should().Be(url.ToString());
   }
 
   /// <summary>
@@ -43,7 +39,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new YandexMoneyDonateFormWidget();
       new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget));
@@ -51,11 +47,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(double sum, IYandexMoneyDonateFormWidget widget)
-    {
-      widget.Sum(sum).Should().BeSameAs(widget);
-      widget.GetPropertyValue<decimal>("SumProperty").Should().Be((decimal) sum);
-    }
+    static void Validate(double sum, IYandexMoneyDonateFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal>("SumProperty").Should().Be((decimal) sum);
   }
 
   /// <summary>
@@ -74,10 +66,6 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(YandexMoneyDonateFormText text, IYandexMoneyDonateFormWidget widget)
-    {
-      widget.Text(text).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("TextProperty").Should().Be((byte) text);
-    }
+    static void Validate(YandexMoneyDonateFormText text, IYandexMoneyDonateFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextProperty").Should().Be((byte) text);
   }
 }

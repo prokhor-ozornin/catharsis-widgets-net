@@ -27,11 +27,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(string[] actions, IFacebookRecommendationsFeedWidget widget)
-    {
-      IFacebookRecommendationsFeedWidgetExtensions.Actions(widget, actions).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().Equal(actions);
-    }
+    static void Validate(string[] actions, IFacebookRecommendationsFeedWidget widget) => IFacebookRecommendationsFeedWidgetExtensions.Actions(widget, actions).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().Equal(actions);
   }
 
   /// <summary>
@@ -42,7 +38,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new FacebookRecommendationsFeedWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -50,11 +46,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
-    }
+    static void Validate(short width, IFacebookRecommendationsFeedWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -74,11 +66,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short height, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
-    }
+    static void Validate(short height, IFacebookRecommendationsFeedWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
   }
 
   /// <summary>
@@ -97,10 +85,6 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(FacebookColorScheme scheme, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
-    }
+    static void Validate(FacebookColorScheme scheme, IFacebookRecommendationsFeedWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
   }
 }

@@ -27,11 +27,7 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IVkontakteAuthButtonWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
-    }
+    static void Validate(short width, IVkontakteAuthButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -40,16 +36,16 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTest : UnitTest
   [Fact]
   public void Standard_Method()
   {
-    AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Standard(null, "url")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Standard(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
-    AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Standard(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
-
-    new VkontakteAuthButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Standard("url"), widget));
-      Assert.Equal(VkontakteAuthButtonType.Standard, widget.GetPropertyValue<VkontakteAuthButtonType>("TypeProperty"));
-      Assert.Equal("url", widget.GetPropertyValue<string>("UrlProperty"));
-    });
+      AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Standard(null, "url")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Standard(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Standard(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
+    }
+
+    return;
+
+    static void Validate(string url, IVkontakteAuthButtonWidget widget) => widget.Standard(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteAuthButtonType>("TypeProperty").Should().Be(VkontakteAuthButtonType.Standard).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -58,15 +54,15 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTest : UnitTest
   [Fact]
   public void Dynamic_Method()
   {
-    AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Dynamic(null, "callback")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-    AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
-    AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
-
-    new VkontakteAuthButtonWidget().With(widget =>
+    using (new AssertionScope())
     {
-      Assert.True(ReferenceEquals(widget.Dynamic("callback"), widget));
-      Assert.Equal(VkontakteAuthButtonType.Dynamic, widget.GetPropertyValue<VkontakteAuthButtonType>("TypeProperty"));
-      Assert.Equal("callback", widget.GetPropertyValue<string>("CallbackProperty"));
-    });
+      AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Dynamic(null, "callback")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
+    }
+
+    return;
+
+    static void Validate(string callback, IVkontakteAuthButtonWidget widget) => widget.Dynamic(callback).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteAuthButtonType>("TypeProperty").Should().Be(VkontakteAuthButtonType.Dynamic).And.Subject.GetPropertyValue<string>("CallbackProperty").Should().Be(callback);
   }
 }

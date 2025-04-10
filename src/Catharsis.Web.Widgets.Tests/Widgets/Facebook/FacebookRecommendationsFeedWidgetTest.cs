@@ -50,11 +50,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string scheme, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.Domain(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("DomainProperty").Should().Be(scheme);
-    }
+    static void Validate(string scheme, IFacebookRecommendationsFeedWidget widget) => widget.Domain(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainProperty").Should().Be(scheme);
   }
 
   /// <summary>
@@ -74,11 +70,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.AppId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AppIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IFacebookRecommendationsFeedWidget widget) => widget.AppId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AppIdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -121,11 +113,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IFacebookRecommendationsFeedWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -145,11 +133,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IFacebookRecommendationsFeedWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -169,11 +153,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string scheme, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
-    }
+    static void Validate(string scheme, IFacebookRecommendationsFeedWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
   }
 
   /// <summary>
@@ -190,11 +170,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.Header(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("HeaderProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IFacebookRecommendationsFeedWidget widget) => widget.Header(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("HeaderProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -214,11 +190,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string target, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.LinkTarget(target).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LinkTargetProperty").Should().Be(target);
-    }
+    static void Validate(string target, IFacebookRecommendationsFeedWidget widget) => widget.LinkTarget(target).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LinkTargetProperty").Should().Be(target);
   }
 
   /// <summary>
@@ -235,11 +207,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte max, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.MaxAge(max).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte?>("MaxAgeProperty").Should().Be(max);
-    }
+    static void Validate(byte max, IFacebookRecommendationsFeedWidget widget) => widget.MaxAge(max).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("MaxAgeProperty").Should().Be(max);
   }
 
   /// <summary>
@@ -259,11 +227,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string label, IFacebookRecommendationsFeedWidget widget)
-    {
-      widget.TrackLabel(label).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LabelProperty").Should().Be(label);
-    }
+    static void Validate(string label, IFacebookRecommendationsFeedWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LabelProperty").Should().Be(label);
   }
 
   /// <summary>

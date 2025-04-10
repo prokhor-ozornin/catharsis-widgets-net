@@ -28,11 +28,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(IPinterestPinItButtonWidget widget)
-    {
-      widget.Gray().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be("gray");
-    }
+    static void Validate(IPinterestPinItButtonWidget widget) => widget.Gray().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("gray");
   }
 
   /// <summary>
@@ -52,11 +48,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(CultureInfo culture, IPinterestPinItButtonWidget widget)
-    {
-      widget.Language(culture).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
-    }
+    static void Validate(CultureInfo culture, IPinterestPinItButtonWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
   }
 
   /// <summary>
@@ -75,11 +67,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(IPinterestPinItButtonWidget widget)
-    {
-      widget.Red().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be("red");
-    }
+    static void Validate(IPinterestPinItButtonWidget widget) => widget.Red().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("red");
   }
 
   /// <summary>
@@ -97,11 +85,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
     }
 
     return;
-
-    static void Validate(IPinterestPinItButtonWidget widget)
-    {
-      widget.Red().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be("white");
-    }
+ 
+    static void Validate(IPinterestPinItButtonWidget widget) => widget.Red().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("white");
   }
 }

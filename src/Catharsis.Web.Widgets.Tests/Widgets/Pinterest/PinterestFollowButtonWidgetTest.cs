@@ -42,11 +42,7 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IPinterestFollowButtonWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IPinterestFollowButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -66,11 +62,7 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string label, IPinterestFollowButtonWidget widget)
-    {
-      widget.Label(label).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LabelProperty").Should().Be(label);
-    }
+    static void Validate(string label, IPinterestFollowButtonWidget widget) => widget.Label(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LabelProperty").Should().Be(label);
   }
 
   /// <summary>

@@ -28,11 +28,7 @@ public sealed class IFacebookCommentsWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(Uri url, IFacebookCommentsWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
-    }
+    static void Validate(Uri url, IFacebookCommentsWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
   }
 
   /// <summary>
@@ -43,7 +39,7 @@ public sealed class IFacebookCommentsWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Width(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
       var widget = new FacebookCommentsWidget();
       new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
@@ -51,11 +47,7 @@ public sealed class IFacebookCommentsWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IFacebookCommentsWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
-    }
+    static void Validate(short width, IFacebookCommentsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -74,11 +66,7 @@ public sealed class IFacebookCommentsWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(FacebookColorScheme scheme, IFacebookCommentsWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
-    }
+    static void Validate(FacebookColorScheme scheme, IFacebookCommentsWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -97,10 +85,6 @@ public sealed class IFacebookCommentsWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(FacebookCommentsOrder order, IFacebookCommentsWidget widget)
-    {
-      widget.Order(order).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("OrderProperty").Should().Be(order.ToString().ToLowerInvariant());
-    }
+    static void Validate(FacebookCommentsOrder order, IFacebookCommentsWidget widget) => widget.Order(order).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OrderProperty").Should().Be(order.ToString().ToLowerInvariant());
   }
 }

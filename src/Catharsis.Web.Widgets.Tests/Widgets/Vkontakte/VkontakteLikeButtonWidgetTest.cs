@@ -50,11 +50,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontakteLikeButtonWidget widget)
-    {
-      widget.ElementId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontakteLikeButtonWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -74,11 +70,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string text, IVkontakteLikeButtonWidget widget)
-    {
-      widget.Text(text).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TextProperty").Should().Be(text);
-    }
+    static void Validate(string text, IVkontakteLikeButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextProperty").Should().Be(text);
   }
 
   /// <summary>
@@ -95,11 +87,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte verb, IVkontakteLikeButtonWidget widget)
-    {
-      widget.Verb(verb).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte?>("VerbProperty").Should().Be(verb);
-    }
+    static void Validate(byte verb, IVkontakteLikeButtonWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("VerbProperty").Should().Be(verb);
   }
 
   /// <summary>
@@ -119,11 +107,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string layout, IVkontakteLikeButtonWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
-    }
+    static void Validate(string layout, IVkontakteLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
   }
 
   /// <summary>
@@ -143,11 +127,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IVkontakteLikeButtonWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IVkontakteLikeButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -167,11 +147,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IVkontakteLikeButtonWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IVkontakteLikeButtonWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -191,11 +167,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string title, IVkontakteLikeButtonWidget widget)
-    {
-      widget.Title(title).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TitleProperty").Should().Be(title);
-    }
+    static void Validate(string title, IVkontakteLikeButtonWidget widget) => widget.Title(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleProperty").Should().Be(title);
   }
 
   /// <summary>
@@ -215,11 +187,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, IVkontakteLikeButtonWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, IVkontakteLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -239,11 +207,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string description, IVkontakteLikeButtonWidget widget)
-    {
-      widget.Description(description).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("DescriptionProperty").Should().Be(description);
-    }
+    static void Validate(string description, IVkontakteLikeButtonWidget widget) => widget.Description(description).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DescriptionProperty").Should().Be(description);
   }
 
   /// <summary>
@@ -263,11 +227,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, IVkontakteLikeButtonWidget widget)
-    {
-      widget.Image(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ImageProperty").Should().Be(url);
-    }
+    static void Validate(string url, IVkontakteLikeButtonWidget widget) => widget.Image(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageProperty").Should().Be(url);
   }
 
   /// <summary>

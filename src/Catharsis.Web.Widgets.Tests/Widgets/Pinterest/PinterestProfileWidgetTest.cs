@@ -44,11 +44,7 @@ public sealed class PinterestProfileWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IPinterestProfileWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IPinterestProfileWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -68,11 +64,7 @@ public sealed class PinterestProfileWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IPinterestProfileWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IPinterestProfileWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -92,11 +84,7 @@ public sealed class PinterestProfileWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IPinterestProfileWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IPinterestProfileWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -116,11 +104,7 @@ public sealed class PinterestProfileWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string image, IPinterestProfileWidget widget)
-    {
-      widget.Image(image).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ImageProperty").Should().Be(image);
-    }
+    static void Validate(string image, IPinterestProfileWidget widget) => widget.Image(image).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageProperty").Should().Be(image);
   }
 
   /// <summary>

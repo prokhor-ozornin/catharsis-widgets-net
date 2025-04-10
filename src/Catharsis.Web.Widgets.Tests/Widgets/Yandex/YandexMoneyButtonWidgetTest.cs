@@ -51,11 +51,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string account, IYandexMoneyButtonWidget widget)
-    {
-      widget.Account(account).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AccountProperty").Should().Be(account);
-    }
+    static void Validate(string account, IYandexMoneyButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
   }
 
   /// <summary>
@@ -75,11 +71,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string color, IYandexMoneyButtonWidget widget)
-    {
-      widget.Color(color).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be(color);
-    }
+    static void Validate(string color, IYandexMoneyButtonWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be(color);
   }
 
   /// <summary>
@@ -99,11 +91,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string description, IYandexMoneyButtonWidget widget)
-    {
-      widget.Description(description).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("DescriptionProperty").Should().Be(description);
-    }
+    static void Validate(string description, IYandexMoneyButtonWidget widget) => widget.Description(description).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DescriptionProperty").Should().Be(description);
   }
 
   /// <summary>
@@ -120,11 +108,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyButtonWidget widget)
-    {
-      widget.AskPayerFullName(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexMoneyButtonWidget widget) => widget.AskPayerFullName(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -141,11 +125,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyButtonWidget widget)
-    {
-      widget.AskPayerEmail(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("AskPayerEmailProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexMoneyButtonWidget widget) => widget.AskPayerEmail(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerEmailProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -162,11 +142,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyButtonWidget widget)
-    {
-      widget.AskPayerPhone(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexMoneyButtonWidget widget) => widget.AskPayerPhone(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -183,11 +159,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyButtonWidget widget)
-    {
-      widget.AskPayerAddress(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("AskPayerAddressProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IYandexMoneyButtonWidget widget) => widget.AskPayerAddress(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerAddressProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -207,11 +179,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string size, IYandexMoneyButtonWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("SizeProperty").Should().Be(size);
-    }
+    static void Validate(string size, IYandexMoneyButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size);
   }
 
   /// <summary>
@@ -228,11 +196,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(decimal sum, IYandexMoneyButtonWidget widget)
-    {
-      widget.Sum(sum).Should().BeSameAs(widget);
-      widget.GetPropertyValue<decimal?>("SumProperty").Should().Be(sum);
-    }
+    static void Validate(decimal sum, IYandexMoneyButtonWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal?>("SumProperty").Should().Be(sum);
   }
 
   /// <summary>
@@ -249,11 +213,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte text, IYandexMoneyButtonWidget widget)
-    {
-      widget.Text(text).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("TextProperty").Should().Be(text);
-    }
+    static void Validate(byte text, IYandexMoneyButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextProperty").Should().Be(text);
   }
 
   /// <summary>
@@ -273,11 +233,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string type, IYandexMoneyButtonWidget widget)
-    {
-      widget.Type(type).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TypeProperty").Should().Be(type);
-    }
+    static void Validate(string type, IYandexMoneyButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TypeProperty").Should().Be(type);
   }
 
   /// <summary>

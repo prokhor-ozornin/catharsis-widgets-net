@@ -43,11 +43,7 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string language, IYandexSharePanelWidget widget)
-    {
-      widget.Language(language).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
-    }
+    static void Validate(string language, IYandexSharePanelWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
   }
 
   /// <summary>
@@ -66,11 +62,7 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
 
     return;
 
-    static void Validate(IEnumerable<string> services, IYandexSharePanelWidget widget)
-    {
-      widget.Services(services).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IEnumerable<string>>("ServicesProperty").Should().Equal(services);
-    }
+    static void Validate(IEnumerable<string> services, IYandexSharePanelWidget widget) => widget.Services(services).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ServicesProperty").Should().Equal(services);
   }
 
   /// <summary>
@@ -90,11 +82,7 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string layout, IYandexSharePanelWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
-    }
+    static void Validate(string layout, IYandexSharePanelWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
   }
 
   /// <summary>

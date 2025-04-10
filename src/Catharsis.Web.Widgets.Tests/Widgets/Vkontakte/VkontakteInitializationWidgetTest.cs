@@ -41,11 +41,7 @@ public sealed class VkontakteInitializationWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontakteInitializationWidget widget)
-    {
-      widget.ApiId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ApiIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontakteInitializationWidget widget) => widget.ApiId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ApiIdProperty").Should().Be(id);
   }
 
   /// <summary>

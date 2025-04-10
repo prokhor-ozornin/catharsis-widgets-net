@@ -46,11 +46,7 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
 
     return;
 
-    static void Validate(IEnumerable<string> actions, IFacebookFacePileWidget widget)
-    {
-      widget.Actions(actions).Should().BeSameAs(widget);
-      widget.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().Equal(actions);
-    }
+    static void Validate(IEnumerable<string> actions, IFacebookFacePileWidget widget) => widget.Actions(actions).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().Equal(actions);
   }
 
   /// <summary>
@@ -70,11 +66,7 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string scheme, IFacebookFacePileWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
-    }
+    static void Validate(string scheme, IFacebookFacePileWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
   }
 
   /// <summary>
@@ -94,11 +86,7 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IFacebookFacePileWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IFacebookFacePileWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -115,11 +103,7 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte count, IFacebookFacePileWidget widget)
-    {
-      widget.MaxRows(count).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte?>("MaxRowsProperty").Should().Be(count);
-    }
+    static void Validate(byte count, IFacebookFacePileWidget widget) => widget.MaxRows(count).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("MaxRowsProperty").Should().Be(count);
   }
 
   /// <summary>
@@ -139,11 +123,7 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string size, IFacebookFacePileWidget widget)
-    {
-      widget.PhotoSize(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("PhotoSizeProperty").Should().Be(size);
-    }
+    static void Validate(string size, IFacebookFacePileWidget widget) => widget.PhotoSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PhotoSizeProperty").Should().Be(size);
   }
 
   /// <summary>
@@ -163,11 +143,7 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, IFacebookFacePileWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, IFacebookFacePileWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -187,11 +163,7 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IFacebookFacePileWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IFacebookFacePileWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>

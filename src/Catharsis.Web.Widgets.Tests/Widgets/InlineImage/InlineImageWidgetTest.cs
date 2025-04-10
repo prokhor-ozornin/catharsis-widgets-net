@@ -37,16 +37,12 @@ public sealed class InlineImageWidgetTest : UnitTest
       AssertionExtensions.Should(() => new InlineImageWidget().Contents(null)).ThrowExactly<ArgumentNullException>().WithParameterName("contents");
 
       var widget = new InlineImageWidget();
-      new[] { Array.Empty<byte>(), new Random().ByteSequence(16).ToArray() }.ForEach(value => Validate(value, widget));
+      new[] { [], new Random().ByteSequence(16).ToArray() }.ForEach(value => Validate(value, widget));
     }
 
     return;
 
-    static void Validate(byte[] contents, IInlineImageWidget widget)
-    {
-      widget.Contents(contents).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte[]>("ContentsProperty").Should().Equal(contents);
-    }
+    static void Validate(byte[] contents, IInlineImageWidget widget) => widget.Contents(contents).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte[]>("ContentsProperty").Should().Equal(contents);
   }
 
   /// <summary>
@@ -66,11 +62,7 @@ public sealed class InlineImageWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string format, IInlineImageWidget widget)
-    {
-      widget.Format(format).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("FormatProperty").Should().Be(format);
-    }
+    static void Validate(string format, IInlineImageWidget widget) => widget.Format(format).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatProperty").Should().Be(format);
   }
 
   /// <summary>

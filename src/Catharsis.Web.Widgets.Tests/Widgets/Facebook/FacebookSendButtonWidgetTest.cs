@@ -46,11 +46,7 @@ public sealed class FacebookSendButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, IFacebookSendButtonWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, IFacebookSendButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -70,11 +66,7 @@ public sealed class FacebookSendButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IFacebookSendButtonWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IFacebookSendButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -94,11 +86,7 @@ public sealed class FacebookSendButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IFacebookSendButtonWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IFacebookSendButtonWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -118,11 +106,7 @@ public sealed class FacebookSendButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string scheme, IFacebookSendButtonWidget widget)
-    {
-      widget.ColorScheme(scheme).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
-    }
+    static void Validate(string scheme, IFacebookSendButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
   }
 
   /// <summary>
@@ -139,11 +123,7 @@ public sealed class FacebookSendButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IFacebookSendButtonWidget widget)
-    {
-      widget.KidsMode(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool?>("KidsModeProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IFacebookSendButtonWidget widget) => widget.KidsMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("KidsModeProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -163,11 +143,7 @@ public sealed class FacebookSendButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string label, IFacebookSendButtonWidget widget)
-    {
-      widget.TrackLabel(label).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TrackLabelProperty").Should().Be(label);
-    }
+    static void Validate(string label, IFacebookSendButtonWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TrackLabelProperty").Should().Be(label);
   }
 
   /// <summary>

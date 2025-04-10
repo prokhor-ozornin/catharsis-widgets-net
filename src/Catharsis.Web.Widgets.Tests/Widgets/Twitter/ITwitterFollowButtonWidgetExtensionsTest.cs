@@ -29,11 +29,7 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(CultureInfo culture, ITwitterFollowButtonWidget widget)
-    {
-      widget.Language(culture).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
-    }
+    static void Validate(CultureInfo culture, ITwitterFollowButtonWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
   }
 
   /// <summary>
@@ -52,11 +48,7 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(TwitterFollowButtonSize size, ITwitterFollowButtonWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToString().ToLowerInvariant());
-    }
+    static void Validate(TwitterFollowButtonSize size, ITwitterFollowButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -75,10 +67,6 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(TwitterFollowButtonAlignment alignment, ITwitterFollowButtonWidget widget)
-    {
-      widget.Alignment(alignment).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AlignmentProperty").Should().Be(alignment.ToString().ToLowerInvariant());
-    }
+    static void Validate(TwitterFollowButtonAlignment alignment, ITwitterFollowButtonWidget widget) => widget.Alignment(alignment).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AlignmentProperty").Should().Be(alignment.ToString().ToLowerInvariant());
   }
 }

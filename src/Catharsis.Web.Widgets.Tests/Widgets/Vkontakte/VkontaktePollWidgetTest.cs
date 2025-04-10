@@ -44,11 +44,7 @@ public sealed class VkontaktePollWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontaktePollWidget widget)
-    {
-      widget.ElementId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontaktePollWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -68,11 +64,7 @@ public sealed class VkontaktePollWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IVkontaktePollWidget widget)
-    {
-      widget.Id(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("IdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IVkontaktePollWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(id);
   }
 
   /// <summary>
@@ -92,11 +84,7 @@ public sealed class VkontaktePollWidgetTest : UnitTest
 
     return; 
 
-    static void Validate(string url, IVkontaktePollWidget widget)
-    {
-      widget.Url(url).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("UrlProperty").Should().Be(url);
-    }
+    static void Validate(string url, IVkontaktePollWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -116,11 +104,7 @@ public sealed class VkontaktePollWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IVkontaktePollWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IVkontaktePollWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>

@@ -42,11 +42,7 @@ public sealed class FacebookInitializationWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string id, IFacebookInitializationWidget widget)
-    {
-      widget.AppId(id).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("AppIdProperty").Should().Be(id);
-    }
+    static void Validate(string id, IFacebookInitializationWidget widget) => widget.AppId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AppIdProperty").Should().Be(id);
   }
 
   /// <summary>

@@ -47,11 +47,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string type, IMailRuLikeButtonWidget widget)
-    {
-      widget.Type(type).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("TypeProperty").Should().Be(type);
-    }
+    static void Validate(string type, IMailRuLikeButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TypeProperty").Should().Be(type);
   }
 
   /// <summary>
@@ -71,11 +67,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string size, IMailRuLikeButtonWidget widget)
-    {
-      widget.Size(size).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("SizeProperty").Should().Be(size);
-    }
+    static void Validate(string size, IMailRuLikeButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size);
   }
 
   /// <summary>
@@ -92,11 +84,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte layout, IMailRuLikeButtonWidget widget)
-    {
-      widget.Layout(layout).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("LayoutProperty").Should().Be(layout);
-    }
+    static void Validate(byte layout, IMailRuLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LayoutProperty").Should().Be(layout);
   }
 
   /// <summary>
@@ -113,11 +101,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IMailRuLikeButtonWidget widget)
-    {
-      widget.Text(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("TextProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IMailRuLikeButtonWidget widget) => widget.Text(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TextProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -134,11 +118,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(byte type, IMailRuLikeButtonWidget widget)
-    {
-      widget.TextType(type).Should().BeSameAs(widget);
-      widget.GetPropertyValue<byte>("TextTypeProperty").Should().Be(type);
-    }
+    static void Validate(byte type, IMailRuLikeButtonWidget widget) => widget.TextType(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextTypeProperty").Should().Be(type);
   }
 
   /// <summary>
@@ -155,11 +135,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IMailRuLikeButtonWidget widget)
-    {
-      widget.Counter(enabled).Should().BeSameAs(widget);
-      widget.GetPropertyValue<bool>("CounterProperty").Should().Be(enabled);
-    }
+    static void Validate(bool enabled, IMailRuLikeButtonWidget widget) => widget.Counter(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("CounterProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -179,11 +155,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string position, IMailRuLikeButtonWidget widget)
-    {
-      widget.CounterPosition(position).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("CounterPositionProperty").Should().Be(position);
-    }
+    static void Validate(string position, IMailRuLikeButtonWidget widget) => widget.CounterPosition(position).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CounterPositionProperty").Should().Be(position);
   }
 
   /// <summary>

@@ -43,11 +43,7 @@ public sealed class FacebookVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IFacebookVideoWidget widget)
-    {
-      widget.Id(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("IdProperty").Should().Be(height);
-    }
+    static void Validate(string height, IFacebookVideoWidget widget) => widget.Id(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -67,11 +63,7 @@ public sealed class FacebookVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string width, IFacebookVideoWidget widget)
-    {
-      widget.Width(width).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be(width);
-    }
+    static void Validate(string width, IFacebookVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
   }
 
   /// <summary>
@@ -91,11 +83,7 @@ public sealed class FacebookVideoWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IFacebookVideoWidget widget)
-    {
-      widget.Height(height).Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be(height);
-    }
+    static void Validate(string height, IFacebookVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
