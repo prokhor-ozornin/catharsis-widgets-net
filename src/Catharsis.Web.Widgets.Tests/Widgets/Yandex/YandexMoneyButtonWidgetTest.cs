@@ -20,18 +20,21 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
   {
     typeof(YandexMoneyButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexMoneyButtonWidget>();
 
-    var widget = new YandexMoneyButtonWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("AskPayerEmailProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("AskPayerAddressProperty").Should().BeFalse();
-    widget.GetPropertyValue<string>("ColorProperty").Should().Be("orange");
-    widget.GetPropertyValue<string>("DescriptionProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("SizeProperty").Should().Be("l");
-    widget.GetPropertyValue<decimal?>("SumProperty").Should().BeNull();
-    widget.GetPropertyValue<byte>("TextProperty").Should().Be((byte) YandexMoneyButtonText.Pay);
-    widget.GetPropertyValue<string>("TypeProperty").Should().Be("yamoney-payment-type");
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyButtonWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerEmailProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerAddressProperty").Should().BeFalse();
+      widget.GetPropertyValue<string>("ColorProperty").Should().Be("orange");
+      widget.GetPropertyValue<string>("DescriptionProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("SizeProperty").Should().Be("l");
+      widget.GetPropertyValue<decimal?>("SumProperty").Should().BeNull();
+      widget.GetPropertyValue<byte>("TextProperty").Should().Be((byte) YandexMoneyButtonText.Pay);
+      widget.GetPropertyValue<string>("TypeProperty").Should().Be("yamoney-payment-type");
+    }
   }
 
   /// <summary>
@@ -45,8 +48,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new YandexMoneyButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -65,8 +67,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      var widget = new YandexMoneyButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -85,8 +86,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("description");
 
-      var widget = new YandexMoneyButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -102,8 +102,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -119,8 +118,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyButtonWidget();
-      new[] {false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] {false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -136,8 +134,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -153,8 +150,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -173,8 +169,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      var widget = new YandexMoneyButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -190,8 +185,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyButtonWidget();
-      new[] { decimal.MinValue, decimal.MaxValue }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] { decimal.MinValue, decimal.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -207,8 +201,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyButtonWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -227,8 +220,7 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Type(null)).ThrowExactly<ArgumentNullException>().WithParameterName("type");
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Type(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("type");
 
-      var widget = new YandexMoneyButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

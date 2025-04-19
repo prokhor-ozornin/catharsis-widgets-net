@@ -20,18 +20,21 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
   {
     typeof(FacebookActivityFeedWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookActivityFeedWidget>();
 
-    var widget = new FacebookActivityFeedWidget();
-    widget.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().BeEmpty();
-    widget.GetPropertyValue<string>("AppIdProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("DomainProperty").Should().BeNull();
-    widget.GetPropertyValue<bool?>("HeaderProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("LinkTargetProperty").Should().BeNull();
-    widget.GetPropertyValue<byte?>("MaxAgeProperty").Should().BeNull();
-    widget.GetPropertyValue<bool?>("RecommendationsProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("TrackLabelProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new FacebookActivityFeedWidget();
+      widget.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().BeEmpty();
+      widget.GetPropertyValue<string>("AppIdProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("DomainProperty").Should().BeNull();
+      widget.GetPropertyValue<bool?>("HeaderProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("LinkTargetProperty").Should().BeNull();
+      widget.GetPropertyValue<byte?>("MaxAgeProperty").Should().BeNull();
+      widget.GetPropertyValue<bool?>("RecommendationsProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TrackLabelProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -44,8 +47,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
     {
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("actions");
 
-      var widget = new FacebookActivityFeedWidget();
-      new[] { Enumerable.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { Enumerable.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -64,8 +66,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().AppId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().AppId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new FacebookActivityFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -84,8 +85,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      var widget = new FacebookActivityFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -104,8 +104,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      var widget = new FacebookActivityFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -121,8 +120,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new FacebookActivityFeedWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -141,8 +139,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new FacebookActivityFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -161,8 +158,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().LinkTarget(null)).ThrowExactly<ArgumentNullException>().WithParameterName("target");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().LinkTarget(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("target");
 
-      var widget = new FacebookActivityFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -178,8 +174,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new FacebookActivityFeedWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -195,8 +190,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new FacebookActivityFeedWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -215,8 +209,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().TrackLabel(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().TrackLabel(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      var widget = new FacebookActivityFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -235,8 +228,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new FacebookActivityFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

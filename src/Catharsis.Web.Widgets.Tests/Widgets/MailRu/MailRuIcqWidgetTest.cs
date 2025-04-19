@@ -21,9 +21,12 @@ public sealed class MailRuIcqWidgetTest : UnitTest
   {
     typeof(MailRuIcqWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IMailRuIcqWidget>();
 
-    var widget = new MailRuIcqWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new MailRuIcqWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -37,8 +40,7 @@ public sealed class MailRuIcqWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuIcqWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new MailRuIcqWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new MailRuIcqWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuIcqWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -57,8 +59,7 @@ public sealed class MailRuIcqWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuIcqWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new MailRuIcqWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      var widget = new MailRuIcqWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuIcqWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

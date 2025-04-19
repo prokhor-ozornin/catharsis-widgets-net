@@ -20,12 +20,15 @@ public sealed class VkontaktePostWidgetTest : UnitTest
   {
     typeof(VkontaktePostWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontaktePostWidget>();
 
-    var widget = new VkontaktePostWidget();
-    widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HashProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("OwnerProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new VkontaktePostWidget();
+      widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HashProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("OwnerProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -39,8 +42,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePostWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePostWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new VkontaktePostWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontaktePostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +61,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePostWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      var widget = new VkontaktePostWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontaktePostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -79,8 +80,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePostWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new VkontaktePostWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontaktePostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -99,8 +99,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(null)).ThrowExactly<ArgumentNullException>().WithParameterName("owner");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("owner");
 
-      var widget = new VkontaktePostWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontaktePostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -119,8 +118,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePostWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new VkontaktePostWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontaktePostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

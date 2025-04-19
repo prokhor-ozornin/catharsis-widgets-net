@@ -22,8 +22,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(new YandexMoneyDonateFormWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -41,8 +40,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -60,8 +58,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new YandexMoneyDonateFormWidget();
-      Enum.GetValues<YandexMoneyDonateFormText>().ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => Enum.GetValues<YandexMoneyDonateFormText>().ForEach(value => Validate(value, widget)));
     }
 
     return;

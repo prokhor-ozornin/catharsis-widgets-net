@@ -21,8 +21,7 @@ public sealed class IPinterestProfileWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestProfileWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new PinterestProfileWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new PinterestProfileWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IPinterestProfileWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestProfileWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new PinterestProfileWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new PinterestProfileWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class IPinterestProfileWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestProfileWidgetExtensions.Header(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new PinterestProfileWidget();
-      Validate(widget);
+      new PinterestProfileWidget().With(Validate);
     }
 
     return;
@@ -84,8 +81,7 @@ public sealed class IPinterestProfileWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestProfileWidgetExtensions.Image(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new PinterestProfileWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new PinterestProfileWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -103,8 +99,7 @@ public sealed class IPinterestProfileWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestProfileWidgetExtensions.Sidebar(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new PinterestProfileWidget();
-      Validate(widget);
+      new PinterestProfileWidget().With(Validate);
     }
 
     return;
@@ -128,8 +123,7 @@ public sealed class IPinterestProfileWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestProfileWidgetExtensions.Square(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new PinterestProfileWidget();
-      Validate(widget);
+      new PinterestProfileWidget().With(Validate);
     }
 
     return;

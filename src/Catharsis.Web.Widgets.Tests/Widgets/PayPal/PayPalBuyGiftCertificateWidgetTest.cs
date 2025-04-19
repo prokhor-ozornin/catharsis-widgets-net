@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -19,7 +20,10 @@ public sealed class PayPalBuyGiftCertificateWidgetTest : UnitTest
   {
     typeof(PayPalBuyGiftCertificateWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IPayPalBuyGiftCertificateWidget>();
 
-    var widget = new PayPalBuyGiftCertificateWidget();
+    using (new AssertionScope())
+    {
+      var widget = new PayPalBuyGiftCertificateWidget();
+    }
   }
 
   /// <summary>

@@ -20,15 +20,18 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     typeof(YandexAnalyticsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexAnalyticsWidget>();
 
-    var widget = new YandexAnalyticsWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<bool>("WebVisorProperty").Should().BeTrue();
-    widget.GetPropertyValue<bool>("ClickMapProperty").Should().BeTrue();
-    widget.GetPropertyValue<bool>("TrackLinksProperty").Should().BeTrue();
-    widget.GetPropertyValue<bool>("TrackHashProperty").Should().BeTrue();
-    widget.GetPropertyValue<bool>("AccurateProperty").Should().BeTrue();
-    widget.GetPropertyValue<bool>("NoIndexProperty").Should().BeFalse();
-    widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new YandexAnalyticsWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<bool>("WebVisorProperty").Should().BeTrue();
+      widget.GetPropertyValue<bool>("ClickMapProperty").Should().BeTrue();
+      widget.GetPropertyValue<bool>("TrackLinksProperty").Should().BeTrue();
+      widget.GetPropertyValue<bool>("TrackHashProperty").Should().BeTrue();
+      widget.GetPropertyValue<bool>("AccurateProperty").Should().BeTrue();
+      widget.GetPropertyValue<bool>("NoIndexProperty").Should().BeFalse();
+      widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -42,8 +45,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new YandexAnalyticsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexAnalyticsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +61,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexAnalyticsWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -76,8 +77,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexAnalyticsWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -93,8 +93,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexAnalyticsWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -110,8 +109,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexAnalyticsWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -127,8 +125,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexAnalyticsWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -144,8 +141,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexAnalyticsWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -164,8 +160,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      var widget = new YandexAnalyticsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexAnalyticsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

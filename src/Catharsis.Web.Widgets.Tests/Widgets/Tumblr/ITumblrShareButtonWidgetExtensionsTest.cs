@@ -21,8 +21,7 @@ public sealed class ITumblrShareButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITumblrShareButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new TumblrShareButtonWidget();
-      Enum.GetValues<TumblrShareButtonType>().ForEach(value => Validate(value, widget));
+      new TumblrShareButtonWidget().With(widget => Enum.GetValues<TumblrShareButtonType>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class ITumblrShareButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITumblrShareButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new TumblrShareButtonWidget();
-      Enum.GetValues<TumblrShareButtonColorScheme>().ForEach(value => Validate(value, widget));
+      new TumblrShareButtonWidget().With(widget => Enum.GetValues<TumblrShareButtonColorScheme>().ForEach(value => Validate(value, widget)));
     }
 
     return;

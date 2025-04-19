@@ -20,14 +20,17 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
   {
     typeof(MailRuLikeButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IMailRuLikeButtonWidget>();
 
-    var widget = new MailRuLikeButtonWidget();
-    widget.GetPropertyValue<string>("TypeProperty").Should().Be("combo");
-    widget.GetPropertyValue<string>("SizeProperty").Should().Be("20");
-    widget.GetPropertyValue<byte>("LayoutProperty").Should().Be((byte) MailRuLikeButtonLayout.First);
-    widget.GetPropertyValue<bool>("TextProperty").Should().BeTrue();
-    widget.GetPropertyValue<byte>("TextTypeProperty").Should().Be((byte) MailRuLikeButtonTextType.First);
-    widget.GetPropertyValue<bool>("CounterProperty").Should().BeTrue();
-    widget.GetPropertyValue<string>("CounterPositionProperty").Should().Be(MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant());
+    using (new AssertionScope())
+    {
+      var widget = new MailRuLikeButtonWidget();
+      widget.GetPropertyValue<string>("TypeProperty").Should().Be("combo");
+      widget.GetPropertyValue<string>("SizeProperty").Should().Be("20");
+      widget.GetPropertyValue<byte>("LayoutProperty").Should().Be((byte) MailRuLikeButtonLayout.First);
+      widget.GetPropertyValue<bool>("TextProperty").Should().BeTrue();
+      widget.GetPropertyValue<byte>("TextTypeProperty").Should().Be((byte) MailRuLikeButtonTextType.First);
+      widget.GetPropertyValue<bool>("CounterProperty").Should().BeTrue();
+      widget.GetPropertyValue<string>("CounterPositionProperty").Should().Be(MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -41,8 +44,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Type(null)).ThrowExactly<ArgumentNullException>().WithParameterName("type");
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Type(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("type");
 
-      var widget = new MailRuLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -61,8 +63,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      var widget = new MailRuLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -78,8 +79,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new MailRuLikeButtonWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -95,8 +95,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new MailRuLikeButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -112,8 +111,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new MailRuLikeButtonWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -129,8 +127,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new MailRuLikeButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -149,8 +146,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().CounterPosition(null)).ThrowExactly<ArgumentNullException>().WithParameterName("position");
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().CounterPosition(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("position");
 
-      var widget = new MailRuLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

@@ -20,8 +20,11 @@ public sealed class CackleLoginWidgetTest : UnitTest
   {
     typeof(CackleLoginWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ICackleLoginWidget>();
 
-    var widget = new CackleLoginWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new CackleLoginWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -35,8 +38,7 @@ public sealed class CackleLoginWidgetTest : UnitTest
       AssertionExtensions.Should(() => new CackleLoginWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new CackleLoginWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new CackleLoginWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new CackleLoginWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

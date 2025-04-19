@@ -20,14 +20,17 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
   {
     typeof(VkontakteRecommendationsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontakteRecommendationsWidget>();
 
-    var widget = new VkontakteRecommendationsWidget();
-    widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
-    widget.GetPropertyValue<byte?>("LimitProperty").Should().BeNull();
-    widget.GetPropertyValue<short?>("MaxProperty").Should().BeNull();
-    widget.GetPropertyValue<VkontakteRecommendationsPeriod?>("PeriodProperty").Should().BeNull();
-    widget.GetPropertyValue<VkontakteRecommendationsSorting?>("SortingProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("TargetProperty").Should().BeNull();
-    widget.GetPropertyValue<VkontakteRecommendationsVerb?>("VerbProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteRecommendationsWidget();
+      widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
+      widget.GetPropertyValue<byte?>("LimitProperty").Should().BeNull();
+      widget.GetPropertyValue<short?>("MaxProperty").Should().BeNull();
+      widget.GetPropertyValue<VkontakteRecommendationsPeriod?>("PeriodProperty").Should().BeNull();
+      widget.GetPropertyValue<VkontakteRecommendationsSorting?>("SortingProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TargetProperty").Should().BeNull();
+      widget.GetPropertyValue<VkontakteRecommendationsVerb?>("VerbProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -41,8 +44,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new VkontakteRecommendationsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteRecommendationsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -58,8 +60,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteRecommendationsWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontakteRecommendationsWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -75,8 +76,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteRecommendationsWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontakteRecommendationsWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -92,8 +92,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteRecommendationsWidget();
-      Enum.GetValues<VkontakteRecommendationsPeriod>().ForEach(value => Validate(value, widget));
+      new VkontakteRecommendationsWidget().With(widget => Enum.GetValues<VkontakteRecommendationsPeriod>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -109,8 +108,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteRecommendationsWidget();
-      Enum.GetValues<VkontakteRecommendationsVerb>().ForEach(value => Validate(value, widget));
+      new VkontakteRecommendationsWidget().With(widget => Enum.GetValues<VkontakteRecommendationsVerb>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -126,8 +124,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteRecommendationsWidget();
-      Enum.GetValues<VkontakteRecommendationsSorting>().ForEach(value => Validate(value, widget));
+      new VkontakteRecommendationsWidget().With(widget => Enum.GetValues<VkontakteRecommendationsSorting>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -146,8 +143,7 @@ public sealed class VkontakteRecommendationsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().Target(null)).ThrowExactly<ArgumentNullException>().WithParameterName("target");
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().Target(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("target");
 
-      var widget = new VkontakteRecommendationsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteRecommendationsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

@@ -20,14 +20,17 @@ public sealed class FacebookFollowButtonWidgetTest : UnitTest
   {
     typeof(FacebookFollowButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookFollowButtonWidget>();
 
-    var widget = new FacebookFollowButtonWidget();
-    widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
-    widget.GetPropertyValue<bool?>("FacesProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-    widget.GetPropertyValue<bool?>("KidsModeProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("LayoutProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new FacebookFollowButtonWidget();
+      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
+      widget.GetPropertyValue<bool?>("FacesProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+      widget.GetPropertyValue<bool?>("KidsModeProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("LayoutProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -41,8 +44,7 @@ public sealed class FacebookFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookFollowButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookFollowButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      var widget = new FacebookFollowButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -58,8 +60,7 @@ public sealed class FacebookFollowButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new FacebookFollowButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -78,8 +79,7 @@ public sealed class FacebookFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookFollowButtonWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookFollowButtonWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new FacebookFollowButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -95,8 +95,7 @@ public sealed class FacebookFollowButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new FacebookFollowButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -115,8 +114,7 @@ public sealed class FacebookFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookFollowButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new FacebookFollowButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      var widget = new FacebookFollowButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -135,8 +133,7 @@ public sealed class FacebookFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookFollowButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookFollowButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      var widget = new FacebookFollowButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -155,8 +152,7 @@ public sealed class FacebookFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookFollowButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookFollowButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new FacebookFollowButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

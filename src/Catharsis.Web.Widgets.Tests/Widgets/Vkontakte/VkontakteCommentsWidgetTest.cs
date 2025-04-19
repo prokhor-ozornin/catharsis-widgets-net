@@ -20,14 +20,17 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
   {
     typeof(VkontakteCommentsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontakteCommentsWidget>();
 
-    var widget = new VkontakteCommentsWidget();
-    widget.GetPropertyValue<IEnumerable<string>>("AttachProperty").Should().BeEmpty();
-    widget.GetPropertyValue<bool?>("AutoPublishProperty").Should().BeNull();
-    widget.GetPropertyValue<bool?>("AutoUpdateProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
-    widget.GetPropertyValue<byte>("LimitProperty").Should().Be((byte) VkontakteCommentsLimit.Limit5);
-    widget.GetPropertyValue<bool?>("MiniProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteCommentsWidget();
+      widget.GetPropertyValue<IEnumerable<string>>("AttachProperty").Should().BeEmpty();
+      widget.GetPropertyValue<bool?>("AutoPublishProperty").Should().BeNull();
+      widget.GetPropertyValue<bool?>("AutoUpdateProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
+      widget.GetPropertyValue<byte>("LimitProperty").Should().Be((byte) VkontakteCommentsLimit.Limit5);
+      widget.GetPropertyValue<bool?>("MiniProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -38,8 +41,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteCommentsWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontakteCommentsWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -58,8 +60,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new VkontakteCommentsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -77,8 +78,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
     {
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().Attach(null)).ThrowExactly<ArgumentNullException>().WithParameterName("types");
 
-      var widget = new VkontakteCommentsWidget();
-      new string[][] { [string.Empty, "type"] }.ForEach(value => Validate(value, widget));
+      new VkontakteCommentsWidget().With(widget => new string[][] { [string.Empty, "type"] }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -97,8 +97,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new VkontakteCommentsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -114,8 +113,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteCommentsWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new VkontakteCommentsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -131,8 +129,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteCommentsWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new VkontakteCommentsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -148,8 +145,7 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteCommentsWidget();
-      new bool?[] { null, false, true }.ForEach(value => Validate(value, widget));
+      new VkontakteCommentsWidget().With(widget => new bool?[] { null, false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;

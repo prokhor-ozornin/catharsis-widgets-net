@@ -21,8 +21,7 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontakteAuthButtonWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontakteAuthButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;

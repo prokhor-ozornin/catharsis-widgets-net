@@ -21,8 +21,7 @@ public sealed class IVkontakteSubscriptionWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontakteSubscriptionWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontakteSubscriptionWidget();
-      Enum.GetValues<VkontakteSubscriptionButtonLayout>().ForEach(value => Validate(value, widget));
+      new VkontakteSubscriptionWidget().With(widget => Enum.GetValues<VkontakteSubscriptionButtonLayout>().ForEach(value => Validate(value, widget)));
     }
 
     return;

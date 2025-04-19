@@ -21,8 +21,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookLikeBoxWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookLikeBoxWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookLikeBoxWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookLikeBoxWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookLikeBoxWidget();
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+      new FacebookLikeBoxWidget().With(widget => Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -79,8 +76,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Url(new FacebookLikeBoxWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      var widget = new FacebookLikeBoxWidget();
-      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+      new FacebookLikeBoxWidget().With(widget => new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget)));
     }
 
     return;

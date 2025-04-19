@@ -21,8 +21,7 @@ public sealed class IVkontaktePollWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontaktePollWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontaktePollWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontaktePollWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -41,8 +40,7 @@ public sealed class IVkontaktePollWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IVkontaktePollWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IVkontaktePollWidgetExtensions.Url(new VkontaktePollWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      var widget = new VkontaktePollWidget();
-      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+      new VkontaktePollWidget().With(widget => new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget)));
     }
 
     return;

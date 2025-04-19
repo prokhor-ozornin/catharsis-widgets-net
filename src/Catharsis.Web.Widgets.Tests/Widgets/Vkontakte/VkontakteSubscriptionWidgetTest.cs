@@ -20,11 +20,14 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
   {
     typeof(VkontakteSubscriptionWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontakteSubscriptionWidget>();
 
-    var widget = new VkontakteSubscriptionWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("ElementId").Should().BeNull();
-    widget.GetPropertyValue<byte>("LayoutProperty").Should().Be((byte) VkontakteSubscriptionButtonLayout.Button);
-    widget.GetPropertyValue<bool>("OnlyButtonProperty").Should().BeFalse();
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteSubscriptionWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ElementId").Should().BeNull();
+      widget.GetPropertyValue<byte>("LayoutProperty").Should().Be((byte) VkontakteSubscriptionButtonLayout.Button);
+      widget.GetPropertyValue<bool>("OnlyButtonProperty").Should().BeFalse();
+    }
   }
 
   /// <summary>
@@ -38,8 +41,7 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new VkontakteSubscriptionWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteSubscriptionWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -58,8 +60,7 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new VkontakteSubscriptionWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteSubscriptionWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -75,8 +76,7 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteSubscriptionWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontakteSubscriptionWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -92,8 +92,7 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteSubscriptionWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new VkontakteSubscriptionWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;

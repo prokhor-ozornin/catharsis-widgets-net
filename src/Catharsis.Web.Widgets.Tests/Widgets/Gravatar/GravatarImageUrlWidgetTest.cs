@@ -19,11 +19,14 @@ public sealed class GravatarImageUrlWidgetTest : UnitTest
   public void Constructors()
   {
     typeof(GravatarImageUrlWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IGravatarImageUrlWidget>();
-  
-    var widget = new GravatarImageUrlWidget();
-    widget.GetPropertyValue<string>("ExtensionProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HashProperty").Should().BeNull();
-    widget.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").Should().BeEmpty();
+
+    using (new AssertionScope())
+    {
+      var widget = new GravatarImageUrlWidget();
+      widget.GetPropertyValue<string>("ExtensionProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HashProperty").Should().BeNull();
+      widget.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").Should().BeEmpty();
+    }
   }
 
   /// <summary>
@@ -37,8 +40,7 @@ public sealed class GravatarImageUrlWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Extension(null)).ThrowExactly<ArgumentNullException>().WithParameterName("extension");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Extension(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("extension");
 
-      var widget = new GravatarImageUrlWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GravatarImageUrlWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -57,8 +59,7 @@ public sealed class GravatarImageUrlWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      var widget = new GravatarImageUrlWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GravatarImageUrlWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -78,8 +79,7 @@ public sealed class GravatarImageUrlWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Parameter(string.Empty, new object())).ThrowExactly<ArgumentException>().WithMessage("name");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Parameter("name", null)).ThrowExactly<ArgumentNullException>().WithParameterName("value");
 
-      var widget = new GravatarImageUrlWidget();
-      Validate("id", Guid.NewGuid(), widget);
+      new GravatarImageUrlWidget().With(widget => Validate("id", Guid.NewGuid(), widget));
     }
 
     return;

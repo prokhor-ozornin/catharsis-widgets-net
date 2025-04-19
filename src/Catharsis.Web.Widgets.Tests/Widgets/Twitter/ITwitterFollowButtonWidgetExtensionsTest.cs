@@ -23,8 +23,7 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Language(new TwitterFollowButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
-      var widget = new TwitterFollowButtonWidget();
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget));
+      new TwitterFollowButtonWidget().With(widget => CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -42,8 +41,7 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new TwitterFollowButtonWidget();
-      Enum.GetValues<TwitterFollowButtonSize>().ForEach(value => Validate(value, widget));
+      new TwitterFollowButtonWidget().With(widget => Enum.GetValues<TwitterFollowButtonSize>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -61,8 +59,7 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Alignment(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new TwitterFollowButtonWidget();
-      Enum.GetValues<TwitterFollowButtonAlignment>().ForEach(value => Validate(value, widget));
+      new TwitterFollowButtonWidget().With(widget => Enum.GetValues<TwitterFollowButtonAlignment>().ForEach(value => Validate(value, widget)));
     }
 
     return;

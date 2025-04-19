@@ -21,8 +21,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Actions(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { Array.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { Array.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -60,8 +58,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -79,8 +76,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget)));
     }
 
     return;

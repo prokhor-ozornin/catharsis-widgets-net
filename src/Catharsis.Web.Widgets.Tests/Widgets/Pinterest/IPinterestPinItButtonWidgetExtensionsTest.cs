@@ -22,8 +22,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Gray(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new PinterestPinItButtonWidget();
-      Validate(widget);
+      new PinterestPinItButtonWidget().With(Validate);
     }
 
     return;
@@ -42,8 +41,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Language((CultureInfo) null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
-      var widget = new PinterestPinItButtonWidget();
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget));
+      new PinterestPinItButtonWidget().With(widget => CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -61,8 +59,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Red(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new PinterestPinItButtonWidget();
-      Validate(widget);
+      new PinterestPinItButtonWidget().With(Validate);
     }
 
     return;
@@ -80,8 +77,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.White(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new PinterestPinItButtonWidget();
-      Validate(widget);
+      new PinterestPinItButtonWidget().With(Validate);
     }
 
     return;

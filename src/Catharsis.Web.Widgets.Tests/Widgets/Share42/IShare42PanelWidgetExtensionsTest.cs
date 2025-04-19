@@ -21,8 +21,7 @@ public sealed class IShare42PanelWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IShare42PanelWidgetExtensions.Horizontal(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new Share42PanelWidget();
-      Validate(widget);
+      new Share42PanelWidget().With(Validate);
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IShare42PanelWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IShare42PanelWidgetExtensions.Size(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new Share42PanelWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new Share42PanelWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class IShare42PanelWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IShare42PanelWidgetExtensions.Vertical(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new Share42PanelWidget();
-      Validate(widget);
+      new Share42PanelWidget().With(Validate);
     }
 
     return;

@@ -21,8 +21,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.OrangeWhite(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new SoundCloudProfileIconWidget();
-      Validate(widget);
+      new SoundCloudProfileIconWidget().With(Validate);
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.WhiteOrange(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new SoundCloudProfileIconWidget();
-      Validate(widget);
+      new SoundCloudProfileIconWidget().With(Validate);
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.BlackWhite(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new SoundCloudProfileIconWidget();
-      Validate(widget);
+      new SoundCloudProfileIconWidget().With(Validate);
     }
 
     return;
@@ -78,8 +75,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.WhiteTransparent(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new SoundCloudProfileIconWidget();
-      Validate(widget);
+      new SoundCloudProfileIconWidget().With(Validate);
     }
 
     return;
@@ -97,8 +93,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.OrangeTransparent(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new SoundCloudProfileIconWidget();
-      Validate(widget);
+      new SoundCloudProfileIconWidget().With(Validate);
     }
 
     return;
@@ -116,8 +111,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new SoundCloudProfileIconWidget();
-      Enum.GetValues<SoundCloudProfileIconSize>().ForEach(value => Validate(value, widget));
+      new SoundCloudProfileIconWidget().With(widget => Enum.GetValues<SoundCloudProfileIconSize>().ForEach(value => Validate(value, widget)));
     }
 
     return;

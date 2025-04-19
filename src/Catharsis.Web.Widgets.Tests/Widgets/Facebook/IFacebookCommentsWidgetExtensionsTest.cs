@@ -22,8 +22,7 @@ public sealed class IFacebookCommentsWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Url(new FacebookCommentsWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      var widget = new FacebookCommentsWidget();
-      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+      new FacebookCommentsWidget().With(widget => new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -41,8 +40,7 @@ public sealed class IFacebookCommentsWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookCommentsWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookCommentsWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -60,8 +58,7 @@ public sealed class IFacebookCommentsWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookCommentsWidget();
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+      new FacebookCommentsWidget().With(widget => Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -79,8 +76,7 @@ public sealed class IFacebookCommentsWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Order(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookCommentsWidget();
-      Enum.GetValues<FacebookCommentsOrder>().ForEach(value => Validate(value, widget));
+      new FacebookCommentsWidget().With(widget => Enum.GetValues<FacebookCommentsOrder>().ForEach(value => Validate(value, widget)));
     }
 
     return;

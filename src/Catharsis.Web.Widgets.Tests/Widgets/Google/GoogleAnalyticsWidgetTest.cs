@@ -20,9 +20,12 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
   {
     typeof(GoogleAnalyticsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IGoogleAnalyticsWidget>();
 
-    var widget = new GoogleAnalyticsWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("DomainProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new GoogleAnalyticsWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("DomainProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -36,8 +39,7 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new GoogleAnalyticsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GoogleAnalyticsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -56,8 +58,7 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      var widget = new GoogleAnalyticsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GoogleAnalyticsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

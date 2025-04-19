@@ -21,8 +21,7 @@ public sealed class IInlineImageExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IInlineImageExtensions.Jpg(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new InlineImageWidget();
-      Validate(widget);
+      new InlineImageWidget().With(Validate);
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IInlineImageExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IInlineImageExtensions.Png(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new InlineImageWidget();
-      Validate(widget);
+      new InlineImageWidget().With(Validate);
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class IInlineImageExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IInlineImageExtensions.Gif(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new InlineImageWidget();
-      Validate(widget);
+      new InlineImageWidget().With(Validate);
     }
 
     return;

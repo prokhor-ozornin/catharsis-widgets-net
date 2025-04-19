@@ -21,8 +21,7 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITumblrFollowButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new TumblrFollowButtonWidget();
-      Enum.GetValues<TumblrFollowButtonType>().ForEach(value => Validate(value, widget));
+      new TumblrFollowButtonWidget().With(widget => Enum.GetValues<TumblrFollowButtonType>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITumblrFollowButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new TumblrFollowButtonWidget();
-      Enum.GetValues<TumblrFollowButtonColorScheme>().ForEach(value => Validate(value, widget));
+      new TumblrFollowButtonWidget().With(widget => Enum.GetValues<TumblrFollowButtonColorScheme>().ForEach(value => Validate(value, widget)));
     }
 
     return;

@@ -21,20 +21,23 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     typeof(YandexMoneyDonateFormWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexMoneyDonateFormWidget>();
 
-    var widget = new YandexMoneyDonateFormWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("DescriptionTextProperty").Should().BeNull();
-    widget.GetPropertyValue<decimal?>("SumProperty").Should().BeNull();
-    widget.GetPropertyValue<bool>("CardsProperty").Should().BeTrue();
-    widget.GetPropertyValue<byte>("TextProperty").Should().Be((byte) YandexMoneyDonateFormText.Donate);
-    widget.GetPropertyValue<string>("ProjectNameProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("ProjectSiteProperty").Should().BeNull();
-    widget.GetPropertyValue<bool>("AskPayerCommentProperty").Should().BeFalse();
-    widget.GetPropertyValue<string>("CommentHintProperty").Should().BeNull();
-    widget.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("AskPayerEmailProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("DescriptionProperty").Should().BeFalse();
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyDonateFormWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("DescriptionTextProperty").Should().BeNull();
+      widget.GetPropertyValue<decimal?>("SumProperty").Should().BeNull();
+      widget.GetPropertyValue<bool>("CardsProperty").Should().BeTrue();
+      widget.GetPropertyValue<byte>("TextProperty").Should().Be((byte) YandexMoneyDonateFormText.Donate);
+      widget.GetPropertyValue<string>("ProjectNameProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ProjectSiteProperty").Should().BeNull();
+      widget.GetPropertyValue<bool>("AskPayerCommentProperty").Should().BeFalse();
+      widget.GetPropertyValue<string>("CommentHintProperty").Should().BeNull();
+      widget.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerEmailProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("DescriptionProperty").Should().BeFalse();
+    }
   }
 
   /// <summary>
@@ -48,8 +51,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -68,8 +70,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().DescriptionText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().DescriptionText(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("description");
 
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -85,8 +86,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { decimal.MinValue, decimal.MaxValue }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { decimal.MinValue, decimal.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -102,8 +102,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -119,8 +118,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -139,8 +137,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectName(null)).ThrowExactly<ArgumentNullException>().WithParameterName("name");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectName(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("name");
 
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -159,8 +156,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectSite(null)).ThrowExactly<ArgumentNullException>().WithParameterName("site");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectSite(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("site");
 
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -176,8 +172,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -196,8 +191,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().CommentHint(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hint");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().CommentHint(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hint");
 
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -213,8 +207,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -230,8 +223,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -247,8 +239,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -264,8 +255,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyDonateFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;

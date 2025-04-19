@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Newtonsoft.Json;
@@ -19,11 +20,10 @@ public sealed class TextWriterExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      Validate(TextWriter.Null);
-      Validate(TextWriter.Synchronized(TextWriter.Null));
-    }
+      AssertionExtensions.Should(() => TextWriterExtensions.AsJson(null)).ThrowExactly<ArgumentNullException>().WithParameterName("writer");
 
-    AssertionExtensions.Should(() => TextWriterExtensions.AsJson(null)).ThrowExactly<ArgumentNullException>().WithParameterName("writer");
+      new[] { TextWriter.Null, TextWriter.Synchronized(TextWriter.Null) }.ForEach(Validate);
+    }
 
     return;
 

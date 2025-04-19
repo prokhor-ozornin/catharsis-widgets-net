@@ -20,14 +20,17 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
   {
     typeof(GooglePlusOneButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IGooglePlusOneButtonWidget>();
 
-    var widget = new GooglePlusOneButtonWidget();
-    widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("SizeProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("AlignmentProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("AnnotationProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("CallbackProperty").Should().BeNull();
-    widget.GetPropertyValue<bool?>("RecommendationsProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new GooglePlusOneButtonWidget();
+      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("SizeProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AlignmentProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AnnotationProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("CallbackProperty").Should().BeNull();
+      widget.GetPropertyValue<bool?>("RecommendationsProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -41,8 +44,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      var widget = new GooglePlusOneButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GooglePlusOneButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -61,8 +63,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new GooglePlusOneButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GooglePlusOneButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -81,8 +82,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      var widget = new GooglePlusOneButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GooglePlusOneButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -101,8 +101,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Alignment(null)).ThrowExactly<ArgumentNullException>().WithParameterName("alignment");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Alignment(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("alignment");
 
-      var widget = new GooglePlusOneButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GooglePlusOneButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -121,8 +120,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Annotation(null)).ThrowExactly<ArgumentNullException>().WithParameterName("annotation");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Annotation(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("annotation");
 
-      var widget = new GooglePlusOneButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GooglePlusOneButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -141,8 +139,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Callback(null)).ThrowExactly<ArgumentNullException>().WithParameterName("callback");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Callback(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("callback");
 
-      var widget = new GooglePlusOneButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GooglePlusOneButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -158,8 +155,7 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new GooglePlusOneButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new GooglePlusOneButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;

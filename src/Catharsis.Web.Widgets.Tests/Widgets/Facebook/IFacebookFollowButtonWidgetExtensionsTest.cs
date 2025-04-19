@@ -21,8 +21,7 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookFollowButtonWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookFollowButtonWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookFollowButtonWidget();
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -78,8 +75,7 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookFollowButtonWidget();
-      Enum.GetValues<FacebookButtonLayout>().ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => Enum.GetValues<FacebookButtonLayout>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -98,8 +94,7 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Url(new FacebookFollowButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      var widget = new FacebookFollowButtonWidget();
-      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+      new FacebookFollowButtonWidget().With(widget => new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget)));
     }
 
     return;

@@ -23,8 +23,7 @@ public sealed class IYandexAnalyticsWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(new YandexAnalyticsWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
-      var widget = new YandexAnalyticsWidget();
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget));
+      new YandexAnalyticsWidget().With(widget => CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget)));
     }
 
     return;

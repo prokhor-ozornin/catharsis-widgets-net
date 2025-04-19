@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -19,7 +20,10 @@ public sealed class PayPalDonateWidgetTest : UnitTest
   {
     typeof(PayPalDonateWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IPayPalDonateWidget>();
 
-    var widget = new PayPalDonateWidget();
+    using (new AssertionScope())
+    {
+      var widget = new PayPalDonateWidget();
+    }
   }
 
   /// <summary>

@@ -20,9 +20,12 @@ public sealed class FacebookPostWidgetTest : UnitTest
   {
     typeof(FacebookPostWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookPostWidget>();
 
-    var widget = new FacebookPostWidget();
-    widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new FacebookPostWidget();
+      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -36,8 +39,7 @@ public sealed class FacebookPostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookPostWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookPostWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      var widget = new FacebookPostWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookPostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -56,8 +58,7 @@ public sealed class FacebookPostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookPostWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookPostWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new FacebookPostWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookPostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

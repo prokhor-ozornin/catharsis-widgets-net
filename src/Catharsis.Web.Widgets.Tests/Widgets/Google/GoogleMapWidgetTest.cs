@@ -20,7 +20,10 @@ public sealed class GoogleMapWidgetTest : UnitTest
   {
     typeof(GoogleMapWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IGoogleMapWidget>();
 
-    var widget = new GoogleMapWidget();
+    using (new AssertionScope())
+    {
+      var widget = new GoogleMapWidget();
+    }
   }
 
   /// <summary>

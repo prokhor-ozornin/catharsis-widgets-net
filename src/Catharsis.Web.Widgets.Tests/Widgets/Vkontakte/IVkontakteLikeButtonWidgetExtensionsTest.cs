@@ -21,8 +21,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontakteLikeButtonWidgetExtensions.Verb(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontakteLikeButtonWidget();
-      Enum.GetValues<VkontakteLikeButtonVerb>().ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => Enum.GetValues<VkontakteLikeButtonVerb>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontakteLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontakteLikeButtonWidget();
-      Enum.GetValues<VkontakteLikeButtonLayout>().ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => Enum.GetValues<VkontakteLikeButtonLayout>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontakteLikeButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -78,8 +75,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontakteLikeButtonWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;

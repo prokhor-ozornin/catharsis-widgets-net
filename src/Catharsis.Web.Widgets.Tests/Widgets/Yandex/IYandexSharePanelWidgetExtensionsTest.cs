@@ -23,8 +23,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(new YandexSharePanelWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("services");
 
-      var widget = new YandexSharePanelWidget();
-      new[] { Array.Empty<string>(), ["service"] }.ForEach(value => Validate(value, widget));
+      new YandexSharePanelWidget().With(widget => new[] { Array.Empty<string>(), ["service"] }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -43,8 +42,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Language(new YandexSharePanelWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
 
-      var widget = new YandexSharePanelWidget();
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget));
+      new YandexSharePanelWidget().With(widget => CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -62,8 +60,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new YandexSharePanelWidget();
-      Enum.GetValues<YandexSharePanelLayout>().ForEach(value => Validate(value, widget));
+      new YandexSharePanelWidget().With(widget => Enum.GetValues<YandexSharePanelLayout>().ForEach(value => Validate(value, widget)));
     }
 
     return;

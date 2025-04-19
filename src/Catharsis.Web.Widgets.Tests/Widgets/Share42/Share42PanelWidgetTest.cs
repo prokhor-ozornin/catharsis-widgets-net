@@ -20,9 +20,12 @@ public sealed class Share42PanelWidgetTest : UnitTest
   {
     typeof(Share42PanelWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IShare42PanelWidget>();
 
-    var widget = new Share42PanelWidget();
-    widget.GetPropertyValue<byte>("SizeProperty").Should().Be((byte) Share42PanelSize.Size24);
-    widget.GetPropertyValue<Share42PanelDirection>("DirectionProperty").Should().Be(Share42PanelDirection.Horizontal);
+    using (new AssertionScope())
+    {
+      var widget = new Share42PanelWidget();
+      widget.GetPropertyValue<byte>("SizeProperty").Should().Be((byte) Share42PanelSize.Size24);
+      widget.GetPropertyValue<Share42PanelDirection>("DirectionProperty").Should().Be(Share42PanelDirection.Horizontal);
+    }
   }
 
   /// <summary>
@@ -33,8 +36,7 @@ public sealed class Share42PanelWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new Share42PanelWidget();
-      Enum.GetValues<Share42PanelDirection>().ForEach(value => Validate(value, widget));
+      new Share42PanelWidget().With(widget => Enum.GetValues<Share42PanelDirection>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -50,8 +52,7 @@ public sealed class Share42PanelWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new Share42PanelWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new Share42PanelWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;

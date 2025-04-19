@@ -20,12 +20,15 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
   {
     typeof(CackleLatestCommentsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ICackleLatestCommentsWidget>();
 
-    var widget = new CackleLatestCommentsWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<short>("AvatarSizeProperty").Should().Be(32);
-    widget.GetPropertyValue<byte>("MaxProperty").Should().Be(5);
-    widget.GetPropertyValue<int>("TextSizeProperty").Should().Be(150);
-    widget.GetPropertyValue<int>("TitleSizeProperty").Should().Be(40);
+    using (new AssertionScope())
+    {
+      var widget = new CackleLatestCommentsWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<short>("AvatarSizeProperty").Should().Be(32);
+      widget.GetPropertyValue<byte>("MaxProperty").Should().Be(5);
+      widget.GetPropertyValue<int>("TextSizeProperty").Should().Be(150);
+      widget.GetPropertyValue<int>("TitleSizeProperty").Should().Be(40);
+    }
   }
 
   /// <summary>
@@ -39,8 +42,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new CackleLatestCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new CackleLatestCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new CackleLatestCommentsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new CackleLatestCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -56,8 +58,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new CackleLatestCommentsWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new CackleLatestCommentsWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -73,8 +74,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new CackleLatestCommentsWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new CackleLatestCommentsWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -90,8 +90,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new CackleLatestCommentsWidget();
-      new[] { int.MinValue, int.MaxValue }.ForEach(value => Validate(value, widget));
+      new CackleLatestCommentsWidget().With(widget => new[] { int.MinValue, int.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -107,8 +106,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new CackleLatestCommentsWidget();
-      new[] { int.MinValue, int.MaxValue }.ForEach(value => Validate(value, widget));
+      new CackleLatestCommentsWidget().With(widget => new[] { int.MinValue, int.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;

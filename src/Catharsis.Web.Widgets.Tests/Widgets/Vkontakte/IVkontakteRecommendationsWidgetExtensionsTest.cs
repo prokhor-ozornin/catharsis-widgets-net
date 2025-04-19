@@ -19,8 +19,7 @@ public sealed class IVkontakteRecommendationsWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteRecommendationsWidget();
-      Enum.GetValues<VkontakteRecommendationsLimit>().ForEach(value => Validate(value, widget));
+      new VkontakteRecommendationsWidget().With(widget => Enum.GetValues<VkontakteRecommendationsLimit>().ForEach(value => Validate(value, widget)));
     }
 
     return;

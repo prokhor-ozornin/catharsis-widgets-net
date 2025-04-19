@@ -20,9 +20,12 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
   {
     typeof(TumblrShareButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ITumblrShareButtonWidget>();
 
-    var widget = new TumblrShareButtonWidget();
-    widget.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) TumblrShareButtonType.First);
-    widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new TumblrShareButtonWidget();
+      widget.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) TumblrShareButtonType.First);
+      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -33,8 +36,7 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new TumblrShareButtonWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new TumblrShareButtonWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -53,8 +55,7 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TumblrShareButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new TumblrShareButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      var widget = new TumblrShareButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new TumblrShareButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

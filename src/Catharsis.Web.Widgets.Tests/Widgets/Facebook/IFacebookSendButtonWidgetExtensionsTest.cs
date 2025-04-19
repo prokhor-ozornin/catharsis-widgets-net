@@ -22,8 +22,7 @@ public sealed class IFacebookSendButtonWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Url(new FacebookSendButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      var widget = new FacebookSendButtonWidget();
-      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+      new FacebookSendButtonWidget().With(widget => new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -41,8 +40,7 @@ public sealed class IFacebookSendButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookSendButtonWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookSendButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -60,8 +58,7 @@ public sealed class IFacebookSendButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookSendButtonWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookSendButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -83,8 +80,7 @@ public sealed class IFacebookSendButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookSendButtonWidget();
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+      new FacebookSendButtonWidget().With(widget => Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget)));
     }
 
     return;

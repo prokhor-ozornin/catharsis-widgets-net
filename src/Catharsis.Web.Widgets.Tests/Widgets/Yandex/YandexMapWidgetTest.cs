@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -19,7 +20,10 @@ public sealed class YandexMapWidgetTest : UnitTest
   {
     typeof(YandexMapWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexMapWidget>();
 
-    var widget = new YandexMapWidget();
+    using (new AssertionScope())
+    {
+      var widget = new YandexMapWidget();
+    }
   }
 
   /// <summary>

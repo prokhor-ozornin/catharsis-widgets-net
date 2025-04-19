@@ -20,12 +20,15 @@ public sealed class VimeoVideoWidgetTest : UnitTest
   {
     typeof(VimeoVideoWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVimeoVideoWidget>();
 
-    var widget = new VimeoVideoWidget();
-    widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-    widget.GetPropertyValue<bool>("AutoPlayProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("LoopProperty").Should().BeFalse();
+    using (new AssertionScope())
+    {
+      var widget = new VimeoVideoWidget();
+      widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+      widget.GetPropertyValue<bool>("AutoPlayProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("LoopProperty").Should().BeFalse();
+    }
   }
 
   /// <summary>
@@ -39,8 +42,7 @@ public sealed class VimeoVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VimeoVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VimeoVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new VimeoVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VimeoVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +61,7 @@ public sealed class VimeoVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VimeoVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VimeoVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new VimeoVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VimeoVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -79,8 +80,7 @@ public sealed class VimeoVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VimeoVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VimeoVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new VimeoVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VimeoVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -96,8 +96,7 @@ public sealed class VimeoVideoWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VimeoVideoWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new VimeoVideoWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -113,8 +112,7 @@ public sealed class VimeoVideoWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VimeoVideoWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new VimeoVideoWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;

@@ -21,8 +21,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new SurfingbirdSurfButtonWidget();
-      Enum.GetValues<SurfingbirdSurfButtonLayout>().ForEach(value => Validate(value, widget));
+      new SurfingbirdSurfButtonWidget().With(widget => Enum.GetValues<SurfingbirdSurfButtonLayout>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new SurfingbirdSurfButtonWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new SurfingbirdSurfButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new SurfingbirdSurfButtonWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new SurfingbirdSurfButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -78,8 +75,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Color(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new SurfingbirdSurfButtonWidget();
-      Enum.GetValues<SurfingbirdSurfButtonColor>().ForEach(value => Validate(value, widget));
+      new SurfingbirdSurfButtonWidget().With(widget => Enum.GetValues<SurfingbirdSurfButtonColor>().ForEach(value => Validate(value, widget)));
     }
 
     return;

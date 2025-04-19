@@ -21,8 +21,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Id(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontaktePostWidget();
-      new[] { long.MinValue, long.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontaktePostWidget().With(widget => new[] { long.MinValue, long.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Owner(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontaktePostWidget();
-      new[] { long.MinValue, long.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontaktePostWidget().With(widget => new[] { long.MinValue, long.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontaktePostWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontaktePostWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;

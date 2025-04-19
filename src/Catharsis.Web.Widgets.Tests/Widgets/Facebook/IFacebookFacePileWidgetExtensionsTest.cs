@@ -21,8 +21,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookFacePileWidget();
-      new[] { Array.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
+      new FacebookFacePileWidget().With(widget => new[] { Array.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -41,8 +40,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Url(new FacebookFacePileWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      var widget = new FacebookFacePileWidget();
-      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+      new FacebookFacePileWidget().With(widget => new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -60,8 +58,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.PhotoSize(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookFacePileWidget();
-      Enum.GetValues<FacebookFacePilePhotoSize>().ForEach(value => Validate(value, widget));
+      new FacebookFacePileWidget().With(widget => Enum.GetValues<FacebookFacePilePhotoSize>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -79,8 +76,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookFacePileWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookFacePileWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -98,8 +94,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookFacePileWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookFacePileWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -117,8 +112,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookFacePileWidget();
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+      new FacebookFacePileWidget().With(widget => Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget)));
     }
 
     return;

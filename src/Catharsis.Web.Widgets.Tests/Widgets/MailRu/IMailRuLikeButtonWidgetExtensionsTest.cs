@@ -21,8 +21,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new MailRuLikeButtonWidget();
-      Enum.GetValues<MailRuLikeButtonType>().ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => Enum.GetValues<MailRuLikeButtonType>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -44,8 +43,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.Size(null, short.MaxValue)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new MailRuLikeButtonWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
 
       static void Validate(short size, IMailRuLikeButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToInvariantString());
     }
@@ -54,8 +52,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.Size(null, default(MailRuLikeButtonSize))).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new MailRuLikeButtonWidget();
-      Enum.GetValues<MailRuLikeButtonSize>().ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => Enum.GetValues<MailRuLikeButtonSize>().ForEach(value => Validate(value, widget)));
 
       static void Validate(MailRuLikeButtonSize size, IMailRuLikeButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToString().ToLowerInvariant());
     }
@@ -71,8 +68,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new MailRuLikeButtonWidget();
-      Enum.GetValues<MailRuLikeButtonLayout>().ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => Enum.GetValues<MailRuLikeButtonLayout>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -90,8 +86,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.TextType(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new MailRuLikeButtonWidget();
-      Enum.GetValues<MailRuLikeButtonTextType>().ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => Enum.GetValues<MailRuLikeButtonTextType>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -109,8 +104,7 @@ public sealed class IMailRuLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IMailRuLikeButtonWidgetExtensions.CounterPosition(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new MailRuLikeButtonWidget();
-      Enum.GetValues<MailRuLikeButtonCounterPosition>().ForEach(value => Validate(value, widget));
+      new MailRuLikeButtonWidget().With(widget => Enum.GetValues<MailRuLikeButtonCounterPosition>().ForEach(value => Validate(value, widget)));
     }
 
     return;

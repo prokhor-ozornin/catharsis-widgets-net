@@ -20,8 +20,11 @@ public sealed class DisqusCommentsWidgetTest : UnitTest
   {
     typeof(DisqusCommentsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IDisqusCommentsWidget>();
 
-    var widget = new DisqusCommentsWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new DisqusCommentsWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -35,8 +38,7 @@ public sealed class DisqusCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new DisqusCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new DisqusCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new DisqusCommentsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new DisqusCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

@@ -20,12 +20,15 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
   {
     typeof(YouTubeVideoWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYouTubeVideoWidget>();
 
-    var widget = new YouTubeVideoWidget();
-    widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-    widget.GetPropertyValue<bool>("PrivateModeProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("SecureModeProperty").Should().BeFalse();
+    using (new AssertionScope())
+    {
+      var widget = new YouTubeVideoWidget();
+      widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+      widget.GetPropertyValue<bool>("PrivateModeProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("SecureModeProperty").Should().BeFalse();
+    }
   }
 
   /// <summary>
@@ -39,8 +42,7 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new YouTubeVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YouTubeVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +61,7 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new YouTubeVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YouTubeVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -79,8 +80,7 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new YouTubeVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YouTubeVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -96,8 +96,7 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YouTubeVideoWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YouTubeVideoWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -113,8 +112,7 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YouTubeVideoWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YouTubeVideoWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;

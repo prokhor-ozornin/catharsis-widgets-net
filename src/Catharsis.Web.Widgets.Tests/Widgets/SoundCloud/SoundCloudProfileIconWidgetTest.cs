@@ -20,10 +20,13 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
   {
     typeof(SoundCloudProfileIconWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ISoundCloudProfileIconWidget>();
 
-    var widget = new SoundCloudProfileIconWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("ColorProperty").Should().Be("orange_white");
-    widget.GetPropertyValue<short>("SizeProperty").Should().Be((short) SoundCloudProfileIconSize.Size32);
+    using (new AssertionScope())
+    {
+      var widget = new SoundCloudProfileIconWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ColorProperty").Should().Be("orange_white");
+      widget.GetPropertyValue<short>("SizeProperty").Should().Be((short) SoundCloudProfileIconSize.Size32);
+    }
   }
 
   /// <summary>
@@ -37,8 +40,7 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new SoundCloudProfileIconWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new SoundCloudProfileIconWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -57,8 +59,7 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      var widget = new SoundCloudProfileIconWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new SoundCloudProfileIconWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -74,8 +75,7 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new SoundCloudProfileIconWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new SoundCloudProfileIconWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;

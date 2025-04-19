@@ -20,10 +20,13 @@ public sealed class RuTubeVideoWidgetTest : UnitTest
   {
     typeof(RuTubeVideoWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IRuTubeVideoWidget>();
 
-    var widget = new RuTubeVideoWidget();
-    widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new RuTubeVideoWidget();
+      widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -37,8 +40,7 @@ public sealed class RuTubeVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new RuTubeVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new RuTubeVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -57,8 +59,7 @@ public sealed class RuTubeVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new RuTubeVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new RuTubeVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -77,8 +78,7 @@ public sealed class RuTubeVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new RuTubeVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new RuTubeVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

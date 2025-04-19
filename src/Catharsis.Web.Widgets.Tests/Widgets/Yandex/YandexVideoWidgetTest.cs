@@ -20,11 +20,14 @@ public sealed class YandexVideoWidgetTest : UnitTest
   {
     typeof(YandexVideoWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexVideoWidget>();
 
-    var widget = new YandexVideoWidget();
-    widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("UserProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new YandexVideoWidget();
+      widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("UserProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -38,8 +41,7 @@ public sealed class YandexVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexVideoWidget().User(null)).ThrowExactly<ArgumentNullException>().WithParameterName("user");
       AssertionExtensions.Should(() => new YandexVideoWidget().User(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("user");
 
-      var widget = new YandexVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -58,8 +60,7 @@ public sealed class YandexVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new YandexVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new YandexVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -78,8 +79,7 @@ public sealed class YandexVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new YandexVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new YandexVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -98,8 +98,7 @@ public sealed class YandexVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new YandexVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new YandexVideoWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

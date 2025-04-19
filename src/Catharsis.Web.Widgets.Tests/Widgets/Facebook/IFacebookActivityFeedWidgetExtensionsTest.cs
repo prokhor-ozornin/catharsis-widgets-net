@@ -19,10 +19,9 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Actions(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookActivityFeedWidget();
-      new[] { Array.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { Array.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookActivityFeedWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookActivityFeedWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -78,8 +75,7 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookActivityFeedWidget();
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+      new FacebookActivityFeedWidget().With(widget => Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget)));
     }
 
     return;

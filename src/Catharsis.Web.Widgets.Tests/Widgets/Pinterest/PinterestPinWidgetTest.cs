@@ -20,8 +20,11 @@ public sealed class PinterestPinWidgetTest : UnitTest
   {
     typeof(PinterestPinWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IPinterestPinWidget>();
 
-    var widget = new PinterestPinWidget();
-    widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new PinterestPinWidget();
+      widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -35,8 +38,7 @@ public sealed class PinterestPinWidgetTest : UnitTest
       AssertionExtensions.Should(() => new PinterestPinWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new PinterestPinWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new PinterestPinWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new PinterestPinWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

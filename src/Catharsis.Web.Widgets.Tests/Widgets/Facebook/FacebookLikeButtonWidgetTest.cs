@@ -20,15 +20,18 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
   {
     typeof(FacebookLikeButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookLikeButtonWidget>();
 
-    var widget = new FacebookLikeButtonWidget();
-    widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
-    widget.GetPropertyValue<bool?>("FacesProperty").Should().BeNull();
-    widget.GetPropertyValue<bool?>("KidsMode").Should().BeNull();
-    widget.GetPropertyValue<string>("LayoutProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("TrackLabel").Should().BeNull();
-    widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("VerbProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new FacebookLikeButtonWidget();
+      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
+      widget.GetPropertyValue<bool?>("FacesProperty").Should().BeNull();
+      widget.GetPropertyValue<bool?>("KidsMode").Should().BeNull();
+      widget.GetPropertyValue<string>("LayoutProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TrackLabel").Should().BeNull();
+      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("VerbProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -42,8 +45,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      var widget = new FacebookLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +61,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new FacebookLikeButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -76,8 +77,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new FacebookLikeButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -96,8 +96,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      var widget = new FacebookLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -116,8 +115,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().TrackLabel(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().TrackLabel(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      var widget = new FacebookLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -136,8 +134,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      var widget = new FacebookLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -156,8 +153,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Verb(null)).ThrowExactly<ArgumentNullException>().WithParameterName("verb");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Verb(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("verb");
 
-      var widget = new FacebookLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -176,8 +172,7 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new FacebookLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

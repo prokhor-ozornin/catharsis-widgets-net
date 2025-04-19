@@ -20,10 +20,13 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
   {
     typeof(YandexSharePanelWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexSharePanelWidget>();
 
-    var widget = new YandexSharePanelWidget();
-    widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("LayoutProperty").Should().Be(YandexSharePanelLayout.Button.ToString().ToLowerInvariant());
-    widget.GetPropertyValue<IEnumerable<string>>("ServicesProperty").Should().Equal(["yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird"]);
+    using (new AssertionScope())
+    {
+      var widget = new YandexSharePanelWidget();
+      widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(YandexSharePanelLayout.Button.ToString().ToLowerInvariant());
+      widget.GetPropertyValue<IEnumerable<string>>("ServicesProperty").Should().Equal(["yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird"]);
+    }
   }
 
   /// <summary>
@@ -37,8 +40,7 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      var widget = new YandexSharePanelWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexSharePanelWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -56,8 +58,7 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
     {
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Services(null)).ThrowExactly<ArgumentNullException>().WithParameterName("services");
 
-      var widget = new YandexSharePanelWidget();
-      new[] { Enumerable.Empty<string>(), ["service"] }.ForEach(value => Validate(value, widget));
+      new YandexSharePanelWidget().With(widget => new[] { Enumerable.Empty<string>(), ["service"] }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -76,8 +77,7 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      var widget = new YandexSharePanelWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexSharePanelWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

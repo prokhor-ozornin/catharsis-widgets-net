@@ -20,13 +20,16 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
   {
     typeof(FacebookCommentsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookCommentsWidget>();
 
-    var widget = new FacebookCommentsWidget();
-    widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
-    widget.GetPropertyValue<bool?>("MobileProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("OrderProperty").Should().BeNull();
-    widget.GetPropertyValue<byte?>("PostsProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new FacebookCommentsWidget();
+      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
+      widget.GetPropertyValue<bool?>("MobileProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("OrderProperty").Should().BeNull();
+      widget.GetPropertyValue<byte?>("PostsProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -40,8 +43,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookCommentsWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      var widget = new FacebookCommentsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -57,8 +59,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new FacebookCommentsWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new FacebookCommentsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -77,8 +78,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Order(null)).ThrowExactly<ArgumentNullException>().WithParameterName("order");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Order(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("order");
 
-      var widget = new FacebookCommentsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -94,8 +94,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new FacebookCommentsWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookCommentsWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -114,8 +113,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      var widget = new FacebookCommentsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -134,8 +132,7 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new FacebookCommentsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

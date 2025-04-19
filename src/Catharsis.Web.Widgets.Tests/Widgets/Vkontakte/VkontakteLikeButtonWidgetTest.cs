@@ -20,17 +20,20 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
   {
     typeof(VkontakteLikeButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontakteLikeButtonWidget>();
 
-    var widget = new VkontakteLikeButtonWidget();
-    widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
-    widget.GetPropertyValue<byte?>("VerbProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("LayoutPropery").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("TitleProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("DescriptionProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("ImageProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteLikeButtonWidget();
+      widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
+      widget.GetPropertyValue<byte?>("VerbProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("LayoutPropery").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TitleProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("DescriptionProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ImageProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -44,8 +47,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -64,8 +66,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
 
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -81,8 +82,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -101,8 +101,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -121,8 +120,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -141,8 +139,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -161,8 +158,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -181,8 +177,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -201,8 +196,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("description");
 
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -221,8 +215,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("image");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("image");
 
-      var widget = new VkontakteLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

@@ -21,8 +21,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VideoJSPlayerWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new VideoJSPlayerWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VideoJSPlayerWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new VideoJSPlayerWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -60,8 +58,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(new VideoJSPlayerWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("videos");
 
-      var widget = new VideoJSPlayerWidget();
-      new[] { Array.Empty<(string Url, string ContentType)>() }.ForEach(value => Validate(value, widget));
+      new VideoJSPlayerWidget().With(widget => new[] { Array.Empty<(string Url, string ContentType)>() }.ForEach(value => Validate(value, widget)));
     }
 
     return;

@@ -20,18 +20,21 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
   {
     typeof(YandexMoneyPaymentFormWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexMoneyPaymentFormWidget>();
 
-    var widget = new YandexMoneyPaymentFormWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("DescriptionProperty").Should().BeNull();
-    widget.GetPropertyValue<decimal?>("SumProperty").Should().BeNull();
-    widget.GetPropertyValue<bool>("CardsProperty").Should().BeTrue();
-    widget.GetPropertyValue<byte>("TextProperty").Should().Be((byte) YandexMoneyPaymentFormText.Pay);
-    widget.GetPropertyValue<bool>("AskPayerPurposeProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("AskPayerCommentProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("AskPayerEmailProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().BeFalse();
-    widget.GetPropertyValue<bool>("AskPayerAddressProperty").Should().BeFalse();
+    using (new AssertionScope())
+    {
+      var widget = new YandexMoneyPaymentFormWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("DescriptionProperty").Should().BeNull();
+      widget.GetPropertyValue<decimal?>("SumProperty").Should().BeNull();
+      widget.GetPropertyValue<bool>("CardsProperty").Should().BeTrue();
+      widget.GetPropertyValue<byte>("TextProperty").Should().Be((byte) YandexMoneyPaymentFormText.Pay);
+      widget.GetPropertyValue<bool>("AskPayerPurposeProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerCommentProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerEmailProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerAddressProperty").Should().BeFalse();
+    }
   }
 
   /// <summary>
@@ -45,8 +48,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -65,8 +67,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("description");
 
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -82,8 +83,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { decimal.MinValue, decimal.MaxValue}.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { decimal.MinValue, decimal.MaxValue}.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -99,8 +99,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -116,8 +115,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -133,8 +131,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -150,8 +147,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -167,8 +163,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -184,8 +179,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -201,8 +195,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -218,8 +211,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;

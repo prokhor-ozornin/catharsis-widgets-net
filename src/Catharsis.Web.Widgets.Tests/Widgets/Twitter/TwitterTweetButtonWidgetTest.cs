@@ -20,17 +20,20 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
   {
     typeof(TwitterTweetButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ITwitterTweetButtonWidget>();
 
-    var widget = new TwitterTweetButtonWidget();
-    widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("ViaProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("SizeProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("CountUrl").Should().BeNull();
-    widget.GetPropertyValue<string>("CounterPositionProperty").Should().BeNull();
-    widget.GetPropertyValue<bool?>("SuggestionsProperty").Should().BeNull();
-    widget.GetPropertyValue<IEnumerable<string>>("TagsProperty").Should().BeEmpty();
-    widget.GetPropertyValue<IEnumerable<string>>("AccountsProperty").Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var widget = new TwitterTweetButtonWidget();
+      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ViaProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("SizeProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("CountUrl").Should().BeNull();
+      widget.GetPropertyValue<string>("CounterPositionProperty").Should().BeNull();
+      widget.GetPropertyValue<bool?>("SuggestionsProperty").Should().BeNull();
+      widget.GetPropertyValue<IEnumerable<string>>("TagsProperty").Should().BeEmpty();
+      widget.GetPropertyValue<IEnumerable<string>>("AccountsProperty").Should().BeEmpty();
+    }
   }
 
   /// <summary>
@@ -44,8 +47,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      var widget = new TwitterTweetButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new TwitterTweetButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -64,8 +66,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      var widget = new TwitterTweetButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new TwitterTweetButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -84,8 +85,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      var widget = new TwitterTweetButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new TwitterTweetButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -104,8 +104,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Via(null)).ThrowExactly<ArgumentNullException>().WithParameterName("via");
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Via(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("via");
 
-      var widget = new TwitterTweetButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new TwitterTweetButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -124,8 +123,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      var widget = new TwitterTweetButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new TwitterTweetButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -144,8 +142,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().CountUrl(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().CountUrl(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      var widget = new TwitterTweetButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new TwitterTweetButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -164,8 +161,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().CounterPosition(null)).ThrowExactly<ArgumentNullException>().WithParameterName("position");
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().CounterPosition(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("position");
 
-      var widget = new TwitterTweetButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new TwitterTweetButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -181,8 +177,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new TwitterTweetButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new TwitterTweetButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -200,8 +195,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
     {
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().HashTags(null)).ThrowExactly<ArgumentNullException>().WithParameterName("tags");
 
-      var widget = new TwitterTweetButtonWidget();
-      new[] { Enumerable.Empty<string>(), ["tag"] }.ForEach(value => Validate(value, widget));
+      new TwitterTweetButtonWidget().With(widget => new[] { Enumerable.Empty<string>(), ["tag"] }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -219,8 +213,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
     {
       AssertionExtensions.Should(() => new TwitterTweetButtonWidget().RelatedAccounts(null)).ThrowExactly<ArgumentNullException>().WithParameterName("accounts");
 
-      var widget = new TwitterTweetButtonWidget();
-      new[] { Enumerable.Empty<string>(), ["tag"] }.ForEach(value => Validate(value, widget));
+      new TwitterTweetButtonWidget().With(widget => new[] { Enumerable.Empty<string>(), ["tag"] }.ForEach(value => Validate(value, widget)));
     }
 
     return;

@@ -20,12 +20,15 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
   {
     typeof(VkontakteAuthButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontakteAuthButtonWidget>();
 
-    var widget = new VkontakteAuthButtonWidget();
-    widget.GetPropertyValue<string>("CallbackProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
-    widget.GetPropertyValue<VkontakteAuthButtonType>("TypeProperty").Should().Be(VkontakteAuthButtonType.Standard);
-    widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteAuthButtonWidget();
+      widget.GetPropertyValue<string>("CallbackProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
+      widget.GetPropertyValue<VkontakteAuthButtonType>("TypeProperty").Should().Be(VkontakteAuthButtonType.Standard);
+      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -39,8 +42,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new VkontakteAuthButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteAuthButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +61,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new VkontakteAuthButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteAuthButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -79,8 +80,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      var widget = new VkontakteAuthButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteAuthButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -96,8 +96,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new VkontakteAuthButtonWidget();
-      Enum.GetValues<VkontakteAuthButtonType>().ForEach(value => Validate(value, widget));
+      new VkontakteAuthButtonWidget().With(widget => Enum.GetValues<VkontakteAuthButtonType>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -116,8 +115,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Callback(null)).ThrowExactly<ArgumentNullException>().WithParameterName("callback");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Callback(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("callback");
 
-      var widget = new VkontakteAuthButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteAuthButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

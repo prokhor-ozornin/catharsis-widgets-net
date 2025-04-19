@@ -21,8 +21,7 @@ public sealed class IVkontakteCommentsWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Limit(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontakteCommentsWidget();
-      Enum.GetValues<VkontakteCommentsLimit>().ForEach(value => Validate(value, widget));
+      new VkontakteCommentsWidget().With(widget => Enum.GetValues<VkontakteCommentsLimit>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -64,8 +63,7 @@ public sealed class IVkontakteCommentsWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new VkontakteCommentsWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new VkontakteCommentsWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;

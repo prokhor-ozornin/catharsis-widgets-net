@@ -21,8 +21,7 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyPaymentFormWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new YandexMoneyPaymentFormWidget();
-      new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -38,8 +37,7 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new YandexMoneyPaymentFormWidget();
-      Enum.GetValues<YandexMoneyPaymentFormText>().ForEach(value => Validate(value, widget));
+      new YandexMoneyPaymentFormWidget().With(widget => Enum.GetValues<YandexMoneyPaymentFormText>().ForEach(value => Validate(value, widget)));
     }
 
     return;

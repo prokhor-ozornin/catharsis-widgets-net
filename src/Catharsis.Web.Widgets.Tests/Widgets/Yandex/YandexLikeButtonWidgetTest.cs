@@ -20,12 +20,15 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
   {
     typeof(YandexLikeButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IYandexLikeButtonWidget>();
 
-    var widget = new YandexLikeButtonWidget();
-    widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("TitleProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("SizeProperty").Should().Be(YandexLikeButtonSize.Large.ToString().ToLowerInvariant());
-    widget.GetPropertyValue<string>("LayoutProperty").Should().Be(YandexLikeButtonLayout.Button.ToString().ToLowerInvariant());
-    widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new YandexLikeButtonWidget();
+      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TitleProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("SizeProperty").Should().Be(YandexLikeButtonSize.Large.ToString().ToLowerInvariant());
+      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(YandexLikeButtonLayout.Button.ToString().ToLowerInvariant());
+      widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -39,8 +42,7 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      var widget = new YandexLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +61,7 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      var widget = new YandexLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -79,8 +80,7 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      var widget = new YandexLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -99,8 +99,7 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      var widget = new YandexLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -119,8 +118,7 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
 
-      var widget = new YandexLikeButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new YandexLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

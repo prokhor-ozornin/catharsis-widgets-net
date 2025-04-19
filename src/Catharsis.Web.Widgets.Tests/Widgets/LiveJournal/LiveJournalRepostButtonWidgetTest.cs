@@ -20,9 +20,12 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
   {
     typeof(LiveJournalRepostButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ILiveJournalRepostButtonWidget>();
 
-    var widget = new LiveJournalRepostButtonWidget();
-    widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("TitleProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new LiveJournalRepostButtonWidget();
+      widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TitleProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -36,8 +39,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
 
-      var widget = new LiveJournalRepostButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new LiveJournalRepostButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -56,8 +58,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      var widget = new LiveJournalRepostButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new LiveJournalRepostButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

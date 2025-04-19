@@ -20,14 +20,17 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
   {
     typeof(SurfingbirdSurfButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ISurfingbirdSurfButtonWidget>();
 
-    var widget = new SurfingbirdSurfButtonWidget();
-    widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("LayoutProperty").Should().Be(SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant());
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-    widget.GetPropertyValue<bool>("CounterProperty").Should().BeFalse();
-    widget.GetPropertyValue<string>("LabelProperty").Should().Be("Surf");
-    widget.GetPropertyValue<string>("ColorProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new SurfingbirdSurfButtonWidget();
+      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant());
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+      widget.GetPropertyValue<bool>("CounterProperty").Should().BeFalse();
+      widget.GetPropertyValue<string>("LabelProperty").Should().Be("Surf");
+      widget.GetPropertyValue<string>("ColorProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -41,8 +44,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      var widget = new SurfingbirdSurfButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new SurfingbirdSurfButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -61,8 +63,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      var widget = new SurfingbirdSurfButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new SurfingbirdSurfButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -81,8 +82,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new SurfingbirdSurfButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new SurfingbirdSurfButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -101,8 +101,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new SurfingbirdSurfButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new SurfingbirdSurfButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -118,8 +117,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new SurfingbirdSurfButtonWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new SurfingbirdSurfButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -138,8 +136,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Label(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Label(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      var widget = new SurfingbirdSurfButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new SurfingbirdSurfButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -158,8 +155,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      var widget = new SurfingbirdSurfButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new SurfingbirdSurfButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

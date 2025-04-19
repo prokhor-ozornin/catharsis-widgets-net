@@ -20,9 +20,12 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
   {
     typeof(PinterestFollowButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IPinterestFollowButtonWidget>();
 
-    var widget = new PinterestFollowButtonWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("LabelProperty").Should().Be("Follow");
+    using (new AssertionScope())
+    {
+      var widget = new PinterestFollowButtonWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("LabelProperty").Should().Be("Follow");
+    }
   }
 
   /// <summary>
@@ -36,8 +39,7 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new PinterestFollowButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new PinterestFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -56,8 +58,7 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Label(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Label(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      var widget = new PinterestFollowButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new PinterestFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

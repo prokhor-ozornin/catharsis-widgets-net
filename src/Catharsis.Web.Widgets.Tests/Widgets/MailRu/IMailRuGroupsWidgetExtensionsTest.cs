@@ -21,8 +21,7 @@ public sealed class IMailRuGroupsWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IMailRuGroupsWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new MailRuGroupsWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new MailRuGroupsWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IMailRuGroupsWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IMailRuGroupsWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new MailRuGroupsWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new MailRuGroupsWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;

@@ -54,8 +54,7 @@ public sealed class IGravatarImageUrlWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Email(null)).ThrowExactly<ArgumentNullException>().WithParameterName("email");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Email(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("email");
 
-      var widget = new GravatarImageUrlWidget();
-      Validate("prokhor.ozornin@yandex.ru", "61b98d241eaa1ce237c979e7a8181d13", widget);
+      new GravatarImageUrlWidget().With(widget => Validate("prokhor.ozornin@yandex.ru", "61b98d241eaa1ce237c979e7a8181d13", widget));
     }
 
     return;
@@ -73,8 +72,7 @@ public sealed class IGravatarImageUrlWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.ForceDefault(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new GravatarImageUrlWidget();
-      Validate(widget);
+      new GravatarImageUrlWidget().With(Validate);
     }
 
     return;
@@ -99,8 +97,7 @@ public sealed class IGravatarImageUrlWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Rating(null, GravatarImageRating.G)).ThrowExactly<ArgumentNullException>().WithParameterName("rating");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Rating(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("rating");
 
-      var widget = new GravatarImageUrlWidget();
-      Enum.GetValues<GravatarImageRating>().ForEach(value => Validate(value, widget));
+      new GravatarImageUrlWidget().With(widget => Enum.GetValues<GravatarImageRating>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -118,8 +115,7 @@ public sealed class IGravatarImageUrlWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Size(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new GravatarImageUrlWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new GravatarImageUrlWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;

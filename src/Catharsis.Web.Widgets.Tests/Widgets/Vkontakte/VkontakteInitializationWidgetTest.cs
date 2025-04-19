@@ -19,9 +19,12 @@ public sealed class VkontakteInitializationWidgetTest : UnitTest
   public void Constructors()
   {
     typeof(VkontakteInitializationWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IVkontakteInitializationWidget>();
-    
-    var widget = new VkontakteInitializationWidget();
-    widget.GetPropertyValue<string>("ApiIdProperty").Should().BeNull();
+
+    using (new AssertionScope())
+    {
+      var widget = new VkontakteInitializationWidget();
+      widget.GetPropertyValue<string>("ApiIdProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -35,8 +38,7 @@ public sealed class VkontakteInitializationWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new VkontakteInitializationWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new VkontakteInitializationWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

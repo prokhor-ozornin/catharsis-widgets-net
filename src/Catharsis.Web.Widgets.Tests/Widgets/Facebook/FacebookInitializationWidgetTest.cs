@@ -20,8 +20,11 @@ public sealed class FacebookInitializationWidgetTest : UnitTest
   {
     typeof(FacebookInitializationWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookInitializationWidget>();
 
-    var widget = new FacebookInitializationWidget();
-    widget.GetPropertyValue<string>("AppIdProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new FacebookInitializationWidget();
+      widget.GetPropertyValue<string>("AppIdProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -35,9 +38,7 @@ public sealed class FacebookInitializationWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookInitializationWidget().AppId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new FacebookInitializationWidget().AppId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-
-      var widget = new FacebookInitializationWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookInitializationWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

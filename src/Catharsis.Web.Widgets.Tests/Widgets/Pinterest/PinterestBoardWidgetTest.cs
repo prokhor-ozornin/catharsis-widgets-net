@@ -20,12 +20,15 @@ public sealed class PinterestBoardWidgetTest : UnitTest
   {
     typeof(PinterestBoardWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IPinterestBoardWidget>();
 
-    var widget = new PinterestBoardWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("ImageProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new PinterestBoardWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ImageProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -39,8 +42,7 @@ public sealed class PinterestBoardWidgetTest : UnitTest
       AssertionExtensions.Should(() => new PinterestBoardWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new PinterestBoardWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new PinterestBoardWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +61,7 @@ public sealed class PinterestBoardWidgetTest : UnitTest
       AssertionExtensions.Should(() => new PinterestBoardWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new PinterestBoardWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new PinterestBoardWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -79,8 +80,7 @@ public sealed class PinterestBoardWidgetTest : UnitTest
       AssertionExtensions.Should(() => new PinterestBoardWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new PinterestBoardWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new PinterestBoardWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -99,8 +99,7 @@ public sealed class PinterestBoardWidgetTest : UnitTest
       AssertionExtensions.Should(() => new PinterestBoardWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new PinterestBoardWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new PinterestBoardWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -119,8 +118,7 @@ public sealed class PinterestBoardWidgetTest : UnitTest
       AssertionExtensions.Should(() => new PinterestBoardWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("image");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("image");
 
-      var widget = new PinterestBoardWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new PinterestBoardWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

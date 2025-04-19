@@ -20,7 +20,10 @@ public sealed class DoubleGisMapWidgetTest : UnitTest
   {
     typeof(DoubleGisMapWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IDoubleGisMapWidget>();
 
-    var widget = new DoubleGisContactsMapWidget();
+    using (new AssertionScope())
+    {
+      var widget = new DoubleGisContactsMapWidget();
+    }
   }
 
   /// <summary>

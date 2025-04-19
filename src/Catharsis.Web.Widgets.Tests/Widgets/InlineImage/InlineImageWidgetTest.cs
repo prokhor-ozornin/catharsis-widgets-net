@@ -21,9 +21,12 @@ public sealed class InlineImageWidgetTest : UnitTest
   {
     typeof(InlineImageWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IInlineImageWidget>();
 
-    var widget = new InlineImageWidget();
-    widget.GetPropertyValue<byte[]>("ContentsProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("FormatProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new InlineImageWidget();
+      widget.GetPropertyValue<byte[]>("ContentsProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("FormatProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -35,9 +38,8 @@ public sealed class InlineImageWidgetTest : UnitTest
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => new InlineImageWidget().Contents(null)).ThrowExactly<ArgumentNullException>().WithParameterName("contents");
-
-      var widget = new InlineImageWidget();
-      new[] { [], new Random().ByteSequence(16).ToArray() }.ForEach(value => Validate(value, widget));
+      
+      new InlineImageWidget().With(widget => new[] { [], new Random().ByteSequence(16).ToArray() }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -56,8 +58,7 @@ public sealed class InlineImageWidgetTest : UnitTest
       AssertionExtensions.Should(() => new InlineImageWidget().Format(null)).ThrowExactly<ArgumentNullException>().WithParameterName("format");
       AssertionExtensions.Should(() => new InlineImageWidget().Format(null)).ThrowExactly<ArgumentException>().WithMessage("format");
 
-      var widget = new InlineImageWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new InlineImageWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

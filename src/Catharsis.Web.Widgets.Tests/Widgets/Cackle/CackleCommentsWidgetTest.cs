@@ -20,8 +20,11 @@ public sealed class CackleCommentsWidgetTest : UnitTest
   {
     typeof(CackleCommentsWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ICackleCommentsWidget>();
 
-    var widget = new CackleCommentsWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new CackleCommentsWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -35,8 +38,7 @@ public sealed class CackleCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new CackleCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new CackleCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new CackleCommentsWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new CackleCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

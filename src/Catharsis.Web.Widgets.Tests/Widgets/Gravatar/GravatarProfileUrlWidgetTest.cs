@@ -20,10 +20,13 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
   {
     typeof(GravatarProfileUrlWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IGravatarProfileUrlWidget>();
 
-    var widget = new GravatarProfileUrlWidget();
-    widget.GetPropertyValue<string>("HashProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("FormatProperty").Should().BeNull();
-    widget.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var widget = new GravatarProfileUrlWidget();
+      widget.GetPropertyValue<string>("HashProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("FormatProperty").Should().BeNull();
+      widget.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").Should().BeEmpty();
+    }
   }
 
   /// <summary>
@@ -37,8 +40,7 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      var widget = new GravatarProfileUrlWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GravatarProfileUrlWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -57,8 +59,7 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Format(null)).ThrowExactly<ArgumentNullException>().WithParameterName("format");
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Format(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("format");
 
-      var widget = new GravatarProfileUrlWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new GravatarProfileUrlWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -78,8 +79,7 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Parameter(string.Empty, new object())).ThrowExactly<ArgumentException>().WithMessage("name");
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Parameter("name", null)).ThrowExactly<ArgumentNullException>().WithParameterName("value");
 
-      var widget = new GravatarProfileUrlWidget();
-      Validate("id", Guid.NewGuid(), widget);
+      new GravatarProfileUrlWidget().With(widget => Validate("id", Guid.NewGuid(), widget));
     }
 
     return;

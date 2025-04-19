@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -19,7 +20,10 @@ public sealed class RobokassaPaymentFormWidgetTest : UnitTest
   {
     typeof(RobokassaPaymentFormWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IRobokassaPaymentFormWidget>();
 
-    var widget = new RobokassaPaymentFormWidget();
+    using (new AssertionScope())
+    {
+      var widget = new RobokassaPaymentFormWidget();
+    }
   }
 
   /// <summary>

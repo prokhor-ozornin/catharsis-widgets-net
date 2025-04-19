@@ -21,8 +21,7 @@ public sealed class IMailRuFacesWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Font(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new MailRuFacesWidget();
-      Enum.GetValues<MailRuFacesFont>().ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => Enum.GetValues<MailRuFacesFont>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IMailRuFacesWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new MailRuFacesWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class IMailRuFacesWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new MailRuFacesWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;

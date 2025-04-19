@@ -21,8 +21,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Color(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new YandexMoneyButtonWidget();
-      Enum.GetValues<YandexMoneyButtonColor>().ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => Enum.GetValues<YandexMoneyButtonColor>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -40,8 +39,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new YandexMoneyButtonWidget();
-      Enum.GetValues<YandexMoneyButtonSize>().ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => Enum.GetValues<YandexMoneyButtonSize>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -59,8 +57,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new YandexMoneyButtonWidget();
-      new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -78,8 +75,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new YandexMoneyButtonWidget();
-      Enum.GetValues<YandexMoneyButtonText>().ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => Enum.GetValues<YandexMoneyButtonText>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -97,8 +93,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new YandexMoneyButtonWidget();
-      Enum.GetValues<YandexMoneyButtonType>().ForEach(value => Validate(value, widget));
+      new YandexMoneyButtonWidget().With(widget => Enum.GetValues<YandexMoneyButtonType>().ForEach(value => Validate(value, widget)));
     }
 
     return;

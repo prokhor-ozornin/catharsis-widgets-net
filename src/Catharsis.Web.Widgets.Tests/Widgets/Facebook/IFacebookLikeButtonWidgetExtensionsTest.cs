@@ -21,8 +21,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookLikeButtonWidget();
-      Enum.GetValues<FacebookButtonLayout>().ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => Enum.GetValues<FacebookButtonLayout>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -41,8 +40,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Url(new FacebookLikeButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      var widget = new FacebookLikeButtonWidget();
-      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -60,8 +58,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookLikeButtonWidget();
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -79,8 +76,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Verb(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookLikeButtonWidget();
-      Enum.GetValues<FacebookLikeButtonVerb>().ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => Enum.GetValues<FacebookLikeButtonVerb>().ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -98,8 +94,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookLikeButtonWidget();
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget));
+      new FacebookLikeButtonWidget().With(widget => Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget)));
     }
 
     return;

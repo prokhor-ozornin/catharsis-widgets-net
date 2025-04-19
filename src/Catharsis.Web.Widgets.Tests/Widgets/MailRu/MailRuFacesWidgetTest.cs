@@ -20,18 +20,21 @@ public sealed class MailRuFacesWidgetTest : UnitTest
   {
     typeof(MailRuFacesWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IMailRuFacesWidget>();
 
-    var widget = new MailRuFacesWidget();
-    widget.GetPropertyValue<string>("BackgroundColorProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("BorderColorProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("DomainProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("FontProperty").Should().Be(MailRuFacesFont.Arial.ToString());
-    widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HyperlinkColorProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("TextColorProperty").Should().BeNull();
-    widget.GetPropertyValue<bool>("TitleProperty").Should().BeTrue();
-    widget.GetPropertyValue<string>("TitleColorProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("TitleTextProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new MailRuFacesWidget();
+      widget.GetPropertyValue<string>("BackgroundColorProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("BorderColorProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("DomainProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("FontProperty").Should().Be(MailRuFacesFont.Arial.ToString());
+      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HyperlinkColorProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TextColorProperty").Should().BeNull();
+      widget.GetPropertyValue<bool>("TitleProperty").Should().BeTrue();
+      widget.GetPropertyValue<string>("TitleColorProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TitleTextProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -45,8 +48,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().BackgroundColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().BackgroundColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      var widget = new MailRuFacesWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -65,8 +67,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().BorderColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().BorderColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      var widget = new MailRuFacesWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -85,8 +86,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      var widget = new MailRuFacesWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -105,8 +105,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().Font(null)).ThrowExactly<ArgumentNullException>().WithParameterName("font");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Font(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("font");
 
-      var widget = new MailRuFacesWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -125,8 +124,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new MailRuFacesWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -145,8 +143,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().HyperlinkColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().HyperlinkColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      var widget = new MailRuFacesWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -165,8 +162,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().TextColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TextColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      var widget = new MailRuFacesWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -182,8 +178,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new MailRuFacesWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -202,8 +197,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      var widget = new MailRuFacesWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -222,8 +216,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
 
-      var widget = new MailRuFacesWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -242,8 +235,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new MailRuFacesWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

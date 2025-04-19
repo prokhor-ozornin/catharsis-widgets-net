@@ -20,17 +20,20 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
   {
     typeof(FacebookRecommendationsFeedWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IFacebookRecommendationsFeedWidget>();
 
-    var widget = new FacebookRecommendationsFeedWidget();
-    widget.GetPropertyValue<string>("DomainProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("AppIdProperty").Should().BeNull();
-    widget.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().BeEmpty();
-    widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
-    widget.GetPropertyValue<bool?>("HeaderProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("LinkProperty").Should().BeNull();
-    widget.GetPropertyValue<byte?>("MaxAgeProperty").Should().BeNull();
-    widget.GetPropertyValue<string>("TrackLabelProperty").Should().BeNull();
+    using (new AssertionScope())
+    {
+      var widget = new FacebookRecommendationsFeedWidget();
+      widget.GetPropertyValue<string>("DomainProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AppIdProperty").Should().BeNull();
+      widget.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().BeEmpty();
+      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
+      widget.GetPropertyValue<bool?>("HeaderProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("LinkProperty").Should().BeNull();
+      widget.GetPropertyValue<byte?>("MaxAgeProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TrackLabelProperty").Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -44,8 +47,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -64,8 +66,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().AppId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().AppId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -83,8 +84,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
     {
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("actions");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { Enumerable.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { Enumerable.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -107,8 +107,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -127,8 +126,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -147,8 +145,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -164,8 +161,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { false, true }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -184,8 +180,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().LinkTarget(null)).ThrowExactly<ArgumentNullException>().WithParameterName("target");
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().LinkTarget(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("target");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -201,8 +196,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -221,8 +215,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().TrackLabel(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().TrackLabel(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      var widget = new FacebookRecommendationsFeedWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new FacebookRecommendationsFeedWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;

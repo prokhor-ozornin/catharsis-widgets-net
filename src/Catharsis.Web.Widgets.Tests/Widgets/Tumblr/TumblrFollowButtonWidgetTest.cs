@@ -20,10 +20,13 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
   {
     typeof(TumblrFollowButtonWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<ITumblrFollowButtonWidget>();
 
-    var widget = new TumblrFollowButtonWidget();
-    widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-    widget.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) TumblrFollowButtonType.First);
-    widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant());
+    using (new AssertionScope())
+    {
+      var widget = new TumblrFollowButtonWidget();
+      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) TumblrFollowButtonType.First);
+      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant());
+    }
   }
 
   /// <summary>
@@ -37,8 +40,7 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      var widget = new TumblrFollowButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new TumblrFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -54,8 +56,7 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      var widget = new TumblrFollowButtonWidget();
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget));
+      new TumblrFollowButtonWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
     }
 
     return;
@@ -74,8 +75,7 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      var widget = new TumblrFollowButtonWidget();
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget));
+      new TumblrFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
 
     return;
