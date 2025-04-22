@@ -116,7 +116,7 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
       config["attach"] = false;
     }
 
-    if (!WidthProperty.IsEmpty())
+    if (!WidthProperty.IsUnset())
     {
       config["width"] = WidthProperty;
     }

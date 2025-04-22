@@ -168,42 +168,42 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   {
     var config = new Dictionary<string, object>();
       
-    if (!LayoutProperty.IsEmpty())
+    if (!LayoutProperty.IsUnset())
     {
       config["type"] = LayoutProperty;
     }
 
-    if (!WidthProperty.IsEmpty())
+    if (!WidthProperty.IsUnset())
     {
       config["width"] = WidthProperty;
     }
 
-    if (!TitleProperty.IsEmpty())
+    if (!TitleProperty.IsUnset())
     {
       config["pageTitle"] = TitleProperty;
     }
 
-    if (!DescriptionProperty.IsEmpty())
+    if (!DescriptionProperty.IsUnset())
     {
       config["pageDescription"] = DescriptionProperty;
     }
 
-    if (!UrlProperty.IsEmpty())
+    if (!UrlProperty.IsUnset())
     {
       config["pageUrl"] = UrlProperty;
     }
 
-    if (!ImageProperty.IsEmpty())
+    if (!ImageProperty.IsUnset())
     {
       config["pageImage"] = ImageProperty;
     }
 
-    if (!TextProperty.IsEmpty())
+    if (!TextProperty.IsUnset())
     {
       config["text"] = TextProperty;
     }
     
-    if (!HeightProperty.IsEmpty())
+    if (!HeightProperty.IsUnset())
     {
       config["height"] = HeightProperty;
     }

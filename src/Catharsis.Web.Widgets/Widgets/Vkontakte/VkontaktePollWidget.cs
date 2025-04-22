@@ -74,19 +74,19 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (IdProperty.IsEmpty())
+    if (IdProperty.IsUnset())
     {
       return string.Empty;
     }
 
     var config = new Dictionary<string, object>();
     
-    if (!UrlProperty.IsEmpty())
+    if (!UrlProperty.IsUnset())
     {
       config["pageUrl"] = UrlProperty;
     }
 
-    if (!WidthProperty.IsEmpty())
+    if (!WidthProperty.IsUnset())
     {
       config["width"] = WidthProperty;
     }

@@ -150,7 +150,7 @@ public sealed class IntenseDebateCommentsWidgetTest : UnitTest
     {
       widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
 
-      if (html.IsEmpty())
+      if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();
       }

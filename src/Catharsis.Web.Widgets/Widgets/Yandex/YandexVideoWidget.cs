@@ -70,14 +70,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (IdProperty.IsEmpty() || UserProperty.IsEmpty() || HeightProperty.IsEmpty() || WidthProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("iframe")
+  public override string ToHtml() => IdProperty.IsUnset() || UserProperty.IsUnset() || HeightProperty.IsUnset() || WidthProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", $"http://video.yandex.ru/iframe/${UserProperty}/${IdProperty}")
       .Attribute("width", WidthProperty)
       .Attribute("height", HeightProperty)
@@ -86,5 +79,4 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
       .Attribute("webkitallowfullscreen", true)
       .Attribute("mozallowfullscreen", true)
       .ToString();
-  }
 }

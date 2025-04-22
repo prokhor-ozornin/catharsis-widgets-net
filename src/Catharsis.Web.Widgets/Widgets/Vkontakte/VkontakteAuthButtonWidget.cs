@@ -86,12 +86,12 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (TypeProperty == VkontakteAuthButtonType.Dynamic && CallbackProperty.IsEmpty())
+    if (TypeProperty == VkontakteAuthButtonType.Dynamic && CallbackProperty.IsUnset())
     {
       return string.Empty;
     }
 
-    if (TypeProperty == VkontakteAuthButtonType.Standard && UrlProperty.IsEmpty())
+    if (TypeProperty == VkontakteAuthButtonType.Standard && UrlProperty.IsUnset())
     {
       return string.Empty;
     }
@@ -100,17 +100,17 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
 
     var config = new Dictionary<string, object>();
     
-    if (!CallbackProperty.IsEmpty())
+    if (!CallbackProperty.IsUnset())
     {
       config["onAuth"] = CallbackProperty;
     }
     
-    if (!UrlProperty.IsEmpty())
+    if (!UrlProperty.IsUnset())
     {
       config["authUrl"] = UrlProperty;
     }
     
-    if (!WidthProperty.IsEmpty())
+    if (!WidthProperty.IsUnset())
     {
       config["width"] = WidthProperty;
     }

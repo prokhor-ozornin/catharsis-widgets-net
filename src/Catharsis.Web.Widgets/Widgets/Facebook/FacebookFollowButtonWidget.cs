@@ -105,14 +105,14 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => UrlProperty.IsEmpty() ? string.Empty : new TagBuilder("div")
-      .Attribute("data-layout", LayoutProperty)
-      .Attribute("data-show-faces", FacesProperty)
-      .Attribute("data-href", UrlProperty)
-      .Attribute("data-colorscheme", ColorSchemeProperty)
-      .Attribute("data-kid-directed-site", KidsModeProperty)
-      .Attribute("data-width", WidthProperty)
-      .Attribute("data-height", HeightProperty)
-      .CssClass("fb-follow")
-      .ToString();
+  public override string ToHtml() => UrlProperty.IsUnset() ? string.Empty : new TagBuilder("div")
+                                                                            .Attribute("data-layout", LayoutProperty)
+                                                                            .Attribute("data-show-faces", FacesProperty)
+                                                                            .Attribute("data-href", UrlProperty)
+                                                                            .Attribute("data-colorscheme", ColorSchemeProperty)
+                                                                            .Attribute("data-kid-directed-site", KidsModeProperty)
+                                                                            .Attribute("data-width", WidthProperty)
+                                                                            .Attribute("data-height", HeightProperty)
+                                                                            .CssClass("fb-follow")
+                                                                            .ToString();
 }

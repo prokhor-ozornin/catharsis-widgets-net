@@ -21,16 +21,8 @@ public class PinterestPinWidget : WebWidget, IPinterestPinWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (IdProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("a")
+  public override string ToHtml() => IdProperty.IsUnset() ? string.Empty : new TagBuilder("a")
       .Attribute("data-pin-do", "embedPin")
       .Attribute("href", $"http://www.pinterest.com/pin/${IdProperty}")
       .ToString();
-  }
 }

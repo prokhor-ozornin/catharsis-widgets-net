@@ -63,14 +63,7 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (!VideosProperty.Any() || WidthProperty.IsEmpty() || HeightProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("video")
+  public override string ToHtml() => !VideosProperty.Any() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("video")
       .Attribute("class", "video-js vjs-default-skin")
       .Attribute("controls", "controls")
       .Attribute("preload", "auto")
@@ -79,5 +72,4 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
       .Attribute("width", WidthProperty)
       .Html(VideosProperty.Join(string.Empty) + ExtraProperty)
       .ToString();
-  }
 }

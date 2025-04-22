@@ -119,21 +119,21 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   {
     var config = new Dictionary<string, object>
     {
-      { "layout", $"{LayoutProperty}{(CounterProperty ? string.Empty : "-nocount")}{(ColorProperty.IsEmpty() ? string.Empty : "-" + ColorProperty)}"
+      { "layout", $"{LayoutProperty}{(CounterProperty ? string.Empty : "-nocount")}{(ColorProperty.IsUnset() ? string.Empty : "-" + ColorProperty)}"
       }
     };
 
-    if (!UrlProperty.IsEmpty())
+    if (!UrlProperty.IsUnset())
     {
       config["url"] = UrlProperty;
     }
 
-    if (!WidthProperty.IsEmpty())
+    if (!WidthProperty.IsUnset())
     {
       config["width"] = WidthProperty;
     }
     
-    if (!HeightProperty.IsEmpty())
+    if (!HeightProperty.IsUnset())
     {
       config["height"] = HeightProperty;
     }

@@ -126,16 +126,16 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => UrlProperty.IsEmpty() ? string.Empty : new TagBuilder("div")
-      .Attribute("data-href", UrlProperty)
-      .Attribute("data-width", WidthProperty)
-      .Attribute("data-height", HeightProperty)
-      .Attribute("data-colorscheme", ColorSchemeProperty)
-      .Attribute("data-force-wall", WallProperty)
-      .Attribute("data-header", HeaderProperty)
-      .Attribute("data-show-border", BorderProperty)
-      .Attribute("data-show-faces", FacesProperty)
-      .Attribute("data-stream", StreamProperty)
-      .CssClass("fb-like-box")
-      .ToString();
+  public override string ToHtml() => UrlProperty.IsUnset() ? string.Empty : new TagBuilder("div")
+                                                                            .Attribute("data-href", UrlProperty)
+                                                                            .Attribute("data-width", WidthProperty)
+                                                                            .Attribute("data-height", HeightProperty)
+                                                                            .Attribute("data-colorscheme", ColorSchemeProperty)
+                                                                            .Attribute("data-force-wall", WallProperty)
+                                                                            .Attribute("data-header", HeaderProperty)
+                                                                            .Attribute("data-show-border", BorderProperty)
+                                                                            .Attribute("data-show-faces", FacesProperty)
+                                                                            .Attribute("data-stream", StreamProperty)
+                                                                            .CssClass("fb-like-box")
+                                                                            .ToString();
 }

@@ -126,7 +126,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsEmpty() || WidthProperty.IsEmpty() || HeightProperty.IsEmpty())
+    if (AccountProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset())
     {
       return string.Empty;
     }
@@ -144,22 +144,22 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
       config["show_subscribers"] = true;
     }
     
-    if (!BackgroundColorProperty.IsEmpty())
+    if (!BackgroundColorProperty.IsUnset())
     {
       config["background"] = BackgroundColorProperty;
     }
     
-    if (!TextColorProperty.IsEmpty())
+    if (!TextColorProperty.IsUnset())
     {
       config["color"] = TextColorProperty;
     }
     
-    if (!ButtonColorProperty.IsEmpty())
+    if (!ButtonColorProperty.IsUnset())
     {
       config["button_background"] = ButtonColorProperty;
     }
     
-    if (!DomainProperty.IsEmpty())
+    if (!DomainProperty.IsUnset())
     {
       config["domain"] = DomainProperty;
     }

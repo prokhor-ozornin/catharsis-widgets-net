@@ -171,7 +171,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (DomainProperty.IsEmpty() || WidthProperty.IsEmpty() || HeightProperty.IsEmpty())
+    if (DomainProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset())
     {
       return string.Empty;
     }
@@ -184,7 +184,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
       { "height", HeightProperty }
     };
       
-    if (!TitleTextProperty.IsEmpty())
+    if (!TitleTextProperty.IsUnset())
     {
       config["title"] = TitleTextProperty;
     }
@@ -194,27 +194,27 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
       config["notitle"] = true;
     }
     
-    if (!TitleColorProperty.IsEmpty())
+    if (!TitleColorProperty.IsUnset())
     {
       config["title-color"] = TitleColorProperty;
     }
     
-    if (!BackgroundColorProperty.IsEmpty())
+    if (!BackgroundColorProperty.IsUnset())
     {
       config["background"] = BackgroundColorProperty;
     }
     
-    if (!BorderColorProperty.IsEmpty())
+    if (!BorderColorProperty.IsUnset())
     {
       config["border"] = BorderColorProperty;
     }
     
-    if (!TextColorProperty.IsEmpty())
+    if (!TextColorProperty.IsUnset())
     {
       config["color"] = TextColorProperty;
     }
     
-    if (!HyperlinkColorProperty.IsEmpty())
+    if (!HyperlinkColorProperty.IsUnset())
     {
       config["link-color"] = HyperlinkColorProperty;
     }

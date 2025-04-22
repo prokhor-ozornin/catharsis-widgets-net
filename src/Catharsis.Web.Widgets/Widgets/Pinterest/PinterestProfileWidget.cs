@@ -67,19 +67,11 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   /// <returns>Widget's HTML markup.</returns>
-  public override string ToHtml()
-  {
-    if (AccountProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("a")
+  public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : new TagBuilder("a")
       .Attribute("data-pin-do", "embedUser")
       .Attribute("href", $"http://www.pinterest.com/${AccountProperty}")
       .Attribute("data-pin-scale-width", ImageProperty)
       .Attribute("data-pin-scale-height", HeightProperty)
       .Attribute("data-pin-board-width", WidthProperty)
       .ToString();
-  }
 }

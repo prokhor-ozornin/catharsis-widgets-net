@@ -78,14 +78,7 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (IdProperty.IsEmpty() || WidthProperty.IsEmpty() || HeightProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("iframe")
+  public override string ToHtml() => IdProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", string.Format("{2}://{1}/embed/{0}", IdProperty, PrivateModeProperty ? "www.youtube-nocookie.com" : "www.youtube.com", SecureModeProperty ? "https" : "http"))
       .Attribute("width", WidthProperty)
       .Attribute("height", HeightProperty)
@@ -94,5 +87,4 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
       .Attribute("webkitallowfullscreen", true)
       .Attribute("mozallowfullscreen", true)
       .ToString();
-  }
 }

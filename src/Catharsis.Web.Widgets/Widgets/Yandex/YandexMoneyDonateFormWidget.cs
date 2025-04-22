@@ -181,7 +181,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsEmpty() || DescriptionTextProperty.IsEmpty())
+    if (AccountProperty.IsUnset() || DescriptionTextProperty.IsUnset())
     {
       return string.Empty;
     }

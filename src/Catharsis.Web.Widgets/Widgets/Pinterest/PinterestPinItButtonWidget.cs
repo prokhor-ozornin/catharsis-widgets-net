@@ -166,7 +166,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (UrlProperty.IsEmpty() || ImageProperty.IsEmpty() || DescriptionProperty.IsEmpty())
+    if (UrlProperty.IsUnset() || ImageProperty.IsUnset() || DescriptionProperty.IsUnset())
     {
       return string.Empty;
     }

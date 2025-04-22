@@ -36,6 +36,6 @@ public class InlineImageWidget : WebWidget, IInlineImageWidget
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml() => ContentsProperty is null ? string.Empty : 
     new TagBuilder("img")
-      .Attribute("src", string.Format("data:{1};base64,{0}", Convert.ToBase64String(ContentsProperty), FormatProperty.IsEmpty() ? "image" : FormatProperty))
+      .Attribute("src", string.Format("data:{1};base64,{0}", Convert.ToBase64String(ContentsProperty), FormatProperty.IsUnset() ? "image" : FormatProperty))
       .ToString();
 }

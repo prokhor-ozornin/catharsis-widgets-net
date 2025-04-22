@@ -51,14 +51,7 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (IdProperty.IsEmpty() || HeightProperty.IsEmpty() || WidthProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("iframe")
+  public override string ToHtml() => IdProperty.IsUnset() || HeightProperty.IsUnset() || WidthProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("frameborder", 0)
       .Attribute("allowfullscreen", true)
       .Attribute("webkitallowfullscreen", true)
@@ -68,5 +61,4 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
       .Attribute("width", WidthProperty)
       .Attribute("src", $"http://rutube.ru/embed/{IdProperty}")
       .ToString();
-  }
 }

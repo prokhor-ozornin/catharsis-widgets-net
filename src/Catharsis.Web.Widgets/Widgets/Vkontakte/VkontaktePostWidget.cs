@@ -90,14 +90,14 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (IdProperty.IsEmpty() || OwnerProperty.IsEmpty() || HashProperty.IsEmpty())
+    if (IdProperty.IsUnset() || OwnerProperty.IsUnset() || HashProperty.IsUnset())
     {
       return string.Empty;
     }
 
     var config = new Dictionary<string, object>();
     
-    if (!WidthProperty.IsEmpty())
+    if (!WidthProperty.IsUnset())
     {
       config["width"] = WidthProperty;
     }

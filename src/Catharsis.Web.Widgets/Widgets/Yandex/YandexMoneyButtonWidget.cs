@@ -158,7 +158,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsEmpty() || SumProperty is null || DescriptionProperty.IsEmpty())
+    if (AccountProperty.IsUnset() || SumProperty is null || DescriptionProperty.IsUnset())
     {
       return string.Empty;
     }

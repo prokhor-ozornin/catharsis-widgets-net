@@ -51,14 +51,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (IdProperty.IsEmpty() || HeightProperty.IsEmpty() || WidthProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("iframe")
+  public override string ToHtml() => IdProperty.IsUnset() || HeightProperty.IsUnset() || WidthProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", $"http://api.video.mail.ru/videos/embed/mail/${IdProperty}")
       .Attribute("width", WidthProperty)
       .Attribute("height", HeightProperty)
@@ -67,5 +60,4 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
       .Attribute("webkitallowfullscreen", true)
       .Attribute("mozallowfullscreen", true)
       .ToString();
-  }
 }

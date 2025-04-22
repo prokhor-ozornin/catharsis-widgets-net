@@ -45,7 +45,7 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
         .Attribute("src", $"http://c.icq.com/siteim/icqbar/js/partners/initbar_$@{LanguageProperty ?? "ru"}.js")
       );
       
-    if (!AccountProperty.IsEmpty())
+    if (!AccountProperty.IsUnset())
     {
       builder.Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"window.ICQ = {{siteOwner:'${AccountProperty}'}};"));
     }

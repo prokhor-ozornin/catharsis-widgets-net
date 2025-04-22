@@ -81,19 +81,11 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (AccountProperty.IsEmpty() || IdProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("a")
+  public override string ToHtml() => AccountProperty.IsUnset() || IdProperty.IsUnset() ? string.Empty : new TagBuilder("a")
       .Attribute("data-pin-do", "embedBoard")
       .Attribute("href", $"http://www.pinterest.com/${AccountProperty}/{IdProperty}")
       .Attribute("data-pin-scale-width", ImageProperty)
       .Attribute("data-pin-scale-height", HeightProperty)
       .Attribute("data-pin-board-width", WidthProperty)
       .ToString();
-  }
 }

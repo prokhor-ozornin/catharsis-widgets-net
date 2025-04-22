@@ -66,5 +66,5 @@ public class IntenseDebateLinkWidget : WebWidget, IIntenseDebateLinkWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => AccountProperty.IsEmpty() ? string.Empty : string.Format(resources.intensedebate_link_html, AccountProperty, PostIdProperty, PostUrlProperty, PostTitleProperty);
+  public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : string.Format(resources.intensedebate_link_html, AccountProperty, PostIdProperty, PostUrlProperty, PostTitleProperty);
 }

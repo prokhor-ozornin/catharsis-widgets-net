@@ -22,7 +22,7 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => ApiIdProperty.IsEmpty() ? string.Empty : 
+  public override string ToHtml() => ApiIdProperty.IsUnset() ? string.Empty : 
     new TagBuilder("script")
       .Attribute("type", "text/javascript")
       .Html($"VK.init({{apiId:${ApiIdProperty}, onlyWidgets:true}});")

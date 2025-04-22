@@ -37,17 +37,9 @@ public class PinterestFollowButtonWidget : WebWidget, IPinterestFollowButtonWidg
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (AccountProperty.IsEmpty() || LabelProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("a")
+  public override string ToHtml() => AccountProperty.IsUnset() || LabelProperty.IsUnset() ? string.Empty : new TagBuilder("a")
       .Attribute("data-pin-do", "buttonFollow")
       .Attribute("href", $"http://www.pinterest.com/${AccountProperty}")
       .Html(LabelProperty)
       .ToString();
-  }
 }

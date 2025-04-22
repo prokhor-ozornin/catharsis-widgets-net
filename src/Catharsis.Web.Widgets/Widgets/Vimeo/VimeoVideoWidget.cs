@@ -75,14 +75,7 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (IdProperty.IsEmpty() || WidthProperty.IsEmpty() || HeightProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("iframe")
+  public override string ToHtml() => IdProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("frameborder", 0)
       .Attribute("allowfullscreen", true)
       .Attribute("webkitallowfullscreen", true)
@@ -91,5 +84,4 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
       .Attribute("width", WidthProperty)
       .Attribute("src", string.Format("https://player.vimeo.com/video/${Id()}?badge=0{1}{2}", IdProperty, AutoPlayProperty ? "&autoplay=1" : string.Empty, LoopProperty ? "&loop=1" : string.Empty))
       .ToString();
-  }
 }

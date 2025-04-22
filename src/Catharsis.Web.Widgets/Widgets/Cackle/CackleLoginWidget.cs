@@ -26,7 +26,7 @@ public class CackleLoginWidget : WebWidget, ICackleLoginWidget
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsEmpty())
+    if (AccountProperty.IsUnset())
     {
       return string.Empty;
     }

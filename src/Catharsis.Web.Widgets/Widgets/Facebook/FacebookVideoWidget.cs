@@ -51,14 +51,7 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (IdProperty.IsEmpty() || WidthProperty.IsEmpty() || HeightProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("iframe")
+  public override string ToHtml() => IdProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", $"http://www.facebook.com/video/embed?video_id=${IdProperty}")
       .Attribute("width", WidthProperty)
       .Attribute("height", HeightProperty)
@@ -67,5 +60,4 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
       .Attribute("webkitallowfullscreen", true)
       .Attribute("mozallowfullscreen", true)
       .ToString();
-  }
 }

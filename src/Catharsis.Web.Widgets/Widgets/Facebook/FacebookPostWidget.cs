@@ -36,7 +36,7 @@ public class FacebookPostWidget : WebWidget, IFacebookPostWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => UrlProperty.IsEmpty() ? string.Empty : new TagBuilder("div")
+  public override string ToHtml() => UrlProperty.IsUnset() ? string.Empty : new TagBuilder("div")
       .Attribute("data-href", UrlProperty)
       .Attribute("data-width", WidthProperty)
       .CssClass("fb-post")

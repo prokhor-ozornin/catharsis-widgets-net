@@ -48,19 +48,11 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (AccountProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("iframe")
+  public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("allowtransparency", true)
       .Attribute("frameborder", 0)
       .Attribute("scrolling", "no")
       .Attribute("style", string.Format("width: {0}px; height: {0}px;", SizeProperty))
       .Attribute("src", $"https://w.soundcloud.com/icon/?url=http://soundcloud.com/${AccountProperty}&color=${ColorProperty}&size=${SizeProperty}")
       .ToString();
-  }
 }

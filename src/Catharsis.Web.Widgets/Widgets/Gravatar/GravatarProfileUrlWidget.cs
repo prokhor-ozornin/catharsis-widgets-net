@@ -52,5 +52,5 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => HashProperty.IsEmpty() ? string.Empty : $"http://www.gravatar.com/{HashProperty}{(FormatProperty.IsEmpty() ? string.Empty : $".${FormatProperty}")}{(ParametersProperty.Any() ? $"?${ParametersProperty.ToUrlQuery()}" : string.Empty)}";
+  public override string ToHtml() => HashProperty.IsUnset() ? string.Empty : $"http://www.gravatar.com/{HashProperty}{(FormatProperty.IsUnset() ? string.Empty : $".${FormatProperty}")}{(ParametersProperty.Any() ? $"?${ParametersProperty.ToUrlQuery()}" : string.Empty)}";
 }

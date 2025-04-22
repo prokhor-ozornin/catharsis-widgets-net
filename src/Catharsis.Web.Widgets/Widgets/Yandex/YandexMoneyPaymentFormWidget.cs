@@ -146,14 +146,7 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (AccountProperty.IsEmpty() || DescriptionProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("iframe")
+  public override string ToHtml() => AccountProperty.IsUnset() || DescriptionProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", $"https://money.yandex.ru/embed/shop.xml?account={AccountProperty}&quickpay=shop{(CardsProperty ? "&payment-type-choice=on" : string.Empty)}&writer={(AskPayerPurposeProperty ? "buyer" : "seller")}&{(AskPayerPurposeProperty ? "targets-hint" : "targets")}={DescriptionProperty}&default-sum={SumProperty}&button-text=0{TextProperty}{(AskPayerCommentProperty ? "&comment=on" : string.Empty)}{(AskPayerFullNameProperty ? "&fio=on" : string.Empty)}{(AskPayerEmailProperty ? "&mail=on" : string.Empty)}{(AskPayerPhoneProperty ? "&phone=on" : string.Empty)}{(AskPayerAddressProperty ? "&address=on" : string.Empty)}")
       .Attribute("frameborder", 0)
       .Attribute("allowtransparency", true)
@@ -161,5 +154,4 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
       .Attribute("width", 450)
       .Attribute("height", AskPayerCommentProperty ? 255 : 200)
       .ToString();
-  }
 }

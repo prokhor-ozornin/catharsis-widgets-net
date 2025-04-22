@@ -98,14 +98,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (IdProperty.IsEmpty() || UserProperty.IsEmpty() || HashProperty.IsEmpty() || WidthProperty.IsEmpty() || HeightProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new TagBuilder("iframe")
+  public override string ToHtml() => IdProperty.IsUnset() || UserProperty.IsUnset() || HashProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("frameborder", 0)
       .Attribute("allowfullscreen", true)
       .Attribute("webkitallowfullscreen", true)
@@ -114,5 +107,4 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
       .Attribute("height", HeightProperty)
       .Attribute("src", $"http://vk.com/video_ext.php?oid=${UserProperty}&id=${IdProperty}&hash=${HashProperty}&hd=${(HdProperty ? 1 : 0)}")
       .ToString();
-  }
 }

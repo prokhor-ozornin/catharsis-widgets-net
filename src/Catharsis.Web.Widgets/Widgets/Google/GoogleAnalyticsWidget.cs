@@ -36,13 +36,5 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (AccountProperty.IsEmpty() || DomainProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return string.Format(resources.google_analytics_js, AccountProperty, DomainProperty);
-  }
+  public override string ToHtml() => AccountProperty.IsUnset() || DomainProperty.IsUnset() ? string.Empty : string.Format(resources.google_analytics_js, AccountProperty, DomainProperty);
 }

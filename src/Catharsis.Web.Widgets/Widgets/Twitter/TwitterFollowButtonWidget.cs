@@ -117,7 +117,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => AccountProperty.IsEmpty() ? string.Empty : 
+  public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : 
     new TagBuilder("a")
       .Attribute("href", $"https://twitter.com/${AccountProperty}")
       .Attribute("data-lang", LanguageProperty ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)

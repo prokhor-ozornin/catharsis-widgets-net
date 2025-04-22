@@ -134,7 +134,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsEmpty())
+    if (AccountProperty.IsUnset())
     {
       return string.Empty;
     }
@@ -149,27 +149,27 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
       config["wide"] = 1;
     }
 
-    if (!WidthProperty.IsEmpty())
+    if (!WidthProperty.IsUnset())
     {
       config["width"] = WidthProperty;
     }
     
-    if (!HeightProperty.IsEmpty())
+    if (!HeightProperty.IsUnset())
     {
       config["height"] = HeightProperty;
     }
     
-    if (!BackgroundColorProperty.IsEmpty())
+    if (!BackgroundColorProperty.IsUnset())
     {
       config["color1"] = BackgroundColorProperty;
     }
     
-    if (!TextColorProperty.IsEmpty())
+    if (!TextColorProperty.IsUnset())
     {
       config["color2"] = TextColorProperty;
     }
     
-    if (!ButtonColorProperty.IsEmpty())
+    if (!ButtonColorProperty.IsUnset())
     {
       config["color3"] = ButtonColorProperty;
     }

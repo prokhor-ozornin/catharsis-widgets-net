@@ -22,16 +22,8 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml()
-  {
-    if (AppIdProperty.IsEmpty())
-    {
-      return string.Empty;
-    }
-
-    return new StringBuilder()
+  public override string ToHtml() => AppIdProperty.IsUnset() ? string.Empty : new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", "fb-root"))
       .Append(string.Format(resources.facebook_initialize_js, AppIdProperty))
       .ToString();
-  }
 }

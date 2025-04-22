@@ -38,7 +38,7 @@ public static class IGravatarProfileUrlWidgetExtensions
   {
     if (widget is null) throw new ArgumentNullException(nameof(widget));
 
-    if (!callback.IsEmpty())
+    if (!callback.IsUnset())
     {
       widget.Parameter("callback", callback);
     }
