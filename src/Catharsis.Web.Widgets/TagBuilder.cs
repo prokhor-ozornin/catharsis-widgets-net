@@ -60,6 +60,6 @@ public class TagBuilder : ITagBuilder
   /// <inheritdoc cref="object.ToString()"/>
   public override string ToString()
   {
-    throw new NotImplementedException();
+    return string.Empty;
   }
 }

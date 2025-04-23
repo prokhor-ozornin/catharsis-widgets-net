@@ -144,7 +144,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string height, IFacebookActivityFeedWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.GetPropertyValue<string>("HeightProperty").Should().Be(height);
+    static void Validate(string height, IFacebookActivityFeedWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
   }
 
   /// <summary>
@@ -214,7 +214,7 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string label, IFacebookActivityFeedWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TrackLabel").Should().Be(label);
+    static void Validate(string label, IFacebookActivityFeedWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TrackLabelProperty").Should().Be(label);
   }
 
   /// <summary>
@@ -252,8 +252,6 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

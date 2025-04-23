@@ -26,7 +26,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IFacebookLikeBoxWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
+    static void Validate(short width, IFacebookLikeBoxWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>

@@ -121,7 +121,10 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   /// <inheritdoc cref="IFacebookActivityFeedWidget.LinkTarget(string)"/>
   public virtual IFacebookActivityFeedWidget LinkTarget(string target)
   {
-    LinkTargetProperty = target ?? throw new ArgumentNullException(nameof(target));
+    if (target is null) throw new ArgumentNullException(nameof(target));
+    if (target.IsEmpty()) throw new ArgumentException(nameof(target));
+
+    LinkTargetProperty = target;
 
     return this;
   }

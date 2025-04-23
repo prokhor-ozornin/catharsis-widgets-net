@@ -26,7 +26,7 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IFacebookFollowButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
+    static void Validate(short width, IFacebookFollowButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -75,12 +75,15 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookFollowButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookFollowButtonWidget().With(widget => Enum.GetValues<FacebookButtonLayout>().ForEach(value => Validate(value, widget)));
+      var widget = new FacebookFollowButtonWidget();
+      Validate(FacebookButtonLayout.BoxCount, "box_count", widget);
+      Validate(FacebookButtonLayout.ButtonCount, "button_count", widget);
+      Validate(FacebookButtonLayout.Standard, "standard", widget);
     }
 
     return;
 
-    static void Validate(FacebookButtonLayout layout, IFacebookFollowButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout.ToString().ToLowerInvariant());
+    static void Validate(FacebookButtonLayout layout, string value, IFacebookFollowButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(value);
   }
 
   /// <summary>
@@ -99,6 +102,6 @@ public sealed class IFacebookFollowButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(Uri url, IFacebookFollowButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
+    static void Validate(Uri url, IFacebookFollowButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
   }
 }

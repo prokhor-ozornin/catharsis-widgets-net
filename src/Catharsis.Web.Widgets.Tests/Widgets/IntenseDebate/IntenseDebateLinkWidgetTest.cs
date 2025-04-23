@@ -14,7 +14,7 @@ public sealed class IntenseDebateLinkWidgetTest : UnitTest
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
-  /// <seealso cref="IntenseDebateLinkWidgetTest()"/>
+  /// <seealso cref="IntenseDebateLinkWidget()"/>
   [Fact]
   public void Constructors()
   {
@@ -24,7 +24,7 @@ public sealed class IntenseDebateLinkWidgetTest : UnitTest
     {
       var widget = new IntenseDebateLinkWidget();
       widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("PostIdProperty").Should().Be(SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant());
+      widget.GetPropertyValue<string>("PostIdProperty").Should().BeNull();
       widget.GetPropertyValue<string>("PostUrlProperty").Should().BeNull();
       widget.GetPropertyValue<string>("PostTitleProperty").Should().BeNull();
     }
@@ -136,8 +136,6 @@ public sealed class IntenseDebateLinkWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

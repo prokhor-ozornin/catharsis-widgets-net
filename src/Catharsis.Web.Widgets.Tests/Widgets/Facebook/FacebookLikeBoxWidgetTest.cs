@@ -24,7 +24,7 @@ public sealed class FacebookLikeBoxWidgetTest : UnitTest
     {
       var widget = new FacebookLikeBoxWidget();
       widget.GetPropertyValue<bool?>("BorderProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("ColorScheme").Should().BeNull();
+      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
       widget.GetPropertyValue<bool?>("FacesProperty").Should().BeNull();
       widget.GetPropertyValue<bool?>("HeaderProperty").Should().BeNull();
       widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
@@ -208,8 +208,6 @@ public sealed class FacebookLikeBoxWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

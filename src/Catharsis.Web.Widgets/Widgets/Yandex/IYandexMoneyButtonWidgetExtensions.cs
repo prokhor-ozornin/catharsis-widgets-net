@@ -29,8 +29,8 @@ public static class IYandexMoneyButtonWidgetExtensions
 
     return size switch
     {
-      YandexMoneyButtonSize.Medium => widget.Size("m"),
       YandexMoneyButtonSize.Small => widget.Size("s"),
+      YandexMoneyButtonSize.Medium => widget.Size("m"),
       YandexMoneyButtonSize.Large => widget.Size("l"),
       _ => widget.Size("l")
     };

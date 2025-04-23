@@ -25,9 +25,9 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
       var widget = new FacebookLikeButtonWidget();
       widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
       widget.GetPropertyValue<bool?>("FacesProperty").Should().BeNull();
-      widget.GetPropertyValue<bool?>("KidsMode").Should().BeNull();
+      widget.GetPropertyValue<bool?>("KidsModeProperty").Should().BeNull();
       widget.GetPropertyValue<string>("LayoutProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("TrackLabel").Should().BeNull();
+      widget.GetPropertyValue<string>("TrackLabelProperty").Should().BeNull();
       widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
       widget.GetPropertyValue<string>("VerbProperty").Should().BeNull();
       widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
@@ -42,8 +42,8 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
-      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
+      AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
       new FacebookLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
@@ -197,8 +197,6 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

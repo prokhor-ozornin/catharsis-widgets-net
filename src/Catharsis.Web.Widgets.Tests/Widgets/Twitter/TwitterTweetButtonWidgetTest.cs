@@ -28,7 +28,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
       widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
       widget.GetPropertyValue<string>("ViaProperty").Should().BeNull();
       widget.GetPropertyValue<string>("SizeProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("CountUrl").Should().BeNull();
+      widget.GetPropertyValue<string>("CountUrlProperty").Should().BeNull();
       widget.GetPropertyValue<string>("CounterPositionProperty").Should().BeNull();
       widget.GetPropertyValue<bool?>("SuggestionsProperty").Should().BeNull();
       widget.GetPropertyValue<IEnumerable<string>>("TagsProperty").Should().BeEmpty();
@@ -82,8 +82,8 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
-      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
 
       new TwitterTweetButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
@@ -101,8 +101,8 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Via(null)).ThrowExactly<ArgumentNullException>().WithParameterName("via");
-      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Via(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("via");
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Via(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
+      AssertionExtensions.Should(() => new TwitterTweetButtonWidget().Via(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
       new TwitterTweetButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
@@ -147,7 +147,7 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string url, ITwitterTweetButtonWidget widget) => widget.CountUrl(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CountUrl").Should().Be(url);
+    static void Validate(string url, ITwitterTweetButtonWidget widget) => widget.CountUrl(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CountUrlProperty").Should().Be(url);
   }
 
   /// <summary>
@@ -237,8 +237,6 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

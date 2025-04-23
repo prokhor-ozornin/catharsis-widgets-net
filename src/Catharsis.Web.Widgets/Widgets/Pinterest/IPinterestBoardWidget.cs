@@ -51,10 +51,10 @@ public interface IPinterestBoardWidget : IWebWidget
   /// <summary>
   ///   <para>Width of board's image in pixels.</para>
   /// </summary>
-  /// <param name="width">Board's image width.</param>
+  /// <param name="image">Board's image width.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="width"/> is <see cref="string.Empty"/> string.</exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="image"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="image"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>Min: 60; leave blank for 92.</remarks>
-  IPinterestBoardWidget Image(string width);
+  IPinterestBoardWidget Image(string image);
 }

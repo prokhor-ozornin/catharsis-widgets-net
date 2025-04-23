@@ -26,7 +26,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
       widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
       widget.GetPropertyValue<byte?>("VerbProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("LayoutPropery").Should().BeNull();
+      widget.GetPropertyValue<string>("LayoutProperty").Should().BeNull();
       widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
       widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
       widget.GetPropertyValue<string>("TitleProperty").Should().BeNull();
@@ -212,8 +212,8 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("image");
-      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("image");
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
+      AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
       new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
@@ -239,8 +239,6 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

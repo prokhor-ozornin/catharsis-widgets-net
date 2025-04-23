@@ -76,11 +76,14 @@ public sealed class IFacebookCommentsWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookCommentsWidgetExtensions.Order(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookCommentsWidget().With(widget => Enum.GetValues<FacebookCommentsOrder>().ForEach(value => Validate(value, widget)));
+      var widget = new FacebookCommentsWidget();
+      Validate(FacebookCommentsOrder.ReverseTime, "reverse_time", widget);
+      Validate(FacebookCommentsOrder.Time, "time", widget);
+      Validate(FacebookCommentsOrder.Social, "social", widget);
     }
 
     return;
 
-    static void Validate(FacebookCommentsOrder order, IFacebookCommentsWidget widget) => widget.Order(order).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OrderProperty").Should().Be(order.ToString().ToLowerInvariant());
+    static void Validate(FacebookCommentsOrder order, string value, IFacebookCommentsWidget widget) => widget.Order(order).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OrderProperty").Should().Be(value);
   }
 }

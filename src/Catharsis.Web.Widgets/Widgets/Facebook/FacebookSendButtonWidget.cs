@@ -49,7 +49,7 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
   public virtual IFacebookSendButtonWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentNullException(nameof(height));
+    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
     HeightProperty = height;
     return this;

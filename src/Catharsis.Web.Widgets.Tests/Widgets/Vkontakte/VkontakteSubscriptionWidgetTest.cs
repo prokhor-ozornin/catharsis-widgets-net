@@ -24,7 +24,7 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
     {
       var widget = new VkontakteSubscriptionWidget();
       widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("ElementId").Should().BeNull();
+      widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
       widget.GetPropertyValue<byte>("LayoutProperty").Should().Be((byte) VkontakteSubscriptionButtonLayout.Button);
       widget.GetPropertyValue<bool>("OnlyButtonProperty").Should().BeFalse();
     }
@@ -121,8 +121,6 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

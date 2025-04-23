@@ -86,7 +86,7 @@ public sealed class IPinterestProfileWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short width, IPinterestProfileWidget widget) => widget.Image(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
+    static void Validate(short width, IPinterestProfileWidget widget) => widget.Image(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageProperty").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>

@@ -54,6 +54,6 @@ public sealed class CackleWidgetsCreatorTest : UnitTest
   [Fact]
   public void Login_Method()
   {
-    Widgets.Login().Should().BeOfType<CackleWidgetsCreator>().And.NotBeSameAs(Widgets.Login());
+    Widgets.Login().Should().BeOfType<CackleLoginWidget>().And.NotBeSameAs(Widgets.Login());
   }
 }

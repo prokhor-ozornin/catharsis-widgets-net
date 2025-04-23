@@ -1048,9 +1048,9 @@
             <summary>
               <para>Initializes HTML helper object for rendering of Mail.ru widgets.</para>
             </summary>
-            <param name="html">Helper object to call method on.</param>
+            <param name="creator">Helper object to call method on.</param>
             <returns>Widgets factory helper.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="html"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions.PayPal(Catharsis.Web.Widgets.IWebWidgetsCreator)">
             <summary>
@@ -5787,10 +5787,10 @@
             <summary>
               <para>Width of board's image in pixels.</para>
             </summary>
-            <param name="width">Board's image width.</param>
+            <param name="image">Board's image width.</param>
             <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="width"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="image"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="image"/> is <see cref="F:System.String.Empty"/> string.</exception>
             <remarks>Min: 60; leave blank for 92.</remarks>
         </member>
         <member name="T:Catharsis.Web.Widgets.IPinterestBoardWidgetExtensions">
@@ -5928,10 +5928,10 @@
             <summary>
               <para>URL address of the "pinned" image.</para>
             </summary>
-            <param name="url">Pin's image URL.</param>
+            <param name="image">Pin's image URL.</param>
             <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="url"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="image"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="image"/> is <see cref="F:System.String.Empty"/> string.</exception>
             <remarks>This attribute is required.</remarks>
         </member>
         <member name="M:Catharsis.Web.Widgets.IPinterestPinItButtonWidget.Language(System.String)">
@@ -6071,10 +6071,10 @@
             <summary>
               <para>Width of profile area's image in pixels.</para>
             </summary>
-            <param name="width">Area's image width.</param>
+            <param name="image">Area's image width.</param>
             <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="width"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="image"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="image"/> is <see cref="F:System.String.Empty"/> string.</exception>
             <remarks>Min: 60; leave blank for 92.</remarks>
         </member>
         <member name="T:Catharsis.Web.Widgets.IPinterestProfileWidgetExtensions">
@@ -6372,10 +6372,10 @@
             <summary>
               <para>URL address of the "pinned" image.</para>
             </summary>
-            <param name="url">Pin's image URL.</param>
+            <param name="image">Pin's image URL.</param>
             <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="url"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="image"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="image"/> is <see cref="F:System.String.Empty"/> string.</exception>
             <remarks>This attribute is required.</remarks>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Language(System.String)">

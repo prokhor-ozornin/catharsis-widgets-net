@@ -35,7 +35,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   public virtual IYandexLikeButtonWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
-    if (layout.IsEmpty()) throw new ArgumentNullException(nameof(layout));
+    if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
 
     LayoutProperty = layout;
     return this;

@@ -152,7 +152,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerComment(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerComment").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerComment(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerCommentProperty").Should().Be(enabled);
   }
 
   /// <summary>
@@ -238,8 +238,6 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

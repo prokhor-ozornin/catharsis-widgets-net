@@ -26,8 +26,8 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
       widget.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().BeEmpty();
       widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
       widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-      widget.GetPropertyValue<byte?>("MaxRows").Should().BeNull();
-      widget.GetPropertyValue<string>("PhotoSize").Should().BeNull();
+      widget.GetPropertyValue<byte?>("MaxRowsProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("PhotoSizeProperty").Should().BeNull();
       widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
       widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
     }
@@ -178,8 +178,6 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

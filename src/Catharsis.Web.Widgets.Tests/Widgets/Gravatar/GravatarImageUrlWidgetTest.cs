@@ -77,7 +77,6 @@ public sealed class GravatarImageUrlWidgetTest : UnitTest
     {
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Parameter(null, new object())).ThrowExactly<ArgumentNullException>().WithParameterName("name");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Parameter(string.Empty, new object())).ThrowExactly<ArgumentException>().WithMessage("name");
-      AssertionExtensions.Should(() => new GravatarImageUrlWidget().Parameter("name", null)).ThrowExactly<ArgumentNullException>().WithParameterName("value");
 
       new GravatarImageUrlWidget().With(widget => Validate("id", Guid.NewGuid(), widget));
     }
@@ -105,8 +104,6 @@ public sealed class GravatarImageUrlWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

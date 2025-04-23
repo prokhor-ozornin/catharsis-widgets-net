@@ -82,6 +82,6 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
 
     return;
  
-    static void Validate(IPinterestPinItButtonWidget widget) => widget.Red().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("white");
+    static void Validate(IPinterestPinItButtonWidget widget) => widget.White().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("white");
   }
 }

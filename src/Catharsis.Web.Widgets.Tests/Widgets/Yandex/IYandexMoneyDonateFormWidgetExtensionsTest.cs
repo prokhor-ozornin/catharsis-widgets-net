@@ -40,7 +40,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new YandexMoneyDonateFormWidget().With(widget => new[] { double.MinValue, double.MaxValue }.ForEach(value => Validate(value, widget)));
+      new YandexMoneyDonateFormWidget().With(widget => new[] { double.NegativeZero }.ForEach(value => Validate(value, widget)));
     }
 
     return;

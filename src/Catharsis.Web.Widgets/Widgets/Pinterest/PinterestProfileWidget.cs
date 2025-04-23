@@ -56,12 +56,12 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
   }
 
   /// <inheritdoc cref="IPinterestProfileWidget.Image(string)"/>
-  public virtual IPinterestProfileWidget Image(string width)
+  public virtual IPinterestProfileWidget Image(string image)
   {
-    if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (image is null) throw new ArgumentNullException(nameof(image));
+    if (image.IsEmpty()) throw new ArgumentException(nameof(image));
 
-    ImageProperty = width;
+    ImageProperty = image;
     return this;
   }
 

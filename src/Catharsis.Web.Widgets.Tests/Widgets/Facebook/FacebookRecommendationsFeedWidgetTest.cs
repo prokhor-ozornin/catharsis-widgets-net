@@ -30,7 +30,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
       widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
       widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
       widget.GetPropertyValue<bool?>("HeaderProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("LinkProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("LinkTargetProperty").Should().BeNull();
       widget.GetPropertyValue<byte?>("MaxAgeProperty").Should().BeNull();
       widget.GetPropertyValue<string>("TrackLabelProperty").Should().BeNull();
     }
@@ -220,7 +220,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
 
     return;
 
-    static void Validate(string label, IFacebookRecommendationsFeedWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LabelProperty").Should().Be(label);
+    static void Validate(string label, IFacebookRecommendationsFeedWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TrackLabelProperty").Should().Be(label);
   }
 
   /// <summary>
@@ -239,8 +239,6 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

@@ -21,12 +21,15 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new SurfingbirdSurfButtonWidget().With(widget => Enum.GetValues<SurfingbirdSurfButtonLayout>().ForEach(value => Validate(value, widget)));
+      var widget = new SurfingbirdSurfButtonWidget();
+      Validate(SurfingbirdSurfButtonLayout.Micro, "micro", widget);
+      Validate(SurfingbirdSurfButtonLayout.Vertical, "vert", widget);
+      Validate(SurfingbirdSurfButtonLayout.Common, "common", widget);
     }
 
     return;
 
-    static void Validate(SurfingbirdSurfButtonLayout layout, ISurfingbirdSurfButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout.ToString().ToLowerInvariant());
+    static void Validate(SurfingbirdSurfButtonLayout layout, string value, ISurfingbirdSurfButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(value);
   }
 
   /// <summary>

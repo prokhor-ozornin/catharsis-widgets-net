@@ -42,6 +42,8 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Standard(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
     }
 
+    throw new NotImplementedException();
+
     return;
 
     static void Validate(string url, IVkontakteAuthButtonWidget widget) => widget.Standard(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteAuthButtonType>("TypeProperty").Should().Be(VkontakteAuthButtonType.Standard).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
@@ -56,9 +58,11 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTest : UnitTest
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Dynamic(null, "callback")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
-      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(null)).ThrowExactly<ArgumentNullException>().WithParameterName("callback");
+      AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("callback");
     }
+
+    throw new NotImplementedException();
 
     return;
 

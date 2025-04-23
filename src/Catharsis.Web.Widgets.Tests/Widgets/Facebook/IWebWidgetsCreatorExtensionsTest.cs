@@ -17,6 +17,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTest : UnitTest
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.Facebook(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    Widgets.Create.Facebook().Should().BeOfType<FacebookWidgetsCreator>().And.BeSameAs(Widgets.Create.Disqus());
+    Widgets.Create.Facebook().Should().BeOfType<FacebookWidgetsCreator>().And.BeSameAs(Widgets.Create.Facebook());
   }
 }

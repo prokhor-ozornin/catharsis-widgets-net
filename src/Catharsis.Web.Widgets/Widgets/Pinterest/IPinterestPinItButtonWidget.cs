@@ -37,12 +37,12 @@ public interface IPinterestPinItButtonWidget : IWebWidget
   /// <summary>
   ///   <para>URL address of the "pinned" image.</para>
   /// </summary>
-  /// <param name="url">Pin's image URL.</param>
+  /// <param name="image">Pin's image URL.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="image"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="image"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>This attribute is required.</remarks>
-  IPinterestPinItButtonWidget Image(string url);
+  IPinterestPinItButtonWidget Image(string image);
 
   /// <summary>
   ///   <para>Language of button's label.</para>

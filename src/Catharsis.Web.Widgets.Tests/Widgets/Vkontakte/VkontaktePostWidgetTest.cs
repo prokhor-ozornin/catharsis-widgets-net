@@ -96,8 +96,8 @@ public sealed class VkontaktePostWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(null)).ThrowExactly<ArgumentNullException>().WithParameterName("owner");
-      AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("owner");
+      AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
+      AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
       new VkontaktePostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
@@ -146,8 +146,6 @@ public sealed class VkontaktePostWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

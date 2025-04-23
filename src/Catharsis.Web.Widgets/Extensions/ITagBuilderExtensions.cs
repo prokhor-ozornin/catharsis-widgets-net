@@ -51,12 +51,7 @@ public static class ITagBuilderExtensions
   /// <param name="attributes"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException"></exception>
-  public static ITagBuilder Attributes(this ITagBuilder builder, object attributes)
-  {
-    if (builder is null) throw new ArgumentNullException(nameof(builder));
-
-    return builder.Attributes(attributes?.GetState());
-  }
+  public static ITagBuilder Attributes(this ITagBuilder builder, object attributes) => builder?.Attributes(attributes?.GetState()) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -65,7 +60,7 @@ public static class ITagBuilderExtensions
   /// <param name="name"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException"></exception>
-  public static ITagBuilder CssClass(this ITagBuilder builder, string name) => builder.CssClasses(name);
+  public static ITagBuilder CssClass(this ITagBuilder builder, string name) => builder?.CssClasses(name) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -77,10 +72,8 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentException"></exception>
   public static ITagBuilder CssClasses(this ITagBuilder builder, IEnumerable<string> names)
   {
-    if (builder is null)
-      throw new ArgumentNullException(nameof(builder));
-    if (names is null)
-      throw new ArgumentNullException(nameof(names));
+    if (builder is null) throw new ArgumentNullException(nameof(builder));
+    if (names is null) throw new ArgumentNullException(nameof(names));
 
     return builder.Attribute("class", names.AsNotNullable().Select(it => it.Trim()).Join(" "));
   }
@@ -92,7 +85,7 @@ public static class ITagBuilderExtensions
   /// <param name="names"></param>
   /// <exception cref="ArgumentNullException"></exception>
   /// <exception cref="ArgumentException"></exception>
-  public static ITagBuilder CssClasses(this ITagBuilder builder, params string[] names) => builder.CssClasses(names as IEnumerable<string>);
+  public static ITagBuilder CssClasses(this ITagBuilder builder, params string[] names) => builder?.CssClasses(names as IEnumerable<string>) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -101,12 +94,7 @@ public static class ITagBuilderExtensions
   /// <param name="style"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException"></exception>
-  public static ITagBuilder CssStyle(this ITagBuilder builder, string style)
-  {
-    if (builder is null) throw new ArgumentNullException(nameof(builder));
-
-    return builder.Attribute("style", style);
-  }
+  public static ITagBuilder CssStyle(this ITagBuilder builder, string style) => builder?.Attribute("style", style) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -131,7 +119,7 @@ public static class ITagBuilderExtensions
   /// <returns></returns>
   /// <exception cref="ArgumentNullException"></exception>
   /// <exception cref="ArgumentException"></exception>
-  public static ITagBuilder CssStyles(this ITagBuilder builder, IEnumerable<(string Name, object Value)> styles) => builder.CssStyles(styles.Select(style => (style.Name, style.Value?.ToInvariantString())));
+  public static ITagBuilder CssStyles(this ITagBuilder builder, IEnumerable<(string Name, object Value)> styles) => builder?.CssStyles(styles.Select(style => (style.Name, style.Value?.ToInvariantString()))) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -174,8 +162,7 @@ public static class ITagBuilderExtensions
   /// <exception cref="ArgumentNullException"></exception>
   public static ITagBuilder TextDirection(this ITagBuilder builder, TextDirection direction)
   {
-    if (builder is null)
-      throw new ArgumentNullException(nameof(builder));
+    if (builder is null) throw new ArgumentNullException(nameof(builder));
 
     var value = direction switch
     {

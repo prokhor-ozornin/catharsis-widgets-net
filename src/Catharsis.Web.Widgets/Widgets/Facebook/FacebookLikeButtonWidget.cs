@@ -103,7 +103,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
   public virtual IFacebookLikeButtonWidget Verb(string verb)
   {
     if (verb is null) throw new ArgumentNullException(nameof(verb));
-    if (verb.IsEmpty()) throw new ArgumentNullException(nameof(verb));
+    if (verb.IsEmpty()) throw new ArgumentException(nameof(verb));
 
     VerbProperty = verb;
     return this;

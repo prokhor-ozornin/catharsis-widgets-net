@@ -22,5 +22,5 @@ public class DisqusCommentsWidget : WebWidget, IDisqusCommentsWidget
   }
 
   /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
-  public override string ToHtml() => AccountProperty.IsEmpty() ? string.Empty : string.Format(resources.disqus_comments_html, AccountProperty);
+  public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : string.Format(resources.disqus_comments_html, AccountProperty);
 }

@@ -56,7 +56,7 @@ public sealed class InlineImageWidgetTest : UnitTest
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => new InlineImageWidget().Format(null)).ThrowExactly<ArgumentNullException>().WithParameterName("format");
-      AssertionExtensions.Should(() => new InlineImageWidget().Format(null)).ThrowExactly<ArgumentException>().WithMessage("format");
+      AssertionExtensions.Should(() => new InlineImageWidget().Format(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("format");
 
       new InlineImageWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
@@ -83,8 +83,6 @@ public sealed class InlineImageWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

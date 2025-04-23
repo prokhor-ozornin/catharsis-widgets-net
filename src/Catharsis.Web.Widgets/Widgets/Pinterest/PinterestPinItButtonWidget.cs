@@ -93,17 +93,17 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   /// <summary>
   ///   <para>URL address of the "pinned" image.</para>
   /// </summary>
-  /// <param name="url">Pin's image URL.</param>
+  /// <param name="image">Pin's image URL.</param>
   /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="url"/> is <see cref="string.Empty"/> string.</exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="image"/> is a <c>null</c> reference.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="image"/> is <see cref="string.Empty"/> string.</exception>
   /// <remarks>This attribute is required.</remarks>
-  public virtual IPinterestPinItButtonWidget Image(string url)
+  public virtual IPinterestPinItButtonWidget Image(string image)
   {
-    if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (image is null) throw new ArgumentNullException(nameof(image));
+    if (image.IsEmpty()) throw new ArgumentException(nameof(image));
 
-    ImageProperty = url;
+    ImageProperty = image;
     return this;
   }
 

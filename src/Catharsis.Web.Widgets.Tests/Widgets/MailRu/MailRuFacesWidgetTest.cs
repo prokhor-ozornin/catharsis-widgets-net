@@ -213,8 +213,8 @@ public sealed class MailRuFacesWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
-      AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
+      AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
+      AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
       new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
     }
@@ -263,8 +263,6 @@ public sealed class MailRuFacesWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

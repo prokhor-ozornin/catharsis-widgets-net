@@ -47,7 +47,12 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(string callback, IGravatarProfileUrlWidget widget) => widget.Json(callback).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatProperty").Should().Be("json").And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("callback", callback));
+    static void Validate(string callback, IGravatarProfileUrlWidget widget)
+    {
+      widget.Json(callback).Should().BeSameAs(widget);
+      widget.GetPropertyValue<string>("FormatProperty").Should().Be("json");
+      widget.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").ToValueTuple().Should().Equal(("callback", callback));
+    }
   }
 
   /// <summary>

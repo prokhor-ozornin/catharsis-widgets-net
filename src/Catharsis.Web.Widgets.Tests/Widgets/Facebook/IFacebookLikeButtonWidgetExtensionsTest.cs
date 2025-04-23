@@ -21,12 +21,15 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookLikeButtonWidget().With(widget => Enum.GetValues<FacebookButtonLayout>().ForEach(value => Validate(value, widget)));
+      var widget = new FacebookLikeButtonWidget();
+      Validate(FacebookButtonLayout.BoxCount, "box_count", widget);
+      Validate(FacebookButtonLayout.ButtonCount, "button_count", widget);
+      Validate(FacebookButtonLayout.Standard, "standard", widget);
     }
 
     return;
 
-    static void Validate(FacebookButtonLayout layout, IFacebookLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout.ToString().ToLowerInvariant());
+    static void Validate(FacebookButtonLayout layout, string value, IFacebookLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(value);
   }
 
   /// <summary>
@@ -81,7 +84,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(FacebookLikeButtonVerb verb, IFacebookLikeButtonWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.GetPropertyValue<string>("VerbProperty").Should().Be(verb.ToString().ToLowerInvariant());
+    static void Validate(FacebookLikeButtonVerb verb, IFacebookLikeButtonWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("VerbProperty").Should().Be(verb.ToString().ToLowerInvariant());
   }
 
   /// <summary>

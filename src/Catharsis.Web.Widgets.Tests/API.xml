@@ -1907,7 +1907,7 @@
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
-            <seealso cref="M:Catharsis.Web.Widgets.Tests.IntenseDebateLinkWidgetTest.#ctor"/>
+            <seealso cref="M:Catharsis.Web.Widgets.IntenseDebateLinkWidget.#ctor"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateLinkWidgetTest.Account_Method">
             <summary>

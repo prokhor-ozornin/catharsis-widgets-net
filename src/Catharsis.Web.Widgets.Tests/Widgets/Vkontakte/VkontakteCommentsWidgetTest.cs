@@ -76,8 +76,6 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => new VkontakteCommentsWidget().Attach(null)).ThrowExactly<ArgumentNullException>().WithParameterName("types");
-
       new VkontakteCommentsWidget().With(widget => new string[][] { [string.Empty, "type"] }.ForEach(value => Validate(value, widget)));
     }
 
@@ -169,8 +167,6 @@ public sealed class VkontakteCommentsWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

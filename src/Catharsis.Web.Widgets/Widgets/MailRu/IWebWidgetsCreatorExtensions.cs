@@ -11,8 +11,8 @@ public static partial class IWebWidgetsCreatorExtensions
   /// <summary>
   ///   <para>Initializes HTML helper object for rendering of Mail.ru widgets.</para>
   /// </summary>
-  /// <param name="html">Helper object to call method on.</param>
+  /// <param name="creator">Helper object to call method on.</param>
   /// <returns>Widgets factory helper.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="html"/> is a <c>null</c> reference.</exception>
-  public static IMailRuWidgetsCreator MailRu(this IWebWidgetsCreator html) => html is not null ? MailRuProperty ??= new MailRuWidgetsCreator() : throw new ArgumentNullException(nameof(html));
+  /// <exception cref="ArgumentNullException">If <paramref name="creator"/> is a <c>null</c> reference.</exception>
+  public static IMailRuWidgetsCreator MailRu(this IWebWidgetsCreator creator) => creator is not null ? MailRuProperty ??= new MailRuWidgetsCreator() : throw new ArgumentNullException(nameof(creator));
 }

@@ -16,6 +16,6 @@ public sealed partial class IWebWidgetsCreatorExtensionsTest
   {
     AssertionExtensions.Should(() => IWebWidgetsCreatorExtensions.InlineImage(null)).ThrowExactly<ArgumentNullException>().WithParameterName("creator");
 
-    Widgets.Create.InlineImage().Should().BeOfType<InlineImageWidgetsCreator>().And.BeSameAs(Widgets.Create.InlineImage());
+    Widgets.Create.InlineImage().Should().BeOfType<InlineImageWidget>().And.NotBeSameAs(Widgets.Create.InlineImage());
   }
 }

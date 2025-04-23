@@ -20,13 +20,16 @@ public sealed class IMailRuFacesWidgetExtensionsTest : UnitTest
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Font(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
-
-      new MailRuFacesWidget().With(widget => Enum.GetValues<MailRuFacesFont>().ForEach(value => Validate(value, widget)));
+      
+      var widget = new MailRuFacesWidget();
+      Validate(MailRuFacesFont.Arial, "Arial", widget);
+      Validate(MailRuFacesFont.Georgia, "Georgia", widget);
+      Validate(MailRuFacesFont.Tahoma, "Tahoma", widget);
     }
 
     return;
 
-    static void Validate(MailRuFacesFont font, IMailRuFacesWidget widget) => widget.Font(font).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FontProperty").Should().Be(font.ToString().ToLowerInvariant());
+    static void Validate(MailRuFacesFont font, string value, IMailRuFacesWidget widget) => widget.Font(font).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FontProperty").Should().Be(value);
   }
 
   /// <summary>

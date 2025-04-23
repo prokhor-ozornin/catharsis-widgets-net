@@ -99,7 +99,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(short height, IFacebookFacePileWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
+    static void Validate(short height, IFacebookFacePileWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
   }
 
   /// <summary>
@@ -117,6 +117,6 @@ public sealed class FacebookFacePileWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(FacebookColorScheme scheme, IFacebookFacePileWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
+    static void Validate(FacebookColorScheme scheme, IFacebookFacePileWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
   }
 }

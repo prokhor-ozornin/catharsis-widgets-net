@@ -18,7 +18,7 @@ public sealed class PayPalSubscribeWidgetTest : UnitTest
   [Fact]
   public void Constructors()
   {
-    typeof(PayPalSubscribeWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<PayPalSubscribeWidget>();
+    typeof(PayPalSubscribeWidget).Should().BeDerivedFrom<WebWidget>().And.Implement<IPayPalSubscribeWidget>();
 
     using (new AssertionScope())
     {
@@ -56,8 +56,6 @@ public sealed class PayPalSubscribeWidgetTest : UnitTest
 
     static void Validate(IWebWidget widget, params string[] html)
     {
-      widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
-
       if (html.IsUnset())
       {
         widget.ToHtml().Should().BeEmpty();

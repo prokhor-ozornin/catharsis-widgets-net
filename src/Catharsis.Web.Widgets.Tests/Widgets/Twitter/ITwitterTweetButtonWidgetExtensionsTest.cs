@@ -64,7 +64,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(TwitterTweetButtonCountBoxPosition position, ITwitterTweetButtonWidget widget) => widget.CounterPosition(position).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CounterProperty").Should().Be(position.ToString().ToLowerInvariant());
+    static void Validate(TwitterTweetButtonCountBoxPosition position, ITwitterTweetButtonWidget widget) => widget.CounterPosition(position).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CounterPositionProperty").Should().Be(position.ToString().ToLowerInvariant());
   }
 
   /// <summary>
