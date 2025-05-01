@@ -5,8 +5,11 @@
 /// </summary>
 public abstract class WebWidget : IWebWidget
 {
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public abstract string ToHtml();
+
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public abstract object Clone();
 
   /// <inheritdoc cref="object.ToString()"/>
   public override string ToString() => ToHtml();

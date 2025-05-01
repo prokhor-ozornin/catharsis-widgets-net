@@ -35,6 +35,9 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new GoogleAnalyticsWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() || DomainProperty.IsUnset() ? string.Empty : string.Format(resources.google_analytics_js, AccountProperty, DomainProperty);
 }

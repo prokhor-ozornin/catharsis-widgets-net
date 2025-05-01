@@ -77,7 +77,10 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new YouTubeVideoWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => IdProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", string.Format("{2}://{1}/embed/{0}", IdProperty, PrivateModeProperty ? "www.youtube-nocookie.com" : "www.youtube.com", SecureModeProperty ? "https" : "http"))
       .Attribute("width", WidthProperty)

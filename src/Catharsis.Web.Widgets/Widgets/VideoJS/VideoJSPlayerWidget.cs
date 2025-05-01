@@ -62,7 +62,9 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new VideoJSPlayerWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => !VideosProperty.Any() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("video")
       .Attribute("class", "video-js vjs-default-skin")
       .Attribute("controls", "controls")

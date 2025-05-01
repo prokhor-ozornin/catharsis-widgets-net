@@ -50,7 +50,9 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new RuTubeVideoWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => IdProperty.IsUnset() || HeightProperty.IsUnset() || WidthProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("frameborder", 0)
       .Attribute("allowfullscreen", true)

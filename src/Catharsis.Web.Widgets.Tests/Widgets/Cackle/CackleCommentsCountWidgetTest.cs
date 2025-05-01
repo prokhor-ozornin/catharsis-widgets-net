@@ -47,6 +47,32 @@ public sealed class CackleCommentsCountWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Производит тестирование метода <see cref="CackleCommentsCountWidget.Clone()"/>.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new CackleCommentsCountWidget());
+    }
+
+    return;
+
+    static void Validate(ICackleCommentsCountWidget original)
+    {
+      var clone = original.Clone<ICackleCommentsCountWidget>();
+
+      clone.Id.Should().Be(original.Id);
+      clone.Name.Should().Be(original.Name);
+      clone.Description.Should().Be(original.Description);
+      clone.Condition.Should().BeSameAs(original.Condition);
+      clone.Image.Should().BeSameAs(original.Image);
+      clone.Attributes.Should().BeOfType<AchievementAttributes>().And.NotBeSameAs(original.Attributes).And.Equal(original.Attributes);
+      clone.Localizations.Should().BeOfType<AchievementLocalizations>().And.NotBeSameAs(original.Localizations).And.Equal(original.Localizations);
+    }
+  }
+  /// <summary>
   ///   <para>Performs testing of <see cref="CackleCommentsCountWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

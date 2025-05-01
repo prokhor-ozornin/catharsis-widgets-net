@@ -2352,6 +2352,9 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuWidgetsCreator.Video"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MockVideoWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="T:Catharsis.Web.Widgets.Tests.PayPalBuyGiftCertificateWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PayPalBuyGiftCertificateWidget"/>.</para>

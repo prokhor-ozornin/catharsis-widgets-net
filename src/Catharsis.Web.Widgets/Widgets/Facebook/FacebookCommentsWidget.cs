@@ -125,7 +125,10 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new FacebookCommentsWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-href", UrlProperty)
       .Attribute("data-num-posts", PostsProperty)

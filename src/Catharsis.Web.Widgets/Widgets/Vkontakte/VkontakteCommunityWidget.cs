@@ -131,7 +131,9 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new VkontakteCommunityWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (AccountProperty.IsUnset())

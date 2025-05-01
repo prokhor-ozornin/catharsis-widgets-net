@@ -22,7 +22,10 @@ public class CackleCommentsCountWidget : WebWidget, ICackleCommentsCountWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new CackleCommentsCountWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (AccountProperty.IsUnset())

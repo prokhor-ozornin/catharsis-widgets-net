@@ -132,7 +132,9 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new MailRuLikeButtonWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     var config = new Dictionary<string, object>

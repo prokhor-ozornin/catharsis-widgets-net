@@ -15,4 +15,7 @@ internal sealed class MockVideoWidget : WebWidget, IVideoWidget<MockVideoWidget>
   public string Height() => string.Empty;
 
   public override string ToHtml() => string.Empty;
+
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new MockVideoWidget();
 }

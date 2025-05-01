@@ -63,7 +63,9 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new VkontakteSubscriptionWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (AccountProperty.IsUnset())

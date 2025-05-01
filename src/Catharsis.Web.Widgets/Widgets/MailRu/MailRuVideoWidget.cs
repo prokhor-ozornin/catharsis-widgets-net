@@ -50,7 +50,9 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new MailRuVideoWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => IdProperty.IsUnset() || HeightProperty.IsUnset() || WidthProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", $"http://api.video.mail.ru/videos/embed/mail/${IdProperty}")
       .Attribute("width", WidthProperty)

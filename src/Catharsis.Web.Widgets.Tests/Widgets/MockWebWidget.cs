@@ -3,4 +3,6 @@
 internal sealed class MockWebWidget : WebWidget
 {
   public override string ToHtml() => "Widget text content";
+
+  public override object Clone() => new MockWebWidget();
 }

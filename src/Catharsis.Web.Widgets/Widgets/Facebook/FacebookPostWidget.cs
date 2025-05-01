@@ -35,7 +35,10 @@ public class FacebookPostWidget : WebWidget, IFacebookPostWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new FacebookPostWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => UrlProperty.IsUnset() ? string.Empty : new TagBuilder("div")
       .Attribute("data-href", UrlProperty)
       .Attribute("data-width", WidthProperty)

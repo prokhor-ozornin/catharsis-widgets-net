@@ -22,7 +22,10 @@ public class CackleCommentsWidget : WebWidget, ICackleCommentsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new CackleCommentsWidget { AccountProperty = AccountProperty };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (AccountProperty.IsUnset())

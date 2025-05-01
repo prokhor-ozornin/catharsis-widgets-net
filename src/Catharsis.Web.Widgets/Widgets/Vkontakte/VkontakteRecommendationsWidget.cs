@@ -99,7 +99,9 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new VkontakteRecommendationsWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     var config = new Dictionary<string, object>();

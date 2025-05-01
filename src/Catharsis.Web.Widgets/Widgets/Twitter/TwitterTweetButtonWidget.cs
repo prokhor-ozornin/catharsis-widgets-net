@@ -146,7 +146,9 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new TwitterTweetButtonWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("a")
       .Attribute("href", "https://twitter.com/share")
       .Attribute("data-lang", LanguageProperty ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)

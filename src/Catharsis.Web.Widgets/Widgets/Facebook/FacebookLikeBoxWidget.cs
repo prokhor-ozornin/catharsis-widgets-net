@@ -125,7 +125,10 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new FacebookLikeBoxWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => UrlProperty.IsUnset() ? string.Empty : new TagBuilder("div")
                                                                             .Attribute("data-href", UrlProperty)
                                                                             .Attribute("data-width", WidthProperty)

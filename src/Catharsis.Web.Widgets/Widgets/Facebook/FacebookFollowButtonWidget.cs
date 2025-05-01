@@ -104,7 +104,10 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new FacebookFollowButtonWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => UrlProperty.IsUnset() ? string.Empty : new TagBuilder("div")
                                                                             .Attribute("data-layout", LayoutProperty)
                                                                             .Attribute("data-show-faces", FacesProperty)

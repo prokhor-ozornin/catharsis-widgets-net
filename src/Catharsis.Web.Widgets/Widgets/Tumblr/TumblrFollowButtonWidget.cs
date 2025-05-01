@@ -49,7 +49,9 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new TumblrFollowButtonWidget { };
+  
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (AccountProperty.IsUnset())

@@ -50,7 +50,10 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new FacebookVideoWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => IdProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", $"http://www.facebook.com/video/embed?video_id=${IdProperty}")
       .Attribute("width", WidthProperty)

@@ -65,6 +65,9 @@ public class IntenseDebateCommentsWidget : WebWidget, IIntenseDebateCommentsWidg
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new IntenseDebateCommentsWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : string.Format(resources.intensedebate_comments_html, AccountProperty, PostIdProperty, PostUrlProperty, PostTitleProperty);
 }

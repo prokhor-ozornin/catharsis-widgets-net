@@ -165,7 +165,10 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new FacebookActivityFeedWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-site", DomainProperty)
       .Attribute("data-app-id", AppIdProperty)

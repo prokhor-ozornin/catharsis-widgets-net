@@ -110,7 +110,10 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new FacebookFacePileWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-href", UrlProperty)
       .Attribute("data-action", ActionsProperty.Any() ? ActionsProperty.Join(",") : null)

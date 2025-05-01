@@ -87,7 +87,9 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new VkontaktePostWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (IdProperty.IsUnset() || OwnerProperty.IsUnset() || HashProperty.IsUnset())

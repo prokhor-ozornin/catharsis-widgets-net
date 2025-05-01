@@ -65,7 +65,9 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new PinterestProfileWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   /// <returns>Widget's HTML markup.</returns>
   public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : new TagBuilder("a")
       .Attribute("data-pin-do", "embedUser")

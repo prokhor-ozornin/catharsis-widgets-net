@@ -21,7 +21,10 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new FacebookInitializationWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AppIdProperty.IsUnset() ? string.Empty : new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", "fb-root"))
       .Append(string.Format(resources.facebook_initialize_js, AppIdProperty))

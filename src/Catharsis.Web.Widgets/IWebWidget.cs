@@ -3,6 +3,11 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IWebWidget : IHtmlContent
+public interface IWebWidget : ICloneable
 {
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <returns></returns>
+  string ToHtml();
 }

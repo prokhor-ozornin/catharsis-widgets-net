@@ -36,7 +36,9 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new MailRuIcqWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     var builder = new StringBuilder()

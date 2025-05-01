@@ -69,7 +69,9 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new YandexVideoWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => IdProperty.IsUnset() || UserProperty.IsUnset() || HeightProperty.IsUnset() || WidthProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", $"http://video.yandex.ru/iframe/${UserProperty}/${IdProperty}")
       .Attribute("width", WidthProperty)

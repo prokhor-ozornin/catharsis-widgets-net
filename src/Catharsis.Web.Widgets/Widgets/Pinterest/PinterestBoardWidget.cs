@@ -80,7 +80,9 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new PinterestBoardWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() || IdProperty.IsUnset() ? string.Empty : new TagBuilder("a")
       .Attribute("data-pin-do", "embedBoard")
       .Attribute("href", $"http://www.pinterest.com/${AccountProperty}/{IdProperty}")

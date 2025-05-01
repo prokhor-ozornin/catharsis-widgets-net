@@ -145,7 +145,9 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new YandexMoneyPaymentFormWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() || DescriptionProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", $"https://money.yandex.ru/embed/shop.xml?account={AccountProperty}&quickpay=shop{(CardsProperty ? "&payment-type-choice=on" : string.Empty)}&writer={(AskPayerPurposeProperty ? "buyer" : "seller")}&{(AskPayerPurposeProperty ? "targets-hint" : "targets")}={DescriptionProperty}&default-sum={SumProperty}&button-text=0{TextProperty}{(AskPayerCommentProperty ? "&comment=on" : string.Empty)}{(AskPayerFullNameProperty ? "&fio=on" : string.Empty)}{(AskPayerEmailProperty ? "&mail=on" : string.Empty)}{(AskPayerPhoneProperty ? "&phone=on" : string.Empty)}{(AskPayerAddressProperty ? "&address=on" : string.Empty)}")
       .Attribute("frameborder", 0)

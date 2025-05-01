@@ -123,7 +123,10 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new MailRuGroupsWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (AccountProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset())

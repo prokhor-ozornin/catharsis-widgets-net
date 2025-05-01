@@ -168,7 +168,10 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new MailRuFacesWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     if (DomainProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset())

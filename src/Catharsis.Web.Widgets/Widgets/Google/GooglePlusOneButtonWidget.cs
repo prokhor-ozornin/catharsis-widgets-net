@@ -110,7 +110,10 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Width()"/>
   public string Width() => WidthProperty;
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new GooglePlusOneButtonWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("g:plusone")
       .Attribute("href", UrlProperty)
       .Attribute("size", SizeProperty)

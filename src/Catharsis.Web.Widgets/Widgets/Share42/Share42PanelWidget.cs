@@ -27,7 +27,9 @@ public class Share42PanelWidget : WebWidget, IShare42PanelWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new Share42PanelWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
     //writer.Write(this.ToTag("div", tag => tag.AddCssClass("share42init")));

@@ -92,7 +92,10 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new FacebookSendButtonWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
       .Attribute("data-href", UrlProperty)
       .Attribute("data-colorscheme", ColorSchemeProperty)

@@ -116,7 +116,9 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     return this;
   }
 
-  /// <inheritdoc cref="IHtmlContent.ToHtml()"/>
+  public override object Clone() => new TwitterFollowButtonWidget { };
+
+  /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : 
     new TagBuilder("a")
       .Attribute("href", $"https://twitter.com/${AccountProperty}")
