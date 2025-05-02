@@ -47,6 +47,28 @@ public sealed class DisqusCommentsWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="DisqusCommentsWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new DisqusCommentsWidget());
+      Validate(Attributes.DisqusCommentsWidget());
+    }
+
+    return;
+
+    static void Validate(IDisqusCommentsWidget original)
+    {
+      var clone = original.Clone<IDisqusCommentsWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="DisqusCommentsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

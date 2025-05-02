@@ -141,6 +141,28 @@ public sealed class FacebookCommentsWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="FacebookCommentsWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new FacebookCommentsWidget());
+      Validate(Attributes.FacebookCommentsWidget());
+    }
+
+    return;
+
+    static void Validate(IFacebookCommentsWidget original)
+    {
+      var clone = original.Clone<IFacebookCommentsWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="FacebookCommentsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

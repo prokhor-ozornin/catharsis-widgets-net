@@ -163,6 +163,28 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="FacebookFacePileWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new FacebookFacePileWidget());
+      Validate(Attributes.FacebookFacePileWidget());
+    }
+
+    return;
+
+    static void Validate(IFacebookFacePileWidget original)
+    {
+      var clone = original.Clone<IFacebookFacePileWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="FacebookFacePileWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

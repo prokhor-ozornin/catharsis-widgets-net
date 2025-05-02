@@ -67,6 +67,28 @@ public sealed class FacebookPostWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="FacebookPostWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new FacebookPostWidget());
+      Validate(Attributes.FacebookPostWidget());
+    }
+
+    return;
+
+    static void Validate(IFacebookPostWidget original)
+    {
+      var clone = original.Clone<IFacebookPostWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="FacebookPostWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

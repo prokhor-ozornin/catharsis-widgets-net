@@ -47,6 +47,28 @@ public sealed class CackleCommentsWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="CackleCommentsWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new CackleCommentsWidget());
+      Validate(Attributes.CackleCommentsWidget());
+    }
+
+    return;
+
+    static void Validate(ICackleCommentsWidget original)
+    {
+      var clone = original.Clone<ICackleCommentsWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="CackleCommentsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

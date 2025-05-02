@@ -237,6 +237,28 @@ public sealed class FacebookActivityFeedWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="FacebookActivityFeedWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new FacebookActivityFeedWidget());
+      Validate(Attributes.FacebookActivityFeedWidget());
+    }
+
+    return;
+
+    static void Validate(IFacebookActivityFeedWidget original)
+    {
+      var clone = original.Clone<IFacebookActivityFeedWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="FacebookActivityFeedWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

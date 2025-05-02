@@ -115,6 +115,28 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="CackleLatestCommentsWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new CackleLatestCommentsWidget());
+      Validate(Attributes.CackleLatestCommentsWidget());
+    }
+
+    return;
+
+    static void Validate(ICackleLatestCommentsWidget original)
+    {
+      var clone = original.Clone<ICackleLatestCommentsWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="CackleLatestCommentsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

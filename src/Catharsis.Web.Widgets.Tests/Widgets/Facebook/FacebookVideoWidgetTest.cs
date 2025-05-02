@@ -87,6 +87,28 @@ public sealed class FacebookVideoWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="FacebookVideoWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new FacebookVideoWidget());
+      Validate(Attributes.FacebookVideoWidget());
+    }
+
+    return;
+
+    static void Validate(IFacebookVideoWidget original)
+    {
+      var clone = original.Clone<IFacebookVideoWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="FacebookVideoWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

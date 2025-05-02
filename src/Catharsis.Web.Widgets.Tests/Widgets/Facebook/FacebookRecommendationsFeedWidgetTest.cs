@@ -224,6 +224,28 @@ public sealed class FacebookRecommendationsFeedWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="FacebookRecommendationsFeedWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new FacebookRecommendationsFeedWidget());
+      Validate(Attributes.FacebookRecommendationsFeedWidget());
+    }
+
+    return;
+
+    static void Validate(IFacebookRecommendationsFeedWidget original)
+    {
+      var clone = original.Clone<IFacebookRecommendationsFeedWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="FacebookRecommendationsFeedWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

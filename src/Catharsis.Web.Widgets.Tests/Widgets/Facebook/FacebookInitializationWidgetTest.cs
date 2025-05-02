@@ -47,6 +47,28 @@ public sealed class FacebookInitializationWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="FacebookInitializationWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new FacebookInitializationWidget());
+      Validate(Attributes.FacebookInitializationWidget());
+    }
+
+    return;
+
+    static void Validate(IFacebookInitializationWidget original)
+    {
+      var clone = original.Clone<IFacebookInitializationWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="FacebookInitializationWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

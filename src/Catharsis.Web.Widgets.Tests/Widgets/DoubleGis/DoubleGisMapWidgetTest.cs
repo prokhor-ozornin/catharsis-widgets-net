@@ -27,6 +27,28 @@ public sealed class DoubleGisMapWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="DoubleGisMapWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new DoubleGisMapWidget());
+      Validate(Attributes.DoubleGisMapWidget());
+    }
+
+    return;
+
+    static void Validate(IDoubleGisMapWidget original)
+    {
+      var clone = original.Clone<IDoubleGisMapWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="DoubleGisMapWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

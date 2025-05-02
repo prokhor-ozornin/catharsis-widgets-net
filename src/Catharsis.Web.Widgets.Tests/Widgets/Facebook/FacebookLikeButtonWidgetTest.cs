@@ -181,6 +181,28 @@ public sealed class FacebookLikeButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new FacebookLikeButtonWidget());
+      Validate(Attributes.FacebookLikeButtonWidget());
+    }
+
+    return;
+
+    static void Validate(IFacebookLikeButtonWidget original)
+    {
+      var clone = original.Clone<IFacebookLikeButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="FacebookLikeButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

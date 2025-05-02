@@ -161,6 +161,28 @@ public sealed class FacebookFollowButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new FacebookFollowButtonWidget());
+      Validate(Attributes.FacebookFollowButtonWidget());
+    }
+
+    return;
+
+    static void Validate(IFacebookFollowButtonWidget original)
+    {
+      var clone = original.Clone<IFacebookFollowButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="FacebookFollowButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

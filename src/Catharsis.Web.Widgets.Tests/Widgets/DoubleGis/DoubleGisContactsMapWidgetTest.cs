@@ -27,6 +27,28 @@ public sealed class DoubleGisContactsMapWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="DoubleGisContactsMapWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new DoubleGisContactsMapWidget());
+      Validate(Attributes.DoubleGisContactsMapWidget());
+    }
+
+    return;
+
+    static void Validate(IDoubleGisContactsMapWidget original)
+    {
+      var clone = original.Clone<IDoubleGisContactsMapWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="DoubleGisContactsMapWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]
