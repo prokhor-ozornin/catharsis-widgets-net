@@ -132,7 +132,11 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
     {
       var clone = original.Clone<ICackleLatestCommentsWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountProperty").Should().Be(original.GetPropertyValue<string>("AccountProperty"));
+      clone.GetPropertyValue<short>("AvatarSizeProperty").Should().Be(original.GetPropertyValue<short>("AvatarSizeProperty"));
+      clone.GetPropertyValue<byte>("MaxProperty").Should().Be(original.GetPropertyValue<byte>("MaxProperty"));
+      clone.GetPropertyValue<int>("TextSizeProperty").Should().Be(original.GetPropertyValue<int>("TextSizeProperty"));
+      clone.GetPropertyValue<int>("TitleSizeProperty").Should().Be(original.GetPropertyValue<int>("TitleSizeProperty"));
     }
   }
 

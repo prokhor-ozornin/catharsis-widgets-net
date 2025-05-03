@@ -64,7 +64,7 @@ public sealed class CackleLoginWidgetTest : UnitTest
     {
       var clone = original.Clone<ICackleLatestCommentsWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountProperty").Should().Be(original.GetPropertyValue<string>("AccountProperty"));
     }
   }
 
