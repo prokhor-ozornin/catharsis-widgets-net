@@ -36,7 +36,11 @@ public class FacebookPostWidget : WebWidget, IFacebookPostWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new FacebookPostWidget { };
+  public override object Clone() => new FacebookPostWidget
+  {
+    UrlProperty = UrlProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => UrlProperty.IsUnset() ? string.Empty : new TagBuilder("div")

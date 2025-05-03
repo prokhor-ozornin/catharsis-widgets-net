@@ -124,6 +124,28 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteAuthButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteAuthButtonWidget());
+      Validate(Attributes.VkontakteAuthButtonWidget());
+    }
+
+    return;
+
+    static void Validate(IVkontakteAuthButtonWidget original)
+    {
+      var clone = original.Clone<IVkontakteAuthButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="VkontakteAuthButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

@@ -4,7 +4,9 @@
 public class AddThisWelcomeBarWidget : WebWidget, IAddThisWelcomeBarWidget
 {
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new AddThisWelcomeBarWidget { };
+  public override object Clone() => new AddThisWelcomeBarWidget
+  {
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => throw new NotImplementedException();

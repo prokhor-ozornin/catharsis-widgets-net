@@ -67,6 +67,28 @@ public sealed class InlineImageWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="InlineImageWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new InlineImageWidget());
+      Validate(Attributes.InlineImageWidget());
+    }
+
+    return;
+
+    static void Validate(IInlineImageWidget original)
+    {
+      var clone = original.Clone<IInlineImageWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="InlineImageWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

@@ -62,7 +62,14 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
     return this;
   }
 
-  public override object Clone() => new VideoJSPlayerWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new VideoJSPlayerWidget
+  {
+    ExtraProperty = ExtraProperty,
+    WidthProperty = WidthProperty,
+    HeightProperty = HeightProperty,
+    VideosProperty = VideosProperty?.ToArray()
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => !VideosProperty.Any() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("video")

@@ -97,7 +97,16 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     return this;
   }
 
-  public override object Clone() => new VkontakteVideoWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new VkontakteVideoWidget
+  {
+    IdProperty = IdProperty,
+    WidthProperty = WidthProperty,
+    HeightProperty = HeightProperty,
+    HdProperty = HdProperty,
+    UserProperty = UserProperty,
+    HashProperty = HashProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => IdProperty.IsUnset() || UserProperty.IsUnset() || HashProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")

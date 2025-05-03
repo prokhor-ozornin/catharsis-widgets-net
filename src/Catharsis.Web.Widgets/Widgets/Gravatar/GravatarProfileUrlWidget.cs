@@ -18,7 +18,7 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual IDictionary<string, object> ParametersProperty { get; } = new Dictionary<string, object>();
+  protected virtual IDictionary<string, object> ParametersProperty { get; init; } = new SortedDictionary<string, object>();
 
   /// <inheritdoc cref="IGravatarProfileUrlWidget.Format(string)"/>
   public virtual IGravatarProfileUrlWidget Format(string format)
@@ -52,7 +52,12 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new GravatarProfileUrlWidget { };
+  public override object Clone() => new GravatarProfileUrlWidget
+  {
+    FormatProperty = FormatProperty,
+    HashProperty = HashProperty,
+    ParametersProperty = ParametersProperty?.ToSortedDictionary()
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => HashProperty.IsUnset() ? string.Empty : $"http://www.gravatar.com/{HashProperty}{(FormatProperty.IsUnset() ? string.Empty : $".${FormatProperty}")}{(ParametersProperty.Any() ? $"?${ParametersProperty.ToUrlQuery()}" : string.Empty)}";

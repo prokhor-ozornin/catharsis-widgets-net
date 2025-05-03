@@ -13,7 +13,7 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LayoutProperty { get; set; } = YandexSharePanelLayout.Button.ToString().ToLowerInvariant();
+  protected virtual string LayoutProperty { get; set; } = nameof(YandexSharePanelLayout.Button).ToLowerInvariant();
 
   /// <summary>
   ///   <para></para>
@@ -49,7 +49,12 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
     return this;
   }
 
-  public override object Clone() => new YandexSharePanelWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new YandexSharePanelWidget
+  {
+    LanguageProperty = LanguageProperty,
+    LayoutProperty = LayoutProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() =>

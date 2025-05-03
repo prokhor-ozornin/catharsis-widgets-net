@@ -27,6 +27,28 @@ public sealed class GoogleMapWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="GoogleMapWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new GoogleMapWidget());
+      Validate(Attributes.GoogleMapWidget());
+    }
+
+    return;
+
+    static void Validate(IGoogleMapWidget original)
+    {
+      var clone = original.Clone<IGoogleMapWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="GravatarImageUrlWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

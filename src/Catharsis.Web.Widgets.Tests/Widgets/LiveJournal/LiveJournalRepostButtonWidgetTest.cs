@@ -67,6 +67,28 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="LiveJournalRepostButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new LiveJournalRepostButtonWidget());
+      Validate(Attributes.LiveJournalRepostButtonWidget());
+    }
+
+    return;
+
+    static void Validate(ILiveJournalRepostButtonWidget original)
+    {
+      var clone = original.Clone<ILiveJournalRepostButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="LiveJournalRepostButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

@@ -63,7 +63,14 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
     return this;
   }
 
-  public override object Clone() => new VkontakteSubscriptionWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new VkontakteSubscriptionWidget
+  {
+    AccountProperty = AccountProperty,
+    ElementIdProperty = ElementIdProperty,
+    LayoutProperty = LayoutProperty,
+    OnlyButtonProperty = OnlyButtonProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

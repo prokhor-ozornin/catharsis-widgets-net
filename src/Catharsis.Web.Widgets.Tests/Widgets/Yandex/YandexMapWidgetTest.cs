@@ -27,6 +27,28 @@ public sealed class YandexMapWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="YandexMapWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new YandexMapWidget());
+      Validate(Attributes.YandexMapWidget());
+    }
+
+    return;
+
+    static void Validate(IYandexMapWidget original)
+    {
+      var clone = original.Clone<IYandexMapWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="YandexMapWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

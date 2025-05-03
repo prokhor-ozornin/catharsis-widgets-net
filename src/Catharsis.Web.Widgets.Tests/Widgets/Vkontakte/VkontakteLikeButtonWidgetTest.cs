@@ -224,6 +224,28 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteLikeButtonWidget());
+      Validate(Attributes.VkontakteLikeButtonWidget());
+    }
+
+    return;
+
+    static void Validate(IVkontakteLikeButtonWidget original)
+    {
+      var clone = original.Clone<IVkontakteLikeButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="VkontakteLikeButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

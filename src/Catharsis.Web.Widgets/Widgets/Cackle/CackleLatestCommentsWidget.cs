@@ -72,7 +72,14 @@ public class CackleLatestCommentsWidget : WebWidget, ICackleLatestCommentsWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new CackleLatestCommentsWidget { };
+  public override object Clone() => new CackleLatestCommentsWidget
+  {
+    AccountProperty = AccountProperty,
+    AvatarSizeProperty = AvatarSizeProperty,
+    MaxProperty = MaxProperty,
+    TextSizeProperty = TextSizeProperty,
+    TitleSizeProperty = TitleSizeProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

@@ -159,6 +159,28 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="TwitterFollowButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new TwitterFollowButtonWidget());
+      Validate(Attributes.TwitterFollowButtonWidget());
+    }
+
+    return;
+
+    static void Validate(ITwitterFollowButtonWidget original)
+    {
+      var clone = original.Clone<ITwitterFollowButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="TwitterFollowButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

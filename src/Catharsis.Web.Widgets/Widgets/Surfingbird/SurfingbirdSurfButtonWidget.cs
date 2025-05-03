@@ -14,7 +14,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LayoutProperty { get; set; } = SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant();
+  protected virtual string LayoutProperty { get; set; } = nameof(SurfingbirdSurfButtonLayout.Common).ToLowerInvariant();
 
   /// <summary>
   ///   <para></para>
@@ -114,7 +114,17 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
     return this;
   }
 
-  public override object Clone() => new SurfingbirdSurfButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new SurfingbirdSurfButtonWidget
+  {
+    UrlProperty = UrlProperty,
+    LayoutProperty = LayoutProperty,
+    WidthProperty = WidthProperty,
+    HeightProperty = HeightProperty,
+    CounterProperty = CounterProperty,
+    LabelProperty = LabelProperty,
+    ColorProperty = ColorProperty
+  };
   
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

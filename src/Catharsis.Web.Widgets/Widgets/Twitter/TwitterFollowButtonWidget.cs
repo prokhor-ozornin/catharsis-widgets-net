@@ -116,7 +116,18 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     return this;
   }
 
-  public override object Clone() => new TwitterFollowButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new TwitterFollowButtonWidget
+  {
+    AccountProperty = AccountProperty,
+    LanguageProperty = LanguageProperty,
+    SizeProperty = SizeProperty,
+    AlignmentProperty = AlignmentProperty,
+    CounterProperty = CounterProperty,
+    ScreenNameProperty = ScreenNameProperty,
+    SuggestionsProperty = SuggestionsProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : 

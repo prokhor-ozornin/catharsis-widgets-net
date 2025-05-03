@@ -25,8 +25,8 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
       var widget = new YandexLikeButtonWidget();
       widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
       widget.GetPropertyValue<string>("TitleProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("SizeProperty").Should().Be(YandexLikeButtonSize.Large.ToString().ToLowerInvariant());
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(YandexLikeButtonLayout.Button.ToString().ToLowerInvariant());
+      widget.GetPropertyValue<string>("SizeProperty").Should().Be(nameof(YandexLikeButtonSize.Large).ToLowerInvariant());
+      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(nameof(YandexLikeButtonLayout.Button).ToLowerInvariant());
       widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
     }
   }
@@ -124,6 +124,28 @@ public sealed class YandexLikeButtonWidgetTest : UnitTest
     return;
 
     static void Validate(string text, IYandexLikeButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextProperty").Should().Be(text);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="YandexLikeButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new YandexLikeButtonWidget());
+      Validate(Attributes.YandexLikeButtonWidget());
+    }
+
+    return;
+
+    static void Validate(IYandexLikeButtonWidget original)
+    {
+      var clone = original.Clone<IYandexLikeButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
   }
 
   /// <summary>

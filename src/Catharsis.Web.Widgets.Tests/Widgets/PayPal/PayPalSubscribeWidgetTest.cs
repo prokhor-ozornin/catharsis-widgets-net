@@ -45,6 +45,28 @@ public sealed class PayPalSubscribeWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="PayPalSubscribeWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new PayPalSubscribeWidget());
+      Validate(Attributes.PayPalSubscribeWidget());
+    }
+
+    return;
+
+    static void Validate(IPayPalSubscribeWidget original)
+    {
+      var clone = original.Clone<IPayPalSubscribeWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="PayPalSubscribeWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

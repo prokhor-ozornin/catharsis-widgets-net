@@ -67,6 +67,28 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="PinterestFollowButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new PinterestFollowButtonWidget());
+      Validate(Attributes.PinterestFollowButtonWidget());
+    }
+
+    return;
+
+    static void Validate(IPinterestFollowButtonWidget original)
+    {
+      var clone = original.Clone<IPinterestFollowButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="PinterestFollowButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

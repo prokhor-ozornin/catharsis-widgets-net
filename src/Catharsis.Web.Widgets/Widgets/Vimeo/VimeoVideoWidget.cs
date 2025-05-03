@@ -74,7 +74,15 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
     return this;
   }
 
-  public override object Clone() => new VimeoVideoWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new VimeoVideoWidget
+  {
+    AutoPlayProperty = AutoPlayProperty,
+    HeightProperty = HeightProperty,
+    IdProperty = IdProperty,
+    LoopProperty = LoopProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => IdProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")

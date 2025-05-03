@@ -36,7 +36,12 @@ public class PinterestFollowButtonWidget : WebWidget, IPinterestFollowButtonWidg
     return this;
   }
 
-  public override object Clone() => new PinterestFollowButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new PinterestFollowButtonWidget
+  {
+    AccountProperty = AccountProperty,
+    LabelProperty = LabelProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() || LabelProperty.IsUnset() ? string.Empty : new TagBuilder("a")

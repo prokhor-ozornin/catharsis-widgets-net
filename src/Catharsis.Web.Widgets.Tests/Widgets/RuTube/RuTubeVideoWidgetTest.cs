@@ -87,6 +87,28 @@ public sealed class RuTubeVideoWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="RuTubeVideoWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new RuTubeVideoWidget());
+      Validate(Attributes.RuTubeVideoWidget());
+    }
+
+    return;
+
+    static void Validate(IRuTubeVideoWidget original)
+    {
+      var clone = original.Clone<IRuTubeVideoWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="RuTubeVideoWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

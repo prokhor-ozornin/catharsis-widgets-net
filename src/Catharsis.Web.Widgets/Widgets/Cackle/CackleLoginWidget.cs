@@ -24,7 +24,10 @@ public class CackleLoginWidget : WebWidget, ICackleLoginWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new CackleLoginWidget { };
+  public override object Clone() => new CackleLoginWidget
+  {
+    AccountProperty = AccountProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

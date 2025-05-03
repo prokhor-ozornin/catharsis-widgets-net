@@ -33,7 +33,12 @@ public class TumblrShareButtonWidget : WebWidget, ITumblrShareButtonWidget
     return this;
   }
 
-  public override object Clone() => new TumblrShareButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new TumblrShareButtonWidget
+  {
+    TypeProperty = TypeProperty,
+    ColorSchemeProperty = ColorSchemeProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

@@ -84,6 +84,28 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="SoundCloudProfileIconWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new SoundCloudProfileIconWidget());
+      Validate(Attributes.SoundCloudProfileIconWidget());
+    }
+
+    return;
+
+    static void Validate(ISoundCloudProfileIconWidget original)
+    {
+      var clone = original.Clone<ISoundCloudProfileIconWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+  
+  /// <summary>
   ///   <para>Performs testing of <see cref="SoundCloudProfileIconWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

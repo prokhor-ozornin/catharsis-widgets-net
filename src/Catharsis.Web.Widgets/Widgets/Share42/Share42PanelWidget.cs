@@ -27,7 +27,12 @@ public class Share42PanelWidget : WebWidget, IShare42PanelWidget
     return this;
   }
 
-  public override object Clone() => new Share42PanelWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new Share42PanelWidget
+  {
+    DirectionProperty = DirectionProperty,
+    SizeProperty = SizeProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

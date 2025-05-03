@@ -20,7 +20,11 @@ public class PinterestPinWidget : WebWidget, IPinterestPinWidget
     return this;
   }
 
-  public override object Clone() => new PinterestPinWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new PinterestPinWidget
+  {
+    IdProperty = IdProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => IdProperty.IsUnset() ? string.Empty : new TagBuilder("a")

@@ -184,6 +184,28 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="MailRuGroupsWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new MailRuGroupsWidget());
+      Validate(Attributes.MailRuGroupsWidget());
+    }
+
+    return;
+
+    static void Validate(IMailRuGroupsWidget original)
+    {
+      var clone = original.Clone<IMailRuGroupsWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="MailRuGroupsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

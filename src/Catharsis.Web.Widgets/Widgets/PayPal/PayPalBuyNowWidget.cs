@@ -9,7 +9,10 @@ public class PayPalBuyNowWidget : WebWidget, IPayPalBuyNowWidget
   /// <inheritdoc cref="IPayPalBuyNowWidget.AsUrl()"/>
   public virtual IPayPalBuyNowWidget AsUrl() => throw new NotImplementedException();
 
-  public override object Clone() => new PayPalBuyNowWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new PayPalBuyNowWidget
+  {
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => throw new NotImplementedException();

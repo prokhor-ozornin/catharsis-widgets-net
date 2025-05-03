@@ -244,6 +244,28 @@ public sealed class MailRuFacesWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="MailRuFacesWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new MailRuFacesWidget());
+      Validate(Attributes.MailRuFacesWidget());
+    }
+
+    return;
+
+    static void Validate(IMailRuFacesWidget original)
+    {
+      var clone = original.Clone<IMailRuFacesWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="MailRuFacesWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

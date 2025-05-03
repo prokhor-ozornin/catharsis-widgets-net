@@ -121,6 +121,28 @@ public sealed class VimeoVideoWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="VimeoVideoWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new VimeoVideoWidget());
+      Validate(Attributes.VimeoVideoWidget());
+    }
+
+    return;
+
+    static void Validate(IVimeoVideoWidget original)
+    {
+      var clone = original.Clone<IVimeoVideoWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="VimeoVideoWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

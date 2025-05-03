@@ -163,7 +163,18 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     return this;
   }
 
-  public override object Clone() => new PinterestPinItButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new PinterestPinItButtonWidget
+  {
+    ColorProperty = ColorProperty,
+    CounterProperty = CounterProperty,
+    DescriptionProperty = DescriptionProperty,
+    ImageProperty = ImageProperty,
+    LanguageProperty = LanguageProperty,
+    ShapeProperty = ShapeProperty,
+    SizeProperty = SizeProperty,
+    UrlProperty = UrlProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

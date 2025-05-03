@@ -222,6 +222,28 @@ public sealed class TwitterTweetButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="TwitterTweetButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new TwitterTweetButtonWidget());
+      Validate(Attributes.TwitterTweetButtonWidget());
+    }
+
+    return;
+
+    static void Validate(ITwitterTweetButtonWidget original)
+    {
+      var clone = original.Clone<ITwitterTweetButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="TwitterTweetButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

@@ -50,7 +50,13 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
     return this;
   }
 
-  public override object Clone() => new RuTubeVideoWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new RuTubeVideoWidget
+  {
+    IdProperty = IdProperty,
+    HeightProperty = HeightProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => IdProperty.IsUnset() || HeightProperty.IsUnset() || WidthProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")

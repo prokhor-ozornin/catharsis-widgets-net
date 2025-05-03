@@ -45,6 +45,28 @@ public sealed class PayPalBuyNowWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="PayPalBuyNowWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new PayPalBuyNowWidget());
+      Validate(Attributes.PayPalBuyNowWidget());
+    }
+
+    return;
+
+    static void Validate(IPayPalBuyNowWidget original)
+    {
+      var clone = original.Clone<IPayPalBuyNowWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="PayPalBuyNowWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

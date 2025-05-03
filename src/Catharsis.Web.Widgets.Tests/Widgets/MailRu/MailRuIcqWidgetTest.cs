@@ -68,6 +68,28 @@ public sealed class MailRuIcqWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="MailRuIcqWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new MailRuIcqWidget());
+      Validate(Attributes.MailRuIcqWidget());
+    }
+
+    return;
+
+    static void Validate(IMailRuIcqWidget original)
+    {
+      var clone = original.Clone<IMailRuIcqWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="MailRuIcqWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

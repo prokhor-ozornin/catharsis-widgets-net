@@ -106,6 +106,28 @@ public sealed class VideoJSPlayerWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new VideoJSPlayerWidget());
+      Validate(Attributes.VideoJSPlayerWidget());
+    }
+
+    return;
+
+    static void Validate(IVideoJSPlayerWidget original)
+    {
+      var clone = original.Clone<IVideoJSPlayerWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="VideoJSPlayerWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

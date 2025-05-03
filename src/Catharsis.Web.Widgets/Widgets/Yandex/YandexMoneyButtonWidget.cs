@@ -13,7 +13,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorProperty { get; set; } = YandexMoneyButtonColor.Orange.ToString().ToLowerInvariant();
+  protected virtual string ColorProperty { get; set; } = nameof(YandexMoneyButtonColor.Orange).ToLowerInvariant();
 
   /// <summary>
   ///   <para></para>
@@ -155,7 +155,21 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     return this;
   }
 
-  public override object Clone() => new YandexMoneyButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new YandexMoneyButtonWidget
+  {
+    AccountProperty = AccountProperty,
+    ColorProperty = ColorProperty,
+    DescriptionProperty = DescriptionProperty,
+    AskPayerFullNameProperty = AskPayerFullNameProperty,
+    AskPayerEmailProperty = AskPayerEmailProperty,
+    AskPayerPhoneProperty = AskPayerPhoneProperty,
+    AskPayerAddressProperty = AskPayerAddressProperty,
+    SizeProperty = SizeProperty,
+    SumProperty = SumProperty,
+    TextProperty = TextProperty,
+    TypeProperty = TypeProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

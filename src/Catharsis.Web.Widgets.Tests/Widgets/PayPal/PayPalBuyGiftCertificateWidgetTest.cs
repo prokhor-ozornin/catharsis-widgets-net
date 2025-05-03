@@ -45,6 +45,28 @@ public sealed class PayPalBuyGiftCertificateWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="PayPalBuyGiftCertificateWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new PayPalBuyGiftCertificateWidget());
+      Validate(Attributes.PayPalBuyGiftCertificateWidget());
+    }
+
+    return;
+
+    static void Validate(IPayPalBuyGiftCertificateWidget original)
+    {
+      var clone = original.Clone<IPayPalBuyGiftCertificateWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="PayPalBuyGiftCertificateWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

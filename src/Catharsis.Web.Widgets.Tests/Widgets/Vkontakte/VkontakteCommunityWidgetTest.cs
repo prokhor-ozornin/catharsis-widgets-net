@@ -184,6 +184,28 @@ public sealed class VkontakteCommunityWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteCommunityWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteCommunityWidget());
+      Validate(Attributes.VkontakteCommunityWidget());
+    }
+
+    return;
+
+    static void Validate(IVkontakteCommunityWidget original)
+    {
+      var clone = original.Clone<IVkontakteCommunityWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="VkontakteCommunityWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

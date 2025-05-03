@@ -169,6 +169,28 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new YandexAnalyticsWidget());
+      Validate(Attributes.YandexAnalyticsWidget());
+    }
+
+    return;
+
+    static void Validate(IYandexAnalyticsWidget original)
+    {
+      var clone = original.Clone<IYandexAnalyticsWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="YandexAnalyticsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

@@ -88,6 +88,28 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="GravatarProfileUrlWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new GravatarProfileUrlWidget());
+      Validate(Attributes.GravatarProfileUrlWidget());
+    }
+
+    return;
+
+    static void Validate(IGravatarProfileUrlWidget original)
+    {
+      var clone = original.Clone<IGravatarProfileUrlWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="GravatarProfileUrlWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

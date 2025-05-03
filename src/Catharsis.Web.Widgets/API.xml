@@ -3794,9 +3794,6 @@
         <member name="M:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.Width(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IGooglePlusOneButtonWidget.Width(System.String)"/>
         </member>
-        <member name="M:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.Width">
-            <inheritdoc cref="!:IGooglePlusOneButtonWidget.Width()"/>
-        </member>
         <member name="M:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
@@ -4749,6 +4746,9 @@
         <member name="M:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget.Title(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.ILiveJournalRepostButtonWidget.Title(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -5414,6 +5414,9 @@
         <member name="M:Catharsis.Web.Widgets.MailRuIcqWidget.Language(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IMailRuIcqWidget.Language(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.MailRuIcqWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.MailRuIcqWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -5627,6 +5630,9 @@
             <exception cref="T:System.ArgumentNullException">If <paramref name="type"/> is a <c>null</c> reference.</exception>
             <exception cref="T:System.ArgumentException">If <paramref name="type"/> is <see cref="F:System.String.Empty"/> string.</exception>
         </member>
+        <member name="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -5656,6 +5662,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuVideoWidget.Width(System.String)">
             <inheritdoc cref="!:IMailRuVideoWidget.Width(string)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.MailRuVideoWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuVideoWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -5784,6 +5793,9 @@
         <member name="M:Catharsis.Web.Widgets.PayPalBuyGiftCertificateWidget.AsUrl">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IPayPalBuyGiftCertificateWidget.AsUrl"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.PayPalBuyGiftCertificateWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.PayPalBuyGiftCertificateWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -5795,6 +5807,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.PayPalBuyNowWidget.AsUrl">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IPayPalBuyNowWidget.AsUrl"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.PayPalBuyNowWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PayPalBuyNowWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -5808,6 +5823,9 @@
         <member name="M:Catharsis.Web.Widgets.PayPalDonateWidget.AsUrl">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IPayPalDonateWidget.AsUrl"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.PayPalDonateWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.PayPalDonateWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -5819,6 +5837,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.PayPalSubscribeWidget.AsUrl">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IPayPalSubscribeWidget.AsUrl"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.PayPalSubscribeWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PayPalSubscribeWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -6327,6 +6348,9 @@
         <member name="M:Catharsis.Web.Widgets.PinterestBoardWidget.Image(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IPinterestBoardWidget.Image(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.PinterestBoardWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.PinterestBoardWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -6348,6 +6372,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestFollowButtonWidget.Label(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IPinterestFollowButtonWidget.Label(System.String)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.PinterestFollowButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestFollowButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -6515,6 +6542,9 @@
             <exception cref="T:System.ArgumentException">If <paramref name="url"/> is <see cref="F:System.String.Empty"/> string.</exception>
             <remarks>This attribute is required.</remarks>
         </member>
+        <member name="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -6528,6 +6558,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinWidget.Id(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IPinterestPinWidget.Id(System.String)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.PinterestPinWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -6566,6 +6599,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestProfileWidget.Image(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IPinterestProfileWidget.Image(System.String)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.PinterestProfileWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestProfileWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -6607,6 +6643,9 @@
         </member>
         <member name="T:Catharsis.Web.Widgets.RobokassaPaymentFormWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IRobokassaPaymentFormWidget"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.RobokassaPaymentFormWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.RobokassaPaymentFormWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -6659,6 +6698,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.RuTubeVideoWidget.Width(System.String)">
             <inheritdoc cref="!:IRuTubeVideoWidget.Width(string)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.RuTubeVideoWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.RuTubeVideoWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -6786,6 +6828,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.Share42PanelWidget.Direction(Catharsis.Web.Widgets.Share42PanelDirection)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IShare42PanelWidget.Direction(Catharsis.Web.Widgets.Share42PanelDirection)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Share42PanelWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Share42PanelWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -6966,6 +7011,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.SoundCloudProfileIconWidget.Size(System.Int16)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.ISoundCloudProfileIconWidget.Size(System.Int16)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.SoundCloudProfileIconWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.SoundCloudProfileIconWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -7201,6 +7249,9 @@
         <member name="M:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.Width(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.ISurfingbirdSurfButtonWidget.Width(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -7397,6 +7448,9 @@
         <member name="M:Catharsis.Web.Widgets.TumblrFollowButtonWidget.Type(System.Byte)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.ITumblrFollowButtonWidget.Type(System.Byte)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.TumblrFollowButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.TumblrFollowButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -7458,6 +7512,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.TumblrShareButtonWidget.Type(System.Byte)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.ITumblrShareButtonWidget.Type(System.Byte)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.TumblrShareButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.TumblrShareButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -7846,6 +7903,9 @@
         <member name="M:Catharsis.Web.Widgets.TwitterFollowButtonWidget.Width(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.ITwitterFollowButtonWidget.Width(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.TwitterFollowButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.TwitterFollowButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -7966,6 +8026,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.TwitterTweetButtonWidget.Via(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.ITwitterTweetButtonWidget.Via(System.String)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.TwitterTweetButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.TwitterTweetButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -8122,6 +8185,9 @@
         <member name="M:Catharsis.Web.Widgets.VideoJSPlayerWidget.Width(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoJSPlayerWidget.Width(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.VideoJSPlayerWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.VideoJSPlayerWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -8203,6 +8269,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.VimeoVideoWidget.Width(System.String)">
             <inheritdoc cref="!:IVimeoVideoWidget.Width(string)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.VimeoVideoWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VimeoVideoWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -9109,6 +9178,9 @@
         <member name="M:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.Callback(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontakteAuthButtonWidget.Callback(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -9231,6 +9303,9 @@
         <member name="M:Catharsis.Web.Widgets.VkontakteCommentsWidget.Width(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontakteCommentsWidget.Width(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.VkontakteCommentsWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteCommentsWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -9321,6 +9396,9 @@
         <member name="M:Catharsis.Web.Widgets.VkontakteCommunityWidget.Width(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontakteCommunityWidget.Width(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.VkontakteCommunityWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteCommunityWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -9334,6 +9412,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteInitializationWidget.ApiId(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontakteInitializationWidget.ApiId(System.String)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.VkontakteInitializationWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteInitializationWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -9486,6 +9567,9 @@
         <member name="M:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.Width(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontakteLikeButtonWidget.Width(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -9523,6 +9607,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontaktePollWidget.Url(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontaktePollWidget.Url(System.String)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.VkontaktePollWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontaktePollWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -9569,6 +9656,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontaktePostWidget.Width(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontaktePostWidget.Width(System.String)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.VkontaktePostWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontaktePostWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -9702,6 +9792,9 @@
         <member name="M:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.Target(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontakteRecommendationsWidget.Target(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -9760,6 +9853,9 @@
         <member name="M:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.OnlyButton(System.Boolean)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontakteSubscriptionWidget.OnlyButton(System.Boolean)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -9813,6 +9909,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteVideoWidget.Width(System.String)">
             <inheritdoc cref="!:IVkontakteVideoWidget.Width(string)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.VkontakteVideoWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteVideoWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -10624,6 +10723,9 @@
         <member name="M:Catharsis.Web.Widgets.YandexAnalyticsWidget.WebVisor(System.Boolean)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IYandexAnalyticsWidget.WebVisor(System.Boolean)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.YandexAnalyticsWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.YandexAnalyticsWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -10700,11 +10802,17 @@
         <member name="M:Catharsis.Web.Widgets.YandexLikeButtonWidget.Url(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IYandexLikeButtonWidget.Url(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.YandexLikeButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.YandexLikeButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
         <member name="T:Catharsis.Web.Widgets.YandexMapWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVkontakteVideoWidget"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.YandexMapWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.YandexMapWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
@@ -10890,6 +10998,9 @@
         <member name="M:Catharsis.Web.Widgets.YandexMoneyButtonWidget.Type(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IYandexMoneyButtonWidget.Type(System.String)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.YandexMoneyButtonWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.YandexMoneyButtonWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -11030,6 +11141,9 @@
         <member name="M:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.Text(System.Byte)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.Text(System.Byte)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -11149,6 +11263,9 @@
         <member name="M:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.Text(System.Byte)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget.Text(System.Byte)"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -11204,6 +11321,9 @@
         <member name="M:Catharsis.Web.Widgets.YandexSharePanelWidget.Services(System.Collections.Generic.IEnumerable{System.String})">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IYandexSharePanelWidget.Services(System.Collections.Generic.IEnumerable{System.String})"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.YandexSharePanelWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="M:Catharsis.Web.Widgets.YandexSharePanelWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
         </member>
@@ -11241,6 +11361,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.YandexVideoWidget.Width(System.String)">
             <inheritdoc cref="!:IYandexVideoWidget.Width(string)"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.YandexVideoWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.YandexVideoWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>

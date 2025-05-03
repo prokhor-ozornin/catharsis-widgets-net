@@ -127,6 +127,28 @@ public sealed class PinterestBoardWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="PinterestBoardWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new PinterestBoardWidget());
+      Validate(Attributes.PinterestBoardWidget());
+    }
+
+    return;
+
+    static void Validate(IPinterestBoardWidget original)
+    {
+      var clone = original.Clone<IPinterestBoardWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="PinterestBoardWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

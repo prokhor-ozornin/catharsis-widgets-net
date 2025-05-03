@@ -67,6 +67,28 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="GoogleAnalyticsWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new GoogleAnalyticsWidget());
+      Validate(Attributes.GoogleAnalyticsWidget());
+    }
+
+    return;
+
+    static void Validate(IGoogleAnalyticsWidget original)
+    {
+      var clone = original.Clone<IGoogleAnalyticsWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="GoogleAnalyticsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

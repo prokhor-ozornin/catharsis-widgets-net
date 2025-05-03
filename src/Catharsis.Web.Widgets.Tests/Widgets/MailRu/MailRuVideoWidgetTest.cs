@@ -87,6 +87,28 @@ public sealed class MailRuVideoWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="MailRuVideoWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new MailRuVideoWidget());
+      Validate(Attributes.MailRuVideoWidget());
+    }
+
+    return;
+
+    static void Validate(IMailRuVideoWidget original)
+    {
+      var clone = original.Clone<IMailRuVideoWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="MailRuVideoWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

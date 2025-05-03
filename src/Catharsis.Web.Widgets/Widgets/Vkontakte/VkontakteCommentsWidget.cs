@@ -99,7 +99,17 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
     return this;
   }
 
-  public override object Clone() => new VkontakteCommentsWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new VkontakteCommentsWidget
+  {
+    AttachProperty = AttachProperty?.ToArray(),
+    AutoPublishProperty = AutoPublishProperty,
+    AutoUpdateProperty = AutoUpdateProperty,
+    ElementIdProperty = ElementIdProperty,
+    LimitProperty = LimitProperty,
+    MiniProperty = MiniProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

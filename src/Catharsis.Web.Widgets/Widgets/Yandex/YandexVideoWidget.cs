@@ -69,7 +69,14 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     return this;
   }
 
-  public override object Clone() => new YandexVideoWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new YandexVideoWidget
+  {
+    IdProperty = IdProperty,
+    WidthProperty = WidthProperty,
+    HeightProperty = HeightProperty,
+    UserProperty = UserProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => IdProperty.IsUnset() || UserProperty.IsUnset() || HeightProperty.IsUnset() || WidthProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")

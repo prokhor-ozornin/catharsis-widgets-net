@@ -24,7 +24,7 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
     {
       var widget = new YandexSharePanelWidget();
       widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(YandexSharePanelLayout.Button.ToString().ToLowerInvariant());
+      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(nameof(YandexSharePanelLayout.Button).ToLowerInvariant());
       widget.GetPropertyValue<IEnumerable<string>>("ServicesProperty").Should().Equal(["yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird"]);
     }
   }
@@ -83,6 +83,28 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
     return;
 
     static void Validate(string layout, IYandexSharePanelWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="YandexSharePanelWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new YandexSharePanelWidget());
+      Validate(Attributes.YandexSharePanelWidget());
+    }
+
+    return;
+
+    static void Validate(IYandexSharePanelWidget original)
+    {
+      var clone = original.Clone<IYandexSharePanelWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
   }
 
   /// <summary>

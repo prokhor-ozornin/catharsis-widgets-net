@@ -107,18 +107,24 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     return this;
   }
 
-  /// <inheritdoc cref="IGooglePlusOneButtonWidget.Width()"/>
-  public string Width() => WidthProperty;
-
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new GooglePlusOneButtonWidget { };
+  public override object Clone() => new GooglePlusOneButtonWidget
+  {
+    UrlProperty = UrlProperty,
+    WidthProperty = WidthProperty,
+    SizeProperty = SizeProperty,
+    AlignmentProperty = AlignmentProperty,
+    AnnotationProperty = AnnotationProperty,
+    CallbackProperty = CallbackProperty,
+    RecommendationsProperty = RecommendationsProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("g:plusone")
       .Attribute("href", UrlProperty)
       .Attribute("size", SizeProperty)
       .Attribute("annotation", AnnotationProperty)
-      .Attribute("width", Width())
+      .Attribute("width", WidthProperty)
       .Attribute("align", AlignmentProperty)
       .Attribute("data-callback", CallbackProperty)
       .Attribute("data-recommendations", RecommendationsProperty)

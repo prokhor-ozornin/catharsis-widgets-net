@@ -124,7 +124,17 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new MailRuGroupsWidget { };
+  public override object Clone() => new MailRuGroupsWidget
+  {
+    AccountProperty = AccountProperty,
+    BackgroundColorProperty = BackgroundColorProperty,
+    ButtonColorProperty = ButtonColorProperty,
+    DomainProperty = DomainProperty,
+    HeightProperty = HeightProperty,
+    SubscribersProperty = SubscribersProperty,
+    TextColorProperty = TextColorProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

@@ -83,7 +83,15 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
     return this;
   }
 
-  public override object Clone() => new VkontakteAuthButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new VkontakteAuthButtonWidget
+  {
+    CallbackProperty = CallbackProperty,
+    ElementIdProperty = ElementIdProperty,
+    TypeProperty = TypeProperty,
+    UrlProperty = UrlProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

@@ -93,7 +93,15 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new FacebookSendButtonWidget { };
+  public override object Clone() => new FacebookSendButtonWidget
+  {
+    UrlProperty = UrlProperty,
+    WidthProperty = WidthProperty,
+    HeightProperty = HeightProperty,
+    ColorSchemeProperty = ColorSchemeProperty,
+    KidsModeProperty = KidsModeProperty,
+    TrackLabelProperty = TrackLabelProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")

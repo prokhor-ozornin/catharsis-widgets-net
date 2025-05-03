@@ -144,6 +144,28 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteVideoWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteVideoWidget());
+      Validate(Attributes.VkontakteVideoWidget());
+    }
+
+    return;
+
+    static void Validate(IVkontakteVideoWidget original)
+    {
+      var clone = original.Clone<IVkontakteVideoWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="VkontakteVideoWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

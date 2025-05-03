@@ -24,7 +24,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
     {
       var widget = new SurfingbirdSurfButtonWidget();
       widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(SurfingbirdSurfButtonLayout.Common.ToString().ToLowerInvariant());
+      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(nameof(SurfingbirdSurfButtonLayout.Common).ToLowerInvariant());
       widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
       widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
       widget.GetPropertyValue<bool>("CounterProperty").Should().BeFalse();
@@ -161,6 +161,28 @@ public sealed class SurfingbirdSurfButtonWidgetTest : UnitTest
     return;
 
     static void Validate(string color, ISurfingbirdSurfButtonWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be(color);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="SurfingbirdSurfButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new SurfingbirdSurfButtonWidget());
+      Validate(Attributes.SurfingbirdSurfButtonWidget());
+    }
+
+    return;
+
+    static void Validate(ISurfingbirdSurfButtonWidget original)
+    {
+      var clone = original.Clone<ISurfingbirdSurfButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
   }
 
   /// <summary>

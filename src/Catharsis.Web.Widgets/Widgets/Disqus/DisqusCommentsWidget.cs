@@ -22,7 +22,10 @@ public class DisqusCommentsWidget : WebWidget, IDisqusCommentsWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new DisqusCommentsWidget { };
+  public override object Clone() => new DisqusCommentsWidget
+  {
+    AccountProperty = AccountProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : string.Format(resources.disqus_comments_html, AccountProperty);

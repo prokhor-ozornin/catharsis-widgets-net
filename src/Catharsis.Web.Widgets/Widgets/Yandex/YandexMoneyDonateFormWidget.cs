@@ -178,7 +178,23 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     return this;
   }
 
-  public override object Clone() => new YandexMoneyDonateFormWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new YandexMoneyDonateFormWidget
+  {
+    AccountProperty = AccountProperty,
+    DescriptionProperty = DescriptionProperty,
+    SumProperty = SumProperty,
+    CardsProperty = CardsProperty,
+    TextProperty = TextProperty,
+    ProjectNameProperty = ProjectNameProperty,
+    ProjectSiteProperty = ProjectSiteProperty,
+    AskPayerCommentProperty = AskPayerCommentProperty,
+    CommentHintProperty = CommentHintProperty,
+    AskPayerFullNameProperty = AskPayerFullNameProperty,
+    AskPayerEmailProperty = AskPayerEmailProperty,
+    AskPayerPhoneProperty = AskPayerPhoneProperty,
+    DescriptionTextProperty = DescriptionTextProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

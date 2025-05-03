@@ -65,7 +65,14 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
     return this;
   }
 
-  public override object Clone() => new PinterestProfileWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new PinterestProfileWidget
+  {
+    AccountProperty = AccountProperty,
+    HeightProperty = HeightProperty,
+    WidthProperty = WidthProperty,
+    ImageProperty = ImageProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   /// <returns>Widget's HTML markup.</returns>

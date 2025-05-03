@@ -29,7 +29,7 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
       widget.GetPropertyValue<bool>("TextProperty").Should().BeTrue();
       widget.GetPropertyValue<byte>("TextTypeProperty").Should().Be((byte) MailRuLikeButtonTextType.First);
       widget.GetPropertyValue<bool>("CounterProperty").Should().BeTrue();
-      widget.GetPropertyValue<string>("CounterPositionProperty").Should().Be(MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant());
+      widget.GetPropertyValue<string>("CounterPositionProperty").Should().Be(nameof(MailRuLikeButtonCounterPosition.Right).ToLowerInvariant());
     }
   }
 
@@ -152,6 +152,28 @@ public sealed class MailRuLikeButtonWidgetTest : UnitTest
     return;
 
     static void Validate(string position, IMailRuLikeButtonWidget widget) => widget.CounterPosition(position).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CounterPositionProperty").Should().Be(position);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MailRuLikeButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new MailRuLikeButtonWidget());
+      Validate(Attributes.MailRuLikeButtonWidget());
+    }
+
+    return;
+
+    static void Validate(IMailRuLikeButtonWidget original)
+    {
+      var clone = original.Clone<IMailRuLikeButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
   }
 
   /// <summary>

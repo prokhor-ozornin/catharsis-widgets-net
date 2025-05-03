@@ -120,7 +120,17 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new FacebookLikeButtonWidget { };
+  public override object Clone() => new FacebookLikeButtonWidget
+  {
+    ColorSchemeProperty = ColorSchemeProperty,
+    FacesProperty = FacesProperty,
+    KidsModeProperty = KidsModeProperty,
+    LayoutProperty = LayoutProperty,
+    TrackLabelProperty = TrackLabelProperty,
+    UrlProperty = UrlProperty,
+    VerbProperty = VerbProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")

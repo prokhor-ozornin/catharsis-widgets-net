@@ -47,7 +47,13 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
     return this;
   }
 
-  public override object Clone() => new SoundCloudProfileIconWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new SoundCloudProfileIconWidget
+  {
+    AccountProperty = AccountProperty,
+    ColorProperty = ColorProperty,
+    SizeProperty = SizeProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")

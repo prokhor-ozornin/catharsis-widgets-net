@@ -220,6 +220,28 @@ public sealed class YandexMoneyPaymentFormWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="YandexMoneyPaymentFormWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new YandexMoneyPaymentFormWidget());
+      Validate(Attributes.YandexMoneyPaymentFormWidget());
+    }
+
+    return;
+
+    static void Validate(IYandexMoneyPaymentFormWidget original)
+    {
+      var clone = original.Clone<IYandexMoneyPaymentFormWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="YandexMoneyPaymentFormWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

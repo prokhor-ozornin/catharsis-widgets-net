@@ -164,6 +164,28 @@ public sealed class GooglePlusOneButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="GooglePlusOneButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new GooglePlusOneButtonWidget());
+      Validate(Attributes.GooglePlusOneButtonWidget());
+    }
+
+    return;
+
+    static void Validate(IGooglePlusOneButtonWidget original)
+    {
+      var clone = original.Clone<IGooglePlusOneButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="GooglePlusOneButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

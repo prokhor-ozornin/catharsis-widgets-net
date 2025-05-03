@@ -264,6 +264,28 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="YandexMoneyDonateFormWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new YandexMoneyDonateFormWidget());
+      Validate(Attributes.YandexMoneyDonateFormWidget());
+    }
+
+    return;
+
+    static void Validate(IYandexMoneyDonateFormWidget original)
+    {
+      var clone = original.Clone<IYandexMoneyDonateFormWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="YandexMoneyDonateFormWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

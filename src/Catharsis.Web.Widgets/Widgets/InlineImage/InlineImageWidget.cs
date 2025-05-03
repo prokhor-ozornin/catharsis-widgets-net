@@ -34,7 +34,11 @@ public class InlineImageWidget : WebWidget, IInlineImageWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new InlineImageWidget { };
+  public override object Clone() => new InlineImageWidget
+  {
+    ContentsProperty = ContentsProperty,
+    FormatProperty = FormatProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => ContentsProperty is null ? string.Empty : 

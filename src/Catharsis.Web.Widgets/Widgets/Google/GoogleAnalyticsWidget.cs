@@ -36,7 +36,11 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new GoogleAnalyticsWidget { };
+  public override object Clone() => new GoogleAnalyticsWidget
+  {
+    AccountProperty = AccountProperty,
+    DomainProperty = DomainProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() || DomainProperty.IsUnset() ? string.Empty : string.Format(resources.google_analytics_js, AccountProperty, DomainProperty);

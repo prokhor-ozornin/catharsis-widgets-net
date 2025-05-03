@@ -12,6 +12,28 @@ namespace Catharsis.Web.Widgets.Tests;
 public sealed class LiveJournalLikeButtonWidgetTest : UnitTest
 {
   /// <summary>
+  ///   <para>Performs testing of <see cref="LiveJournalLikeButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new LiveJournalLikeButtonWidget());
+      Validate(Attributes.LiveJournalLikeButtonWidget());
+    }
+
+    return;
+
+    static void Validate(ILiveJournalLikeButtonWidget original)
+    {
+      var clone = original.Clone<ILiveJournalLikeButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="LiveJournalLikeButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

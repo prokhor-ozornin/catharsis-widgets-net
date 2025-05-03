@@ -51,7 +51,11 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new GravatarImageUrlWidget { };
+  public override object Clone() => new GravatarImageUrlWidget
+  {
+    ExtensionProperty = ExtensionProperty,
+    HashProperty = HashProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => HashProperty.IsUnset() ? string.Empty : $"http://www.gravatar.com/avatar/{HashProperty}{(ExtensionProperty.IsUnset() ? string.Empty : $".${ExtensionProperty}")}{(ParametersProperty.Any() ? $"?${ParametersProperty.ToUrlQuery()}" : string.Empty)}";

@@ -61,6 +61,28 @@ public sealed class Share42PanelWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="Share42PanelWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new Share42PanelWidget());
+      Validate(Attributes.Share42PanelWidget());
+    }
+
+    return;
+
+    static void Validate(IShare42PanelWidget original)
+    {
+      var clone = original.Clone<IShare42PanelWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="Share42PanelWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

@@ -178,6 +178,28 @@ public sealed class PinterestPinItButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="PinterestPinItButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new PinterestPinItButtonWidget());
+      Validate(Attributes.PinterestPinItButtonWidget());
+    }
+
+    return;
+
+    static void Validate(IPinterestPinItButtonWidget original)
+    {
+      var clone = original.Clone<IPinterestPinItButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="PinterestPinItButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

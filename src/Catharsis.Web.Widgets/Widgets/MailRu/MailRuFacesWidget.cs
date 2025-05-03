@@ -24,7 +24,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string FontProperty { get; set; } = MailRuFacesFont.Arial.ToString();
+  protected virtual string FontProperty { get; set; } = nameof(MailRuFacesFont.Arial);
 
   /// <summary>
   ///   <para></para>
@@ -169,7 +169,20 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new MailRuFacesWidget { };
+  public override object Clone() => new MailRuFacesWidget
+  {
+    BackgroundColorProperty = BackgroundColorProperty,
+    BorderColorProperty = BorderColorProperty,
+    DomainProperty = DomainProperty,
+    FontProperty = FontProperty,
+    HeightProperty = HeightProperty,
+    HyperlinkColorProperty = HyperlinkColorProperty,
+    TextColorProperty = TextColorProperty,
+    TitleProperty = TitleProperty,
+    TitleColorProperty = TitleColorProperty,
+    TitleTextProperty = TitleTextProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

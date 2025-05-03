@@ -110,7 +110,18 @@ public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
     return this;
   }
 
-  public override object Clone() => new YandexAnalyticsWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new YandexAnalyticsWidget
+  {
+    AccountProperty = AccountProperty,
+    WebVisorProperty = WebVisorProperty,
+    ClickMapProperty = ClickMapProperty,
+    TrackLinksProperty = TrackLinksProperty,
+    TrackHashProperty = TrackHashProperty,
+    AccurateProperty = AccurateProperty,
+    NoIndexProperty = NoIndexProperty,
+    LanguageProperty = LanguageProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

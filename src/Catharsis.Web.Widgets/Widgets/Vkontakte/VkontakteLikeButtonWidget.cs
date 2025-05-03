@@ -163,7 +163,20 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     return this;
   }
 
-  public override object Clone() => new VkontakteLikeButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new VkontakteLikeButtonWidget
+  {
+    ElementIdProperty = ElementIdProperty,
+    TextProperty = TextProperty,
+    VerbProperty = VerbProperty,
+    LayoutProperty = LayoutProperty,
+    WidthProperty = WidthProperty,
+    HeightProperty = HeightProperty,
+    TitleProperty = TitleProperty,
+    UrlProperty = UrlProperty,
+    DescriptionProperty = DescriptionProperty,
+    ImageProperty = ImageProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

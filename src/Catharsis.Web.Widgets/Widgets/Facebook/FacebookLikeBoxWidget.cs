@@ -126,7 +126,18 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new FacebookLikeBoxWidget { };
+  public override object Clone() => new FacebookLikeBoxWidget
+  {
+    BorderProperty = BorderProperty,
+    ColorSchemeProperty = ColorSchemeProperty,
+    FacesProperty = FacesProperty,
+    HeaderProperty = HeaderProperty,
+    HeightProperty = HeightProperty,
+    StreamProperty = StreamProperty,
+    UrlProperty = UrlProperty,
+    WallProperty = WallProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => UrlProperty.IsUnset() ? string.Empty : new TagBuilder("div")

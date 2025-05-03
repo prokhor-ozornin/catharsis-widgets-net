@@ -127,6 +127,28 @@ public sealed class VkontaktePostWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="VkontaktePostWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new VkontaktePostWidget());
+      Validate(Attributes.VkontaktePostWidget());
+    }
+
+    return;
+
+    static void Validate(IVkontaktePostWidget original)
+    {
+      var clone = original.Clone<IVkontaktePostWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="VkontaktePostWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

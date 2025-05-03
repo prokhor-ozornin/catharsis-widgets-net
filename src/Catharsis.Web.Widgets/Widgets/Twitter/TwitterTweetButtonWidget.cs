@@ -146,7 +146,20 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     return this;
   }
 
-  public override object Clone() => new TwitterTweetButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new TwitterTweetButtonWidget
+  {
+    UrlProperty = UrlProperty,
+    LanguageProperty = LanguageProperty,
+    TextProperty = TextProperty,
+    ViaProperty = ViaProperty,
+    SizeProperty = SizeProperty,
+    CountUrlProperty = CountUrlProperty,
+    CounterPositionProperty = CounterPositionProperty,
+    SuggestionsProperty = SuggestionsProperty,
+    AccountsProperty = AccountsProperty?.ToArray(),
+    TagsProperty = TagsProperty?.ToArray()
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("a")

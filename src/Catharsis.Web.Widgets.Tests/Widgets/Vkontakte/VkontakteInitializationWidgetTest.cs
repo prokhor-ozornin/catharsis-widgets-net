@@ -47,6 +47,28 @@ public sealed class VkontakteInitializationWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteInitializationWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteInitializationWidget());
+      Validate(Attributes.VkontakteInitializationWidget());
+    }
+
+    return;
+
+    static void Validate(IVkontakteInitializationWidget original)
+    {
+      var clone = original.Clone<IVkontakteInitializationWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="VkontakteInitializationWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

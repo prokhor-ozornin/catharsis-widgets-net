@@ -39,7 +39,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string CounterPositionProperty { get; set; } = MailRuLikeButtonCounterPosition.Right.ToString().ToLowerInvariant();
+  protected virtual string CounterPositionProperty { get; set; } = nameof(MailRuLikeButtonCounterPosition.Right).ToLowerInvariant();
 
   /// <summary>
   ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
@@ -132,7 +132,17 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
     return this;
   }
 
-  public override object Clone() => new MailRuLikeButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new MailRuLikeButtonWidget
+  {
+    TypeProperty = TypeProperty,
+    SizeProperty = SizeProperty,
+    LayoutProperty = LayoutProperty,
+    TextProperty = TextProperty,
+    TextTypeProperty = TextTypeProperty,
+    CounterProperty = CounterProperty,
+    CounterPositionProperty = CounterPositionProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

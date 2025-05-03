@@ -27,6 +27,28 @@ public sealed class RobokassaPaymentFormWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="RobokassaPaymentFormWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new RobokassaPaymentFormWidget());
+      Validate(Attributes.RobokassaPaymentFormWidget());
+    }
+
+    return;
+
+    static void Validate(IRobokassaPaymentFormWidget original)
+    {
+      var clone = original.Clone<IRobokassaPaymentFormWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="RobokassaPaymentFormWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

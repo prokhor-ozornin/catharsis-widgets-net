@@ -121,6 +121,28 @@ public sealed class YouTubeVideoWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="YouTubeVideoWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new YouTubeVideoWidget());
+      Validate(Attributes.YouTubeVideoWidget());
+    }
+
+    return;
+
+    static void Validate(IYouTubeVideoWidget original)
+    {
+      var clone = original.Clone<IYouTubeVideoWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="YouTubeVideoWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

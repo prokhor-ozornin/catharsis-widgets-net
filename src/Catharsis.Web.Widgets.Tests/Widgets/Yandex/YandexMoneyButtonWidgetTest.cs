@@ -229,6 +229,28 @@ public sealed class YandexMoneyButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new YandexMoneyButtonWidget());
+      Validate(Attributes.YandexMoneyButtonWidget());
+    }
+
+    return;
+
+    static void Validate(IYandexMoneyButtonWidget original)
+    {
+      var clone = original.Clone<IYandexMoneyButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="YandexMoneyButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

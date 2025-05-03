@@ -21,7 +21,11 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
     return this;
   }
 
-  public override object Clone() => new VkontakteInitializationWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new VkontakteInitializationWidget
+  {
+    ApiIdProperty = ApiIdProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => ApiIdProperty.IsUnset() ? string.Empty : 

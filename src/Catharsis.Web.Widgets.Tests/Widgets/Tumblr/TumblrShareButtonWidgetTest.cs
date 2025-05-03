@@ -64,6 +64,28 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="TumblrShareButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new TumblrShareButtonWidget());
+      Validate(Attributes.TumblrShareButtonWidget());
+    }
+
+    return;
+
+    static void Validate(ITumblrShareButtonWidget original)
+    {
+      var clone = original.Clone<ITumblrShareButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="TumblrShareButtonWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

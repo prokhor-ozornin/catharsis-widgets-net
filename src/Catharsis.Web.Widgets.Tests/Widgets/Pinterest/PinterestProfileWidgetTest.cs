@@ -107,6 +107,28 @@ public sealed class PinterestProfileWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="PinterestProfileWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new PinterestProfileWidget());
+      Validate(Attributes.PinterestProfileWidget());
+    }
+
+    return;
+
+    static void Validate(IPinterestProfileWidget original)
+    {
+      var clone = original.Clone<IPinterestProfileWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="PinterestProfileWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

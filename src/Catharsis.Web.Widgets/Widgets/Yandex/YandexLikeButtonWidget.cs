@@ -19,12 +19,12 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string SizeProperty { get; set; } = YandexLikeButtonSize.Large.ToString().ToLowerInvariant();
+  protected virtual string SizeProperty { get; set; } = nameof(YandexLikeButtonSize.Large).ToLowerInvariant();
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LayoutProperty { get; set; } = YandexLikeButtonLayout.Button.ToString().ToLowerInvariant();
+  protected virtual string LayoutProperty { get; set; } = nameof(YandexLikeButtonLayout.Button).ToLowerInvariant();
 
   /// <summary>
   ///   <para></para>
@@ -81,7 +81,15 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     return this;
   }
 
-  public override object Clone() => new YandexLikeButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new YandexLikeButtonWidget
+  {
+    UrlProperty = UrlProperty,
+    TitleProperty = TitleProperty,
+    SizeProperty = SizeProperty,
+    LayoutProperty = LayoutProperty,
+    TextProperty = TextProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new StringBuilder()

@@ -126,7 +126,15 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new FacebookCommentsWidget { };
+  public override object Clone() => new FacebookCommentsWidget
+  {
+    ColorSchemeProperty = ColorSchemeProperty,
+    MobileProperty = MobileProperty,
+    OrderProperty = OrderProperty,
+    PostsProperty = PostsProperty,
+    UrlProperty = UrlProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")

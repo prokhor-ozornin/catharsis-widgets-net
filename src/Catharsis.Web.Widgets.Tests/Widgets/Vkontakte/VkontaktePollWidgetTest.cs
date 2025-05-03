@@ -107,6 +107,28 @@ public sealed class VkontaktePollWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="VkontaktePollWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new VkontaktePollWidget());
+      Validate(Attributes.VkontaktePollWidget());
+    }
+
+    return;
+
+    static void Validate(IVkontaktePollWidget original)
+    {
+      var clone = original.Clone<IVkontaktePollWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="VkontaktePollWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

@@ -107,6 +107,28 @@ public sealed class IntenseDebateCommentsWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="IntenseDebateCommentsWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new IntenseDebateCommentsWidget());
+      Validate(Attributes.IntenseDebateCommentsWidget());
+    }
+
+    return;
+
+    static void Validate(IIntenseDebateCommentsWidget original)
+    {
+      var clone = original.Clone<IIntenseDebateCommentsWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="IntenseDebateCommentsWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

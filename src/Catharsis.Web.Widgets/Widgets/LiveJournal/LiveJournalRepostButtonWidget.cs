@@ -35,7 +35,12 @@ public class LiveJournalRepostButtonWidget : WebWidget, ILiveJournalRepostButton
     return this;
   }
 
-  public override object Clone() => new LiveJournalRepostButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new LiveJournalRepostButtonWidget
+  {
+    TextProperty = TextProperty,
+    TitleProperty = TitleProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("lj-repost")

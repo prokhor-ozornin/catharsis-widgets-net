@@ -25,7 +25,7 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
       var widget = new TumblrFollowButtonWidget();
       widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
       widget.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) TumblrFollowButtonType.First);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant());
+      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(nameof(TumblrFollowButtonColorScheme.Light).ToLowerInvariant());
     }
   }
 
@@ -81,6 +81,28 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
     return;
 
     static void Validate(string scheme, ITumblrFollowButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="TumblrFollowButtonWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new TumblrFollowButtonWidget());
+      Validate(Attributes.TumblrFollowButtonWidget());
+    }
+
+    return;
+
+    static void Validate(ITumblrFollowButtonWidget original)
+    {
+      var clone = original.Clone<ITumblrFollowButtonWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
   }
 
   /// <summary>

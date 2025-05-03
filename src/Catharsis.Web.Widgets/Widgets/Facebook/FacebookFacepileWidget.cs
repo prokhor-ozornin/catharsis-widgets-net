@@ -111,7 +111,16 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new FacebookFacePileWidget { };
+  public override object Clone() => new FacebookFacePileWidget
+  {
+    ActionsProperty = ActionsProperty?.ToArray(),
+    ColorSchemeProperty = ColorSchemeProperty,
+    HeightProperty = HeightProperty,
+    MaxRowsProperty = MaxRowsProperty,
+    PhotoSizeProperty = PhotoSizeProperty,
+    UrlProperty = UrlProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")

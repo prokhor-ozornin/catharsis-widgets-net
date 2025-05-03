@@ -18,7 +18,7 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorSchemeProperty { get; set; } = TumblrFollowButtonColorScheme.Light.ToString().ToLowerInvariant();
+  protected virtual string ColorSchemeProperty { get; set; } = nameof(TumblrFollowButtonColorScheme.Light).ToLowerInvariant();
 
   /// <inheritdoc cref="ITumblrFollowButtonWidget.Account(string)"/>
   public virtual ITumblrFollowButtonWidget Account(string account)
@@ -49,7 +49,13 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
     return this;
   }
 
-  public override object Clone() => new TumblrFollowButtonWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new TumblrFollowButtonWidget
+  {
+    AccountProperty = AccountProperty,
+    TypeProperty = TypeProperty,
+    ColorSchemeProperty = ColorSchemeProperty
+  };
   
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

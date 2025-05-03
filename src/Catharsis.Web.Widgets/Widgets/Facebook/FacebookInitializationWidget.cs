@@ -22,7 +22,10 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new FacebookInitializationWidget { };
+  public override object Clone() => new FacebookInitializationWidget
+  {
+    AppIdProperty = AppIdProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AppIdProperty.IsUnset() ? string.Empty : new StringBuilder()

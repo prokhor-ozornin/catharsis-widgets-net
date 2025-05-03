@@ -147,7 +147,19 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new FacebookRecommendationsFeedWidget { };
+  public override object Clone() => new FacebookRecommendationsFeedWidget
+  {
+    ActionsProperty = ActionsProperty?.ToArray(),
+    AppIdProperty = AppIdProperty,
+    ColorSchemeProperty = ColorSchemeProperty,
+    DomainProperty = DomainProperty,
+    HeaderProperty = HeaderProperty,
+    HeightProperty = HeightProperty,
+    LinkTargetProperty = LinkTargetProperty,
+    MaxAgeProperty = MaxAgeProperty,
+    TrackLabelProperty = TrackLabelProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")

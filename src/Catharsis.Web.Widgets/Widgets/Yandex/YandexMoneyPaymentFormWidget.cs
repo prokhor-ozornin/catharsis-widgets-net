@@ -145,7 +145,21 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
     return this;
   }
 
-  public override object Clone() => new YandexMoneyPaymentFormWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new YandexMoneyPaymentFormWidget
+  {
+    AccountProperty = AccountProperty,
+    DescriptionProperty = DescriptionProperty,
+    SumProperty = SumProperty,
+    CardsProperty = CardsProperty,
+    TextProperty = TextProperty,
+    AskPayerPurposeProperty = AskPayerPurposeProperty,
+    AskPayerCommentProperty = AskPayerCommentProperty,
+    AskPayerFullNameProperty = AskPayerFullNameProperty,
+    AskPayerEmailProperty = AskPayerEmailProperty,
+    AskPayerPhoneProperty = AskPayerPhoneProperty,
+    AskPayerAddressProperty = AskPayerAddressProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() || DescriptionProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")

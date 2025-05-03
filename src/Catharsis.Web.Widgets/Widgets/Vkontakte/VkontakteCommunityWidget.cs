@@ -131,7 +131,18 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     return this;
   }
 
-  public override object Clone() => new VkontakteCommunityWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new VkontakteCommunityWidget
+  {
+    AccountProperty = AccountProperty,
+    BackgroundColorProperty = BackgroundColorProperty,
+    ButtonColorProperty = ButtonColorProperty,
+    ElementIdProperty = ElementIdProperty,
+    HeightProperty = HeightProperty,
+    ModeProperty = ModeProperty,
+    TextColorProperty = TextColorProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

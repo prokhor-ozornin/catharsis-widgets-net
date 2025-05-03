@@ -51,7 +51,12 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new FacebookVideoWidget { };
+  public override object Clone() => new FacebookVideoWidget
+  {
+    IdProperty = IdProperty,
+    WidthProperty = WidthProperty,
+    HeightProperty = HeightProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => IdProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")

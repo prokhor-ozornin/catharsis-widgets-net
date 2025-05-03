@@ -80,7 +80,15 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     return this;
   }
 
-  public override object Clone() => new PinterestBoardWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new PinterestBoardWidget
+  {
+    AccountProperty = AccountProperty,
+    HeightProperty = HeightProperty,
+    WidthProperty = WidthProperty,
+    IdProperty = IdProperty,
+    ImageProperty = ImageProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => AccountProperty.IsUnset() || IdProperty.IsUnset() ? string.Empty : new TagBuilder("a")

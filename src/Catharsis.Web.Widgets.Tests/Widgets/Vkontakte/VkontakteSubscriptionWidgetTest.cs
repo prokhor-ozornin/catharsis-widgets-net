@@ -101,6 +101,28 @@ public sealed class VkontakteSubscriptionWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="VkontakteSubscriptionWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new VkontakteSubscriptionWidget());
+      Validate(Attributes.VkontakteSubscriptionWidget());
+    }
+
+    return;
+
+    static void Validate(IVkontakteSubscriptionWidget original)
+    {
+      var clone = original.Clone<IVkontakteSubscriptionWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="VkontakteSubscriptionWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

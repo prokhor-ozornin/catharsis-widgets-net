@@ -9,7 +9,10 @@ public class PayPalBuyGiftCertificateWidget : WebWidget, IPayPalBuyGiftCertifica
   /// <inheritdoc cref="IPayPalBuyGiftCertificateWidget.AsUrl()"/>
   public virtual IPayPalBuyGiftCertificateWidget AsUrl() => throw new NotImplementedException();
 
-  public override object Clone() => new PayPalBuyGiftCertificateWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new PayPalBuyGiftCertificateWidget
+  {
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => throw new NotImplementedException();

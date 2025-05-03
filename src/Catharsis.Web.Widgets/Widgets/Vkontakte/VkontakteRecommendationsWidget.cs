@@ -99,7 +99,17 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
     return this;
   }
 
-  public override object Clone() => new VkontakteRecommendationsWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new VkontakteRecommendationsWidget
+  {
+    ElementIdProperty = ElementIdProperty,
+    LimitProperty = LimitProperty,
+    MaxProperty = MaxProperty,
+    PeriodProperty = PeriodProperty,
+    SortingProperty = SortingProperty,
+    TargetProperty = TargetProperty,
+    VerbProperty = VerbProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

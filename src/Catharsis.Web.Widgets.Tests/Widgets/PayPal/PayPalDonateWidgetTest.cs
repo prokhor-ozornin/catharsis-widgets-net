@@ -45,6 +45,28 @@ public sealed class PayPalDonateWidgetTest : UnitTest
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="PayPalDonateWidget.Clone()"/> method.</para>
+  /// </summary>
+  [Fact]
+  public void Clone_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(new PayPalDonateWidget());
+      Validate(Attributes.PayPalDonateWidget());
+    }
+
+    return;
+
+    static void Validate(IPayPalDonateWidget original)
+    {
+      var clone = original.Clone<IPayPalDonateWidget>();
+
+      clone.Id.Should().Be(original.Id);
+    }
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="PayPalDonateWidget.ToHtml()"/> method.</para>
   /// </summary>
   [Fact]

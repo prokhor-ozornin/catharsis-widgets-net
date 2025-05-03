@@ -71,7 +71,14 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
     return this;
   }
 
-  public override object Clone() => new VkontaktePollWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new VkontaktePollWidget
+  {
+    ElementIdProperty = ElementIdProperty,
+    IdProperty = IdProperty,
+    UrlProperty = UrlProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

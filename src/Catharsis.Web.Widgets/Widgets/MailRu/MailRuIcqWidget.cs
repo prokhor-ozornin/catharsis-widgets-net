@@ -36,7 +36,12 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
     return this;
   }
 
-  public override object Clone() => new MailRuIcqWidget { };
+  /// <inheritdoc cref="ICloneable.Clone()"/>
+  public override object Clone() => new MailRuIcqWidget
+  {
+    AccountProperty = AccountProperty,
+    LanguageProperty = LanguageProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()

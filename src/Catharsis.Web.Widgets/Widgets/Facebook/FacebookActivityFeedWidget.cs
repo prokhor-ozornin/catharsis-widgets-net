@@ -166,7 +166,20 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
-  public override object Clone() => new FacebookActivityFeedWidget { };
+  public override object Clone() => new FacebookActivityFeedWidget
+  {
+    ActionsProperty = ActionsProperty?.ToArray(),
+    AppIdProperty = AppIdProperty,
+    ColorSchemeProperty = ColorSchemeProperty,
+    DomainProperty = DomainProperty,
+    HeaderProperty = HeaderProperty,
+    HeightProperty = HeightProperty,
+    LinkTargetProperty = LinkTargetProperty,
+    MaxAgeProperty = MaxAgeProperty,
+    RecommendationsProperty = RecommendationsProperty,
+    TrackLabelProperty = TrackLabelProperty,
+    WidthProperty = WidthProperty
+  };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
