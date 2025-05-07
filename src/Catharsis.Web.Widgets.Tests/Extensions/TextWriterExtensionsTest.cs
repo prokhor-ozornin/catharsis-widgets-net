@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Newtonsoft.Json;
@@ -10,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests.Extensions;
 /// <summary>
 ///   <para>Tests set for class <see cref="TextWriterExtensions"/>.</para>
 /// </summary>
-public sealed class TextWriterExtensionsTest : UnitTest
+public sealed class TextWriterExtensionsTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="TextWriterExtensions.AsJson(TextWriter)"/> method.</para>

@@ -1,5 +1,5 @@
-﻿using System.Xml.Linq;
-using Catharsis.Commons;
+﻿using AutoFixture;
+using System.Xml.Linq;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -10,8 +10,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="MailRuIcqWidget"/>.</para>
 /// </summary>
-public sealed class MailRuIcqWidgetTest : UnitTest
+public sealed class MailRuIcqWidgetTest : Test
 {
+  private IMailRuIcqWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public MailRuIcqWidgetTest() => Widget = Fixture.Create<IMailRuIcqWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -24,8 +31,8 @@ public sealed class MailRuIcqWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new MailRuIcqWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
+      widget.GetPropertyValue<string>("LanguageValue").Should().BeNull();
     }
   }
 
@@ -40,12 +47,12 @@ public sealed class MailRuIcqWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuIcqWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new MailRuIcqWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new MailRuIcqWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IMailRuIcqWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, IMailRuIcqWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -59,12 +66,12 @@ public sealed class MailRuIcqWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuIcqWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new MailRuIcqWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      new MailRuIcqWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string language, IMailRuIcqWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
+    static void Validate(string language, IMailRuIcqWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(language);
   }
 
   /// <summary>
@@ -76,7 +83,7 @@ public sealed class MailRuIcqWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new MailRuIcqWidget());
-      Validate(Attributes.MailRuIcqWidget());
+      Validate(Fixture.Create<IMailRuIcqWidget>());
     }
 
     return;
@@ -85,7 +92,8 @@ public sealed class MailRuIcqWidgetTest : UnitTest
     {
       var clone = original.Clone<IMailRuIcqWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
+      clone.GetPropertyValue<string>("LanguageValue").Should().Be(original.GetPropertyValue<string>("LanguageValue"));
     }
   }
 
@@ -99,6 +107,7 @@ public sealed class MailRuIcqWidgetTest : UnitTest
     {
       Validate(new MailRuIcqWidget(), new XElement("script", new XAttribute("src", "http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"), new XAttribute("type", "text/javascript")).ToString());
       Validate(new MailRuIcqWidget().Account("account").Language("en"), "window.ICQ = {siteOwner:'account'};", """<script src="http://c.icq.com/siteim/icqbar/js/partners/initbar_en.js" type="text/javascript"></script>""");
+      Validate(Fixture.Create<IMailRuIcqWidget>());
     }
 
     return;

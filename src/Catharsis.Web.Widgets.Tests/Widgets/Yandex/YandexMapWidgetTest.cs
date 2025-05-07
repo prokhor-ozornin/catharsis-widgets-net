@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="YandexMapWidget"/>.</para>
 /// </summary>
-public sealed class YandexMapWidgetTest : UnitTest
+public sealed class YandexMapWidgetTest : Test
 {
+  private IYandexMapWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public YandexMapWidgetTest() => Widget = Fixture.Create<IYandexMapWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -35,7 +42,7 @@ public sealed class YandexMapWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new YandexMapWidget());
-      Validate(Attributes.YandexMapWidget());
+      Validate(Fixture.Create<IYandexMapWidget>());
     }
 
     return;
@@ -44,7 +51,7 @@ public sealed class YandexMapWidgetTest : UnitTest
     {
       var clone = original.Clone<IYandexMapWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
     }
   }
 
@@ -54,7 +61,11 @@ public sealed class YandexMapWidgetTest : UnitTest
   [Fact]
   public void ToHtml_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      Validate(Fixture.Create<IYandexMapWidget>());
+      throw new NotImplementedException();
+    }
 
     return;
 

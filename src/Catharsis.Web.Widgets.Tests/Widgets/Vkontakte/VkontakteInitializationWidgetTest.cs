@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontakteInitializationWidget"/>.</para>
 /// </summary>
-public sealed class VkontakteInitializationWidgetTest : UnitTest
+public sealed class VkontakteInitializationWidgetTest : Test
 {
+  private IVkontakteInitializationWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public VkontakteInitializationWidgetTest() => Widget = Fixture.Create<IVkontakteInitializationWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,7 +30,7 @@ public sealed class VkontakteInitializationWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new VkontakteInitializationWidget();
-      widget.GetPropertyValue<string>("ApiIdProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ApiIdValue").Should().BeNull();
     }
   }
 
@@ -38,12 +45,12 @@ public sealed class VkontakteInitializationWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new VkontakteInitializationWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVkontakteInitializationWidget widget) => widget.ApiId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ApiIdProperty").Should().Be(id);
+    static void Validate(string id, IVkontakteInitializationWidget widget) => widget.ApiId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ApiIdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -55,7 +62,7 @@ public sealed class VkontakteInitializationWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new VkontakteInitializationWidget());
-      Validate(Attributes.VkontakteInitializationWidget());
+      Validate(Fixture.Create<IVkontakteInitializationWidget>());
     }
 
     return;
@@ -64,7 +71,7 @@ public sealed class VkontakteInitializationWidgetTest : UnitTest
     {
       var clone = original.Clone<IVkontakteInitializationWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("ApiIdValue").Should().Be(original.GetPropertyValue<string>("ApiIdValue"));
     }
   }
 
@@ -78,6 +85,7 @@ public sealed class VkontakteInitializationWidgetTest : UnitTest
     {
       Validate(new VkontakteInitializationWidget());
       Validate(new VkontakteInitializationWidget().ApiId("id"), """<script type="text/javascript">""", "VK.init({{apiId:id, onlyWidgets:true}});");
+      Validate(Fixture.Create<IVkontakteInitializationWidget>());
     }
 
     return;

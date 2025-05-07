@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IInlineImageExtensions"/>.</para>
 /// </summary>
-public sealed class IInlineImageExtensionsTest : UnitTest
+public sealed class IInlineImageExtensionsTest : Test
 {
+  private IInlineImageWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IInlineImageExtensionsTest() => Widget = Fixture.Create<IInlineImageWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IInlineImageExtensions.Jpg(IInlineImageWidget)"/> method.</para>
   /// </summary>
@@ -21,12 +28,12 @@ public sealed class IInlineImageExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IInlineImageExtensions.Jpg(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new InlineImageWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(IInlineImageWidget widget) => widget.Jpg().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatProperty").Should().Be("jpg");
+    static void Validate(IInlineImageWidget widget) => widget.Jpg().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("jpg");
   }
 
   /// <summary>
@@ -39,12 +46,12 @@ public sealed class IInlineImageExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IInlineImageExtensions.Png(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new InlineImageWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(IInlineImageWidget widget) => widget.Png().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatProperty").Should().Be("png");
+    static void Validate(IInlineImageWidget widget) => widget.Png().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("png");
   }
 
   /// <summary>
@@ -57,11 +64,11 @@ public sealed class IInlineImageExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IInlineImageExtensions.Gif(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new InlineImageWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(IInlineImageWidget widget) => widget.Gif().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatProperty").Should().Be("gif");
+    static void Validate(IInlineImageWidget widget) => widget.Gif().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("gif");
   }
 }

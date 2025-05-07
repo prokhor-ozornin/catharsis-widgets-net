@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="TumblrFollowButtonWidget"/>.</para>
 /// </summary>
-public sealed class TumblrFollowButtonWidgetTest : UnitTest
+public sealed class TumblrFollowButtonWidgetTest : Test
 {
+  private ITumblrFollowButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public TumblrFollowButtonWidgetTest() => Widget = Fixture.Create<ITumblrFollowButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,9 +30,9 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new TumblrFollowButtonWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) TumblrFollowButtonType.First);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(nameof(TumblrFollowButtonColorScheme.Light).ToLowerInvariant());
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
+      widget.GetPropertyValue<byte>("TypeValue").Should().Be((byte) TumblrFollowButtonType.First);
+      widget.GetPropertyValue<string>("ColorSchemeValue").Should().Be(nameof(TumblrFollowButtonColorScheme.Light).ToLowerInvariant());
     }
   }
 
@@ -40,12 +47,12 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new TumblrFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, ITumblrFollowButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, ITumblrFollowButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -56,12 +63,12 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new TumblrFollowButtonWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(byte type, ITumblrFollowButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeProperty").Should().Be(type);
+    static void Validate(byte type, ITumblrFollowButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeValue").Should().Be(type);
   }
 
   /// <summary>
@@ -75,12 +82,12 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new TumblrFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string scheme, ITumblrFollowButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
+    static void Validate(string scheme, ITumblrFollowButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme);
   }
 
   /// <summary>
@@ -92,7 +99,7 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new TumblrFollowButtonWidget());
-      Validate(Attributes.TumblrFollowButtonWidget());
+      Validate(Fixture.Create<ITumblrFollowButtonWidget>());
     }
 
     return;
@@ -101,7 +108,9 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
     {
       var clone = original.Clone<ITumblrFollowButtonWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
+      clone.GetPropertyValue<byte>("TypeValue").Should().Be(original.GetPropertyValue<byte>("TypeValue"));
+      clone.GetPropertyValue<string>("ColorSchemeValue").Should().Be(original.GetPropertyValue<string>("ColorSchemeValue"));
     }
   }
 
@@ -116,6 +125,7 @@ public sealed class TumblrFollowButtonWidgetTest : UnitTest
       Validate(new TumblrFollowButtonWidget());
       Validate(new TumblrFollowButtonWidget().Account("account"), """<iframe allowtransparency="true" border="0" class="btn" frameborder="0" height="25" scrolling="no" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&amp;tumblelog=account&amp;color_scheme=light" width="189"></iframe>""");
       Validate(new TumblrFollowButtonWidget().Account("account").Type(TumblrFollowButtonType.Second).ColorScheme(TumblrFollowButtonColorScheme.Dark), """<iframe allowtransparency="true" border="0" class="btn" frameborder="0" height="25" scrolling="no" src="http://platform.tumblr.com/v1/follow_button.html?button_type=2&amp;tumblelog=account&amp;color_scheme=dark" width="113"></iframe>""");
+      Validate(Fixture.Create<ITumblrFollowButtonWidget>());
     }
 
     return;

@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -7,7 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="PinterestWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class PinterestWidgetsCreatorTest : UnitTest
+public sealed class PinterestWidgetsCreatorTest : Test
 {
   private IPinterestWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Pinterest();
 

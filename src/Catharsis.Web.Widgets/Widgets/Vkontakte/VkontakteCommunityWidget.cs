@@ -10,42 +10,42 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string BackgroundColorProperty { get; set; }
+  protected virtual string BackgroundColorValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ButtonColorProperty { get; set; }
+  protected virtual string ButtonColorValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ElementIdProperty { get; set; }
+  protected virtual string ElementIdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte ModeProperty { get; set; } = (byte) VkontakteCommunityMode.Participants;
+  protected virtual byte ModeValue { get; set; } = (byte) VkontakteCommunityMode.Participants;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TextColorProperty { get; set; }
+  protected virtual string TextColorValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IVkontakteCommunityWidget.Account(string)"/>
   public virtual IVkontakteCommunityWidget Account(string account)
@@ -53,7 +53,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
 
     return this;
   }
@@ -64,7 +64,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    BackgroundColorProperty = color;
+    BackgroundColorValue = color;
 
     return this;
   }
@@ -75,7 +75,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    TextColorProperty = color;
+    TextColorValue = color;
 
     return this;
   }
@@ -86,7 +86,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    ButtonColorProperty = color;
+    ButtonColorValue = color;
 
     return this;
   }
@@ -97,7 +97,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    ElementIdProperty = id;
+    ElementIdValue = id;
 
     return this;
   }
@@ -108,7 +108,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
 
     return this;
   }
@@ -116,7 +116,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   /// <inheritdoc cref="IVkontakteCommunityWidget.Mode(byte)"/>
   public virtual IVkontakteCommunityWidget Mode(byte mode)
   {
-    ModeProperty = mode;
+    ModeValue = mode;
     return this;
   }
 
@@ -126,7 +126,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
 
     return this;
   }
@@ -134,64 +134,64 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new VkontakteCommunityWidget
   {
-    AccountProperty = AccountProperty,
-    BackgroundColorProperty = BackgroundColorProperty,
-    ButtonColorProperty = ButtonColorProperty,
-    ElementIdProperty = ElementIdProperty,
-    HeightProperty = HeightProperty,
-    ModeProperty = ModeProperty,
-    TextColorProperty = TextColorProperty,
-    WidthProperty = WidthProperty
+    AccountValue = AccountValue,
+    BackgroundColorValue = BackgroundColorValue,
+    ButtonColorValue = ButtonColorValue,
+    ElementIdValue = ElementIdValue,
+    HeightValue = HeightValue,
+    ModeValue = ModeValue,
+    TextColorValue = TextColorValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsUnset())
+    if (AccountValue.IsUnset())
     {
       return string.Empty;
     }
 
     var config = new Dictionary<string, object>
     {
-      { "mode", ModeProperty }
+      { "mode", ModeValue }
     };
       
-    if (ModeProperty == (byte)VkontakteCommunityMode.News)
+    if (ModeValue == (byte)VkontakteCommunityMode.News)
     {
       config["wide"] = 1;
     }
 
-    if (!WidthProperty.IsUnset())
+    if (!WidthValue.IsUnset())
     {
-      config["width"] = WidthProperty;
+      config["width"] = WidthValue;
     }
     
-    if (!HeightProperty.IsUnset())
+    if (!HeightValue.IsUnset())
     {
-      config["height"] = HeightProperty;
+      config["height"] = HeightValue;
     }
     
-    if (!BackgroundColorProperty.IsUnset())
+    if (!BackgroundColorValue.IsUnset())
     {
-      config["color1"] = BackgroundColorProperty;
+      config["color1"] = BackgroundColorValue;
     }
     
-    if (!TextColorProperty.IsUnset())
+    if (!TextColorValue.IsUnset())
     {
-      config["color2"] = TextColorProperty;
+      config["color2"] = TextColorValue;
     }
     
-    if (!ButtonColorProperty.IsUnset())
+    if (!ButtonColorValue.IsUnset())
     {
-      config["color3"] = ButtonColorProperty;
+      config["color3"] = ButtonColorValue;
     }
 
-    var id = ElementIdProperty ?? $"vk_groups_${AccountProperty}";
+    var id = ElementIdValue ?? $"vk_groups_${AccountValue}";
 
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", id))
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"VK.Widgets.Group(\"${id}\", ${config.Json()}, \"${AccountProperty}\""))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"VK.Widgets.Group(\"${id}\", ${config.Json()}, \"${AccountValue}\""))
       .ToString();
   }
 }

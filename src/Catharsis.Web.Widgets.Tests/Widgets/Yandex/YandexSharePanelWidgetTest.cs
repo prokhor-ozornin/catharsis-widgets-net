@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="YandexSharePanelWidget"/>.</para>
 /// </summary>
-public sealed class YandexSharePanelWidgetTest : UnitTest
+public sealed class YandexSharePanelWidgetTest : Test
 {
+  private IYandexSharePanelWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public YandexSharePanelWidgetTest() => Widget = Fixture.Create<IYandexSharePanelWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,9 +30,9 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new YandexSharePanelWidget();
-      widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("LayoutProperty").Should().Be(nameof(YandexSharePanelLayout.Button).ToLowerInvariant());
-      widget.GetPropertyValue<IEnumerable<string>>("ServicesProperty").Should().Equal(["yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird"]);
+      widget.GetPropertyValue<string>("LanguageValue").Should().BeNull();
+      widget.GetPropertyValue<string>("LayoutValue").Should().Be(nameof(YandexSharePanelLayout.Button).ToLowerInvariant());
+      widget.GetPropertyValue<IEnumerable<string>>("ServicesValue").Should().Equal("yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird");
     }
   }
 
@@ -40,12 +47,12 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      new YandexSharePanelWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string language, IYandexSharePanelWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
+    static void Validate(string language, IYandexSharePanelWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(language);
   }
 
   /// <summary>
@@ -58,12 +65,12 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
     {
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Services(null)).ThrowExactly<ArgumentNullException>().WithParameterName("services");
 
-      new YandexSharePanelWidget().With(widget => new[] { Enumerable.Empty<string>(), ["service"] }.ForEach(value => Validate(value, widget)));
+      new[] { Enumerable.Empty<string>(), ["service"] }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(IEnumerable<string> services, IYandexSharePanelWidget widget) => widget.Services(services).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ServicesProperty").Should().Equal(services);
+    static void Validate(IEnumerable<string> services, IYandexSharePanelWidget widget) => widget.Services(services).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ServicesValue").Should().Equal(services);
   }
 
   /// <summary>
@@ -77,12 +84,12 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      new YandexSharePanelWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string layout, IYandexSharePanelWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
+    static void Validate(string layout, IYandexSharePanelWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(layout);
   }
 
   /// <summary>
@@ -94,7 +101,7 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new YandexSharePanelWidget());
-      Validate(Attributes.YandexSharePanelWidget());
+      Validate(Fixture.Create<IYandexSharePanelWidget>());
     }
 
     return;
@@ -103,7 +110,9 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
     {
       var clone = original.Clone<IYandexSharePanelWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("LanguageValue").Should().Be(original.GetPropertyValue<string>("LanguageValue"));
+      clone.GetPropertyValue<string>("LayoutValue").Should().Be(original.GetPropertyValue<string>("LayoutValue"));
+      clone.GetPropertyValue<IEnumerable<string>>("ServicesValue").Should().Equal(original.GetPropertyValue<IEnumerable<string>>("ServicesValue"));
     }
   }
 
@@ -117,6 +126,7 @@ public sealed class YandexSharePanelWidgetTest : UnitTest
     {
       Validate(new YandexSharePanelWidget(), $"""<div class="yashare-auto-init" data-yashareL10n="{Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName}" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,pinterest,surfingbird" data-yashareType="button"></div>""");
       Validate(new YandexSharePanelWidget().Services("yaru").Layout(YandexSharePanelLayout.Link).Language("ru"), """<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareQuickServices="yaru" data-yashareType="link"></div>""");
+      Validate(Fixture.Create<IYandexSharePanelWidget>());
     }
 
     return;

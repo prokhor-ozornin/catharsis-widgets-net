@@ -1,4 +1,3 @@
-using Catharsis.Commons;
 using FluentAssertions;
 using Xunit;
 
@@ -7,7 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="GoogleWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class GoogleWidgetsCreatorTest : UnitTest
+public sealed class GoogleWidgetsCreatorTest : Test
 {
   private IGoogleWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Google();
 

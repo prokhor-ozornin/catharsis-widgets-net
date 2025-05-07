@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -10,8 +10,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IYandexAnalyticsWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IYandexAnalyticsWidgetExtensionsTest : UnitTest
+public sealed class IYandexAnalyticsWidgetExtensionsTest : Test
 {
+  private IYandexAnalyticsWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IYandexAnalyticsWidgetExtensionsTest() => Widget = Fixture.Create<IYandexAnalyticsWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexAnalyticsWidgetExtensions.Language(IYandexAnalyticsWidget, CultureInfo)"/> method.</para>
   /// </summary>
@@ -23,11 +30,11 @@ public sealed class IYandexAnalyticsWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(new YandexAnalyticsWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
-      new YandexAnalyticsWidget().With(widget => CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget)));
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(CultureInfo culture, IYandexAnalyticsWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
+    static void Validate(CultureInfo culture, IYandexAnalyticsWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
   }
 }

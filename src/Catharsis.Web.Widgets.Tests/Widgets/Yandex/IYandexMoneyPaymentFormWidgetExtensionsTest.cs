@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IYandexMoneyPaymentFormWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : UnitTest
+public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : Test
 {
+  private IYandexMoneyPaymentFormWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IYandexMoneyPaymentFormWidgetExtensionsTest() => Widget = Fixture.Create<IYandexMoneyPaymentFormWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexMoneyPaymentFormWidgetExtensions.Sum(IYandexMoneyPaymentFormWidget, double)"/> method.</para>
   /// </summary>
@@ -21,12 +28,12 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyPaymentFormWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new YandexMoneyPaymentFormWidget().With(widget => new[] { double.NegativeZero }.ForEach(value => Validate(value, widget)));
+      new[] { double.NegativeZero }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(double sum, IYandexMoneyPaymentFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal>("SumProperty").Should().Be((decimal) sum);
+    static void Validate(double sum, IYandexMoneyPaymentFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal>("SumValue").Should().Be((decimal) sum);
   }
 
   /// <summary>
@@ -37,11 +44,11 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexMoneyPaymentFormWidget().With(widget => Enum.GetValues<YandexMoneyPaymentFormText>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<YandexMoneyPaymentFormText>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(YandexMoneyPaymentFormText text, IYandexMoneyPaymentFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextProperty").Should().Be((byte) text);
+    static void Validate(YandexMoneyPaymentFormText text, IYandexMoneyPaymentFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextValue").Should().Be((byte) text);
   }
 }

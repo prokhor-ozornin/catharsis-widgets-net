@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="LiveJournalRepostButtonWidget"/>.</para>
 /// </summary>
-public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
+public sealed class LiveJournalRepostButtonWidgetTest : Test
 {
+  private ILiveJournalRepostButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public LiveJournalRepostButtonWidgetTest() => Widget = Fixture.Create<ILiveJournalRepostButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,8 +30,8 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new LiveJournalRepostButtonWidget();
-      widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("TitleProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("TextValue").Should().BeNull();
+      widget.GetPropertyValue<string>("TitleValue").Should().BeNull();
     }
   }
 
@@ -39,12 +46,12 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
 
-      new LiveJournalRepostButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string text, ILiveJournalRepostButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextProperty").Should().Be(text);
+    static void Validate(string text, ILiveJournalRepostButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextValue").Should().Be(text);
   }
 
   /// <summary>
@@ -58,12 +65,12 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      new LiveJournalRepostButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string title, ILiveJournalRepostButtonWidget widget) => widget.Title(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleProperty").Should().Be(title);
+    static void Validate(string title, ILiveJournalRepostButtonWidget widget) => widget.Title(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleValue").Should().Be(title);
   }
 
   /// <summary>
@@ -75,7 +82,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new LiveJournalRepostButtonWidget());
-      Validate(Attributes.LiveJournalRepostButtonWidget());
+      Validate(Fixture.Create<ILiveJournalRepostButtonWidget>());
     }
 
     return;
@@ -84,7 +91,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
     {
       var clone = original.Clone<ILiveJournalRepostButtonWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
     }
   }
 
@@ -99,6 +106,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : UnitTest
       Validate(new LiveJournalRepostButtonWidget(), "<lj-repost></lj-repost>");
       Validate(new LiveJournalRepostButtonWidget().Title("title"), """<lj-repost button="title"></lj-repost>""");
       Validate(new LiveJournalRepostButtonWidget().Title("title").Text("text"), """<lj-repost button="title">text</lj-repost>""");
+      Validate(Fixture.Create<ILiveJournalRepostButtonWidget>());
     }
 
     return;

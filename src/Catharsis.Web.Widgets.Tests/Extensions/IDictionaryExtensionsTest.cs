@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -7,7 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IDictionaryExtensions"/>.</para>
 /// </summary>
-public sealed class IDictionaryExtensionsTest : UnitTest
+public sealed class IDictionaryExtensionsTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IDictionaryExtensions.ToUrlQuery(IDictionary{string, object})"/> method.</para>

@@ -8,42 +8,42 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual IEnumerable<string> ActionsProperty { get; set; } = [];
+  protected virtual IEnumerable<string> ActionsValue { get; set; } = [];
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorSchemeProperty { get; set; }
+  protected virtual string ColorSchemeValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte? MaxRowsProperty { get; set; }
+  protected virtual byte? MaxRowsValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string PhotoSizeProperty { get; set; }
+  protected virtual string PhotoSizeValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IFacebookFacePileWidget.Actions(IEnumerable{string})"/>
   public virtual IFacebookFacePileWidget Actions(IEnumerable<string> actions)
   {
-    ActionsProperty = actions ?? throw new ArgumentNullException(nameof(actions));
+    ActionsValue = actions ?? throw new ArgumentNullException(nameof(actions));
 
     return this;
   }
@@ -54,7 +54,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    ColorSchemeProperty = scheme;
+    ColorSchemeValue = scheme;
       
     return this;
   }
@@ -65,7 +65,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
 
     return this;
   }
@@ -73,7 +73,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   /// <inheritdoc cref="IFacebookFacePileWidget.MaxRows(byte)"/>
   public virtual IFacebookFacePileWidget MaxRows(byte count)
   {
-    MaxRowsProperty = count;
+    MaxRowsValue = count;
     return this;
   }
 
@@ -83,7 +83,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
 
-    PhotoSizeProperty = size;
+    PhotoSizeValue = size;
 
     return this;
   }
@@ -94,7 +94,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
 
     return this;
   }
@@ -105,7 +105,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
 
     return this;
   }
@@ -113,24 +113,24 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new FacebookFacePileWidget
   {
-    ActionsProperty = ActionsProperty?.ToArray(),
-    ColorSchemeProperty = ColorSchemeProperty,
-    HeightProperty = HeightProperty,
-    MaxRowsProperty = MaxRowsProperty,
-    PhotoSizeProperty = PhotoSizeProperty,
-    UrlProperty = UrlProperty,
-    WidthProperty = WidthProperty
+    ActionsValue = ActionsValue?.ToArray(),
+    ColorSchemeValue = ColorSchemeValue,
+    HeightValue = HeightValue,
+    MaxRowsValue = MaxRowsValue,
+    PhotoSizeValue = PhotoSizeValue,
+    UrlValue = UrlValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
-      .Attribute("data-href", UrlProperty)
-      .Attribute("data-action", ActionsProperty.Any() ? ActionsProperty.Join(",") : null)
-      .Attribute("data-size", PhotoSizeProperty)
-      .Attribute("data-width", WidthProperty)
-      .Attribute("data-height", HeightProperty)
-      .Attribute("data-max-rows", MaxRowsProperty)
-      .Attribute("data-colorscheme", ColorSchemeProperty)
+      .Attribute("data-href", UrlValue)
+      .Attribute("data-action", ActionsValue.Any() ? ActionsValue.Join(",") : null)
+      .Attribute("data-size", PhotoSizeValue)
+      .Attribute("data-width", WidthValue)
+      .Attribute("data-height", HeightValue)
+      .Attribute("data-max-rows", MaxRowsValue)
+      .Attribute("data-colorscheme", ColorSchemeValue)
       .CssClass("fb-facepile")
       .ToString();
 }

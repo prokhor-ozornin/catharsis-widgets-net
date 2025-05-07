@@ -10,7 +10,7 @@ public class CackleLoginWidget : WebWidget, ICackleLoginWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <inheritdoc cref="ICackleLoginWidget.Account(string)"/>
   public virtual ICackleLoginWidget Account(string account)
@@ -18,7 +18,7 @@ public class CackleLoginWidget : WebWidget, ICackleLoginWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
       
     return this;
   }
@@ -26,13 +26,13 @@ public class CackleLoginWidget : WebWidget, ICackleLoginWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new CackleLoginWidget
   {
-    AccountProperty = AccountProperty
+    AccountValue = AccountValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsUnset())
+    if (AccountValue.IsUnset())
     {
       return string.Empty;
     }
@@ -40,7 +40,7 @@ public class CackleLoginWidget : WebWidget, ICackleLoginWidget
     var config = new
     {
       widget = "Login",
-      id = AccountProperty
+      id = AccountValue
     };
 
     return new StringBuilder()

@@ -9,37 +9,37 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TypeProperty { get; set; } = "combo";
+  protected virtual string TypeValue { get; set; } = "combo";
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string SizeProperty { get; set; } = "20";
+  protected virtual string SizeValue { get; set; } = "20";
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte LayoutProperty { get; set; } = (byte) MailRuLikeButtonLayout.First;
+  protected virtual byte LayoutValue { get; set; } = (byte) MailRuLikeButtonLayout.First;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool TextProperty { get; set; } = true;
+  protected virtual bool TextValue { get; set; } = true;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte TextTypeProperty { get; set; } = (byte) MailRuLikeButtonTextType.First;
+  protected virtual byte TextTypeValue { get; set; } = (byte) MailRuLikeButtonTextType.First;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool CounterProperty { get; set; } = true;
+  protected virtual bool CounterValue { get; set; } = true;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string CounterPositionProperty { get; set; } = nameof(MailRuLikeButtonCounterPosition.Right).ToLowerInvariant();
+  protected virtual string CounterPositionValue { get; set; } = nameof(MailRuLikeButtonCounterPosition.Right).ToLowerInvariant();
 
   /// <summary>
   ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
@@ -48,7 +48,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <returns>Reference to the current widget.</returns>
   public virtual IMailRuLikeButtonWidget Counter(bool enabled)
   {
-    CounterProperty = enabled;
+    CounterValue = enabled;
     return this;
   }
 
@@ -64,7 +64,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
     if (position is null) throw new ArgumentNullException(nameof(position));
     if (position.IsEmpty()) throw new ArgumentException(nameof(position));
 
-    CounterPositionProperty = position;
+    CounterPositionValue = position;
     return this;
   }
 
@@ -77,7 +77,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <exception cref="ArgumentException">If <paramref name="layout"/> is <see cref="string.Empty"/> string.</exception>
   public virtual IMailRuLikeButtonWidget Layout(byte layout)
   {
-    LayoutProperty = layout;
+    LayoutValue = layout;
     return this;
   }
 
@@ -88,7 +88,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <returns>Reference to the current widget.</returns>
   public virtual IMailRuLikeButtonWidget Size(string size)
   {
-    SizeProperty = size;
+    SizeValue = size;
     return this;
   }
 
@@ -99,7 +99,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <returns>Reference to the current widget.</returns>
   public virtual IMailRuLikeButtonWidget Text(bool enabled)
   {
-    TextProperty = enabled;
+    TextValue = enabled;
     return this;
   }
 
@@ -115,7 +115,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
     if (type is null) throw new ArgumentNullException(nameof(type));
     if (type.IsEmpty()) throw new ArgumentException(nameof(type));
 
-    TypeProperty = type;
+    TypeValue = type;
     return this;
   }
 
@@ -128,20 +128,20 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// <exception cref="ArgumentException">If <paramref name="type"/> is <see cref="string.Empty"/> string.</exception>
   public IMailRuLikeButtonWidget TextType(byte type)
   {
-    TextTypeProperty = type;
+    TextTypeValue = type;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new MailRuLikeButtonWidget
   {
-    TypeProperty = TypeProperty,
-    SizeProperty = SizeProperty,
-    LayoutProperty = LayoutProperty,
-    TextProperty = TextProperty,
-    TextTypeProperty = TextTypeProperty,
-    CounterProperty = CounterProperty,
-    CounterPositionProperty = CounterPositionProperty
+    TypeValue = TypeValue,
+    SizeValue = SizeValue,
+    LayoutValue = LayoutValue,
+    TextValue = TextValue,
+    TextTypeValue = TextTypeValue,
+    CounterValue = CounterValue,
+    CounterPositionValue = CounterPositionValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
@@ -149,28 +149,28 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   {
     var config = new Dictionary<string, object>
     {
-      { "sz", SizeProperty },
-      { "st", LayoutProperty },
-      { "tp", TypeProperty }
+      { "sz", SizeValue },
+      { "st", LayoutValue },
+      { "tp", TypeValue }
     };
 
-    if (!CounterProperty)
+    if (!CounterValue)
     {
       config["nc"] = 1;
     }
-    else if (CounterPositionProperty is not null && string.Equals(CounterPositionProperty, MailRuLikeButtonCounterPosition.Upper.ToString(), StringComparison.InvariantCultureIgnoreCase))
+    else if (CounterPositionValue is not null && string.Equals(CounterPositionValue, MailRuLikeButtonCounterPosition.Upper.ToString(), StringComparison.InvariantCultureIgnoreCase))
     {
       config["vt"] = 1;
     }
 
-    if (!TextProperty)
+    if (!TextValue)
     {
       config["nt"] = 1;
     }
     else
     {
-      config["cm"] = TextTypeProperty;
-      config["ck"] = TextTypeProperty;
+      config["cm"] = TextTypeValue;
+      config["ck"] = TextTypeValue;
     }
 
     return new TagBuilder("a")

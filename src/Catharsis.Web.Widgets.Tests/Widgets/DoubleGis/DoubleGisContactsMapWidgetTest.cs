@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using FluentAssertions.Execution;
 using FluentAssertions;
 using Xunit;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="DoubleGisContactsMapWidget"/>.</para>
 /// </summary>
-public sealed class DoubleGisContactsMapWidgetTest : UnitTest
+public sealed class DoubleGisContactsMapWidgetTest : Test
 {
+  private IDoubleGisContactsMapWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public DoubleGisContactsMapWidgetTest() => Widget = Fixture.Create<IDoubleGisContactsMapWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -35,7 +42,7 @@ public sealed class DoubleGisContactsMapWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new DoubleGisContactsMapWidget());
-      Validate(Attributes.DoubleGisContactsMapWidget());
+      Validate(Fixture.Create<IDoubleGisContactsMapWidget>());
     }
 
     return;
@@ -43,8 +50,6 @@ public sealed class DoubleGisContactsMapWidgetTest : UnitTest
     static void Validate(IDoubleGisContactsMapWidget original)
     {
       var clone = original.Clone<IDoubleGisContactsMapWidget>();
-
-      clone.Id.Should().Be(original.Id);
     }
   }
 
@@ -57,6 +62,7 @@ public sealed class DoubleGisContactsMapWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new DoubleGisContactsMapWidget());
+      Validate(Fixture.Create<IDoubleGisContactsMapWidget>());
     }
 
     return;

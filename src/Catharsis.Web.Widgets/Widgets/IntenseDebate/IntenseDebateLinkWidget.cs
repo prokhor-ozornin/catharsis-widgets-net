@@ -8,22 +8,22 @@ public class IntenseDebateLinkWidget : WebWidget, IIntenseDebateLinkWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string PostIdProperty { get; set; }
+  protected virtual string PostIdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string PostUrlProperty { get; set; }
+  protected virtual string PostUrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string PostTitleProperty { get; set; }
+  protected virtual string PostTitleValue { get; set; }
 
   /// <inheritdoc cref="IIntenseDebateLinkWidget.Account(string)"/>
   public virtual IIntenseDebateLinkWidget Account(string account)
@@ -31,7 +31,7 @@ public class IntenseDebateLinkWidget : WebWidget, IIntenseDebateLinkWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
     return this;
   }
 
@@ -41,7 +41,7 @@ public class IntenseDebateLinkWidget : WebWidget, IIntenseDebateLinkWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    PostIdProperty = id;
+    PostIdValue = id;
     return this;
   }
 
@@ -51,7 +51,7 @@ public class IntenseDebateLinkWidget : WebWidget, IIntenseDebateLinkWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    PostUrlProperty = url;
+    PostUrlValue = url;
     return this;
   }
 
@@ -61,19 +61,19 @@ public class IntenseDebateLinkWidget : WebWidget, IIntenseDebateLinkWidget
     if (title is null) throw new ArgumentNullException(nameof(title));
     if (title.IsEmpty()) throw new ArgumentException(nameof(title));
 
-    PostTitleProperty = title;
+    PostTitleValue = title;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new IntenseDebateLinkWidget
   {
-    AccountProperty = AccountProperty,
-    PostIdProperty = PostIdProperty,
-    PostUrlProperty = PostUrlProperty,
-    PostTitleProperty = PostTitleProperty
+    AccountValue = AccountValue,
+    PostIdValue = PostIdValue,
+    PostUrlValue = PostUrlValue,
+    PostTitleValue = PostTitleValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : string.Format(resources.intensedebate_link_html, AccountProperty, PostIdProperty, PostUrlProperty, PostTitleProperty);
+  public override string ToHtml() => AccountValue.IsUnset() ? string.Empty : string.Format(resources.intensedebate_link_html, AccountValue, PostIdValue, PostUrlValue, PostTitleValue);
 }

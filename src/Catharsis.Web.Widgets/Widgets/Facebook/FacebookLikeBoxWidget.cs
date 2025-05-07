@@ -8,52 +8,52 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? BorderProperty { get; set; }
+  protected virtual bool? BorderValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorSchemeProperty { get; set; }
+  protected virtual string ColorSchemeValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? FacesProperty { get; set; }
+  protected virtual bool? FacesValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? HeaderProperty { get; set; }
+  protected virtual bool? HeaderValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? StreamProperty { get; set; }
+  protected virtual bool? StreamValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? WallProperty { get; set; }
+  protected virtual bool? WallValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Border(bool)"/>
   public virtual IFacebookLikeBoxWidget Border(bool enabled)
   {
-    BorderProperty = enabled;
+    BorderValue = enabled;
     return this;
   }
 
@@ -63,21 +63,21 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    ColorSchemeProperty = scheme;
+    ColorSchemeValue = scheme;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Faces(bool)"/>
   public virtual IFacebookLikeBoxWidget Faces(bool enabled)
   {
-    FacesProperty = enabled;
+    FacesValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Header(bool)"/>
   public virtual IFacebookLikeBoxWidget Header(bool enabled)
   {
-    HeaderProperty = enabled;
+    HeaderValue = enabled;
     return this;
   }
 
@@ -87,14 +87,14 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Stream(bool)"/>
   public virtual IFacebookLikeBoxWidget Stream(bool enabled)
   {
-    StreamProperty = enabled;
+    StreamValue = enabled;
     return this;
   }
 
@@ -104,14 +104,14 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeBoxWidget.Wall(bool)"/>
   public virtual IFacebookLikeBoxWidget Wall(bool enabled)
   {
-    WallProperty = enabled;
+    WallValue = enabled;
     return this;
   }
 
@@ -121,35 +121,35 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new FacebookLikeBoxWidget
   {
-    BorderProperty = BorderProperty,
-    ColorSchemeProperty = ColorSchemeProperty,
-    FacesProperty = FacesProperty,
-    HeaderProperty = HeaderProperty,
-    HeightProperty = HeightProperty,
-    StreamProperty = StreamProperty,
-    UrlProperty = UrlProperty,
-    WallProperty = WallProperty,
-    WidthProperty = WidthProperty
+    BorderValue = BorderValue,
+    ColorSchemeValue = ColorSchemeValue,
+    FacesValue = FacesValue,
+    HeaderValue = HeaderValue,
+    HeightValue = HeightValue,
+    StreamValue = StreamValue,
+    UrlValue = UrlValue,
+    WallValue = WallValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => UrlProperty.IsUnset() ? string.Empty : new TagBuilder("div")
-                                                                            .Attribute("data-href", UrlProperty)
-                                                                            .Attribute("data-width", WidthProperty)
-                                                                            .Attribute("data-height", HeightProperty)
-                                                                            .Attribute("data-colorscheme", ColorSchemeProperty)
-                                                                            .Attribute("data-force-wall", WallProperty)
-                                                                            .Attribute("data-header", HeaderProperty)
-                                                                            .Attribute("data-show-border", BorderProperty)
-                                                                            .Attribute("data-show-faces", FacesProperty)
-                                                                            .Attribute("data-stream", StreamProperty)
+  public override string ToHtml() => UrlValue.IsUnset() ? string.Empty : new TagBuilder("div")
+                                                                            .Attribute("data-href", UrlValue)
+                                                                            .Attribute("data-width", WidthValue)
+                                                                            .Attribute("data-height", HeightValue)
+                                                                            .Attribute("data-colorscheme", ColorSchemeValue)
+                                                                            .Attribute("data-force-wall", WallValue)
+                                                                            .Attribute("data-header", HeaderValue)
+                                                                            .Attribute("data-show-border", BorderValue)
+                                                                            .Attribute("data-show-faces", FacesValue)
+                                                                            .Attribute("data-stream", StreamValue)
                                                                             .CssClass("fb-like-box")
                                                                             .ToString();
 }

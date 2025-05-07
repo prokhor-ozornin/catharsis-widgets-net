@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="FacebookPostWidget"/>.</para>
 /// </summary>
-public sealed class FacebookPostWidgetTest : UnitTest
+public sealed class FacebookPostWidgetTest : Test
 {
+  private IFacebookPostWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public FacebookPostWidgetTest() => Widget = Fixture.Create<IFacebookPostWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,8 +30,8 @@ public sealed class FacebookPostWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new FacebookPostWidget();
-      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("UrlValue").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthValue").Should().BeNull();
     }
   }
 
@@ -39,12 +46,12 @@ public sealed class FacebookPostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookPostWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookPostWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new FacebookPostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string url, IFacebookPostWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
+    static void Validate(string url, IFacebookPostWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
   }
 
   /// <summary>
@@ -58,12 +65,12 @@ public sealed class FacebookPostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookPostWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookPostWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new FacebookPostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IFacebookPostWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
+    static void Validate(string width, IFacebookPostWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -75,7 +82,7 @@ public sealed class FacebookPostWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new FacebookPostWidget());
-      Validate(Attributes.FacebookPostWidget());
+      Validate(Fixture.Create<IFacebookPostWidget>());
     }
 
     return;
@@ -84,7 +91,8 @@ public sealed class FacebookPostWidgetTest : UnitTest
     {
       var clone = original.Clone<IFacebookPostWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("UrlValue").Should().Be(original.GetPropertyValue<string>("UrlValue"));
+      clone.GetPropertyValue<string>("WidthValue").Should().Be(original.GetPropertyValue<string>("WidthValue"));
     }
   }
 
@@ -98,6 +106,7 @@ public sealed class FacebookPostWidgetTest : UnitTest
     {
       Validate(new FacebookPostWidget());
       Validate(new FacebookPostWidget().Url("url").Width("width"), """<div class="fb-post" data-href="url" data-width="width"></div>""");
+      Validate(Fixture.Create<IFacebookPostWidget>());
     }
 
     return;

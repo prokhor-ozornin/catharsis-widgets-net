@@ -1,5 +1,5 @@
 using System.Globalization;
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -10,8 +10,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="ITwitterFollowButtonWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class ITwitterFollowButtonWidgetExtensionsTest : UnitTest
+public sealed class ITwitterFollowButtonWidgetExtensionsTest : Test
 {
+  private ITwitterFollowButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public ITwitterFollowButtonWidgetExtensionsTest() => Widget = Fixture.Create<ITwitterFollowButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="ITwitterFollowButtonWidgetExtensions.Language(ITwitterFollowButtonWidget, CultureInfo)"/> method.</para>
   /// </summary>
@@ -23,12 +30,12 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Language(new TwitterFollowButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
-      new TwitterFollowButtonWidget().With(widget => CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget)));
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(CultureInfo culture, ITwitterFollowButtonWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
+    static void Validate(CultureInfo culture, ITwitterFollowButtonWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
   }
 
   /// <summary>
@@ -41,12 +48,12 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new TwitterFollowButtonWidget().With(widget => Enum.GetValues<TwitterFollowButtonSize>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<TwitterFollowButtonSize>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(TwitterFollowButtonSize size, ITwitterFollowButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size.ToString().ToLowerInvariant());
+    static void Validate(TwitterFollowButtonSize size, ITwitterFollowButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeValue").Should().Be(size.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -59,11 +66,11 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Alignment(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new TwitterFollowButtonWidget().With(widget => Enum.GetValues<TwitterFollowButtonAlignment>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<TwitterFollowButtonAlignment>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(TwitterFollowButtonAlignment alignment, ITwitterFollowButtonWidget widget) => widget.Alignment(alignment).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AlignmentProperty").Should().Be(alignment.ToString().ToLowerInvariant());
+    static void Validate(TwitterFollowButtonAlignment alignment, ITwitterFollowButtonWidget widget) => widget.Alignment(alignment).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AlignmentValue").Should().Be(alignment.ToString().ToLowerInvariant());
   }
 }

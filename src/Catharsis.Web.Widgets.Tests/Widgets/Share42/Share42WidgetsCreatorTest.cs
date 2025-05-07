@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -8,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 ///   <para>Tests set for class <see cref="Share42WidgetsCreator"/>.</para>
 /// </summary>
 /// <seealso cref="Share42WidgetsCreator"/>
-public sealed class Share42WidgetsCreatorTest : UnitTest
+public sealed class Share42WidgetsCreatorTest : Test
 {
   private IShare42WidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Share42();
 

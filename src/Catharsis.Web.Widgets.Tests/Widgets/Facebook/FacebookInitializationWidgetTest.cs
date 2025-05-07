@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="FacebookInitializationWidget"/>.</para>
 /// </summary>
-public sealed class FacebookInitializationWidgetTest : UnitTest
+public sealed class FacebookInitializationWidgetTest : Test
 {
+  private IFacebookInitializationWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public FacebookInitializationWidgetTest() => Widget = Fixture.Create<IFacebookInitializationWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,7 +30,7 @@ public sealed class FacebookInitializationWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new FacebookInitializationWidget();
-      widget.GetPropertyValue<string>("AppIdProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AppIdValue").Should().BeNull();
     }
   }
 
@@ -38,12 +45,12 @@ public sealed class FacebookInitializationWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookInitializationWidget().AppId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new FacebookInitializationWidget().AppId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new FacebookInitializationWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IFacebookInitializationWidget widget) => widget.AppId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AppIdProperty").Should().Be(id);
+    static void Validate(string id, IFacebookInitializationWidget widget) => widget.AppId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AppIdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -55,7 +62,7 @@ public sealed class FacebookInitializationWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new FacebookInitializationWidget());
-      Validate(Attributes.FacebookInitializationWidget());
+      Validate(Fixture.Create<IFacebookInitializationWidget>());
     }
 
     return;
@@ -64,7 +71,7 @@ public sealed class FacebookInitializationWidgetTest : UnitTest
     {
       var clone = original.Clone<IFacebookInitializationWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AppIdValue").Should().Be(original.GetPropertyValue<string>("AppIdValue"));
     }
   }
 
@@ -78,6 +85,7 @@ public sealed class FacebookInitializationWidgetTest : UnitTest
     {
       Validate(new FacebookInitializationWidget());
       Validate(new FacebookInitializationWidget().AppId("appId"), """<div id="fb-root"></div>""", "//connect.facebook.net/en_US/all.js#xfbml=1&appId=appId");
+      Validate(Fixture.Create<IFacebookInitializationWidget>());
     }
 
     return;

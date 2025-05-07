@@ -9,57 +9,57 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string BackgroundColorProperty { get; set; }
+  protected virtual string BackgroundColorValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string BorderColorProperty { get; set; }
+  protected virtual string BorderColorValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string DomainProperty { get; set; }
+  protected virtual string DomainValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string FontProperty { get; set; } = nameof(MailRuFacesFont.Arial);
+  protected virtual string FontValue { get; set; } = nameof(MailRuFacesFont.Arial);
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HyperlinkColorProperty { get; set; }
+  protected virtual string HyperlinkColorValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TextColorProperty { get; set; }
+  protected virtual string TextColorValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool TitleProperty { get; set; } = true;
+  protected virtual bool TitleValue { get; set; } = true;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TitleColorProperty { get; set; }
+  protected virtual string TitleColorValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TitleTextProperty { get; set; }
+  protected virtual string TitleTextValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IMailRuFacesWidget.BackgroundColor(string)"/>
   public virtual IMailRuFacesWidget BackgroundColor(string color)
@@ -67,7 +67,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    BackgroundColorProperty = color;
+    BackgroundColorValue = color;
     return this;
   }
 
@@ -77,7 +77,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    BorderColorProperty = color;
+    BorderColorValue = color;
     return this;
   }
 
@@ -87,7 +87,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (domain is null) throw new ArgumentNullException(nameof(domain));
     if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
 
-    DomainProperty = domain;
+    DomainValue = domain;
     return this;
   }
 
@@ -97,7 +97,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (font is null) throw new ArgumentNullException(nameof(font));
     if (font.IsEmpty()) throw new ArgumentException(nameof(font));
 
-    FontProperty = font;
+    FontValue = font;
     return this;
   }
 
@@ -107,7 +107,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
     return this;
   }
 
@@ -117,7 +117,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    HyperlinkColorProperty = color;
+    HyperlinkColorValue = color;
     return this;
   }
 
@@ -127,14 +127,14 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    TextColorProperty = color;
+    TextColorValue = color;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuFacesWidget.Title(bool)"/>
   public virtual IMailRuFacesWidget Title(bool enabled)
   {
-    TitleProperty = enabled;
+    TitleValue = enabled;
     return this;
   }
 
@@ -144,7 +144,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    TitleColorProperty = color;
+    TitleColorValue = color;
     return this;
   }
 
@@ -154,7 +154,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (title is null) throw new ArgumentNullException(nameof(title));
     if (title.IsEmpty()) throw new ArgumentException(nameof(title));
 
-    TitleTextProperty = title;
+    TitleTextValue = title;
     return this;
   }
 
@@ -164,75 +164,75 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new MailRuFacesWidget
   {
-    BackgroundColorProperty = BackgroundColorProperty,
-    BorderColorProperty = BorderColorProperty,
-    DomainProperty = DomainProperty,
-    FontProperty = FontProperty,
-    HeightProperty = HeightProperty,
-    HyperlinkColorProperty = HyperlinkColorProperty,
-    TextColorProperty = TextColorProperty,
-    TitleProperty = TitleProperty,
-    TitleColorProperty = TitleColorProperty,
-    TitleTextProperty = TitleTextProperty,
-    WidthProperty = WidthProperty
+    BackgroundColorValue = BackgroundColorValue,
+    BorderColorValue = BorderColorValue,
+    DomainValue = DomainValue,
+    FontValue = FontValue,
+    HeightValue = HeightValue,
+    HyperlinkColorValue = HyperlinkColorValue,
+    TextColorValue = TextColorValue,
+    TitleValue = TitleValue,
+    TitleColorValue = TitleColorValue,
+    TitleTextValue = TitleTextValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (DomainProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset())
+    if (DomainValue.IsUnset() || WidthValue.IsUnset() || HeightValue.IsUnset())
     {
       return string.Empty;
     }
 
     var config = new Dictionary<string, object>
     {
-      { "domain", DomainProperty },
-      { "font", FontProperty },
-      { "width", WidthProperty },
-      { "height", HeightProperty }
+      { "domain", DomainValue },
+      { "font", FontValue },
+      { "width", WidthValue },
+      { "height", HeightValue }
     };
       
-    if (!TitleTextProperty.IsUnset())
+    if (!TitleTextValue.IsUnset())
     {
-      config["title"] = TitleTextProperty;
+      config["title"] = TitleTextValue;
     }
     
-    if (!TitleProperty)
+    if (!TitleValue)
     {
       config["notitle"] = true;
     }
     
-    if (!TitleColorProperty.IsUnset())
+    if (!TitleColorValue.IsUnset())
     {
-      config["title-color"] = TitleColorProperty;
+      config["title-color"] = TitleColorValue;
     }
     
-    if (!BackgroundColorProperty.IsUnset())
+    if (!BackgroundColorValue.IsUnset())
     {
-      config["background"] = BackgroundColorProperty;
+      config["background"] = BackgroundColorValue;
     }
     
-    if (!BorderColorProperty.IsUnset())
+    if (!BorderColorValue.IsUnset())
     {
-      config["border"] = BorderColorProperty;
+      config["border"] = BorderColorValue;
     }
     
-    if (!TextColorProperty.IsUnset())
+    if (!TextColorValue.IsUnset())
     {
-      config["color"] = TextColorProperty;
+      config["color"] = TextColorValue;
     }
     
-    if (!HyperlinkColorProperty.IsUnset())
+    if (!HyperlinkColorValue.IsUnset())
     {
-      config["link-color"] = HyperlinkColorProperty;
+      config["link-color"] = HyperlinkColorValue;
     }
 
     return new TagBuilder("a")

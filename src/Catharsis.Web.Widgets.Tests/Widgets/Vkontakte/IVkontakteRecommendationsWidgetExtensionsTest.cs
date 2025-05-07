@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IVkontakteRecommendationsWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IVkontakteRecommendationsWidgetExtensionsTest : UnitTest
+public sealed class IVkontakteRecommendationsWidgetExtensionsTest : Test
 {
+  private IVkontakteRecommendationsWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IVkontakteRecommendationsWidgetExtensionsTest() => Widget = Fixture.Create<IVkontakteRecommendationsWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IVkontakteRecommendationsWidgetExtensions.Limit(IVkontakteRecommendationsWidget, VkontakteRecommendationsLimit)"/> method.</para>
   /// </summary>
@@ -19,11 +26,11 @@ public sealed class IVkontakteRecommendationsWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new VkontakteRecommendationsWidget().With(widget => Enum.GetValues<VkontakteRecommendationsLimit>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<VkontakteRecommendationsLimit>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(VkontakteRecommendationsLimit limit, IVkontakteRecommendationsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LimitProperty").Should().Be((byte) limit);
+    static void Validate(VkontakteRecommendationsLimit limit, IVkontakteRecommendationsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LimitValue").Should().Be((byte) limit);
   }
 }

@@ -9,27 +9,27 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TitleProperty { get; set; }
+  protected virtual string TitleValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string SizeProperty { get; set; } = nameof(YandexLikeButtonSize.Large).ToLowerInvariant();
+  protected virtual string SizeValue { get; set; } = nameof(YandexLikeButtonSize.Large).ToLowerInvariant();
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LayoutProperty { get; set; } = nameof(YandexLikeButtonLayout.Button).ToLowerInvariant();
+  protected virtual string LayoutValue { get; set; } = nameof(YandexLikeButtonLayout.Button).ToLowerInvariant();
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TextProperty { get; set; }
+  protected virtual string TextValue { get; set; }
 
   /// <inheritdoc cref="IYandexLikeButtonWidget.Layout(string)"/>
   public virtual IYandexLikeButtonWidget Layout(string layout)
@@ -37,7 +37,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     if (layout is null) throw new ArgumentNullException(nameof(layout));
     if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
 
-    LayoutProperty = layout;
+    LayoutValue = layout;
     return this;
   }
 
@@ -47,7 +47,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
 
-    SizeProperty = size;
+    SizeValue = size;
     return this;
   }
 
@@ -57,7 +57,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     if (text is null) throw new ArgumentNullException(nameof(text));
     if (text.IsEmpty()) throw new ArgumentException(nameof(text));
 
-    TextProperty = text;
+    TextValue = text;
     return this;
   }
 
@@ -67,7 +67,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     if (title is null) throw new ArgumentNullException(nameof(title));
     if (title.IsEmpty()) throw new ArgumentException(nameof(title));
 
-    TitleProperty = title;
+    TitleValue = title;
     return this;
   }
 
@@ -77,29 +77,29 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new YandexLikeButtonWidget
   {
-    UrlProperty = UrlProperty,
-    TitleProperty = TitleProperty,
-    SizeProperty = SizeProperty,
-    LayoutProperty = LayoutProperty,
-    TextProperty = TextProperty
+    UrlValue = UrlValue,
+    TitleValue = TitleValue,
+    SizeValue = SizeValue,
+    LayoutValue = LayoutValue,
+    TextValue = TextValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new StringBuilder()
       .Append(new TagBuilder("a")
         .Attribute("name", "ya-share")
-        .Attribute("type", LayoutProperty)
-        .Attribute("size", SizeProperty)
-        .Attribute("share_text", TextProperty)
-        .Attribute("share_url", UrlProperty)
-        .Attribute("share_title", TitleProperty)
+        .Attribute("type", LayoutValue)
+        .Attribute("size", SizeValue)
+        .Attribute("share_text", TextValue)
+        .Attribute("share_url", UrlValue)
+        .Attribute("share_title", TitleValue)
        )
       .Append(resources.yandex_like_html)
       .ToString();

@@ -9,12 +9,12 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LanguageProperty { get; set; }
+  protected virtual string LanguageValue { get; set; }
 
   /// <inheritdoc cref="IMailRuIcqWidget.Account(string)"/>
   public virtual IMailRuIcqWidget Account(string account)
@@ -22,7 +22,7 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
     return this;
   }
 
@@ -32,15 +32,15 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
     if (language is null) throw new ArgumentNullException(nameof(language));
     if (language.IsEmpty()) throw new ArgumentException(nameof(language));
 
-    LanguageProperty = language;
+    LanguageValue = language;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new MailRuIcqWidget
   {
-    AccountProperty = AccountProperty,
-    LanguageProperty = LanguageProperty
+    AccountValue = AccountValue,
+    LanguageValue = LanguageValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
@@ -49,12 +49,12 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
     var builder = new StringBuilder()
       .Append(new TagBuilder("script")
         .Attribute("type", "text/javascript")
-        .Attribute("src", $"http://c.icq.com/siteim/icqbar/js/partners/initbar_$@{LanguageProperty ?? "ru"}.js")
+        .Attribute("src", $"http://c.icq.com/siteim/icqbar/js/partners/initbar_$@{LanguageValue ?? "ru"}.js")
       );
       
-    if (!AccountProperty.IsUnset())
+    if (!AccountValue.IsUnset())
     {
-      builder.Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"window.ICQ = {{siteOwner:'${AccountProperty}'}};"));
+      builder.Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"window.ICQ = {{siteOwner:'${AccountValue}'}};"));
     }
 
     return builder.ToString();

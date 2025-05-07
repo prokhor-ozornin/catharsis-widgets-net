@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="DisqusCommentsWidget"/>.</para>
 /// </summary>
-public sealed class DisqusCommentsWidgetTest : UnitTest
+public sealed class DisqusCommentsWidgetTest : Test
 {
+  private IDisqusCommentsWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public DisqusCommentsWidgetTest() => Widget = Fixture.Create<IDisqusCommentsWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,7 +30,7 @@ public sealed class DisqusCommentsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new DisqusCommentsWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
     }
   }
 
@@ -38,12 +45,12 @@ public sealed class DisqusCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new DisqusCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new DisqusCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new DisqusCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IDisqusCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, IDisqusCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -55,7 +62,7 @@ public sealed class DisqusCommentsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new DisqusCommentsWidget());
-      Validate(Attributes.DisqusCommentsWidget());
+      Validate(Fixture.Create<IDisqusCommentsWidget>());
     }
 
     return;
@@ -64,7 +71,7 @@ public sealed class DisqusCommentsWidgetTest : UnitTest
     {
       var clone = original.Clone<IDisqusCommentsWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
     }
   }
 
@@ -80,6 +87,7 @@ public sealed class DisqusCommentsWidgetTest : UnitTest
       Validate(new DisqusCommentsWidget().Account("account"), """<div id="disqus_thread"></div>""", """
                                                                                                     var disqus_shortname = "account"
                                                                                                     """);
+      Validate(Fixture.Create<IDisqusCommentsWidget>());
     }
 
     return;

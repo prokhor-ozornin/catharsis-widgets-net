@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="YandexAnalyticsWidget"/>.</para>
 /// </summary>
-public sealed class YandexAnalyticsWidgetTest : UnitTest
+public sealed class YandexAnalyticsWidgetTest : Test
 {
+  private IYandexAnalyticsWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public YandexAnalyticsWidgetTest() => Widget = Fixture.Create<IYandexAnalyticsWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,14 +30,14 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new YandexAnalyticsWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<bool>("WebVisorProperty").Should().BeTrue();
-      widget.GetPropertyValue<bool>("ClickMapProperty").Should().BeTrue();
-      widget.GetPropertyValue<bool>("TrackLinksProperty").Should().BeTrue();
-      widget.GetPropertyValue<bool>("TrackHashProperty").Should().BeTrue();
-      widget.GetPropertyValue<bool>("AccurateProperty").Should().BeTrue();
-      widget.GetPropertyValue<bool>("NoIndexProperty").Should().BeFalse();
-      widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
+      widget.GetPropertyValue<bool>("WebVisorValue").Should().BeTrue();
+      widget.GetPropertyValue<bool>("ClickMapValue").Should().BeTrue();
+      widget.GetPropertyValue<bool>("TrackLinksValue").Should().BeTrue();
+      widget.GetPropertyValue<bool>("TrackHashValue").Should().BeTrue();
+      widget.GetPropertyValue<bool>("AccurateValue").Should().BeTrue();
+      widget.GetPropertyValue<bool>("NoIndexValue").Should().BeFalse();
+      widget.GetPropertyValue<string>("LanguageValue").Should().BeNull();
     }
   }
 
@@ -45,12 +52,12 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new YandexAnalyticsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IYandexAnalyticsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, IYandexAnalyticsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -61,12 +68,12 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.WebVisor(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("WebVisorProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.WebVisor(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("WebVisorValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -77,12 +84,12 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.ClickMap(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("ClickMapProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.ClickMap(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("ClickMapValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -93,12 +100,12 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.TrackLinks(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TrackLinksProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.TrackLinks(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TrackLinksValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -109,12 +116,12 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.TrackHash(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TrackHashProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.TrackHash(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TrackHashValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -125,12 +132,12 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.Accurate(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AccurateProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.Accurate(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AccurateValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -141,12 +148,12 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexAnalyticsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.NoIndex(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("NoIndexProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexAnalyticsWidget widget) => widget.NoIndex(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("NoIndexValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -160,12 +167,12 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      new YandexAnalyticsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string language, IYandexAnalyticsWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
+    static void Validate(string language, IYandexAnalyticsWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(language);
   }
 
   /// <summary>
@@ -177,7 +184,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new YandexAnalyticsWidget());
-      Validate(Attributes.YandexAnalyticsWidget());
+      Validate(Fixture.Create<IYandexAnalyticsWidget>());
     }
 
     return;
@@ -186,7 +193,14 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
     {
       var clone = original.Clone<IYandexAnalyticsWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
+      clone.GetPropertyValue<bool>("WebVisorValue").Should().Be(original.GetPropertyValue<bool>("WebVisorValue"));
+      clone.GetPropertyValue<bool>("ClickMapValue").Should().Be(original.GetPropertyValue<bool>("ClickMapValue"));
+      clone.GetPropertyValue<bool>("TrackLinksValue").Should().Be(original.GetPropertyValue<bool>("TrackLinksValue"));
+      clone.GetPropertyValue<bool>("TrackHashValue").Should().Be(original.GetPropertyValue<bool>("TrackHashValue"));
+      clone.GetPropertyValue<bool>("AccurateValue").Should().Be(original.GetPropertyValue<bool>("AccurateValue"));
+      clone.GetPropertyValue<bool>("NoIndexValue").Should().Be(original.GetPropertyValue<bool>("NoIndexValue"));
+      clone.GetPropertyValue<string>("LanguageValue").Should().Be(original.GetPropertyValue<string>("LanguageValue"));
     }
   }
 
@@ -245,6 +259,7 @@ public sealed class YandexAnalyticsWidgetTest : UnitTest
                "ut":"noindex"
                """
         );
+      Validate(Fixture.Create<IYandexAnalyticsWidget>());
     }
 
     return;

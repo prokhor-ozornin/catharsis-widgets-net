@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IFacebookLikeBoxWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IFacebookLikeBoxWidgetExtensionsTest : UnitTest
+public sealed class IFacebookLikeBoxWidgetExtensionsTest : Test
 {
+  private IFacebookLikeBoxWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IFacebookLikeBoxWidgetExtensionsTest() => Widget = Fixture.Create<IFacebookLikeBoxWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookLikeBoxWidgetExtensions.Width(IFacebookLikeBoxWidget, short)"/> method.</para>
   /// </summary>
@@ -21,12 +28,12 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookLikeBoxWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(short width, IFacebookLikeBoxWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
+    static void Validate(short width, IFacebookLikeBoxWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -39,12 +46,12 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookLikeBoxWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(short height, IFacebookLikeBoxWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
+    static void Validate(short height, IFacebookLikeBoxWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height.ToInvariantString());
   }
 
   /// <summary>
@@ -57,12 +64,12 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookLikeBoxWidget().With(widget => Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(FacebookColorScheme scheme, IFacebookLikeBoxWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
+    static void Validate(FacebookColorScheme scheme, IFacebookLikeBoxWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -76,11 +83,11 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Url(new FacebookLikeBoxWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new FacebookLikeBoxWidget().With(widget => new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget)));
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(Uri url, IFacebookLikeBoxWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
+    static void Validate(Uri url, IFacebookLikeBoxWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url.ToString());
   }
 }

@@ -8,17 +8,17 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string IdProperty { get; set; }
+  protected virtual string IdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <inheritdoc cref="IFacebookVideoWidget.Id(string)"/>
   public virtual IFacebookVideoWidget Id(string id)
@@ -26,7 +26,7 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    IdProperty = id;
+    IdValue = id;
     return this;
   }
 
@@ -36,7 +36,7 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
     return this;
   }
 
@@ -46,23 +46,23 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new FacebookVideoWidget
   {
-    IdProperty = IdProperty,
-    WidthProperty = WidthProperty,
-    HeightProperty = HeightProperty
+    IdValue = IdValue,
+    WidthValue = WidthValue,
+    HeightValue = HeightValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => IdProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
-      .Attribute("src", $"http://www.facebook.com/video/embed?video_id=${IdProperty}")
-      .Attribute("width", WidthProperty)
-      .Attribute("height", HeightProperty)
+  public override string ToHtml() => IdValue.IsUnset() || WidthValue.IsUnset() || HeightValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
+      .Attribute("src", $"http://www.facebook.com/video/embed?video_id=${IdValue}")
+      .Attribute("width", WidthValue)
+      .Attribute("height", HeightValue)
       .Attribute("frameborder", 0)
       .Attribute("allowfullscreen", true)
       .Attribute("webkitallowfullscreen", true)

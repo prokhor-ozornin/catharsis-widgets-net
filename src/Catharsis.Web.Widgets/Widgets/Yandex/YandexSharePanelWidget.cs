@@ -8,17 +8,17 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LanguageProperty { get; set; }
+  protected virtual string LanguageValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LayoutProperty { get; set; } = nameof(YandexSharePanelLayout.Button).ToLowerInvariant();
+  protected virtual string LayoutValue { get; set; } = nameof(YandexSharePanelLayout.Button).ToLowerInvariant();
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual IEnumerable<string> ServicesProperty { get; set; } = ["yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird"];
+  protected virtual IEnumerable<string> ServicesValue { get; set; } = ["yaru", "vkontakte", "facebook", "twitter", "odnoklassniki", "moimir", "lj", "friendfeed", "moikrug", "gplus", "pinterest", "surfingbird"];
 
   /// <inheritdoc cref="IYandexSharePanelWidget.Language(string)"/>
   public virtual IYandexSharePanelWidget Language(string language)
@@ -26,7 +26,7 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
     if (language is null) throw new ArgumentNullException(nameof(language));
     if (language.IsEmpty()) throw new ArgumentException(nameof(language));
 
-    LanguageProperty = language;
+    LanguageValue = language;
     return this;
   }
 
@@ -36,7 +36,7 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
     if (layout is null) throw new ArgumentNullException(nameof(layout));
     if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
           
-    LayoutProperty = layout;
+    LayoutValue = layout;
 
     return this;
   }
@@ -44,7 +44,7 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
   /// <inheritdoc cref="IYandexSharePanelWidget.Services(IEnumerable{string})"/>
   public virtual IYandexSharePanelWidget Services(IEnumerable<string> services)
   {
-    ServicesProperty = services ?? throw new ArgumentNullException(nameof(services));
+    ServicesValue = services ?? throw new ArgumentNullException(nameof(services));
 
     return this;
   }
@@ -52,16 +52,16 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new YandexSharePanelWidget
   {
-    LanguageProperty = LanguageProperty,
-    LayoutProperty = LayoutProperty
+    LanguageValue = LanguageValue,
+    LayoutValue = LayoutValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() =>
     new TagBuilder("div")
-      .Attribute("data-yashareL10n", LanguageProperty ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)
-      .Attribute("data-yashareType", LayoutProperty)
-      .Attribute("data-yashareQuickServices", ServicesProperty.Join(","))
+      .Attribute("data-yashareL10n", LanguageValue ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)
+      .Attribute("data-yashareType", LayoutValue)
+      .Attribute("data-yashareQuickServices", ServicesValue.Join(","))
       .CssClass("yashare-auto-init")
       .ToString();
 }

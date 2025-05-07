@@ -1,5 +1,5 @@
 using System.Globalization;
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -10,8 +10,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IYandexSharePanelWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IYandexSharePanelWidgetExtensionsTest : UnitTest
+public sealed class IYandexSharePanelWidgetExtensionsTest : Test
 {
+  private IYandexSharePanelWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IYandexSharePanelWidgetExtensionsTest() => Widget = Fixture.Create<IYandexSharePanelWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexSharePanelWidgetExtensions.Services(IYandexSharePanelWidget, string[])"/> method.</para>
   /// </summary>
@@ -23,12 +30,12 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(new YandexSharePanelWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("services");
 
-      new YandexSharePanelWidget().With(widget => new[] { Array.Empty<string>(), ["service"] }.ForEach(value => Validate(value, widget)));
+      new[] { Array.Empty<string>(), ["service"] }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string[] services, IYandexSharePanelWidget widget) => IYandexSharePanelWidgetExtensions.Services(widget, services).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ServicesProperty").Should().Equal(services);
+    static void Validate(string[] services, IYandexSharePanelWidget widget) => IYandexSharePanelWidgetExtensions.Services(widget, services).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ServicesValue").Should().Equal(services);
   }
 
   /// <summary>
@@ -42,12 +49,12 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Language(new YandexSharePanelWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
 
-      new YandexSharePanelWidget().With(widget => CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget)));
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(CultureInfo culture, IYandexSharePanelWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
+    static void Validate(CultureInfo culture, IYandexSharePanelWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
   }
 
   /// <summary>
@@ -60,11 +67,11 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new YandexSharePanelWidget().With(widget => Enum.GetValues<YandexSharePanelLayout>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<YandexSharePanelLayout>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(YandexSharePanelLayout layout, IYandexSharePanelWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout.ToString().ToLowerInvariant());
+    static void Validate(YandexSharePanelLayout layout, IYandexSharePanelWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(layout.ToString().ToLowerInvariant());
   }
 }

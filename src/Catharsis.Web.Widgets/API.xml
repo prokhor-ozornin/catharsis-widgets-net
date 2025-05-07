@@ -1180,7 +1180,7 @@
         <member name="T:Catharsis.Web.Widgets.CackleCommentsCountWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.ICackleCommentsCountWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.CackleCommentsCountWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.CackleCommentsCountWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
@@ -1197,7 +1197,7 @@
         <member name="T:Catharsis.Web.Widgets.CackleCommentsWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.ICackleCommentsWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.CackleCommentsWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.CackleCommentsWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
@@ -1214,27 +1214,27 @@
         <member name="T:Catharsis.Web.Widgets.CackleLatestCommentsWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.ICackleLatestCommentsWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.CackleLatestCommentsWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.CackleLatestCommentsWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.CackleLatestCommentsWidget.AvatarSizeProperty">
+        <member name="P:Catharsis.Web.Widgets.CackleLatestCommentsWidget.AvatarSizeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.CackleLatestCommentsWidget.MaxProperty">
+        <member name="P:Catharsis.Web.Widgets.CackleLatestCommentsWidget.MaxValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.CackleLatestCommentsWidget.TextSizeProperty">
+        <member name="P:Catharsis.Web.Widgets.CackleLatestCommentsWidget.TextSizeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.CackleLatestCommentsWidget.TitleSizeProperty">
+        <member name="P:Catharsis.Web.Widgets.CackleLatestCommentsWidget.TitleSizeValue">
             <summary>
               <para></para>
             </summary>
@@ -1263,7 +1263,7 @@
         <member name="T:Catharsis.Web.Widgets.CackleLoginWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.ICackleLoginWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.CackleLoginWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.CackleLoginWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
@@ -1558,7 +1558,7 @@
         <member name="T:Catharsis.Web.Widgets.DisqusCommentsWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IDisqusCommentsWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.DisqusCommentsWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.DisqusCommentsWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
@@ -1687,57 +1687,57 @@
         <member name="T:Catharsis.Web.Widgets.FacebookActivityFeedWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookActivityFeedWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.ActionsProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.ActionsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.AppIdProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.AppIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.ColorSchemeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.ColorSchemeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.DomainProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.DomainValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.HeaderProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.HeaderValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.LinkTargetProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.LinkTargetValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.MaxAgeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.MaxAgeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.RecommendationsProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.RecommendationsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.TrackLabelProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.TrackLabelValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookActivityFeedWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -1839,32 +1839,32 @@
         <member name="T:Catharsis.Web.Widgets.FacebookCommentsWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookCommentsWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.ColorSchemeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.ColorSchemeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.MobileProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.MobileValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.OrderProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.OrderValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.PostsProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.PostsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookCommentsWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -1948,37 +1948,37 @@
         <member name="T:Catharsis.Web.Widgets.FacebookFacePileWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookFacePileWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.ActionsProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.ActionsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.ColorSchemeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.ColorSchemeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.MaxRowsProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.MaxRowsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.PhotoSizeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.PhotoSizeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFacePileWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -2013,37 +2013,37 @@
         <member name="T:Catharsis.Web.Widgets.FacebookFollowButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookFollowButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.ColorSchemeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.ColorSchemeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.FacesProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.FacesValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.KidsModeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.KidsModeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.LayoutProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.LayoutValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookFollowButtonWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -2078,7 +2078,7 @@
         <member name="T:Catharsis.Web.Widgets.FacebookInitializationWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookInitializationWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookInitializationWidget.AppIdProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookInitializationWidget.AppIdValue">
             <summary>
               <para></para>
             </summary>
@@ -2095,47 +2095,47 @@
         <member name="T:Catharsis.Web.Widgets.FacebookLikeBoxWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookLikeBoxWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.BorderProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.BorderValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.ColorSchemeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.ColorSchemeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.FacesProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.FacesValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.HeaderProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.HeaderValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.StreamProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.StreamValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.WallProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.WallValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeBoxWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -2191,42 +2191,42 @@
         <member name="T:Catharsis.Web.Widgets.FacebookLikeButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookLikeButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.ColorSchemeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.ColorSchemeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.FacesProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.FacesValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.KidsModeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.KidsModeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.LayoutProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.LayoutValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.TrackLabelProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.TrackLabelValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.VerbProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.VerbValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookLikeButtonWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -2264,12 +2264,12 @@
         <member name="T:Catharsis.Web.Widgets.FacebookPostWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookPostWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookPostWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookPostWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookPostWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookPostWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -2289,52 +2289,52 @@
         <member name="T:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookRecommendationsFeedWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.ActionsProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.ActionsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.AppIdProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.AppIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.ColorSchemeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.ColorSchemeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.DomainProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.DomainValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.HeaderProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.HeaderValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.LinkTargetProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.LinkTargetValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.MaxAgeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.MaxAgeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.TrackLabelProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.TrackLabelValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -2378,32 +2378,32 @@
         <member name="T:Catharsis.Web.Widgets.FacebookSendButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookSendButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.ColorSchemeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.ColorSchemeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.KidsModeProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.KidsModeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.TrackLabelProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookSendButtonWidget.TrackLabelValue">
             <summary>
               <para></para>
             </summary>
@@ -2435,17 +2435,17 @@
         <member name="T:Catharsis.Web.Widgets.FacebookVideoWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookVideoWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookVideoWidget.IdProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookVideoWidget.IdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookVideoWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookVideoWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.FacebookVideoWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.FacebookVideoWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
@@ -3644,12 +3644,12 @@
         <member name="T:Catharsis.Web.Widgets.GoogleAnalyticsWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IGoogleAnalyticsWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GoogleAnalyticsWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.GoogleAnalyticsWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GoogleAnalyticsWidget.DomainProperty">
+        <member name="P:Catharsis.Web.Widgets.GoogleAnalyticsWidget.DomainValue">
             <summary>
               <para></para>
             </summary>
@@ -3738,37 +3738,37 @@
         <member name="T:Catharsis.Web.Widgets.GooglePlusOneButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IGooglePlusOneButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.SizeProperty">
+        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.SizeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.AlignmentProperty">
+        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.AlignmentValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.AnnotationProperty">
+        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.AnnotationValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.CallbackProperty">
+        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.CallbackValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.RecommendationsProperty">
+        <member name="P:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.RecommendationsValue">
             <summary>
               <para></para>
             </summary>
@@ -4049,17 +4049,17 @@
         <member name="T:Catharsis.Web.Widgets.GravatarImageUrlWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IGravatarImageUrlWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GravatarImageUrlWidget.ExtensionProperty">
+        <member name="P:Catharsis.Web.Widgets.GravatarImageUrlWidget.ExtensionValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GravatarImageUrlWidget.HashProperty">
+        <member name="P:Catharsis.Web.Widgets.GravatarImageUrlWidget.HashValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GravatarImageUrlWidget.ParametersProperty">
+        <member name="P:Catharsis.Web.Widgets.GravatarImageUrlWidget.ParametersValue">
             <summary>
               <para></para>
             </summary>
@@ -4082,17 +4082,17 @@
         <member name="T:Catharsis.Web.Widgets.GravatarProfileUrlWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IGravatarProfileUrlWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GravatarProfileUrlWidget.FormatProperty">
+        <member name="P:Catharsis.Web.Widgets.GravatarProfileUrlWidget.FormatValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GravatarProfileUrlWidget.HashProperty">
+        <member name="P:Catharsis.Web.Widgets.GravatarProfileUrlWidget.HashValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.GravatarProfileUrlWidget.ParametersProperty">
+        <member name="P:Catharsis.Web.Widgets.GravatarProfileUrlWidget.ParametersValue">
             <summary>
               <para></para>
             </summary>
@@ -4414,12 +4414,12 @@
         <member name="T:Catharsis.Web.Widgets.InlineImageWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IInlineImageWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.InlineImageWidget.ContentsProperty">
+        <member name="P:Catharsis.Web.Widgets.InlineImageWidget.ContentsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.InlineImageWidget.FormatProperty">
+        <member name="P:Catharsis.Web.Widgets.InlineImageWidget.FormatValue">
             <summary>
               <para></para>
             </summary>
@@ -4548,22 +4548,22 @@
         <member name="T:Catharsis.Web.Widgets.IntenseDebateCommentsWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IIntenseDebateCommentsWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.IntenseDebateCommentsWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.IntenseDebateCommentsWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.IntenseDebateCommentsWidget.PostIdProperty">
+        <member name="P:Catharsis.Web.Widgets.IntenseDebateCommentsWidget.PostIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.IntenseDebateCommentsWidget.PostUrlProperty">
+        <member name="P:Catharsis.Web.Widgets.IntenseDebateCommentsWidget.PostUrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.IntenseDebateCommentsWidget.PostTitleProperty">
+        <member name="P:Catharsis.Web.Widgets.IntenseDebateCommentsWidget.PostTitleValue">
             <summary>
               <para></para>
             </summary>
@@ -4589,22 +4589,22 @@
         <member name="T:Catharsis.Web.Widgets.IntenseDebateLinkWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IIntenseDebateLinkWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.IntenseDebateLinkWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.IntenseDebateLinkWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.IntenseDebateLinkWidget.PostIdProperty">
+        <member name="P:Catharsis.Web.Widgets.IntenseDebateLinkWidget.PostIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.IntenseDebateLinkWidget.PostUrlProperty">
+        <member name="P:Catharsis.Web.Widgets.IntenseDebateLinkWidget.PostUrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.IntenseDebateLinkWidget.PostTitleProperty">
+        <member name="P:Catharsis.Web.Widgets.IntenseDebateLinkWidget.PostTitleValue">
             <summary>
               <para></para>
             </summary>
@@ -4730,12 +4730,12 @@
         <member name="T:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.ILiveJournalRepostButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget.TextProperty">
+        <member name="P:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget.TextValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget.TitleProperty">
+        <member name="P:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget.TitleValue">
             <summary>
               <para></para>
             </summary>
@@ -5228,57 +5228,57 @@
         <member name="T:Catharsis.Web.Widgets.MailRuFacesWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IMailRuFacesWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.BackgroundColorProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.BackgroundColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.BorderColorProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.BorderColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.DomainProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.DomainValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.FontProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.FontValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.HyperlinkColorProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.HyperlinkColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.TextColorProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.TextColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.TitleProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.TitleValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.TitleColorProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.TitleColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.TitleTextProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.TitleTextValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuFacesWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -5325,42 +5325,42 @@
         <member name="T:Catharsis.Web.Widgets.MailRuGroupsWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IMailRuGroupsWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.BackgroundColorProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.BackgroundColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.ButtonColorProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.ButtonColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.DomainProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.DomainValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.SubscribersProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.SubscribersValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.TextColorProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.TextColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuGroupsWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -5398,12 +5398,12 @@
         <member name="T:Catharsis.Web.Widgets.MailRuIcqWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IMailRuIcqWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuIcqWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuIcqWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuIcqWidget.LanguageProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuIcqWidget.LanguageValue">
             <summary>
               <para></para>
             </summary>
@@ -5538,37 +5538,37 @@
         <member name="T:Catharsis.Web.Widgets.MailRuLikeButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IMailRuLikeButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.TypeProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.TypeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.SizeProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.SizeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.LayoutProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.LayoutValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.TextProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.TextValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.TextTypeProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.TextTypeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.CounterProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.CounterValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.CounterPositionProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuLikeButtonWidget.CounterPositionValue">
             <summary>
               <para></para>
             </summary>
@@ -5639,17 +5639,17 @@
         <member name="T:Catharsis.Web.Widgets.MailRuVideoWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IMailRuVideoWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuVideoWidget.IdProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuVideoWidget.IdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuVideoWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuVideoWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.MailRuVideoWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.MailRuVideoWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -6308,27 +6308,27 @@
         <member name="T:Catharsis.Web.Widgets.PinterestBoardWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IPinterestBoardWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestBoardWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestBoardWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestBoardWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestBoardWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestBoardWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestBoardWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestBoardWidget.IdProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestBoardWidget.IdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestBoardWidget.ImageProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestBoardWidget.ImageValue">
             <summary>
               <para></para>
             </summary>
@@ -6357,12 +6357,12 @@
         <member name="T:Catharsis.Web.Widgets.PinterestFollowButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IPinterestFollowButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestFollowButtonWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestFollowButtonWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestFollowButtonWidget.LabelProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestFollowButtonWidget.LabelValue">
             <summary>
               <para></para>
             </summary>
@@ -6432,42 +6432,42 @@
         <member name="T:Catharsis.Web.Widgets.PinterestPinItButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IPinterestPinItButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.ColorProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.ColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.CounterProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.CounterValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.DescriptionProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.DescriptionValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.ImageProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.ImageValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.LanguageProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.LanguageValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.ShapeProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.ShapeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.SizeProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.SizeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestPinItButtonWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
@@ -6551,7 +6551,7 @@
         <member name="T:Catharsis.Web.Widgets.PinterestPinWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IPinterestPinWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestPinWidget.IdProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestPinWidget.IdValue">
             <summary>
               <para></para>
             </summary>
@@ -6568,22 +6568,22 @@
         <member name="T:Catharsis.Web.Widgets.PinterestProfileWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IPinterestProfileWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestProfileWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestProfileWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestProfileWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestProfileWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestProfileWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestProfileWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.PinterestProfileWidget.ImageProperty">
+        <member name="P:Catharsis.Web.Widgets.PinterestProfileWidget.ImageValue">
             <summary>
               <para></para>
             </summary>
@@ -6675,17 +6675,17 @@
         <member name="T:Catharsis.Web.Widgets.RuTubeVideoWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IRuTubeVideoWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.RuTubeVideoWidget.IdProperty">
+        <member name="P:Catharsis.Web.Widgets.RuTubeVideoWidget.IdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.RuTubeVideoWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.RuTubeVideoWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.RuTubeVideoWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.RuTubeVideoWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -6813,12 +6813,12 @@
         <member name="T:Catharsis.Web.Widgets.Share42PanelWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IShare42PanelWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.Share42PanelWidget.DirectionProperty">
+        <member name="P:Catharsis.Web.Widgets.Share42PanelWidget.DirectionValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.Share42PanelWidget.SizeProperty">
+        <member name="P:Catharsis.Web.Widgets.Share42PanelWidget.SizeValue">
             <summary>
               <para></para>
             </summary>
@@ -6988,17 +6988,17 @@
         <member name="T:Catharsis.Web.Widgets.SoundCloudProfileIconWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.ISoundCloudProfileIconWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.SoundCloudProfileIconWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.SoundCloudProfileIconWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.SoundCloudProfileIconWidget.ColorProperty">
+        <member name="P:Catharsis.Web.Widgets.SoundCloudProfileIconWidget.ColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.SoundCloudProfileIconWidget.SizeProperty">
+        <member name="P:Catharsis.Web.Widgets.SoundCloudProfileIconWidget.SizeValue">
             <summary>
               <para></para>
             </summary>
@@ -7193,37 +7193,37 @@
         <member name="T:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.ISurfingbirdSurfButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.LayoutProperty">
+        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.LayoutValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.CounterProperty">
+        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.CounterValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.LabelProperty">
+        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.LabelValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.ColorProperty">
+        <member name="P:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.ColorValue">
             <summary>
               <para></para>
             </summary>
@@ -7424,17 +7424,17 @@
         <member name="T:Catharsis.Web.Widgets.TumblrFollowButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.ITumblrFollowButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TumblrFollowButtonWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.TumblrFollowButtonWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TumblrFollowButtonWidget.TypeProperty">
+        <member name="P:Catharsis.Web.Widgets.TumblrFollowButtonWidget.TypeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TumblrFollowButtonWidget.ColorSchemeProperty">
+        <member name="P:Catharsis.Web.Widgets.TumblrFollowButtonWidget.ColorSchemeValue">
             <summary>
               <para></para>
             </summary>
@@ -7497,12 +7497,12 @@
         <member name="T:Catharsis.Web.Widgets.TumblrShareButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.ITumblrShareButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TumblrShareButtonWidget.TypeProperty">
+        <member name="P:Catharsis.Web.Widgets.TumblrShareButtonWidget.TypeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TumblrShareButtonWidget.ColorSchemeProperty">
+        <member name="P:Catharsis.Web.Widgets.TumblrShareButtonWidget.ColorSchemeValue">
             <summary>
               <para></para>
             </summary>
@@ -7839,42 +7839,42 @@
         <member name="T:Catharsis.Web.Widgets.TwitterFollowButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.ITwitterFollowButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.LanguageProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.LanguageValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.SizeProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.SizeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.AlignmentProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.AlignmentValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.CounterProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.CounterValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.ScreenNameProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.ScreenNameValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.SuggestionsProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.SuggestionsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterFollowButtonWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -7947,52 +7947,52 @@
         <member name="T:Catharsis.Web.Widgets.TwitterTweetButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.ITwitterTweetButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.LanguageProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.LanguageValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.TextProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.TextValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.ViaProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.ViaValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.SizeProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.SizeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.CountUrlProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.CountUrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.CounterPositionProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.CounterPositionValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.SuggestionsProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.SuggestionsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.AccountsProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.AccountsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.TagsProperty">
+        <member name="P:Catharsis.Web.Widgets.TwitterTweetButtonWidget.TagsValue">
             <summary>
               <para></para>
             </summary>
@@ -8153,22 +8153,22 @@
         <member name="T:Catharsis.Web.Widgets.VideoJSPlayerWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVideoJSPlayerWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VideoJSPlayerWidget.ExtraProperty">
+        <member name="P:Catharsis.Web.Widgets.VideoJSPlayerWidget.ExtraValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VideoJSPlayerWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.VideoJSPlayerWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VideoJSPlayerWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.VideoJSPlayerWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VideoJSPlayerWidget.VideosProperty">
+        <member name="P:Catharsis.Web.Widgets.VideoJSPlayerWidget.VideosValue">
             <summary>
               <para></para>
             </summary>
@@ -8230,27 +8230,27 @@
         <member name="T:Catharsis.Web.Widgets.VimeoVideoWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVimeoVideoWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VimeoVideoWidget.AutoPlayProperty">
+        <member name="P:Catharsis.Web.Widgets.VimeoVideoWidget.AutoPlayValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VimeoVideoWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.VimeoVideoWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VimeoVideoWidget.IdProperty">
+        <member name="P:Catharsis.Web.Widgets.VimeoVideoWidget.IdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VimeoVideoWidget.LoopProperty">
+        <member name="P:Catharsis.Web.Widgets.VimeoVideoWidget.LoopValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VimeoVideoWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.VimeoVideoWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -9138,27 +9138,27 @@
         <member name="T:Catharsis.Web.Widgets.VkontakteAuthButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVkontakteAuthButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.CallbackProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.CallbackValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.ElementIdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.ElementIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.TypeProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.TypeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -9247,37 +9247,37 @@
         <member name="T:Catharsis.Web.Widgets.VkontakteCommentsWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVkontakteCommentsWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.AttachProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.AttachValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.AutoPublishProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.AutoPublishValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.AutoUpdateProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.AutoUpdateValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.ElementIdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.ElementIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.LimitProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.LimitValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.MiniProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.MiniValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommentsWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -9332,42 +9332,42 @@
         <member name="T:Catharsis.Web.Widgets.VkontakteCommunityWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVkontakteCommunityWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.BackgroundColorProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.BackgroundColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.ButtonColorProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.ButtonColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.ElementIdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.ElementIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.ModeProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.ModeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.TextColorProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.TextColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteCommunityWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -9405,7 +9405,7 @@
         <member name="T:Catharsis.Web.Widgets.VkontakteInitializationWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVkontakteInitializationWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteInitializationWidget.ApiIdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteInitializationWidget.ApiIdValue">
             <summary>
               <para></para>
             </summary>
@@ -9487,52 +9487,52 @@
         <member name="T:Catharsis.Web.Widgets.VkontakteLikeButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVkontakteLikeButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.ElementIdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.ElementIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.TextProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.TextValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.VerbProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.VerbValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.LayoutProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.LayoutValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.TitleProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.TitleValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.DescriptionProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.DescriptionValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.ImageProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.ImageValue">
             <summary>
               <para></para>
             </summary>
@@ -9576,22 +9576,22 @@
         <member name="T:Catharsis.Web.Widgets.VkontaktePollWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVkontaktePollWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontaktePollWidget.ElementIdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontaktePollWidget.ElementIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontaktePollWidget.IdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontaktePollWidget.IdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontaktePollWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontaktePollWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontaktePollWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontaktePollWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -9617,27 +9617,27 @@
         <member name="T:Catharsis.Web.Widgets.VkontaktePostWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVkontaktePostWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontaktePostWidget.ElementIdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontaktePostWidget.ElementIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontaktePostWidget.HashProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontaktePostWidget.HashValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontaktePostWidget.IdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontaktePostWidget.IdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontaktePostWidget.OwnerProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontaktePostWidget.OwnerValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontaktePostWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontaktePostWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
@@ -9736,37 +9736,37 @@
         <member name="T:Catharsis.Web.Widgets.VkontakteRecommendationsWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVkontakteRecommendationsWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.ElementIdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.ElementIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.LimitProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.LimitValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.MaxProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.MaxValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.PeriodProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.PeriodValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.SortingProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.SortingValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.TargetProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.TargetValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.VerbProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.VerbValue">
             <summary>
               <para></para>
             </summary>
@@ -9821,22 +9821,22 @@
         <member name="T:Catharsis.Web.Widgets.VkontakteSubscriptionWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVkontakteSubscriptionWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.ElementIdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.ElementIdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.LayoutProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.LayoutValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.OnlyButtonProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.OnlyButtonValue">
             <summary>
               <para></para>
             </summary>
@@ -9862,32 +9862,32 @@
         <member name="T:Catharsis.Web.Widgets.VkontakteVideoWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IVkontakteVideoWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.IdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.IdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.HdProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.HdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.UserProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.UserValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.HashProperty">
+        <member name="P:Catharsis.Web.Widgets.VkontakteVideoWidget.HashValue">
             <summary>
               <para></para>
             </summary>
@@ -10659,42 +10659,42 @@
         <member name="T:Catharsis.Web.Widgets.YandexAnalyticsWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IYandexAnalyticsWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.WebVisorProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.WebVisorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.ClickMapProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.ClickMapValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.TrackLinksProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.TrackLinksValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.TrackHashProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.TrackHashValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.AccurateProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.AccurateValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.NoIndexProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.NoIndexValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.LanguageProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexAnalyticsWidget.LanguageValue">
             <summary>
               <para></para>
             </summary>
@@ -10762,27 +10762,27 @@
         <member name="T:Catharsis.Web.Widgets.YandexLikeButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IYandexLikeButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexLikeButtonWidget.UrlProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexLikeButtonWidget.UrlValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexLikeButtonWidget.TitleProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexLikeButtonWidget.TitleValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexLikeButtonWidget.SizeProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexLikeButtonWidget.SizeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexLikeButtonWidget.LayoutProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexLikeButtonWidget.LayoutValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexLikeButtonWidget.TextProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexLikeButtonWidget.TextValue">
             <summary>
               <para></para>
             </summary>
@@ -10910,57 +10910,57 @@
         <member name="T:Catharsis.Web.Widgets.YandexMoneyButtonWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IYandexMoneyButtonWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.ColorProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.ColorValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.DescriptionProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.DescriptionValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.AskPayerFullNameProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.AskPayerFullNameValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.AskPayerEmailProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.AskPayerEmailValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.AskPayerPhoneProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.AskPayerPhoneValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.AskPayerAddressProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.AskPayerAddressValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.SizeProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.SizeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.SumProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.SumValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.TextProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.TextValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.TypeProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyButtonWidget.TypeValue">
             <summary>
               <para></para>
             </summary>
@@ -11037,67 +11037,67 @@
         <member name="T:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.DescriptionProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.DescriptionValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.SumProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.SumValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.CardsProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.CardsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.TextProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.TextValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.ProjectNameProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.ProjectNameValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.ProjectSiteProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.ProjectSiteValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.AskPayerCommentProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.AskPayerCommentValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.CommentHintProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.CommentHintValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.AskPayerFullNameProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.AskPayerFullNameValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.AskPayerEmailProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.AskPayerEmailValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.AskPayerPhoneProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.AskPayerPhoneValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.DescriptionTextProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.DescriptionTextValue">
             <summary>
               <para></para>
             </summary>
@@ -11175,57 +11175,57 @@
         <member name="T:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AccountProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AccountValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.DescriptionProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.DescriptionValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.SumProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.SumValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.CardsProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.CardsValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.TextProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.TextValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerPurposeProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerPurposeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerCommentProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerCommentValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerFullNameProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerFullNameValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerEmailProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerEmailValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerPhoneProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerPhoneValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerAddressProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerAddressValue">
             <summary>
               <para></para>
             </summary>
@@ -11297,17 +11297,17 @@
         <member name="T:Catharsis.Web.Widgets.YandexSharePanelWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IYandexSharePanelWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexSharePanelWidget.LanguageProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexSharePanelWidget.LanguageValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexSharePanelWidget.LayoutProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexSharePanelWidget.LayoutValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexSharePanelWidget.ServicesProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexSharePanelWidget.ServicesValue">
             <summary>
               <para></para>
             </summary>
@@ -11330,22 +11330,22 @@
         <member name="T:Catharsis.Web.Widgets.YandexVideoWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IYandexVideoWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexVideoWidget.IdProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexVideoWidget.IdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexVideoWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexVideoWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexVideoWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexVideoWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YandexVideoWidget.UserProperty">
+        <member name="P:Catharsis.Web.Widgets.YandexVideoWidget.UserValue">
             <summary>
               <para></para>
             </summary>
@@ -11425,27 +11425,27 @@
         <member name="T:Catharsis.Web.Widgets.YouTubeVideoWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IYouTubeVideoWidget"/>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YouTubeVideoWidget.IdProperty">
+        <member name="P:Catharsis.Web.Widgets.YouTubeVideoWidget.IdValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YouTubeVideoWidget.WidthProperty">
+        <member name="P:Catharsis.Web.Widgets.YouTubeVideoWidget.WidthValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YouTubeVideoWidget.HeightProperty">
+        <member name="P:Catharsis.Web.Widgets.YouTubeVideoWidget.HeightValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YouTubeVideoWidget.PrivateModeProperty">
+        <member name="P:Catharsis.Web.Widgets.YouTubeVideoWidget.PrivateModeValue">
             <summary>
               <para></para>
             </summary>
         </member>
-        <member name="P:Catharsis.Web.Widgets.YouTubeVideoWidget.SecureModeProperty">
+        <member name="P:Catharsis.Web.Widgets.YouTubeVideoWidget.SecureModeValue">
             <summary>
               <para></para>
             </summary>

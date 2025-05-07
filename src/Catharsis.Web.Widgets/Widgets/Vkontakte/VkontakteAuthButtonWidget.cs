@@ -10,27 +10,27 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string CallbackProperty { get; set; }
+  protected virtual string CallbackValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ElementIdProperty { get; set; }
+  protected virtual string ElementIdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual VkontakteAuthButtonType TypeProperty { get; set; } = VkontakteAuthButtonType.Standard;
+  protected virtual VkontakteAuthButtonType TypeValue { get; set; } = VkontakteAuthButtonType.Standard;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IVkontakteAuthButtonWidget.ElementId(string)"/>
   public virtual IVkontakteAuthButtonWidget ElementId(string id)
@@ -38,7 +38,7 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    ElementIdProperty = id;
+    ElementIdValue = id;
 
     return this;
   }
@@ -49,7 +49,7 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
 
     return this;
   }
@@ -60,7 +60,7 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
 
     return this;
   }
@@ -68,7 +68,7 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
   /// <inheritdoc cref="IVkontakteAuthButtonWidget.Type(VkontakteAuthButtonType)"/>
   public virtual IVkontakteAuthButtonWidget Type(VkontakteAuthButtonType type)
   {
-    TypeProperty = type;
+    TypeValue = type;
     return this;
   }
 
@@ -78,7 +78,7 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
     if (callback is null) throw new ArgumentNullException(nameof(callback));
     if (callback.IsEmpty()) throw new ArgumentException(nameof(callback));
 
-    CallbackProperty = callback;
+    CallbackValue = callback;
 
     return this;
   }
@@ -86,43 +86,43 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new VkontakteAuthButtonWidget
   {
-    CallbackProperty = CallbackProperty,
-    ElementIdProperty = ElementIdProperty,
-    TypeProperty = TypeProperty,
-    UrlProperty = UrlProperty,
-    WidthProperty = WidthProperty
+    CallbackValue = CallbackValue,
+    ElementIdValue = ElementIdValue,
+    TypeValue = TypeValue,
+    UrlValue = UrlValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (TypeProperty == VkontakteAuthButtonType.Dynamic && CallbackProperty.IsUnset())
+    if (TypeValue == VkontakteAuthButtonType.Dynamic && CallbackValue.IsUnset())
     {
       return string.Empty;
     }
 
-    if (TypeProperty == VkontakteAuthButtonType.Standard && UrlProperty.IsUnset())
+    if (TypeValue == VkontakteAuthButtonType.Standard && UrlValue.IsUnset())
     {
       return string.Empty;
     }
 
-    var id = ElementIdProperty ?? "vk_auth";
+    var id = ElementIdValue ?? "vk_auth";
 
     var config = new Dictionary<string, object>();
     
-    if (!CallbackProperty.IsUnset())
+    if (!CallbackValue.IsUnset())
     {
-      config["onAuth"] = CallbackProperty;
+      config["onAuth"] = CallbackValue;
     }
     
-    if (!UrlProperty.IsUnset())
+    if (!UrlValue.IsUnset())
     {
-      config["authUrl"] = UrlProperty;
+      config["authUrl"] = UrlValue;
     }
     
-    if (!WidthProperty.IsUnset())
+    if (!WidthValue.IsUnset())
     {
-      config["width"] = WidthProperty;
+      config["width"] = WidthValue;
     }
 
     return new StringBuilder()

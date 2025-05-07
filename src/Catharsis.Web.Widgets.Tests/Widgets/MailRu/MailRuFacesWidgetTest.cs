@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="MailRuFacesWidget"/>.</para>
 /// </summary>
-public sealed class MailRuFacesWidgetTest : UnitTest
+public sealed class MailRuFacesWidgetTest : Test
 {
+  private IMailRuFacesWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public MailRuFacesWidgetTest() => Widget = Fixture.Create<IMailRuFacesWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,17 +30,17 @@ public sealed class MailRuFacesWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new MailRuFacesWidget();
-      widget.GetPropertyValue<string>("BackgroundColorProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("BorderColorProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("DomainProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("FontProperty").Should().Be(MailRuFacesFont.Arial.ToString());
-      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("HyperlinkColorProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("TextColorProperty").Should().BeNull();
-      widget.GetPropertyValue<bool>("TitleProperty").Should().BeTrue();
-      widget.GetPropertyValue<string>("TitleColorProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("TitleTextProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("BackgroundColorValue").Should().BeNull();
+      widget.GetPropertyValue<string>("BorderColorValue").Should().BeNull();
+      widget.GetPropertyValue<string>("DomainValue").Should().BeNull();
+      widget.GetPropertyValue<string>("FontValue").Should().Be(MailRuFacesFont.Arial.ToString());
+      widget.GetPropertyValue<string>("HeightValue").Should().BeNull();
+      widget.GetPropertyValue<string>("HyperlinkColorValue").Should().BeNull();
+      widget.GetPropertyValue<string>("TextColorValue").Should().BeNull();
+      widget.GetPropertyValue<bool>("TitleValue").Should().BeTrue();
+      widget.GetPropertyValue<string>("TitleColorValue").Should().BeNull();
+      widget.GetPropertyValue<string>("TitleTextValue").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthValue").Should().BeNull();
     }
   }
 
@@ -48,12 +55,12 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().BackgroundColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().BackgroundColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget) => widget.BackgroundColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BackgroundColorProperty").Should().Be(color);
+    static void Validate(string color, IMailRuFacesWidget widget) => widget.BackgroundColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BackgroundColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -67,12 +74,12 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().BorderColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().BorderColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget) => widget.BorderColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BorderColorProperty").Should().Be(color);
+    static void Validate(string color, IMailRuFacesWidget widget) => widget.BorderColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BorderColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -86,12 +93,12 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string domain, IMailRuFacesWidget widget) => widget.Domain(domain).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainProperty").Should().Be(domain);
+    static void Validate(string domain, IMailRuFacesWidget widget) => widget.Domain(domain).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainValue").Should().Be(domain);
   }
 
   /// <summary>
@@ -105,12 +112,12 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().Font(null)).ThrowExactly<ArgumentNullException>().WithParameterName("font");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Font(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("font");
 
-      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string font, IMailRuFacesWidget widget) => widget.Font(font).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FontProperty").Should().Be(font);
+    static void Validate(string font, IMailRuFacesWidget widget) => widget.Font(font).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FontValue").Should().Be(font);
   }
 
   /// <summary>
@@ -124,12 +131,12 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IMailRuFacesWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
+    static void Validate(string height, IMailRuFacesWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -143,12 +150,12 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().HyperlinkColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().HyperlinkColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget) => widget.HyperlinkColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HyperlinkColorProperty").Should().Be(color);
+    static void Validate(string color, IMailRuFacesWidget widget) => widget.HyperlinkColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HyperlinkColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -162,12 +169,12 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().TextColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TextColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget) => widget.TextColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextColorProperty").Should().Be(color);
+    static void Validate(string color, IMailRuFacesWidget widget) => widget.TextColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -178,12 +185,12 @@ public sealed class MailRuFacesWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new MailRuFacesWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IMailRuFacesWidget widget) => widget.Title(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TitleProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IMailRuFacesWidget widget) => widget.Title(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TitleValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -197,12 +204,12 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget) => widget.TitleColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleColorProperty").Should().Be(color);
+    static void Validate(string color, IMailRuFacesWidget widget) => widget.TitleColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleColorValue").Should().Be(color);
   }
     
   /// <summary>
@@ -216,12 +223,12 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string text, IMailRuFacesWidget widget) => widget.TitleText(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleTextProperty").Should().Be(text);
+    static void Validate(string text, IMailRuFacesWidget widget) => widget.TitleText(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleTextValue").Should().Be(text);
   }
 
   /// <summary>
@@ -235,12 +242,12 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuFacesWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new MailRuFacesWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IMailRuFacesWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
+    static void Validate(string width, IMailRuFacesWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -252,7 +259,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new MailRuFacesWidget());
-      Validate(Attributes.MailRuFacesWidget());
+      Validate(Fixture.Create<IMailRuFacesWidget>());
     }
 
     return;
@@ -261,7 +268,17 @@ public sealed class MailRuFacesWidgetTest : UnitTest
     {
       var clone = original.Clone<IMailRuFacesWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("BackgroundColorValue").Should().Be(original.GetPropertyValue<string>("BackgroundColorValue"));
+      clone.GetPropertyValue<string>("BorderColorValue").Should().Be(original.GetPropertyValue<string>("BorderColorValue"));
+      clone.GetPropertyValue<string>("DomainValue").Should().Be(original.GetPropertyValue<string>("DomainValue"));
+      clone.GetPropertyValue<string>("FontValue").Should().Be(original.GetPropertyValue<string>("FontValue"));
+      clone.GetPropertyValue<string>("HeightValue").Should().Be(original.GetPropertyValue<string>("HeightValue"));
+      clone.GetPropertyValue<string>("HyperlinkColorValue").Should().Be(original.GetPropertyValue<string>("HyperlinkColorValue"));
+      clone.GetPropertyValue<string>("TextColorValue").Should().Be(original.GetPropertyValue<string>("TextColorValue"));
+      clone.GetPropertyValue<bool>("TitleValue").Should().Be(original.GetPropertyValue<bool>("TitleValue"));
+      clone.GetPropertyValue<string>("TitleColorValue").Should().Be(original.GetPropertyValue<string>("TitleColorValue"));
+      clone.GetPropertyValue<string>("TitleTextValue").Should().Be(original.GetPropertyValue<string>("TitleTextValue"));
+      clone.GetPropertyValue<string>("WidthValue").Should().Be(original.GetPropertyValue<string>("WidthValue"));
     }
   }
 
@@ -279,6 +296,7 @@ public sealed class MailRuFacesWidgetTest : UnitTest
       Validate(new MailRuFacesWidget().Width("width").Height("height"));
       Validate(new MailRuFacesWidget().Domain("domain").Width("width").Height("height"), """<a class="mrc__plugin_share_friends" href="http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height" rel="{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;}">Друзья</a>""");
       Validate(new MailRuFacesWidget().Domain("domain").Width("width").Height("height").TitleText("title").Title(false).TitleColor("titleColor").BackgroundColor("backgroundColor").BorderColor("borderColor").TextColor("textColor").HyperlinkColor("hyperlinkColor"), """<a class="mrc__plugin_share_friends" href="http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height&amp;title=title&amp;notitle=true&amp;title-color=titleColor&amp;background=backgroundColor&amp;border=borderColor&amp;color=textColor&amp;link-color=hyperlinkColor" rel="{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;,&quot;title&quot;:&quot;title&quot;,&quot;notitle&quot;:true,&quot;title-color&quot;:&quot;titleColor&quot;,&quot;background&quot;:&quot;backgroundColor&quot;,&quot;border&quot;:&quot;borderColor&quot;,&quot;color&quot;:&quot;textColor&quot;,&quot;link-color&quot;:&quot;hyperlinkColor&quot;}">Друзья</a>""");
+      Validate(Fixture.Create<IMailRuFacesWidget>());
     }
 
     return;

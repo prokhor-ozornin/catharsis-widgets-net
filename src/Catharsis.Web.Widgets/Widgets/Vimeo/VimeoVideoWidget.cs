@@ -8,32 +8,32 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AutoPlayProperty { get; set; }
+  protected virtual bool AutoPlayValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string IdProperty { get; set; }
+  protected virtual string IdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool LoopProperty { get; set; }
+  protected virtual bool LoopValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IVimeoVideoWidget.AutoPlay(bool)"/>
   public virtual IVimeoVideoWidget AutoPlay(bool enabled)
   {
-    AutoPlayProperty = enabled;
+    AutoPlayValue = enabled;
     return this;
   }
 
@@ -43,7 +43,7 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
     return this;
   }
 
@@ -53,14 +53,14 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    IdProperty = id;
+    IdValue = id;
     return this;
   }
 
   /// <inheritdoc cref="IVimeoVideoWidget.Loop(bool)"/>
   public virtual IVimeoVideoWidget Loop(bool enabled)
   {
-    LoopProperty = enabled;
+    LoopValue = enabled;
     return this;
   }
 
@@ -70,28 +70,28 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new VimeoVideoWidget
   {
-    AutoPlayProperty = AutoPlayProperty,
-    HeightProperty = HeightProperty,
-    IdProperty = IdProperty,
-    LoopProperty = LoopProperty,
-    WidthProperty = WidthProperty
+    AutoPlayValue = AutoPlayValue,
+    HeightValue = HeightValue,
+    IdValue = IdValue,
+    LoopValue = LoopValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => IdProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
+  public override string ToHtml() => IdValue.IsUnset() || WidthValue.IsUnset() || HeightValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("frameborder", 0)
       .Attribute("allowfullscreen", true)
       .Attribute("webkitallowfullscreen", true)
       .Attribute("mozallowfullscreen", true)
-      .Attribute("height", HeightProperty)
-      .Attribute("width", WidthProperty)
-      .Attribute("src", string.Format("https://player.vimeo.com/video/${Id()}?badge=0{1}{2}", IdProperty, AutoPlayProperty ? "&autoplay=1" : string.Empty, LoopProperty ? "&loop=1" : string.Empty))
+      .Attribute("height", HeightValue)
+      .Attribute("width", WidthValue)
+      .Attribute("src", string.Format("https://player.vimeo.com/video/${Id()}?badge=0{1}{2}", IdValue, AutoPlayValue ? "&autoplay=1" : string.Empty, LoopValue ? "&loop=1" : string.Empty))
       .ToString();
 }

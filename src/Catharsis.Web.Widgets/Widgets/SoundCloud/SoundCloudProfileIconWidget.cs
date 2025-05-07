@@ -8,17 +8,17 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorProperty { get; set; } = "orange_white";
+  protected virtual string ColorValue { get; set; } = "orange_white";
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual short SizeProperty { get; set; } = (short) SoundCloudProfileIconSize.Size32;
+  protected virtual short SizeValue { get; set; } = (short) SoundCloudProfileIconSize.Size32;
 
   /// <inheritdoc cref="ISoundCloudProfileIconWidget.Account(string)"/>
   public virtual ISoundCloudProfileIconWidget Account(string account)
@@ -26,7 +26,7 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
     return this;
   }
 
@@ -36,31 +36,31 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    ColorProperty = color;
+    ColorValue = color;
     return this;
   }
 
   /// <inheritdoc cref="ISoundCloudProfileIconWidget.Size(short)"/>
   public virtual ISoundCloudProfileIconWidget Size(short size)
   {
-    SizeProperty = size;
+    SizeValue = size;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new SoundCloudProfileIconWidget
   {
-    AccountProperty = AccountProperty,
-    ColorProperty = ColorProperty,
-    SizeProperty = SizeProperty
+    AccountValue = AccountValue,
+    ColorValue = ColorValue,
+    SizeValue = SizeValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
+  public override string ToHtml() => AccountValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
       .Attribute("allowtransparency", true)
       .Attribute("frameborder", 0)
       .Attribute("scrolling", "no")
-      .Attribute("style", string.Format("width: {0}px; height: {0}px;", SizeProperty))
-      .Attribute("src", $"https://w.soundcloud.com/icon/?url=http://soundcloud.com/${AccountProperty}&color=${ColorProperty}&size=${SizeProperty}")
+      .Attribute("style", string.Format("width: {0}px; height: {0}px;", SizeValue))
+      .Attribute("src", $"https://w.soundcloud.com/icon/?url=http://soundcloud.com/${AccountValue}&color=${ColorValue}&size=${SizeValue}")
       .ToString();
 }

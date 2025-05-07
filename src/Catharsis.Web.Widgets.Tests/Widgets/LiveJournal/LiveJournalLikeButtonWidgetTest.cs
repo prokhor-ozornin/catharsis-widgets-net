@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="LiveJournalLikeButtonWidget"/>.</para>
 /// </summary>
-public sealed class LiveJournalLikeButtonWidgetTest : UnitTest
+public sealed class LiveJournalLikeButtonWidgetTest : Test
 {
+  private ILiveJournalLikeButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public LiveJournalLikeButtonWidgetTest() => Widget = Fixture.Create<ILiveJournalLikeButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="LiveJournalLikeButtonWidget.Clone()"/> method.</para>
   /// </summary>
@@ -20,7 +27,7 @@ public sealed class LiveJournalLikeButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new LiveJournalLikeButtonWidget());
-      Validate(Attributes.LiveJournalLikeButtonWidget());
+      Validate(Fixture.Create<ILiveJournalLikeButtonWidget>());
     }
 
     return;
@@ -29,7 +36,7 @@ public sealed class LiveJournalLikeButtonWidgetTest : UnitTest
     {
       var clone = original.Clone<ILiveJournalLikeButtonWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
     }
   }
 
@@ -42,6 +49,7 @@ public sealed class LiveJournalLikeButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new LiveJournalLikeButtonWidget(), """<lj-like buttons="repost"/>""");
+      Validate(Fixture.Create<ILiveJournalLikeButtonWidget>());
     }
 
     return;

@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="PayPalBuyNowWidget"/>.</para>
 /// </summary>
-public sealed class PayPalBuyNowWidgetTest : UnitTest
+public sealed class PayPalBuyNowWidgetTest : Test
 {
+  private IPayPalBuyNowWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public PayPalBuyNowWidgetTest() => Widget = Fixture.Create<IPayPalBuyNowWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -53,7 +60,7 @@ public sealed class PayPalBuyNowWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new PayPalBuyNowWidget());
-      Validate(Attributes.PayPalBuyNowWidget());
+      Validate(Fixture.Create<IPayPalBuyNowWidget>());
     }
 
     return;
@@ -62,7 +69,7 @@ public sealed class PayPalBuyNowWidgetTest : UnitTest
     {
       var clone = original.Clone<IPayPalBuyNowWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
     }
   }
 
@@ -72,7 +79,11 @@ public sealed class PayPalBuyNowWidgetTest : UnitTest
   [Fact]
   public void ToHtml_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      Validate(Fixture.Create<IPayPalBuyNowWidget>());
+      throw new NotImplementedException();
+    }
 
     return;
 

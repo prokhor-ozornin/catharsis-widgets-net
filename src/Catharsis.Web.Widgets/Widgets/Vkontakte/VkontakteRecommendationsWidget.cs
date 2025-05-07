@@ -10,37 +10,37 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ElementIdProperty { get; set; }
+  protected virtual string ElementIdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte? LimitProperty { get; set; }
+  protected virtual byte? LimitValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual short? MaxProperty { get; set; }
+  protected virtual short? MaxValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual VkontakteRecommendationsPeriod? PeriodProperty { get; set; }
+  protected virtual VkontakteRecommendationsPeriod? PeriodValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual VkontakteRecommendationsSorting? SortingProperty { get; set; }
+  protected virtual VkontakteRecommendationsSorting? SortingValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TargetProperty { get; set; }
+  protected virtual string TargetValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual VkontakteRecommendationsVerb? VerbProperty { get; set; }
+  protected virtual VkontakteRecommendationsVerb? VerbValue { get; set; }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.ElementId(string)"/>
   public virtual IVkontakteRecommendationsWidget ElementId(string id)
@@ -48,7 +48,7 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    ElementIdProperty = id;
+    ElementIdValue = id;
 
     return this;
   }
@@ -56,35 +56,35 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Limit(byte)"/>
   public virtual IVkontakteRecommendationsWidget Limit(byte limit)
   {
-    LimitProperty = limit;
+    LimitValue = limit;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Max(short)"/>
   public virtual IVkontakteRecommendationsWidget Max(short count)
   {
-    MaxProperty = count;
+    MaxValue = count;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Period(VkontakteRecommendationsPeriod)"/>
   public virtual IVkontakteRecommendationsWidget Period(VkontakteRecommendationsPeriod period)
   {
-    PeriodProperty = period;
+    PeriodValue = period;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Verb(VkontakteRecommendationsVerb)"/>
   public virtual IVkontakteRecommendationsWidget Verb(VkontakteRecommendationsVerb verb)
   {
-    VerbProperty = verb;
+    VerbValue = verb;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteRecommendationsWidget.Sorting(VkontakteRecommendationsSorting)"/>
   public virtual IVkontakteRecommendationsWidget Sorting(VkontakteRecommendationsSorting sorting)
   {
-    SortingProperty = sorting;
+    SortingValue = sorting;
     return this;
   }
 
@@ -94,7 +94,7 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
     if (target is null) throw new ArgumentNullException(nameof(target));
     if (target.IsEmpty()) throw new ArgumentException(nameof(target));
 
-    TargetProperty = target;
+    TargetValue = target;
 
     return this;
   }
@@ -102,13 +102,13 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new VkontakteRecommendationsWidget
   {
-    ElementIdProperty = ElementIdProperty,
-    LimitProperty = LimitProperty,
-    MaxProperty = MaxProperty,
-    PeriodProperty = PeriodProperty,
-    SortingProperty = SortingProperty,
-    TargetProperty = TargetProperty,
-    VerbProperty = VerbProperty
+    ElementIdValue = ElementIdValue,
+    LimitValue = LimitValue,
+    MaxValue = MaxValue,
+    PeriodValue = PeriodValue,
+    SortingValue = SortingValue,
+    TargetValue = TargetValue,
+    VerbValue = VerbValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
@@ -116,29 +116,29 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
   {
     var config = new Dictionary<string, object>();
     
-    if (LimitProperty is not null)
+    if (LimitValue is not null)
     {
-      config["limit"] = LimitProperty.GetValueOrDefault();
+      config["limit"] = LimitValue.GetValueOrDefault();
     }
     
-    if (MaxProperty is not null)
+    if (MaxValue is not null)
     {
-      config["max"] = MaxProperty.GetValueOrDefault();
+      config["max"] = MaxValue.GetValueOrDefault();
     }
 
-    if (PeriodProperty is not null)
+    if (PeriodValue is not null)
     {
-      config["period"] = PeriodProperty.GetValueOrDefault().ToString().ToLowerInvariant();
+      config["period"] = PeriodValue.GetValueOrDefault().ToString().ToLowerInvariant();
     }
     
-    if (VerbProperty is not null)
+    if (VerbValue is not null)
     {
-      config["verb"] = (byte) VerbProperty.GetValueOrDefault();
+      config["verb"] = (byte) VerbValue.GetValueOrDefault();
     }
     
-    if (SortingProperty is not null)
+    if (SortingValue is not null)
     {
-      config["sort"] = SortingProperty.GetValueOrDefault() switch
+      config["sort"] = SortingValue.GetValueOrDefault() switch
       {
         VkontakteRecommendationsSorting.FriendLikes => "friend_likes",
         VkontakteRecommendationsSorting.Likes => "likes",
@@ -146,12 +146,12 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
       };
     }
 
-    if (TargetProperty is not null)
+    if (TargetValue is not null)
     {
-      config["target"] = TargetProperty;
+      config["target"] = TargetValue;
     }
 
-    var id = ElementIdProperty ?? "vk_recommendations";
+    var id = ElementIdValue ?? "vk_recommendations";
 
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", id))

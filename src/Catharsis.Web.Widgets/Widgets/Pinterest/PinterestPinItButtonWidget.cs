@@ -9,42 +9,42 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorProperty { get; set; } = "gray";
+  protected virtual string ColorValue { get; set; } = "gray";
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual PinterestPinItButtonPinCountPosition CounterProperty { get; set; } = PinterestPinItButtonPinCountPosition.None;
+  protected virtual PinterestPinItButtonPinCountPosition CounterValue { get; set; } = PinterestPinItButtonPinCountPosition.None;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string DescriptionProperty { get; set; }
+  protected virtual string DescriptionValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ImageProperty { get; set; }
+  protected virtual string ImageValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LanguageProperty { get; set; } = "en";
+  protected virtual string LanguageValue { get; set; } = "en";
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual PinterestPinItButtonShape ShapeProperty { get; set; } = PinterestPinItButtonShape.Rectangular;
+  protected virtual PinterestPinItButtonShape ShapeValue { get; set; } = PinterestPinItButtonShape.Rectangular;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual PinterestPinItButtonSize SizeProperty { get; set; } = PinterestPinItButtonSize.Small;
+  protected virtual PinterestPinItButtonSize SizeValue { get; set; } = PinterestPinItButtonSize.Small;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
 
   /// <summary>
   ///   <para>Background color of the button.</para>
@@ -58,7 +58,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    ColorProperty = color;
+    ColorValue = color;
     return this;
   }
 
@@ -69,7 +69,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   /// <returns>Reference to the current widget.</returns>
   public virtual IPinterestPinItButtonWidget Counter(PinterestPinItButtonPinCountPosition position)
   {
-    CounterProperty = position;
+    CounterValue = position;
     return this;
   }
 
@@ -86,7 +86,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     if (description is null) throw new ArgumentNullException(nameof(description));
     if (description.IsEmpty()) throw new ArgumentException(nameof(description));
 
-    DescriptionProperty = description;
+    DescriptionValue = description;
     return this;
   }
 
@@ -103,7 +103,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     if (image is null) throw new ArgumentNullException(nameof(image));
     if (image.IsEmpty()) throw new ArgumentException(nameof(image));
 
-    ImageProperty = image;
+    ImageValue = image;
     return this;
   }
 
@@ -119,7 +119,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     if (language is null) throw new ArgumentNullException(nameof(language));
     if (language.IsEmpty()) throw new ArgumentException(nameof(language));
 
-    LanguageProperty = language;
+    LanguageValue = language;
     return this;
   }
 
@@ -130,7 +130,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   /// <returns>Reference to the current widget.</returns>
   public virtual IPinterestPinItButtonWidget Shape(PinterestPinItButtonShape shape)
   {
-    ShapeProperty = shape;
+    ShapeValue = shape;
     return this;
   }
 
@@ -142,7 +142,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   /// <remarks>Actual vertical size in pixels also depends on the button's shape.</remarks>
   public virtual IPinterestPinItButtonWidget Size(PinterestPinItButtonSize size)
   {
-    SizeProperty = size;
+    SizeValue = size;
     return this;
   }
     
@@ -159,42 +159,42 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new PinterestPinItButtonWidget
   {
-    ColorProperty = ColorProperty,
-    CounterProperty = CounterProperty,
-    DescriptionProperty = DescriptionProperty,
-    ImageProperty = ImageProperty,
-    LanguageProperty = LanguageProperty,
-    ShapeProperty = ShapeProperty,
-    SizeProperty = SizeProperty,
-    UrlProperty = UrlProperty
+    ColorValue = ColorValue,
+    CounterValue = CounterValue,
+    DescriptionValue = DescriptionValue,
+    ImageValue = ImageValue,
+    LanguageValue = LanguageValue,
+    ShapeValue = ShapeValue,
+    SizeValue = SizeValue,
+    UrlValue = UrlValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (UrlProperty.IsUnset() || ImageProperty.IsUnset() || DescriptionProperty.IsUnset())
+    if (UrlValue.IsUnset() || ImageValue.IsUnset() || DescriptionValue.IsUnset())
     {
       return string.Empty;
     }
 
     byte height = 0;
 
-    height = SizeProperty switch
+    height = SizeValue switch
     {
-      PinterestPinItButtonSize.Large => ShapeProperty switch
+      PinterestPinItButtonSize.Large => ShapeValue switch
       {
         PinterestPinItButtonShape.Circular => 32,
         PinterestPinItButtonShape.Rectangular => 28,
         _ => height
       },
-      PinterestPinItButtonSize.Small => ShapeProperty switch
+      PinterestPinItButtonSize.Small => ShapeValue switch
       {
         PinterestPinItButtonShape.Circular => 16,
         PinterestPinItButtonShape.Rectangular => 20,
@@ -203,7 +203,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
       _ => height
     };
 
-    var shape = ShapeProperty switch
+    var shape = ShapeValue switch
     {
       PinterestPinItButtonShape.Rectangular => "rect",
       PinterestPinItButtonShape.Circular => "round",
@@ -211,14 +211,14 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
     };
 
     return new TagBuilder("a")
-      .Attribute("href", $"http://www.pinterest.com/pin/create/button/?url=${HttpUtility.UrlEncode(UrlProperty)}&media=${HttpUtility.UrlEncode(ImageProperty)}&description=${HttpUtility.UrlEncode(DescriptionProperty)}")
+      .Attribute("href", $"http://www.pinterest.com/pin/create/button/?url=${HttpUtility.UrlEncode(UrlValue)}&media=${HttpUtility.UrlEncode(ImageValue)}&description=${HttpUtility.UrlEncode(DescriptionValue)}")
       .Attribute("data-pin-do", "buttonPin")
-      .Attribute("data-pin-lang", ShapeProperty == PinterestPinItButtonShape.Rectangular ? LanguageProperty : null)
-      .Attribute("data-pin-config", ShapeProperty == PinterestPinItButtonShape.Rectangular ? CounterProperty.ToString().ToLowerInvariant() : null)
-      .Attribute("data-pin-color", ShapeProperty == PinterestPinItButtonShape.Rectangular ? ColorProperty : null)
+      .Attribute("data-pin-lang", ShapeValue == PinterestPinItButtonShape.Rectangular ? LanguageValue : null)
+      .Attribute("data-pin-config", ShapeValue == PinterestPinItButtonShape.Rectangular ? CounterValue.ToString().ToLowerInvariant() : null)
+      .Attribute("data-pin-color", ShapeValue == PinterestPinItButtonShape.Rectangular ? ColorValue : null)
       .Attribute("data-pin-height", height)
       .Attribute("data-pin-shape", shape)
-      .Html($"<img src=\"http://assets.pinterest.com/images/pidgets/pinit_fg_${LanguageProperty}_${shape}_${ColorProperty}_${height}.png\"/>")
+      .Html($"<img src=\"http://assets.pinterest.com/images/pidgets/pinit_fg_${LanguageValue}_${shape}_${ColorValue}_${height}.png\"/>")
       .ToString();
   }
 }

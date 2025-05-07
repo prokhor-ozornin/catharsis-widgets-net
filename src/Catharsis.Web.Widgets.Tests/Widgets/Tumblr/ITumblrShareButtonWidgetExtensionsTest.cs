@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="ITumblrShareButtonWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class ITumblrShareButtonWidgetExtensionsTest : UnitTest
+public sealed class ITumblrShareButtonWidgetExtensionsTest : Test
 {
+  private ITumblrShareButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public ITumblrShareButtonWidgetExtensionsTest() => Widget = Fixture.Create<ITumblrShareButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="ITumblrShareButtonWidgetExtensions.Type(ITumblrShareButtonWidget, TumblrShareButtonType)"/> method.</para>
   /// </summary>
@@ -21,12 +28,12 @@ public sealed class ITumblrShareButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITumblrShareButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new TumblrShareButtonWidget().With(widget => Enum.GetValues<TumblrShareButtonType>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<TumblrShareButtonType>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(TumblrShareButtonType type, ITumblrShareButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) type);
+    static void Validate(TumblrShareButtonType type, ITumblrShareButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeValue").Should().Be((byte) type);
   }
 
   /// <summary>
@@ -39,11 +46,11 @@ public sealed class ITumblrShareButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITumblrShareButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new TumblrShareButtonWidget().With(widget => Enum.GetValues<TumblrShareButtonColorScheme>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<TumblrShareButtonColorScheme>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(TumblrShareButtonColorScheme scheme, ITumblrShareButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
+    static void Validate(TumblrShareButtonColorScheme scheme, ITumblrShareButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme.ToString().ToLowerInvariant());
   }
 }

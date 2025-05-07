@@ -9,17 +9,17 @@ public class InlineImageWidget : WebWidget, IInlineImageWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte[] ContentsProperty { get; set; }
+  protected virtual byte[] ContentsValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string FormatProperty { get; set; }
+  protected virtual string FormatValue { get; set; }
 
   /// <inheritdoc cref="IInlineImageWidget.Contents(byte[])"/>
   public virtual IInlineImageWidget Contents(byte[] contents)
   {
-    ContentsProperty = contents ?? throw new ArgumentNullException(nameof(contents));
+    ContentsValue = contents ?? throw new ArgumentNullException(nameof(contents));
     return this;
   }
 
@@ -29,20 +29,20 @@ public class InlineImageWidget : WebWidget, IInlineImageWidget
     if (format is null) throw new ArgumentNullException(nameof(format));
     if (format.IsEmpty()) throw new ArgumentException(nameof(format));
 
-    FormatProperty = format;
+    FormatValue = format;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new InlineImageWidget
   {
-    ContentsProperty = ContentsProperty,
-    FormatProperty = FormatProperty
+    ContentsValue = ContentsValue,
+    FormatValue = FormatValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => ContentsProperty is null ? string.Empty : 
+  public override string ToHtml() => ContentsValue is null ? string.Empty : 
     new TagBuilder("img")
-      .Attribute("src", string.Format("data:{1};base64,{0}", Convert.ToBase64String(ContentsProperty), FormatProperty.IsUnset() ? "image" : FormatProperty))
+      .Attribute("src", string.Format("data:{1};base64,{0}", Convert.ToBase64String(ContentsValue), FormatValue.IsUnset() ? "image" : FormatValue))
       .ToString();
 }

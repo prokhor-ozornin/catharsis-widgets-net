@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="TwitterFollowButtonWidget"/>.</para>
 /// </summary>
-public sealed class TwitterFollowButtonWidgetTest : UnitTest
+public sealed class TwitterFollowButtonWidgetTest : Test
 {
+  private ITwitterFollowButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public TwitterFollowButtonWidgetTest() => Widget = Fixture.Create<ITwitterFollowButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,14 +30,14 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new TwitterFollowButtonWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("LanguageProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("SizeProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("AlignmentProperty").Should().BeNull();
-      widget.GetPropertyValue<bool?>("CounterProperty").Should().BeNull();
-      widget.GetPropertyValue<bool?>("ScreenNameProperty").Should().BeNull();
-      widget.GetPropertyValue<bool?>("SuggestionsProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
+      widget.GetPropertyValue<string>("LanguageValue").Should().BeNull();
+      widget.GetPropertyValue<string>("SizeValue").Should().BeNull();
+      widget.GetPropertyValue<string>("AlignmentValue").Should().BeNull();
+      widget.GetPropertyValue<bool?>("CounterValue").Should().BeNull();
+      widget.GetPropertyValue<bool?>("ScreenNameValue").Should().BeNull();
+      widget.GetPropertyValue<bool?>("SuggestionsValue").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthValue").Should().BeNull();
     }
   }
 
@@ -45,12 +52,12 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new TwitterFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, ITwitterFollowButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, ITwitterFollowButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -64,12 +71,12 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      new TwitterFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string language, ITwitterFollowButtonWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(language);
+    static void Validate(string language, ITwitterFollowButtonWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(language);
   }
 
   /// <summary>
@@ -83,12 +90,12 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      new TwitterFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string size, ITwitterFollowButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeProperty").Should().Be(size);
+    static void Validate(string size, ITwitterFollowButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeValue").Should().Be(size);
   }
 
   /// <summary>
@@ -102,12 +109,12 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Alignment(null)).ThrowExactly<ArgumentNullException>().WithParameterName("alignment");
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Alignment(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("alignment");
 
-      new TwitterFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string alignment, ITwitterFollowButtonWidget widget) => widget.Alignment(alignment).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AlignmentProperty").Should().Be(alignment);
+    static void Validate(string alignment, ITwitterFollowButtonWidget widget) => widget.Alignment(alignment).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AlignmentValue").Should().Be(alignment);
   }
     
   /// <summary>
@@ -118,12 +125,12 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new TwitterFollowButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, ITwitterFollowButtonWidget widget) => widget.Counter(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("CounterProperty").Should().Be(enabled);
+    static void Validate(bool enabled, ITwitterFollowButtonWidget widget) => widget.Counter(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("CounterValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -134,12 +141,12 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new TwitterFollowButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, ITwitterFollowButtonWidget widget) => widget.ScreenName(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("ScreenNameProperty").Should().Be(enabled);
+    static void Validate(bool enabled, ITwitterFollowButtonWidget widget) => widget.ScreenName(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("ScreenNameValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -150,12 +157,12 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new TwitterFollowButtonWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, ITwitterFollowButtonWidget widget) => widget.Suggestions(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("SuggestionsProperty").Should().Be(enabled);
+    static void Validate(bool enabled, ITwitterFollowButtonWidget widget) => widget.Suggestions(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("SuggestionsValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -167,7 +174,7 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new TwitterFollowButtonWidget());
-      Validate(Attributes.TwitterFollowButtonWidget());
+      Validate(Fixture.Create<ITwitterFollowButtonWidget>());
     }
 
     return;
@@ -176,7 +183,14 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
     {
       var clone = original.Clone<ITwitterFollowButtonWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
+      clone.GetPropertyValue<string>("LanguageValue").Should().Be(original.GetPropertyValue<string>("LanguageValue"));
+      clone.GetPropertyValue<string>("SizeValue").Should().Be(original.GetPropertyValue<string>("SizeValue"));
+      clone.GetPropertyValue<string>("AlignmentValue").Should().Be(original.GetPropertyValue<string>("AlignmentValue"));
+      clone.GetPropertyValue<bool?>("CounterValue").Should().Be(original.GetPropertyValue<bool?>("CounterValue"));
+      clone.GetPropertyValue<bool?>("ScreenNameValue").Should().Be(original.GetPropertyValue<bool?>("ScreenNameValue"));
+      clone.GetPropertyValue<bool?>("SuggestionsValue").Should().Be(original.GetPropertyValue<bool?>("SuggestionsValue"));
+      clone.GetPropertyValue<string>("WidthValue").Should().Be(original.GetPropertyValue<string>("WidthValue"));
     }
   }
 
@@ -190,6 +204,7 @@ public sealed class TwitterFollowButtonWidgetTest : UnitTest
     {
       Validate(new TwitterFollowButtonWidget().Account("account"), $"""<a class="twitter-follow-button" data-lang="{Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName}" href="https://twitter.com/account"></a>""");
       Validate(new TwitterFollowButtonWidget().Account("account").Language("en").Counter(true).Size("size").Width("width").Alignment("align").ScreenName(true).Suggestions(false), """<a class="twitter-follow-button" data-align="align" data-dnt="true" data-lang="en" data-show-count="true" data-show-screen-name="true" data-size="size" data-width="width" href="https://twitter.com/account"></a>""");
+      Validate(Fixture.Create<ITwitterFollowButtonWidget>());
     }
 
     return;

@@ -8,67 +8,67 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool DescriptionProperty { get; set; }
+  protected virtual bool DescriptionValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual decimal? SumProperty { get; set; }
+  protected virtual decimal? SumValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool CardsProperty { get; set; } = true;
+  protected virtual bool CardsValue { get; set; } = true;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte TextProperty { get; set; } = (byte) YandexMoneyDonateFormText.Donate;
+  protected virtual byte TextValue { get; set; } = (byte) YandexMoneyDonateFormText.Donate;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ProjectNameProperty { get; set; }
+  protected virtual string ProjectNameValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ProjectSiteProperty { get; set; }
+  protected virtual string ProjectSiteValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerCommentProperty { get; set; }
+  protected virtual bool AskPayerCommentValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string CommentHintProperty { get; set; }
+  protected virtual string CommentHintValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerFullNameProperty { get; set; }
+  protected virtual bool AskPayerFullNameValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerEmailProperty { get; set; }
+  protected virtual bool AskPayerEmailValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerPhoneProperty { get; set; }
+  protected virtual bool AskPayerPhoneValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string DescriptionTextProperty { get; set; }
+  protected virtual string DescriptionTextValue { get; set; }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Account(string)"/>
   public virtual IYandexMoneyDonateFormWidget Account(string account)
@@ -76,14 +76,14 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Cards(bool)"/>
   public virtual IYandexMoneyDonateFormWidget Cards(bool enabled)
   {
-    CardsProperty = enabled;
+    CardsValue = enabled;
     return this;
   }
 
@@ -93,14 +93,14 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     if (description is null) throw new ArgumentNullException(nameof(description));
     if (description.IsEmpty()) throw new ArgumentException(nameof(description));
 
-    DescriptionTextProperty = description;
+    DescriptionTextValue = description;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerComment(bool)"/>
   public virtual IYandexMoneyDonateFormWidget AskPayerComment(bool enabled)
   {
-    AskPayerCommentProperty = enabled;
+    AskPayerCommentValue = enabled;
     return this;
   }
 
@@ -110,28 +110,28 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     if (hint is null) throw new ArgumentNullException(nameof(hint));
     if (hint.IsEmpty()) throw new ArgumentException(nameof(hint));
 
-    CommentHintProperty = hint;
+    CommentHintValue = hint;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerEmail(bool)"/>
   public virtual IYandexMoneyDonateFormWidget AskPayerEmail(bool enabled)
   {
-    AskPayerEmailProperty = enabled;
+    AskPayerEmailValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerFullName(bool)"/>
   public virtual IYandexMoneyDonateFormWidget AskPayerFullName(bool enabled)
   {
-    AskPayerFullNameProperty = enabled;
+    AskPayerFullNameValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.AskPayerPhone(bool)"/>
   public virtual IYandexMoneyDonateFormWidget AskPayerPhone(bool enabled)
   {
-    AskPayerPhoneProperty = enabled;
+    AskPayerPhoneValue = enabled;
     return this;
   }
 
@@ -141,7 +141,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     if (name is null) throw new ArgumentNullException(nameof(name));
     if (name.IsEmpty()) throw new ArgumentException(nameof(name));
 
-    ProjectNameProperty = name;
+    ProjectNameValue = name;
 
     return this;
   }
@@ -152,7 +152,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    ProjectSiteProperty = url;
+    ProjectSiteValue = url;
 
     return this;
   }
@@ -160,51 +160,51 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Description(bool)"/>
   public virtual IYandexMoneyDonateFormWidget Description(bool enabled)
   {
-    DescriptionProperty = enabled;
+    DescriptionValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Sum(decimal)"/>
   public virtual IYandexMoneyDonateFormWidget Sum(decimal sum)
   {
-    SumProperty = sum;
+    SumValue = sum;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyDonateFormWidget.Text(byte)"/>
   public virtual IYandexMoneyDonateFormWidget Text(byte text)
   {
-    TextProperty = text;
+    TextValue = text;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new YandexMoneyDonateFormWidget
   {
-    AccountProperty = AccountProperty,
-    DescriptionProperty = DescriptionProperty,
-    SumProperty = SumProperty,
-    CardsProperty = CardsProperty,
-    TextProperty = TextProperty,
-    ProjectNameProperty = ProjectNameProperty,
-    ProjectSiteProperty = ProjectSiteProperty,
-    AskPayerCommentProperty = AskPayerCommentProperty,
-    CommentHintProperty = CommentHintProperty,
-    AskPayerFullNameProperty = AskPayerFullNameProperty,
-    AskPayerEmailProperty = AskPayerEmailProperty,
-    AskPayerPhoneProperty = AskPayerPhoneProperty,
-    DescriptionTextProperty = DescriptionTextProperty
+    AccountValue = AccountValue,
+    DescriptionValue = DescriptionValue,
+    SumValue = SumValue,
+    CardsValue = CardsValue,
+    TextValue = TextValue,
+    ProjectNameValue = ProjectNameValue,
+    ProjectSiteValue = ProjectSiteValue,
+    AskPayerCommentValue = AskPayerCommentValue,
+    CommentHintValue = CommentHintValue,
+    AskPayerFullNameValue = AskPayerFullNameValue,
+    AskPayerEmailValue = AskPayerEmailValue,
+    AskPayerPhoneValue = AskPayerPhoneValue,
+    DescriptionTextValue = DescriptionTextValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsUnset() || DescriptionTextProperty.IsUnset())
+    if (AccountValue.IsUnset() || DescriptionTextValue.IsUnset())
     {
       return string.Empty;
     }
 
-    var width = (YandexMoneyDonateFormText) TextProperty switch
+    var width = (YandexMoneyDonateFormText) TextValue switch
     {
       YandexMoneyDonateFormText.Donate => 523,
       YandexMoneyDonateFormText.Give => 487,
@@ -214,18 +214,18 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
       _ => 523
     };
 
-    if (!CardsProperty)
+    if (!CardsValue)
     {
       width -= 69;
     }
 
     return new TagBuilder("iframe")
-      .Attribute("src", $"https://money.yandex.ru/embed/donate.xml?account={AccountProperty}&quickpay=donate{(CardsProperty ? "&payment-type-choice=on" : string.Empty)}&default-sum={SumProperty}&targets={DescriptionTextProperty}{(DescriptionProperty ? "&target-visibility=on" : string.Empty)}&project-name={ProjectNameProperty}&project-site={ProjectSiteProperty}&button-text=0{TextProperty}{(AskPayerCommentProperty ? $"&comment=on&hint=${CommentHintProperty}" : string.Empty)}{(AskPayerFullNameProperty ? "&fio=on" : string.Empty)}{(AskPayerEmailProperty ? "&mail=on" : string.Empty)}{(AskPayerPhoneProperty ? "&phone=on" : string.Empty)}")
+      .Attribute("src", $"https://money.yandex.ru/embed/donate.xml?account={AccountValue}&quickpay=donate{(CardsValue ? "&payment-type-choice=on" : string.Empty)}&default-sum={SumValue}&targets={DescriptionTextValue}{(DescriptionValue ? "&target-visibility=on" : string.Empty)}&project-name={ProjectNameValue}&project-site={ProjectSiteValue}&button-text=0{TextValue}{(AskPayerCommentValue ? $"&comment=on&hint=${CommentHintValue}" : string.Empty)}{(AskPayerFullNameValue ? "&fio=on" : string.Empty)}{(AskPayerEmailValue ? "&mail=on" : string.Empty)}{(AskPayerPhoneValue ? "&phone=on" : string.Empty)}")
       .Attribute("frameborder", 0)
       .Attribute("allowtransparency", true)
       .Attribute("scrolling", "no")
       .Attribute("width", width)
-      .Attribute("height", AskPayerCommentProperty ? 210 : 133)
+      .Attribute("height", AskPayerCommentValue ? 210 : 133)
       .ToString();
   }
 }

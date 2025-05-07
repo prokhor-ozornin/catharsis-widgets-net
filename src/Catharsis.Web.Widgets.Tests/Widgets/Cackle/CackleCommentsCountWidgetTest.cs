@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="CackleCommentsCountWidget"/>.</para>
 /// </summary>
-public sealed class CackleCommentsCountWidgetTest : UnitTest
+public sealed class CackleCommentsCountWidgetTest : Test
 {
+  private ICackleCommentsCountWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public CackleCommentsCountWidgetTest() => Widget = Fixture.Create<ICackleCommentsCountWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,7 +30,7 @@ public sealed class CackleCommentsCountWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new CackleCommentsCountWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
     }
   }
 
@@ -38,12 +45,12 @@ public sealed class CackleCommentsCountWidgetTest : UnitTest
       AssertionExtensions.Should(() => new CackleCommentsCountWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new CackleCommentsCountWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new CackleCommentsCountWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, ICackleCommentsCountWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, ICackleCommentsCountWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -55,7 +62,7 @@ public sealed class CackleCommentsCountWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new CackleCommentsCountWidget());
-      Validate(Attributes.CackleCommentsCountWidget());
+      Validate(Fixture.Create<ICackleCommentsCountWidget>());
     }
 
     return;
@@ -64,7 +71,7 @@ public sealed class CackleCommentsCountWidgetTest : UnitTest
     {
       var clone = original.Clone<ICackleCommentsCountWidget>();
 
-      clone.GetPropertyValue<string>("AccountProperty").Should().Be(original.GetPropertyValue<string>("AccountProperty"));
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
     }
   }
 
@@ -78,6 +85,7 @@ public sealed class CackleCommentsCountWidgetTest : UnitTest
     {
       Validate(new CackleCommentsCountWidget());
       Validate(new CackleCommentsCountWidget().Account("account"), """{"widget":"CommentCount","id":"account"}""");
+      Validate(Fixture.Create<ICackleCommentsCountWidget>());
     }
 
     return;

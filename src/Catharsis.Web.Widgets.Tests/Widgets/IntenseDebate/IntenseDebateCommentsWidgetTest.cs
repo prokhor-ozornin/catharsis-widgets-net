@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions.Execution;
 using FluentAssertions;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IntenseDebateCommentsWidget"/>.</para>
 /// </summary>
-public sealed class IntenseDebateCommentsWidgetTest : UnitTest
+public sealed class IntenseDebateCommentsWidgetTest : Test
 {
+  private IIntenseDebateCommentsWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IntenseDebateCommentsWidgetTest() => Widget = Fixture.Create<IIntenseDebateCommentsWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,10 +30,10 @@ public sealed class IntenseDebateCommentsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new IntenseDebateCommentsWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("PostIdProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("PostUrlProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("PostTitleProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
+      widget.GetPropertyValue<string>("PostIdValue").Should().BeNull();
+      widget.GetPropertyValue<string>("PostUrlValue").Should().BeNull();
+      widget.GetPropertyValue<string>("PostTitleValue").Should().BeNull();
     }
   }
 
@@ -41,12 +48,12 @@ public sealed class IntenseDebateCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new IntenseDebateCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IIntenseDebateCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, IIntenseDebateCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -60,12 +67,12 @@ public sealed class IntenseDebateCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new IntenseDebateCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IIntenseDebateCommentsWidget widget) => widget.PostId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PostIdProperty").Should().Be(id);
+    static void Validate(string id, IIntenseDebateCommentsWidget widget) => widget.PostId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PostIdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -79,12 +86,12 @@ public sealed class IntenseDebateCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostUrl(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostUrl(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new IntenseDebateCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string url, IIntenseDebateCommentsWidget widget) => widget.PostUrl(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PostUrlProperty").Should().Be(url);
+    static void Validate(string url, IIntenseDebateCommentsWidget widget) => widget.PostUrl(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PostUrlValue").Should().Be(url);
   }
 
   /// <summary>
@@ -98,12 +105,12 @@ public sealed class IntenseDebateCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostTitle(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new IntenseDebateCommentsWidget().PostTitle(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      new IntenseDebateCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string title, IIntenseDebateCommentsWidget widget) => widget.PostTitle(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PostTitleProperty").Should().Be(title);
+    static void Validate(string title, IIntenseDebateCommentsWidget widget) => widget.PostTitle(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PostTitleValue").Should().Be(title);
   }
 
   /// <summary>
@@ -115,7 +122,7 @@ public sealed class IntenseDebateCommentsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new IntenseDebateCommentsWidget());
-      Validate(Attributes.IntenseDebateCommentsWidget());
+      Validate(Fixture.Create<IIntenseDebateCommentsWidget>());
     }
 
     return;
@@ -124,7 +131,10 @@ public sealed class IntenseDebateCommentsWidgetTest : UnitTest
     {
       var clone = original.Clone<IIntenseDebateCommentsWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
+      clone.GetPropertyValue<string>("PostIdValue").Should().Be(original.GetPropertyValue<string>("PostIdValue"));
+      clone.GetPropertyValue<string>("PostUrlValue").Should().Be(original.GetPropertyValue<string>("PostUrlValue"));
+      clone.GetPropertyValue<string>("PostTitleValue").Should().Be(original.GetPropertyValue<string>("PostTitleValue"));
     }
   }
 
@@ -163,7 +173,7 @@ public sealed class IntenseDebateCommentsWidgetTest : UnitTest
                var idcomments_post_title = "postTitle"
                """
         );
-
+      Validate(Fixture.Create<IIntenseDebateCommentsWidget>());
     }
 
     return;

@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IVkontakteSubscriptionWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IVkontakteSubscriptionWidgetExtensionsTest : UnitTest
+public sealed class IVkontakteSubscriptionWidgetExtensionsTest : Test
 {
+  private IVkontakteSubscriptionWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IVkontakteSubscriptionWidgetExtensionsTest() => Widget = Fixture.Create<IVkontakteSubscriptionWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IVkontakteSubscriptionWidgetExtensions.Layout(IVkontakteSubscriptionWidget, VkontakteSubscriptionButtonLayout)"/> method.</para>
   /// </summary>
@@ -21,11 +28,11 @@ public sealed class IVkontakteSubscriptionWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IVkontakteSubscriptionWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new VkontakteSubscriptionWidget().With(widget => Enum.GetValues<VkontakteSubscriptionButtonLayout>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<VkontakteSubscriptionButtonLayout>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(VkontakteSubscriptionButtonLayout layout, IVkontakteSubscriptionWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LayoutProperty").Should().Be((byte) layout);
+    static void Validate(VkontakteSubscriptionButtonLayout layout, IVkontakteSubscriptionWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LayoutValue").Should().Be((byte) layout);
   }
 }

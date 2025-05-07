@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="PayPalDonateWidget"/>.</para>
 /// </summary>
-public sealed class PayPalDonateWidgetTest : UnitTest
+public sealed class PayPalDonateWidgetTest : Test
 {
+  private IPayPalDonateWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public PayPalDonateWidgetTest() => Widget = Fixture.Create<IPayPalDonateWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -53,7 +60,7 @@ public sealed class PayPalDonateWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new PayPalDonateWidget());
-      Validate(Attributes.PayPalDonateWidget());
+      Validate(Fixture.Create<IPayPalDonateWidget>());
     }
 
     return;
@@ -62,7 +69,7 @@ public sealed class PayPalDonateWidgetTest : UnitTest
     {
       var clone = original.Clone<IPayPalDonateWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
     }
   }
 
@@ -72,7 +79,11 @@ public sealed class PayPalDonateWidgetTest : UnitTest
   [Fact]
   public void ToHtml_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      Validate(new PayPalDonateWidget());
+      throw new NotImplementedException();
+    }
 
     return;
 

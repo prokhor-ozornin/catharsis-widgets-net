@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IFacebookLikeButtonWidgetExtensions"/></para>
 /// </summary>
-public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
+public sealed class IFacebookLikeButtonWidgetExtensionsTest : Test
 {
+  private IFacebookLikeButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IFacebookLikeButtonWidgetExtensionsTest() => Widget = Fixture.Create<IFacebookLikeButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookLikeButtonWidgetExtensions.Layout(IFacebookLikeButtonWidget, FacebookButtonLayout)"/> method.</para>
   /// </summary>
@@ -21,15 +28,14 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      var widget = new FacebookLikeButtonWidget();
-      Validate(FacebookButtonLayout.BoxCount, "box_count", widget);
-      Validate(FacebookButtonLayout.ButtonCount, "button_count", widget);
-      Validate(FacebookButtonLayout.Standard, "standard", widget);
+      Validate(FacebookButtonLayout.BoxCount, "box_count", Widget);
+      Validate(FacebookButtonLayout.ButtonCount, "button_count", Widget);
+      Validate(FacebookButtonLayout.Standard, "standard", Widget);
     }
 
     return;
 
-    static void Validate(FacebookButtonLayout layout, string value, IFacebookLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(value);
+    static void Validate(FacebookButtonLayout layout, string value, IFacebookLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(value);
   }
 
   /// <summary>
@@ -43,12 +49,12 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Url(new FacebookLikeButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new FacebookLikeButtonWidget().With(widget => new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget)));
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(Uri url, IFacebookLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url.ToString());
+    static void Validate(Uri url, IFacebookLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url.ToString());
   }
 
   /// <summary>
@@ -61,12 +67,12 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookLikeButtonWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(short width, IFacebookLikeButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
+    static void Validate(short width, IFacebookLikeButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -79,12 +85,12 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Verb(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookLikeButtonWidget().With(widget => Enum.GetValues<FacebookLikeButtonVerb>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<FacebookLikeButtonVerb>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(FacebookLikeButtonVerb verb, IFacebookLikeButtonWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("VerbProperty").Should().Be(verb.ToString().ToLowerInvariant());
+    static void Validate(FacebookLikeButtonVerb verb, IFacebookLikeButtonWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("VerbValue").Should().Be(verb.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -97,11 +103,11 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookLikeButtonWidget().With(widget => Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(FacebookColorScheme scheme, IFacebookLikeButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
+    static void Validate(FacebookColorScheme scheme, IFacebookLikeButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme.ToString().ToLowerInvariant());
   }
 }

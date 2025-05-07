@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontaktePostWidget"/>.</para>
 /// </summary>
-public sealed class VkontaktePostWidgetTest : UnitTest
+public sealed class VkontaktePostWidgetTest : Test
 {
+  private IVkontaktePostWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public VkontaktePostWidgetTest() => Widget = Fixture.Create<IVkontaktePostWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,11 +30,11 @@ public sealed class VkontaktePostWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new VkontaktePostWidget();
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("HashProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("OwnerProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ElementIdValue").Should().BeNull();
+      widget.GetPropertyValue<string>("HashValue").Should().BeNull();
+      widget.GetPropertyValue<string>("IdValue").Should().BeNull();
+      widget.GetPropertyValue<string>("OwnerValue").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthValue").Should().BeNull();
     }
   }
 
@@ -42,12 +49,12 @@ public sealed class VkontaktePostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePostWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePostWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new VkontaktePostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVkontaktePostWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
+    static void Validate(string id, IVkontaktePostWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -61,12 +68,12 @@ public sealed class VkontaktePostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePostWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      new VkontaktePostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string hash, IVkontaktePostWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashProperty").Should().Be(hash);
+    static void Validate(string hash, IVkontaktePostWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashValue").Should().Be(hash);
   }
 
   /// <summary>
@@ -80,12 +87,12 @@ public sealed class VkontaktePostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePostWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new VkontaktePostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVkontaktePostWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(id);
+    static void Validate(string id, IVkontaktePostWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -99,12 +106,12 @@ public sealed class VkontaktePostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new VkontaktePostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string owner, IVkontaktePostWidget widget) => widget.Owner(owner).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OwnerProperty").Should().Be(owner);
+    static void Validate(string owner, IVkontaktePostWidget widget) => widget.Owner(owner).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OwnerValue").Should().Be(owner);
   }
 
   /// <summary>
@@ -118,12 +125,12 @@ public sealed class VkontaktePostWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePostWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new VkontaktePostWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IVkontaktePostWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
+    static void Validate(string width, IVkontaktePostWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -135,7 +142,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new VkontaktePostWidget());
-      Validate(Attributes.VkontaktePostWidget());
+      Validate(Fixture.Create<IVkontaktePostWidget>());
     }
 
     return;
@@ -144,7 +151,11 @@ public sealed class VkontaktePostWidgetTest : UnitTest
     {
       var clone = original.Clone<IVkontaktePostWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("ElementIdValue").Should().Be(original.GetPropertyValue<string>("ElementIdValue"));
+      clone.GetPropertyValue<string>("HashValue").Should().Be(original.GetPropertyValue<string>("HashValue"));
+      clone.GetPropertyValue<string>("IdValue").Should().Be(original.GetPropertyValue<string>("IdValue"));
+      clone.GetPropertyValue<string>("OwnerValue").Should().Be(original.GetPropertyValue<string>("OwnerValue"));
+      clone.GetPropertyValue<string>("WidthValue").Should().Be(original.GetPropertyValue<string>("WidthValue"));
     }
   }
 
@@ -162,6 +173,7 @@ public sealed class VkontaktePostWidgetTest : UnitTest
       Validate(new VkontaktePostWidget().Id("id").Hash("hash"));
       Validate(new VkontaktePostWidget().Id("id").Owner("owner").Hash("hash"), """<div id="vk_post_owner_id"></div><script type="text/javascript">(function() { window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post("vk_post_owner_id", owner, id, "hash", {}) || setTimeout(arguments.callee, 50); }());</script>""");
       Validate(new VkontaktePostWidget().Id("id").Owner("owner").Hash("hash").ElementId("elementId").Width("width"), """<div id="elementId"></div><script type="text/javascript">(function() { window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post("elementId", owner, id, "hash", {"width":"width"}) || setTimeout(arguments.callee, 50); }());</script>""");
+      Validate(Fixture.Create<IVkontaktePostWidget>());
     }
 
     return;

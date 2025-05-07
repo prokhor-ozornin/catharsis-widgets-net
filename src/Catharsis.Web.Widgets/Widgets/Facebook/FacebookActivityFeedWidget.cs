@@ -8,62 +8,62 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual IEnumerable<string> ActionsProperty { get; set; } = [];
+  protected virtual IEnumerable<string> ActionsValue { get; set; } = [];
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AppIdProperty { get; set; }
+  protected virtual string AppIdValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorSchemeProperty { get; set; }
+  protected virtual string ColorSchemeValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string DomainProperty { get; set; }
+  protected virtual string DomainValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? HeaderProperty { get; set; }
+  protected virtual bool? HeaderValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LinkTargetProperty { get; set; }
+  protected virtual string LinkTargetValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte? MaxAgeProperty { get; set; }
+  protected virtual byte? MaxAgeValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? RecommendationsProperty { get; set; }
+  protected virtual bool? RecommendationsValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TrackLabelProperty { get; set; }
+  protected virtual string TrackLabelValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Actions(IEnumerable{string})"/>
   public virtual IFacebookActivityFeedWidget Actions(IEnumerable<string> actions)
   {
-    ActionsProperty = actions ?? throw new ArgumentNullException(nameof(actions));
+    ActionsValue = actions ?? throw new ArgumentNullException(nameof(actions));
     return this;
   }
 
@@ -73,7 +73,7 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    AppIdProperty = id;
+    AppIdValue = id;
 
     return this;
   }
@@ -84,7 +84,7 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    ColorSchemeProperty = scheme;
+    ColorSchemeValue = scheme;
 
     return this;
   }
@@ -95,7 +95,7 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (domain is null) throw new ArgumentNullException(nameof(domain));
     if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
 
-    DomainProperty = domain;
+    DomainValue = domain;
 
     return this;
   }
@@ -103,7 +103,7 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Header(bool)"/>
   public virtual IFacebookActivityFeedWidget Header(bool enabled)
   {
-    HeaderProperty = enabled;
+    HeaderValue = enabled;
     return this;
   }
 
@@ -113,7 +113,7 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
 
     return this;
   }
@@ -124,7 +124,7 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (target is null) throw new ArgumentNullException(nameof(target));
     if (target.IsEmpty()) throw new ArgumentException(nameof(target));
 
-    LinkTargetProperty = target;
+    LinkTargetValue = target;
 
     return this;
   }
@@ -132,14 +132,14 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   /// <inheritdoc cref="IFacebookActivityFeedWidget.MaxAge(byte)"/>
   public virtual IFacebookActivityFeedWidget MaxAge(byte age)
   {
-    MaxAgeProperty = age;
+    MaxAgeValue = age;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookActivityFeedWidget.Recommendations(bool)"/>
   public virtual IFacebookActivityFeedWidget Recommendations(bool enabled)
   {
-    RecommendationsProperty = enabled;
+    RecommendationsValue = enabled;
     return this;
   }
 
@@ -149,7 +149,7 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (label is null) throw new ArgumentNullException(nameof(label));
     if (label.IsEmpty()) throw new ArgumentException(nameof(label));
 
-    TrackLabelProperty = label;
+    TrackLabelValue = label;
 
     return this;
   }
@@ -160,7 +160,7 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
 
     return this;
   }
@@ -168,32 +168,32 @@ public class FacebookActivityFeedWidget : WebWidget, IFacebookActivityFeedWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new FacebookActivityFeedWidget
   {
-    ActionsProperty = ActionsProperty?.ToArray(),
-    AppIdProperty = AppIdProperty,
-    ColorSchemeProperty = ColorSchemeProperty,
-    DomainProperty = DomainProperty,
-    HeaderProperty = HeaderProperty,
-    HeightProperty = HeightProperty,
-    LinkTargetProperty = LinkTargetProperty,
-    MaxAgeProperty = MaxAgeProperty,
-    RecommendationsProperty = RecommendationsProperty,
-    TrackLabelProperty = TrackLabelProperty,
-    WidthProperty = WidthProperty
+    ActionsValue = ActionsValue?.ToArray(),
+    AppIdValue = AppIdValue,
+    ColorSchemeValue = ColorSchemeValue,
+    DomainValue = DomainValue,
+    HeaderValue = HeaderValue,
+    HeightValue = HeightValue,
+    LinkTargetValue = LinkTargetValue,
+    MaxAgeValue = MaxAgeValue,
+    RecommendationsValue = RecommendationsValue,
+    TrackLabelValue = TrackLabelValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
-      .Attribute("data-site", DomainProperty)
-      .Attribute("data-app-id", AppIdProperty)
-      .Attribute("data-action", ActionsProperty.Any() ? ActionsProperty.Join(",") : null)
-      .Attribute("data-width", WidthProperty)
-      .Attribute("data-height", HeightProperty)
-      .Attribute("data-colorscheme", ColorSchemeProperty)
-      .Attribute("data-header", HeaderProperty)
-      .Attribute("data-linktarget", LinkTargetProperty)
-      .Attribute("data-max-age", MaxAgeProperty)
-      .Attribute("data-recommendations", RecommendationsProperty)
-      .Attribute("data-ref", TrackLabelProperty)
+      .Attribute("data-site", DomainValue)
+      .Attribute("data-app-id", AppIdValue)
+      .Attribute("data-action", ActionsValue.Any() ? ActionsValue.Join(",") : null)
+      .Attribute("data-width", WidthValue)
+      .Attribute("data-height", HeightValue)
+      .Attribute("data-colorscheme", ColorSchemeValue)
+      .Attribute("data-header", HeaderValue)
+      .Attribute("data-linktarget", LinkTargetValue)
+      .Attribute("data-max-age", MaxAgeValue)
+      .Attribute("data-recommendations", RecommendationsValue)
+      .Attribute("data-ref", TrackLabelValue)
       .CssClass("fb-activity")
       .ToString();
 }

@@ -8,37 +8,37 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string SizeProperty { get; set; }
+  protected virtual string SizeValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AlignmentProperty { get; set; }
+  protected virtual string AlignmentValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AnnotationProperty { get; set; }
+  protected virtual string AnnotationValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string CallbackProperty { get; set; }
+  protected virtual string CallbackValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? RecommendationsProperty { get; set; }
+  protected virtual bool? RecommendationsValue { get; set; }
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Alignment(string)"/>
   public virtual IGooglePlusOneButtonWidget Alignment(string alignment)
@@ -46,7 +46,7 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (alignment is null) throw new ArgumentNullException(nameof(alignment));
     if (alignment.IsEmpty()) throw new ArgumentException(nameof(alignment));
 
-    AlignmentProperty = alignment;
+    AlignmentValue = alignment;
     return this;
   }
 
@@ -56,7 +56,7 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (annotation is null) throw new ArgumentNullException(nameof(annotation));
     if (annotation.IsEmpty()) throw new ArgumentException(nameof(annotation));
 
-    AnnotationProperty = annotation;
+    AnnotationValue = annotation;
     return this;
   }
 
@@ -66,14 +66,14 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (callback is null) throw new ArgumentNullException(nameof(callback));
     if (callback.IsEmpty()) throw new ArgumentException(nameof(callback));
 
-    CallbackProperty = callback;
+    CallbackValue = callback;
     return this;
   }
 
   /// <inheritdoc cref="IGooglePlusOneButtonWidget.Recommendations(bool)"/>
   public virtual IGooglePlusOneButtonWidget Recommendations(bool enabled)
   {
-    RecommendationsProperty = enabled;
+    RecommendationsValue = enabled;
     return this;
   }
 
@@ -83,7 +83,7 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
 
-    SizeProperty = size;
+    SizeValue = size;
     return this;
   }
 
@@ -93,7 +93,7 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
     return this;
   }
 
@@ -103,30 +103,30 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new GooglePlusOneButtonWidget
   {
-    UrlProperty = UrlProperty,
-    WidthProperty = WidthProperty,
-    SizeProperty = SizeProperty,
-    AlignmentProperty = AlignmentProperty,
-    AnnotationProperty = AnnotationProperty,
-    CallbackProperty = CallbackProperty,
-    RecommendationsProperty = RecommendationsProperty
+    UrlValue = UrlValue,
+    WidthValue = WidthValue,
+    SizeValue = SizeValue,
+    AlignmentValue = AlignmentValue,
+    AnnotationValue = AnnotationValue,
+    CallbackValue = CallbackValue,
+    RecommendationsValue = RecommendationsValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("g:plusone")
-      .Attribute("href", UrlProperty)
-      .Attribute("size", SizeProperty)
-      .Attribute("annotation", AnnotationProperty)
-      .Attribute("width", WidthProperty)
-      .Attribute("align", AlignmentProperty)
-      .Attribute("data-callback", CallbackProperty)
-      .Attribute("data-recommendations", RecommendationsProperty)
+      .Attribute("href", UrlValue)
+      .Attribute("size", SizeValue)
+      .Attribute("annotation", AnnotationValue)
+      .Attribute("width", WidthValue)
+      .Attribute("align", AlignmentValue)
+      .Attribute("data-callback", CallbackValue)
+      .Attribute("data-recommendations", RecommendationsValue)
       .ToString();
 }

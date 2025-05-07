@@ -1,16 +1,23 @@
-﻿using Catharsis.Commons;
-using Xunit;
+﻿using Xunit;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
+using AutoFixture;
 
 namespace Catharsis.Web.Widgets.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="IYandexMoneyDonateFormWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
+public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : Test
 {
+  private IYandexMoneyDonateFormWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IYandexMoneyDonateFormWidgetExtensionsTest() => Widget = Fixture.Create<IYandexMoneyDonateFormWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexMoneyDonateFormWidgetExtensions.ProjectSite(IYandexMoneyDonateFormWidget, Uri)"/> method.</para>
   /// </summary>
@@ -22,12 +29,12 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(new YandexMoneyDonateFormWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new YandexMoneyDonateFormWidget().With(widget => new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, widget)));
+      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(Uri url, IYandexMoneyDonateFormWidget widget) => widget.ProjectSite(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ProjectSiteProperty").Should().Be(url.ToString());
+    static void Validate(Uri url, IYandexMoneyDonateFormWidget widget) => widget.ProjectSite(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ProjectSiteValue").Should().Be(url.ToString());
   }
 
   /// <summary>
@@ -40,12 +47,12 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new YandexMoneyDonateFormWidget().With(widget => new[] { double.NegativeZero }.ForEach(value => Validate(value, widget)));
+      new[] { double.NegativeZero }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(double sum, IYandexMoneyDonateFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal>("SumProperty").Should().Be((decimal) sum);
+    static void Validate(double sum, IYandexMoneyDonateFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal>("SumValue").Should().Be((decimal) sum);
   }
 
   /// <summary>
@@ -58,11 +65,11 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new YandexMoneyDonateFormWidget().With(widget => Enum.GetValues<YandexMoneyDonateFormText>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<YandexMoneyDonateFormText>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(YandexMoneyDonateFormText text, IYandexMoneyDonateFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextProperty").Should().Be((byte) text);
+    static void Validate(YandexMoneyDonateFormText text, IYandexMoneyDonateFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextValue").Should().Be((byte) text);
   }
 }

@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="FacebookVideoWidget"/>.</para>
 /// </summary>
-public sealed class FacebookVideoWidgetTest : UnitTest
+public sealed class FacebookVideoWidgetTest : Test
 {
+  private IFacebookVideoWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public FacebookVideoWidgetTest() => Widget = Fixture.Create<IFacebookVideoWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,9 +30,9 @@ public sealed class FacebookVideoWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new FacebookVideoWidget();
-      widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("IdValue").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthValue").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightValue").Should().BeNull();
     }
   }
 
@@ -40,12 +47,12 @@ public sealed class FacebookVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new FacebookVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new FacebookVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IFacebookVideoWidget widget) => widget.Id(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(height);
+    static void Validate(string height, IFacebookVideoWidget widget) => widget.Id(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(height);
   }
 
   /// <summary>
@@ -59,12 +66,12 @@ public sealed class FacebookVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new FacebookVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IFacebookVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
+    static void Validate(string width, IFacebookVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -78,12 +85,12 @@ public sealed class FacebookVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new FacebookVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IFacebookVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
+    static void Validate(string height, IFacebookVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -95,7 +102,7 @@ public sealed class FacebookVideoWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new FacebookVideoWidget());
-      Validate(Attributes.FacebookVideoWidget());
+      Validate(Fixture.Create<IFacebookVideoWidget>());
     }
 
     return;
@@ -104,7 +111,9 @@ public sealed class FacebookVideoWidgetTest : UnitTest
     {
       var clone = original.Clone<IFacebookVideoWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("IdValue").Should().Be(original.GetPropertyValue<string>("IdValue"));
+      clone.GetPropertyValue<string>("WidthValue").Should().Be(original.GetPropertyValue<string>("WidthValue"));
+      clone.GetPropertyValue<string>("HeightValue").Should().Be(original.GetPropertyValue<string>("HeightValue"));
     }
   }
 
@@ -121,6 +130,7 @@ public sealed class FacebookVideoWidgetTest : UnitTest
       Validate(new FacebookVideoWidget().Id("id").Height("height"));
       Validate(new FacebookVideoWidget().Id("width").Height("height"));
       Validate(new FacebookVideoWidget().Id("id").Width("width").Height("height"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.facebook.com/video/embed?video_id=id" webkitallowfullscreen="true" width="width"></iframe>""");
+      Validate(Fixture.Create<IFacebookVideoWidget>());
     }
 
     return;

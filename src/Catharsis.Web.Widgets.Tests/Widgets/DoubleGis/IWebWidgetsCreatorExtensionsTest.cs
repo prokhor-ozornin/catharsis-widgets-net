@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -7,7 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IWebWidgetsCreatorExtensions"/>.</para>
 /// </summary>
-public sealed partial class IWebWidgetsCreatorExtensionsTest : UnitTest
+public sealed partial class IWebWidgetsCreatorExtensionsTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IWebWidgetsCreatorExtensions.DoubleGis(IWebWidgetsCreator)"/> method.</para>

@@ -249,139 +249,170 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TextWriterExtensions.AsJson(System.IO.TextWriter)"/> method.</para>
             </summary>
         </member>
-        <member name="T:Catharsis.Web.Widgets.Tests.CackleCommentsCountWidgetTest">
+        <member name="T:Catharsis.Web.Widgets.Tests.AddThisFollowButtonsWidgetTest">
             <summary>
-              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleCommentsCountWidget"/>.</para>
+              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.AddThisFollowButtonsWidget"/>.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsCountWidgetTest.Constructors">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisFollowButtonsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisFollowButtonsWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
-            <seealso cref="M:Catharsis.Web.Widgets.CackleCommentsCountWidget.#ctor"/>
+            <seealso cref="M:Catharsis.Web.Widgets.AddThisFollowButtonsWidget.#ctor"/>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsCountWidgetTest.Account_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisFollowButtonsWidgetTest.Clone_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleCommentsCountWidget.Account(System.String)"/> method.</para>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisFollowButtonsWidget.Clone"/> method.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsCountWidgetTest.ToHtml_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisFollowButtonsWidgetTest.ToHtml_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleCommentsCountWidget.ToHtml"/> method.</para>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisFollowButtonsWidget.ToHtml"/> method.</para>
             </summary>
         </member>
-        <member name="T:Catharsis.Web.Widgets.Tests.CackleCommentsWidgetTest">
+        <member name="T:Catharsis.Web.Widgets.Tests.AddThisShareButtonsWidgetTest">
             <summary>
-              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleCommentsWidget"/>.</para>
+              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.AddThisShareButtonsWidget"/>.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsWidgetTest.Constructors">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisShareButtonsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisShareButtonsWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
-            <seealso cref="M:Catharsis.Web.Widgets.CackleCommentsWidget.#ctor"/>
+            <seealso cref="M:Catharsis.Web.Widgets.AddThisShareButtonsWidget.#ctor"/>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsWidgetTest.Account_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisShareButtonsWidgetTest.Clone_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleCommentsWidget.Account(System.String)"/> method.</para>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisShareButtonsWidget.Clone"/> method.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsWidgetTest.ToHtml_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisShareButtonsWidgetTest.ToHtml_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleCommentsWidget.ToHtml"/> method.</para>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisShareButtonsWidget.ToHtml"/> method.</para>
             </summary>
         </member>
-        <member name="T:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest">
+        <member name="T:Catharsis.Web.Widgets.Tests.AddThisSmartLayersWidgetTest">
             <summary>
-              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleLatestCommentsWidget"/>.</para>
+              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.AddThisSmartLayersWidget"/>.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.Constructors">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisSmartLayersWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisSmartLayersWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
-            <seealso cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.#ctor"/>
+            <seealso cref="M:Catharsis.Web.Widgets.AddThisSmartLayersWidget.#ctor"/>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.Account_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisSmartLayersWidgetTest.Clone_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.Account(System.String)"/> method.</para>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisSmartLayersWidget.Clone"/> method.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.AvatarSize_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisSmartLayersWidgetTest.ToHtml_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.AvatarSize(System.Int16)"/> method.</para>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisSmartLayersWidget.ToHtml"/> method.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.Max_Method">
+        <member name="T:Catharsis.Web.Widgets.Tests.AddThisTrendingContentWidgetTest">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.Max(System.Byte)"/> method.</para>
+              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.AddThisTrendingContentWidget"/>.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.TextSize_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisTrendingContentWidgetTest.#ctor">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.TextSize(System.Int32)"/> method.</para>
+              <para>Test constructor.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.TitleSize_Method">
-            <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.TitleSize(System.Int32)"/> method.</para>
-            </summary>
-        </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.ToHtml_Method">
-            <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.ToHtml"/> method.</para>
-            </summary>
-        </member>
-        <member name="T:Catharsis.Web.Widgets.Tests.CackleLoginWidgetTest">
-            <summary>
-              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleLoginWidget"/>.</para>
-            </summary>
-        </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleLoginWidgetTest.Constructors">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisTrendingContentWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
-            <seealso cref="M:Catharsis.Web.Widgets.CackleLoginWidget.#ctor"/>
+            <seealso cref="M:Catharsis.Web.Widgets.AddThisTrendingContentWidget.#ctor"/>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleLoginWidgetTest.Account_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisTrendingContentWidgetTest.Clone_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLoginWidget.Account(System.String)"/> method.</para>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisTrendingContentWidget.Clone"/> method.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleLoginWidgetTest.ToHtml_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisTrendingContentWidgetTest.ToHtml_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLoginWidget.ToHtml"/> method.</para>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisTrendingContentWidget.ToHtml"/> method.</para>
             </summary>
         </member>
-        <member name="T:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest">
+        <member name="T:Catharsis.Web.Widgets.Tests.AddThisWelcomeBarWidgetTest">
             <summary>
-              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleWidgetsCreator"/>.</para>
+              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.AddThisWelcomeBarWidget"/>.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest.Constructors">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisWelcomeBarWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisWelcomeBarWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
-            <seealso cref="M:Catharsis.Web.Widgets.CackleWidgetsCreator.#ctor"/>
+            <seealso cref="M:Catharsis.Web.Widgets.AddThisWelcomeBarWidget.#ctor"/>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest.Comments_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisWelcomeBarWidgetTest.Clone_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleWidgetsCreator.Comments"/> method.</para>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisWelcomeBarWidget.Clone"/> method.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest.CommentsCount_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisWelcomeBarWidgetTest.ToHtml_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleWidgetsCreator.CommentsCount"/> method.</para>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisWelcomeBarWidget.ToHtml"/> method.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest.LatestComments_Method">
+        <member name="T:Catharsis.Web.Widgets.Tests.AddThisWidgetsCreatorTest">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleWidgetsCreator.LatestComments"/> method.</para>
+              <para>Test set for class <see cref="T:Catharsis.Web.Widgets.AddThisWidgetsCreator"/>.</para>
             </summary>
         </member>
-        <member name="M:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest.Login_Method">
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisWidgetsCreatorTest.Constructors">
             <summary>
-              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleWidgetsCreator.Login"/> method.</para>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Catharsis.Web.Widgets.AddThisWidgetsCreator.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisWidgetsCreatorTest.SmartLayers_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisWidgetsCreator.SmartLayers"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisWidgetsCreatorTest.ShareButtons_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisWidgetsCreator.ShareButtons"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisWidgetsCreatorTest.FollowButtons_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisWidgetsCreator.FollowButtons"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisWidgetsCreatorTest.WelcomeBar_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisWidgetsCreator.WelcomeBar"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.AddThisWidgetsCreatorTest.TrendingContent_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.AddThisWidgetsCreator.TrendingContent"/> method.</para>
             </summary>
         </member>
         <member name="T:Catharsis.Web.Widgets.Tests.IWebWidgetsCreatorExtensionsTest">
@@ -456,6 +487,14 @@
             </summary>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
+            </summary>
+            <summary>
+              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IWebWidgetsCreatorExtensionsTest.AddThis_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions.AddThis(Catharsis.Web.Widgets.IWebWidgetsCreator)"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IWebWidgetsCreatorExtensionsTest.Cackle_Method">
@@ -578,9 +617,189 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions.YouTube(Catharsis.Web.Widgets.IWebWidgetsCreator)"/> method.</para>
             </summary>
         </member>
+        <member name="T:Catharsis.Web.Widgets.Tests.CackleCommentsCountWidgetTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleCommentsCountWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsCountWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsCountWidgetTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Catharsis.Web.Widgets.CackleCommentsCountWidget.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsCountWidgetTest.Account_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleCommentsCountWidget.Account(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsCountWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleCommentsCountWidget.Clone"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsCountWidgetTest.ToHtml_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleCommentsCountWidget.ToHtml"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.Tests.CackleCommentsWidgetTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleCommentsWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsWidgetTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Catharsis.Web.Widgets.CackleCommentsWidget.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsWidgetTest.Account_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleCommentsWidget.Account(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleCommentsWidget.Clone"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsWidgetTest.ToHtml_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleCommentsWidget.ToHtml"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleLatestCommentsWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.Account_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.Account(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.AvatarSize_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.AvatarSize(System.Int16)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.Max_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.Max(System.Byte)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.TextSize_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.TextSize(System.Int32)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.TitleSize_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.TitleSize(System.Int32)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.Clone"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.ToHtml_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLatestCommentsWidget.ToHtml"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.Tests.CackleLoginWidgetTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleLoginWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLoginWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLoginWidgetTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Catharsis.Web.Widgets.CackleLoginWidget.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLoginWidgetTest.Account_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLoginWidget.Account(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLoginWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLoginWidget.Clone"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleLoginWidgetTest.ToHtml_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleLoginWidget.ToHtml"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleWidgetsCreator"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Catharsis.Web.Widgets.CackleWidgetsCreator.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest.Comments_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleWidgetsCreator.Comments"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest.CommentsCount_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleWidgetsCreator.CommentsCount"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest.LatestComments_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleWidgetsCreator.LatestComments"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest.Login_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.CackleWidgetsCreator.Login"/> method.</para>
+            </summary>
+        </member>
         <member name="T:Catharsis.Web.Widgets.Tests.DisqusCommentsWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.DisqusCommentsWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.DisqusCommentsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DisqusCommentsWidgetTest.Constructors">
@@ -592,6 +811,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.DisqusCommentsWidgetTest.Account_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.DisqusCommentsWidget.Account(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.DisqusCommentsWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.DisqusCommentsWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DisqusCommentsWidgetTest.ToHtml_Method">
@@ -620,11 +844,21 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.DoubleGisContactsMapWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisContactsMapWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisContactsMapWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Catharsis.Web.Widgets.DoubleGisContactsMapWidget.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisContactsMapWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.DoubleGisContactsMapWidget.Clone"/> method.</para>
+            </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisContactsMapWidgetTest.ToHtml_Method">
             <summary>
@@ -636,11 +870,21 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.DoubleGisMapWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisMapWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisMapWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Catharsis.Web.Widgets.DoubleGisMapWidget.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisMapWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.DoubleGisMapWidget.Clone"/> method.</para>
+            </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisMapWidgetTest.ToHtml_Method">
             <summary>
@@ -652,11 +896,21 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.DoubleGisMiniMapWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisMiniMapWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisMiniMapWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Catharsis.Web.Widgets.DoubleGisMiniMapWidget.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisMiniMapWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.DoubleGisMiniMapWidget.Clone"/> method.</para>
+            </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisMiniMapWidgetTest.ToHtml_Method">
             <summary>
@@ -692,6 +946,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookActivityFeedWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookActivityFeedWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookActivityFeedWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookActivityFeedWidgetTest.Constructors">
@@ -755,6 +1014,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookActivityFeedWidget.Width(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookActivityFeedWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookActivityFeedWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookActivityFeedWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookActivityFeedWidget.ToHtml"/> method.</para>
@@ -763,6 +1027,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookCommentsWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookCommentsWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookCommentsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookCommentsWidgetTest.Constructors">
@@ -801,6 +1070,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookCommentsWidget.Width(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookCommentsWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookCommentsWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookCommentsWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookCommentsWidget.ToHtml"/> method.</para>
@@ -809,6 +1083,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookFacePileWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookFacePileWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookFacePileWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookFacePileWidgetTest.Constructors">
@@ -852,6 +1131,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookFacePileWidget.Width(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookFacePileWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookFacePileWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookFacePileWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookFacePileWidget.ToHtml"/> method.</para>
@@ -860,6 +1144,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookFollowButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookFollowButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookFollowButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookFollowButtonWidgetTest.Constructors">
@@ -903,6 +1192,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookFollowButtonWidget.Width(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookFollowButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookFollowButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookFollowButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookFollowButtonWidget.ToHtml"/> method.</para>
@@ -911,6 +1205,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookInitializationWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookInitializationWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookInitializationWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookInitializationWidgetTest.Constructors">
@@ -924,6 +1223,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookInitializationWidget.AppId(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookInitializationWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookInitializationWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookInitializationWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookInitializationWidget.ToHtml"/> method.</para>
@@ -932,6 +1236,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookLikeBoxWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookLikeBoxWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookLikeBoxWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookLikeBoxWidgetTest.Constructors">
@@ -985,6 +1294,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookLikeBoxWidget.Width(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookLikeBoxWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookLikeBoxWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookLikeBoxWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookLikeBoxWidget.ToHtml"/> method.</para>
@@ -993,6 +1307,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookLikeButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookLikeButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookLikeButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookLikeButtonWidgetTest.Constructors">
@@ -1041,6 +1360,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookLikeButtonWidget.Width(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookLikeButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookLikeButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookLikeButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookLikeButtonWidget.ToHtml"/> method.</para>
@@ -1049,6 +1373,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookPostWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookPostWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookPostWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookPostWidgetTest.Constructors">
@@ -1067,6 +1396,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookPostWidget.Width(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookPostWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookPostWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookPostWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookPostWidget.ToHtml"/> method.</para>
@@ -1075,6 +1409,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookRecommendationsFeedWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookRecommendationsFeedWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookRecommendationsFeedWidgetTest.Constructors">
@@ -1133,6 +1472,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.TrackLabel(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookRecommendationsFeedWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookRecommendationsFeedWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget.ToHtml"/> method.</para>
@@ -1141,6 +1485,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookSendButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookSendButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookSendButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookSendButtonWidgetTest.Constructors">
@@ -1179,6 +1528,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookSendButtonWidget.TrackLabel(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookSendButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookSendButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookSendButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookSendButtonWidget.ToHtml"/> method.</para>
@@ -1187,6 +1541,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookVideoWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookVideoWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookVideoWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookVideoWidgetTest.Constructors">
@@ -1208,6 +1567,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookVideoWidgetTest.Height_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookVideoWidget.Height(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookVideoWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.FacebookVideoWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookVideoWidgetTest.ToHtml_Method">
@@ -1286,6 +1650,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookActivityFeedWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IFacebookActivityFeedWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookActivityFeedWidgetExtensionsTest.Actions_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IFacebookActivityFeedWidgetExtensions.Actions(Catharsis.Web.Widgets.IFacebookActivityFeedWidget,System.String[])"/> method.</para>
@@ -1311,6 +1680,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookCommentsWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IFacebookCommentsWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookCommentsWidgetExtensionsTest.Url_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IFacebookCommentsWidgetExtensions.Url(Catharsis.Web.Widgets.IFacebookCommentsWidget,System.Uri)"/> method.</para>
@@ -1334,6 +1708,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.FacebookFacePileWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookFacePileWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.FacebookFacePileWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookFacePileWidgetExtensionsTest.Actions_Method">
@@ -1371,6 +1750,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookFollowButtonWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IFacebookFollowButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookFollowButtonWidgetExtensionsTest.Width_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IFacebookFollowButtonWidgetExtensions.Width(Catharsis.Web.Widgets.IFacebookFollowButtonWidget,System.Int16)"/> method.</para>
@@ -1401,6 +1785,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookLikeBoxWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IFacebookLikeBoxWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookLikeBoxWidgetExtensionsTest.Width_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IFacebookLikeBoxWidgetExtensions.Width(Catharsis.Web.Widgets.IFacebookLikeBoxWidget,System.Int16)"/> method.</para>
@@ -1424,6 +1813,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IFacebookLikeButtonWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookLikeButtonWidgetExtensions"/></para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IFacebookLikeButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookLikeButtonWidgetExtensionsTest.Layout_Method">
@@ -1456,6 +1850,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookPostWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IFacebookPostWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookPostWidgetExtensionsTest.Url_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IFacebookPostWidgetExtensions.Url(Catharsis.Web.Widgets.IFacebookPostWidget,System.Uri)"/> method.</para>
@@ -1469,6 +1868,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IFacebookRecommendationsFeedWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookRecommendationsFeedWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IFacebookRecommendationsFeedWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookRecommendationsFeedWidgetExtensionsTest.Actions_Method">
@@ -1496,6 +1900,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookSendButtonWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IFacebookSendButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookSendButtonWidgetExtensionsTest.Url_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IFacebookSendButtonWidgetExtensions.Url(Catharsis.Web.Widgets.IFacebookSendButtonWidget,System.Uri)"/> method.</para>
@@ -1521,6 +1930,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GoogleAnalyticsWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.GoogleAnalyticsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GoogleAnalyticsWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
@@ -1537,6 +1951,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GoogleAnalyticsWidget.Domain(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.GoogleAnalyticsWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GoogleAnalyticsWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GoogleAnalyticsWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GoogleAnalyticsWidget.ToHtml"/> method.</para>
@@ -1547,11 +1966,21 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GoogleMapWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.GoogleMapWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GoogleMapWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Catharsis.Web.Widgets.GoogleMapWidget.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.GoogleMapWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GoogleMapWidget.Clone"/> method.</para>
+            </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GoogleMapWidgetTest.ToHtml_Method">
             <summary>
@@ -1561,6 +1990,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.GooglePlusOneButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GooglePlusOneButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.GooglePlusOneButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GooglePlusOneButtonWidgetTest.Constructors">
@@ -1604,6 +2038,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.Recommendations(System.Boolean)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.GooglePlusOneButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GooglePlusOneButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GooglePlusOneButtonWidget.ToHtml"/> method.</para>
@@ -1633,6 +2072,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IGooglePlusOneButtonWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IGooglePlusOneButtonWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IGooglePlusOneButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IGooglePlusOneButtonWidgetExtensionsTest.Url_Method">
@@ -1665,6 +2109,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GravatarImageUrlWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.GravatarImageUrlWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GravatarImageUrlWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
@@ -1686,6 +2135,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GravatarImageUrlWidget.Parameter(System.String,System.Object)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.GravatarImageUrlWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GravatarImageUrlWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GravatarImageUrlWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GravatarImageUrlWidget.ToHtml"/> method.</para>
@@ -1694,6 +2148,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.GravatarProfileUrlWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GravatarProfileUrlWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.GravatarProfileUrlWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GravatarProfileUrlWidgetTest.Constructors">
@@ -1715,6 +2174,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.GravatarProfileUrlWidgetTest.Parameter_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GravatarProfileUrlWidget.Parameter(System.String,System.Object)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.GravatarProfileUrlWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.GravatarProfileUrlWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GravatarProfileUrlWidgetTest.ToHtml_Method">
@@ -1746,6 +2210,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IGravatarImageUrlWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IGravatarImageUrlWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IGravatarImageUrlWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IGravatarImageUrlWidgetExtensionsTest.Default_Methods">
@@ -1786,6 +2255,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IGravatarProfileUrlWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IGravatarProfileUrlWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IGravatarProfileUrlWidgetExtensionsTest.Email_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IGravatarProfileUrlWidgetExtensions.Email(Catharsis.Web.Widgets.IGravatarProfileUrlWidget,System.String)"/> method.</para>
@@ -1821,6 +2295,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IInlineImageExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IInlineImageExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IInlineImageExtensionsTest.Jpg_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IInlineImageExtensions.Jpg(Catharsis.Web.Widgets.IInlineImageWidget)"/> method.</para>
@@ -1841,6 +2320,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.InlineImageWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.InlineImageWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.InlineImageWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
@@ -1857,6 +2341,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.InlineImageWidget.Format(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.InlineImageWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.InlineImageWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.InlineImageWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.InlineImageWidget.ToHtml"/> method.</para>
@@ -1865,6 +2354,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IntenseDebateCommentsWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IntenseDebateCommentsWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateCommentsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateCommentsWidgetTest.Constructors">
@@ -1893,6 +2387,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IntenseDebateCommentsWidget.PostTitle(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateCommentsWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IntenseDebateCommentsWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateCommentsWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IntenseDebateCommentsWidget.ToHtml"/> method.</para>
@@ -1901,6 +2400,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IntenseDebateLinkWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IntenseDebateLinkWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateLinkWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateLinkWidgetTest.Constructors">
@@ -1927,6 +2431,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateLinkWidgetTest.PostTitle_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IntenseDebateLinkWidget.PostTitle(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateLinkWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IntenseDebateLinkWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateLinkWidgetTest.ToHtml_Method">
@@ -1960,6 +2469,16 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.LiveJournalLikeButtonWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.LiveJournalLikeButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.LiveJournalLikeButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.LiveJournalLikeButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.LiveJournalLikeButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.LiveJournalLikeButtonWidget.ToHtml"/> method.</para>
@@ -1968,6 +2487,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.LiveJournalRepostButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.LiveJournalRepostButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.LiveJournalRepostButtonWidgetTest.Constructors">
@@ -1984,6 +2508,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.LiveJournalRepostButtonWidgetTest.Title_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget.Title(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.LiveJournalRepostButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.LiveJournalRepostButtonWidgetTest.ToHtml_Method">
@@ -2017,6 +2546,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IMailRuFacesWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IMailRuFacesWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IMailRuFacesWidgetExtensionsTest.Font_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IMailRuFacesWidgetExtensions.Font(Catharsis.Web.Widgets.IMailRuFacesWidget,Catharsis.Web.Widgets.MailRuFacesFont)"/> method.</para>
@@ -2037,6 +2571,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IMailRuGroupsWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IMailRuGroupsWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IMailRuGroupsWidgetExtensionsTest.Height_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IMailRuGroupsWidgetExtensions.Height(Catharsis.Web.Widgets.IMailRuGroupsWidget,System.Int16)"/> method.</para>
@@ -2050,6 +2589,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IMailRuLikeButtonWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IMailRuLikeButtonWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IMailRuLikeButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IMailRuLikeButtonWidgetExtensionsTest.Type_Method">
@@ -2084,6 +2628,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.MailRuFacesWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.MailRuFacesWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MailRuFacesWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuFacesWidgetTest.Constructors">
@@ -2147,6 +2696,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuFacesWidget.Width(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MailRuFacesWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuFacesWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuFacesWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuFacesWidget.ToHtml"/> method.</para>
@@ -2155,6 +2709,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.MailRuGroupsWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.MailRuGroupsWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MailRuGroupsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuGroupsWidgetTest.Constructors">
@@ -2203,6 +2762,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuGroupsWidget.Width(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MailRuGroupsWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuGroupsWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuGroupsWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuGroupsWidget.ToHtml"/> method.</para>
@@ -2211,6 +2775,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.MailRuIcqWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.MailRuIcqWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MailRuIcqWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuIcqWidgetTest.Constructors">
@@ -2229,6 +2798,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuIcqWidget.Language(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MailRuIcqWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuIcqWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuIcqWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuIcqWidget.ToHtml"/> method.</para>
@@ -2237,6 +2811,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.MailRuLikeButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.MailRuLikeButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MailRuLikeButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuLikeButtonWidgetTest.Constructors">
@@ -2280,6 +2859,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.CounterPosition(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MailRuLikeButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuLikeButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.ToHtml"/> method.</para>
@@ -2288,6 +2872,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.MailRuVideoWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.MailRuVideoWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MailRuVideoWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuVideoWidgetTest.Constructors">
@@ -2309,6 +2898,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuVideoWidgetTest.Height_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuVideoWidget.Height(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MailRuVideoWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.MailRuVideoWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuVideoWidgetTest.ToHtml_Method">
@@ -2355,9 +2949,17 @@
         <member name="M:Catharsis.Web.Widgets.Tests.MockVideoWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.MockWebWidget.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
         <member name="T:Catharsis.Web.Widgets.Tests.PayPalBuyGiftCertificateWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PayPalBuyGiftCertificateWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PayPalBuyGiftCertificateWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalBuyGiftCertificateWidgetTest.Constructors">
@@ -2376,6 +2978,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PayPalBuyGiftCertificateWidget.AsUrl"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PayPalBuyGiftCertificateWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PayPalBuyGiftCertificateWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalBuyGiftCertificateWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PayPalBuyGiftCertificateWidget.ToHtml"/> method.</para>
@@ -2384,6 +2991,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.PayPalBuyNowWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PayPalBuyNowWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PayPalBuyNowWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalBuyNowWidgetTest.Constructors">
@@ -2402,6 +3014,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PayPalBuyNowWidget.AsUrl"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PayPalBuyNowWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PayPalBuyNowWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalBuyNowWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PayPalBuyNowWidget.ToHtml"/> method.</para>
@@ -2410,6 +3027,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.PayPalDonateWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PayPalDonateWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PayPalDonateWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalDonateWidgetTest.Constructors">
@@ -2428,6 +3050,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PayPalDonateWidget.AsUrl"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PayPalDonateWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PayPalDonateWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalDonateWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PayPalDonateWidget.ToHtml"/> method.</para>
@@ -2436,6 +3063,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.PayPalSubscribeWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PayPalSubscribeWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PayPalSubscribeWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalSubscribeWidgetTest.Constructors">
@@ -2452,6 +3084,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalSubscribeWidgetTest.AsUrl_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PayPalSubscribeWidget.AsUrl"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PayPalSubscribeWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PayPalSubscribeWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalSubscribeWidgetTest.ToHtml_Method">
@@ -2495,6 +3132,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IPinterestBoardWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IPinterestBoardWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IPinterestBoardWidgetExtensionsTest.Height_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IPinterestBoardWidgetExtensions.Height(Catharsis.Web.Widgets.IPinterestBoardWidget,System.Int16)"/> method.</para>
@@ -2530,6 +3172,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IPinterestPinItButtonWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IPinterestPinItButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IPinterestPinItButtonWidgetExtensionsTest.Gray_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IPinterestPinItButtonWidgetExtensions.Gray(Catharsis.Web.Widgets.IPinterestPinItButtonWidget)"/> method.</para>
@@ -2553,6 +3200,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IPinterestProfileWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IPinterestProfileWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IPinterestProfileWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IPinterestProfileWidgetExtensionsTest.Height_Method">
@@ -2590,6 +3242,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PinterestBoardWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PinterestBoardWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestBoardWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
@@ -2621,6 +3278,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestBoardWidget.Image(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PinterestBoardWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestBoardWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestBoardWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestBoardWidget.ToHtml"/> method.</para>
@@ -2629,6 +3291,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.PinterestFollowButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PinterestFollowButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PinterestFollowButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestFollowButtonWidgetTest.Constructors">
@@ -2647,6 +3314,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestFollowButtonWidget.Label(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PinterestFollowButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestFollowButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestFollowButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestFollowButtonWidget.ToHtml"/> method.</para>
@@ -2655,6 +3327,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.PinterestPinItButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PinterestPinItButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PinterestPinItButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestPinItButtonWidgetTest.Constructors">
@@ -2703,6 +3380,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Url(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PinterestPinItButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestPinItButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.ToHtml"/> method.</para>
@@ -2711,6 +3393,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.PinterestPinWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PinterestPinWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PinterestPinWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestPinWidgetTest.Constructors">
@@ -2724,6 +3411,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestPinWidget.Id(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PinterestPinWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestPinWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestPinWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestPinWidget.ToHtml"/> method.</para>
@@ -2732,6 +3424,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.PinterestProfileWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PinterestProfileWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PinterestProfileWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestProfileWidgetTest.Constructors">
@@ -2758,6 +3455,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestProfileWidgetTest.Image_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestProfileWidget.Image(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.PinterestProfileWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.PinterestProfileWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestProfileWidgetTest.ToHtml_Method">
@@ -2806,11 +3508,21 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.RobokassaPaymentFormWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.RobokassaPaymentFormWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.RobokassaPaymentFormWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Catharsis.Web.Widgets.RobokassaPaymentFormWidget.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.RobokassaPaymentFormWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.RobokassaPaymentFormWidget.Clone"/> method.</para>
+            </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.RobokassaPaymentFormWidgetTest.ToHtml_Method">
             <summary>
@@ -2838,6 +3550,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.RuTubeVideoWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.RuTubeVideoWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.RuTubeVideoWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
@@ -2857,6 +3574,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.RuTubeVideoWidgetTest.Height_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.RuTubeVideoWidget.Height(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.RuTubeVideoWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.RuTubeVideoWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.RuTubeVideoWidgetTest.ToHtml_Method">
@@ -2886,6 +3608,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IShare42PanelWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IShare42PanelWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IShare42PanelWidgetExtensionsTest.Horizontal_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IShare42PanelWidgetExtensions.Horizontal(Catharsis.Web.Widgets.IShare42PanelWidget)"/> method.</para>
@@ -2906,6 +3633,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.Share42PanelWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.Share42PanelWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.Share42PanelWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
@@ -2920,6 +3652,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.Share42PanelWidgetTest.Size_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.Share42PanelWidget.Size(System.Byte)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.Share42PanelWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.Share42PanelWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.Share42PanelWidgetTest.ToHtml_Method">
@@ -2947,6 +3684,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.ISoundCloudProfileIconWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ISoundCloudProfileIconWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.ISoundCloudProfileIconWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ISoundCloudProfileIconWidgetExtensionsTest.OrangeWhite_Method">
@@ -2984,6 +3726,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.SoundCloudProfileIconWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.SoundCloudProfileIconWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.SoundCloudProfileIconWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
@@ -3003,6 +3750,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.SoundCloudProfileIconWidgetTest.Size_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.SoundCloudProfileIconWidget.Size(System.Int16)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.SoundCloudProfileIconWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.SoundCloudProfileIconWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.SoundCloudProfileIconWidgetTest.ToHtml_Method">
@@ -3031,6 +3783,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ISurfingbirdSurfButtonWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.ISurfingbirdSurfButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ISurfingbirdSurfButtonWidgetExtensionsTest.Layout_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.ISurfingbirdSurfButtonWidgetExtensions.Layout(Catharsis.Web.Widgets.ISurfingbirdSurfButtonWidget,Catharsis.Web.Widgets.SurfingbirdSurfButtonLayout)"/> method.</para>
@@ -3054,6 +3811,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.SurfingbirdSurfButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.SurfingbirdSurfButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.SurfingbirdSurfButtonWidgetTest.Constructors">
@@ -3097,6 +3859,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.Color(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.SurfingbirdSurfButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.SurfingbirdSurfButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget.ToHtml"/> method.</para>
@@ -3123,6 +3890,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ITumblrFollowButtonWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.ITumblrFollowButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ITumblrFollowButtonWidgetExtensionsTest.Type_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.ITumblrFollowButtonWidgetExtensions.Type(Catharsis.Web.Widgets.ITumblrFollowButtonWidget,Catharsis.Web.Widgets.TumblrFollowButtonType)"/> method.</para>
@@ -3138,6 +3910,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ITumblrShareButtonWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.ITumblrShareButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ITumblrShareButtonWidgetExtensionsTest.Type_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.ITumblrShareButtonWidgetExtensions.Type(Catharsis.Web.Widgets.ITumblrShareButtonWidget,Catharsis.Web.Widgets.TumblrShareButtonType)"/> method.</para>
@@ -3151,6 +3928,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.TumblrFollowButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TumblrFollowButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.TumblrFollowButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TumblrFollowButtonWidgetTest.Constructors">
@@ -3174,6 +3956,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TumblrFollowButtonWidget.ColorScheme(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.TumblrFollowButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TumblrFollowButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TumblrFollowButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TumblrFollowButtonWidget.ToHtml"/> method.</para>
@@ -3182,6 +3969,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.TumblrShareButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TumblrShareButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.TumblrShareButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TumblrShareButtonWidgetTest.Constructors">
@@ -3198,6 +3990,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.TumblrShareButtonWidgetTest.ColorScheme_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TumblrShareButtonWidget.ColorScheme(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.TumblrShareButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TumblrShareButtonWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TumblrShareButtonWidgetTest.ToHtml_Method">
@@ -3231,6 +4028,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ITwitterFollowButtonWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.ITwitterFollowButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ITwitterFollowButtonWidgetExtensionsTest.Language_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.ITwitterFollowButtonWidgetExtensions.Language(Catharsis.Web.Widgets.ITwitterFollowButtonWidget,System.Globalization.CultureInfo)"/> method.</para>
@@ -3249,6 +4051,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.ITwitterTweetButtonWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ITwitterTweetButtonWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.ITwitterTweetButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ITwitterTweetButtonWidgetExtensionsTest.Language_Method">
@@ -3279,6 +4086,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.TwitterFollowButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TwitterFollowButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.TwitterFollowButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TwitterFollowButtonWidgetTest.Constructors">
@@ -3322,6 +4134,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TwitterFollowButtonWidget.Suggestions(System.Boolean)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.TwitterFollowButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TwitterFollowButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TwitterFollowButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TwitterFollowButtonWidget.ToHtml"/> method.</para>
@@ -3330,6 +4147,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.TwitterTweetButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TwitterTweetButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.TwitterTweetButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TwitterTweetButtonWidgetTest.Constructors">
@@ -3388,6 +4210,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TwitterTweetButtonWidget.RelatedAccounts(System.Collections.Generic.IEnumerable{System.String})"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.TwitterTweetButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TwitterTweetButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TwitterTweetButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.TwitterTweetButtonWidget.ToHtml"/> method.</para>
@@ -3419,6 +4246,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVideoJSPlayerWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IVideoJSPlayerWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVideoJSPlayerWidgetExtensionsTest.Width_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IVideoJSPlayerWidgetExtensions.Width(Catharsis.Web.Widgets.IVideoJSPlayerWidget,System.Int16)"/> method.</para>
@@ -3437,6 +4269,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VideoJSPlayerWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VideoJSPlayerWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VideoJSPlayerWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VideoJSPlayerWidgetTest.Constructors">
@@ -3465,6 +4302,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VideoJSPlayerWidget.Videos(System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}})"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VideoJSPlayerWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VideoJSPlayerWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VideoJSPlayerWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VideoJSPlayerWidget.ToHtml"/> method.</para>
@@ -3489,6 +4331,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VimeoVideoWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VimeoVideoWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VimeoVideoWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VimeoVideoWidgetTest.Constructors">
@@ -3522,6 +4369,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VimeoVideoWidget.Loop(System.Boolean)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VimeoVideoWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VimeoVideoWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VimeoVideoWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VimeoVideoWidget.ToHtml"/> method.</para>
@@ -3548,6 +4400,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteAuthButtonWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteAuthButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteAuthButtonWidgetExtensionsTest.Width_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IVkontakteAuthButtonWidgetExtensions.Width(Catharsis.Web.Widgets.IVkontakteAuthButtonWidget,System.Int16)"/> method.</para>
@@ -3566,6 +4423,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IVkontakteCommentsWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteCommentsWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteCommentsWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteCommentsWidgetExtensionsTest.Limit_Method">
@@ -3588,6 +4450,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteCommunityWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteCommunityWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteCommunityWidgetExtensionsTest.Mode_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IVkontakteCommunityWidgetExtensions.Mode(Catharsis.Web.Widgets.IVkontakteCommunityWidget,Catharsis.Web.Widgets.VkontakteCommunityMode)"/> method.</para>
@@ -3606,6 +4473,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IVkontakteLikeButtonWidgetExtensionsTest">
             <summary>
               <para>Test set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteLikeButtonWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteLikeButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteLikeButtonWidgetExtensionsTest.Verb_Method">
@@ -3633,6 +4505,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontaktePollWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IVkontaktePollWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontaktePollWidgetExtensionsTest.Width_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IVkontaktePollWidgetExtensions.Width(Catharsis.Web.Widgets.IVkontaktePollWidget,System.Int16)"/> method.</para>
@@ -3646,6 +4523,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IVkontaktePostWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontaktePostWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IVkontaktePostWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontaktePostWidgetExtensionsTest.Id_Method">
@@ -3668,6 +4550,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteRecommendationsWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteRecommendationsWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteRecommendationsWidgetExtensionsTest.Limit_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IVkontakteRecommendationsWidgetExtensions.Limit(Catharsis.Web.Widgets.IVkontakteRecommendationsWidget,Catharsis.Web.Widgets.VkontakteRecommendationsLimit)"/> method.</para>
@@ -3678,6 +4565,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteSubscriptionWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteSubscriptionWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteSubscriptionWidgetExtensionsTest.Layout_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IVkontakteSubscriptionWidgetExtensions.Layout(Catharsis.Web.Widgets.IVkontakteSubscriptionWidget,Catharsis.Web.Widgets.VkontakteSubscriptionButtonLayout)"/> method.</para>
@@ -3686,6 +4578,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VkontakteAuthButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteAuthButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteAuthButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteAuthButtonWidgetTest.Constructors">
@@ -3719,6 +4616,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.Callback(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteAuthButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteAuthButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteAuthButtonWidget.ToHtml"/> method.</para>
@@ -3727,6 +4629,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VkontakteCommentsWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteCommentsWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteCommentsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteCommentsWidgetTest.Constructors">
@@ -3770,6 +4677,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteCommentsWidget.Mini(System.Nullable{System.Boolean})"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteCommentsWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteCommentsWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteCommentsWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteCommentsWidget.ToHtml"/> method.</para>
@@ -3778,6 +4690,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VkontakteCommunityWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteCommunityWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteCommunityWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteCommunityWidgetTest.Constructors">
@@ -3826,6 +4743,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteCommunityWidget.Height(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteCommunityWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteCommunityWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteCommunityWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteCommunityWidget.ToHtml"/> method.</para>
@@ -3834,6 +4756,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VkontakteInitializationWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteInitializationWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteInitializationWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteInitializationWidgetTest.Constructors">
@@ -3847,6 +4774,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteInitializationWidget.ApiId(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteInitializationWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteInitializationWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteInitializationWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteInitializationWidget.ToHtml"/> method.</para>
@@ -3855,6 +4787,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VkontakteLikeButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteLikeButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteLikeButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteLikeButtonWidgetTest.Constructors">
@@ -3913,6 +4850,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.Image(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteLikeButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteLikeButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteLikeButtonWidget.ToHtml"/> method.</para>
@@ -3921,6 +4863,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VkontaktePollWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontaktePollWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontaktePollWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontaktePollWidgetTest.Constructors">
@@ -3949,6 +4896,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontaktePollWidget.Width(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontaktePollWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontaktePollWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontaktePollWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontaktePollWidget.ToHtml"/> method.</para>
@@ -3957,6 +4909,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VkontaktePostWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontaktePostWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontaktePostWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontaktePostWidgetTest.Constructors">
@@ -3990,6 +4947,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontaktePostWidget.Width(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontaktePostWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontaktePostWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontaktePostWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontaktePostWidget.ToHtml"/> method.</para>
@@ -3998,6 +4960,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VkontakteRecommendationsWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteRecommendationsWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteRecommendationsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteRecommendationsWidgetTest.Constructors">
@@ -4041,6 +5008,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.Target(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteRecommendationsWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteRecommendationsWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteRecommendationsWidget.ToHtml"/> method.</para>
@@ -4049,6 +5021,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VkontakteSubscriptionWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteSubscriptionWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteSubscriptionWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteSubscriptionWidgetTest.Constructors">
@@ -4077,6 +5054,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.OnlyButton(System.Boolean)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteSubscriptionWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteSubscriptionWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteSubscriptionWidget.ToHtml"/> method.</para>
@@ -4085,6 +5067,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.VkontakteVideoWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteVideoWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteVideoWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteVideoWidgetTest.Constructors">
@@ -4121,6 +5108,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteVideoWidgetTest.Hash_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteVideoWidget.Hash(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.VkontakteVideoWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.VkontakteVideoWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteVideoWidgetTest.ToHtml_Method">
@@ -4189,6 +5181,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexAnalyticsWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IYandexAnalyticsWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexAnalyticsWidgetExtensionsTest.Language_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IYandexAnalyticsWidgetExtensions.Language(Catharsis.Web.Widgets.IYandexAnalyticsWidget,System.Globalization.CultureInfo)"/> method.</para>
@@ -4197,6 +5194,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IYandexLikeButtonWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexLikeButtonWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IYandexLikeButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexLikeButtonWidgetExtensionsTest.Size_Method">
@@ -4217,6 +5219,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IYandexMoneyButtonWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexMoneyButtonWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IYandexMoneyButtonWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexMoneyButtonWidgetExtensionsTest.Color_Method">
@@ -4249,6 +5256,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IYandexMoneyDonateFormWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexMoneyDonateFormWidgetExtensionsTest.ProjectSite_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidgetExtensions.ProjectSite(Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget,System.Uri)"/> method.</para>
@@ -4269,6 +5281,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidgetExtensions"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IYandexMoneyPaymentFormWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexMoneyPaymentFormWidgetExtensionsTest.Sum_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidgetExtensions.Sum(Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget,System.Double)"/> method.</para>
@@ -4282,6 +5299,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.IYandexSharePanelWidgetExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexSharePanelWidgetExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.IYandexSharePanelWidgetExtensionsTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexSharePanelWidgetExtensionsTest.Services_Method">
@@ -4302,6 +5324,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.YandexAnalyticsWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexAnalyticsWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexAnalyticsWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexAnalyticsWidgetTest.Constructors">
@@ -4350,6 +5377,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexAnalyticsWidget.Language(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexAnalyticsWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexAnalyticsWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexAnalyticsWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexAnalyticsWidget.ToHtml"/> method.</para>
@@ -4358,6 +5390,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.YandexLikeButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexLikeButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexLikeButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexLikeButtonWidgetTest.Constructors">
@@ -4391,6 +5428,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexLikeButtonWidget.Text(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexLikeButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexLikeButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexLikeButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexLikeButtonWidget.ToHtml"/> method.</para>
@@ -4401,11 +5443,21 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexMapWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexMapWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMapWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Catharsis.Web.Widgets.YandexMapWidget.#ctor"/>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexMapWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexMapWidget.Clone"/> method.</para>
+            </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMapWidgetTest.ToHtml_Method">
             <summary>
@@ -4415,6 +5467,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.YandexMoneyButtonWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexMoneyButtonWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyButtonWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyButtonWidgetTest.Constructors">
@@ -4478,6 +5535,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexMoneyButtonWidget.Type(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyButtonWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexMoneyButtonWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyButtonWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexMoneyButtonWidget.ToHtml"/> method.</para>
@@ -4486,6 +5548,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.YandexMoneyDonateFormWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyDonateFormWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyDonateFormWidgetTest.Constructors">
@@ -4559,6 +5626,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.Description(System.Boolean)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyDonateFormWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyDonateFormWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget.ToHtml"/> method.</para>
@@ -4567,6 +5639,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.YandexMoneyPaymentFormWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyPaymentFormWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyPaymentFormWidgetTest.Constructors">
@@ -4630,6 +5707,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.AskPayerAddress(System.Boolean)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyPaymentFormWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyPaymentFormWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget.ToHtml"/> method.</para>
@@ -4638,6 +5720,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.YandexSharePanelWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexSharePanelWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexSharePanelWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexSharePanelWidgetTest.Constructors">
@@ -4661,6 +5748,11 @@
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexSharePanelWidget.Layout(System.String)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexSharePanelWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexSharePanelWidget.Clone"/> method.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexSharePanelWidgetTest.ToHtml_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexSharePanelWidget.ToHtml"/> method.</para>
@@ -4669,6 +5761,11 @@
         <member name="T:Catharsis.Web.Widgets.Tests.YandexVideoWidgetTest">
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexVideoWidget"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexVideoWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexVideoWidgetTest.Constructors">
@@ -4695,6 +5792,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.YandexVideoWidgetTest.Height_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexVideoWidget.Height(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YandexVideoWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YandexVideoWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexVideoWidgetTest.ToHtml_Method">
@@ -4753,6 +5855,11 @@
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YouTubeVideoWidget"/>.</para>
             </summary>
         </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YouTubeVideoWidgetTest.#ctor">
+            <summary>
+              <para>Test constructor.</para>
+            </summary>
+        </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YouTubeVideoWidgetTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
@@ -4782,6 +5889,11 @@
         <member name="M:Catharsis.Web.Widgets.Tests.YouTubeVideoWidgetTest.SecureMode_Method">
             <summary>
               <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YouTubeVideoWidget.SecureMode(System.Boolean)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Tests.YouTubeVideoWidgetTest.Clone_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Catharsis.Web.Widgets.YouTubeVideoWidget.Clone"/> method.</para>
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YouTubeVideoWidgetTest.ToHtml_Method">

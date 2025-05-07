@@ -8,42 +8,42 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LanguageProperty { get; set; }
+  protected virtual string LanguageValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string SizeProperty { get; set; }
+  protected virtual string SizeValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AlignmentProperty { get; set; }
+  protected virtual string AlignmentValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? CounterProperty { get; set; }
+  protected virtual bool? CounterValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? ScreenNameProperty { get; set; }
+  protected virtual bool? ScreenNameValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? SuggestionsProperty { get; set; }
+  protected virtual bool? SuggestionsValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="ITwitterFollowButtonWidget.Account(string)"/>
   public virtual ITwitterFollowButtonWidget Account(string account)
@@ -51,7 +51,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
     return this;
   }
 
@@ -61,14 +61,14 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     if (alignment is null) throw new ArgumentNullException(nameof(alignment));
     if (alignment.IsEmpty()) throw new ArgumentException(nameof(alignment));
 
-    AlignmentProperty = alignment;
+    AlignmentValue = alignment;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterFollowButtonWidget.Counter(bool)"/>
   public virtual ITwitterFollowButtonWidget Counter(bool enabled)
   {
-    CounterProperty = enabled;
+    CounterValue = enabled;
     return this;
   }
 
@@ -78,14 +78,14 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     if (language is null) throw new ArgumentNullException(nameof(language));
     if (language.IsEmpty()) throw new ArgumentException(nameof(language));
 
-    LanguageProperty = language;
+    LanguageValue = language;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterFollowButtonWidget.ScreenName(bool)"/>
   public virtual ITwitterFollowButtonWidget ScreenName(bool enabled)
   {
-    ScreenNameProperty = enabled;
+    ScreenNameValue = enabled;
     return this;
   }
 
@@ -95,14 +95,14 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
 
-    SizeProperty = size;
+    SizeValue = size;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterFollowButtonWidget.Suggestions(bool)"/>
   public virtual ITwitterFollowButtonWidget Suggestions(bool enabled)
   {
-    SuggestionsProperty = enabled;
+    SuggestionsValue = enabled;
     return this;
   }
 
@@ -112,34 +112,34 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new TwitterFollowButtonWidget
   {
-    AccountProperty = AccountProperty,
-    LanguageProperty = LanguageProperty,
-    SizeProperty = SizeProperty,
-    AlignmentProperty = AlignmentProperty,
-    CounterProperty = CounterProperty,
-    ScreenNameProperty = ScreenNameProperty,
-    SuggestionsProperty = SuggestionsProperty,
-    WidthProperty = WidthProperty
+    AccountValue = AccountValue,
+    LanguageValue = LanguageValue,
+    SizeValue = SizeValue,
+    AlignmentValue = AlignmentValue,
+    CounterValue = CounterValue,
+    ScreenNameValue = ScreenNameValue,
+    SuggestionsValue = SuggestionsValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : 
+  public override string ToHtml() => AccountValue.IsUnset() ? string.Empty : 
     new TagBuilder("a")
-      .Attribute("href", $"https://twitter.com/${AccountProperty}")
-      .Attribute("data-lang", LanguageProperty ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)
-      .Attribute("data-show-count", CounterProperty)
-      .Attribute("data-size", SizeProperty)
-      .Attribute("data-width", WidthProperty)
-      .Attribute("data-align", AlignmentProperty)
-      .Attribute("data-show-screen-name", ScreenNameProperty)
-      .Attribute("data-dnt", !SuggestionsProperty)
+      .Attribute("href", $"https://twitter.com/${AccountValue}")
+      .Attribute("data-lang", LanguageValue ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)
+      .Attribute("data-show-count", CounterValue)
+      .Attribute("data-size", SizeValue)
+      .Attribute("data-width", WidthValue)
+      .Attribute("data-align", AlignmentValue)
+      .Attribute("data-show-screen-name", ScreenNameValue)
+      .Attribute("data-dnt", !SuggestionsValue)
       .CssClass("twitter-follow-button")
       .ToString();
 }

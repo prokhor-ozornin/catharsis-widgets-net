@@ -8,22 +8,22 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ExtraProperty { get; set; }
+  protected virtual string ExtraValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual IEnumerable<(string ContentType, string Url)> VideosProperty { get; set; } = [];
+  protected virtual IEnumerable<(string ContentType, string Url)> VideosValue { get; set; } = [];
 
   /// <inheritdoc cref="IVideoJSPlayerWidget.Extra(string)"/>
   public virtual IVideoJSPlayerWidget Extra(string extra)
@@ -31,7 +31,7 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
     if (extra is null) throw new ArgumentNullException(nameof(extra));
     if (extra.IsEmpty()) throw new ArgumentException(nameof(extra));
 
-    ExtraProperty = extra;
+    ExtraValue = extra;
     return this;
   }
 
@@ -41,14 +41,14 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
     return this;
   }
 
   /// <inheritdoc cref="IVideoJSPlayerWidget.Videos(IEnumerable{ValueTuple{string, string}})"/>
   public virtual IVideoJSPlayerWidget Videos(IEnumerable<(string Url, string ContentType)> videos)
   {
-    VideosProperty = videos ?? throw new ArgumentNullException(nameof(videos));
+    VideosValue = videos ?? throw new ArgumentNullException(nameof(videos));
     return this;
   }
 
@@ -58,27 +58,27 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new VideoJSPlayerWidget
   {
-    ExtraProperty = ExtraProperty,
-    WidthProperty = WidthProperty,
-    HeightProperty = HeightProperty,
-    VideosProperty = VideosProperty?.ToArray()
+    ExtraValue = ExtraValue,
+    WidthValue = WidthValue,
+    HeightValue = HeightValue,
+    VideosValue = VideosValue?.ToArray()
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => !VideosProperty.Any() || WidthProperty.IsUnset() || HeightProperty.IsUnset() ? string.Empty : new TagBuilder("video")
+  public override string ToHtml() => !VideosValue.Any() || WidthValue.IsUnset() || HeightValue.IsUnset() ? string.Empty : new TagBuilder("video")
       .Attribute("class", "video-js vjs-default-skin")
       .Attribute("controls", "controls")
       .Attribute("preload", "auto")
       .Attribute("data-setup", "{}")
-      .Attribute("height", HeightProperty)
-      .Attribute("width", WidthProperty)
-      .Html(VideosProperty.Join(string.Empty) + ExtraProperty)
+      .Attribute("height", HeightValue)
+      .Attribute("width", WidthValue)
+      .Html(VideosValue.Join(string.Empty) + ExtraValue)
       .ToString();
 }

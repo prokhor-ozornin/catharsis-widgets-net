@@ -10,27 +10,27 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ElementIdProperty { get; set; }
+  protected virtual string ElementIdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HashProperty { get; set; }
+  protected virtual string HashValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string IdProperty { get; set; }
+  protected virtual string IdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string OwnerProperty { get; set; }
+  protected virtual string OwnerValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IVkontaktePostWidget.ElementId(string)"/>
   public virtual IVkontaktePostWidget ElementId(string id)
@@ -38,7 +38,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    ElementIdProperty = id;
+    ElementIdValue = id;
 
     return this;
   }
@@ -49,7 +49,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    IdProperty = id;
+    IdValue = id;
       
     return this;
   }
@@ -60,7 +60,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    OwnerProperty = id;
+    OwnerValue = id;
       
     return this;
   }
@@ -71,7 +71,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
     if (hash is null) throw new ArgumentNullException(nameof(hash));
     if (hash.IsEmpty()) throw new ArgumentException(nameof(hash));
 
-    HashProperty = hash;
+    HashValue = hash;
 
     return this;
   }
@@ -82,7 +82,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
 
     return this;
   }
@@ -90,33 +90,33 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new VkontaktePostWidget
   {
-    ElementIdProperty = ElementIdProperty,
-    HashProperty = HashProperty,
-    IdProperty = IdProperty,
-    OwnerProperty = OwnerProperty,
-    WidthProperty = WidthProperty
+    ElementIdValue = ElementIdValue,
+    HashValue = HashValue,
+    IdValue = IdValue,
+    OwnerValue = OwnerValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (IdProperty.IsUnset() || OwnerProperty.IsUnset() || HashProperty.IsUnset())
+    if (IdValue.IsUnset() || OwnerValue.IsUnset() || HashValue.IsUnset())
     {
       return string.Empty;
     }
 
     var config = new Dictionary<string, object>();
     
-    if (!WidthProperty.IsUnset())
+    if (!WidthValue.IsUnset())
     {
-      config["width"] = WidthProperty;
+      config["width"] = WidthValue;
     }
 
-    var id = ElementIdProperty ?? $"vk_post_${OwnerProperty}_${IdProperty}";
+    var id = ElementIdValue ?? $"vk_post_${OwnerValue}_${IdValue}";
 
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", id))
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"\"(function() {{ window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post(\"{id}\", {OwnerProperty}, {IdProperty}, \"{HashProperty}\", {config.Json()}) || setTimeout(arguments.callee, 50); }}());"))
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"\"(function() {{ window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post(\"{id}\", {OwnerValue}, {IdValue}, \"{HashValue}\", {config.Json()}) || setTimeout(arguments.callee, 50); }}());"))
       .ToString();
   }
 }

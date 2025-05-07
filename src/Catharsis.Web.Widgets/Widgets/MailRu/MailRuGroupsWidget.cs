@@ -9,42 +9,42 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string BackgroundColorProperty { get; set; }
+  protected virtual string BackgroundColorValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ButtonColorProperty { get; set; }
+  protected virtual string ButtonColorValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string DomainProperty { get; set; }
+  protected virtual string DomainValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool SubscribersProperty { get; set; } = true;
+  protected virtual bool SubscribersValue { get; set; } = true;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TextColorProperty { get; set; }
+  protected virtual string TextColorValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Account(string)"/>
   public virtual IMailRuGroupsWidget Account(string account)
@@ -52,7 +52,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
     return this;
   }
 
@@ -62,7 +62,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    BackgroundColorProperty = color;
+    BackgroundColorValue = color;
     return this;
   }
 
@@ -72,7 +72,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    ButtonColorProperty = color;
+    ButtonColorValue = color;
     return this;
   }
 
@@ -82,7 +82,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (domain is null) throw new ArgumentNullException(nameof(domain));
     if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
 
-    DomainProperty = domain;
+    DomainValue = domain;
     return this;
   }
 
@@ -92,14 +92,14 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
     return this;
   }
 
   /// <inheritdoc cref="IMailRuGroupsWidget.Subscribers(bool)"/>
   public virtual IMailRuGroupsWidget Subscribers(bool enabled)
   {
-    SubscribersProperty = enabled;
+    SubscribersValue = enabled;
     return this;
   }
 
@@ -109,7 +109,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    TextColorProperty = color;
+    TextColorValue = color;
     return this;
   }
 
@@ -119,62 +119,62 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new MailRuGroupsWidget
   {
-    AccountProperty = AccountProperty,
-    BackgroundColorProperty = BackgroundColorProperty,
-    ButtonColorProperty = ButtonColorProperty,
-    DomainProperty = DomainProperty,
-    HeightProperty = HeightProperty,
-    SubscribersProperty = SubscribersProperty,
-    TextColorProperty = TextColorProperty,
-    WidthProperty = WidthProperty
+    AccountValue = AccountValue,
+    BackgroundColorValue = BackgroundColorValue,
+    ButtonColorValue = ButtonColorValue,
+    DomainValue = DomainValue,
+    HeightValue = HeightValue,
+    SubscribersValue = SubscribersValue,
+    TextColorValue = TextColorValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsUnset() || WidthProperty.IsUnset() || HeightProperty.IsUnset())
+    if (AccountValue.IsUnset() || WidthValue.IsUnset() || HeightValue.IsUnset())
     {
       return string.Empty;
     }
 
     var config = new Dictionary<string, object>
     {
-      { "group", AccountProperty },
+      { "group", AccountValue },
       { "max_sub", 50 },
-      { "width", WidthProperty },
-      { "height", HeightProperty }
+      { "width", WidthValue },
+      { "height", HeightValue }
     };
 
-    if (SubscribersProperty)
+    if (SubscribersValue)
     {
       config["show_subscribers"] = true;
     }
     
-    if (!BackgroundColorProperty.IsUnset())
+    if (!BackgroundColorValue.IsUnset())
     {
-      config["background"] = BackgroundColorProperty;
+      config["background"] = BackgroundColorValue;
     }
     
-    if (!TextColorProperty.IsUnset())
+    if (!TextColorValue.IsUnset())
     {
-      config["color"] = TextColorProperty;
+      config["color"] = TextColorValue;
     }
     
-    if (!ButtonColorProperty.IsUnset())
+    if (!ButtonColorValue.IsUnset())
     {
-      config["button_background"] = ButtonColorProperty;
+      config["button_background"] = ButtonColorValue;
     }
     
-    if (!DomainProperty.IsUnset())
+    if (!DomainValue.IsUnset())
     {
-      config["domain"] = DomainProperty;
+      config["domain"] = DomainValue;
     }
 
     return new TagBuilder("a")

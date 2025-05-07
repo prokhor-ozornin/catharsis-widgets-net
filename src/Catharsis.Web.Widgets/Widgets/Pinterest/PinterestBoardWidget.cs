@@ -8,27 +8,27 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string IdProperty { get; set; }
+  protected virtual string IdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ImageProperty { get; set; }
+  protected virtual string ImageValue { get; set; }
 
   /// <inheritdoc cref="IPinterestBoardWidget.Account(string)"/>
   public virtual IPinterestBoardWidget Account(string account)
@@ -36,7 +36,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
     return this;
   }
 
@@ -46,7 +46,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
     return this;
   }
 
@@ -56,7 +56,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
@@ -66,7 +66,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    IdProperty = id;
+    IdValue = id;
     return this;
   }
 
@@ -76,26 +76,26 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
     if (image is null) throw new ArgumentNullException(nameof(image));
     if (image.IsEmpty()) throw new ArgumentException(nameof(image));
 
-    ImageProperty = image;
+    ImageValue = image;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new PinterestBoardWidget
   {
-    AccountProperty = AccountProperty,
-    HeightProperty = HeightProperty,
-    WidthProperty = WidthProperty,
-    IdProperty = IdProperty,
-    ImageProperty = ImageProperty
+    AccountValue = AccountValue,
+    HeightValue = HeightValue,
+    WidthValue = WidthValue,
+    IdValue = IdValue,
+    ImageValue = ImageValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountProperty.IsUnset() || IdProperty.IsUnset() ? string.Empty : new TagBuilder("a")
+  public override string ToHtml() => AccountValue.IsUnset() || IdValue.IsUnset() ? string.Empty : new TagBuilder("a")
       .Attribute("data-pin-do", "embedBoard")
-      .Attribute("href", $"http://www.pinterest.com/${AccountProperty}/{IdProperty}")
-      .Attribute("data-pin-scale-width", ImageProperty)
-      .Attribute("data-pin-scale-height", HeightProperty)
-      .Attribute("data-pin-board-width", WidthProperty)
+      .Attribute("href", $"http://www.pinterest.com/${AccountValue}/{IdValue}")
+      .Attribute("data-pin-scale-width", ImageValue)
+      .Attribute("data-pin-scale-height", HeightValue)
+      .Attribute("data-pin-board-width", WidthValue)
       .ToString();
 }

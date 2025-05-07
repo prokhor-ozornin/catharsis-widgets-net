@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -7,7 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="SoundCloudWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class SoundCloudWidgetsCreatorTest : UnitTest
+public sealed class SoundCloudWidgetsCreatorTest : Test
 {
   private ISoundCloudWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.SoundCloud();
 

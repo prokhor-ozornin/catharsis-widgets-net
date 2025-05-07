@@ -8,52 +8,52 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LanguageProperty { get; set; }
+  protected virtual string LanguageValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TextProperty { get; set; }
+  protected virtual string TextValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ViaProperty { get; set; }
+  protected virtual string ViaValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string SizeProperty { get; set; }
+  protected virtual string SizeValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string CountUrlProperty { get; set; }
+  protected virtual string CountUrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string CounterPositionProperty { get; set; }
+  protected virtual string CounterPositionValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? SuggestionsProperty { get; set; }
+  protected virtual bool? SuggestionsValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual IEnumerable<string> AccountsProperty { get; set; } = [];
+  protected virtual IEnumerable<string> AccountsValue { get; set; } = [];
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual IEnumerable<string> TagsProperty { get; set; } = [];
+  protected virtual IEnumerable<string> TagsValue { get; set; } = [];
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.CounterPosition(string)"/>
   public virtual ITwitterTweetButtonWidget CounterPosition(string position)
@@ -61,7 +61,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (position is null) throw new ArgumentNullException(nameof(position));
     if (position.IsEmpty()) throw new ArgumentException(nameof(position));
 
-    CounterPositionProperty = position;
+    CounterPositionValue = position;
     return this;
   }
 
@@ -71,14 +71,14 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    CountUrlProperty = url;
+    CountUrlValue = url;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.HashTags(IEnumerable{string})"/>
   public virtual ITwitterTweetButtonWidget HashTags(IEnumerable<string> tags)
   {
-    TagsProperty = tags ?? throw new ArgumentNullException(nameof(tags));
+    TagsValue = tags ?? throw new ArgumentNullException(nameof(tags));
     return this;
   }
 
@@ -88,21 +88,21 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (language is null) throw new ArgumentNullException(nameof(language));
     if (language.IsEmpty()) throw new ArgumentException(nameof(language));
 
-    LanguageProperty = language;
+    LanguageValue = language;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.Suggestions(bool)"/>
   public virtual ITwitterTweetButtonWidget Suggestions(bool enabled)
   {
-    SuggestionsProperty = enabled;
+    SuggestionsValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="ITwitterTweetButtonWidget.RelatedAccounts(IEnumerable{string})"/>
   public virtual ITwitterTweetButtonWidget RelatedAccounts(IEnumerable<string> accounts)
   {
-    AccountsProperty = accounts ?? throw new ArgumentNullException(nameof(accounts));
+    AccountsValue = accounts ?? throw new ArgumentNullException(nameof(accounts));
     return this;
   }
 
@@ -112,7 +112,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
 
-    SizeProperty = size;
+    SizeValue = size;
     return this;
   }
 
@@ -122,7 +122,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (text is null) throw new ArgumentNullException(nameof(text));
     if (text.IsEmpty()) throw new ArgumentException(nameof(text));
 
-    TextProperty = text;
+    TextValue = text;
     return this;
   }
 
@@ -132,7 +132,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
     return this;
   }
 
@@ -142,38 +142,38 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    ViaProperty = account;
+    ViaValue = account;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new TwitterTweetButtonWidget
   {
-    UrlProperty = UrlProperty,
-    LanguageProperty = LanguageProperty,
-    TextProperty = TextProperty,
-    ViaProperty = ViaProperty,
-    SizeProperty = SizeProperty,
-    CountUrlProperty = CountUrlProperty,
-    CounterPositionProperty = CounterPositionProperty,
-    SuggestionsProperty = SuggestionsProperty,
-    AccountsProperty = AccountsProperty?.ToArray(),
-    TagsProperty = TagsProperty?.ToArray()
+    UrlValue = UrlValue,
+    LanguageValue = LanguageValue,
+    TextValue = TextValue,
+    ViaValue = ViaValue,
+    SizeValue = SizeValue,
+    CountUrlValue = CountUrlValue,
+    CounterPositionValue = CounterPositionValue,
+    SuggestionsValue = SuggestionsValue,
+    AccountsValue = AccountsValue?.ToArray(),
+    TagsValue = TagsValue?.ToArray()
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("a")
       .Attribute("href", "https://twitter.com/share")
-      .Attribute("data-lang", LanguageProperty ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)
-      .Attribute("data-url", UrlProperty)
-      .Attribute("data-via", ViaProperty)
-      .Attribute("data-text", TextProperty)
-      .Attribute("data-related", AccountsProperty.Any() ? AccountsProperty.Join(",") : null)
-      .Attribute("data-count", CounterPositionProperty)
-      .Attribute("data-counturl", CountUrlProperty)
-      .Attribute("data-hashtags", TagsProperty.Any() ? TagsProperty.Join(" ") : null)
-      .Attribute("data-size", SizeProperty)
-      .Attribute("data-dnt", !SuggestionsProperty)
-      .CssClass(TagsProperty.Any() ? "twitter-hashtag-button" : "twitter-share-button")
+      .Attribute("data-lang", LanguageValue ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)
+      .Attribute("data-url", UrlValue)
+      .Attribute("data-via", ViaValue)
+      .Attribute("data-text", TextValue)
+      .Attribute("data-related", AccountsValue.Any() ? AccountsValue.Join(",") : null)
+      .Attribute("data-count", CounterPositionValue)
+      .Attribute("data-counturl", CountUrlValue)
+      .Attribute("data-hashtags", TagsValue.Any() ? TagsValue.Join(" ") : null)
+      .Attribute("data-size", SizeValue)
+      .Attribute("data-dnt", !SuggestionsValue)
+      .CssClass(TagsValue.Any() ? "twitter-hashtag-button" : "twitter-share-button")
       .ToString();
 }

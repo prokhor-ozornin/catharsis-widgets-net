@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="TumblrShareButtonWidget"/>.</para>
 /// </summary>
-public sealed class TumblrShareButtonWidgetTest : UnitTest
+public sealed class TumblrShareButtonWidgetTest : Test
 {
+  private ITumblrShareButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public TumblrShareButtonWidgetTest() => Widget = Fixture.Create<ITumblrShareButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,8 +30,8 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new TumblrShareButtonWidget();
-      widget.GetPropertyValue<byte>("TypeProperty").Should().Be((byte) TumblrShareButtonType.First);
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
+      widget.GetPropertyValue<byte>("TypeValue").Should().Be((byte) TumblrShareButtonType.First);
+      widget.GetPropertyValue<string>("ColorSchemeValue").Should().BeNull();
     }
   }
 
@@ -36,12 +43,12 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new TumblrShareButtonWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(byte type, ITumblrShareButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeProperty").Should().Be(type);
+    static void Validate(byte type, ITumblrShareButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeValue").Should().Be(type);
   }
 
   /// <summary>
@@ -55,12 +62,12 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new TumblrShareButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new TumblrShareButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new TumblrShareButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string scheme, ITumblrShareButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
+    static void Validate(string scheme, ITumblrShareButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme);
   }
 
   /// <summary>
@@ -72,7 +79,7 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new TumblrShareButtonWidget());
-      Validate(Attributes.TumblrShareButtonWidget());
+      Validate(Fixture.Create<ITumblrShareButtonWidget>());
     }
 
     return;
@@ -81,7 +88,8 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
     {
       var clone = original.Clone<ITumblrShareButtonWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<byte>("TypeValue").Should().Be(original.GetPropertyValue<byte>("TypeValue"));
+      clone.GetPropertyValue<string>("ColorSchemeValue").Should().Be(original.GetPropertyValue<string>("ColorSchemeValue"));
     }
   }
 
@@ -95,6 +103,7 @@ public sealed class TumblrShareButtonWidgetTest : UnitTest
     {
       Validate(new TumblrShareButtonWidget(), """<a href="http://www.tumblr.com/share" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:80px; height:20px; background:url(&#39;http://platform.tumblr.com/v1/share_1.png&#39;) top left no-repeat transparent;" title="Share on Tumblr">Share on Tumblr</a>""");
       Validate(new TumblrShareButtonWidget().Type(TumblrShareButtonType.Second).ColorScheme(TumblrShareButtonColorScheme.Gray), """<a href="http://www.tumblr.com/share" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:70px; height:20px; background:url(&#39;http://platform.tumblr.com/v1/share_2T.png&#39;) top left no-repeat transparent;" title="Share on Tumblr">Share on Tumblr</a>""");
+      Validate(Fixture.Create<ITumblrShareButtonWidget>());
     }
 
     return;

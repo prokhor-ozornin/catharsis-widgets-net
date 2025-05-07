@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions.Execution;
 using FluentAssertions;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="Share42PanelWidget"/>.</para>
 /// </summary>
-public sealed class Share42PanelWidgetTest : UnitTest
+public sealed class Share42PanelWidgetTest : Test
 {
+  private IShare42PanelWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public Share42PanelWidgetTest() => Widget = Fixture.Create<IShare42PanelWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,8 +30,8 @@ public sealed class Share42PanelWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new Share42PanelWidget();
-      widget.GetPropertyValue<byte>("SizeProperty").Should().Be((byte) Share42PanelSize.Size24);
-      widget.GetPropertyValue<Share42PanelDirection>("DirectionProperty").Should().Be(Share42PanelDirection.Horizontal);
+      widget.GetPropertyValue<byte>("SizeValue").Should().Be((byte) Share42PanelSize.Size24);
+      widget.GetPropertyValue<Share42PanelDirection>("DirectionValue").Should().Be(Share42PanelDirection.Horizontal);
     }
   }
 
@@ -36,12 +43,12 @@ public sealed class Share42PanelWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new Share42PanelWidget().With(widget => Enum.GetValues<Share42PanelDirection>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<Share42PanelDirection>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(Share42PanelDirection direction, IShare42PanelWidget widget) => widget.Direction(direction).Should().BeSameAs(widget).And.Subject.GetPropertyValue<Share42PanelDirection>("DirectionProperty").Should().Be(direction);
+    static void Validate(Share42PanelDirection direction, IShare42PanelWidget widget) => widget.Direction(direction).Should().BeSameAs(widget).And.Subject.GetPropertyValue<Share42PanelDirection>("DirectionValue").Should().Be(direction);
   }
 
   /// <summary>
@@ -52,12 +59,12 @@ public sealed class Share42PanelWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new Share42PanelWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(byte size, IShare42PanelWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("SizeProperty").Should().Be(size);
+    static void Validate(byte size, IShare42PanelWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("SizeValue").Should().Be(size);
   }
 
   /// <summary>
@@ -69,7 +76,7 @@ public sealed class Share42PanelWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new Share42PanelWidget());
-      Validate(Attributes.Share42PanelWidget());
+      Validate(Fixture.Create<IShare42PanelWidget>());
     }
 
     return;
@@ -78,7 +85,8 @@ public sealed class Share42PanelWidgetTest : UnitTest
     {
       var clone = original.Clone<IShare42PanelWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<Share42PanelDirection>("DirectionValue").Should().Be(original.GetPropertyValue<Share42PanelDirection>("DirectionValue"));
+      clone.GetPropertyValue<byte>("SizeValue").Should().Be(original.GetPropertyValue<byte>("SizeValue"));
     }
   }
 
@@ -90,6 +98,7 @@ public sealed class Share42PanelWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
+      Validate(Fixture.Create<IShare42PanelWidget>());
       throw new NotImplementedException();
     }
 

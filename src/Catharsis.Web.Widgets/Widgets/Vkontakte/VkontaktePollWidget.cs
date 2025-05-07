@@ -10,22 +10,22 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ElementIdProperty { get; set; }
+  protected virtual string ElementIdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string IdProperty { get; set; }
+  protected virtual string IdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IVkontaktePollWidget.Id(string)"/>
   public virtual IVkontaktePollWidget Id(string id)
@@ -33,7 +33,7 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    IdProperty = id;
+    IdValue = id;
 
     return this;
   }
@@ -44,7 +44,7 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    ElementIdProperty = id;
+    ElementIdValue = id;
       
     return this;
   }
@@ -55,7 +55,7 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
 
     return this;
   }
@@ -66,7 +66,7 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
 
     return this;
   }
@@ -74,37 +74,37 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new VkontaktePollWidget
   {
-    ElementIdProperty = ElementIdProperty,
-    IdProperty = IdProperty,
-    UrlProperty = UrlProperty,
-    WidthProperty = WidthProperty
+    ElementIdValue = ElementIdValue,
+    IdValue = IdValue,
+    UrlValue = UrlValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (IdProperty.IsUnset())
+    if (IdValue.IsUnset())
     {
       return string.Empty;
     }
 
     var config = new Dictionary<string, object>();
     
-    if (!UrlProperty.IsUnset())
+    if (!UrlValue.IsUnset())
     {
-      config["pageUrl"] = UrlProperty;
+      config["pageUrl"] = UrlValue;
     }
 
-    if (!WidthProperty.IsUnset())
+    if (!WidthValue.IsUnset())
     {
-      config["width"] = WidthProperty;
+      config["width"] = WidthValue;
     }
 
-    var id = ElementIdProperty ?? $"vk_poll_{IdProperty}";
+    var id = ElementIdValue ?? $"vk_poll_{IdValue}";
       
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", id))
-      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"\"VK.Widgets.Poll(\"{id}\", {config.Json()}, \"{IdProperty}\"));")
+      .Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"\"VK.Widgets.Poll(\"{id}\", {config.Json()}, \"{IdValue}\"));")
       ).ToString();
   }
 }

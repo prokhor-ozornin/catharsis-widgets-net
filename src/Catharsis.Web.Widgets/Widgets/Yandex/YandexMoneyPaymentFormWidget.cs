@@ -8,57 +8,57 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string DescriptionProperty { get; set; }
+  protected virtual string DescriptionValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual decimal? SumProperty { get; set; }
+  protected virtual decimal? SumValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool CardsProperty { get; set; } = true;
+  protected virtual bool CardsValue { get; set; } = true;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte TextProperty { get; set; } = (byte) YandexMoneyPaymentFormText.Pay;
+  protected virtual byte TextValue { get; set; } = (byte) YandexMoneyPaymentFormText.Pay;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerPurposeProperty { get; set; }
+  protected virtual bool AskPayerPurposeValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerCommentProperty { get; set; }
+  protected virtual bool AskPayerCommentValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerFullNameProperty { get; set; }
+  protected virtual bool AskPayerFullNameValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerEmailProperty { get; set; }
+  protected virtual bool AskPayerEmailValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerPhoneProperty { get; set; }
+  protected virtual bool AskPayerPhoneValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerAddressProperty { get; set; }
+  protected virtual bool AskPayerAddressValue { get; set; }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Account(string)"/>
   public virtual IYandexMoneyPaymentFormWidget Account(string account)
@@ -66,7 +66,7 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
 
     return this;
   }
@@ -74,7 +74,7 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Cards(bool)"/>
   public virtual IYandexMoneyPaymentFormWidget Cards(bool enabled)
   {
-    CardsProperty = enabled;
+    CardsValue = enabled;
     return this;
   }
 
@@ -84,7 +84,7 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
     if (description is null) throw new ArgumentNullException(nameof(description));
     if (description.IsEmpty()) throw new ArgumentException(nameof(description));
 
-    DescriptionProperty = description;
+    DescriptionValue = description;
 
     return this;
   }
@@ -92,82 +92,82 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerAddress(bool)"/>
   public virtual IYandexMoneyPaymentFormWidget AskPayerAddress(bool enabled)
   {
-    AskPayerAddressProperty = enabled;
+    AskPayerAddressValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerComment(bool)"/>
   public virtual IYandexMoneyPaymentFormWidget AskPayerComment(bool enabled)
   {
-    AskPayerCommentProperty = enabled;
+    AskPayerCommentValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerEmail(bool)"/>
   public virtual IYandexMoneyPaymentFormWidget AskPayerEmail(bool enabled)
   {
-    AskPayerEmailProperty = enabled;
+    AskPayerEmailValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerFullName(bool)"/>
   public virtual IYandexMoneyPaymentFormWidget AskPayerFullName(bool enabled)
   {
-    AskPayerFullNameProperty = enabled;
+    AskPayerFullNameValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPhone(bool)"/>
   public virtual IYandexMoneyPaymentFormWidget AskPayerPhone(bool enabled)
   {
-    AskPayerPhoneProperty = enabled;
+    AskPayerPhoneValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.AskPayerPurpose(bool)"/>
   public virtual IYandexMoneyPaymentFormWidget AskPayerPurpose(bool enabled)
   {
-    AskPayerPurposeProperty = enabled;
+    AskPayerPurposeValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Sum(decimal)"/>
   public virtual IYandexMoneyPaymentFormWidget Sum(decimal sum)
   {
-    SumProperty = sum;
+    SumValue = sum;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyPaymentFormWidget.Text(byte)"/>
   public virtual IYandexMoneyPaymentFormWidget Text(byte text)
   {
-    TextProperty = text;
+    TextValue = text;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new YandexMoneyPaymentFormWidget
   {
-    AccountProperty = AccountProperty,
-    DescriptionProperty = DescriptionProperty,
-    SumProperty = SumProperty,
-    CardsProperty = CardsProperty,
-    TextProperty = TextProperty,
-    AskPayerPurposeProperty = AskPayerPurposeProperty,
-    AskPayerCommentProperty = AskPayerCommentProperty,
-    AskPayerFullNameProperty = AskPayerFullNameProperty,
-    AskPayerEmailProperty = AskPayerEmailProperty,
-    AskPayerPhoneProperty = AskPayerPhoneProperty,
-    AskPayerAddressProperty = AskPayerAddressProperty
+    AccountValue = AccountValue,
+    DescriptionValue = DescriptionValue,
+    SumValue = SumValue,
+    CardsValue = CardsValue,
+    TextValue = TextValue,
+    AskPayerPurposeValue = AskPayerPurposeValue,
+    AskPayerCommentValue = AskPayerCommentValue,
+    AskPayerFullNameValue = AskPayerFullNameValue,
+    AskPayerEmailValue = AskPayerEmailValue,
+    AskPayerPhoneValue = AskPayerPhoneValue,
+    AskPayerAddressValue = AskPayerAddressValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountProperty.IsUnset() || DescriptionProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
-      .Attribute("src", $"https://money.yandex.ru/embed/shop.xml?account={AccountProperty}&quickpay=shop{(CardsProperty ? "&payment-type-choice=on" : string.Empty)}&writer={(AskPayerPurposeProperty ? "buyer" : "seller")}&{(AskPayerPurposeProperty ? "targets-hint" : "targets")}={DescriptionProperty}&default-sum={SumProperty}&button-text=0{TextProperty}{(AskPayerCommentProperty ? "&comment=on" : string.Empty)}{(AskPayerFullNameProperty ? "&fio=on" : string.Empty)}{(AskPayerEmailProperty ? "&mail=on" : string.Empty)}{(AskPayerPhoneProperty ? "&phone=on" : string.Empty)}{(AskPayerAddressProperty ? "&address=on" : string.Empty)}")
+  public override string ToHtml() => AccountValue.IsUnset() || DescriptionValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
+      .Attribute("src", $"https://money.yandex.ru/embed/shop.xml?account={AccountValue}&quickpay=shop{(CardsValue ? "&payment-type-choice=on" : string.Empty)}&writer={(AskPayerPurposeValue ? "buyer" : "seller")}&{(AskPayerPurposeValue ? "targets-hint" : "targets")}={DescriptionValue}&default-sum={SumValue}&button-text=0{TextValue}{(AskPayerCommentValue ? "&comment=on" : string.Empty)}{(AskPayerFullNameValue ? "&fio=on" : string.Empty)}{(AskPayerEmailValue ? "&mail=on" : string.Empty)}{(AskPayerPhoneValue ? "&phone=on" : string.Empty)}{(AskPayerAddressValue ? "&address=on" : string.Empty)}")
       .Attribute("frameborder", 0)
       .Attribute("allowtransparency", true)
       .Attribute("scrolling", "no")
       .Attribute("width", 450)
-      .Attribute("height", AskPayerCommentProperty ? 255 : 200)
+      .Attribute("height", AskPayerCommentValue ? 255 : 200)
       .ToString();
 }

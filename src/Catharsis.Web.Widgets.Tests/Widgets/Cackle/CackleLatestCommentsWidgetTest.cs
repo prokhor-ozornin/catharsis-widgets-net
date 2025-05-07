@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="CackleLatestCommentsWidget"/>.</para>
 /// </summary>
-public sealed class CackleLatestCommentsWidgetTest : UnitTest
+public sealed class CackleLatestCommentsWidgetTest : Test
 {
+  private ICackleLatestCommentsWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public CackleLatestCommentsWidgetTest() => Widget = Fixture.Create<ICackleLatestCommentsWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,11 +30,11 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new CackleLatestCommentsWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<short>("AvatarSizeProperty").Should().Be(32);
-      widget.GetPropertyValue<byte>("MaxProperty").Should().Be(5);
-      widget.GetPropertyValue<int>("TextSizeProperty").Should().Be(150);
-      widget.GetPropertyValue<int>("TitleSizeProperty").Should().Be(40);
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
+      widget.GetPropertyValue<short>("AvatarSizeValue").Should().Be(32);
+      widget.GetPropertyValue<byte>("MaxValue").Should().Be(5);
+      widget.GetPropertyValue<int>("TextSizeValue").Should().Be(150);
+      widget.GetPropertyValue<int>("TitleSizeValue").Should().Be(40);
     }
   }
 
@@ -42,12 +49,12 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new CackleLatestCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new CackleLatestCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new CackleLatestCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, ICackleLatestCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, ICackleLatestCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -58,12 +65,12 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new CackleLatestCommentsWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(short size, ICackleLatestCommentsWidget widget) => widget.AvatarSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short>("AvatarSizeProperty").Should().Be(size);
+    static void Validate(short size, ICackleLatestCommentsWidget widget) => widget.AvatarSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short>("AvatarSizeValue").Should().Be(size);
   }
 
   /// <summary>
@@ -74,12 +81,12 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new CackleLatestCommentsWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(byte max, ICackleLatestCommentsWidget widget) => widget.Max(max).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("MaxProperty").Should().Be(max);
+    static void Validate(byte max, ICackleLatestCommentsWidget widget) => widget.Max(max).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("MaxValue").Should().Be(max);
   }
 
   /// <summary>
@@ -90,12 +97,12 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new CackleLatestCommentsWidget().With(widget => new[] { int.MinValue, int.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { int.MinValue, int.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(int size, ICackleLatestCommentsWidget widget) => widget.TextSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<int>("TextSizeProperty").Should().Be(size);
+    static void Validate(int size, ICackleLatestCommentsWidget widget) => widget.TextSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<int>("TextSizeValue").Should().Be(size);
   }
 
   /// <summary>
@@ -106,12 +113,12 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new CackleLatestCommentsWidget().With(widget => new[] { int.MinValue, int.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { int.MinValue, int.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(int size, ICackleLatestCommentsWidget widget) => widget.TitleSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<int>("TitleSizeProperty").Should().Be(size);
+    static void Validate(int size, ICackleLatestCommentsWidget widget) => widget.TitleSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<int>("TitleSizeValue").Should().Be(size);
   }
 
   /// <summary>
@@ -123,7 +130,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new CackleLatestCommentsWidget());
-      Validate(Attributes.CackleLatestCommentsWidget());
+      Validate(Fixture.Create<ICackleLatestCommentsWidget>());
     }
 
     return;
@@ -132,11 +139,11 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
     {
       var clone = original.Clone<ICackleLatestCommentsWidget>();
 
-      clone.GetPropertyValue<string>("AccountProperty").Should().Be(original.GetPropertyValue<string>("AccountProperty"));
-      clone.GetPropertyValue<short>("AvatarSizeProperty").Should().Be(original.GetPropertyValue<short>("AvatarSizeProperty"));
-      clone.GetPropertyValue<byte>("MaxProperty").Should().Be(original.GetPropertyValue<byte>("MaxProperty"));
-      clone.GetPropertyValue<int>("TextSizeProperty").Should().Be(original.GetPropertyValue<int>("TextSizeProperty"));
-      clone.GetPropertyValue<int>("TitleSizeProperty").Should().Be(original.GetPropertyValue<int>("TitleSizeProperty"));
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
+      clone.GetPropertyValue<short>("AvatarSizeValue").Should().Be(original.GetPropertyValue<short>("AvatarSizeValue"));
+      clone.GetPropertyValue<byte>("MaxValue").Should().Be(original.GetPropertyValue<byte>("MaxValue"));
+      clone.GetPropertyValue<int>("TextSizeValue").Should().Be(original.GetPropertyValue<int>("TextSizeValue"));
+      clone.GetPropertyValue<int>("TitleSizeValue").Should().Be(original.GetPropertyValue<int>("TitleSizeValue"));
     }
   }
 
@@ -151,6 +158,7 @@ public sealed class CackleLatestCommentsWidgetTest : UnitTest
       Validate(new CackleLatestCommentsWidget());
       Validate(new CackleLatestCommentsWidget().Account("account"), """<div id="mc-last"></div>""", """{"widget":"CommentRecent","id":"account","size":5,"avatarSize":32,"textSize":150,"titleSize":40}""");
       Validate(new CackleLatestCommentsWidget().Account("account").Max(1).AvatarSize(2).TextSize(3).TitleSize(4), """<div id="mc-last"></div>""", """{"widget":"CommentRecent","id":"account","size":1,"avatarSize":2,"textSize":3,"titleSize":4}""");
+      Validate(Fixture.Create<ICackleLatestCommentsWidget>());
     }
 
     return;

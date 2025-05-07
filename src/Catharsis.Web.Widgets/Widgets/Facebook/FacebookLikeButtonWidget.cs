@@ -8,42 +8,42 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorSchemeProperty { get; set; }
+  protected virtual string ColorSchemeValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? FacesProperty { get; set; }
+  protected virtual bool? FacesValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? KidsModeProperty { get; set; }
+  protected virtual bool? KidsModeValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LayoutProperty { get; set; }
+  protected virtual string LayoutValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TrackLabelProperty { get; set; }
+  protected virtual string TrackLabelValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string VerbProperty { get; set; }
+  protected virtual string VerbValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IFacebookLikeButtonWidget.ColorScheme(string)"/>
   public virtual IFacebookLikeButtonWidget ColorScheme(string scheme)
@@ -51,21 +51,21 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    ColorSchemeProperty = scheme;
+    ColorSchemeValue = scheme;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeButtonWidget.Faces(bool)"/>
   public virtual IFacebookLikeButtonWidget Faces(bool enabled)
   {
-    FacesProperty = enabled;
+    FacesValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookLikeButtonWidget.KidsMode(bool)"/>
   public virtual IFacebookLikeButtonWidget KidsMode(bool enabled)
   {
-    KidsModeProperty = enabled;
+    KidsModeValue = enabled;
     return this;
   }
 
@@ -75,7 +75,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
     if (layout is null) throw new ArgumentNullException(nameof(layout));
     if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
 
-    LayoutProperty = layout;
+    LayoutValue = layout;
     return this;
   }
 
@@ -85,7 +85,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
     if (label is null) throw new ArgumentNullException(nameof(label));
     if (label.IsEmpty()) throw new ArgumentException(nameof(label));
 
-    TrackLabelProperty = label;
+    TrackLabelValue = label;
     return this;
   }
 
@@ -95,7 +95,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
     return this;
   }
 
@@ -105,7 +105,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
     if (verb is null) throw new ArgumentNullException(nameof(verb));
     if (verb.IsEmpty()) throw new ArgumentException(nameof(verb));
 
-    VerbProperty = verb;
+    VerbValue = verb;
     return this;
   }
 
@@ -115,33 +115,33 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new FacebookLikeButtonWidget
   {
-    ColorSchemeProperty = ColorSchemeProperty,
-    FacesProperty = FacesProperty,
-    KidsModeProperty = KidsModeProperty,
-    LayoutProperty = LayoutProperty,
-    TrackLabelProperty = TrackLabelProperty,
-    UrlProperty = UrlProperty,
-    VerbProperty = VerbProperty,
-    WidthProperty = WidthProperty
+    ColorSchemeValue = ColorSchemeValue,
+    FacesValue = FacesValue,
+    KidsModeValue = KidsModeValue,
+    LayoutValue = LayoutValue,
+    TrackLabelValue = TrackLabelValue,
+    UrlValue = UrlValue,
+    VerbValue = VerbValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
-      .Attribute("data-action", VerbProperty)
-      .Attribute("data-layout", LayoutProperty)
-      .Attribute("data-show-faces", FacesProperty)
-      .Attribute("data-href", UrlProperty)
-      .Attribute("data-colorscheme", ColorSchemeProperty)
-      .Attribute("data-kid-directed-site", KidsModeProperty)
-      .Attribute("data-ref", TrackLabelProperty)
-      .Attribute("data-width", WidthProperty)
+      .Attribute("data-action", VerbValue)
+      .Attribute("data-layout", LayoutValue)
+      .Attribute("data-show-faces", FacesValue)
+      .Attribute("data-href", UrlValue)
+      .Attribute("data-colorscheme", ColorSchemeValue)
+      .Attribute("data-kid-directed-site", KidsModeValue)
+      .Attribute("data-ref", TrackLabelValue)
+      .Attribute("data-width", WidthValue)
       .CssClass("fb-like")
       .ToString();
 }

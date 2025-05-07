@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontakteAuthButtonWidget"/>.</para>
 /// </summary>
-public sealed class VkontakteAuthButtonWidgetTest : UnitTest
+public sealed class VkontakteAuthButtonWidgetTest : Test
 {
+  private IVkontakteAuthButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public VkontakteAuthButtonWidgetTest() => Widget = Fixture.Create<IVkontakteAuthButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,11 +30,11 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new VkontakteAuthButtonWidget();
-      widget.GetPropertyValue<string>("CallbackProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
-      widget.GetPropertyValue<VkontakteAuthButtonType>("TypeProperty").Should().Be(VkontakteAuthButtonType.Standard);
-      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("CallbackValue").Should().BeNull();
+      widget.GetPropertyValue<string>("ElementIdValue").Should().BeNull();
+      widget.GetPropertyValue<VkontakteAuthButtonType>("TypeValue").Should().Be(VkontakteAuthButtonType.Standard);
+      widget.GetPropertyValue<string>("UrlValue").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthValue").Should().BeNull();
     }
   }
 
@@ -42,12 +49,12 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new VkontakteAuthButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVkontakteAuthButtonWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
+    static void Validate(string id, IVkontakteAuthButtonWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -61,12 +68,12 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new VkontakteAuthButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IVkontakteAuthButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
+    static void Validate(string width, IVkontakteAuthButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -80,12 +87,12 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new VkontakteAuthButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string url, IVkontakteAuthButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
+    static void Validate(string url, IVkontakteAuthButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
   }
 
   /// <summary>
@@ -96,12 +103,12 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new VkontakteAuthButtonWidget().With(widget => Enum.GetValues<VkontakteAuthButtonType>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<VkontakteAuthButtonType>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(VkontakteAuthButtonType type, IVkontakteAuthButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteAuthButtonType>("TypeProperty").Should().Be(type);
+    static void Validate(VkontakteAuthButtonType type, IVkontakteAuthButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteAuthButtonType>("TypeValue").Should().Be(type);
   }
 
   /// <summary>
@@ -115,12 +122,12 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Callback(null)).ThrowExactly<ArgumentNullException>().WithParameterName("callback");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Callback(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("callback");
 
-      new VkontakteAuthButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string callback, IVkontakteAuthButtonWidget widget) => widget.Callback(callback).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CallbackProperty").Should().Be(callback);
+    static void Validate(string callback, IVkontakteAuthButtonWidget widget) => widget.Callback(callback).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CallbackValue").Should().Be(callback);
   }
 
   /// <summary>
@@ -132,7 +139,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new VkontakteAuthButtonWidget());
-      Validate(Attributes.VkontakteAuthButtonWidget());
+      Validate(Fixture.Create<IVkontakteAuthButtonWidget>());
     }
 
     return;
@@ -141,7 +148,11 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
     {
       var clone = original.Clone<IVkontakteAuthButtonWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("CallbackValue").Should().Be(original.GetPropertyValue<string>("CallbackValue"));
+      clone.GetPropertyValue<string>("ElementIdValue").Should().Be(original.GetPropertyValue<string>("ElementIdValue"));
+      clone.GetPropertyValue<VkontakteAuthButtonType>("TypeValue").Should().Be(original.GetPropertyValue<VkontakteAuthButtonType>("TypeValue"));
+      clone.GetPropertyValue<string>("UrlValue").Should().Be(original.GetPropertyValue<string>("UrlValue"));
+      clone.GetPropertyValue<string>("WidthValue").Should().Be(original.GetPropertyValue<string>("WidthValue"));
     }
   }
 
@@ -159,6 +170,7 @@ public sealed class VkontakteAuthButtonWidgetTest : UnitTest
       Validate(new VkontakteAuthButtonWidget().Standard("url"), """<div id="vk_auth"></div><script type="text/javascript">VK.Widgets.Auth("vk_auth", {"authUrl":"url"});</script>""");
       Validate(new VkontakteAuthButtonWidget().Dynamic("callback"), """<div id="vk_auth"></div><script type="text/javascript">VK.Widgets.Auth("vk_auth", {"onAuth":"callback"});</script>""");
       Validate(new VkontakteAuthButtonWidget().Standard("url").ElementId("elementId").Width("width"), """<div id="elementId"></div><script type="text/javascript">VK.Widgets.Auth("elementId", {"authUrl":"url","width":"width"});</script>""");
+      Validate(Fixture.Create<IVkontakteAuthButtonWidget>());
     }
 
     return;

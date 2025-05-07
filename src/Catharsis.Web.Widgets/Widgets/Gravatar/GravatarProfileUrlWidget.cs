@@ -8,17 +8,17 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string FormatProperty { get; set; }
+  protected virtual string FormatValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HashProperty { get; set; }
+  protected virtual string HashValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual IDictionary<string, object> ParametersProperty { get; init; } = new SortedDictionary<string, object>();
+  protected virtual IDictionary<string, object> ParametersValue { get; init; } = new SortedDictionary<string, object>();
 
   /// <inheritdoc cref="IGravatarProfileUrlWidget.Format(string)"/>
   public virtual IGravatarProfileUrlWidget Format(string format)
@@ -26,7 +26,7 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
     if (format is null) throw new ArgumentNullException(nameof(format));
     if (format.IsEmpty()) throw new ArgumentException(nameof(format));
 
-    FormatProperty = format;
+    FormatValue = format;
     return this;
   }
 
@@ -36,7 +36,7 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
     if (hash is null) throw new ArgumentNullException(nameof(hash));
     if (hash.IsEmpty()) throw new ArgumentException(nameof(hash));
 
-    HashProperty = hash;
+    HashValue = hash;
     return this;
   }
 
@@ -47,18 +47,18 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
     if (name.IsEmpty()) throw new ArgumentException(nameof(name));
     if (value is null) throw new ArgumentNullException(nameof(value));
 
-    ParametersProperty[name] = value;
+    ParametersValue[name] = value;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new GravatarProfileUrlWidget
   {
-    FormatProperty = FormatProperty,
-    HashProperty = HashProperty,
-    ParametersProperty = ParametersProperty?.ToSortedDictionary()
+    FormatValue = FormatValue,
+    HashValue = HashValue,
+    ParametersValue = ParametersValue?.ToSortedDictionary()
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => HashProperty.IsUnset() ? string.Empty : $"http://www.gravatar.com/{HashProperty}{(FormatProperty.IsUnset() ? string.Empty : $".${FormatProperty}")}{(ParametersProperty.Any() ? $"?${ParametersProperty.ToUrlQuery()}" : string.Empty)}";
+  public override string ToHtml() => HashValue.IsUnset() ? string.Empty : $"http://www.gravatar.com/{HashValue}{(FormatValue.IsUnset() ? string.Empty : $".${FormatValue}")}{(ParametersValue.Any() ? $"?${ParametersValue.ToUrlQuery()}" : string.Empty)}";
 }

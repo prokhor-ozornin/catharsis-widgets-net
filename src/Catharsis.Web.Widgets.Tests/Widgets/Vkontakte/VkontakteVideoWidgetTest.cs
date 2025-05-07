@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontakteVideoWidget"/>.</para>
 /// </summary>
-public sealed class VkontakteVideoWidgetTest : UnitTest
+public sealed class VkontakteVideoWidgetTest : Test
 {
+  private IVkontakteVideoWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public VkontakteVideoWidgetTest() => Widget = Fixture.Create<IVkontakteVideoWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,12 +30,12 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new VkontakteVideoWidget();
-      widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-      widget.GetPropertyValue<bool>("HdProperty").Should().BeFalse();
-      widget.GetPropertyValue<string>("UserProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("HashProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("IdValue").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthValue").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightValue").Should().BeNull();
+      widget.GetPropertyValue<bool>("HdValue").Should().BeFalse();
+      widget.GetPropertyValue<string>("UserValue").Should().BeNull();
+      widget.GetPropertyValue<string>("HashValue").Should().BeNull();
     }
   }
 
@@ -43,12 +50,12 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new VkontakteVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVkontakteVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(id);
+    static void Validate(string id, IVkontakteVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -62,12 +69,12 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new VkontakteVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IVkontakteVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
+    static void Validate(string width, IVkontakteVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -81,12 +88,12 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new VkontakteVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IVkontakteVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
+    static void Validate(string height, IVkontakteVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -97,12 +104,12 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new VkontakteVideoWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool hd, IVkontakteVideoWidget widget) => widget.Hd(hd).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("HdProperty").Should().Be(hd);
+    static void Validate(bool hd, IVkontakteVideoWidget widget) => widget.Hd(hd).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("HdValue").Should().Be(hd);
   }
 
   /// <summary>
@@ -116,12 +123,12 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteVideoWidget().User(null)).ThrowExactly<ArgumentNullException>().WithParameterName("user");
       AssertionExtensions.Should(() => new VkontakteVideoWidget().User(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("user");
 
-      new VkontakteVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string user, IVkontakteVideoWidget widget) => widget.User(user).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UserProperty").Should().Be(user);
+    static void Validate(string user, IVkontakteVideoWidget widget) => widget.User(user).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UserValue").Should().Be(user);
   }
 
   /// <summary>
@@ -135,12 +142,12 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      new VkontakteVideoWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string hash, IVkontakteVideoWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashProperty").Should().Be(hash);
+    static void Validate(string hash, IVkontakteVideoWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashValue").Should().Be(hash);
   }
 
   /// <summary>
@@ -152,7 +159,7 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new VkontakteVideoWidget());
-      Validate(Attributes.VkontakteVideoWidget());
+      Validate(Fixture.Create<IVkontakteVideoWidget>());
     }
 
     return;
@@ -161,7 +168,12 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
     {
       var clone = original.Clone<IVkontakteVideoWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("IdValue").Should().Be(original.GetPropertyValue<string>("IdValue"));
+      clone.GetPropertyValue<string>("WidthValue").Should().Be(original.GetPropertyValue<string>("WidthValue"));
+      clone.GetPropertyValue<string>("HeightValue").Should().Be(original.GetPropertyValue<string>("HeightValue"));
+      clone.GetPropertyValue<bool>("HdValue").Should().Be(original.GetPropertyValue<bool>("HdValue"));
+      clone.GetPropertyValue<string>("UserValue").Should().Be(original.GetPropertyValue<string>("UserValue"));
+      clone.GetPropertyValue<string>("HashValue").Should().Be(original.GetPropertyValue<string>("HashValue"));
     }
   }
 
@@ -181,6 +193,7 @@ public sealed class VkontakteVideoWidgetTest : UnitTest
       Validate(new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width"));
       Validate(new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=0" webkitallowfullscreen="true" width="width"></iframe>""");
       Validate(new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").Hd(true), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=1" webkitallowfullscreen="true" width="width"></iframe>""");
+      Validate(Fixture.Create<IVkontakteVideoWidget>());
     }
 
     return;

@@ -8,12 +8,12 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string DomainProperty { get; set; }
+  protected virtual string DomainValue { get; set; }
 
   /// <inheritdoc cref="IGoogleAnalyticsWidget.Account(string)"/>
   public virtual IGoogleAnalyticsWidget Account(string account)
@@ -21,7 +21,7 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
     return this;
   }
 
@@ -31,17 +31,17 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
     if (domain is null) throw new ArgumentNullException(nameof(domain));
     if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
 
-    DomainProperty = domain;
+    DomainValue = domain;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new GoogleAnalyticsWidget
   {
-    AccountProperty = AccountProperty,
-    DomainProperty = DomainProperty
+    AccountValue = AccountValue,
+    DomainValue = DomainValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountProperty.IsUnset() || DomainProperty.IsUnset() ? string.Empty : string.Format(resources.google_analytics_js, AccountProperty, DomainProperty);
+  public override string ToHtml() => AccountValue.IsUnset() || DomainValue.IsUnset() ? string.Empty : string.Format(resources.google_analytics_js, AccountValue, DomainValue);
 }

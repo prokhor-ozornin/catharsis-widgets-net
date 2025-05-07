@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="SoundCloudProfileIconWidget"/>.</para>
 /// </summary>
-public sealed class SoundCloudProfileIconWidgetTest : UnitTest
+public sealed class SoundCloudProfileIconWidgetTest : Test
 {
+  private ISoundCloudProfileIconWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public SoundCloudProfileIconWidgetTest() => Widget = Fixture.Create<ISoundCloudProfileIconWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,9 +30,9 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new SoundCloudProfileIconWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("ColorProperty").Should().Be("orange_white");
-      widget.GetPropertyValue<short>("SizeProperty").Should().Be((short) SoundCloudProfileIconSize.Size32);
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
+      widget.GetPropertyValue<string>("ColorValue").Should().Be("orange_white");
+      widget.GetPropertyValue<short>("SizeValue").Should().Be((short) SoundCloudProfileIconSize.Size32);
     }
   }
 
@@ -40,12 +47,12 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new SoundCloudProfileIconWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, ISoundCloudProfileIconWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, ISoundCloudProfileIconWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -59,12 +66,12 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new SoundCloudProfileIconWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, ISoundCloudProfileIconWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be(color);
+    static void Validate(string color, ISoundCloudProfileIconWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -75,12 +82,12 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new SoundCloudProfileIconWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(short size, ISoundCloudProfileIconWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short>("SizeProperty").Should().Be(size);
+    static void Validate(short size, ISoundCloudProfileIconWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short>("SizeValue").Should().Be(size);
   }
 
   /// <summary>
@@ -92,7 +99,7 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new SoundCloudProfileIconWidget());
-      Validate(Attributes.SoundCloudProfileIconWidget());
+      Validate(Fixture.Create<ISoundCloudProfileIconWidget>());
     }
 
     return;
@@ -101,7 +108,9 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
     {
       var clone = original.Clone<ISoundCloudProfileIconWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
+      clone.GetPropertyValue<string>("ColorValue").Should().Be(original.GetPropertyValue<string>("ColorValue"));
+      clone.GetPropertyValue<short>("SizeValue").Should().Be(original.GetPropertyValue<short>("SizeValue"));
     }
   }
   
@@ -116,6 +125,7 @@ public sealed class SoundCloudProfileIconWidgetTest : UnitTest
       Validate(new SoundCloudProfileIconWidget());
       Validate(new SoundCloudProfileIconWidget().Account("account"), """<iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://w.soundcloud.com/icon/?url=http://soundcloud.com/account&amp;color=orange_white&amp;size=32" style="width: 32px; height: 32px;"></iframe>""");
       Validate(new SoundCloudProfileIconWidget().Account("account").Color("color").Size(1), """<iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://w.soundcloud.com/icon/?url=http://soundcloud.com/account&amp;color=color&amp;size=1" style="width: 1px; height: 1px;"></iframe>""");
+      Validate(Fixture.Create<ISoundCloudProfileIconWidget>());
     }
 
     return;

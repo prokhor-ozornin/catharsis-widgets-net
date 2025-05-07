@@ -8,17 +8,17 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte TypeProperty { get; set; } = (byte) TumblrFollowButtonType.First;
+  protected virtual byte TypeValue { get; set; } = (byte) TumblrFollowButtonType.First;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorSchemeProperty { get; set; } = nameof(TumblrFollowButtonColorScheme.Light).ToLowerInvariant();
+  protected virtual string ColorSchemeValue { get; set; } = nameof(TumblrFollowButtonColorScheme.Light).ToLowerInvariant();
 
   /// <inheritdoc cref="ITumblrFollowButtonWidget.Account(string)"/>
   public virtual ITumblrFollowButtonWidget Account(string account)
@@ -26,7 +26,7 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
 
     return this;
   }
@@ -37,7 +37,7 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    ColorSchemeProperty = scheme;
+    ColorSchemeValue = scheme;
       
     return this;
   }
@@ -45,27 +45,27 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
   /// <inheritdoc cref="ITumblrFollowButtonWidget.Type(byte)"/>
   public virtual ITumblrFollowButtonWidget Type(byte type)
   {
-    TypeProperty = type;
+    TypeValue = type;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new TumblrFollowButtonWidget
   {
-    AccountProperty = AccountProperty,
-    TypeProperty = TypeProperty,
-    ColorSchemeProperty = ColorSchemeProperty
+    AccountValue = AccountValue,
+    TypeValue = TypeValue,
+    ColorSchemeValue = ColorSchemeValue
   };
   
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsUnset())
+    if (AccountValue.IsUnset())
     {
       return string.Empty;
     }
 
-    byte width = (TumblrFollowButtonType) TypeProperty switch
+    byte width = (TumblrFollowButtonType) TypeValue switch
     {
       TumblrFollowButtonType.Second => 113,
       TumblrFollowButtonType.Third => 18,
@@ -76,7 +76,7 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
     return new TagBuilder("iframe")
       .Attribute("border", 0)
       .Attribute("allowtransparency", true)
-      .Attribute("src", $"http://platform.tumblr.com/v1/follow_button.html?button_type=${TypeProperty}&tumblelog=${AccountProperty}&color_scheme=${ColorSchemeProperty}")
+      .Attribute("src", $"http://platform.tumblr.com/v1/follow_button.html?button_type=${TypeValue}&tumblelog=${AccountValue}&color_scheme=${ColorSchemeValue}")
       .Attribute("frameborder", 0)
       .Attribute("height", 25)
       .Attribute("scrolling", "no")

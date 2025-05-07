@@ -8,7 +8,7 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ApiIdProperty { get; set; }
+  protected virtual string ApiIdValue { get; set; }
 
   /// <inheritdoc cref="IVkontakteInitializationWidget.ApiId(string)"/>
   public virtual IVkontakteInitializationWidget ApiId(string id)
@@ -16,7 +16,7 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    ApiIdProperty = id;
+    ApiIdValue = id;
 
     return this;
   }
@@ -24,13 +24,13 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new VkontakteInitializationWidget
   {
-    ApiIdProperty = ApiIdProperty
+    ApiIdValue = ApiIdValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => ApiIdProperty.IsUnset() ? string.Empty : 
+  public override string ToHtml() => ApiIdValue.IsUnset() ? string.Empty : 
     new TagBuilder("script")
       .Attribute("type", "text/javascript")
-      .Html($"VK.init({{apiId:${ApiIdProperty}, onlyWidgets:true}});")
+      .Html($"VK.init({{apiId:${ApiIdValue}, onlyWidgets:true}});")
       .ToString();
 }

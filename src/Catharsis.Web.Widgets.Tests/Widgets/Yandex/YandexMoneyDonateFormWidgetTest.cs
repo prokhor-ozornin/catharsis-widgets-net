@@ -1,5 +1,5 @@
-﻿using System.Text;
-using Catharsis.Commons;
+﻿using AutoFixture;
+using System.Text;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -10,8 +10,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="YandexMoneyDonateFormWidget"/>.</para>
 /// </summary>
-public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
+public sealed class YandexMoneyDonateFormWidgetTest : Test
 {
+  private IYandexMoneyDonateFormWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public YandexMoneyDonateFormWidgetTest() => Widget = Fixture.Create<IYandexMoneyDonateFormWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -24,19 +31,19 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new YandexMoneyDonateFormWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("DescriptionTextProperty").Should().BeNull();
-      widget.GetPropertyValue<decimal?>("SumProperty").Should().BeNull();
-      widget.GetPropertyValue<bool>("CardsProperty").Should().BeTrue();
-      widget.GetPropertyValue<byte>("TextProperty").Should().Be((byte) YandexMoneyDonateFormText.Donate);
-      widget.GetPropertyValue<string>("ProjectNameProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("ProjectSiteProperty").Should().BeNull();
-      widget.GetPropertyValue<bool>("AskPayerCommentProperty").Should().BeFalse();
-      widget.GetPropertyValue<string>("CommentHintProperty").Should().BeNull();
-      widget.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().BeFalse();
-      widget.GetPropertyValue<bool>("AskPayerEmailProperty").Should().BeFalse();
-      widget.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().BeFalse();
-      widget.GetPropertyValue<bool>("DescriptionProperty").Should().BeFalse();
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
+      widget.GetPropertyValue<string>("DescriptionTextValue").Should().BeNull();
+      widget.GetPropertyValue<decimal?>("SumValue").Should().BeNull();
+      widget.GetPropertyValue<bool>("CardsValue").Should().BeTrue();
+      widget.GetPropertyValue<byte>("TextValue").Should().Be((byte) YandexMoneyDonateFormText.Donate);
+      widget.GetPropertyValue<string>("ProjectNameValue").Should().BeNull();
+      widget.GetPropertyValue<string>("ProjectSiteValue").Should().BeNull();
+      widget.GetPropertyValue<bool>("AskPayerCommentValue").Should().BeFalse();
+      widget.GetPropertyValue<string>("CommentHintValue").Should().BeNull();
+      widget.GetPropertyValue<bool>("AskPayerFullNameValue").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerEmailValue").Should().BeFalse();
+      widget.GetPropertyValue<bool>("AskPayerPhoneValue").Should().BeFalse();
+      widget.GetPropertyValue<bool>("DescriptionValue").Should().BeFalse();
     }
   }
 
@@ -51,12 +58,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new YandexMoneyDonateFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IYandexMoneyDonateFormWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, IYandexMoneyDonateFormWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -70,12 +77,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().DescriptionText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().DescriptionText(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("description");
 
-      new YandexMoneyDonateFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string description, IYandexMoneyDonateFormWidget widget) => widget.DescriptionText(description).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DescriptionTextProperty").Should().Be(description);
+    static void Validate(string description, IYandexMoneyDonateFormWidget widget) => widget.DescriptionText(description).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DescriptionTextValue").Should().Be(description);
   }
 
   /// <summary>
@@ -86,12 +93,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexMoneyDonateFormWidget().With(widget => new[] { decimal.MinValue, decimal.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { decimal.MinValue, decimal.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(decimal sum, IYandexMoneyDonateFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal?>("SumProperty").Should().Be(sum);
+    static void Validate(decimal sum, IYandexMoneyDonateFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal?>("SumValue").Should().Be(sum);
   }
 
   /// <summary>
@@ -102,12 +109,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.Cards(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("CardsProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.Cards(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("CardsValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -118,12 +125,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexMoneyDonateFormWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(byte text, IYandexMoneyDonateFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextProperty").Should().Be(text);
+    static void Validate(byte text, IYandexMoneyDonateFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextValue").Should().Be(text);
   }
 
   /// <summary>
@@ -137,12 +144,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectName(null)).ThrowExactly<ArgumentNullException>().WithParameterName("name");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectName(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("name");
 
-      new YandexMoneyDonateFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string name, IYandexMoneyDonateFormWidget widget) => widget.ProjectName(name).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ProjectNameProperty").Should().Be(name);
+    static void Validate(string name, IYandexMoneyDonateFormWidget widget) => widget.ProjectName(name).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ProjectNameValue").Should().Be(name);
   }
 
   /// <summary>
@@ -156,12 +163,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectSite(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectSite(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new YandexMoneyDonateFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string name, IYandexMoneyDonateFormWidget widget) => widget.ProjectSite(name).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ProjectSiteProperty").Should().Be(name);
+    static void Validate(string name, IYandexMoneyDonateFormWidget widget) => widget.ProjectSite(name).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ProjectSiteValue").Should().Be(name);
   }
 
   /// <summary>
@@ -172,12 +179,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.AskPayerComment(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerCommentProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.AskPayerComment(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerCommentValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -191,12 +198,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().CommentHint(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hint");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().CommentHint(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hint");
 
-      new YandexMoneyDonateFormWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string hint, IYandexMoneyDonateFormWidget widget) => widget.CommentHint(hint).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CommentHintProperty").Should().Be(hint);
+    static void Validate(string hint, IYandexMoneyDonateFormWidget widget) => widget.CommentHint(hint).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("CommentHintValue").Should().Be(hint);
   }
 
   /// <summary>
@@ -207,12 +214,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.AskPayerFullName(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerFullNameProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.AskPayerFullName(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerFullNameValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -223,12 +230,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.AskPayerEmail(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerEmailProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.AskPayerEmail(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerEmailValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -239,12 +246,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.AskPayerPhone(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerPhoneProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.AskPayerPhone(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerPhoneValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -255,12 +262,12 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new YandexMoneyDonateFormWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.Description(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("DescriptionProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IYandexMoneyDonateFormWidget widget) => widget.Description(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("DescriptionValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -272,7 +279,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new YandexMoneyDonateFormWidget());
-      Validate(Attributes.YandexMoneyDonateFormWidget());
+      Validate(Fixture.Create<IYandexMoneyDonateFormWidget>());
     }
 
     return;
@@ -281,7 +288,19 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
     {
       var clone = original.Clone<IYandexMoneyDonateFormWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
+      clone.GetPropertyValue<bool>("DescriptionValue").Should().Be(original.GetPropertyValue<bool>("DescriptionValue"));
+      clone.GetPropertyValue<decimal?>("SumValue").Should().Be(original.GetPropertyValue<decimal?>("SumValue"));
+      clone.GetPropertyValue<bool>("CardsValue").Should().Be(original.GetPropertyValue<bool>("CardsValue"));
+      clone.GetPropertyValue<byte>("TextValue").Should().Be(original.GetPropertyValue<byte>("TextValue"));
+      clone.GetPropertyValue<string>("ProjectNameValue").Should().Be(original.GetPropertyValue<string>("ProjectNameValue"));
+      clone.GetPropertyValue<string>("ProjectSiteValue").Should().Be(original.GetPropertyValue<string>("ProjectSiteValue"));
+      clone.GetPropertyValue<bool>("AskPayerCommentValue").Should().Be(original.GetPropertyValue<bool>("AskPayerCommentValue"));
+      clone.GetPropertyValue<string>("CommentHintValue").Should().Be(original.GetPropertyValue<string>("CommentHintValue"));
+      clone.GetPropertyValue<bool>("AskPayerFullNameValue").Should().Be(original.GetPropertyValue<bool>("AskPayerFullNameValue"));
+      clone.GetPropertyValue<bool>("AskPayerEmailValue").Should().Be(original.GetPropertyValue<bool>("AskPayerEmailValue"));
+      clone.GetPropertyValue<bool>("AskPayerPhoneValue").Should().Be(original.GetPropertyValue<bool>("AskPayerPhoneValue"));
+      clone.GetPropertyValue<string>("DescriptionTextValue").Should().Be(original.GetPropertyValue<string>("DescriptionTextValue"));
     }
   }
 
@@ -298,6 +317,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : UnitTest
       Validate(new YandexMoneyDonateFormWidget().Account("account"));
       Validate(new YandexMoneyDonateFormWidget().Account("account").DescriptionText("description"), """<iframe allowtransparency="true" frameborder="0" height="133" scrolling="no" src="https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;payment-type-choice=on&amp;default-sum=&amp;targets=description&amp;project-name=&amp;project-site=&amp;button-text=01" width="523"></iframe>""");
       Validate(new YandexMoneyDonateFormWidget().Account("account").DescriptionText("description").Description(true).Sum(1).Cards(false).Text(YandexMoneyDonateFormText.Transfer).ProjectName("projectName").ProjectSite("projectSite").AskPayerComment(true).CommentHint("commentHint").AskPayerFullName(true).AskPayerEmail(true).AskPayerPhone(true), new StringBuilder().Append("""<iframe allowtransparency="true" frameborder="0" height="210" scrolling="no" src="https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;default-sum=1&amp;targets=description&amp;target-visibility=on&amp;project-name=projectName&amp;project-site=projectSite&amp;button-text=03&amp;comment=on&amp;hint=commentHint&amp;fio=on&amp;mail=on&amp;phone=on" width="426"></iframe>""").ToString());
+      Validate(Fixture.Create<IYandexMoneyDonateFormWidget>());
     }
 
     return;

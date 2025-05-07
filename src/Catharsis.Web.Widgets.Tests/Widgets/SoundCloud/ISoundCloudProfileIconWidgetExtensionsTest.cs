@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="ISoundCloudProfileIconWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
+public sealed class ISoundCloudProfileIconWidgetExtensionsTest : Test
 {
+  private ISoundCloudProfileIconWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public ISoundCloudProfileIconWidgetExtensionsTest() => Widget = Fixture.Create<ISoundCloudProfileIconWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="ISoundCloudProfileIconWidgetExtensions.OrangeWhite(ISoundCloudProfileIconWidget)"/> method.</para>
   /// </summary>
@@ -21,12 +28,12 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.OrangeWhite(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new SoundCloudProfileIconWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(ISoundCloudProfileIconWidget widget) => widget.OrangeWhite().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("orange_white");
+    static void Validate(ISoundCloudProfileIconWidget widget) => widget.OrangeWhite().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("orange_white");
   }
 
   /// <summary>
@@ -39,12 +46,12 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.WhiteOrange(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new SoundCloudProfileIconWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(ISoundCloudProfileIconWidget widget) => widget.WhiteOrange().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("white_orange");
+    static void Validate(ISoundCloudProfileIconWidget widget) => widget.WhiteOrange().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("white_orange");
   }
 
   /// <summary>
@@ -57,12 +64,12 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.BlackWhite(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new SoundCloudProfileIconWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(ISoundCloudProfileIconWidget widget) => widget.BlackWhite().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("black_white");
+    static void Validate(ISoundCloudProfileIconWidget widget) => widget.BlackWhite().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("black_white");
   }
 
   /// <summary>
@@ -75,12 +82,12 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.WhiteTransparent(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new SoundCloudProfileIconWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(ISoundCloudProfileIconWidget widget) => widget.WhiteTransparent().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("white_transparent");
+    static void Validate(ISoundCloudProfileIconWidget widget) => widget.WhiteTransparent().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("white_transparent");
   }
 
   /// <summary>
@@ -93,12 +100,12 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.OrangeTransparent(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new SoundCloudProfileIconWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(ISoundCloudProfileIconWidget widget) => widget.OrangeTransparent().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("orange_transparent");
+    static void Validate(ISoundCloudProfileIconWidget widget) => widget.OrangeTransparent().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("orange_transparent");
   }
 
   /// <summary>
@@ -111,11 +118,11 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new SoundCloudProfileIconWidget().With(widget => Enum.GetValues<SoundCloudProfileIconSize>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<SoundCloudProfileIconSize>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(SoundCloudProfileIconSize size, ISoundCloudProfileIconWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short>("SizeProperty").Should().Be((short) size);
+    static void Validate(SoundCloudProfileIconSize size, ISoundCloudProfileIconWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short>("SizeValue").Should().Be((short) size);
   }
 }

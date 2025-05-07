@@ -8,37 +8,37 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorSchemeProperty { get; set; }
+  protected virtual string ColorSchemeValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? FacesProperty { get; set; }
+  protected virtual bool? FacesValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? KidsModeProperty { get; set; }
+  protected virtual bool? KidsModeValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LayoutProperty { get; set; }
+  protected virtual string LayoutValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.ColorScheme(string)"/>
   public virtual IFacebookFollowButtonWidget ColorScheme(string scheme)
@@ -46,14 +46,14 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    ColorSchemeProperty = scheme;
+    ColorSchemeValue = scheme;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.Faces(bool)"/>
   public virtual IFacebookFollowButtonWidget Faces(bool enabled)
   {
-    FacesProperty = enabled;
+    FacesValue = enabled;
     return this;
   }
 
@@ -63,14 +63,14 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
     return this;
   }
 
   /// <inheritdoc cref="IFacebookFollowButtonWidget.KidsMode(bool)"/>
   public virtual IFacebookFollowButtonWidget KidsMode(bool enabled)
   {
-    KidsModeProperty = enabled;
+    KidsModeValue = enabled;
     return this;
   }
 
@@ -80,7 +80,7 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     if (layout is null) throw new ArgumentNullException(nameof(layout));
     if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
 
-    LayoutProperty = layout;
+    LayoutValue = layout;
     return this;
   }
 
@@ -90,7 +90,7 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
     return this;
   }
 
@@ -100,31 +100,31 @@ public class FacebookFollowButtonWidget : WebWidget, IFacebookFollowButtonWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new FacebookFollowButtonWidget
   {
-    ColorSchemeProperty = ColorSchemeProperty,
-    FacesProperty = FacesProperty,
-    HeightProperty = HeightProperty,
-    KidsModeProperty = KidsModeProperty,
-    LayoutProperty = LayoutProperty,
-    UrlProperty = UrlProperty,
-    WidthProperty = WidthProperty
+    ColorSchemeValue = ColorSchemeValue,
+    FacesValue = FacesValue,
+    HeightValue = HeightValue,
+    KidsModeValue = KidsModeValue,
+    LayoutValue = LayoutValue,
+    UrlValue = UrlValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => UrlProperty.IsUnset() ? string.Empty : new TagBuilder("div")
-                                                                            .Attribute("data-layout", LayoutProperty)
-                                                                            .Attribute("data-show-faces", FacesProperty)
-                                                                            .Attribute("data-href", UrlProperty)
-                                                                            .Attribute("data-colorscheme", ColorSchemeProperty)
-                                                                            .Attribute("data-kid-directed-site", KidsModeProperty)
-                                                                            .Attribute("data-width", WidthProperty)
-                                                                            .Attribute("data-height", HeightProperty)
+  public override string ToHtml() => UrlValue.IsUnset() ? string.Empty : new TagBuilder("div")
+                                                                            .Attribute("data-layout", LayoutValue)
+                                                                            .Attribute("data-show-faces", FacesValue)
+                                                                            .Attribute("data-href", UrlValue)
+                                                                            .Attribute("data-colorscheme", ColorSchemeValue)
+                                                                            .Attribute("data-kid-directed-site", KidsModeValue)
+                                                                            .Attribute("data-width", WidthValue)
+                                                                            .Attribute("data-height", HeightValue)
                                                                             .CssClass("fb-follow")
                                                                             .ToString();
 }

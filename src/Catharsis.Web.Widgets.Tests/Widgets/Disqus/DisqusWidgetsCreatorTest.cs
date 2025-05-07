@@ -1,4 +1,3 @@
-using Catharsis.Commons;
 using FluentAssertions;
 using Xunit;
 
@@ -7,7 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Test set for class <see cref="DisqusWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class DisqusWidgetsCreatorTest : UnitTest
+public sealed class DisqusWidgetsCreatorTest : Test
 {
   private IDisqusWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Disqus();
 

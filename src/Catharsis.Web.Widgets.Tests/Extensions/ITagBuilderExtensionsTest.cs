@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions.Execution;
 using FluentAssertions;
@@ -10,7 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for interface <see cref="ITagBuilderExtensions"/>.</para>
 /// </summary>
-public sealed class ITagBuilderExtensionsTest : UnitTest
+public sealed class ITagBuilderExtensionsTest : Test
 {
   private ITagBuilder Builder { get; } = new TagBuilder("tag");
 

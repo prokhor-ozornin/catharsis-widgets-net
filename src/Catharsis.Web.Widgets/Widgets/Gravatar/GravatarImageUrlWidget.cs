@@ -8,17 +8,17 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ExtensionProperty { get; set; }
+  protected virtual string ExtensionValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HashProperty { get; set; }
+  protected virtual string HashValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual IDictionary<string, object> ParametersProperty { get; } = new Dictionary<string, object>();
+  protected virtual IDictionary<string, object> ParametersValue { get; } = new SortedDictionary<string, object>();
 
   /// <inheritdoc cref="IGravatarImageUrlWidget.Extension(string)"/>
   public virtual IGravatarImageUrlWidget Extension(string extension)
@@ -26,7 +26,7 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
     if (extension is null) throw new ArgumentNullException(nameof(extension));
     if (extension.IsEmpty()) throw new ArgumentException(nameof(extension));
 
-    ExtensionProperty = extension;
+    ExtensionValue = extension;
     return this;
   }
 
@@ -36,7 +36,7 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
     if (hash is null) throw new ArgumentNullException(nameof(hash));
     if (hash.IsEmpty()) throw new ArgumentException(nameof(hash));
 
-    HashProperty = hash;
+    HashValue = hash;
     return this;
   }
 
@@ -46,17 +46,17 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
     if (name is null) throw new ArgumentNullException(nameof(name));
     if (name.IsEmpty()) throw new ArgumentException(nameof(name));
 
-    ParametersProperty[name] = value;
+    ParametersValue[name] = value;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new GravatarImageUrlWidget
   {
-    ExtensionProperty = ExtensionProperty,
-    HashProperty = HashProperty
+    ExtensionValue = ExtensionValue,
+    HashValue = HashValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => HashProperty.IsUnset() ? string.Empty : $"http://www.gravatar.com/avatar/{HashProperty}{(ExtensionProperty.IsUnset() ? string.Empty : $".${ExtensionProperty}")}{(ParametersProperty.Any() ? $"?${ParametersProperty.ToUrlQuery()}" : string.Empty)}";
+  public override string ToHtml() => HashValue.IsUnset() ? string.Empty : $"http://www.gravatar.com/avatar/{HashValue}{(ExtensionValue.IsUnset() ? string.Empty : $".${ExtensionValue}")}{(ParametersValue.Any() ? $"?${ParametersValue.ToUrlQuery()}" : string.Empty)}";
 }

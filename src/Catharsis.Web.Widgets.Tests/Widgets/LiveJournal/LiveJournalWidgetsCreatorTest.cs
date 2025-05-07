@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -7,7 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="LiveJournalWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class LiveJournalWidgetsCreatorTest : UnitTest
+public sealed class LiveJournalWidgetsCreatorTest : Test
 {
   private ILiveJournalWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.LiveJournal();
 

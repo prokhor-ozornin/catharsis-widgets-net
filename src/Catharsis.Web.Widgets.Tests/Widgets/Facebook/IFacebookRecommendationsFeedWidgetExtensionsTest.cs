@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IFacebookRecommendationsFeedWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
+public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : Test
 {
+  private IFacebookRecommendationsFeedWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IFacebookRecommendationsFeedWidgetExtensionsTest() => Widget = Fixture.Create<IFacebookRecommendationsFeedWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookRecommendationsFeedWidgetExtensions.Actions(IFacebookRecommendationsFeedWidget, string[])"/> method.</para>
   /// </summary>
@@ -19,14 +26,14 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Actions(null, [])).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
+      AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookRecommendationsFeedWidget().With(widget => new[] { Array.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget)));
+      new[] { Array.Empty<string>(), ["action"] }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string[] actions, IFacebookRecommendationsFeedWidget widget) => IFacebookRecommendationsFeedWidgetExtensions.Actions(widget, actions).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().Equal(actions);
+    static void Validate(string[] actions, IFacebookRecommendationsFeedWidget widget) => IFacebookRecommendationsFeedWidgetExtensions.Actions(widget, actions).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ActionsValue").Should().Equal(actions);
   }
 
   /// <summary>
@@ -39,12 +46,12 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookRecommendationsFeedWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(short width, IFacebookRecommendationsFeedWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
+    static void Validate(short width, IFacebookRecommendationsFeedWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -58,12 +65,12 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new FacebookRecommendationsFeedWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(short height, IFacebookRecommendationsFeedWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
+    static void Validate(short height, IFacebookRecommendationsFeedWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height.ToInvariantString());
   }
 
   /// <summary>
@@ -76,11 +83,11 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new FacebookRecommendationsFeedWidget().With(widget => Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, widget)));
+      Enum.GetValues<FacebookColorScheme>().ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(FacebookColorScheme scheme, IFacebookRecommendationsFeedWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme.ToString().ToLowerInvariant());
+    static void Validate(FacebookColorScheme scheme, IFacebookRecommendationsFeedWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme.ToString().ToLowerInvariant());
   }
 }

@@ -8,22 +8,22 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string IdProperty { get; set; }
+  protected virtual string IdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UserProperty { get; set; }
+  protected virtual string UserValue { get; set; }
 
   /// <inheritdoc cref="IYandexVideoWidget.Id(string)"/>
   public virtual IYandexVideoWidget Id(string id)
@@ -31,7 +31,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    IdProperty = id;
+    IdValue = id;
 
     return this;
   }
@@ -42,7 +42,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
 
     return this;
   }
@@ -53,7 +53,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     if (user is null) throw new ArgumentNullException(nameof(user));
     if (user.IsEmpty()) throw new ArgumentException(nameof(user));
 
-    UserProperty = user;
+    UserValue = user;
 
     return this;
   }
@@ -64,7 +64,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
 
     return this;
   }
@@ -72,17 +72,17 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new YandexVideoWidget
   {
-    IdProperty = IdProperty,
-    WidthProperty = WidthProperty,
-    HeightProperty = HeightProperty,
-    UserProperty = UserProperty
+    IdValue = IdValue,
+    WidthValue = WidthValue,
+    HeightValue = HeightValue,
+    UserValue = UserValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => IdProperty.IsUnset() || UserProperty.IsUnset() || HeightProperty.IsUnset() || WidthProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
-      .Attribute("src", $"http://video.yandex.ru/iframe/${UserProperty}/${IdProperty}")
-      .Attribute("width", WidthProperty)
-      .Attribute("height", HeightProperty)
+  public override string ToHtml() => IdValue.IsUnset() || UserValue.IsUnset() || HeightValue.IsUnset() || WidthValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
+      .Attribute("src", $"http://video.yandex.ru/iframe/${UserValue}/${IdValue}")
+      .Attribute("width", WidthValue)
+      .Attribute("height", HeightValue)
       .Attribute("frameborder", 0)
       .Attribute("allowfullscreen", true)
       .Attribute("webkitallowfullscreen", true)

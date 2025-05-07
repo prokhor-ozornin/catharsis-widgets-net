@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="PayPalBuyGiftCertificateWidget"/>.</para>
 /// </summary>
-public sealed class PayPalBuyGiftCertificateWidgetTest : UnitTest
+public sealed class PayPalBuyGiftCertificateWidgetTest : Test
 {
+  private IPayPalBuyGiftCertificateWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public PayPalBuyGiftCertificateWidgetTest() => Widget = Fixture.Create<IPayPalBuyGiftCertificateWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -53,7 +60,7 @@ public sealed class PayPalBuyGiftCertificateWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new PayPalBuyGiftCertificateWidget());
-      Validate(Attributes.PayPalBuyGiftCertificateWidget());
+      Validate(Fixture.Create<IPayPalBuyGiftCertificateWidget>());
     }
 
     return;
@@ -62,7 +69,7 @@ public sealed class PayPalBuyGiftCertificateWidgetTest : UnitTest
     {
       var clone = original.Clone<IPayPalBuyGiftCertificateWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
     }
   }
 
@@ -72,7 +79,11 @@ public sealed class PayPalBuyGiftCertificateWidgetTest : UnitTest
   [Fact]
   public void ToHtml_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      Validate(Fixture.Create<IPayPalBuyGiftCertificateWidget>());
+      throw new NotImplementedException();
+    }
 
     return;
 

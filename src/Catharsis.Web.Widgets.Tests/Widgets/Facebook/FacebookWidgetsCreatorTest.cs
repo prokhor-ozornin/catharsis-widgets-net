@@ -1,4 +1,3 @@
-using Catharsis.Commons;
 using FluentAssertions;
 using Xunit;
 
@@ -7,8 +6,9 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="FacebookWidgetsCreator"/>.</para>
 /// </summary>
-public sealed class FacebookWidgetsCreatorTest : UnitTest
+public sealed class FacebookWidgetsCreatorTest : Test
 {
+  private IFacebookWidgetsCreator Widget { get; }
   private IFacebookWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Facebook();
 
   /// <summary>

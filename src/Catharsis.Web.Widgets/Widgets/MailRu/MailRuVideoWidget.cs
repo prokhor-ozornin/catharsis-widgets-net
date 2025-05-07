@@ -8,17 +8,17 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string IdProperty { get; set; }
+  protected virtual string IdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IMailRuVideoWidget.Id(string)"/>
   public virtual IMailRuVideoWidget Id(string id)
@@ -26,7 +26,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    IdProperty = id;
+    IdValue = id;
     return this;
   }
 
@@ -36,7 +36,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
     return this;
   }
 
@@ -46,23 +46,23 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new MailRuVideoWidget
   {
-    IdProperty = IdProperty,
-    HeightProperty = HeightProperty,
-    WidthProperty = WidthProperty
+    IdValue = IdValue,
+    HeightValue = HeightValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => IdProperty.IsUnset() || HeightProperty.IsUnset() || WidthProperty.IsUnset() ? string.Empty : new TagBuilder("iframe")
-      .Attribute("src", $"http://api.video.mail.ru/videos/embed/mail/${IdProperty}")
-      .Attribute("width", WidthProperty)
-      .Attribute("height", HeightProperty)
+  public override string ToHtml() => IdValue.IsUnset() || HeightValue.IsUnset() || WidthValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
+      .Attribute("src", $"http://api.video.mail.ru/videos/embed/mail/${IdValue}")
+      .Attribute("width", WidthValue)
+      .Attribute("height", HeightValue)
       .Attribute("frameborder", 0)
       .Attribute("allowfullscreen", true)
       .Attribute("webkitallowfullscreen", true)

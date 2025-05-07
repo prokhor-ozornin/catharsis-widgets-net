@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="PinterestFollowButtonWidget"/>.</para>
 /// </summary>
-public sealed class PinterestFollowButtonWidgetTest : UnitTest
+public sealed class PinterestFollowButtonWidgetTest : Test
 {
+  private IPinterestFollowButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public PinterestFollowButtonWidgetTest() => Widget = Fixture.Create<IPinterestFollowButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,8 +30,8 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new PinterestFollowButtonWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("LabelProperty").Should().Be("Follow");
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
+      widget.GetPropertyValue<string>("LabelValue").Should().Be("Follow");
     }
   }
 
@@ -39,12 +46,12 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new PinterestFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IPinterestFollowButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, IPinterestFollowButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -58,12 +65,12 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Label(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Label(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      new PinterestFollowButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string label, IPinterestFollowButtonWidget widget) => widget.Label(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LabelProperty").Should().Be(label);
+    static void Validate(string label, IPinterestFollowButtonWidget widget) => widget.Label(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LabelValue").Should().Be(label);
   }
 
   /// <summary>
@@ -75,7 +82,7 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new PinterestFollowButtonWidget());
-      Validate(Attributes.PinterestFollowButtonWidget());
+      Validate(Fixture.Create<IPinterestFollowButtonWidget>());
     }
 
     return;
@@ -84,7 +91,8 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
     {
       var clone = original.Clone<IPinterestFollowButtonWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
+      clone.GetPropertyValue<string>("LabelValue").Should().Be(original.GetPropertyValue<string>("LabelValue"));
     }
   }
 
@@ -99,6 +107,7 @@ public sealed class PinterestFollowButtonWidgetTest : UnitTest
       Validate(new PinterestFollowButtonWidget());
       Validate(new PinterestFollowButtonWidget().Account("account"), """<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">Follow</a>""");
       Validate(new PinterestFollowButtonWidget().Account("account").Label("label"), """<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">label</a>""");
+      Validate(Fixture.Create<IPinterestFollowButtonWidget>());
     }
 
     return;

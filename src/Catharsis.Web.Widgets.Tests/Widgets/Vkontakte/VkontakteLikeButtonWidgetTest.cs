@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontakteLikeButtonWidget"/>.</para>
 /// </summary>
-public sealed class VkontakteLikeButtonWidgetTest : UnitTest
+public sealed class VkontakteLikeButtonWidgetTest : Test
 {
+  private IVkontakteLikeButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public VkontakteLikeButtonWidgetTest() => Widget = Fixture.Create<IVkontakteLikeButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,16 +30,16 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new VkontakteLikeButtonWidget();
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("TextProperty").Should().BeNull();
-      widget.GetPropertyValue<byte?>("VerbProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("LayoutProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("TitleProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("DescriptionProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("ImageProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ElementIdValue").Should().BeNull();
+      widget.GetPropertyValue<string>("TextValue").Should().BeNull();
+      widget.GetPropertyValue<byte?>("VerbValue").Should().BeNull();
+      widget.GetPropertyValue<string>("LayoutValue").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthValue").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightValue").Should().BeNull();
+      widget.GetPropertyValue<string>("TitleValue").Should().BeNull();
+      widget.GetPropertyValue<string>("UrlValue").Should().BeNull();
+      widget.GetPropertyValue<string>("DescriptionValue").Should().BeNull();
+      widget.GetPropertyValue<string>("ImageValue").Should().BeNull();
     }
   }
 
@@ -47,12 +54,12 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVkontakteLikeButtonWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
+    static void Validate(string id, IVkontakteLikeButtonWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -66,12 +73,12 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
 
-      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string text, IVkontakteLikeButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextProperty").Should().Be(text);
+    static void Validate(string text, IVkontakteLikeButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextValue").Should().Be(text);
   }
 
   /// <summary>
@@ -82,12 +89,12 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new VkontakteLikeButtonWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(byte verb, IVkontakteLikeButtonWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("VerbProperty").Should().Be(verb);
+    static void Validate(byte verb, IVkontakteLikeButtonWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("VerbValue").Should().Be(verb);
   }
 
   /// <summary>
@@ -101,12 +108,12 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string layout, IVkontakteLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutProperty").Should().Be(layout);
+    static void Validate(string layout, IVkontakteLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(layout);
   }
 
   /// <summary>
@@ -120,12 +127,12 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IVkontakteLikeButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
+    static void Validate(string width, IVkontakteLikeButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -139,12 +146,12 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IVkontakteLikeButtonWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
+    static void Validate(string height, IVkontakteLikeButtonWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -158,12 +165,12 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string title, IVkontakteLikeButtonWidget widget) => widget.Title(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleProperty").Should().Be(title);
+    static void Validate(string title, IVkontakteLikeButtonWidget widget) => widget.Title(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleValue").Should().Be(title);
   }
 
   /// <summary>
@@ -177,12 +184,12 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string url, IVkontakteLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
+    static void Validate(string url, IVkontakteLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
   }
 
   /// <summary>
@@ -196,12 +203,12 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("description");
 
-      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string description, IVkontakteLikeButtonWidget widget) => widget.Description(description).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DescriptionProperty").Should().Be(description);
+    static void Validate(string description, IVkontakteLikeButtonWidget widget) => widget.Description(description).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DescriptionValue").Should().Be(description);
   }
 
   /// <summary>
@@ -215,12 +222,12 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new VkontakteLikeButtonWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new VkontakteLikeButtonWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string url, IVkontakteLikeButtonWidget widget) => widget.Image(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageProperty").Should().Be(url);
+    static void Validate(string url, IVkontakteLikeButtonWidget widget) => widget.Image(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageValue").Should().Be(url);
   }
 
   /// <summary>
@@ -232,7 +239,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new VkontakteLikeButtonWidget());
-      Validate(Attributes.VkontakteLikeButtonWidget());
+      Validate(Fixture.Create<IVkontakteLikeButtonWidget>());
     }
 
     return;
@@ -241,7 +248,16 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
     {
       var clone = original.Clone<IVkontakteLikeButtonWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("ElementIdValue").Should().Be(original.GetPropertyValue<string>("ElementIdValue"));
+      clone.GetPropertyValue<string>("TextValue").Should().Be(original.GetPropertyValue<string>("TextValue"));
+      clone.GetPropertyValue<byte?>("VerbValue").Should().Be(original.GetPropertyValue<byte?>("VerbValue"));
+      clone.GetPropertyValue<string>("LayoutValue").Should().Be(original.GetPropertyValue<string>("LayoutValue"));
+      clone.GetPropertyValue<string>("WidthValue").Should().Be(original.GetPropertyValue<string>("WidthValue"));
+      clone.GetPropertyValue<string>("HeightValue").Should().Be(original.GetPropertyValue<string>("HeightValue"));
+      clone.GetPropertyValue<string>("TitleValue").Should().Be(original.GetPropertyValue<string>("TitleValue"));
+      clone.GetPropertyValue<string>("UrlValue").Should().Be(original.GetPropertyValue<string>("UrlValue"));
+      clone.GetPropertyValue<string>("DescriptionValue").Should().Be(original.GetPropertyValue<string>("DescriptionValue"));
+      clone.GetPropertyValue<string>("ImageValue").Should().Be(original.GetPropertyValue<string>("ImageValue"));
     }
   }
 
@@ -255,6 +271,7 @@ public sealed class VkontakteLikeButtonWidgetTest : UnitTest
     {
       Validate(new VkontakteLikeButtonWidget(), """<div id="vk_like"></div>""", """<script type="text/javascript">""", """VK.Widgets.Like("vk_like", {});""");
       Validate(new VkontakteLikeButtonWidget().Layout(VkontakteLikeButtonLayout.Button).ElementId("elementId").Width("width").Title("title").Description("description").Url("url").Image("image").Text("text").Height("height").Verb(1), """<div id="elementId"></div>""", """<script type="text/javascript">""", """VK.Widgets.Like("elementId", {"type":"button","width":"width","pageTitle":"title","pageDescription":"description","pageUrl":"url","pageImage":"image","text":"text","height":"height","verb":1});""");
+      Validate(Fixture.Create<IVkontakteLikeButtonWidget>());
     }
 
     return;

@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -8,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 ///   <para>Tests set for class <see cref="RuTubeWidgetsCreator"/>.</para>
 /// </summary>
 /// <seealso cref="RuTubeWidgetsCreator"/>
-public sealed class RuTubeWidgetsCreatorTest : UnitTest
+public sealed class RuTubeWidgetsCreatorTest : Test
 {
   private IRuTubeWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.RuTube();
 

@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="FacebookFacePileWidget"/>.</para>
 /// </summary>
-public sealed class FacebookFacePileWidgetTest : UnitTest
+public sealed class FacebookFacePileWidgetTest : Test
 {
+  private IFacebookFacePileWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public FacebookFacePileWidgetTest() => Widget = Fixture.Create<IFacebookFacePileWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,13 +30,13 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new FacebookFacePileWidget();
-      widget.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().BeEmpty();
-      widget.GetPropertyValue<string>("ColorSchemeProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-      widget.GetPropertyValue<byte?>("MaxRowsProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("PhotoSizeProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<IEnumerable<string>>("ActionsValue").Should().BeEmpty();
+      widget.GetPropertyValue<string>("ColorSchemeValue").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightValue").Should().BeNull();
+      widget.GetPropertyValue<byte?>("MaxRowsValue").Should().BeNull();
+      widget.GetPropertyValue<string>("PhotoSizeValue").Should().BeNull();
+      widget.GetPropertyValue<string>("UrlValue").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthValue").Should().BeNull();
     }
   }
 
@@ -43,12 +50,12 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
     {
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("actions");
 
-      new FacebookFacePileWidget().With(widget => new[] { Enumerable.Empty<string>(), ["action"] }.ForEach(value => Validate(value, widget)));
+      new[] { Enumerable.Empty<string>(), ["action"] }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(IEnumerable<string> actions, IFacebookFacePileWidget widget) => widget.Actions(actions).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ActionsProperty").Should().Equal(actions);
+    static void Validate(IEnumerable<string> actions, IFacebookFacePileWidget widget) => widget.Actions(actions).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ActionsValue").Should().Equal(actions);
   }
 
   /// <summary>
@@ -62,12 +69,12 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookFacePileWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookFacePileWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new FacebookFacePileWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string scheme, IFacebookFacePileWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeProperty").Should().Be(scheme);
+    static void Validate(string scheme, IFacebookFacePileWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme);
   }
 
   /// <summary>
@@ -81,12 +88,12 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new FacebookFacePileWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IFacebookFacePileWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
+    static void Validate(string height, IFacebookFacePileWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -97,12 +104,12 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new FacebookFacePileWidget().With(widget => new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(byte count, IFacebookFacePileWidget widget) => widget.MaxRows(count).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("MaxRowsProperty").Should().Be(count);
+    static void Validate(byte count, IFacebookFacePileWidget widget) => widget.MaxRows(count).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("MaxRowsValue").Should().Be(count);
   }
 
   /// <summary>
@@ -116,12 +123,12 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookFacePileWidget().PhotoSize(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new FacebookFacePileWidget().PhotoSize(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      new FacebookFacePileWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string size, IFacebookFacePileWidget widget) => widget.PhotoSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PhotoSizeProperty").Should().Be(size);
+    static void Validate(string size, IFacebookFacePileWidget widget) => widget.PhotoSize(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("PhotoSizeValue").Should().Be(size);
   }
 
   /// <summary>
@@ -135,12 +142,12 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new FacebookFacePileWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string url, IFacebookFacePileWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
+    static void Validate(string url, IFacebookFacePileWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
   }
 
   /// <summary>
@@ -154,12 +161,12 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new FacebookFacePileWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IFacebookFacePileWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
+    static void Validate(string width, IFacebookFacePileWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -171,7 +178,7 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new FacebookFacePileWidget());
-      Validate(Attributes.FacebookFacePileWidget());
+      Validate(Fixture.Create<IFacebookFacePileWidget>());
     }
 
     return;
@@ -180,7 +187,13 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
     {
       var clone = original.Clone<IFacebookFacePileWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<IEnumerable<string>>("ActionsValue").Should().Equal(original.GetPropertyValue<IEnumerable<string>>("ActionsValue"));
+      clone.GetPropertyValue<string>("ColorSchemeValue").Should().Be(original.GetPropertyValue<string>("ColorSchemeValue"));
+      clone.GetPropertyValue<string>("HeightValue").Should().Be(original.GetPropertyValue<string>("HeightValue"));
+      clone.GetPropertyValue<byte?>("MaxRowsValue").Should().Be(original.GetPropertyValue<byte?>("MaxRowsValue"));
+      clone.GetPropertyValue<string>("PhotoSizeValue").Should().Be(original.GetPropertyValue<string>("PhotoSizeValue"));
+      clone.GetPropertyValue<string>("UrlValue").Should().Be(original.GetPropertyValue<string>("UrlValue"));
+      clone.GetPropertyValue<string>("WidthValue").Should().Be(original.GetPropertyValue<string>("WidthValue"));
     }
   }
 
@@ -194,6 +207,7 @@ public sealed class FacebookFacePileWidgetTest : UnitTest
     {
       Validate(new FacebookFacePileWidget(), """<div class="fb-facepile"></div>""");
       Validate(new FacebookFacePileWidget().Url("url").Actions("actions").PhotoSize(FacebookFacePilePhotoSize.Large).Width("width").Height("height").MaxRows(10).ColorScheme(FacebookColorScheme.Dark), """<div class="fb-facepile" data-action="actions" data-colorscheme="dark" data-height="height" data-href="url" data-max-rows="10" data-size="large" data-width="width"></div>""");
+      Validate(Fixture.Create<IFacebookFacePileWidget>());
     }
 
     return;

@@ -8,22 +8,22 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ImageProperty { get; set; }
+  protected virtual string ImageValue { get; set; }
 
   /// <inheritdoc cref="IPinterestProfileWidget.Account(string)"/>
   public virtual IPinterestProfileWidget Account(string account)
@@ -31,7 +31,7 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
     return this;
   }
 
@@ -41,7 +41,7 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
     return this;
   }
 
@@ -51,7 +51,7 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
     return this;
   }
 
@@ -61,26 +61,26 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
     if (image is null) throw new ArgumentNullException(nameof(image));
     if (image.IsEmpty()) throw new ArgumentException(nameof(image));
 
-    ImageProperty = image;
+    ImageValue = image;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new PinterestProfileWidget
   {
-    AccountProperty = AccountProperty,
-    HeightProperty = HeightProperty,
-    WidthProperty = WidthProperty,
-    ImageProperty = ImageProperty
+    AccountValue = AccountValue,
+    HeightValue = HeightValue,
+    WidthValue = WidthValue,
+    ImageValue = ImageValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   /// <returns>Widget's HTML markup.</returns>
-  public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : new TagBuilder("a")
+  public override string ToHtml() => AccountValue.IsUnset() ? string.Empty : new TagBuilder("a")
       .Attribute("data-pin-do", "embedUser")
-      .Attribute("href", $"http://www.pinterest.com/${AccountProperty}")
-      .Attribute("data-pin-scale-width", ImageProperty)
-      .Attribute("data-pin-scale-height", HeightProperty)
-      .Attribute("data-pin-board-width", WidthProperty)
+      .Attribute("href", $"http://www.pinterest.com/${AccountValue}")
+      .Attribute("data-pin-scale-width", ImageValue)
+      .Attribute("data-pin-scale-height", HeightValue)
+      .Attribute("data-pin-board-width", WidthValue)
       .ToString();
 }

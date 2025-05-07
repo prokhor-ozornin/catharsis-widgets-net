@@ -9,7 +9,7 @@ public class CackleCommentsCountWidget : WebWidget, ICackleCommentsCountWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <inheritdoc cref="ICackleCommentsCountWidget.Account(string)"/>
   public virtual ICackleCommentsCountWidget Account(string account)
@@ -17,7 +17,7 @@ public class CackleCommentsCountWidget : WebWidget, ICackleCommentsCountWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
       
     return this;
   }
@@ -25,13 +25,13 @@ public class CackleCommentsCountWidget : WebWidget, ICackleCommentsCountWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new CackleCommentsCountWidget
   {
-    AccountProperty = AccountProperty
+    AccountValue = AccountValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsUnset())
+    if (AccountValue.IsUnset())
     {
       return string.Empty;
     }
@@ -39,7 +39,7 @@ public class CackleCommentsCountWidget : WebWidget, ICackleCommentsCountWidget
     var config = new
     {
       widget = "CommentCount",
-      id = AccountProperty
+      id = AccountValue
     };
 
     return new TagBuilder("script")

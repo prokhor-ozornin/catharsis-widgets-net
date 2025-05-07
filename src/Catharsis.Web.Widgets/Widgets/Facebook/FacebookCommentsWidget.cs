@@ -8,32 +8,32 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorSchemeProperty { get; set; }
+  protected virtual string ColorSchemeValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? MobileProperty { get; set; }
+  protected virtual bool? MobileValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string OrderProperty { get; set; }
+  protected virtual string OrderValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte? PostsProperty { get; set; }
+  protected virtual byte? PostsValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
   
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>
@@ -47,7 +47,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
     if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
 
-    ColorSchemeProperty = scheme;
+    ColorSchemeValue = scheme;
 
     return this;
   }
@@ -59,7 +59,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   /// <returns>Reference to the current widget.</returns>
   public virtual IFacebookCommentsWidget Mobile(bool enabled) 
   {
-    MobileProperty = enabled;
+    MobileValue = enabled;
     return this;
   }
 
@@ -75,7 +75,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
     if (order is null) throw new ArgumentNullException(nameof(order));
     if (order.IsEmpty()) throw new ArgumentException(nameof(order));
 
-    OrderProperty = order;
+    OrderValue = order;
 
     return this;
   }
@@ -87,7 +87,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   /// <returns>Reference to the current widget.</returns>
   public virtual IFacebookCommentsWidget Posts(byte count)
   {
-    PostsProperty = count;
+    PostsValue = count;
     return this;
   }
 
@@ -103,7 +103,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
 
     return this;
   }
@@ -120,7 +120,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
       
-    WidthProperty = width;
+    WidthValue = width;
 
     return this;
   }
@@ -128,22 +128,22 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new FacebookCommentsWidget
   {
-    ColorSchemeProperty = ColorSchemeProperty,
-    MobileProperty = MobileProperty,
-    OrderProperty = OrderProperty,
-    PostsProperty = PostsProperty,
-    UrlProperty = UrlProperty,
-    WidthProperty = WidthProperty
+    ColorSchemeValue = ColorSchemeValue,
+    MobileValue = MobileValue,
+    OrderValue = OrderValue,
+    PostsValue = PostsValue,
+    UrlValue = UrlValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => new TagBuilder("div")
-      .Attribute("data-href", UrlProperty)
-      .Attribute("data-num-posts", PostsProperty)
-      .Attribute("data-width", WidthProperty)
-      .Attribute("data-colorscheme", ColorSchemeProperty)
-      .Attribute("data-mobile", MobileProperty)
-      .Attribute("data-order-by", OrderProperty)
+      .Attribute("data-href", UrlValue)
+      .Attribute("data-num-posts", PostsValue)
+      .Attribute("data-width", WidthValue)
+      .Attribute("data-colorscheme", ColorSchemeValue)
+      .Attribute("data-mobile", MobileValue)
+      .Attribute("data-order-by", OrderValue)
       .CssClass("fb-comments")
       .ToString();
 }

@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontaktePollWidget"/>.</para>
 /// </summary>
-public sealed class VkontaktePollWidgetTest : UnitTest
+public sealed class VkontaktePollWidgetTest : Test
 {
+  private IVkontaktePollWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public VkontaktePollWidgetTest() => Widget = Fixture.Create<IVkontaktePollWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,10 +30,10 @@ public sealed class VkontaktePollWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new VkontaktePollWidget();
-      widget.GetPropertyValue<string>("ElementIdProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("IdProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("UrlProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("ElementIdValue").Should().BeNull();
+      widget.GetPropertyValue<string>("IdValue").Should().BeNull();
+      widget.GetPropertyValue<string>("UrlValue").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthValue").Should().BeNull();
     }
   }
 
@@ -41,12 +48,12 @@ public sealed class VkontaktePollWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePollWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePollWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new VkontaktePollWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVkontaktePollWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdProperty").Should().Be(id);
+    static void Validate(string id, IVkontaktePollWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -60,12 +67,12 @@ public sealed class VkontaktePollWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePollWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePollWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new VkontaktePollWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVkontaktePollWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdProperty").Should().Be(id);
+    static void Validate(string id, IVkontaktePollWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -79,12 +86,12 @@ public sealed class VkontaktePollWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePollWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new VkontaktePollWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new VkontaktePollWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return; 
 
-    static void Validate(string url, IVkontaktePollWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlProperty").Should().Be(url);
+    static void Validate(string url, IVkontaktePollWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
   }
 
   /// <summary>
@@ -98,12 +105,12 @@ public sealed class VkontaktePollWidgetTest : UnitTest
       AssertionExtensions.Should(() => new VkontaktePollWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontaktePollWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new VkontaktePollWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IVkontaktePollWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
+    static void Validate(string width, IVkontaktePollWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -115,7 +122,7 @@ public sealed class VkontaktePollWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new VkontaktePollWidget());
-      Validate(Attributes.VkontaktePollWidget());
+      Validate(Fixture.Create<IVkontaktePollWidget>());
     }
 
     return;
@@ -124,7 +131,10 @@ public sealed class VkontaktePollWidgetTest : UnitTest
     {
       var clone = original.Clone<IVkontaktePollWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("ElementIdValue").Should().Be(original.GetPropertyValue<string>("ElementIdValue"));
+      clone.GetPropertyValue<string>("IdValue").Should().Be(original.GetPropertyValue<string>("IdValue"));
+      clone.GetPropertyValue<string>("UrlValue").Should().Be(original.GetPropertyValue<string>("UrlValue"));
+      clone.GetPropertyValue<string>("WidthValue").Should().Be(original.GetPropertyValue<string>("WidthValue"));
     }
   }
 
@@ -139,6 +149,7 @@ public sealed class VkontaktePollWidgetTest : UnitTest
       Validate(new VkontaktePollWidget());
       Validate(new VkontaktePollWidget().Id("id"), """<div id="vk_poll_id"></div><script type="text/javascript">VK.Widgets.Poll("vk_poll_id", {}, "id");</script>""");
       Validate(new VkontaktePollWidget().Id("id").Url("url").Width("width").ElementId("elementId"), """<div id="elementId"></div><script type="text/javascript">VK.Widgets.Poll("elementId", {"pageUrl":"url","width":"width"}, "id");</script>""");
+      Validate(Fixture.Create<IVkontaktePollWidget>());
     }
 
     return;

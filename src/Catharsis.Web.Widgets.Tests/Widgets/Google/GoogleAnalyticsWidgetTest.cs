@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="GoogleAnalyticsWidget"/>.</para>
 /// </summary>
-public sealed class GoogleAnalyticsWidgetTest : UnitTest
+public sealed class GoogleAnalyticsWidgetTest : Test
 {
+  private IGoogleAnalyticsWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public GoogleAnalyticsWidgetTest() => Widget = Fixture.Create<IGoogleAnalyticsWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,8 +30,8 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new GoogleAnalyticsWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("DomainProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
+      widget.GetPropertyValue<string>("DomainValue").Should().BeNull();
     }
   }
 
@@ -39,12 +46,12 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new GoogleAnalyticsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IGoogleAnalyticsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, IGoogleAnalyticsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -58,12 +65,12 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      new GoogleAnalyticsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string domain, IGoogleAnalyticsWidget widget) => widget.Domain(domain).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainProperty").Should().Be(domain);
+    static void Validate(string domain, IGoogleAnalyticsWidget widget) => widget.Domain(domain).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainValue").Should().Be(domain);
   }
 
   /// <summary>
@@ -75,7 +82,7 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new GoogleAnalyticsWidget());
-      Validate(Attributes.GoogleAnalyticsWidget());
+      Validate(Fixture.Create<IGoogleAnalyticsWidget>());
     }
 
     return;
@@ -84,7 +91,8 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
     {
       var clone = original.Clone<IGoogleAnalyticsWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
+      clone.GetPropertyValue<string>("DomainValue").Should().Be(original.GetPropertyValue<string>("DomainValue"));
     }
   }
 
@@ -100,6 +108,7 @@ public sealed class GoogleAnalyticsWidgetTest : UnitTest
       Validate(new GoogleAnalyticsWidget().Account("account"));
       Validate(new GoogleAnalyticsWidget().Domain("domain"));
       Validate(new GoogleAnalyticsWidget().Account("account").Domain("domain"), "//www.google-analytics.com/analytics.js", """ga("create", "account", "domain");""");
+      Validate(Fixture.Create<IGoogleAnalyticsWidget>());
     }
 
     return;

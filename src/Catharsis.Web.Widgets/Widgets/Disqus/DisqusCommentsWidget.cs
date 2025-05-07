@@ -8,7 +8,7 @@ public class DisqusCommentsWidget : WebWidget, IDisqusCommentsWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <inheritdoc cref="IDisqusCommentsWidget.Account(string)"/>
   public virtual IDisqusCommentsWidget Account(string account)
@@ -16,7 +16,7 @@ public class DisqusCommentsWidget : WebWidget, IDisqusCommentsWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
 
     return this;
   }
@@ -24,9 +24,9 @@ public class DisqusCommentsWidget : WebWidget, IDisqusCommentsWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new DisqusCommentsWidget
   {
-    AccountProperty = AccountProperty
+    AccountValue = AccountValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountProperty.IsUnset() ? string.Empty : string.Format(resources.disqus_comments_html, AccountProperty);
+  public override string ToHtml() => AccountValue.IsUnset() ? string.Empty : string.Format(resources.disqus_comments_html, AccountValue);
 }

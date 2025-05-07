@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="MailRuGroupsWidget"/>.</para>
 /// </summary>
-public sealed class MailRuGroupsWidgetTest : UnitTest
+public sealed class MailRuGroupsWidgetTest : Test
 {
+  private IMailRuGroupsWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public MailRuGroupsWidgetTest() => Widget = Fixture.Create<IMailRuGroupsWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,14 +30,14 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new MailRuGroupsWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("BackgroundColorProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("ButtonColorProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("DomainProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("HeightProperty").Should().BeNull();
-      widget.GetPropertyValue<bool>("SubscribersProperty").Should().BeTrue();
-      widget.GetPropertyValue<string>("TextColorProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("WidthProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
+      widget.GetPropertyValue<string>("BackgroundColorValue").Should().BeNull();
+      widget.GetPropertyValue<string>("ButtonColorValue").Should().BeNull();
+      widget.GetPropertyValue<string>("DomainValue").Should().BeNull();
+      widget.GetPropertyValue<string>("HeightValue").Should().BeNull();
+      widget.GetPropertyValue<bool>("SubscribersValue").Should().BeTrue();
+      widget.GetPropertyValue<string>("TextColorValue").Should().BeNull();
+      widget.GetPropertyValue<string>("WidthValue").Should().BeNull();
     }
   }
 
@@ -45,12 +52,12 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new MailRuGroupsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IMailRuGroupsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, IMailRuGroupsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -64,12 +71,12 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuGroupsWidget().BackgroundColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().BackgroundColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new MailRuGroupsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuGroupsWidget widget) => widget.BackgroundColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BackgroundColorProperty").Should().Be(color);
+    static void Validate(string color, IMailRuGroupsWidget widget) => widget.BackgroundColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BackgroundColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -83,12 +90,12 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuGroupsWidget().ButtonColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().ButtonColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new MailRuGroupsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuGroupsWidget widget) => widget.ButtonColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ButtonColorProperty").Should().Be(color);
+    static void Validate(string color, IMailRuGroupsWidget widget) => widget.ButtonColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ButtonColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -102,12 +109,12 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      new MailRuGroupsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuGroupsWidget widget) => widget.Domain(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainProperty").Should().Be(color);
+    static void Validate(string color, IMailRuGroupsWidget widget) => widget.Domain(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainValue").Should().Be(color);
   }
 
   /// <summary>
@@ -121,12 +128,12 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new MailRuGroupsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IMailRuGroupsWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height);
+    static void Validate(string height, IMailRuGroupsWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -137,12 +144,12 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
   {
     using (new AssertionScope())
     {
-      new MailRuGroupsWidget().With(widget => new[] { false, true }.ForEach(value => Validate(value, widget)));
+      new[] { false, true }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IMailRuGroupsWidget widget) => widget.Subscribers(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("SubscribersProperty").Should().Be(enabled);
+    static void Validate(bool enabled, IMailRuGroupsWidget widget) => widget.Subscribers(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("SubscribersValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -156,12 +163,12 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuGroupsWidget().TextColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().TextColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new MailRuGroupsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuGroupsWidget widget) => widget.TextColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextColorProperty").Should().Be(color);
+    static void Validate(string color, IMailRuGroupsWidget widget) => widget.TextColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -175,12 +182,12 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new MailRuGroupsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IMailRuGroupsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width);
+    static void Validate(string width, IMailRuGroupsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -192,7 +199,7 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new MailRuGroupsWidget());
-      Validate(Attributes.MailRuGroupsWidget());
+      Validate(Fixture.Create<IMailRuGroupsWidget>());
     }
 
     return;
@@ -201,7 +208,14 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
     {
       var clone = original.Clone<IMailRuGroupsWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
+      clone.GetPropertyValue<string>("BackgroundColorValue").Should().Be(original.GetPropertyValue<string>("BackgroundColorValue"));
+      clone.GetPropertyValue<string>("ButtonColorValue").Should().Be(original.GetPropertyValue<string>("ButtonColorValue"));
+      clone.GetPropertyValue<string>("DomainValue").Should().Be(original.GetPropertyValue<string>("DomainValue"));
+      clone.GetPropertyValue<string>("HeightValue").Should().Be(original.GetPropertyValue<string>("HeightValue"));
+      clone.GetPropertyValue<bool>("SubscribersValue").Should().Be(original.GetPropertyValue<bool>("SubscribersValue"));
+      clone.GetPropertyValue<string>("TextColorValue").Should().Be(original.GetPropertyValue<string>("TextColorValue"));
+      clone.GetPropertyValue<string>("WidthValue").Should().Be(original.GetPropertyValue<string>("WidthValue"));
     }
   }
 
@@ -219,6 +233,7 @@ public sealed class MailRuGroupsWidgetTest : UnitTest
       Validate(new MailRuGroupsWidget().Width("width").Height("height"));
       Validate(new MailRuGroupsWidget().Account("account").Width("width").Height("height"), """<a class="mrc__plugin_groups_widget" href="http://connect.mail.ru/groups_widget?group=account&amp;max_sub=50&amp;width=width&amp;height=height&amp;show_subscribers=true" rel="{&quot;group&quot;:&quot;account&quot;,&quot;max_sub&quot;:50,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;,&quot;show_subscribers&quot;:true}" target="_blank">Группы</a>""");
       Validate(new MailRuGroupsWidget().Account("account").Width("width").Height("height").Subscribers(false).BackgroundColor("backgroundColor").TextColor("textColor").ButtonColor("buttonColor").Domain("domain"), """<a class="mrc__plugin_groups_widget" href="http://connect.mail.ru/groups_widget?group=account&amp;max_sub=50&amp;width=width&amp;height=height&amp;background=backgroundColor&amp;color=textColor&amp;button_background=buttonColor&amp;domain=domain" rel="{&quot;group&quot;:&quot;account&quot;,&quot;max_sub&quot;:50,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;,&quot;background&quot;:&quot;backgroundColor&quot;,&quot;color&quot;:&quot;textColor&quot;,&quot;button_background&quot;:&quot;buttonColor&quot;,&quot;domain&quot;:&quot;domain&quot;}" target="_blank">Группы</a>""");
+      Validate(Fixture.Create<IMailRuGroupsWidget>());
     }
 
     return;

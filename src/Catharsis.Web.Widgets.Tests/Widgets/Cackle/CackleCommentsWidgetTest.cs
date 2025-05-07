@@ -1,4 +1,4 @@
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="CackleCommentsWidget"/>.</para>
 /// </summary>
-public sealed class CackleCommentsWidgetTest : UnitTest
+public sealed class CackleCommentsWidgetTest : Test
 {
+  private ICackleCommentsWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public CackleCommentsWidgetTest() => Widget = Fixture.Create<ICackleCommentsWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,7 +30,7 @@ public sealed class CackleCommentsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new CackleCommentsWidget();
-      widget.GetPropertyValue<string>("AccountProperty").Should().BeNull();
+      widget.GetPropertyValue<string>("AccountValue").Should().BeNull();
     }
   }
 
@@ -38,12 +45,12 @@ public sealed class CackleCommentsWidgetTest : UnitTest
       AssertionExtensions.Should(() => new CackleCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new CackleCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new CackleCommentsWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, ICackleCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountProperty").Should().Be(account);
+    static void Validate(string account, ICackleCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -55,7 +62,7 @@ public sealed class CackleCommentsWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new CackleCommentsWidget());
-      Validate(Attributes.CackleCommentsWidget());
+      Validate(Fixture.Create<ICackleCommentsWidget>());
     }
 
     return;
@@ -64,7 +71,7 @@ public sealed class CackleCommentsWidgetTest : UnitTest
     {
       var clone = original.Clone<ICackleCommentsWidget>();
 
-      clone.GetPropertyValue<string>("AccountProperty").Should().Be(original.GetPropertyValue<string>("AccountProperty"));
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
     }
   }
 
@@ -79,6 +86,7 @@ public sealed class CackleCommentsWidgetTest : UnitTest
       Validate(new CackleCommentsWidget());
       Validate(new CackleCommentsWidget().Account("account"), """<div id="mc-container"></div>""");
       Validate(new CackleCommentsWidget().Account("account"), """{"widget":"Comment","id":"account"}""");
+      Validate(Fixture.Create<ICackleCommentsWidget>());
     }
 
     return;

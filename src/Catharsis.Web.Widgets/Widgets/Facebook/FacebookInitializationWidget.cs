@@ -9,7 +9,7 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AppIdProperty { get; set; }
+  protected virtual string AppIdValue { get; set; }
 
   /// <inheritdoc cref="IFacebookInitializationWidget.AppId(string)"/>
   public virtual IFacebookInitializationWidget AppId(string id)
@@ -17,19 +17,19 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    AppIdProperty = id;
+    AppIdValue = id;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new FacebookInitializationWidget
   {
-    AppIdProperty = AppIdProperty
+    AppIdValue = AppIdValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AppIdProperty.IsUnset() ? string.Empty : new StringBuilder()
+  public override string ToHtml() => AppIdValue.IsUnset() ? string.Empty : new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", "fb-root"))
-      .Append(string.Format(resources.facebook_initialize_js, AppIdProperty))
+      .Append(string.Format(resources.facebook_initialize_js, AppIdValue))
       .ToString();
 }

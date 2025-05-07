@@ -10,52 +10,52 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ElementIdProperty { get; set; }
+  protected virtual string ElementIdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TextProperty { get; set; }
+  protected virtual string TextValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte? VerbProperty { get; set; }
+  protected virtual byte? VerbValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string LayoutProperty { get; set; }
+  protected virtual string LayoutValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string HeightProperty { get; set; }
+  protected virtual string HeightValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TitleProperty { get; set; }
+  protected virtual string TitleValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string UrlProperty { get; set; }
+  protected virtual string UrlValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string DescriptionProperty { get; set; }
+  protected virtual string DescriptionValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ImageProperty { get; set; }
+  protected virtual string ImageValue { get; set; }
 
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.ElementId(string)"/>
   public virtual IVkontakteLikeButtonWidget ElementId(string id)
@@ -63,7 +63,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    ElementIdProperty = id;
+    ElementIdValue = id;
 
     return this;
   }
@@ -74,7 +74,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (height is null) throw new ArgumentNullException(nameof(height));
     if (height.IsEmpty()) throw new ArgumentException(nameof(height));
 
-    HeightProperty = height;
+    HeightValue = height;
 
     return this;
   }
@@ -85,7 +85,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (layout is null) throw new ArgumentNullException(nameof(layout));
     if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
 
-    LayoutProperty = layout;
+    LayoutValue = layout;
 
     return this;
   }
@@ -96,7 +96,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (description is null) throw new ArgumentNullException(nameof(description));
     if (description.IsEmpty()) throw new ArgumentException(nameof(description));
 
-    DescriptionProperty = description;
+    DescriptionValue = description;
 
     return this;
   }
@@ -107,7 +107,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    ImageProperty = url;
+    ImageValue = url;
 
     return this;
   }
@@ -118,7 +118,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (title is null) throw new ArgumentNullException(nameof(title));
     if (title.IsEmpty()) throw new ArgumentException(nameof(title));
 
-    TitleProperty = title;
+    TitleValue = title;
 
     return this;
   }
@@ -129,7 +129,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (url is null) throw new ArgumentNullException(nameof(url));
     if (url.IsEmpty()) throw new ArgumentException(nameof(url));
 
-    UrlProperty = url;
+    UrlValue = url;
 
     return this;
   }
@@ -140,7 +140,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (text is null) throw new ArgumentNullException(nameof(text));
     if (text.IsEmpty()) throw new ArgumentException(nameof(text));
 
-    TextProperty = text;
+    TextValue = text;
 
     return this;
   }
@@ -148,7 +148,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   /// <inheritdoc cref="IVkontakteLikeButtonWidget.Verb(byte)"/>
   public virtual IVkontakteLikeButtonWidget Verb(byte verb)
   {
-    VerbProperty = verb;
+    VerbValue = verb;
     return this;
   }
 
@@ -158,7 +158,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
 
     return this;
   }
@@ -166,16 +166,16 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new VkontakteLikeButtonWidget
   {
-    ElementIdProperty = ElementIdProperty,
-    TextProperty = TextProperty,
-    VerbProperty = VerbProperty,
-    LayoutProperty = LayoutProperty,
-    WidthProperty = WidthProperty,
-    HeightProperty = HeightProperty,
-    TitleProperty = TitleProperty,
-    UrlProperty = UrlProperty,
-    DescriptionProperty = DescriptionProperty,
-    ImageProperty = ImageProperty
+    ElementIdValue = ElementIdValue,
+    TextValue = TextValue,
+    VerbValue = VerbValue,
+    LayoutValue = LayoutValue,
+    WidthValue = WidthValue,
+    HeightValue = HeightValue,
+    TitleValue = TitleValue,
+    UrlValue = UrlValue,
+    DescriptionValue = DescriptionValue,
+    ImageValue = ImageValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
@@ -183,52 +183,52 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   {
     var config = new Dictionary<string, object>();
       
-    if (!LayoutProperty.IsUnset())
+    if (!LayoutValue.IsUnset())
     {
-      config["type"] = LayoutProperty;
+      config["type"] = LayoutValue;
     }
 
-    if (!WidthProperty.IsUnset())
+    if (!WidthValue.IsUnset())
     {
-      config["width"] = WidthProperty;
+      config["width"] = WidthValue;
     }
 
-    if (!TitleProperty.IsUnset())
+    if (!TitleValue.IsUnset())
     {
-      config["pageTitle"] = TitleProperty;
+      config["pageTitle"] = TitleValue;
     }
 
-    if (!DescriptionProperty.IsUnset())
+    if (!DescriptionValue.IsUnset())
     {
-      config["pageDescription"] = DescriptionProperty;
+      config["pageDescription"] = DescriptionValue;
     }
 
-    if (!UrlProperty.IsUnset())
+    if (!UrlValue.IsUnset())
     {
-      config["pageUrl"] = UrlProperty;
+      config["pageUrl"] = UrlValue;
     }
 
-    if (!ImageProperty.IsUnset())
+    if (!ImageValue.IsUnset())
     {
-      config["pageImage"] = ImageProperty;
+      config["pageImage"] = ImageValue;
     }
 
-    if (!TextProperty.IsUnset())
+    if (!TextValue.IsUnset())
     {
-      config["text"] = TextProperty;
+      config["text"] = TextValue;
     }
     
-    if (!HeightProperty.IsUnset())
+    if (!HeightValue.IsUnset())
     {
-      config["height"] = HeightProperty;
+      config["height"] = HeightValue;
     }
     
-    if (VerbProperty is not null)
+    if (VerbValue is not null)
     {
-      config["verb"] = VerbProperty;
+      config["verb"] = VerbValue;
     }
 
-    var id = ElementIdProperty ?? "vk_like";
+    var id = ElementIdValue ?? "vk_like";
 
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", id))

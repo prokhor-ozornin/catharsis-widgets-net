@@ -10,56 +10,56 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual IEnumerable<string> AttachProperty { get; set; } = [];
+  protected virtual IEnumerable<string> AttachValue { get; set; } = [];
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? AutoPublishProperty { get; set; }
+  protected virtual bool? AutoPublishValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? AutoUpdateProperty { get; set; }
+  protected virtual bool? AutoUpdateValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ElementIdProperty { get; set; }
+  protected virtual string ElementIdValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte LimitProperty { get; set; } = (byte)VkontakteCommentsLimit.Limit5;
+  protected virtual byte LimitValue { get; set; } = (byte)VkontakteCommentsLimit.Limit5;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool? MiniProperty { get; set; }
+  protected virtual bool? MiniValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string WidthProperty { get; set; }
+  protected virtual string WidthValue { get; set; }
 
   /// <inheritdoc cref="IVkontakteCommentsWidget.Attach(string[])"/>
   public virtual IVkontakteCommentsWidget Attach(params string[] types)
   {
-    AttachProperty = types;
+    AttachValue = types;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteCommentsWidget.AutoPublish(bool)"/>
   public virtual IVkontakteCommentsWidget AutoPublish(bool enabled)
   {
-    AutoPublishProperty = enabled;
+    AutoPublishValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteCommentsWidget.AutoUpdate(bool)"/>
   public virtual IVkontakteCommentsWidget AutoUpdate(bool enabled)
   {
-    AutoUpdateProperty = enabled;
+    AutoUpdateValue = enabled;
     return this;
   }
 
@@ -69,7 +69,7 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
     if (id is null) throw new ArgumentNullException(nameof(id));
     if (id.IsEmpty()) throw new ArgumentException(nameof(id));
 
-    ElementIdProperty = id;
+    ElementIdValue = id;
 
     return this;
   }
@@ -77,14 +77,14 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
   /// <inheritdoc cref="IVkontakteCommentsWidget.Mini(bool?)"/>
   public virtual IVkontakteCommentsWidget Mini(bool? enabled)
   {
-    MiniProperty = enabled;
+    MiniValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IVkontakteCommentsWidget.Limit(byte)"/>
   public virtual IVkontakteCommentsWidget Limit(byte count)
   {
-    LimitProperty = count;
+    LimitValue = count;
     return this;
   }
 
@@ -94,7 +94,7 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
     if (width is null) throw new ArgumentNullException(nameof(width));
     if (width.IsEmpty()) throw new ArgumentException(nameof(width));
 
-    WidthProperty = width;
+    WidthValue = width;
 
     return this;
   }
@@ -102,13 +102,13 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new VkontakteCommentsWidget
   {
-    AttachProperty = AttachProperty?.ToArray(),
-    AutoPublishProperty = AutoPublishProperty,
-    AutoUpdateProperty = AutoUpdateProperty,
-    ElementIdProperty = ElementIdProperty,
-    LimitProperty = LimitProperty,
-    MiniProperty = MiniProperty,
-    WidthProperty = WidthProperty
+    AttachValue = AttachValue?.ToArray(),
+    AutoPublishValue = AutoPublishValue,
+    AutoUpdateValue = AutoUpdateValue,
+    ElementIdValue = ElementIdValue,
+    LimitValue = LimitValue,
+    MiniValue = MiniValue,
+    WidthValue = WidthValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
@@ -116,39 +116,39 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
   {
     var config = new Dictionary<string, object>
     {
-      { "limit", LimitProperty }
+      { "limit", LimitValue }
     };
       
-    if (AttachProperty.Any())
+    if (AttachValue.Any())
     {
-      config["attach"] = AttachProperty.Join(",");
+      config["attach"] = AttachValue.Join(",");
     }
     else
     {
       config["attach"] = false;
     }
 
-    if (!WidthProperty.IsUnset())
+    if (!WidthValue.IsUnset())
     {
-      config["width"] = WidthProperty;
+      config["width"] = WidthValue;
     }
     
-    if (AutoPublishProperty is not null)
+    if (AutoPublishValue is not null)
     {
-      config["autoPublish"] = AutoPublishProperty.GetValueOrDefault() ? 1 : 0;
+      config["autoPublish"] = AutoPublishValue.GetValueOrDefault() ? 1 : 0;
     }
     
-    if (AutoUpdateProperty is not null)
+    if (AutoUpdateValue is not null)
     {
-      config["norealtime"] = AutoUpdateProperty.GetValueOrDefault() ? 0 : 1;
+      config["norealtime"] = AutoUpdateValue.GetValueOrDefault() ? 0 : 1;
     }
     
-    if (MiniProperty is not null)
+    if (MiniValue is not null)
     {
-      config["mini"] = MiniProperty.GetValueOrDefault() ? 1 : 0;
+      config["mini"] = MiniValue.GetValueOrDefault() ? 1 : 0;
     }
 
-    var id = ElementIdProperty ?? "vk_comments";
+    var id = ElementIdValue ?? "vk_comments";
 
     return new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", id))

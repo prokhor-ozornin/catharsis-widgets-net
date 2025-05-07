@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IPinterestBoardWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
+public sealed class IPinterestBoardWidgetExtensionsTest : Test
 {
+  private IPinterestBoardWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IPinterestBoardWidgetExtensionsTest() => Widget = Fixture.Create<IPinterestBoardWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IPinterestBoardWidgetExtensions.Height(IPinterestBoardWidget, short)"/> method.</para>
   /// </summary>
@@ -21,12 +28,12 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new PinterestBoardWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(short height, IPinterestBoardWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightProperty").Should().Be(height.ToInvariantString());
+    static void Validate(short height, IPinterestBoardWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height.ToInvariantString());
   }
 
   /// <summary>
@@ -39,12 +46,12 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new PinterestBoardWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(short width, IPinterestBoardWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthProperty").Should().Be(width.ToInvariantString());
+    static void Validate(short width, IPinterestBoardWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -57,17 +64,17 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Header(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new PinterestProfileWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(IPinterestProfileWidget widget)
+    static void Validate(IPinterestBoardWidget widget)
     {
       widget.Header().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ImageProperty").Should().Be("115");
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be("120");
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be("900");
+      widget.GetPropertyValue<string>("ImageValue").Should().Be("115");
+      widget.GetPropertyValue<string>("HeightValue").Should().Be("120");
+      widget.GetPropertyValue<string>("WidthValue").Should().Be("900");
     }
   }
 
@@ -81,12 +88,12 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Image(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new PinterestBoardWidget().With(widget => new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, widget)));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(short width, IPinterestBoardWidget widget) => widget.Image(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageProperty").Should().Be(width.ToInvariantString());
+    static void Validate(short width, IPinterestBoardWidget widget) => widget.Image(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageValue").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -99,17 +106,17 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Sidebar(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new PinterestProfileWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(IPinterestProfileWidget widget)
+    static void Validate(IPinterestBoardWidget widget)
     {
       widget.Sidebar().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ImageProperty").Should().Be("60");
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be("800");
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be("150");
+      widget.GetPropertyValue<string>("ImageValue").Should().Be("60");
+      widget.GetPropertyValue<string>("HeightValue").Should().Be("800");
+      widget.GetPropertyValue<string>("WidthValue").Should().Be("150");
     }
   }
 
@@ -123,17 +130,17 @@ public sealed class IPinterestBoardWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestBoardWidgetExtensions.Square(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new PinterestProfileWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(IPinterestProfileWidget widget)
+    static void Validate(IPinterestBoardWidget widget)
     {
       widget.Square().Should().BeSameAs(widget);
-      widget.GetPropertyValue<string>("ImageProperty").Should().Be("80");
-      widget.GetPropertyValue<string>("HeightProperty").Should().Be("320");
-      widget.GetPropertyValue<string>("WidthProperty").Should().Be("400");
+      widget.GetPropertyValue<string>("ImageValue").Should().Be("80");
+      widget.GetPropertyValue<string>("HeightValue").Should().Be("320");
+      widget.GetPropertyValue<string>("WidthValue").Should().Be("400");
     }
   }
 }

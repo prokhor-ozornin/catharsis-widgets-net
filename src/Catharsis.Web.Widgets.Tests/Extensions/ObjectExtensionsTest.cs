@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using Catharsis.Web.Widgets.Extensions;
+﻿using Catharsis.Web.Widgets.Extensions;
 using FluentAssertions;
 using Xunit;
 
@@ -8,7 +7,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="Web.Widgets.Extensions.ObjectExtensions"/>.</para>
 /// </summary>
-public sealed class ObjectExtensionsTest : UnitTest
+public sealed class ObjectExtensionsTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="Web.Widgets.Extensions.ObjectExtensions.Json(object)"/> method.</para>

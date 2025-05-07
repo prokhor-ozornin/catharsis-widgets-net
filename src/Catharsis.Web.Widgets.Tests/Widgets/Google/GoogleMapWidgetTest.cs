@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="GoogleMapWidget"/>.</para>
 /// </summary>
-public sealed class GoogleMapWidgetTest : UnitTest
+public sealed class GoogleMapWidgetTest : Test
 {
+  private IGoogleMapWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public GoogleMapWidgetTest() => Widget = Fixture.Create<IGoogleMapWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -35,7 +42,7 @@ public sealed class GoogleMapWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new GoogleMapWidget());
-      Validate(Attributes.GoogleMapWidget());
+      Validate(Fixture.Create<IGoogleMapWidget>());
     }
 
     return;
@@ -44,7 +51,7 @@ public sealed class GoogleMapWidgetTest : UnitTest
     {
       var clone = original.Clone<IGoogleMapWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
     }
   }
 
@@ -57,6 +64,7 @@ public sealed class GoogleMapWidgetTest : UnitTest
     using (new AssertionScope())
     {
       throw new NotImplementedException();
+      Validate(Fixture.Create<IGoogleMapWidget>());
     }
 
     return;

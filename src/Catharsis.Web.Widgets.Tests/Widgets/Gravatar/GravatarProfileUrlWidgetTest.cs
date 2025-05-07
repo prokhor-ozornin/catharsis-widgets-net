@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using FluentAssertions;
 using Xunit;
 using Catharsis.Extensions;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="GravatarProfileUrlWidget"/>.</para>
 /// </summary>
-public sealed class GravatarProfileUrlWidgetTest : UnitTest
+public sealed class GravatarProfileUrlWidgetTest : Test
 {
+  private IGravatarProfileUrlWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public GravatarProfileUrlWidgetTest() => Widget = Fixture.Create<IGravatarProfileUrlWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -23,9 +30,9 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
     using (new AssertionScope())
     {
       var widget = new GravatarProfileUrlWidget();
-      widget.GetPropertyValue<string>("HashProperty").Should().BeNull();
-      widget.GetPropertyValue<string>("FormatProperty").Should().BeNull();
-      widget.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").Should().BeEmpty();
+      widget.GetPropertyValue<string>("HashValue").Should().BeNull();
+      widget.GetPropertyValue<string>("FormatValue").Should().BeNull();
+      widget.GetPropertyValue<IDictionary<string, object>>("ParametersValue").Should().BeEmpty();
     }
   }
 
@@ -40,12 +47,12 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      new GravatarProfileUrlWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string hash, IGravatarProfileUrlWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashProperty").Should().Be(hash);
+    static void Validate(string hash, IGravatarProfileUrlWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashValue").Should().Be(hash);
   }
 
   /// <summary>
@@ -59,12 +66,12 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Format(null)).ThrowExactly<ArgumentNullException>().WithParameterName("format");
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Format(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("format");
 
-      new GravatarProfileUrlWidget().With(widget => new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, widget)));
+      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(string format, IGravatarProfileUrlWidget widget) => widget.Format(format).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatProperty").Should().Be(format);
+    static void Validate(string format, IGravatarProfileUrlWidget widget) => widget.Format(format).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be(format);
   }
 
   /// <summary>
@@ -79,12 +86,12 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Parameter(string.Empty, new object())).ThrowExactly<ArgumentException>().WithMessage("name");
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Parameter("name", null)).ThrowExactly<ArgumentNullException>().WithParameterName("value");
 
-      new GravatarProfileUrlWidget().With(widget => Validate("id", Guid.NewGuid(), widget));
+      Validate("id", Guid.NewGuid(), Widget);
     }
 
     return;
 
-    static void Validate(string name, object value, IGravatarProfileUrlWidget widget) => widget.Parameter(name, value).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersProperty").Should().Contain(name, value);
+    static void Validate(string name, object value, IGravatarProfileUrlWidget widget) => widget.Parameter(name, value).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersValue").Should().Contain(name, value);
   }
 
   /// <summary>
@@ -96,7 +103,7 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new GravatarProfileUrlWidget());
-      Validate(Attributes.GravatarProfileUrlWidget());
+      Validate(Fixture.Create<IGravatarProfileUrlWidget>());
     }
 
     return;
@@ -105,7 +112,9 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
     {
       var clone = original.Clone<IGravatarProfileUrlWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("FormatValue").Should().Be(original.GetPropertyValue<string>("FormatValue"));
+      clone.GetPropertyValue<string>("HashValue").Should().Be(original.GetPropertyValue<string>("HashValue"));
+      clone.GetPropertyValue<IDictionary<string, object>>("ParametersValue").Should().Equal(original.GetPropertyValue<IDictionary<string, object>>("ParametersValue"));
     }
   }
 
@@ -121,6 +130,7 @@ public sealed class GravatarProfileUrlWidgetTest : UnitTest
       Validate(new GravatarProfileUrlWidget().Hash("hash"), "http://www.gravatar.com/hash");
       Validate(new GravatarProfileUrlWidget().Hash("hash").Parameter("name", "value"), "http://www.gravatar.com/hash?name=value");
       Validate(new GravatarProfileUrlWidget().Hash("hash").Format("format").Parameter("first", 1).Parameter("second", 2), "http://www.gravatar.com/hash.format?first=1&second=2");
+      Validate(Fixture.Create<IGravatarProfileUrlWidget>());
     }
 
     return;

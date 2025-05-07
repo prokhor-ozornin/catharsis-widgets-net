@@ -8,57 +8,57 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string AccountProperty { get; set; }
+  protected virtual string AccountValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string ColorProperty { get; set; } = nameof(YandexMoneyButtonColor.Orange).ToLowerInvariant();
+  protected virtual string ColorValue { get; set; } = nameof(YandexMoneyButtonColor.Orange).ToLowerInvariant();
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string DescriptionProperty { get; set; }
+  protected virtual string DescriptionValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerFullNameProperty { get; set; }
+  protected virtual bool AskPayerFullNameValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerEmailProperty { get; set; }
+  protected virtual bool AskPayerEmailValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerPhoneProperty { get; set; }
+  protected virtual bool AskPayerPhoneValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual bool AskPayerAddressProperty { get; set; }
+  protected virtual bool AskPayerAddressValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string SizeProperty { get; set; } = "l";
+  protected virtual string SizeValue { get; set; } = "l";
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual decimal? SumProperty { get; set; }
+  protected virtual decimal? SumValue { get; set; }
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual byte TextProperty { get; set; } = (byte) YandexMoneyButtonText.Pay;
+  protected virtual byte TextValue { get; set; } = (byte) YandexMoneyButtonText.Pay;
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  protected virtual string TypeProperty { get; set; } = "yamoney-payment-type";
+  protected virtual string TypeValue { get; set; } = "yamoney-payment-type";
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Account(string)"/>
   public virtual IYandexMoneyButtonWidget Account(string account)
@@ -66,7 +66,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     if (account is null) throw new ArgumentNullException(nameof(account));
     if (account.IsEmpty()) throw new ArgumentException(nameof(account));
 
-    AccountProperty = account;
+    AccountValue = account;
 
     return this;
   }
@@ -77,7 +77,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     if (color is null) throw new ArgumentNullException(nameof(color));
     if (color.IsEmpty()) throw new ArgumentException(nameof(color));
 
-    ColorProperty = color;
+    ColorValue = color;
 
     return this;
   }
@@ -88,35 +88,35 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     if (description is null) throw new ArgumentNullException(nameof(description));
     if (description.IsEmpty()) throw new ArgumentException(nameof(description));
 
-    DescriptionProperty = description;
+    DescriptionValue = description;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerFullName(bool)"/>
   public virtual IYandexMoneyButtonWidget AskPayerFullName(bool enabled)
   {
-    AskPayerFullNameProperty = enabled;
+    AskPayerFullNameValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerEmail(bool)"/>
   public virtual IYandexMoneyButtonWidget AskPayerEmail(bool enabled)
   {
-    AskPayerEmailProperty = enabled;
+    AskPayerEmailValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerPhone(bool)"/>
   public virtual IYandexMoneyButtonWidget AskPayerPhone(bool enabled)
   {
-    AskPayerPhoneProperty = enabled;
+    AskPayerPhoneValue = enabled;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.AskPayerAddress(bool)"/>
   public virtual IYandexMoneyButtonWidget AskPayerAddress(bool enabled)
   {
-    AskPayerAddressProperty = enabled;
+    AskPayerAddressValue = enabled;
     return this;
   }
 
@@ -126,7 +126,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     if (size is null) throw new ArgumentNullException(nameof(size));
     if (size.IsEmpty()) throw new ArgumentException(nameof(size));
 
-    SizeProperty = size;
+    SizeValue = size;
 
     return this;
   }
@@ -134,14 +134,14 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Sum(decimal)"/>
   public virtual IYandexMoneyButtonWidget Sum(decimal sum)
   {
-    SumProperty = sum;
+    SumValue = sum;
     return this;
   }
 
   /// <inheritdoc cref="IYandexMoneyButtonWidget.Text(byte)"/>
   public virtual IYandexMoneyButtonWidget Text(byte text)
   {
-    TextProperty = text;
+    TextValue = text;
     return this;
   }
 
@@ -151,35 +151,35 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     if (type is null) throw new ArgumentNullException(nameof(type));
     if (type.IsEmpty()) throw new ArgumentException(nameof(type));
 
-    TypeProperty = type;
+    TypeValue = type;
     return this;
   }
 
   /// <inheritdoc cref="ICloneable.Clone()"/>
   public override object Clone() => new YandexMoneyButtonWidget
   {
-    AccountProperty = AccountProperty,
-    ColorProperty = ColorProperty,
-    DescriptionProperty = DescriptionProperty,
-    AskPayerFullNameProperty = AskPayerFullNameProperty,
-    AskPayerEmailProperty = AskPayerEmailProperty,
-    AskPayerPhoneProperty = AskPayerPhoneProperty,
-    AskPayerAddressProperty = AskPayerAddressProperty,
-    SizeProperty = SizeProperty,
-    SumProperty = SumProperty,
-    TextProperty = TextProperty,
-    TypeProperty = TypeProperty
+    AccountValue = AccountValue,
+    ColorValue = ColorValue,
+    DescriptionValue = DescriptionValue,
+    AskPayerFullNameValue = AskPayerFullNameValue,
+    AskPayerEmailValue = AskPayerEmailValue,
+    AskPayerPhoneValue = AskPayerPhoneValue,
+    AskPayerAddressValue = AskPayerAddressValue,
+    SizeValue = SizeValue,
+    SumValue = SumValue,
+    TextValue = TextValue,
+    TypeValue = TypeValue
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountProperty.IsUnset() || SumProperty is null || DescriptionProperty.IsUnset())
+    if (AccountValue.IsUnset() || SumValue is null || DescriptionValue.IsUnset())
     {
       return string.Empty;
     }
 
-    var width = (YandexMoneyButtonText) TextProperty switch
+    var width = (YandexMoneyButtonText) TextValue switch
     {
       YandexMoneyButtonText.Pay => 229,
       YandexMoneyButtonText.Buy => 197,
@@ -191,7 +191,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
     };
 
     return new TagBuilder("iframe")
-      .Attribute("src", $"https://money.yandex.ru/embed/small.xml?account={AccountProperty}&quickpay=small&{TypeProperty}=on&button-text=0{TextProperty}&button-size={SizeProperty}&button-color={ColorProperty}&targets={DescriptionProperty}&default-sum={SumProperty}{(AskPayerFullNameProperty ? "&fio=on" : string.Empty)}{(AskPayerEmailProperty ? "&mail=on" : string.Empty)}{(AskPayerPhoneProperty ? "&phone=on" : string.Empty)}{(AskPayerAddressProperty ? "&address=on" : string.Empty)}")
+      .Attribute("src", $"https://money.yandex.ru/embed/small.xml?account={AccountValue}&quickpay=small&{TypeValue}=on&button-text=0{TextValue}&button-size={SizeValue}&button-color={ColorValue}&targets={DescriptionValue}&default-sum={SumValue}{(AskPayerFullNameValue ? "&fio=on" : string.Empty)}{(AskPayerEmailValue ? "&mail=on" : string.Empty)}{(AskPayerPhoneValue ? "&phone=on" : string.Empty)}{(AskPayerAddressValue ? "&address=on" : string.Empty)}")
       .Attribute("frameborder", 0)
       .Attribute("allowtransparency", true)
       .Attribute("scrolling", "no")

@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -10,8 +10,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IPinterestPinItButtonWidgetExtensions"/>.</para>
 /// </summary>
-public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
+public sealed class IPinterestPinItButtonWidgetExtensionsTest : Test
 {
+  private IPinterestPinItButtonWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public IPinterestPinItButtonWidgetExtensionsTest() => Widget = Fixture.Create<IPinterestPinItButtonWidget>();
+
   /// <summary>
   ///   <para>Performs testing of <see cref="IPinterestPinItButtonWidgetExtensions.Gray(IPinterestPinItButtonWidget)"/> method.</para>
   /// </summary>
@@ -22,12 +29,12 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Gray(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new PinterestPinItButtonWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(IPinterestPinItButtonWidget widget) => widget.Gray().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("gray");
+    static void Validate(IPinterestPinItButtonWidget widget) => widget.Gray().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("gray");
   }
 
   /// <summary>
@@ -41,12 +48,12 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Language((CultureInfo) null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
-      new PinterestPinItButtonWidget().With(widget => CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, widget)));
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, Widget));
     }
 
     return;
 
-    static void Validate(CultureInfo culture, IPinterestPinItButtonWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageProperty").Should().Be(culture.TwoLetterISOLanguageName);
+    static void Validate(CultureInfo culture, IPinterestPinItButtonWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
   }
 
   /// <summary>
@@ -59,12 +66,12 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Red(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new PinterestPinItButtonWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
 
-    static void Validate(IPinterestPinItButtonWidget widget) => widget.Red().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("red");
+    static void Validate(IPinterestPinItButtonWidget widget) => widget.Red().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("red");
   }
 
   /// <summary>
@@ -77,11 +84,11 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.White(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new PinterestPinItButtonWidget().With(Validate);
+      Validate(Widget);
     }
 
     return;
  
-    static void Validate(IPinterestPinItButtonWidget widget) => widget.White().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorProperty").Should().Be("white");
+    static void Validate(IPinterestPinItButtonWidget widget) => widget.White().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("white");
   }
 }

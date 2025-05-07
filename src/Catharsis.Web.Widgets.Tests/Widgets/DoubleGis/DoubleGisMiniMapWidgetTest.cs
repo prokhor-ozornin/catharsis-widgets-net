@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using FluentAssertions.Execution;
 using FluentAssertions;
 using Xunit;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="DoubleGisMiniMapWidget"/>.</para>
 /// </summary>
-public sealed class DoubleGisMiniMapWidgetTest : UnitTest
+public sealed class DoubleGisMiniMapWidgetTest : Test
 {
+  private IDoubleGisMiniMapWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public DoubleGisMiniMapWidgetTest() => Widget = Fixture.Create<IDoubleGisMiniMapWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -35,7 +42,7 @@ public sealed class DoubleGisMiniMapWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new DoubleGisMiniMapWidget());
-      Validate(Attributes.DoubleGisMiniMapWidget());
+      Validate(Fixture.Create<IDoubleGisMiniMapWidget>());
     }
 
     return;
@@ -43,8 +50,6 @@ public sealed class DoubleGisMiniMapWidgetTest : UnitTest
     static void Validate(IDoubleGisMiniMapWidget original)
     {
       var clone = original.Clone<IDoubleGisMiniMapWidget>();
-
-      clone.Id.Should().Be(original.Id);
     }
   }
 
@@ -57,6 +62,7 @@ public sealed class DoubleGisMiniMapWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new DoubleGisMiniMapWidget());
+      Validate(Fixture.Create<IDoubleGisMiniMapWidget>());
     }
 
     return;

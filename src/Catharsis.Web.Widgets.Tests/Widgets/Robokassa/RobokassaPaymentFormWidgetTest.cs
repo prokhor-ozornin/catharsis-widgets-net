@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -9,8 +9,15 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="RobokassaPaymentFormWidget"/>.</para>
 /// </summary>
-public sealed class RobokassaPaymentFormWidgetTest : UnitTest
+public sealed class RobokassaPaymentFormWidgetTest : Test
 {
+  private IRobokassaPaymentFormWidget Widget { get; }
+
+  /// <summary>
+  ///   <para>Test constructor.</para>
+  /// </summary>
+  public RobokassaPaymentFormWidgetTest() => Widget = Fixture.Create<IRobokassaPaymentFormWidget>();
+
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -35,7 +42,7 @@ public sealed class RobokassaPaymentFormWidgetTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new RobokassaPaymentFormWidget());
-      Validate(Attributes.RobokassaPaymentFormWidget());
+      Validate(Fixture.Create<IRobokassaPaymentFormWidget>());
     }
 
     return;
@@ -44,7 +51,7 @@ public sealed class RobokassaPaymentFormWidgetTest : UnitTest
     {
       var clone = original.Clone<IRobokassaPaymentFormWidget>();
 
-      clone.Id.Should().Be(original.Id);
+      clone.GetPropertyValue<string>("AccountValue").Should().Be(original.GetPropertyValue<string>("AccountValue"));
     }
   }
 
@@ -54,7 +61,11 @@ public sealed class RobokassaPaymentFormWidgetTest : UnitTest
   [Fact]
   public void ToHtml_Method()
   {
-    throw new NotImplementedException();
+    using (new AssertionScope())
+    {
+      Validate(Fixture.Create<IRobokassaPaymentFormWidget>());
+      throw new NotImplementedException();
+    }
 
     return;
 
