@@ -52,12 +52,12 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string scheme, IFacebookLikeButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme);
+    static void Test(string scheme, IFacebookLikeButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme);
   }
 
   /// <summary>
@@ -68,12 +68,12 @@ public sealed class FacebookLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IFacebookLikeButtonWidget widget) => widget.Faces(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("FacesValue").Should().Be(enabled);
+    static void Test(bool enabled, IFacebookLikeButtonWidget widget) => widget.Faces(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("FacesValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -84,12 +84,12 @@ public sealed class FacebookLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IFacebookLikeButtonWidget widget) => widget.KidsMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("KidsModeValue").Should().Be(enabled);
+    static void Test(bool enabled, IFacebookLikeButtonWidget widget) => widget.KidsMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("KidsModeValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -103,12 +103,12 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string layout, IFacebookLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(layout);
+    static void Test(string layout, IFacebookLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(layout);
   }
 
   /// <summary>
@@ -122,12 +122,12 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().TrackLabel(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().TrackLabel(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string label, IFacebookLikeButtonWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TrackLabelValue").Should().Be(label);
+    static void Test(string label, IFacebookLikeButtonWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TrackLabelValue").Should().Be(label);
   }
 
   /// <summary>
@@ -141,12 +141,12 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string url, IFacebookLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
+    static void Test(string url, IFacebookLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
   }
     
   /// <summary>
@@ -160,12 +160,12 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Verb(null)).ThrowExactly<ArgumentNullException>().WithParameterName("verb");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Verb(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("verb");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string verb, IFacebookLikeButtonWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("VerbValue").Should().Be(verb);
+    static void Test(string verb, IFacebookLikeButtonWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("VerbValue").Should().Be(verb);
   }
 
   /// <summary>
@@ -179,12 +179,12 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IFacebookLikeButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IFacebookLikeButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -195,13 +195,13 @@ public sealed class FacebookLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new FacebookLikeButtonWidget());
-      Validate(Fixture.Create<IFacebookLikeButtonWidget>());
+      Test(new FacebookLikeButtonWidget());
+      Test(Fixture.Create<FacebookLikeButtonWidget>());
     }
 
     return;
 
-    static void Validate(IFacebookLikeButtonWidget original)
+    static void Test(IFacebookLikeButtonWidget original)
     {
       var clone = original.Clone<IFacebookLikeButtonWidget>();
 
@@ -224,15 +224,15 @@ public sealed class FacebookLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new FacebookLikeButtonWidget(), """<div class="fb-like"></div>""");
-      Validate(new FacebookLikeButtonWidget().Url("url"), """<div class="fb-like" data-href="url"></div>""");
-      Validate(new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).ColorScheme(FacebookColorScheme.Dark).Url("url").KidsMode(true).Layout(FacebookButtonLayout.BoxCount).TrackLabel("trackLabel").Faces(true).Width("width"), """<div class="fb-like" data-action="recommend" data-colorscheme="dark" data-href="url" data-kid-directed-site="true" data-layout="box_count" data-ref="trackLabel" data-show-faces="true" data-width="width"></div>""");
-      Validate(Fixture.Create<IFacebookLikeButtonWidget>());
+      Test(new FacebookLikeButtonWidget(), """<div class="fb-like"></div>""");
+      Test(new FacebookLikeButtonWidget().Url("url"), """<div class="fb-like" data-href="url"></div>""");
+      Test(new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).ColorScheme(FacebookColorScheme.Dark).Url("url").KidsMode(true).Layout(FacebookButtonLayout.BoxCount).TrackLabel("trackLabel").Faces(true).Width("width"), """<div class="fb-like" data-action="recommend" data-colorscheme="dark" data-href="url" data-kid-directed-site="true" data-layout="box_count" data-ref="trackLabel" data-show-faces="true" data-width="width"></div>""");
+      Test(Fixture.Create<FacebookLikeButtonWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IFacebookLikeButtonWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

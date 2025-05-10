@@ -30,12 +30,12 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Email(null)).ThrowExactly<ArgumentNullException>().WithParameterName("email");
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Email(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("email");
 
-      Validate("prokhor.ozornin@yandex.ru", "61b98d241eaa1ce237c979e7a8181d13", Widget);
+      Test("prokhor.ozornin@yandex.ru", "61b98d241eaa1ce237c979e7a8181d13", Widget);
     }
 
     return;
 
-    static void Validate(string email, string hash, IGravatarProfileUrlWidget widget) => widget.Email(email).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashValue").Should().Be(hash);
+    static void Test(string email, string hash, IGravatarProfileUrlWidget widget) => widget.Email(email).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashValue").Should().Be(hash);
   }
 
   /// <summary>
@@ -48,12 +48,12 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Json(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string callback, IGravatarProfileUrlWidget widget)
+    static void Test(string callback, IGravatarProfileUrlWidget widget)
     {
       widget.Json(callback).Should().BeSameAs(widget);
       widget.GetPropertyValue<string>("FormatValue").Should().Be("json");
@@ -71,12 +71,12 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Xml(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(Widget);
+      Test(Widget);
     }
 
     return;
 
-    static void Validate(IGravatarProfileUrlWidget widget) => widget.Xml().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("xml");
+    static void Test(IGravatarProfileUrlWidget widget) => widget.Xml().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("xml");
   }
 
   /// <summary>
@@ -89,12 +89,12 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Php(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(Widget);
+      Test(Widget);
     }
 
     return;
 
-    static void Validate(IGravatarProfileUrlWidget widget) => widget.Php().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("php");
+    static void Test(IGravatarProfileUrlWidget widget) => widget.Php().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("php");
   }
 
   /// <summary>
@@ -107,12 +107,12 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Vcf(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(Widget);
+      Test(Widget);
     }
 
     return;
 
-    static void Validate(IGravatarProfileUrlWidget widget) => widget.Vcf().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("vcf");
+    static void Test(IGravatarProfileUrlWidget widget) => widget.Vcf().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("vcf");
   }
 
   /// <summary>
@@ -125,11 +125,11 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Qr(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { short.MinValue, short.MaxValue }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(short? size, IGravatarProfileUrlWidget widget) => widget.Qr(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("qr").And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersValue").ToValueTuple().Should().Equal(("size", size));
+    static void Test(short? size, IGravatarProfileUrlWidget widget) => widget.Qr(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("qr").And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersValue").ToValueTuple().Should().Equal(("size", size));
   }
 }

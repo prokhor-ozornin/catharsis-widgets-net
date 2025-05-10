@@ -45,12 +45,12 @@ public sealed class PinterestPinWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestPinWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new PinterestPinWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IPinterestPinWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
+    static void Test(string id, IPinterestPinWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -61,13 +61,13 @@ public sealed class PinterestPinWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new PinterestPinWidget());
-      Validate(Fixture.Create<IPinterestPinWidget>());
+      Test(new PinterestPinWidget());
+      Test(Fixture.Create<PinterestPinWidget>());
     }
 
     return;
 
-    static void Validate(IPinterestPinWidget original)
+    static void Test(IPinterestPinWidget original)
     {
       var clone = original.Clone<IPinterestPinWidget>();
 
@@ -83,14 +83,14 @@ public sealed class PinterestPinWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new PinterestPinWidget());
-      Validate(new PinterestPinWidget().Id("id"), """<a data-pin-do="embedPin" href="http://www.pinterest.com/pin/id"></a>""");
-      Validate(Fixture.Create<IPinterestPinWidget>());
+      Test(new PinterestPinWidget());
+      Test(new PinterestPinWidget().Id("id"), """<a data-pin-do="embedPin" href="http://www.pinterest.com/pin/id"></a>""");
+      Test(Fixture.Create<PinterestPinWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IPinterestPinWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

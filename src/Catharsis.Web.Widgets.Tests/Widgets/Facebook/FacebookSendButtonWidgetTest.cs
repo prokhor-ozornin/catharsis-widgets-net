@@ -50,12 +50,12 @@ public sealed class FacebookSendButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookSendButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookSendButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string url, IFacebookSendButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
+    static void Test(string url, IFacebookSendButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
   }
 
   /// <summary>
@@ -69,12 +69,12 @@ public sealed class FacebookSendButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookSendButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookSendButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IFacebookSendButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IFacebookSendButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -88,12 +88,12 @@ public sealed class FacebookSendButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookSendButtonWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookSendButtonWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IFacebookSendButtonWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
+    static void Test(string height, IFacebookSendButtonWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -107,12 +107,12 @@ public sealed class FacebookSendButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookSendButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookSendButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string scheme, IFacebookSendButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme);
+    static void Test(string scheme, IFacebookSendButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme);
   }
 
   /// <summary>
@@ -123,12 +123,12 @@ public sealed class FacebookSendButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IFacebookSendButtonWidget widget) => widget.KidsMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("KidsModeValue").Should().Be(enabled);
+    static void Test(bool enabled, IFacebookSendButtonWidget widget) => widget.KidsMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("KidsModeValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -142,12 +142,12 @@ public sealed class FacebookSendButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookSendButtonWidget().TrackLabel(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new FacebookSendButtonWidget().TrackLabel(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string label, IFacebookSendButtonWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TrackLabelValue").Should().Be(label);
+    static void Test(string label, IFacebookSendButtonWidget widget) => widget.TrackLabel(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TrackLabelValue").Should().Be(label);
   }
 
   /// <summary>
@@ -158,13 +158,13 @@ public sealed class FacebookSendButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new FacebookSendButtonWidget());
-      Validate(Fixture.Create<IFacebookSendButtonWidget>());
+      Test(new FacebookSendButtonWidget());
+      Test(Fixture.Create<FacebookSendButtonWidget>());
     }
 
     return;
 
-    static void Validate(IFacebookSendButtonWidget original)
+    static void Test(IFacebookSendButtonWidget original)
     {
       var clone = original.Clone<IFacebookSendButtonWidget>();
 
@@ -186,14 +186,14 @@ public sealed class FacebookSendButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new FacebookSendButtonWidget(), """<div class="fb-send"></div>""");
-      Validate(new FacebookSendButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).KidsMode(true).Width("width").Height("height").TrackLabel("trackLabel"), """<div class="fb-send" data-colorscheme="dark" data-height="height" data-href="url" data-kid-directed-site="true" data-ref="trackLabel" data-width="width"></div>""");
-      Validate(Fixture.Create<IFacebookSendButtonWidget>());
+      Test(new FacebookSendButtonWidget(), """<div class="fb-send"></div>""");
+      Test(new FacebookSendButtonWidget().Url("url").ColorScheme(FacebookColorScheme.Dark).KidsMode(true).Width("width").Height("height").TrackLabel("trackLabel"), """<div class="fb-send" data-colorscheme="dark" data-height="height" data-href="url" data-kid-directed-site="true" data-ref="trackLabel" data-width="width"></div>""");
+      Test(Fixture.Create<FacebookSendButtonWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IFacebookSendButtonWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

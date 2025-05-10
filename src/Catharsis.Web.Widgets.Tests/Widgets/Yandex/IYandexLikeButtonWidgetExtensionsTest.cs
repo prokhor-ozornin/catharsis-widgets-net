@@ -28,12 +28,12 @@ public sealed class IYandexLikeButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexLikeButtonSize>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<YandexLikeButtonSize>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(YandexLikeButtonSize size, IYandexLikeButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeValue").Should().Be(size.ToString().ToLowerInvariant());
+    static void Test(YandexLikeButtonSize size, IYandexLikeButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeValue").Should().Be(size.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -46,12 +46,12 @@ public sealed class IYandexLikeButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexLikeButtonLayout>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<YandexLikeButtonLayout>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(YandexLikeButtonLayout layout, IYandexLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(layout.ToString().ToLowerInvariant());
+    static void Test(YandexLikeButtonLayout layout, IYandexLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(layout.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -65,11 +65,11 @@ public sealed class IYandexLikeButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Url(new YandexLikeButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<Uri>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(Uri url, IYandexLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url.ToString());
+    static void Test(Uri url, IYandexLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url.ToString());
   }
 }

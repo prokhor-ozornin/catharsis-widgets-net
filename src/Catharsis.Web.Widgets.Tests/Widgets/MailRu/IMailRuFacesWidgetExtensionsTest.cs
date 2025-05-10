@@ -28,14 +28,14 @@ public sealed class IMailRuFacesWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Font(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       
-      Validate(MailRuFacesFont.Arial, "Arial", Widget);
-      Validate(MailRuFacesFont.Georgia, "Georgia", Widget);
-      Validate(MailRuFacesFont.Tahoma, "Tahoma", Widget);
+      Test(MailRuFacesFont.Arial, "Arial", Widget);
+      Test(MailRuFacesFont.Georgia, "Georgia", Widget);
+      Test(MailRuFacesFont.Tahoma, "Tahoma", Widget);
     }
 
     return;
 
-    static void Validate(MailRuFacesFont font, string value, IMailRuFacesWidget widget) => widget.Font(font).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FontValue").Should().Be(value);
+    static void Test(MailRuFacesFont font, string value, IMailRuFacesWidget widget) => widget.Font(font).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FontValue").Should().Be(value);
   }
 
   /// <summary>
@@ -48,12 +48,12 @@ public sealed class IMailRuFacesWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(short height, IMailRuFacesWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height.ToInvariantString());
+    static void Test(short height, IMailRuFacesWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height.ToInvariantString());
   }
 
   /// <summary>
@@ -66,11 +66,11 @@ public sealed class IMailRuFacesWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(short width, IMailRuFacesWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
+    static void Test(short width, IMailRuFacesWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
   }
 }

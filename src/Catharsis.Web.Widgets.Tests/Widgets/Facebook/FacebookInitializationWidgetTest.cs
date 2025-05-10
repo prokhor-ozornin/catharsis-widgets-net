@@ -45,12 +45,12 @@ public sealed class FacebookInitializationWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookInitializationWidget().AppId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new FacebookInitializationWidget().AppId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IFacebookInitializationWidget widget) => widget.AppId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AppIdValue").Should().Be(id);
+    static void Test(string id, IFacebookInitializationWidget widget) => widget.AppId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AppIdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -61,13 +61,13 @@ public sealed class FacebookInitializationWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new FacebookInitializationWidget());
-      Validate(Fixture.Create<IFacebookInitializationWidget>());
+      Test(new FacebookInitializationWidget());
+      Test(Fixture.Create<FacebookInitializationWidget>());
     }
 
     return;
 
-    static void Validate(IFacebookInitializationWidget original)
+    static void Test(IFacebookInitializationWidget original)
     {
       var clone = original.Clone<IFacebookInitializationWidget>();
 
@@ -83,14 +83,14 @@ public sealed class FacebookInitializationWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new FacebookInitializationWidget());
-      Validate(new FacebookInitializationWidget().AppId("appId"), """<div id="fb-root"></div>""", "//connect.facebook.net/en_US/all.js#xfbml=1&appId=appId");
-      Validate(Fixture.Create<IFacebookInitializationWidget>());
+      Test(new FacebookInitializationWidget());
+      Test(new FacebookInitializationWidget().AppId("appId"), """<div id="fb-root"></div>""", "//connect.facebook.net/en_US/all.js#xfbml=1&appId=appId");
+      Test(Fixture.Create<FacebookInitializationWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IFacebookInitializationWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

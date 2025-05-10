@@ -45,12 +45,12 @@ public sealed class CackleCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new CackleCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new CackleCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, ICackleCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
+    static void Test(string account, ICackleCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -61,13 +61,13 @@ public sealed class CackleCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new CackleCommentsWidget());
-      Validate(Fixture.Create<ICackleCommentsWidget>());
+      Test(new CackleCommentsWidget());
+      Test(Fixture.Create<CackleCommentsWidget>());
     }
 
     return;
 
-    static void Validate(ICackleCommentsWidget original)
+    static void Test(ICackleCommentsWidget original)
     {
       var clone = original.Clone<ICackleCommentsWidget>();
 
@@ -83,15 +83,15 @@ public sealed class CackleCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new CackleCommentsWidget());
-      Validate(new CackleCommentsWidget().Account("account"), """<div id="mc-container"></div>""");
-      Validate(new CackleCommentsWidget().Account("account"), """{"widget":"Comment","id":"account"}""");
-      Validate(Fixture.Create<ICackleCommentsWidget>());
+      Test(new CackleCommentsWidget());
+      Test(new CackleCommentsWidget().Account("account"), """<div id="mc-container"></div>""");
+      Test(new CackleCommentsWidget().Account("account"), """{"widget":"Comment","id":"account"}""");
+      Test(Fixture.Create<CackleCommentsWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(ICackleCommentsWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

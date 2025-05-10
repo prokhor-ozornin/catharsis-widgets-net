@@ -47,12 +47,12 @@ public sealed class RuTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IRuTubeVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
+    static void Test(string id, IRuTubeVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -66,12 +66,12 @@ public sealed class RuTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IRuTubeVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IRuTubeVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -85,12 +85,12 @@ public sealed class RuTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IRuTubeVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
+    static void Test(string height, IRuTubeVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -101,13 +101,13 @@ public sealed class RuTubeVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new RuTubeVideoWidget());
-      Validate(Fixture.Create<IRuTubeVideoWidget>());
+      Test(new RuTubeVideoWidget());
+      Test(Fixture.Create<RuTubeVideoWidget>());
     }
 
     return;
 
-    static void Validate(IRuTubeVideoWidget original)
+    static void Test(IRuTubeVideoWidget original)
     {
       var clone = original.Clone<IRuTubeVideoWidget>();
 
@@ -125,17 +125,17 @@ public sealed class RuTubeVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new RuTubeVideoWidget());
-      Validate(new RuTubeVideoWidget().Id("id").Height("height"));
-      Validate(new RuTubeVideoWidget().Id("id").Width("width"));
-      Validate(new RuTubeVideoWidget().Height("height").Width("width"));
-      Validate(new RuTubeVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" scrolling="no" src="http://rutube.ru/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
-      Validate(Fixture.Create<IRuTubeVideoWidget>());
+      Test(new RuTubeVideoWidget());
+      Test(new RuTubeVideoWidget().Id("id").Height("height"));
+      Test(new RuTubeVideoWidget().Id("id").Width("width"));
+      Test(new RuTubeVideoWidget().Height("height").Width("width"));
+      Test(new RuTubeVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" scrolling="no" src="http://rutube.ru/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
+      Test(Fixture.Create<RuTubeVideoWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IRuTubeVideoWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

@@ -21,12 +21,12 @@ public sealed class TextReaderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => TextReaderExtensions.AsJson(null)).ThrowExactly<ArgumentNullException>().WithParameterName("reader");
 
-      new[] { TextReader.Null, TextReader.Synchronized(TextReader.Null) }.ForEach(Validate);
+      new[] { TextReader.Null, TextReader.Synchronized(TextReader.Null) }.ForEach(Test);
     }
 
     return;
     
-    static void Validate(TextReader reader)
+    static void Test(TextReader reader)
     {
       using (reader)
       {

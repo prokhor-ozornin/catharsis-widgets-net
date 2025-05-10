@@ -43,12 +43,12 @@ public sealed class Share42PanelWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<Share42PanelDirection>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<Share42PanelDirection>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(Share42PanelDirection direction, IShare42PanelWidget widget) => widget.Direction(direction).Should().BeSameAs(widget).And.Subject.GetPropertyValue<Share42PanelDirection>("DirectionValue").Should().Be(direction);
+    static void Test(Share42PanelDirection direction, IShare42PanelWidget widget) => widget.Direction(direction).Should().BeSameAs(widget).And.Subject.GetPropertyValue<Share42PanelDirection>("DirectionValue").Should().Be(direction);
   }
 
   /// <summary>
@@ -59,12 +59,12 @@ public sealed class Share42PanelWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(byte size, IShare42PanelWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("SizeValue").Should().Be(size);
+    static void Test(byte size, IShare42PanelWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("SizeValue").Should().Be(size);
   }
 
   /// <summary>
@@ -75,13 +75,13 @@ public sealed class Share42PanelWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new Share42PanelWidget());
-      Validate(Fixture.Create<IShare42PanelWidget>());
+      Test(new Share42PanelWidget());
+      Test(Fixture.Create<Share42PanelWidget>());
     }
 
     return;
 
-    static void Validate(IShare42PanelWidget original)
+    static void Test(IShare42PanelWidget original)
     {
       var clone = original.Clone<IShare42PanelWidget>();
 
@@ -98,13 +98,13 @@ public sealed class Share42PanelWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(Fixture.Create<IShare42PanelWidget>());
+      Test(Fixture.Create<Share42PanelWidget>());
       throw new NotImplementedException();
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IShare42PanelWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

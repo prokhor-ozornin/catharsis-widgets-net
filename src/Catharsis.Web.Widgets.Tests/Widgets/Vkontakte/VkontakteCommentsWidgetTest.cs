@@ -48,12 +48,12 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(byte limit, IVkontakteCommentsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LimitValue").Should().Be(limit);
+    static void Test(byte limit, IVkontakteCommentsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LimitValue").Should().Be(limit);
   }
 
   /// <summary>
@@ -67,12 +67,12 @@ public sealed class VkontakteCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVkontakteCommentsWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdValue").Should().Be(id);
+    static void Test(string id, IVkontakteCommentsWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -83,12 +83,12 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new string[][] { [string.Empty, "type"] }.ForEach(value => Validate(value, Widget));
+      new string[][] { [string.Empty, Fixture.Create<string>()] }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string[] types, IVkontakteCommentsWidget widget) => widget.Attach(types).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("AttachValue").Should().Equal(types);
+    static void Test(string[] types, IVkontakteCommentsWidget widget) => widget.Attach(types).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("AttachValue").Should().Equal(types);
   }
 
   /// <summary>
@@ -102,12 +102,12 @@ public sealed class VkontakteCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IVkontakteCommentsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IVkontakteCommentsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -118,12 +118,12 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IVkontakteCommentsWidget widget) => widget.AutoPublish(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("AutoPublishValue").Should().Be(enabled);
+    static void Test(bool enabled, IVkontakteCommentsWidget widget) => widget.AutoPublish(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("AutoPublishValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -134,12 +134,12 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IVkontakteCommentsWidget widget) => widget.AutoUpdate(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("AutoUpdateValue").Should().Be(enabled);
+    static void Test(bool enabled, IVkontakteCommentsWidget widget) => widget.AutoUpdate(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("AutoUpdateValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -150,12 +150,12 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new bool?[] { null, false, true }.ForEach(value => Validate(value, Widget));
+      new bool?[] { null, false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool? enabled, IVkontakteCommentsWidget widget) => widget.Mini(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("MiniValue").Should().Be(enabled);
+    static void Test(bool? enabled, IVkontakteCommentsWidget widget) => widget.Mini(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("MiniValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -166,13 +166,13 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new VkontakteCommentsWidget());
-      Validate(Fixture.Create<IVkontakteCommentsWidget>());
+      Test(new VkontakteCommentsWidget());
+      Test(Fixture.Create<VkontakteCommentsWidget>());
     }
 
     return;
 
-    static void Validate(IVkontakteCommentsWidget original)
+    static void Test(IVkontakteCommentsWidget original)
     {
       var clone = original.Clone<IVkontakteCommentsWidget>();
 
@@ -194,14 +194,14 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new VkontakteCommentsWidget(), """<div id="vk_comments"></div>""", """<script type="text/javascript">""", """VK.Widgets.Comments("vk_comments", {"limit":5,"attach":false});""");
-      Validate(new VkontakteCommentsWidget().Limit(10).Attach(VkontakteCommentsAttach.All).Width("width").AutoPublish(true).AutoUpdate(true).ElementId("elementId").Mini(true), """<div id="elementId"></div>""", """<script type="text/javascript">""", """VK.Widgets.Comments("elementId", {"limit":10,"attach":"*","width":"width","autoPublish":1,"norealtime":0,"mini":1});""");
-      Validate(Fixture.Create<IVkontakteCommentsWidget>());
+      Test(new VkontakteCommentsWidget(), """<div id="vk_comments"></div>""", """<script type="text/javascript">""", """VK.Widgets.Comments("vk_comments", {"limit":5,"attach":false});""");
+      Test(new VkontakteCommentsWidget().Limit(10).Attach(VkontakteCommentsAttach.All).Width("width").AutoPublish(true).AutoUpdate(true).ElementId("elementId").Mini(true), """<div id="elementId"></div>""", """<script type="text/javascript">""", """VK.Widgets.Comments("elementId", {"limit":10,"attach":"*","width":"width","autoPublish":1,"norealtime":0,"mini":1});""");
+      Test(Fixture.Create<VkontakteCommentsWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IVkontakteCommentsWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

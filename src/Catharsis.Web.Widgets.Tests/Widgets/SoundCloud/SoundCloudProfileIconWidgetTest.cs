@@ -47,12 +47,12 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, ISoundCloudProfileIconWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
+    static void Test(string account, ISoundCloudProfileIconWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -66,12 +66,12 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, ISoundCloudProfileIconWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be(color);
+    static void Test(string color, ISoundCloudProfileIconWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -82,12 +82,12 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(short size, ISoundCloudProfileIconWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short>("SizeValue").Should().Be(size);
+    static void Test(short size, ISoundCloudProfileIconWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short>("SizeValue").Should().Be(size);
   }
 
   /// <summary>
@@ -98,13 +98,13 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new SoundCloudProfileIconWidget());
-      Validate(Fixture.Create<ISoundCloudProfileIconWidget>());
+      Test(new SoundCloudProfileIconWidget());
+      Test(Fixture.Create<SoundCloudProfileIconWidget>());
     }
 
     return;
 
-    static void Validate(ISoundCloudProfileIconWidget original)
+    static void Test(ISoundCloudProfileIconWidget original)
     {
       var clone = original.Clone<ISoundCloudProfileIconWidget>();
 
@@ -122,15 +122,15 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new SoundCloudProfileIconWidget());
-      Validate(new SoundCloudProfileIconWidget().Account("account"), """<iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://w.soundcloud.com/icon/?url=http://soundcloud.com/account&amp;color=orange_white&amp;size=32" style="width: 32px; height: 32px;"></iframe>""");
-      Validate(new SoundCloudProfileIconWidget().Account("account").Color("color").Size(1), """<iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://w.soundcloud.com/icon/?url=http://soundcloud.com/account&amp;color=color&amp;size=1" style="width: 1px; height: 1px;"></iframe>""");
-      Validate(Fixture.Create<ISoundCloudProfileIconWidget>());
+      Test(new SoundCloudProfileIconWidget());
+      Test(new SoundCloudProfileIconWidget().Account("account"), """<iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://w.soundcloud.com/icon/?url=http://soundcloud.com/account&amp;color=orange_white&amp;size=32" style="width: 32px; height: 32px;"></iframe>""");
+      Test(new SoundCloudProfileIconWidget().Account("account").Color("color").Size(1), """<iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://w.soundcloud.com/icon/?url=http://soundcloud.com/account&amp;color=color&amp;size=1" style="width: 1px; height: 1px;"></iframe>""");
+      Test(Fixture.Create<SoundCloudProfileIconWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(ISoundCloudProfileIconWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

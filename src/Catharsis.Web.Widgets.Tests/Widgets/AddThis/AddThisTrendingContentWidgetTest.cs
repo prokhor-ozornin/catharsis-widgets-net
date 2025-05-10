@@ -41,13 +41,13 @@ public sealed class AddThisTrendingContentWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new AddThisTrendingContentWidget());
-      Validate(Fixture.Create<IAddThisTrendingContentWidget>());
+      Test(new AddThisTrendingContentWidget());
+      Test(Fixture.Create<AddThisTrendingContentWidget>());
     }
 
     return;
 
-    static void Validate(IAddThisTrendingContentWidget original)
+    static void Test(IAddThisTrendingContentWidget original)
     {
       var clone = original.Clone<IAddThisTrendingContentWidget>();
     }
@@ -61,13 +61,13 @@ public sealed class AddThisTrendingContentWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new AddThisTrendingContentWidget());
-      Validate(Fixture.Create<IAddThisTrendingContentWidget>());
+      Test(new AddThisTrendingContentWidget());
+      Test(Fixture.Create<AddThisTrendingContentWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IAddThisTrendingContentWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

@@ -30,12 +30,12 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(new YandexSharePanelWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("services");
 
-      new[] { Array.Empty<string>(), ["service"] }.ForEach(value => Validate(value, Widget));
+      new[] { Array.Empty<string>(), [Fixture.Create<string>()] }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string[] services, IYandexSharePanelWidget widget) => IYandexSharePanelWidgetExtensions.Services(widget, services).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ServicesValue").Should().Equal(services);
+    static void Test(string[] services, IYandexSharePanelWidget widget) => IYandexSharePanelWidgetExtensions.Services(widget, services).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("ServicesValue").Should().Equal(services);
   }
 
   /// <summary>
@@ -49,12 +49,12 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Language(new YandexSharePanelWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
 
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, Widget));
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(CultureInfo culture, IYandexSharePanelWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
+    static void Test(CultureInfo culture, IYandexSharePanelWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
   }
 
   /// <summary>
@@ -67,11 +67,11 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexSharePanelLayout>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<YandexSharePanelLayout>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(YandexSharePanelLayout layout, IYandexSharePanelWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(layout.ToString().ToLowerInvariant());
+    static void Test(YandexSharePanelLayout layout, IYandexSharePanelWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(layout.ToString().ToLowerInvariant());
   }
 }

@@ -28,12 +28,12 @@ public sealed class IVkontakteCommentsWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Limit(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<VkontakteCommentsLimit>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<VkontakteCommentsLimit>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(VkontakteCommentsLimit limit, IVkontakteCommentsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LimitValue").Should().Be((byte) limit);
+    static void Test(VkontakteCommentsLimit limit, IVkontakteCommentsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LimitValue").Should().Be((byte) limit);
   }
 
   /// <summary>
@@ -46,17 +46,17 @@ public sealed class IVkontakteCommentsWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Attach(null, null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(VkontakteCommentsAttach.All, "*", Widget);
-      Validate(VkontakteCommentsAttach.Audio, "audio", Widget);
-      Validate(VkontakteCommentsAttach.Graffiti, "graffiti", Widget);
-      Validate(VkontakteCommentsAttach.Link, "link", Widget);
-      Validate(VkontakteCommentsAttach.Photo, "photo", Widget);
-      Validate(VkontakteCommentsAttach.Video, "video", Widget);
+      Test(VkontakteCommentsAttach.All, "*", Widget);
+      Test(VkontakteCommentsAttach.Audio, "audio", Widget);
+      Test(VkontakteCommentsAttach.Graffiti, "graffiti", Widget);
+      Test(VkontakteCommentsAttach.Link, "link", Widget);
+      Test(VkontakteCommentsAttach.Photo, "photo", Widget);
+      Test(VkontakteCommentsAttach.Video, "video", Widget);
     }
 
     return;
 
-    static void Validate(VkontakteCommentsAttach attach, string value, IVkontakteCommentsWidget widget) => widget.Attach(attach).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("AttachValue").Should().Equal(value);
+    static void Test(VkontakteCommentsAttach attach, string value, IVkontakteCommentsWidget widget) => widget.Attach(attach).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<string>>("AttachValue").Should().Equal(value);
   }
 
   /// <summary>
@@ -69,11 +69,11 @@ public sealed class IVkontakteCommentsWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontakteCommentsWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(short width, IVkontakteCommentsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
+    static void Test(short width, IVkontakteCommentsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
   }
 }

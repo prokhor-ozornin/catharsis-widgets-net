@@ -29,12 +29,12 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(new YandexMoneyDonateFormWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { "http://localhost".ToUri() }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<Uri>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(Uri url, IYandexMoneyDonateFormWidget widget) => widget.ProjectSite(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ProjectSiteValue").Should().Be(url.ToString());
+    static void Test(Uri url, IYandexMoneyDonateFormWidget widget) => widget.ProjectSite(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ProjectSiteValue").Should().Be(url.ToString());
   }
 
   /// <summary>
@@ -47,12 +47,12 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { double.NegativeZero }.ForEach(value => Validate(value, Widget));
+      new[] { double.NegativeZero, Fixture.Create<double>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(double sum, IYandexMoneyDonateFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal>("SumValue").Should().Be((decimal) sum);
+    static void Test(double sum, IYandexMoneyDonateFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal>("SumValue").Should().Be((decimal) sum);
   }
 
   /// <summary>
@@ -65,11 +65,11 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexMoneyDonateFormText>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<YandexMoneyDonateFormText>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(YandexMoneyDonateFormText text, IYandexMoneyDonateFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextValue").Should().Be((byte) text);
+    static void Test(YandexMoneyDonateFormText text, IYandexMoneyDonateFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextValue").Should().Be((byte) text);
   }
 }

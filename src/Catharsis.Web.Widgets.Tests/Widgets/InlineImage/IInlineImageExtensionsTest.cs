@@ -28,12 +28,12 @@ public sealed class IInlineImageExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IInlineImageExtensions.Jpg(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(Widget);
+      Test(Widget);
     }
 
     return;
 
-    static void Validate(IInlineImageWidget widget) => widget.Jpg().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("jpg");
+    static void Test(IInlineImageWidget widget) => widget.Jpg().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("jpg");
   }
 
   /// <summary>
@@ -46,12 +46,12 @@ public sealed class IInlineImageExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IInlineImageExtensions.Png(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(Widget);
+      Test(Widget);
     }
 
     return;
 
-    static void Validate(IInlineImageWidget widget) => widget.Png().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("png");
+    static void Test(IInlineImageWidget widget) => widget.Png().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("png");
   }
 
   /// <summary>
@@ -64,11 +64,11 @@ public sealed class IInlineImageExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IInlineImageExtensions.Gif(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(Widget);
+      Test(Widget);
     }
 
     return;
 
-    static void Validate(IInlineImageWidget widget) => widget.Gif().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("gif");
+    static void Test(IInlineImageWidget widget) => widget.Gif().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be("gif");
   }
 }

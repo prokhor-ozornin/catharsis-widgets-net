@@ -51,12 +51,12 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVkontakteRecommendationsWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdValue").Should().Be(id);
+    static void Test(string id, IVkontakteRecommendationsWidget widget) => widget.ElementId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ElementIdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -67,12 +67,12 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(byte limit, IVkontakteRecommendationsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("LimitValue").Should().Be(limit);
+    static void Test(byte limit, IVkontakteRecommendationsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("LimitValue").Should().Be(limit);
   }
 
   /// <summary>
@@ -83,12 +83,12 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(short max, IVkontakteRecommendationsWidget widget) => widget.Max(max).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short?>("MaxValue").Should().Be(max);
+    static void Test(short max, IVkontakteRecommendationsWidget widget) => widget.Max(max).Should().BeSameAs(widget).And.Subject.GetPropertyValue<short?>("MaxValue").Should().Be(max);
   }
 
   /// <summary>
@@ -99,12 +99,12 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<VkontakteRecommendationsPeriod>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<VkontakteRecommendationsPeriod>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(VkontakteRecommendationsPeriod period, IVkontakteRecommendationsWidget widget) => widget.Period(period).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteRecommendationsPeriod?>("PeriodValue").Should().Be(period);
+    static void Test(VkontakteRecommendationsPeriod period, IVkontakteRecommendationsWidget widget) => widget.Period(period).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteRecommendationsPeriod?>("PeriodValue").Should().Be(period);
   }
 
   /// <summary>
@@ -115,12 +115,12 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<VkontakteRecommendationsVerb>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<VkontakteRecommendationsVerb>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(VkontakteRecommendationsVerb verb, IVkontakteRecommendationsWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteRecommendationsVerb?>("VerbValue").Should().Be(verb);
+    static void Test(VkontakteRecommendationsVerb verb, IVkontakteRecommendationsWidget widget) => widget.Verb(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteRecommendationsVerb?>("VerbValue").Should().Be(verb);
   }
 
   /// <summary>
@@ -131,12 +131,12 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<VkontakteRecommendationsSorting>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<VkontakteRecommendationsSorting>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(VkontakteRecommendationsSorting verb, IVkontakteRecommendationsWidget widget) => widget.Sorting(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteRecommendationsSorting?>("SortingValue").Should().Be(verb);
+    static void Test(VkontakteRecommendationsSorting verb, IVkontakteRecommendationsWidget widget) => widget.Sorting(verb).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteRecommendationsSorting?>("SortingValue").Should().Be(verb);
   }
 
   /// <summary>
@@ -150,12 +150,12 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().Target(null)).ThrowExactly<ArgumentNullException>().WithParameterName("target");
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().Target(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("target");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string target, IVkontakteRecommendationsWidget widget) => widget.Target(target).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TargetValue").Should().Be(target);
+    static void Test(string target, IVkontakteRecommendationsWidget widget) => widget.Target(target).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TargetValue").Should().Be(target);
   }
 
   /// <summary>
@@ -166,13 +166,13 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new VkontakteRecommendationsWidget());
-      Validate(Fixture.Create<IVkontakteRecommendationsWidget>());
+      Test(new VkontakteRecommendationsWidget());
+      Test(Fixture.Create<VkontakteRecommendationsWidget>());
     }
 
     return;
 
-    static void Validate(IVkontakteRecommendationsWidget original)
+    static void Test(IVkontakteRecommendationsWidget original)
     {
       var clone = original.Clone<IVkontakteRecommendationsWidget>();
 
@@ -194,14 +194,14 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new VkontakteRecommendationsWidget(), """<div id="vk_recommendations"></div><script type="text/javascript">VK.Widgets.Recommended("vk_recommendations", {});</script>""");
-      Validate(new VkontakteRecommendationsWidget().ElementId("elementId").Limit(VkontakteRecommendationsLimit.Five).Max(1).Period(VkontakteRecommendationsPeriod.Day).Verb(VkontakteRecommendationsVerb.Like).Sorting(VkontakteRecommendationsSorting.FriendLikes).Target("target"), """<div id="elementId"></div><script type="text/javascript">VK.Widgets.Recommended("elementId", {"limit":5,"max":1,"period":"day","verb":0,"sort":"friend_likes","target":"target"});</script>""");
-      Validate(Fixture.Create<IVkontakteRecommendationsWidget>());
+      Test(new VkontakteRecommendationsWidget(), """<div id="vk_recommendations"></div><script type="text/javascript">VK.Widgets.Recommended("vk_recommendations", {});</script>""");
+      Test(new VkontakteRecommendationsWidget().ElementId("elementId").Limit(VkontakteRecommendationsLimit.Five).Max(1).Period(VkontakteRecommendationsPeriod.Day).Verb(VkontakteRecommendationsVerb.Like).Sorting(VkontakteRecommendationsSorting.FriendLikes).Target("target"), """<div id="elementId"></div><script type="text/javascript">VK.Widgets.Recommended("elementId", {"limit":5,"max":1,"period":"day","verb":0,"sort":"friend_likes","target":"target"});</script>""");
+      Test(Fixture.Create<VkontakteRecommendationsWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IVkontakteRecommendationsWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

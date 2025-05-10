@@ -41,13 +41,13 @@ public sealed class AddThisFollowButtonsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new AddThisFollowButtonsWidget());
-      Validate(Fixture.Create<IAddThisFollowButtonsWidget>());
+      Test(new AddThisFollowButtonsWidget());
+      Test(Fixture.Create<AddThisFollowButtonsWidget>());
     }
 
     return;
 
-    static void Validate(IAddThisFollowButtonsWidget original)
+    static void Test(IAddThisFollowButtonsWidget original)
     {
       var clone = original.Clone<IAddThisFollowButtonsWidget>();
     }
@@ -61,13 +61,13 @@ public sealed class AddThisFollowButtonsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new AddThisFollowButtonsWidget());
-      Validate(Fixture.Create<IAddThisFollowButtonsWidget>());
+      Test(new AddThisFollowButtonsWidget());
+      Test(Fixture.Create<AddThisFollowButtonsWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IAddThisFollowButtonsWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

@@ -41,13 +41,13 @@ public sealed class YandexMapWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new YandexMapWidget());
-      Validate(Fixture.Create<IYandexMapWidget>());
+      Test(new YandexMapWidget());
+      Test(Fixture.Create<YandexMapWidget>());
     }
 
     return;
 
-    static void Validate(IYandexMapWidget original)
+    static void Test(IYandexMapWidget original)
     {
       var clone = original.Clone<IYandexMapWidget>();
 
@@ -63,13 +63,13 @@ public sealed class YandexMapWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(Fixture.Create<IYandexMapWidget>());
+      Test(Fixture.Create<YandexMapWidget>());
       throw new NotImplementedException();
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IYandexMapWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

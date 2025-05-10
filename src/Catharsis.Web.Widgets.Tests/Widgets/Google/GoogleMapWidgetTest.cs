@@ -41,13 +41,13 @@ public sealed class GoogleMapWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new GoogleMapWidget());
-      Validate(Fixture.Create<IGoogleMapWidget>());
+      Test(new GoogleMapWidget());
+      Test(Fixture.Create<GoogleMapWidget>());
     }
 
     return;
 
-    static void Validate(IGoogleMapWidget original)
+    static void Test(IGoogleMapWidget original)
     {
       var clone = original.Clone<IGoogleMapWidget>();
 
@@ -64,12 +64,12 @@ public sealed class GoogleMapWidgetTest : Test
     using (new AssertionScope())
     {
       throw new NotImplementedException();
-      Validate(Fixture.Create<IGoogleMapWidget>());
+      Test(Fixture.Create<GravatarImageUrlWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IGravatarImageUrlWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

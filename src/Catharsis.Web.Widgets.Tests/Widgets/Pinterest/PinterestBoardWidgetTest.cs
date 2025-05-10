@@ -49,12 +49,12 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IPinterestBoardWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
+    static void Test(string account, IPinterestBoardWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -68,12 +68,12 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IPinterestBoardWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
+    static void Test(string height, IPinterestBoardWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -87,12 +87,12 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IPinterestBoardWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IPinterestBoardWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -106,12 +106,12 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IPinterestBoardWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
+    static void Test(string id, IPinterestBoardWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -125,12 +125,12 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("image");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("image");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string image, IPinterestBoardWidget widget) => widget.Image(image).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageValue").Should().Be(image);
+    static void Test(string image, IPinterestBoardWidget widget) => widget.Image(image).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ImageValue").Should().Be(image);
   }
 
   /// <summary>
@@ -141,13 +141,13 @@ public sealed class PinterestBoardWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new PinterestBoardWidget());
-      Validate(Fixture.Create<IPinterestBoardWidget>());
+      Test(new PinterestBoardWidget());
+      Test(Fixture.Create<PinterestBoardWidget>());
     }
 
     return;
 
-    static void Validate(IPinterestBoardWidget original)
+    static void Test(IPinterestBoardWidget original)
     {
       var clone = original.Clone<IPinterestBoardWidget>();
 
@@ -167,17 +167,17 @@ public sealed class PinterestBoardWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new PinterestBoardWidget());
-      Validate(new PinterestBoardWidget().Account("account"));
-      Validate(new PinterestBoardWidget().Id("id"));
-      Validate(new PinterestBoardWidget().Account("account").Id("id"), """<a data-pin-do="embedBoard" href="http://www.pinterest.com/account/id"></a>""");
-      Validate(new PinterestBoardWidget().Account("account").Id("id").Width("width").Height("height").Image("image"), """<a data-pin-board-width="width" data-pin-do="embedBoard" data-pin-scale-height="height" data-pin-scale-width="image" href="http://www.pinterest.com/account/id"></a>""");
-      Validate(Fixture.Create<IPinterestBoardWidget>());
+      Test(new PinterestBoardWidget());
+      Test(new PinterestBoardWidget().Account("account"));
+      Test(new PinterestBoardWidget().Id("id"));
+      Test(new PinterestBoardWidget().Account("account").Id("id"), """<a data-pin-do="embedBoard" href="http://www.pinterest.com/account/id"></a>""");
+      Test(new PinterestBoardWidget().Account("account").Id("id").Width("width").Height("height").Image("image"), """<a data-pin-board-width="width" data-pin-do="embedBoard" data-pin-scale-height="height" data-pin-scale-width="image" href="http://www.pinterest.com/account/id"></a>""");
+      Test(Fixture.Create<PinterestBoardWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IPinterestBoardWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

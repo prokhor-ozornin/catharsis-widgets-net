@@ -28,12 +28,12 @@ public sealed class IShare42PanelWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IShare42PanelWidgetExtensions.Horizontal(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(Widget);
+      Test(Widget);
     }
 
     return;
 
-    static void Validate(IShare42PanelWidget widget) => widget.Horizontal().Should().BeSameAs(widget).And.Subject.GetPropertyValue<Share42PanelDirection>("DirectionValue").Should().Be(Share42PanelDirection.Horizontal);
+    static void Test(IShare42PanelWidget widget) => widget.Horizontal().Should().BeSameAs(widget).And.Subject.GetPropertyValue<Share42PanelDirection>("DirectionValue").Should().Be(Share42PanelDirection.Horizontal);
   }
 
   /// <summary>
@@ -46,12 +46,12 @@ public sealed class IShare42PanelWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IShare42PanelWidgetExtensions.Size(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(byte size, IShare42PanelWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("SizeValue").Should().Be(size);
+    static void Test(byte size, IShare42PanelWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("SizeValue").Should().Be(size);
   }
 
   /// <summary>
@@ -64,11 +64,11 @@ public sealed class IShare42PanelWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IShare42PanelWidgetExtensions.Vertical(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(Widget);
+      Test(Widget);
     }
 
     return;
 
-    static void Validate(IShare42PanelWidget widget) => widget.Vertical().Should().BeSameAs(widget).And.Subject.GetPropertyValue<Share42PanelDirection>("DirectionValue").Should().Be(Share42PanelDirection.Vertical);
+    static void Test(IShare42PanelWidget widget) => widget.Vertical().Should().BeSameAs(widget).And.Subject.GetPropertyValue<Share42PanelDirection>("DirectionValue").Should().Be(Share42PanelDirection.Vertical);
   }
 }

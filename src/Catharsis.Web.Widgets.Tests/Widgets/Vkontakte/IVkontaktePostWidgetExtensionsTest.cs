@@ -28,12 +28,12 @@ public sealed class IVkontaktePostWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Id(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { long.MinValue, long.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { long.MinValue, long.MaxValue, Fixture.Create<long>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(long id, IVkontaktePostWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id.ToInvariantString());
+    static void Test(long id, IVkontaktePostWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id.ToInvariantString());
   }
 
   /// <summary>
@@ -46,12 +46,12 @@ public sealed class IVkontaktePostWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Owner(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { long.MinValue, long.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { long.MinValue, long.MaxValue, Fixture.Create<long>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(long owner, IVkontaktePostWidget widget) => widget.Owner(owner).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OwnerValue").Should().Be(owner.ToInvariantString());
+    static void Test(long owner, IVkontaktePostWidget widget) => widget.Owner(owner).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OwnerValue").Should().Be(owner.ToInvariantString());
   }
 
   /// <summary>
@@ -64,11 +64,11 @@ public sealed class IVkontaktePostWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(short width, IVkontaktePostWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
+    static void Test(short width, IVkontaktePostWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
   }
 }

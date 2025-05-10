@@ -41,13 +41,13 @@ public sealed class AddThisShareButtonsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new AddThisShareButtonsWidget());
-      Validate(Fixture.Create<IAddThisShareButtonsWidget>());
+      Test(new AddThisShareButtonsWidget());
+      Test(Fixture.Create<AddThisShareButtonsWidget>());
     }
 
     return;
 
-    static void Validate(IAddThisShareButtonsWidget original)
+    static void Test(IAddThisShareButtonsWidget original)
     {
       var clone = original.Clone<IAddThisShareButtonsWidget>();
     }
@@ -61,13 +61,13 @@ public sealed class AddThisShareButtonsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new AddThisShareButtonsWidget());
-      Validate(Fixture.Create<IAddThisShareButtonsWidget>());
+      Test(new AddThisShareButtonsWidget());
+      Test(Fixture.Create<AddThisShareButtonsWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IAddThisShareButtonsWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

@@ -49,12 +49,12 @@ public sealed class VimeoVideoWidgetTest : Test
       AssertionExtensions.Should(() => new VimeoVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VimeoVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVimeoVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
+    static void Test(string id, IVimeoVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -68,12 +68,12 @@ public sealed class VimeoVideoWidgetTest : Test
       AssertionExtensions.Should(() => new VimeoVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VimeoVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IVimeoVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IVimeoVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -87,12 +87,12 @@ public sealed class VimeoVideoWidgetTest : Test
       AssertionExtensions.Should(() => new VimeoVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VimeoVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IVimeoVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
+    static void Test(string height, IVimeoVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -103,12 +103,12 @@ public sealed class VimeoVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IVimeoVideoWidget widget) => widget.AutoPlay(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AutoPlayValue").Should().Be(enabled);
+    static void Test(bool enabled, IVimeoVideoWidget widget) => widget.AutoPlay(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AutoPlayValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -119,12 +119,12 @@ public sealed class VimeoVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IVimeoVideoWidget widget) => widget.Loop(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("LoopValue").Should().Be(enabled);
+    static void Test(bool enabled, IVimeoVideoWidget widget) => widget.Loop(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("LoopValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -135,13 +135,13 @@ public sealed class VimeoVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new VimeoVideoWidget());
-      Validate(Fixture.Create<IVimeoVideoWidget>());
+      Test(new VimeoVideoWidget());
+      Test(Fixture.Create<VimeoVideoWidget>());
     }
 
     return;
 
-    static void Validate(IVimeoVideoWidget original)
+    static void Test(IVimeoVideoWidget original)
     {
       var clone = original.Clone<IVimeoVideoWidget>();
 
@@ -161,18 +161,18 @@ public sealed class VimeoVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new VimeoVideoWidget());
-      Validate(new VimeoVideoWidget().Id("id").Height("height"));
-      Validate(new VimeoVideoWidget().Id("id").Width("width"));
-      Validate(new VimeoVideoWidget().Height("height").Width("width"));
-      Validate(new VimeoVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0" webkitallowfullscreen="true" width="width"></iframe>""");
-      Validate(new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay(true).Loop(true), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1" webkitallowfullscreen="true" width="width"></iframe>""");
-      Validate(Fixture.Create<IVimeoVideoWidget>());
+      Test(new VimeoVideoWidget());
+      Test(new VimeoVideoWidget().Id("id").Height("height"));
+      Test(new VimeoVideoWidget().Id("id").Width("width"));
+      Test(new VimeoVideoWidget().Height("height").Width("width"));
+      Test(new VimeoVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0" webkitallowfullscreen="true" width="width"></iframe>""");
+      Test(new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay(true).Loop(true), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1" webkitallowfullscreen="true" width="width"></iframe>""");
+      Test(Fixture.Create<VimeoVideoWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IVimeoVideoWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

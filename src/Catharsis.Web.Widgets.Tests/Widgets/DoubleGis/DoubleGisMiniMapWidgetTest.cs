@@ -41,13 +41,13 @@ public sealed class DoubleGisMiniMapWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new DoubleGisMiniMapWidget());
-      Validate(Fixture.Create<IDoubleGisMiniMapWidget>());
+      Test(new DoubleGisMiniMapWidget());
+      Test(Fixture.Create<DoubleGisMiniMapWidget>());
     }
 
     return;
 
-    static void Validate(IDoubleGisMiniMapWidget original)
+    static void Test(IDoubleGisMiniMapWidget original)
     {
       var clone = original.Clone<IDoubleGisMiniMapWidget>();
     }
@@ -61,13 +61,13 @@ public sealed class DoubleGisMiniMapWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new DoubleGisMiniMapWidget());
-      Validate(Fixture.Create<IDoubleGisMiniMapWidget>());
+      Test(new DoubleGisMiniMapWidget());
+      Test(Fixture.Create<DoubleGisMiniMapWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IDoubleGisMiniMapWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

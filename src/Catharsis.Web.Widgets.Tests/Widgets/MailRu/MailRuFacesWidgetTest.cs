@@ -33,7 +33,7 @@ public sealed class MailRuFacesWidgetTest : Test
       widget.GetPropertyValue<string>("BackgroundColorValue").Should().BeNull();
       widget.GetPropertyValue<string>("BorderColorValue").Should().BeNull();
       widget.GetPropertyValue<string>("DomainValue").Should().BeNull();
-      widget.GetPropertyValue<string>("FontValue").Should().Be(MailRuFacesFont.Arial.ToString());
+      widget.GetPropertyValue<string>("FontValue").Should().Be(nameof(MailRuFacesFont.Arial));
       widget.GetPropertyValue<string>("HeightValue").Should().BeNull();
       widget.GetPropertyValue<string>("HyperlinkColorValue").Should().BeNull();
       widget.GetPropertyValue<string>("TextColorValue").Should().BeNull();
@@ -55,12 +55,12 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().BackgroundColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().BackgroundColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget) => widget.BackgroundColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BackgroundColorValue").Should().Be(color);
+    static void Test(string color, IMailRuFacesWidget widget) => widget.BackgroundColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BackgroundColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -74,12 +74,12 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().BorderColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().BorderColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget) => widget.BorderColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BorderColorValue").Should().Be(color);
+    static void Test(string color, IMailRuFacesWidget widget) => widget.BorderColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("BorderColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -93,12 +93,12 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string domain, IMailRuFacesWidget widget) => widget.Domain(domain).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainValue").Should().Be(domain);
+    static void Test(string domain, IMailRuFacesWidget widget) => widget.Domain(domain).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DomainValue").Should().Be(domain);
   }
 
   /// <summary>
@@ -112,12 +112,12 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().Font(null)).ThrowExactly<ArgumentNullException>().WithParameterName("font");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Font(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("font");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string font, IMailRuFacesWidget widget) => widget.Font(font).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FontValue").Should().Be(font);
+    static void Test(string font, IMailRuFacesWidget widget) => widget.Font(font).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FontValue").Should().Be(font);
   }
 
   /// <summary>
@@ -131,12 +131,12 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IMailRuFacesWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
+    static void Test(string height, IMailRuFacesWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -150,12 +150,12 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().HyperlinkColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().HyperlinkColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget) => widget.HyperlinkColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HyperlinkColorValue").Should().Be(color);
+    static void Test(string color, IMailRuFacesWidget widget) => widget.HyperlinkColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HyperlinkColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -169,12 +169,12 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().TextColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TextColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget) => widget.TextColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextColorValue").Should().Be(color);
+    static void Test(string color, IMailRuFacesWidget widget) => widget.TextColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextColorValue").Should().Be(color);
   }
 
   /// <summary>
@@ -185,12 +185,12 @@ public sealed class MailRuFacesWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IMailRuFacesWidget widget) => widget.Title(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TitleValue").Should().Be(enabled);
+    static void Test(bool enabled, IMailRuFacesWidget widget) => widget.Title(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("TitleValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -204,12 +204,12 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string color, IMailRuFacesWidget widget) => widget.TitleColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleColorValue").Should().Be(color);
+    static void Test(string color, IMailRuFacesWidget widget) => widget.TitleColor(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleColorValue").Should().Be(color);
   }
     
   /// <summary>
@@ -223,12 +223,12 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string text, IMailRuFacesWidget widget) => widget.TitleText(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleTextValue").Should().Be(text);
+    static void Test(string text, IMailRuFacesWidget widget) => widget.TitleText(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleTextValue").Should().Be(text);
   }
 
   /// <summary>
@@ -242,12 +242,12 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IMailRuFacesWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IMailRuFacesWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -258,13 +258,13 @@ public sealed class MailRuFacesWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new MailRuFacesWidget());
-      Validate(Fixture.Create<IMailRuFacesWidget>());
+      Test(new MailRuFacesWidget());
+      Test(Fixture.Create<MailRuFacesWidget>());
     }
 
     return;
 
-    static void Validate(IMailRuFacesWidget original)
+    static void Test(IMailRuFacesWidget original)
     {
       var clone = original.Clone<IMailRuFacesWidget>();
 
@@ -290,18 +290,18 @@ public sealed class MailRuFacesWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new MailRuFacesWidget());
-      Validate(new MailRuFacesWidget().Domain("domain").Width("width"));
-      Validate(new MailRuFacesWidget().Domain("domain").Height("height"));
-      Validate(new MailRuFacesWidget().Width("width").Height("height"));
-      Validate(new MailRuFacesWidget().Domain("domain").Width("width").Height("height"), """<a class="mrc__plugin_share_friends" href="http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height" rel="{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;}">Друзья</a>""");
-      Validate(new MailRuFacesWidget().Domain("domain").Width("width").Height("height").TitleText("title").Title(false).TitleColor("titleColor").BackgroundColor("backgroundColor").BorderColor("borderColor").TextColor("textColor").HyperlinkColor("hyperlinkColor"), """<a class="mrc__plugin_share_friends" href="http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height&amp;title=title&amp;notitle=true&amp;title-color=titleColor&amp;background=backgroundColor&amp;border=borderColor&amp;color=textColor&amp;link-color=hyperlinkColor" rel="{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;,&quot;title&quot;:&quot;title&quot;,&quot;notitle&quot;:true,&quot;title-color&quot;:&quot;titleColor&quot;,&quot;background&quot;:&quot;backgroundColor&quot;,&quot;border&quot;:&quot;borderColor&quot;,&quot;color&quot;:&quot;textColor&quot;,&quot;link-color&quot;:&quot;hyperlinkColor&quot;}">Друзья</a>""");
-      Validate(Fixture.Create<IMailRuFacesWidget>());
+      Test(new MailRuFacesWidget());
+      Test(new MailRuFacesWidget().Domain("domain").Width("width"));
+      Test(new MailRuFacesWidget().Domain("domain").Height("height"));
+      Test(new MailRuFacesWidget().Width("width").Height("height"));
+      Test(new MailRuFacesWidget().Domain("domain").Width("width").Height("height"), """<a class="mrc__plugin_share_friends" href="http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height" rel="{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;}">Друзья</a>""");
+      Test(new MailRuFacesWidget().Domain("domain").Width("width").Height("height").TitleText("title").Title(false).TitleColor("titleColor").BackgroundColor("backgroundColor").BorderColor("borderColor").TextColor("textColor").HyperlinkColor("hyperlinkColor"), """<a class="mrc__plugin_share_friends" href="http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height&amp;title=title&amp;notitle=true&amp;title-color=titleColor&amp;background=backgroundColor&amp;border=borderColor&amp;color=textColor&amp;link-color=hyperlinkColor" rel="{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;,&quot;title&quot;:&quot;title&quot;,&quot;notitle&quot;:true,&quot;title-color&quot;:&quot;titleColor&quot;,&quot;background&quot;:&quot;backgroundColor&quot;,&quot;border&quot;:&quot;borderColor&quot;,&quot;color&quot;:&quot;textColor&quot;,&quot;link-color&quot;:&quot;hyperlinkColor&quot;}">Друзья</a>""");
+      Test(Fixture.Create<MailRuFacesWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IMailRuFacesWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

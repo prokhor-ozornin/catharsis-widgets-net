@@ -45,12 +45,12 @@ public sealed class InlineImageWidgetTest : Test
     {
       AssertionExtensions.Should(() => new InlineImageWidget().Contents(null)).ThrowExactly<ArgumentNullException>().WithParameterName("contents");
       
-      new[] { [], new Random().ByteSequence(16).ToArray() }.ForEach(value => Validate(value, Widget));
+      new[] { [], new Random().ByteSequence(16).ToArray() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(byte[] contents, IInlineImageWidget widget) => widget.Contents(contents).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte[]>("ContentsValue").Should().Equal(contents);
+    static void Test(byte[] contents, IInlineImageWidget widget) => widget.Contents(contents).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte[]>("ContentsValue").Should().Equal(contents);
   }
 
   /// <summary>
@@ -64,12 +64,12 @@ public sealed class InlineImageWidgetTest : Test
       AssertionExtensions.Should(() => new InlineImageWidget().Format(null)).ThrowExactly<ArgumentNullException>().WithParameterName("format");
       AssertionExtensions.Should(() => new InlineImageWidget().Format(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("format");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string format, IInlineImageWidget widget) => widget.Format(format).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be(format);
+    static void Test(string format, IInlineImageWidget widget) => widget.Format(format).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("FormatValue").Should().Be(format);
   }
 
   /// <summary>
@@ -80,13 +80,13 @@ public sealed class InlineImageWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new InlineImageWidget());
-      Validate(Fixture.Create<IInlineImageWidget>());
+      Test(new InlineImageWidget());
+      Test(Fixture.Create<InlineImageWidget>());
     }
 
     return;
 
-    static void Validate(IInlineImageWidget original)
+    static void Test(IInlineImageWidget original)
     {
       var clone = original.Clone<IInlineImageWidget>();
 
@@ -103,15 +103,15 @@ public sealed class InlineImageWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new InlineImageWidget());
-      Validate(new InlineImageWidget().Contents(Guid.Empty.ToByteArray()), $"<img src=\"data:image;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>");
-      Validate(new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg"), $"<img src=\"data:jpg;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>");
-      Validate(Fixture.Create<IInlineImageWidget>());
+      Test(new InlineImageWidget());
+      Test(new InlineImageWidget().Contents(Guid.Empty.ToByteArray()), $"<img src=\"data:image;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>");
+      Test(new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg"), $"<img src=\"data:jpg;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>");
+      Test(Fixture.Create<InlineImageWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IInlineImageWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

@@ -26,11 +26,11 @@ public sealed class IVkontakteRecommendationsWidgetExtensionsTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<VkontakteRecommendationsLimit>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<VkontakteRecommendationsLimit>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(VkontakteRecommendationsLimit limit, IVkontakteRecommendationsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LimitValue").Should().Be((byte) limit);
+    static void Test(VkontakteRecommendationsLimit limit, IVkontakteRecommendationsWidget widget) => widget.Limit(limit).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LimitValue").Should().Be((byte) limit);
   }
 }

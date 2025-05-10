@@ -55,7 +55,7 @@ public class TumblrShareButtonWidget : WebWidget, ITumblrShareButtonWidget
     return new TagBuilder("a")
       .Attribute("href", "http://www.tumblr.com/share")
       .Attribute("title", "Share on Tumblr")
-      .Attribute("style", string.Format("display:inline-block; text-indent:-9999px; overflow:hidden; width:{2}px; height:20px; background:url('http://platform.tumblr.com/v1/share_{0}{1}.png') top left no-repeat transparent;", TypeValue, ColorSchemeValue is not null && string.Equals(ColorSchemeValue, TumblrShareButtonColorScheme.Gray.ToString(), StringComparison.InvariantCultureIgnoreCase) ? "T" : string.Empty, width))
+      .Attribute("style", string.Format("display:inline-block; text-indent:-9999px; overflow:hidden; width:{2}px; height:20px; background:url('http://platform.tumblr.com/v1/share_{0}{1}.png') top left no-repeat transparent;", TypeValue, ColorSchemeValue is not null && string.Equals(ColorSchemeValue, nameof(TumblrShareButtonColorScheme.Gray), StringComparison.InvariantCultureIgnoreCase) ? "T" : string.Empty, width))
       .Html("Share on Tumblr")
       .ToString();
   }

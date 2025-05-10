@@ -28,12 +28,12 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITumblrFollowButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<TumblrFollowButtonType>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<TumblrFollowButtonType>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(TumblrFollowButtonType type, ITumblrFollowButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeValue").Should().Be((byte) type);
+    static void Test(TumblrFollowButtonType type, ITumblrFollowButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TypeValue").Should().Be((byte) type);
   }
 
   /// <summary>
@@ -46,11 +46,11 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITumblrFollowButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<TumblrFollowButtonColorScheme>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<TumblrFollowButtonColorScheme>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(TumblrFollowButtonColorScheme scheme, ITumblrFollowButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme.ToString().ToLowerInvariant());
+    static void Test(TumblrFollowButtonColorScheme scheme, ITumblrFollowButtonWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme.ToString().ToLowerInvariant());
   }
 }

@@ -47,12 +47,12 @@ public sealed class MailRuIcqWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuIcqWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new MailRuIcqWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IMailRuIcqWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
+    static void Test(string account, IMailRuIcqWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -66,12 +66,12 @@ public sealed class MailRuIcqWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuIcqWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new MailRuIcqWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string language, IMailRuIcqWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(language);
+    static void Test(string language, IMailRuIcqWidget widget) => widget.Language(language).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(language);
   }
 
   /// <summary>
@@ -82,13 +82,13 @@ public sealed class MailRuIcqWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new MailRuIcqWidget());
-      Validate(Fixture.Create<IMailRuIcqWidget>());
+      Test(new MailRuIcqWidget());
+      Test(Fixture.Create<MailRuIcqWidget>());
     }
 
     return;
 
-    static void Validate(IMailRuIcqWidget original)
+    static void Test(IMailRuIcqWidget original)
     {
       var clone = original.Clone<IMailRuIcqWidget>();
 
@@ -105,14 +105,14 @@ public sealed class MailRuIcqWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new MailRuIcqWidget(), new XElement("script", new XAttribute("src", "http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"), new XAttribute("type", "text/javascript")).ToString());
-      Validate(new MailRuIcqWidget().Account("account").Language("en"), "window.ICQ = {siteOwner:'account'};", """<script src="http://c.icq.com/siteim/icqbar/js/partners/initbar_en.js" type="text/javascript"></script>""");
-      Validate(Fixture.Create<IMailRuIcqWidget>());
+      Test(new MailRuIcqWidget(), new XElement("script", new XAttribute("src", "http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"), new XAttribute("type", "text/javascript")).ToString());
+      Test(new MailRuIcqWidget().Account("account").Language("en"), "window.ICQ = {siteOwner:'account'};", """<script src="http://c.icq.com/siteim/icqbar/js/partners/initbar_en.js" type="text/javascript"></script>""");
+      Test(Fixture.Create<MailRuIcqWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IMailRuIcqWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

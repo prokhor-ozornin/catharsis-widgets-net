@@ -30,11 +30,11 @@ public sealed class IYandexAnalyticsWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexAnalyticsWidgetExtensions.Language(new YandexAnalyticsWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, Widget));
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(CultureInfo culture, IYandexAnalyticsWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
+    static void Test(CultureInfo culture, IYandexAnalyticsWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
   }
 }

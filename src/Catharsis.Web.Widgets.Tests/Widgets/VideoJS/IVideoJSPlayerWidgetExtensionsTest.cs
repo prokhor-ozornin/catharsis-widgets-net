@@ -28,12 +28,12 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(short width, IVideoJSPlayerWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
+    static void Test(short width, IVideoJSPlayerWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -46,12 +46,12 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(short height, IVideoJSPlayerWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height.ToInvariantString());
+    static void Test(short height, IVideoJSPlayerWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height.ToInvariantString());
   }
 
   /// <summary>
@@ -65,11 +65,11 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(new VideoJSPlayerWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("videos");
 
-      new[] { Array.Empty<(string Url, string ContentType)>() }.ForEach(value => Validate(value, Widget));
+      new[] { Array.Empty<(string Url, string ContentType)>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate((string Url, string ContentType)[] videos, IVideoJSPlayerWidget widget) => IVideoJSPlayerWidgetExtensions.Videos(widget, videos).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<(string ContentType, string Url)>>("VideosValue").Should().Equal(videos);
+    static void Test((string Url, string ContentType)[] videos, IVideoJSPlayerWidget widget) => IVideoJSPlayerWidgetExtensions.Videos(widget, videos).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<(string ContentType, string Url)>>("VideosValue").Should().Equal(videos);
   }
 }

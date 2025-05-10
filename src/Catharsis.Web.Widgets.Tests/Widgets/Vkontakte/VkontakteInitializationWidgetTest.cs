@@ -45,12 +45,12 @@ public sealed class VkontakteInitializationWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IVkontakteInitializationWidget widget) => widget.ApiId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ApiIdValue").Should().Be(id);
+    static void Test(string id, IVkontakteInitializationWidget widget) => widget.ApiId(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ApiIdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -61,13 +61,13 @@ public sealed class VkontakteInitializationWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new VkontakteInitializationWidget());
-      Validate(Fixture.Create<IVkontakteInitializationWidget>());
+      Test(new VkontakteInitializationWidget());
+      Test(Fixture.Create<VkontakteInitializationWidget>());
     }
 
     return;
 
-    static void Validate(IVkontakteInitializationWidget original)
+    static void Test(IVkontakteInitializationWidget original)
     {
       var clone = original.Clone<IVkontakteInitializationWidget>();
 
@@ -83,14 +83,14 @@ public sealed class VkontakteInitializationWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new VkontakteInitializationWidget());
-      Validate(new VkontakteInitializationWidget().ApiId("id"), """<script type="text/javascript">""", "VK.init({{apiId:id, onlyWidgets:true}});");
-      Validate(Fixture.Create<IVkontakteInitializationWidget>());
+      Test(new VkontakteInitializationWidget());
+      Test(new VkontakteInitializationWidget().ApiId("id"), """<script type="text/javascript">""", "VK.init({{apiId:id, onlyWidgets:true}});");
+      Test(Fixture.Create<VkontakteInitializationWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IVkontakteInitializationWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

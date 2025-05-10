@@ -41,13 +41,13 @@ public sealed class DoubleGisMapWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new DoubleGisMapWidget());
-      Validate(Fixture.Create<IDoubleGisMapWidget>());
+      Test(new DoubleGisMapWidget());
+      Test(Fixture.Create<DoubleGisMapWidget>());
     }
 
     return;
 
-    static void Validate(IDoubleGisMapWidget original)
+    static void Test(IDoubleGisMapWidget original)
     {
       var clone = original.Clone<IDoubleGisMapWidget>();
     }
@@ -61,13 +61,13 @@ public sealed class DoubleGisMapWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new DoubleGisMapWidget());
-      Validate(Fixture.Create<IDoubleGisMapWidget>());
+      Test(new DoubleGisMapWidget());
+      Test(Fixture.Create<DoubleGisMapWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IDoubleGisMapWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

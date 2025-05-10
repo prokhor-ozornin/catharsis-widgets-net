@@ -29,12 +29,12 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Gray(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(Widget);
+      Test(Widget);
     }
 
     return;
 
-    static void Validate(IPinterestPinItButtonWidget widget) => widget.Gray().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("gray");
+    static void Test(IPinterestPinItButtonWidget widget) => widget.Gray().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("gray");
   }
 
   /// <summary>
@@ -48,12 +48,12 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Language((CultureInfo) null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, Widget));
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(CultureInfo culture, IPinterestPinItButtonWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
+    static void Test(CultureInfo culture, IPinterestPinItButtonWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
   }
 
   /// <summary>
@@ -66,12 +66,12 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Red(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(Widget);
+      Test(Widget);
     }
 
     return;
 
-    static void Validate(IPinterestPinItButtonWidget widget) => widget.Red().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("red");
+    static void Test(IPinterestPinItButtonWidget widget) => widget.Red().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("red");
   }
 
   /// <summary>
@@ -84,11 +84,11 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.White(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(Widget);
+      Test(Widget);
     }
 
     return;
  
-    static void Validate(IPinterestPinItButtonWidget widget) => widget.White().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("white");
+    static void Test(IPinterestPinItButtonWidget widget) => widget.White().Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be("white");
   }
 }

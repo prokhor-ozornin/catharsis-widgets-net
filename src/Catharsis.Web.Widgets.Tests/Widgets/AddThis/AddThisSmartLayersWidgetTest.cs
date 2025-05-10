@@ -41,13 +41,13 @@ public sealed class AddThisSmartLayersWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new AddThisSmartLayersWidget());
-      Validate(Fixture.Create<IAddThisSmartLayersWidget>());
+      Test(new AddThisSmartLayersWidget());
+      Test(Fixture.Create<AddThisSmartLayersWidget>());
     }
 
     return;
 
-    static void Validate(IAddThisSmartLayersWidget original)
+    static void Test(IAddThisSmartLayersWidget original)
     {
       var clone = original.Clone<IAddThisSmartLayersWidget>();
     }
@@ -61,13 +61,13 @@ public sealed class AddThisSmartLayersWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new AddThisSmartLayersWidget());
-      Validate(Fixture.Create<IAddThisSmartLayersWidget>());
+      Test(new AddThisSmartLayersWidget());
+      Test(Fixture.Create<AddThisSmartLayersWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IAddThisSmartLayersWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

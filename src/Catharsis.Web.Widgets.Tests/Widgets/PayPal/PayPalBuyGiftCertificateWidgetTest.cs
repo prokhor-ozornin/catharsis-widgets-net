@@ -59,13 +59,13 @@ public sealed class PayPalBuyGiftCertificateWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new PayPalBuyGiftCertificateWidget());
-      Validate(Fixture.Create<IPayPalBuyGiftCertificateWidget>());
+      Test(new PayPalBuyGiftCertificateWidget());
+      Test(Fixture.Create<PayPalBuyGiftCertificateWidget>());
     }
 
     return;
 
-    static void Validate(IPayPalBuyGiftCertificateWidget original)
+    static void Test(IPayPalBuyGiftCertificateWidget original)
     {
       var clone = original.Clone<IPayPalBuyGiftCertificateWidget>();
 
@@ -81,13 +81,13 @@ public sealed class PayPalBuyGiftCertificateWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(Fixture.Create<IPayPalBuyGiftCertificateWidget>());
+      Test(Fixture.Create<PayPalBuyGiftCertificateWidget>());
       throw new NotImplementedException();
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IPayPalBuyGiftCertificateWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

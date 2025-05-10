@@ -21,12 +21,12 @@ public sealed class TextWriterExtensionsTest : Test
     {
       AssertionExtensions.Should(() => TextWriterExtensions.AsJson(null)).ThrowExactly<ArgumentNullException>().WithParameterName("writer");
 
-      new[] { TextWriter.Null, TextWriter.Synchronized(TextWriter.Null) }.ForEach(Validate);
+      new[] { TextWriter.Null, TextWriter.Synchronized(TextWriter.Null) }.ForEach(Test);
     }
 
     return;
 
-    static void Validate(TextWriter writer)
+    static void Test(TextWriter writer)
     {
       using (writer)
       {

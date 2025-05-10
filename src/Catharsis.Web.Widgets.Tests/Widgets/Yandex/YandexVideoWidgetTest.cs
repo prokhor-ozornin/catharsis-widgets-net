@@ -48,12 +48,12 @@ public sealed class YandexVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YandexVideoWidget().User(null)).ThrowExactly<ArgumentNullException>().WithParameterName("user");
       AssertionExtensions.Should(() => new YandexVideoWidget().User(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("user");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string user, IYandexVideoWidget widget) => widget.User(user).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UserValue").Should().Be(user);
+    static void Test(string user, IYandexVideoWidget widget) => widget.User(user).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UserValue").Should().Be(user);
   }
 
   /// <summary>
@@ -67,12 +67,12 @@ public sealed class YandexVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YandexVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new YandexVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IYandexVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
+    static void Test(string id, IYandexVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -86,12 +86,12 @@ public sealed class YandexVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YandexVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new YandexVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IYandexVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IYandexVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -105,12 +105,12 @@ public sealed class YandexVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YandexVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new YandexVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IYandexVideoWidget widget) => widget.Height(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(width);
+    static void Test(string width, IYandexVideoWidget widget) => widget.Height(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(width);
   }
 
   /// <summary>
@@ -121,13 +121,13 @@ public sealed class YandexVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new YandexVideoWidget());
-      Validate(Fixture.Create<IYandexVideoWidget>());
+      Test(new YandexVideoWidget());
+      Test(Fixture.Create<YandexVideoWidget>());
     }
 
     return;
 
-    static void Validate(IYandexVideoWidget original)
+    static void Test(IYandexVideoWidget original)
     {
       var clone = original.Clone<IYandexVideoWidget>();
 
@@ -146,18 +146,18 @@ public sealed class YandexVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new YandexVideoWidget());
-      Validate(new YandexVideoWidget().Id("id").User("user").Width("width"));
-      Validate(new YandexVideoWidget().Id("id").User("user").Height("height"));
-      Validate(new YandexVideoWidget().Id("id").Width("width").Height("height"));
-      Validate(new YandexVideoWidget().User("user").Width("width").Height("height"));
-      Validate(new YandexVideoWidget().Id("id").Height("height").Width("width").User("user"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://video.yandex.ru/iframe/user/id" webkitallowfullscreen="true" width="width"></iframe>""");
-      Validate(Fixture.Create<IYandexVideoWidget>());
+      Test(new YandexVideoWidget());
+      Test(new YandexVideoWidget().Id("id").User("user").Width("width"));
+      Test(new YandexVideoWidget().Id("id").User("user").Height("height"));
+      Test(new YandexVideoWidget().Id("id").Width("width").Height("height"));
+      Test(new YandexVideoWidget().User("user").Width("width").Height("height"));
+      Test(new YandexVideoWidget().Id("id").Height("height").Width("width").User("user"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://video.yandex.ru/iframe/user/id" webkitallowfullscreen="true" width="width"></iframe>""");
+      Test(Fixture.Create<YandexVideoWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IYandexVideoWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

@@ -55,12 +55,12 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IYandexMoneyPaymentFormWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
+    static void Test(string account, IYandexMoneyPaymentFormWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -74,12 +74,12 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("description");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string description, IYandexMoneyPaymentFormWidget widget) => widget.Description(description).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DescriptionValue").Should().Be(description);
+    static void Test(string description, IYandexMoneyPaymentFormWidget widget) => widget.Description(description).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("DescriptionValue").Should().Be(description);
   }
 
   /// <summary>
@@ -90,12 +90,12 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { decimal.MinValue, decimal.MaxValue}.ForEach(value => Validate(value, Widget));
+      new[] { decimal.MinValue, decimal.MaxValue, Fixture.Create<decimal>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(decimal sum, IYandexMoneyPaymentFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal?>("SumValue").Should().Be(sum);
+    static void Test(decimal sum, IYandexMoneyPaymentFormWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal?>("SumValue").Should().Be(sum);
   }
 
   /// <summary>
@@ -106,12 +106,12 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.Cards(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("CardsValue").Should().Be(enabled);
+    static void Test(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.Cards(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("CardsValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -122,12 +122,12 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(byte text, IYandexMoneyPaymentFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextValue").Should().Be(text);
+    static void Test(byte text, IYandexMoneyPaymentFormWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextValue").Should().Be(text);
   }
 
   /// <summary>
@@ -138,12 +138,12 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerPurpose(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerPurposeValue").Should().Be(enabled);
+    static void Test(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerPurpose(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerPurposeValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -154,12 +154,12 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerComment(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerCommentValue").Should().Be(enabled);
+    static void Test(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerComment(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerCommentValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -170,12 +170,12 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerFullName(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerFullNameValue").Should().Be(enabled);
+    static void Test(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerFullName(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerFullNameValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -186,12 +186,12 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerEmail(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerEmailValue").Should().Be(enabled);
+    static void Test(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerEmail(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerEmailValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -202,12 +202,12 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerPhone(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerPhoneValue").Should().Be(enabled);
+    static void Test(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerPhone(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerPhoneValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -218,12 +218,12 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerAddress(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerAddressValue").Should().Be(enabled);
+    static void Test(bool enabled, IYandexMoneyPaymentFormWidget widget) => widget.AskPayerAddress(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("AskPayerAddressValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -234,13 +234,13 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new YandexMoneyPaymentFormWidget());
-      Validate(Fixture.Create<IYandexMoneyPaymentFormWidget>());
+      Test(new YandexMoneyPaymentFormWidget());
+      Test(Fixture.Create<YandexMoneyPaymentFormWidget>());
     }
 
     return;
 
-    static void Validate(IYandexMoneyPaymentFormWidget original)
+    static void Test(IYandexMoneyPaymentFormWidget original)
     {
       var clone = original.Clone<IYandexMoneyPaymentFormWidget>();
 
@@ -266,17 +266,17 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new YandexMoneyPaymentFormWidget());
-      Validate(new YandexMoneyPaymentFormWidget().Description("description"));
-      Validate(new YandexMoneyPaymentFormWidget().Account("account"));
-      Validate(new YandexMoneyPaymentFormWidget().Account("account").Description("description"), """<iframe allowtransparency="true" frameborder="0" height="200" scrolling="no" src="https://money.yandex.ru/embed/shop.xml?account=account&amp;quickpay=shop&amp;payment-type-choice=on&amp;writer=seller&amp;targets=description&amp;default-sum=&amp;button-text=01" width="450"></iframe>""");
-      Validate(new YandexMoneyPaymentFormWidget().Account("account").Description("description").Sum(1).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).AskPayerPurpose(true).AskPayerComment(true).AskPayerFullName(true).AskPayerEmail(true).AskPayerPhone(true).AskPayerAddress(true), """<iframe allowtransparency="true" frameborder="0" height="255" scrolling="no" src="https://money.yandex.ru/embed/shop.xml?account=account&amp;quickpay=shop&amp;writer=buyer&amp;targets-hint=description&amp;default-sum=1&amp;button-text=03&amp;comment=on&amp;fio=on&amp;mail=on&amp;phone=on&amp;address=on" width="450"></iframe>""");
-      Validate(Fixture.Create<IYandexMoneyPaymentFormWidget>());
+      Test(new YandexMoneyPaymentFormWidget());
+      Test(new YandexMoneyPaymentFormWidget().Description("description"));
+      Test(new YandexMoneyPaymentFormWidget().Account("account"));
+      Test(new YandexMoneyPaymentFormWidget().Account("account").Description("description"), """<iframe allowtransparency="true" frameborder="0" height="200" scrolling="no" src="https://money.yandex.ru/embed/shop.xml?account=account&amp;quickpay=shop&amp;payment-type-choice=on&amp;writer=seller&amp;targets=description&amp;default-sum=&amp;button-text=01" width="450"></iframe>""");
+      Test(new YandexMoneyPaymentFormWidget().Account("account").Description("description").Sum(1).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).AskPayerPurpose(true).AskPayerComment(true).AskPayerFullName(true).AskPayerEmail(true).AskPayerPhone(true).AskPayerAddress(true), """<iframe allowtransparency="true" frameborder="0" height="255" scrolling="no" src="https://money.yandex.ru/embed/shop.xml?account=account&amp;quickpay=shop&amp;writer=buyer&amp;targets-hint=description&amp;default-sum=1&amp;button-text=03&amp;comment=on&amp;fio=on&amp;mail=on&amp;phone=on&amp;address=on" width="450"></iframe>""");
+      Test(Fixture.Create<YandexMoneyPaymentFormWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IYandexMoneyPaymentFormWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

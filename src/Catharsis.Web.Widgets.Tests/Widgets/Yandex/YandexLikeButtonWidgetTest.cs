@@ -49,12 +49,12 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string url, IYandexLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
+    static void Test(string url, IYandexLikeButtonWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
   }
 
   /// <summary>
@@ -68,12 +68,12 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string title, IYandexLikeButtonWidget widget) => widget.Title(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleValue").Should().Be(title);
+    static void Test(string title, IYandexLikeButtonWidget widget) => widget.Title(title).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TitleValue").Should().Be(title);
   }
 
   /// <summary>
@@ -87,12 +87,12 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string size, IYandexLikeButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeValue").Should().Be(size);
+    static void Test(string size, IYandexLikeButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeValue").Should().Be(size);
   }
 
   /// <summary>
@@ -106,12 +106,12 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string layout, IYandexLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(layout);
+    static void Test(string layout, IYandexLikeButtonWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LayoutValue").Should().Be(layout);
   }
 
   /// <summary>
@@ -125,12 +125,12 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string text, IYandexLikeButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextValue").Should().Be(text);
+    static void Test(string text, IYandexLikeButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TextValue").Should().Be(text);
   }
 
   /// <summary>
@@ -141,13 +141,13 @@ public sealed class YandexLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new YandexLikeButtonWidget());
-      Validate(Fixture.Create<IYandexLikeButtonWidget>());
+      Test(new YandexLikeButtonWidget());
+      Test(Fixture.Create<YandexLikeButtonWidget>());
     }
 
     return;
 
-    static void Validate(IYandexLikeButtonWidget original)
+    static void Test(IYandexLikeButtonWidget original)
     {
       var clone = original.Clone<IYandexLikeButtonWidget>();
 
@@ -167,14 +167,14 @@ public sealed class YandexLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new YandexLikeButtonWidget(), """<a name="ya-share" size="large" type="button"></a>""");
-      Validate(new YandexLikeButtonWidget().Layout("icon").Size("small").Text("text").Url("url").Title("title"), """<a name="ya-share" share_text="text" share_title="title" share_url="url" size="small" type="icon"></a>""");
-      Validate(Fixture.Create<IYandexLikeButtonWidget>());
+      Test(new YandexLikeButtonWidget(), """<a name="ya-share" size="large" type="button"></a>""");
+      Test(new YandexLikeButtonWidget().Layout("icon").Size("small").Text("text").Url("url").Title("title"), """<a name="ya-share" share_text="text" share_title="title" share_url="url" size="small" type="icon"></a>""");
+      Test(Fixture.Create<YandexLikeButtonWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IYandexLikeButtonWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

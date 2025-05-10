@@ -26,13 +26,13 @@ public sealed class LiveJournalLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new LiveJournalLikeButtonWidget());
-      Validate(Fixture.Create<ILiveJournalLikeButtonWidget>());
+      Test(new LiveJournalLikeButtonWidget());
+      Test(Fixture.Create<LiveJournalLikeButtonWidget>());
     }
 
     return;
 
-    static void Validate(ILiveJournalLikeButtonWidget original)
+    static void Test(ILiveJournalLikeButtonWidget original)
     {
       var clone = original.Clone<ILiveJournalLikeButtonWidget>();
 
@@ -48,13 +48,13 @@ public sealed class LiveJournalLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new LiveJournalLikeButtonWidget(), """<lj-like buttons="repost"/>""");
-      Validate(Fixture.Create<ILiveJournalLikeButtonWidget>());
+      Test(new LiveJournalLikeButtonWidget(), """<lj-like buttons="repost"/>""");
+      Test(Fixture.Create<LiveJournalLikeButtonWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(ILiveJournalLikeButtonWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

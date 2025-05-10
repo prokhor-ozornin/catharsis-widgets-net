@@ -28,11 +28,11 @@ public sealed class IVkontakteSubscriptionWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontakteSubscriptionWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<VkontakteSubscriptionButtonLayout>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<VkontakteSubscriptionButtonLayout>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(VkontakteSubscriptionButtonLayout layout, IVkontakteSubscriptionWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LayoutValue").Should().Be((byte) layout);
+    static void Test(VkontakteSubscriptionButtonLayout layout, IVkontakteSubscriptionWidget widget) => widget.Layout(layout).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("LayoutValue").Should().Be((byte) layout);
   }
 }

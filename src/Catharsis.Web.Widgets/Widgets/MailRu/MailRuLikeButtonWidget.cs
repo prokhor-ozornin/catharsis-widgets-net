@@ -158,7 +158,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
     {
       config["nc"] = 1;
     }
-    else if (CounterPositionValue is not null && string.Equals(CounterPositionValue, MailRuLikeButtonCounterPosition.Upper.ToString(), StringComparison.InvariantCultureIgnoreCase))
+    else if (CounterPositionValue is not null && string.Equals(CounterPositionValue, nameof(MailRuLikeButtonCounterPosition.Upper), StringComparison.InvariantCultureIgnoreCase))
     {
       config["vt"] = 1;
     }

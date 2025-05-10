@@ -28,12 +28,12 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(short width, IVkontakteAuthButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
+    static void Test(short width, IVkontakteAuthButtonWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width.ToInvariantString());
   }
 
   /// <summary>
@@ -53,7 +53,7 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTest : Test
 
     return;
 
-    static void Validate(string url, IVkontakteAuthButtonWidget widget) => widget.Standard(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteAuthButtonType>("TypeValue").Should().Be(VkontakteAuthButtonType.Standard).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
+    static void Test(string url, IVkontakteAuthButtonWidget widget) => widget.Standard(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteAuthButtonType>("TypeValue").Should().Be(VkontakteAuthButtonType.Standard).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
   }
 
   /// <summary>
@@ -73,6 +73,6 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTest : Test
 
     return;
 
-    static void Validate(string callback, IVkontakteAuthButtonWidget widget) => widget.Dynamic(callback).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteAuthButtonType>("TypeValue").Should().Be(VkontakteAuthButtonType.Dynamic).And.Subject.GetPropertyValue<string>("CallbackValue").Should().Be(callback);
+    static void Test(string callback, IVkontakteAuthButtonWidget widget) => widget.Dynamic(callback).Should().BeSameAs(widget).And.Subject.GetPropertyValue<VkontakteAuthButtonType>("TypeValue").Should().Be(VkontakteAuthButtonType.Dynamic).And.Subject.GetPropertyValue<string>("CallbackValue").Should().Be(callback);
   }
 }

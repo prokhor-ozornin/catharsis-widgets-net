@@ -45,12 +45,12 @@ public sealed class DisqusCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new DisqusCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new DisqusCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IDisqusCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
+    static void Test(string account, IDisqusCommentsWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -61,13 +61,13 @@ public sealed class DisqusCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new DisqusCommentsWidget());
-      Validate(Fixture.Create<IDisqusCommentsWidget>());
+      Test(new DisqusCommentsWidget());
+      Test(Fixture.Create<DisqusCommentsWidget>());
     }
 
     return;
 
-    static void Validate(IDisqusCommentsWidget original)
+    static void Test(IDisqusCommentsWidget original)
     {
       var clone = original.Clone<IDisqusCommentsWidget>();
 
@@ -83,16 +83,16 @@ public sealed class DisqusCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new DisqusCommentsWidget());
-      Validate(new DisqusCommentsWidget().Account("account"), """<div id="disqus_thread"></div>""", """
+      Test(new DisqusCommentsWidget());
+      Test(new DisqusCommentsWidget().Account("account"), """<div id="disqus_thread"></div>""", """
                                                                                                     var disqus_shortname = "account"
                                                                                                     """);
-      Validate(Fixture.Create<IDisqusCommentsWidget>());
+      Test(Fixture.Create<DisqusCommentsWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IDisqusCommentsWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

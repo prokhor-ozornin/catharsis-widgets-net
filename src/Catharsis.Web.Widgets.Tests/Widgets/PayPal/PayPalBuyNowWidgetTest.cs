@@ -59,13 +59,13 @@ public sealed class PayPalBuyNowWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new PayPalBuyNowWidget());
-      Validate(Fixture.Create<IPayPalBuyNowWidget>());
+      Test(new PayPalBuyNowWidget());
+      Test(Fixture.Create<PayPalBuyNowWidget>());
     }
 
     return;
 
-    static void Validate(IPayPalBuyNowWidget original)
+    static void Test(IPayPalBuyNowWidget original)
     {
       var clone = original.Clone<IPayPalBuyNowWidget>();
 
@@ -81,13 +81,13 @@ public sealed class PayPalBuyNowWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(Fixture.Create<IPayPalBuyNowWidget>());
+      Test(Fixture.Create<PayPalBuyNowWidget>());
       throw new NotImplementedException();
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IPayPalBuyNowWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

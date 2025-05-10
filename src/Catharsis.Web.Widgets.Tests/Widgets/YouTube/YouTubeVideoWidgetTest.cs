@@ -49,12 +49,12 @@ public sealed class YouTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IYouTubeVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
+    static void Test(string id, IYouTubeVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -68,12 +68,12 @@ public sealed class YouTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IYouTubeVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IYouTubeVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -87,12 +87,12 @@ public sealed class YouTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IYouTubeVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
+    static void Test(string height, IYouTubeVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -103,12 +103,12 @@ public sealed class YouTubeVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYouTubeVideoWidget widget) => widget.PrivateMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("PrivateModeValue").Should().Be(enabled);
+    static void Test(bool enabled, IYouTubeVideoWidget widget) => widget.PrivateMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("PrivateModeValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -119,12 +119,12 @@ public sealed class YouTubeVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool enabled, IYouTubeVideoWidget widget) => widget.SecureMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("SecureModeValue").Should().Be(enabled);
+    static void Test(bool enabled, IYouTubeVideoWidget widget) => widget.SecureMode(enabled).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool>("SecureModeValue").Should().Be(enabled);
   }
 
   /// <summary>
@@ -135,13 +135,13 @@ public sealed class YouTubeVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new YouTubeVideoWidget());
-      Validate(Fixture.Create<IYouTubeVideoWidget>());
+      Test(new YouTubeVideoWidget());
+      Test(Fixture.Create<YouTubeVideoWidget>());
     }
 
     return;
 
-    static void Validate(IYouTubeVideoWidget original)
+    static void Test(IYouTubeVideoWidget original)
     {
       var clone = original.Clone<IYouTubeVideoWidget>();
 
@@ -161,18 +161,18 @@ public sealed class YouTubeVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new YouTubeVideoWidget());
-      Validate(new YouTubeVideoWidget().Id("id").Height("height"));
-      Validate(new YouTubeVideoWidget().Id("id").Width("width"));
-      Validate(new YouTubeVideoWidget().Height("height").Width("width"));
-      Validate(new YouTubeVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.youtube.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
-      Validate(new YouTubeVideoWidget().Id("id").Height("height").Width("width").PrivateMode(true).SecureMode(true), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://www.youtube-nocookie.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
-      Validate(Fixture.Create<IYouTubeVideoWidget>());
+      Test(new YouTubeVideoWidget());
+      Test(new YouTubeVideoWidget().Id("id").Height("height"));
+      Test(new YouTubeVideoWidget().Id("id").Width("width"));
+      Test(new YouTubeVideoWidget().Height("height").Width("width"));
+      Test(new YouTubeVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.youtube.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
+      Test(new YouTubeVideoWidget().Id("id").Height("height").Width("width").PrivateMode(true).SecureMode(true), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://www.youtube-nocookie.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
+      Test(Fixture.Create<YouTubeVideoWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IYouTubeVideoWidget widget, params string[] html)
     {
       widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
 

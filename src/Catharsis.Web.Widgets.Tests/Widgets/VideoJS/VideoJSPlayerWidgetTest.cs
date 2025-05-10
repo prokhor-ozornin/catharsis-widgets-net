@@ -48,12 +48,12 @@ public sealed class VideoJSPlayerWidgetTest : Test
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Extra(null)).ThrowExactly<ArgumentNullException>().WithParameterName("extra");
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Extra(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("extra");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string extra, IVideoJSPlayerWidget widget) => widget.Extra(extra).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ExtraValue").Should().Be(extra);
+    static void Test(string extra, IVideoJSPlayerWidget widget) => widget.Extra(extra).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ExtraValue").Should().Be(extra);
   }
 
   /// <summary>
@@ -67,12 +67,12 @@ public sealed class VideoJSPlayerWidgetTest : Test
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IVideoJSPlayerWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IVideoJSPlayerWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -86,12 +86,12 @@ public sealed class VideoJSPlayerWidgetTest : Test
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IVideoJSPlayerWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
+    static void Test(string height, IVideoJSPlayerWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -104,12 +104,12 @@ public sealed class VideoJSPlayerWidgetTest : Test
     {
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Videos(null)).ThrowExactly<ArgumentNullException>().WithParameterName("videos");
 
-      new[] { Enumerable.Empty<(string Url, string ContentType)>(), [("url", "contentType")] }.ForEach(value => Validate(value, Widget));
+      new[] { Enumerable.Empty<(string Url, string ContentType)>(), [(Fixture.Create<string>(), Fixture.Create<string>())] }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(IEnumerable<(string Url, string ContentType)> videos, IVideoJSPlayerWidget widget) => widget.Videos(videos).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<(string ContentType, string Url)>>("VideosValue").Should().Equal(videos);
+    static void Test(IEnumerable<(string Url, string ContentType)> videos, IVideoJSPlayerWidget widget) => widget.Videos(videos).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IEnumerable<(string ContentType, string Url)>>("VideosValue").Should().Equal(videos);
   }
 
   /// <summary>
@@ -120,13 +120,13 @@ public sealed class VideoJSPlayerWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new VideoJSPlayerWidget());
-      Validate(Fixture.Create<IVideoJSPlayerWidget>());
+      Test(new VideoJSPlayerWidget());
+      Test(Fixture.Create<VideoJSPlayerWidget>());
     }
 
     return;
 
-    static void Validate(IVideoJSPlayerWidget original)
+    static void Test(IVideoJSPlayerWidget original)
     {
       var clone = original.Clone<IVideoJSPlayerWidget>();
 
@@ -147,20 +147,20 @@ public sealed class VideoJSPlayerWidgetTest : Test
 
     using (new AssertionScope())
     {
-      Validate(new VideoJSPlayerWidget());
-      Validate(new VideoJSPlayerWidget().Width("width"));
-      Validate(new VideoJSPlayerWidget().Height("height"));
-      Validate(new VideoJSPlayerWidget().Width("width").Height("height"));
-      Validate(new VideoJSPlayerWidget().Videos(videos));
-      Validate(new VideoJSPlayerWidget().Videos(videos).Width("width"));
-      Validate(new VideoJSPlayerWidget().Videos(videos).Height("height"));
-      Validate(new VideoJSPlayerWidget().Videos(videos).Width("width").Height("height").Extra("""<track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"></track>"""), """<video class="video-js vjs-default-skin" controls="controls" data-setup="{}" height="height" preload="auto" width="width"><source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source><source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm"></source><track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"></track></video>""");
-      Validate(Fixture.Create<IVideoJSPlayerWidget>());
+      Test(new VideoJSPlayerWidget());
+      Test(new VideoJSPlayerWidget().Width("width"));
+      Test(new VideoJSPlayerWidget().Height("height"));
+      Test(new VideoJSPlayerWidget().Width("width").Height("height"));
+      Test(new VideoJSPlayerWidget().Videos(videos));
+      Test(new VideoJSPlayerWidget().Videos(videos).Width("width"));
+      Test(new VideoJSPlayerWidget().Videos(videos).Height("height"));
+      Test(new VideoJSPlayerWidget().Videos(videos).Width("width").Height("height").Extra("""<track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"></track>"""), """<video class="video-js vjs-default-skin" controls="controls" data-setup="{}" height="height" preload="auto" width="width"><source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source><source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm"></source><track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"></track></video>""");
+      Test(Fixture.Create<VideoJSPlayerWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IVideoJSPlayerWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

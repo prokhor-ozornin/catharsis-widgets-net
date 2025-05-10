@@ -50,12 +50,12 @@ public sealed class FacebookCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookCommentsWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string scheme, IFacebookCommentsWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme);
+    static void Test(string scheme, IFacebookCommentsWidget widget) => widget.ColorScheme(scheme).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorSchemeValue").Should().Be(scheme);
   }
 
   /// <summary>
@@ -66,12 +66,12 @@ public sealed class FacebookCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Validate(value, Widget));
+      new[] { false, true }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(bool mobile, IFacebookCommentsWidget widget) => widget.Mobile(mobile).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("MobileValue").Should().Be(mobile);
+    static void Test(bool mobile, IFacebookCommentsWidget widget) => widget.Mobile(mobile).Should().BeSameAs(widget).And.Subject.GetPropertyValue<bool?>("MobileValue").Should().Be(mobile);
   }
 
   /// <summary>
@@ -85,12 +85,12 @@ public sealed class FacebookCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Order(null)).ThrowExactly<ArgumentNullException>().WithParameterName("order");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Order(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("order");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string order, IFacebookCommentsWidget widget) => widget.Order(order).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OrderValue").Should().Be(order);
+    static void Test(string order, IFacebookCommentsWidget widget) => widget.Order(order).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("OrderValue").Should().Be(order);
   }
 
   /// <summary>
@@ -101,12 +101,12 @@ public sealed class FacebookCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue }.ForEach(value => Validate(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(byte count, IFacebookCommentsWidget widget) => widget.Posts(count).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("PostsValue").Should().Be(count);
+    static void Test(byte count, IFacebookCommentsWidget widget) => widget.Posts(count).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte?>("PostsValue").Should().Be(count);
   }
 
   /// <summary>
@@ -120,12 +120,12 @@ public sealed class FacebookCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string url, IFacebookCommentsWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
+    static void Test(string url, IFacebookCommentsWidget widget) => widget.Url(url).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("UrlValue").Should().Be(url);
   }
 
   /// <summary>
@@ -139,12 +139,12 @@ public sealed class FacebookCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IFacebookCommentsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IFacebookCommentsWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -155,13 +155,13 @@ public sealed class FacebookCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new FacebookCommentsWidget());
-      Validate(Fixture.Create<IFacebookCommentsWidget>());
+      Test(new FacebookCommentsWidget());
+      Test(Fixture.Create<FacebookCommentsWidget>());
     }
 
     return;
 
-    static void Validate(IFacebookCommentsWidget original)
+    static void Test(IFacebookCommentsWidget original)
     {
       var clone = original.Clone<IFacebookCommentsWidget>();
 
@@ -182,14 +182,14 @@ public sealed class FacebookCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new FacebookCommentsWidget(), """<div class="fb-comments"></div>""");
-      Validate(new FacebookCommentsWidget().Url("url").Posts(1).Width("width").ColorScheme(FacebookColorScheme.Dark).Mobile(true).Order(FacebookCommentsOrder.ReverseTime), """<div class="fb-comments" data-colorscheme="dark" data-href="url" data-mobile="true" data-num-posts="1" data-order-by="reverse_time" data-width="width"></div>""");
-      Validate(Fixture.Create<IFacebookCommentsWidget>());
+      Test(new FacebookCommentsWidget(), """<div class="fb-comments"></div>""");
+      Test(new FacebookCommentsWidget().Url("url").Posts(1).Width("width").ColorScheme(FacebookColorScheme.Dark).Mobile(true).Order(FacebookCommentsOrder.ReverseTime), """<div class="fb-comments" data-colorscheme="dark" data-href="url" data-mobile="true" data-num-posts="1" data-order-by="reverse_time" data-width="width"></div>""");
+      Test(Fixture.Create<FacebookCommentsWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IFacebookCommentsWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

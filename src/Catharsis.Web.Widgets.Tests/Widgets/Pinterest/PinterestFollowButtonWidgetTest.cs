@@ -46,12 +46,12 @@ public sealed class PinterestFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, IPinterestFollowButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
+    static void Test(string account, IPinterestFollowButtonWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -65,12 +65,12 @@ public sealed class PinterestFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Label(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Label(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string label, IPinterestFollowButtonWidget widget) => widget.Label(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LabelValue").Should().Be(label);
+    static void Test(string label, IPinterestFollowButtonWidget widget) => widget.Label(label).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LabelValue").Should().Be(label);
   }
 
   /// <summary>
@@ -81,13 +81,13 @@ public sealed class PinterestFollowButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new PinterestFollowButtonWidget());
-      Validate(Fixture.Create<IPinterestFollowButtonWidget>());
+      Test(new PinterestFollowButtonWidget());
+      Test(Fixture.Create<PinterestFollowButtonWidget>());
     }
 
     return;
 
-    static void Validate(IPinterestFollowButtonWidget original)
+    static void Test(IPinterestFollowButtonWidget original)
     {
       var clone = original.Clone<IPinterestFollowButtonWidget>();
 
@@ -104,15 +104,15 @@ public sealed class PinterestFollowButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new PinterestFollowButtonWidget());
-      Validate(new PinterestFollowButtonWidget().Account("account"), """<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">Follow</a>""");
-      Validate(new PinterestFollowButtonWidget().Account("account").Label("label"), """<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">label</a>""");
-      Validate(Fixture.Create<IPinterestFollowButtonWidget>());
+      Test(new PinterestFollowButtonWidget());
+      Test(new PinterestFollowButtonWidget().Account("account"), """<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">Follow</a>""");
+      Test(new PinterestFollowButtonWidget().Account("account").Label("label"), """<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">label</a>""");
+      Test(Fixture.Create<PinterestFollowButtonWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IPinterestFollowButtonWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

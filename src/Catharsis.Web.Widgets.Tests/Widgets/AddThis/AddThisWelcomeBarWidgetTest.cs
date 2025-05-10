@@ -41,13 +41,13 @@ public sealed class AddThisWelcomeBarWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new AddThisWelcomeBarWidget());
-      Validate(Fixture.Create<IAddThisWelcomeBarWidget>());
+      Test(new AddThisWelcomeBarWidget());
+      Test(Fixture.Create<AddThisWelcomeBarWidget>());
     }
 
     return;
 
-    static void Validate(IAddThisWelcomeBarWidget original)
+    static void Test(IAddThisWelcomeBarWidget original)
     {
       var clone = original.Clone<IAddThisWelcomeBarWidget>();
     }
@@ -61,13 +61,13 @@ public sealed class AddThisWelcomeBarWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new AddThisWelcomeBarWidget());
-      Validate(Fixture.Create<IAddThisWelcomeBarWidget>());
+      Test(new AddThisWelcomeBarWidget());
+      Test(Fixture.Create<AddThisWelcomeBarWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IAddThisWelcomeBarWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

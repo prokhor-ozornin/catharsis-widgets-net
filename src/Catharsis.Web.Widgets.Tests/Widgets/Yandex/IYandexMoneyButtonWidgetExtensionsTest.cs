@@ -28,12 +28,12 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Color(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexMoneyButtonColor>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<YandexMoneyButtonColor>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(YandexMoneyButtonColor color, IYandexMoneyButtonWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be(color.ToString().ToLowerInvariant());
+    static void Test(YandexMoneyButtonColor color, IYandexMoneyButtonWidget widget) => widget.Color(color).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ColorValue").Should().Be(color.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -46,14 +46,14 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(YandexMoneyButtonSize.Small, "s", Widget);
-      Validate(YandexMoneyButtonSize.Medium, "m", Widget);
-      Validate(YandexMoneyButtonSize.Large, "l", Widget);
+      Test(YandexMoneyButtonSize.Small, "s", Widget);
+      Test(YandexMoneyButtonSize.Medium, "m", Widget);
+      Test(YandexMoneyButtonSize.Large, "l", Widget);
     }
 
     return;
 
-    static void Validate(YandexMoneyButtonSize size, string value, IYandexMoneyButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeValue").Should().Be(value);
+    static void Test(YandexMoneyButtonSize size, string value, IYandexMoneyButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeValue").Should().Be(value);
   }
 
   /// <summary>
@@ -66,12 +66,12 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { double.NegativeZero }.ForEach(value => Validate(value, Widget));
+      new[] { double.NegativeZero, Fixture.Create<double>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(double sum, IYandexMoneyButtonWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal>("SumValue").Should().Be((decimal) sum);
+    static void Test(double sum, IYandexMoneyButtonWidget widget) => widget.Sum(sum).Should().BeSameAs(widget).And.Subject.GetPropertyValue<decimal>("SumValue").Should().Be((decimal) sum);
   }
 
   /// <summary>
@@ -84,12 +84,12 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexMoneyButtonText>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<YandexMoneyButtonText>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(YandexMoneyButtonText text, IYandexMoneyButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextValue").Should().Be((byte) text);
+    static void Test(YandexMoneyButtonText text, IYandexMoneyButtonWidget widget) => widget.Text(text).Should().BeSameAs(widget).And.Subject.GetPropertyValue<byte>("TextValue").Should().Be((byte) text);
   }
 
   /// <summary>
@@ -102,12 +102,12 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Validate(YandexMoneyButtonType.Card, "any-card-payment-type", Widget);
-      Validate(YandexMoneyButtonType.Wallet, "yamoney-payment-type", Widget);
+      Test(YandexMoneyButtonType.Card, "any-card-payment-type", Widget);
+      Test(YandexMoneyButtonType.Wallet, "yamoney-payment-type", Widget);
     }
 
     return;
 
-    static void Validate(YandexMoneyButtonType type, string value, IYandexMoneyButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TypeValue").Should().Be(value);
+    static void Test(YandexMoneyButtonType type, string value, IYandexMoneyButtonWidget widget) => widget.Type(type).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("TypeValue").Should().Be(value);
   }
 }

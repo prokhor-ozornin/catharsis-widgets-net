@@ -45,12 +45,12 @@ public sealed class CackleCommentsCountWidgetTest : Test
       AssertionExtensions.Should(() => new CackleCommentsCountWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new CackleCommentsCountWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string account, ICackleCommentsCountWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
+    static void Test(string account, ICackleCommentsCountWidget widget) => widget.Account(account).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AccountValue").Should().Be(account);
   }
 
   /// <summary>
@@ -61,13 +61,13 @@ public sealed class CackleCommentsCountWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new CackleCommentsCountWidget());
-      Validate(Fixture.Create<ICackleCommentsCountWidget>());
+      Test(new CackleCommentsCountWidget());
+      Test(Fixture.Create<CackleCommentsCountWidget>());
     }
 
     return;
 
-    static void Validate(ICackleCommentsCountWidget original)
+    static void Test(ICackleCommentsCountWidget original)
     {
       var clone = original.Clone<ICackleCommentsCountWidget>();
 
@@ -83,14 +83,14 @@ public sealed class CackleCommentsCountWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new CackleCommentsCountWidget());
-      Validate(new CackleCommentsCountWidget().Account("account"), """{"widget":"CommentCount","id":"account"}""");
-      Validate(Fixture.Create<ICackleCommentsCountWidget>());
+      Test(new CackleCommentsCountWidget());
+      Test(new CackleCommentsCountWidget().Account("account"), """{"widget":"CommentCount","id":"account"}""");
+      Test(Fixture.Create<CackleCommentsCountWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(ICackleCommentsCountWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

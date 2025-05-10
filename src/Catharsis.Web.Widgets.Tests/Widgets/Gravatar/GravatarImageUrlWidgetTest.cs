@@ -47,12 +47,12 @@ public sealed class GravatarImageUrlWidgetTest : Test
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Extension(null)).ThrowExactly<ArgumentNullException>().WithParameterName("extension");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Extension(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("extension");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string extension, IGravatarImageUrlWidget widget) => widget.Extension(extension).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ExtensionValue").Should().Be(extension);
+    static void Test(string extension, IGravatarImageUrlWidget widget) => widget.Extension(extension).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("ExtensionValue").Should().Be(extension);
   }
 
   /// <summary>
@@ -66,12 +66,12 @@ public sealed class GravatarImageUrlWidgetTest : Test
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string hash, IGravatarImageUrlWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashValue").Should().Be(hash);
+    static void Test(string hash, IGravatarImageUrlWidget widget) => widget.Hash(hash).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HashValue").Should().Be(hash);
   }
 
   /// <summary>
@@ -85,12 +85,12 @@ public sealed class GravatarImageUrlWidgetTest : Test
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Parameter(null, new object())).ThrowExactly<ArgumentNullException>().WithParameterName("name");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Parameter(string.Empty, new object())).ThrowExactly<ArgumentException>().WithMessage("name");
 
-      Validate("id", Guid.NewGuid(), Widget);
+      Test(Fixture.Create<string>(), Fixture.Create<Guid>(), Widget);
     }
 
     return;
 
-    static void Validate(string name, object value, IGravatarImageUrlWidget widget) => widget.Parameter(name, value).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersValue").Should().Contain(name, value);
+    static void Test(string name, object value, IGravatarImageUrlWidget widget) => widget.Parameter(name, value).Should().BeSameAs(widget).And.Subject.GetPropertyValue<IDictionary<string, object>>("ParametersValue").Should().Contain(name, value);
   }
 
   /// <summary>
@@ -101,13 +101,13 @@ public sealed class GravatarImageUrlWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new GravatarImageUrlWidget());
-      Validate(Fixture.Create<IGravatarImageUrlWidget>());
+      Test(new GravatarImageUrlWidget());
+      Test(Fixture.Create<GravatarImageUrlWidget>());
     }
 
     return;
 
-    static void Validate(IGravatarImageUrlWidget original)
+    static void Test(IGravatarImageUrlWidget original)
     {
       var clone = original.Clone<IGravatarImageUrlWidget>();
 
@@ -125,16 +125,16 @@ public sealed class GravatarImageUrlWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new GravatarImageUrlWidget());
-      Validate(new GravatarImageUrlWidget().Hash("hash"), "http://www.gravatar.com/avatar/hash");
-      Validate(new GravatarImageUrlWidget().Hash("hash").Parameter("name", "value"), "http://www.gravatar.com/avatar/hash?name=value");
-      Validate(new GravatarImageUrlWidget().Hash("hash").Extension("extension").Parameter("first", 1).Parameter("second", 2), "http://www.gravatar.com/avatar/hash.extension?first=1&second=2");
-      Validate(Fixture.Create<IGravatarImageUrlWidget>());
+      Test(new GravatarImageUrlWidget());
+      Test(new GravatarImageUrlWidget().Hash("hash"), "http://www.gravatar.com/avatar/hash");
+      Test(new GravatarImageUrlWidget().Hash("hash").Parameter("name", "value"), "http://www.gravatar.com/avatar/hash?name=value");
+      Test(new GravatarImageUrlWidget().Hash("hash").Extension("extension").Parameter("first", 1).Parameter("second", 2), "http://www.gravatar.com/avatar/hash.extension?first=1&second=2");
+      Test(Fixture.Create<GravatarImageUrlWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IGravatarImageUrlWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

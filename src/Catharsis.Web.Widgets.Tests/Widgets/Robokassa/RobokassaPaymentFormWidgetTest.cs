@@ -41,13 +41,13 @@ public sealed class RobokassaPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new RobokassaPaymentFormWidget());
-      Validate(Fixture.Create<IRobokassaPaymentFormWidget>());
+      Test(new RobokassaPaymentFormWidget());
+      Test(Fixture.Create<RobokassaPaymentFormWidget>());
     }
 
     return;
 
-    static void Validate(IRobokassaPaymentFormWidget original)
+    static void Test(IRobokassaPaymentFormWidget original)
     {
       var clone = original.Clone<IRobokassaPaymentFormWidget>();
 
@@ -63,13 +63,13 @@ public sealed class RobokassaPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(Fixture.Create<IRobokassaPaymentFormWidget>());
+      Test(Fixture.Create<RobokassaPaymentFormWidget>());
       throw new NotImplementedException();
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IRobokassaPaymentFormWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

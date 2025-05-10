@@ -30,12 +30,12 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Language(new TwitterFollowButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Validate(value, Widget));
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(CultureInfo culture, ITwitterFollowButtonWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
+    static void Test(CultureInfo culture, ITwitterFollowButtonWidget widget) => widget.Language(culture).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("LanguageValue").Should().Be(culture.TwoLetterISOLanguageName);
   }
 
   /// <summary>
@@ -48,12 +48,12 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<TwitterFollowButtonSize>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<TwitterFollowButtonSize>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(TwitterFollowButtonSize size, ITwitterFollowButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeValue").Should().Be(size.ToString().ToLowerInvariant());
+    static void Test(TwitterFollowButtonSize size, ITwitterFollowButtonWidget widget) => widget.Size(size).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("SizeValue").Should().Be(size.ToString().ToLowerInvariant());
   }
 
   /// <summary>
@@ -66,11 +66,11 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITwitterFollowButtonWidgetExtensions.Alignment(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<TwitterFollowButtonAlignment>().ForEach(value => Validate(value, Widget));
+      Enum.GetValues<TwitterFollowButtonAlignment>().ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(TwitterFollowButtonAlignment alignment, ITwitterFollowButtonWidget widget) => widget.Alignment(alignment).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AlignmentValue").Should().Be(alignment.ToString().ToLowerInvariant());
+    static void Test(TwitterFollowButtonAlignment alignment, ITwitterFollowButtonWidget widget) => widget.Alignment(alignment).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("AlignmentValue").Should().Be(alignment.ToString().ToLowerInvariant());
   }
 }

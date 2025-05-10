@@ -47,12 +47,12 @@ public sealed class MailRuVideoWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new MailRuVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string id, IMailRuVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
+    static void Test(string id, IMailRuVideoWidget widget) => widget.Id(id).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("IdValue").Should().Be(id);
   }
 
   /// <summary>
@@ -66,12 +66,12 @@ public sealed class MailRuVideoWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new MailRuVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string width, IMailRuVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
+    static void Test(string width, IMailRuVideoWidget widget) => widget.Width(width).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("WidthValue").Should().Be(width);
   }
 
   /// <summary>
@@ -85,12 +85,12 @@ public sealed class MailRuVideoWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new MailRuVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { new Random().AlphaDigits(16) }.ForEach(value => Validate(value, Widget));
+      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
     }
 
     return;
 
-    static void Validate(string height, IMailRuVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
+    static void Test(string height, IMailRuVideoWidget widget) => widget.Height(height).Should().BeSameAs(widget).And.Subject.GetPropertyValue<string>("HeightValue").Should().Be(height);
   }
 
   /// <summary>
@@ -101,13 +101,13 @@ public sealed class MailRuVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new MailRuVideoWidget());
-      Validate(Fixture.Create<IMailRuVideoWidget>());
+      Test(new MailRuVideoWidget());
+      Test(Fixture.Create<MailRuVideoWidget>());
     }
 
     return;
 
-    static void Validate(IMailRuVideoWidget original)
+    static void Test(IMailRuVideoWidget original)
     {
       var clone = original.Clone<IMailRuVideoWidget>();
 
@@ -125,17 +125,17 @@ public sealed class MailRuVideoWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new MailRuVideoWidget());
-      Validate(new MailRuVideoWidget().Id("id").Height("height"));
-      Validate(new MailRuVideoWidget().Id("id").Width("width"));
-      Validate(new MailRuVideoWidget().Height("height").Width("width"));
-      Validate(new MailRuVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://api.video.mail.ru/videos/embed/mail/id" webkitallowfullscreen="true" width="width"></iframe>""");
-      Validate(Fixture.Create<IMailRuVideoWidget>());
+      Test(new MailRuVideoWidget());
+      Test(new MailRuVideoWidget().Id("id").Height("height"));
+      Test(new MailRuVideoWidget().Id("id").Width("width"));
+      Test(new MailRuVideoWidget().Height("height").Width("width"));
+      Test(new MailRuVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://api.video.mail.ru/videos/embed/mail/id" webkitallowfullscreen="true" width="width"></iframe>""");
+      Test(Fixture.Create<MailRuVideoWidget>());
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IMailRuVideoWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {

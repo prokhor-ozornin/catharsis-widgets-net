@@ -59,13 +59,13 @@ public sealed class PayPalDonateWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new PayPalDonateWidget());
-      Validate(Fixture.Create<IPayPalDonateWidget>());
+      Test(new PayPalDonateWidget());
+      Test(Fixture.Create<PayPalDonateWidget>());
     }
 
     return;
 
-    static void Validate(IPayPalDonateWidget original)
+    static void Test(IPayPalDonateWidget original)
     {
       var clone = original.Clone<IPayPalDonateWidget>();
 
@@ -81,13 +81,13 @@ public sealed class PayPalDonateWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new PayPalDonateWidget());
+      Test(Fixture.Create<PayPalDonateWidget>());
       throw new NotImplementedException();
     }
 
     return;
 
-    static void Validate(IWebWidget widget, params string[] html)
+    static void Test(IPayPalDonateWidget widget, params string[] html)
     {
       if (html.IsUnset())
       {
