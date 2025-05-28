@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class VkontakteVideoWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public VkontakteVideoWidgetTest() => Widget = Fixture.Create<IVkontakteVideoWidget>();
+  public VkontakteVideoWidgetTest() => Widget = Fixture<IVkontakteVideoWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -50,7 +50,7 @@ public sealed class VkontakteVideoWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -69,7 +69,7 @@ public sealed class VkontakteVideoWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -88,7 +88,7 @@ public sealed class VkontakteVideoWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -123,7 +123,7 @@ public sealed class VkontakteVideoWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteVideoWidget().User(null)).ThrowExactly<ArgumentNullException>().WithParameterName("user");
       AssertionExtensions.Should(() => new VkontakteVideoWidget().User(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("user");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -142,7 +142,7 @@ public sealed class VkontakteVideoWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new VkontakteVideoWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -159,7 +159,7 @@ public sealed class VkontakteVideoWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new VkontakteVideoWidget());
-      Test(Fixture.Create<VkontakteVideoWidget>());
+      Test(Fixture<VkontakteVideoWidget>.Create());
     }
 
     return;
@@ -193,7 +193,7 @@ public sealed class VkontakteVideoWidgetTest : Test
       Test(new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width"));
       Test(new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=0" webkitallowfullscreen="true" width="width"></iframe>""");
       Test(new VkontakteVideoWidget().Id("id").User("user").Hash("hash").Width("width").Height("height").Hd(true), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://vk.com/video_ext.php?oid=user&amp;id=id&amp;hash=hash&amp;hd=1" webkitallowfullscreen="true" width="width"></iframe>""");
-      Test(Fixture.Create<VkontakteVideoWidget>());
+      Test(Fixture<VkontakteVideoWidget>.Create());
     }
 
     return;

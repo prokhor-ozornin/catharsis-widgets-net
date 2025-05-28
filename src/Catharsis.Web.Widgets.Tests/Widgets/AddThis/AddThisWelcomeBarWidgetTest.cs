@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class AddThisWelcomeBarWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public AddThisWelcomeBarWidgetTest() => Widget = Fixture.Create<IAddThisWelcomeBarWidget>();
+  public AddThisWelcomeBarWidgetTest() => Widget = Fixture<IAddThisWelcomeBarWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -42,7 +42,7 @@ public sealed class AddThisWelcomeBarWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new AddThisWelcomeBarWidget());
-      Test(Fixture.Create<AddThisWelcomeBarWidget>());
+      Test(Fixture<AddThisWelcomeBarWidget>.Create());
     }
 
     return;
@@ -62,7 +62,7 @@ public sealed class AddThisWelcomeBarWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new AddThisWelcomeBarWidget());
-      Test(Fixture.Create<AddThisWelcomeBarWidget>());
+      Test(Fixture<AddThisWelcomeBarWidget>.Create());
     }
 
     return;

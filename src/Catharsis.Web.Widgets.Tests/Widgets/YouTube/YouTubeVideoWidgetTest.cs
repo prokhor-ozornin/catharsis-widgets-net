@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class YouTubeVideoWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public YouTubeVideoWidgetTest() => Widget = Fixture.Create<IYouTubeVideoWidget>();
+  public YouTubeVideoWidgetTest() => Widget = Fixture<IYouTubeVideoWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -49,7 +49,7 @@ public sealed class YouTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -68,7 +68,7 @@ public sealed class YouTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -87,7 +87,7 @@ public sealed class YouTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new YouTubeVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -136,7 +136,7 @@ public sealed class YouTubeVideoWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new YouTubeVideoWidget());
-      Test(Fixture.Create<YouTubeVideoWidget>());
+      Test(Fixture<YouTubeVideoWidget>.Create());
     }
 
     return;
@@ -167,7 +167,7 @@ public sealed class YouTubeVideoWidgetTest : Test
       Test(new YouTubeVideoWidget().Height("height").Width("width"));
       Test(new YouTubeVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.youtube.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
       Test(new YouTubeVideoWidget().Id("id").Height("height").Width("width").PrivateMode(true).SecureMode(true), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://www.youtube-nocookie.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
-      Test(Fixture.Create<YouTubeVideoWidget>());
+      Test(Fixture<YouTubeVideoWidget>.Create());
     }
 
     return;

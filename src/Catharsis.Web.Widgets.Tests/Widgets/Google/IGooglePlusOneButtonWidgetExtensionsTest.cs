@@ -1,5 +1,5 @@
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IGooglePlusOneButtonWidgetExtensionsTest() => Widget = Fixture.Create<IGooglePlusOneButtonWidget>();
+  public IGooglePlusOneButtonWidgetExtensionsTest() => Widget = Fixture<IGooglePlusOneButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IGooglePlusOneButtonWidgetExtensions.Url(IGooglePlusOneButtonWidget, Uri)"/> method.</para>
@@ -29,7 +29,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Url(new GooglePlusOneButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture.Create<Uri>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -47,7 +47,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

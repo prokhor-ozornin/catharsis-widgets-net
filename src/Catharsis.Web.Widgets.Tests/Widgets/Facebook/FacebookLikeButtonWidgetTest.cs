@@ -1,5 +1,5 @@
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class FacebookLikeButtonWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public FacebookLikeButtonWidgetTest() => Widget = Fixture.Create<IFacebookLikeButtonWidget>();
+  public FacebookLikeButtonWidgetTest() => Widget = Fixture<IFacebookLikeButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -52,7 +52,7 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -103,7 +103,7 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -122,7 +122,7 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().TrackLabel(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().TrackLabel(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -141,7 +141,7 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -160,7 +160,7 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Verb(null)).ThrowExactly<ArgumentNullException>().WithParameterName("verb");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Verb(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("verb");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -179,7 +179,7 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookLikeButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -196,7 +196,7 @@ public sealed class FacebookLikeButtonWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new FacebookLikeButtonWidget());
-      Test(Fixture.Create<FacebookLikeButtonWidget>());
+      Test(Fixture<FacebookLikeButtonWidget>.Create());
     }
 
     return;
@@ -227,7 +227,7 @@ public sealed class FacebookLikeButtonWidgetTest : Test
       Test(new FacebookLikeButtonWidget(), """<div class="fb-like"></div>""");
       Test(new FacebookLikeButtonWidget().Url("url"), """<div class="fb-like" data-href="url"></div>""");
       Test(new FacebookLikeButtonWidget().Verb(FacebookLikeButtonVerb.Recommend).ColorScheme(FacebookColorScheme.Dark).Url("url").KidsMode(true).Layout(FacebookButtonLayout.BoxCount).TrackLabel("trackLabel").Faces(true).Width("width"), """<div class="fb-like" data-action="recommend" data-colorscheme="dark" data-href="url" data-kid-directed-site="true" data-layout="box_count" data-ref="trackLabel" data-show-faces="true" data-width="width"></div>""");
-      Test(Fixture.Create<FacebookLikeButtonWidget>());
+      Test(Fixture<FacebookLikeButtonWidget>.Create());
     }
 
     return;

@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class MailRuFacesWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public MailRuFacesWidgetTest() => Widget = Fixture.Create<IMailRuFacesWidget>();
+  public MailRuFacesWidgetTest() => Widget = Fixture<IMailRuFacesWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -55,7 +55,7 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().BackgroundColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().BackgroundColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -74,7 +74,7 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().BorderColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().BorderColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -93,7 +93,7 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -112,7 +112,7 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().Font(null)).ThrowExactly<ArgumentNullException>().WithParameterName("font");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Font(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("font");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -131,7 +131,7 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -150,7 +150,7 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().HyperlinkColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().HyperlinkColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -169,7 +169,7 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().TextColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TextColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -204,7 +204,7 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -223,7 +223,7 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new MailRuFacesWidget().TitleText(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -242,7 +242,7 @@ public sealed class MailRuFacesWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuFacesWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new MailRuFacesWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -259,7 +259,7 @@ public sealed class MailRuFacesWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new MailRuFacesWidget());
-      Test(Fixture.Create<MailRuFacesWidget>());
+      Test(Fixture<MailRuFacesWidget>.Create());
     }
 
     return;
@@ -296,7 +296,7 @@ public sealed class MailRuFacesWidgetTest : Test
       Test(new MailRuFacesWidget().Width("width").Height("height"));
       Test(new MailRuFacesWidget().Domain("domain").Width("width").Height("height"), """<a class="mrc__plugin_share_friends" href="http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height" rel="{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;}">Друзья</a>""");
       Test(new MailRuFacesWidget().Domain("domain").Width("width").Height("height").TitleText("title").Title(false).TitleColor("titleColor").BackgroundColor("backgroundColor").BorderColor("borderColor").TextColor("textColor").HyperlinkColor("hyperlinkColor"), """<a class="mrc__plugin_share_friends" href="http://connect.mail.ru/share_friends?domain=domain&amp;font=Arial&amp;width=width&amp;height=height&amp;title=title&amp;notitle=true&amp;title-color=titleColor&amp;background=backgroundColor&amp;border=borderColor&amp;color=textColor&amp;link-color=hyperlinkColor" rel="{&quot;domain&quot;:&quot;domain&quot;,&quot;font&quot;:&quot;Arial&quot;,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;,&quot;title&quot;:&quot;title&quot;,&quot;notitle&quot;:true,&quot;title-color&quot;:&quot;titleColor&quot;,&quot;background&quot;:&quot;backgroundColor&quot;,&quot;border&quot;:&quot;borderColor&quot;,&quot;color&quot;:&quot;textColor&quot;,&quot;link-color&quot;:&quot;hyperlinkColor&quot;}">Друзья</a>""");
-      Test(Fixture.Create<MailRuFacesWidget>());
+      Test(Fixture<MailRuFacesWidget>.Create());
     }
 
     return;

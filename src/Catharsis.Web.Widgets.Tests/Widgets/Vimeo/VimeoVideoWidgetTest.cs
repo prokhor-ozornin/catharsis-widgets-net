@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class VimeoVideoWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public VimeoVideoWidgetTest() => Widget = Fixture.Create<IVimeoVideoWidget>();
+  public VimeoVideoWidgetTest() => Widget = Fixture<IVimeoVideoWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -49,7 +49,7 @@ public sealed class VimeoVideoWidgetTest : Test
       AssertionExtensions.Should(() => new VimeoVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VimeoVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -68,7 +68,7 @@ public sealed class VimeoVideoWidgetTest : Test
       AssertionExtensions.Should(() => new VimeoVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VimeoVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -87,7 +87,7 @@ public sealed class VimeoVideoWidgetTest : Test
       AssertionExtensions.Should(() => new VimeoVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VimeoVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -136,7 +136,7 @@ public sealed class VimeoVideoWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new VimeoVideoWidget());
-      Test(Fixture.Create<VimeoVideoWidget>());
+      Test(Fixture<VimeoVideoWidget>.Create());
     }
 
     return;
@@ -167,7 +167,7 @@ public sealed class VimeoVideoWidgetTest : Test
       Test(new VimeoVideoWidget().Height("height").Width("width"));
       Test(new VimeoVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0" webkitallowfullscreen="true" width="width"></iframe>""");
       Test(new VimeoVideoWidget().Id("id").Height("height").Width("width").AutoPlay(true).Loop(true), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1" webkitallowfullscreen="true" width="width"></iframe>""");
-      Test(Fixture.Create<VimeoVideoWidget>());
+      Test(Fixture<VimeoVideoWidget>.Create());
     }
 
     return;

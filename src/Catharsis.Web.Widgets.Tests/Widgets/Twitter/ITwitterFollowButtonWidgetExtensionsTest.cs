@@ -1,6 +1,6 @@
 using System.Globalization;
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -17,7 +17,7 @@ public sealed class ITwitterFollowButtonWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public ITwitterFollowButtonWidgetExtensionsTest() => Widget = Fixture.Create<ITwitterFollowButtonWidget>();
+  public ITwitterFollowButtonWidgetExtensionsTest() => Widget = Fixture<ITwitterFollowButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="ITwitterFollowButtonWidgetExtensions.Language(ITwitterFollowButtonWidget, CultureInfo)"/> method.</para>

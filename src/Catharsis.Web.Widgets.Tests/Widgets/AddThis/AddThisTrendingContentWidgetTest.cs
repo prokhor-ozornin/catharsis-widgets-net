@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class AddThisTrendingContentWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public AddThisTrendingContentWidgetTest() => Widget = Fixture.Create<IAddThisTrendingContentWidget>();
+  public AddThisTrendingContentWidgetTest() => Widget = Fixture<IAddThisTrendingContentWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -42,7 +42,7 @@ public sealed class AddThisTrendingContentWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new AddThisTrendingContentWidget());
-      Test(Fixture.Create<AddThisTrendingContentWidget>());
+      Test(Fixture<AddThisTrendingContentWidget>.Create());
     }
 
     return;
@@ -62,7 +62,7 @@ public sealed class AddThisTrendingContentWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new AddThisTrendingContentWidget());
-      Test(Fixture.Create<AddThisTrendingContentWidget>());
+      Test(Fixture<AddThisTrendingContentWidget>.Create());
     }
 
     return;

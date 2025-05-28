@@ -1,7 +1,7 @@
-﻿using AutoFixture;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions.Execution;
 
 namespace Catharsis.Web.Widgets.Tests;
@@ -16,7 +16,7 @@ public sealed class GravatarProfileUrlWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public GravatarProfileUrlWidgetTest() => Widget = Fixture.Create<IGravatarProfileUrlWidget>();
+  public GravatarProfileUrlWidgetTest() => Widget = Fixture<IGravatarProfileUrlWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -47,7 +47,7 @@ public sealed class GravatarProfileUrlWidgetTest : Test
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -66,7 +66,7 @@ public sealed class GravatarProfileUrlWidgetTest : Test
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Format(null)).ThrowExactly<ArgumentNullException>().WithParameterName("format");
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Format(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("format");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -86,7 +86,7 @@ public sealed class GravatarProfileUrlWidgetTest : Test
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Parameter(string.Empty, new object())).ThrowExactly<ArgumentException>().WithMessage("name");
       AssertionExtensions.Should(() => new GravatarProfileUrlWidget().Parameter("name", null)).ThrowExactly<ArgumentNullException>().WithParameterName("value");
 
-      Test(Fixture.Create<string>(), Fixture.Create<Guid>(), Widget);
+      Test(Fixture<string>.Create(), Fixture<Guid>.Create(), Widget);
     }
 
     return;
@@ -103,7 +103,7 @@ public sealed class GravatarProfileUrlWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new GravatarProfileUrlWidget());
-      Test(Fixture.Create<GravatarProfileUrlWidget>());
+      Test(Fixture<GravatarProfileUrlWidget>.Create());
     }
 
     return;
@@ -130,7 +130,7 @@ public sealed class GravatarProfileUrlWidgetTest : Test
       Test(new GravatarProfileUrlWidget().Hash("hash"), "http://www.gravatar.com/hash");
       Test(new GravatarProfileUrlWidget().Hash("hash").Parameter("name", "value"), "http://www.gravatar.com/hash?name=value");
       Test(new GravatarProfileUrlWidget().Hash("hash").Format("format").Parameter("first", 1).Parameter("second", 2), "http://www.gravatar.com/hash.format?first=1&second=2");
-      Test(Fixture.Create<GravatarProfileUrlWidget>());
+      Test(Fixture<GravatarProfileUrlWidget>.Create());
     }
 
     return;

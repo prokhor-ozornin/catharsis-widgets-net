@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class VkontakteInitializationWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public VkontakteInitializationWidgetTest() => Widget = Fixture.Create<IVkontakteInitializationWidget>();
+  public VkontakteInitializationWidgetTest() => Widget = Fixture<IVkontakteInitializationWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -45,7 +45,7 @@ public sealed class VkontakteInitializationWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -62,7 +62,7 @@ public sealed class VkontakteInitializationWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new VkontakteInitializationWidget());
-      Test(Fixture.Create<VkontakteInitializationWidget>());
+      Test(Fixture<VkontakteInitializationWidget>.Create());
     }
 
     return;
@@ -85,7 +85,7 @@ public sealed class VkontakteInitializationWidgetTest : Test
     {
       Test(new VkontakteInitializationWidget());
       Test(new VkontakteInitializationWidget().ApiId("id"), """<script type="text/javascript">""", "VK.init({{apiId:id, onlyWidgets:true}});");
-      Test(Fixture.Create<VkontakteInitializationWidget>());
+      Test(Fixture<VkontakteInitializationWidget>.Create());
     }
 
     return;

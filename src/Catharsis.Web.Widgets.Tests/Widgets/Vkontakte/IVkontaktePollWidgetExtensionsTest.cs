@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class IVkontaktePollWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IVkontaktePollWidgetExtensionsTest() => Widget = Fixture.Create<IVkontaktePollWidget>();
+  public IVkontaktePollWidgetExtensionsTest() => Widget = Fixture<IVkontaktePollWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IVkontaktePollWidgetExtensions.Width(IVkontaktePollWidget, short)"/> method.</para>
@@ -28,7 +28,7 @@ public sealed class IVkontaktePollWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontaktePollWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -47,7 +47,7 @@ public sealed class IVkontaktePollWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IVkontaktePollWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IVkontaktePollWidgetExtensions.Url(new VkontaktePollWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture.Create<Uri>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

@@ -1,5 +1,5 @@
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class IYandexLikeButtonWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IYandexLikeButtonWidgetExtensionsTest() => Widget = Fixture.Create<IYandexLikeButtonWidget>();
+  public IYandexLikeButtonWidgetExtensionsTest() => Widget = Fixture<IYandexLikeButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexLikeButtonWidgetExtensions.Size(IYandexLikeButtonWidget, YandexLikeButtonSize)"/> method.</para>
@@ -65,7 +65,7 @@ public sealed class IYandexLikeButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Url(new YandexLikeButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture.Create<Uri>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

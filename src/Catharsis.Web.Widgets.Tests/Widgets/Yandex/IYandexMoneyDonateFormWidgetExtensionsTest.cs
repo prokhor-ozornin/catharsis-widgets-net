@@ -1,8 +1,8 @@
 ﻿using Xunit;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
-using AutoFixture;
 
 namespace Catharsis.Web.Widgets.Tests;
 
@@ -16,7 +16,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IYandexMoneyDonateFormWidgetExtensionsTest() => Widget = Fixture.Create<IYandexMoneyDonateFormWidget>();
+  public IYandexMoneyDonateFormWidgetExtensionsTest() => Widget = Fixture<IYandexMoneyDonateFormWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexMoneyDonateFormWidgetExtensions.ProjectSite(IYandexMoneyDonateFormWidget, Uri)"/> method.</para>
@@ -29,7 +29,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(new YandexMoneyDonateFormWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture.Create<Uri>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -47,7 +47,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { double.NegativeZero, Fixture.Create<double>() }.ForEach(value => Test(value, Widget));
+      new[] { double.NegativeZero, Fixture<double>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

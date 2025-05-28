@@ -1,5 +1,5 @@
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class DisqusCommentsWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public DisqusCommentsWidgetTest() => Widget = Fixture.Create<IDisqusCommentsWidget>();
+  public DisqusCommentsWidgetTest() => Widget = Fixture<IDisqusCommentsWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -45,7 +45,7 @@ public sealed class DisqusCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new DisqusCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new DisqusCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -62,7 +62,7 @@ public sealed class DisqusCommentsWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new DisqusCommentsWidget());
-      Test(Fixture.Create<DisqusCommentsWidget>());
+      Test(Fixture<DisqusCommentsWidget>.Create());
     }
 
     return;
@@ -87,7 +87,7 @@ public sealed class DisqusCommentsWidgetTest : Test
       Test(new DisqusCommentsWidget().Account("account"), """<div id="disqus_thread"></div>""", """
                                                                                                     var disqus_shortname = "account"
                                                                                                     """);
-      Test(Fixture.Create<DisqusCommentsWidget>());
+      Test(Fixture<DisqusCommentsWidget>.Create());
     }
 
     return;

@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class YandexVideoWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public YandexVideoWidgetTest() => Widget = Fixture.Create<IYandexVideoWidget>();
+  public YandexVideoWidgetTest() => Widget = Fixture<IYandexVideoWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -48,7 +48,7 @@ public sealed class YandexVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YandexVideoWidget().User(null)).ThrowExactly<ArgumentNullException>().WithParameterName("user");
       AssertionExtensions.Should(() => new YandexVideoWidget().User(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("user");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -67,7 +67,7 @@ public sealed class YandexVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YandexVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new YandexVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -86,7 +86,7 @@ public sealed class YandexVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YandexVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new YandexVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -105,7 +105,7 @@ public sealed class YandexVideoWidgetTest : Test
       AssertionExtensions.Should(() => new YandexVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new YandexVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -122,7 +122,7 @@ public sealed class YandexVideoWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new YandexVideoWidget());
-      Test(Fixture.Create<YandexVideoWidget>());
+      Test(Fixture<YandexVideoWidget>.Create());
     }
 
     return;
@@ -152,7 +152,7 @@ public sealed class YandexVideoWidgetTest : Test
       Test(new YandexVideoWidget().Id("id").Width("width").Height("height"));
       Test(new YandexVideoWidget().User("user").Width("width").Height("height"));
       Test(new YandexVideoWidget().Id("id").Height("height").Width("width").User("user"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://video.yandex.ru/iframe/user/id" webkitallowfullscreen="true" width="width"></iframe>""");
-      Test(Fixture.Create<YandexVideoWidget>());
+      Test(Fixture<YandexVideoWidget>.Create());
     }
 
     return;

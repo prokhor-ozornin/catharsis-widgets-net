@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions.Execution;
 using FluentAssertions;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class Share42PanelWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public Share42PanelWidgetTest() => Widget = Fixture.Create<IShare42PanelWidget>();
+  public Share42PanelWidgetTest() => Widget = Fixture<IShare42PanelWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -59,7 +59,7 @@ public sealed class Share42PanelWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -76,7 +76,7 @@ public sealed class Share42PanelWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new Share42PanelWidget());
-      Test(Fixture.Create<Share42PanelWidget>());
+      Test(Fixture<Share42PanelWidget>.Create());
     }
 
     return;
@@ -98,7 +98,7 @@ public sealed class Share42PanelWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Test(Fixture.Create<Share42PanelWidget>());
+      Test(Fixture<Share42PanelWidget>.Create());
       throw new NotImplementedException();
     }
 

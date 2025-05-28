@@ -1,5 +1,5 @@
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class YandexSharePanelWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public YandexSharePanelWidgetTest() => Widget = Fixture.Create<IYandexSharePanelWidget>();
+  public YandexSharePanelWidgetTest() => Widget = Fixture<IYandexSharePanelWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -47,7 +47,7 @@ public sealed class YandexSharePanelWidgetTest : Test
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class YandexSharePanelWidgetTest : Test
     {
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Services(null)).ThrowExactly<ArgumentNullException>().WithParameterName("services");
 
-      new[] { Enumerable.Empty<string>(), [Fixture.Create<string>()] }.ForEach(value => Test(value, Widget));
+      new[] { Enumerable.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -84,7 +84,7 @@ public sealed class YandexSharePanelWidgetTest : Test
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -101,7 +101,7 @@ public sealed class YandexSharePanelWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new YandexSharePanelWidget());
-      Test(Fixture.Create<YandexSharePanelWidget>());
+      Test(Fixture<YandexSharePanelWidget>.Create());
     }
 
     return;
@@ -126,7 +126,7 @@ public sealed class YandexSharePanelWidgetTest : Test
     {
       Test(new YandexSharePanelWidget(), $"""<div class="yashare-auto-init" data-yashareL10n="{Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName}" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,pinterest,surfingbird" data-yashareType="button"></div>""");
       Test(new YandexSharePanelWidget().Services("yaru").Layout(YandexSharePanelLayout.Link).Language("ru"), """<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareQuickServices="yaru" data-yashareType="link"></div>""");
-      Test(Fixture.Create<YandexSharePanelWidget>());
+      Test(Fixture<YandexSharePanelWidget>.Create());
     }
 
     return;

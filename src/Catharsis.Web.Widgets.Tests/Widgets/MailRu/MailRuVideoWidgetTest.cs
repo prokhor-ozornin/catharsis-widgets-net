@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class MailRuVideoWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public MailRuVideoWidgetTest() => Widget = Fixture.Create<IMailRuVideoWidget>();
+  public MailRuVideoWidgetTest() => Widget = Fixture<IMailRuVideoWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -47,7 +47,7 @@ public sealed class MailRuVideoWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new MailRuVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -66,7 +66,7 @@ public sealed class MailRuVideoWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new MailRuVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -85,7 +85,7 @@ public sealed class MailRuVideoWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new MailRuVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -102,7 +102,7 @@ public sealed class MailRuVideoWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new MailRuVideoWidget());
-      Test(Fixture.Create<MailRuVideoWidget>());
+      Test(Fixture<MailRuVideoWidget>.Create());
     }
 
     return;
@@ -130,7 +130,7 @@ public sealed class MailRuVideoWidgetTest : Test
       Test(new MailRuVideoWidget().Id("id").Width("width"));
       Test(new MailRuVideoWidget().Height("height").Width("width"));
       Test(new MailRuVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://api.video.mail.ru/videos/embed/mail/id" webkitallowfullscreen="true" width="width"></iframe>""");
-      Test(Fixture.Create<MailRuVideoWidget>());
+      Test(Fixture<MailRuVideoWidget>.Create());
     }
 
     return;

@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public VkontakteCommentsWidgetTest() => Widget = Fixture.Create<IVkontakteCommentsWidget>();
+  public VkontakteCommentsWidgetTest() => Widget = Fixture<IVkontakteCommentsWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -48,7 +48,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -67,7 +67,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -83,7 +83,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new string[][] { [string.Empty, Fixture.Create<string>()] }.ForEach(value => Test(value, Widget));
+      new string[][] { [string.Empty, Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -102,7 +102,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -167,7 +167,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new VkontakteCommentsWidget());
-      Test(Fixture.Create<VkontakteCommentsWidget>());
+      Test(Fixture<VkontakteCommentsWidget>.Create());
     }
 
     return;
@@ -196,7 +196,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
     {
       Test(new VkontakteCommentsWidget(), """<div id="vk_comments"></div>""", """<script type="text/javascript">""", """VK.Widgets.Comments("vk_comments", {"limit":5,"attach":false});""");
       Test(new VkontakteCommentsWidget().Limit(10).Attach(VkontakteCommentsAttach.All).Width("width").AutoPublish(true).AutoUpdate(true).ElementId("elementId").Mini(true), """<div id="elementId"></div>""", """<script type="text/javascript">""", """VK.Widgets.Comments("elementId", {"limit":10,"attach":"*","width":"width","autoPublish":1,"norealtime":0,"mini":1});""");
-      Test(Fixture.Create<VkontakteCommentsWidget>());
+      Test(Fixture<VkontakteCommentsWidget>.Create());
     }
 
     return;

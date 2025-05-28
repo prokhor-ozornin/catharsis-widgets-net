@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class InlineImageWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public InlineImageWidgetTest() => Widget = Fixture.Create<IInlineImageWidget>();
+  public InlineImageWidgetTest() => Widget = Fixture<IInlineImageWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -64,7 +64,7 @@ public sealed class InlineImageWidgetTest : Test
       AssertionExtensions.Should(() => new InlineImageWidget().Format(null)).ThrowExactly<ArgumentNullException>().WithParameterName("format");
       AssertionExtensions.Should(() => new InlineImageWidget().Format(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("format");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -81,7 +81,7 @@ public sealed class InlineImageWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new InlineImageWidget());
-      Test(Fixture.Create<InlineImageWidget>());
+      Test(Fixture<InlineImageWidget>.Create());
     }
 
     return;
@@ -106,7 +106,7 @@ public sealed class InlineImageWidgetTest : Test
       Test(new InlineImageWidget());
       Test(new InlineImageWidget().Contents(Guid.Empty.ToByteArray()), $"<img src=\"data:image;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>");
       Test(new InlineImageWidget().Contents(Guid.Empty.ToByteArray()).Format("jpg"), $"<img src=\"data:jpg;base64,{Convert.ToBase64String(Guid.Empty.ToByteArray())}\"></img>");
-      Test(Fixture.Create<InlineImageWidget>());
+      Test(Fixture<InlineImageWidget>.Create());
     }
 
     return;

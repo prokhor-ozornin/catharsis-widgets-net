@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -17,7 +17,7 @@ public sealed class IYandexAnalyticsWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IYandexAnalyticsWidgetExtensionsTest() => Widget = Fixture.Create<IYandexAnalyticsWidget>();
+  public IYandexAnalyticsWidgetExtensionsTest() => Widget = Fixture<IYandexAnalyticsWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexAnalyticsWidgetExtensions.Language(IYandexAnalyticsWidget, CultureInfo)"/> method.</para>

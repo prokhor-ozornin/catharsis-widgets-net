@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class VkontaktePostWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public VkontaktePostWidgetTest() => Widget = Fixture.Create<IVkontaktePostWidget>();
+  public VkontaktePostWidgetTest() => Widget = Fixture<IVkontaktePostWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -49,7 +49,7 @@ public sealed class VkontaktePostWidgetTest : Test
       AssertionExtensions.Should(() => new VkontaktePostWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePostWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -68,7 +68,7 @@ public sealed class VkontaktePostWidgetTest : Test
       AssertionExtensions.Should(() => new VkontaktePostWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -87,7 +87,7 @@ public sealed class VkontaktePostWidgetTest : Test
       AssertionExtensions.Should(() => new VkontaktePostWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -106,7 +106,7 @@ public sealed class VkontaktePostWidgetTest : Test
       AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class VkontaktePostWidgetTest : Test
       AssertionExtensions.Should(() => new VkontaktePostWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -142,7 +142,7 @@ public sealed class VkontaktePostWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new VkontaktePostWidget());
-      Test(Fixture.Create<VkontaktePostWidget>());
+      Test(Fixture<VkontaktePostWidget>.Create());
     }
 
     return;
@@ -173,7 +173,7 @@ public sealed class VkontaktePostWidgetTest : Test
       Test(new VkontaktePostWidget().Id("id").Hash("hash"));
       Test(new VkontaktePostWidget().Id("id").Owner("owner").Hash("hash"), """<div id="vk_post_owner_id"></div><script type="text/javascript">(function() { window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post("vk_post_owner_id", owner, id, "hash", {}) || setTimeout(arguments.callee, 50); }());</script>""");
       Test(new VkontaktePostWidget().Id("id").Owner("owner").Hash("hash").ElementId("elementId").Width("width"), """<div id="elementId"></div><script type="text/javascript">(function() { window.VK && VK.Widgets && VK.Widgets.Post && VK.Widgets.Post("elementId", owner, id, "hash", {"width":"width"}) || setTimeout(arguments.callee, 50); }());</script>""");
-      Test(Fixture.Create<VkontaktePostWidget>());
+      Test(Fixture<VkontaktePostWidget>.Create());
     }
 
     return;

@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -17,7 +17,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IPinterestPinItButtonWidgetExtensionsTest() => Widget = Fixture.Create<IPinterestPinItButtonWidget>();
+  public IPinterestPinItButtonWidgetExtensionsTest() => Widget = Fixture<IPinterestPinItButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IPinterestPinItButtonWidgetExtensions.Gray(IPinterestPinItButtonWidget)"/> method.</para>

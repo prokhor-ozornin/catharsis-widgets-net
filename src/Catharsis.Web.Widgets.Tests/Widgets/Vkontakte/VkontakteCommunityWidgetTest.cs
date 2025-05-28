@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public VkontakteCommunityWidgetTest() => Widget = Fixture.Create<IVkontakteCommunityWidget>();
+  public VkontakteCommunityWidgetTest() => Widget = Fixture<IVkontakteCommunityWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -52,7 +52,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().BackgroundColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().BackgroundColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -71,7 +71,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().TextColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().TextColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -90,7 +90,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().ButtonColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().ButtonColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -109,7 +109,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -128,7 +128,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -144,7 +144,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -163,7 +163,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -182,7 +182,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -199,7 +199,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new VkontakteCommunityWidget());
-      Test(Fixture.Create<VkontakteCommunityWidget>());
+      Test(Fixture<VkontakteCommunityWidget>.Create());
     }
 
     return;
@@ -230,7 +230,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       Test(new VkontakteCommunityWidget());
       Test(new VkontakteCommunityWidget(), """<div id="vk_groups_account"></div>""", """<script type="text/javascript">""", """VK.Widgets.Group("vk_groups_account", {"mode":0}, "account");""");
       Test(new VkontakteCommunityWidget().Account("account").Width("width").Height("height").Mode(VkontakteCommunityMode.News).ElementId("elementId").BackgroundColor("backgroundColor").TextColor("textColor").ButtonColor("buttonColor"), """<div id="elementId"></div>""", """<script type="text/javascript">""", """VK.Widgets.Group("elementId", {"mode":2,"wide":1,"width":"width","height":"height","color1":"backgroundColor","color2":"textColor","color3":"buttonColor"}, "account");""");
-      Test(Fixture.Create<VkontakteCommunityWidget>());
+      Test(Fixture<VkontakteCommunityWidget>.Create());
     }
 
     return;

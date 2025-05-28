@@ -1,5 +1,5 @@
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public YandexLikeButtonWidgetTest() => Widget = Fixture.Create<IYandexLikeButtonWidget>();
+  public YandexLikeButtonWidgetTest() => Widget = Fixture<IYandexLikeButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -49,7 +49,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -68,7 +68,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -87,7 +87,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -106,7 +106,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -142,7 +142,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new YandexLikeButtonWidget());
-      Test(Fixture.Create<YandexLikeButtonWidget>());
+      Test(Fixture<YandexLikeButtonWidget>.Create());
     }
 
     return;
@@ -169,7 +169,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
     {
       Test(new YandexLikeButtonWidget(), """<a name="ya-share" size="large" type="button"></a>""");
       Test(new YandexLikeButtonWidget().Layout("icon").Size("small").Text("text").Url("url").Title("title"), """<a name="ya-share" share_text="text" share_title="title" share_url="url" size="small" type="icon"></a>""");
-      Test(Fixture.Create<YandexLikeButtonWidget>());
+      Test(Fixture<YandexLikeButtonWidget>.Create());
     }
 
     return;

@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IYandexMoneyButtonWidgetExtensionsTest() => Widget = Fixture.Create<IYandexMoneyButtonWidget>();
+  public IYandexMoneyButtonWidgetExtensionsTest() => Widget = Fixture<IYandexMoneyButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexMoneyButtonWidgetExtensions.Color(IYandexMoneyButtonWidget, YandexMoneyButtonColor)"/> method.</para>
@@ -66,7 +66,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { double.NegativeZero, Fixture.Create<double>() }.ForEach(value => Test(value, Widget));
+      new[] { double.NegativeZero, Fixture<double>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

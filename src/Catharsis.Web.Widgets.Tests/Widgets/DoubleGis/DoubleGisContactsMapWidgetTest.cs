@@ -1,8 +1,8 @@
-﻿using AutoFixture;
-using FluentAssertions.Execution;
+﻿using FluentAssertions.Execution;
 using FluentAssertions;
 using Xunit;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 
 namespace Catharsis.Web.Widgets.Tests;
 
@@ -16,7 +16,7 @@ public sealed class DoubleGisContactsMapWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public DoubleGisContactsMapWidgetTest() => Widget = Fixture.Create<IDoubleGisContactsMapWidget>();
+  public DoubleGisContactsMapWidgetTest() => Widget = Fixture<IDoubleGisContactsMapWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -42,7 +42,7 @@ public sealed class DoubleGisContactsMapWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new DoubleGisContactsMapWidget());
-      Test(Fixture.Create<DoubleGisContactsMapWidget>());
+      Test(Fixture<DoubleGisContactsMapWidget>.Create());
     }
 
     return;
@@ -62,7 +62,7 @@ public sealed class DoubleGisContactsMapWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new DoubleGisContactsMapWidget());
-      Test(Fixture.Create<DoubleGisContactsMapWidget>());
+      Test(Fixture<DoubleGisContactsMapWidget>.Create());
     }
 
     return;

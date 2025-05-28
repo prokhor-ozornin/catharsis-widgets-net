@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class AddThisShareButtonsWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public AddThisShareButtonsWidgetTest() => Widget = Fixture.Create<IAddThisShareButtonsWidget>();
+  public AddThisShareButtonsWidgetTest() => Widget = Fixture<IAddThisShareButtonsWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -42,7 +42,7 @@ public sealed class AddThisShareButtonsWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new AddThisShareButtonsWidget());
-      Test(Fixture.Create<AddThisShareButtonsWidget>());
+      Test(Fixture<AddThisShareButtonsWidget>.Create());
     }
 
     return;
@@ -62,7 +62,7 @@ public sealed class AddThisShareButtonsWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new AddThisShareButtonsWidget());
-      Test(Fixture.Create<AddThisShareButtonsWidget>());
+      Test(Fixture<AddThisShareButtonsWidget>.Create());
     }
 
     return;

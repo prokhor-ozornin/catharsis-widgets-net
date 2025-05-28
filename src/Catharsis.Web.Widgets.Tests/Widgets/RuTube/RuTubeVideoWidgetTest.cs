@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class RuTubeVideoWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public RuTubeVideoWidgetTest() => Widget = Fixture.Create<IRuTubeVideoWidget>();
+  public RuTubeVideoWidgetTest() => Widget = Fixture<IRuTubeVideoWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -47,7 +47,7 @@ public sealed class RuTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -66,7 +66,7 @@ public sealed class RuTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -85,7 +85,7 @@ public sealed class RuTubeVideoWidgetTest : Test
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new RuTubeVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -102,7 +102,7 @@ public sealed class RuTubeVideoWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new RuTubeVideoWidget());
-      Test(Fixture.Create<RuTubeVideoWidget>());
+      Test(Fixture<RuTubeVideoWidget>.Create());
     }
 
     return;
@@ -130,7 +130,7 @@ public sealed class RuTubeVideoWidgetTest : Test
       Test(new RuTubeVideoWidget().Id("id").Width("width"));
       Test(new RuTubeVideoWidget().Height("height").Width("width"));
       Test(new RuTubeVideoWidget().Id("id").Height("height").Width("width"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" scrolling="no" src="http://rutube.ru/embed/id" webkitallowfullscreen="true" width="width"></iframe>""");
-      Test(Fixture.Create<RuTubeVideoWidget>());
+      Test(Fixture<RuTubeVideoWidget>.Create());
     }
 
     return;

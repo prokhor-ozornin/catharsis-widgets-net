@@ -1,6 +1,6 @@
-﻿using AutoFixture;
-using System.Text;
+﻿using System.Text;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -17,7 +17,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public YandexMoneyDonateFormWidgetTest() => Widget = Fixture.Create<IYandexMoneyDonateFormWidget>();
+  public YandexMoneyDonateFormWidgetTest() => Widget = Fixture<IYandexMoneyDonateFormWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -58,7 +58,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -77,7 +77,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().DescriptionText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().DescriptionText(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("description");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -93,7 +93,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { decimal.MinValue, decimal.MaxValue, Fixture.Create<decimal>() }.ForEach(value => Test(value, Widget));
+      new[] { decimal.MinValue, decimal.MaxValue, Fixture<decimal>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -144,7 +144,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectName(null)).ThrowExactly<ArgumentNullException>().WithParameterName("name");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectName(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("name");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -163,7 +163,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectSite(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().ProjectSite(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -198,7 +198,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().CommentHint(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hint");
       AssertionExtensions.Should(() => new YandexMoneyDonateFormWidget().CommentHint(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hint");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -279,7 +279,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new YandexMoneyDonateFormWidget());
-      Test(Fixture.Create<YandexMoneyDonateFormWidget>());
+      Test(Fixture<YandexMoneyDonateFormWidget>.Create());
     }
 
     return;
@@ -317,7 +317,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : Test
       Test(new YandexMoneyDonateFormWidget().Account("account"));
       Test(new YandexMoneyDonateFormWidget().Account("account").DescriptionText("description"), """<iframe allowtransparency="true" frameborder="0" height="133" scrolling="no" src="https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;payment-type-choice=on&amp;default-sum=&amp;targets=description&amp;project-name=&amp;project-site=&amp;button-text=01" width="523"></iframe>""");
       Test(new YandexMoneyDonateFormWidget().Account("account").DescriptionText("description").Description(true).Sum(1).Cards(false).Text(YandexMoneyDonateFormText.Transfer).ProjectName("projectName").ProjectSite("projectSite").AskPayerComment(true).CommentHint("commentHint").AskPayerFullName(true).AskPayerEmail(true).AskPayerPhone(true), new StringBuilder().Append("""<iframe allowtransparency="true" frameborder="0" height="210" scrolling="no" src="https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;default-sum=1&amp;targets=description&amp;target-visibility=on&amp;project-name=projectName&amp;project-site=projectSite&amp;button-text=03&amp;comment=on&amp;hint=commentHint&amp;fio=on&amp;mail=on&amp;phone=on" width="426"></iframe>""").ToString());
-      Test(Fixture.Create<YandexMoneyDonateFormWidget>());
+      Test(Fixture<YandexMoneyDonateFormWidget>.Create());
     }
 
     return;

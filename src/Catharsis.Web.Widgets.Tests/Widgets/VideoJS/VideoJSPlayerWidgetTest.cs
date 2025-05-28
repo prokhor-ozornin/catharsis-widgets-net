@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public VideoJSPlayerWidgetTest() => Widget = Fixture.Create<IVideoJSPlayerWidget>();
+  public VideoJSPlayerWidgetTest() => Widget = Fixture<IVideoJSPlayerWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -48,7 +48,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Extra(null)).ThrowExactly<ArgumentNullException>().WithParameterName("extra");
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Extra(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("extra");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -67,7 +67,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -86,7 +86,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -104,7 +104,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
     {
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Videos(null)).ThrowExactly<ArgumentNullException>().WithParameterName("videos");
 
-      new[] { Enumerable.Empty<(string Url, string ContentType)>(), [(Fixture.Create<string>(), Fixture.Create<string>())] }.ForEach(value => Test(value, Widget));
+      new[] { Enumerable.Empty<(string Url, string ContentType)>(), [(Fixture<string>.Create(), Fixture<string>.Create())] }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -121,7 +121,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new VideoJSPlayerWidget());
-      Test(Fixture.Create<VideoJSPlayerWidget>());
+      Test(Fixture<VideoJSPlayerWidget>.Create());
     }
 
     return;
@@ -155,7 +155,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
       Test(new VideoJSPlayerWidget().Videos(videos).Width("width"));
       Test(new VideoJSPlayerWidget().Videos(videos).Height("height"));
       Test(new VideoJSPlayerWidget().Videos(videos).Width("width").Height("height").Extra("""<track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"></track>"""), """<video class="video-js vjs-default-skin" controls="controls" data-setup="{}" height="height" preload="auto" width="width"><source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source><source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm"></source><track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"></track></video>""");
-      Test(Fixture.Create<VideoJSPlayerWidget>());
+      Test(Fixture<VideoJSPlayerWidget>.Create());
     }
 
     return;

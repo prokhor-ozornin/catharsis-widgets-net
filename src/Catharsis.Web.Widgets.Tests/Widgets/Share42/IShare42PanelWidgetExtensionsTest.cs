@@ -1,8 +1,8 @@
 ﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions.Execution;
 using FluentAssertions;
 using Xunit;
-using AutoFixture;
 
 namespace Catharsis.Web.Widgets.Tests;
 
@@ -16,7 +16,7 @@ public sealed class IShare42PanelWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IShare42PanelWidgetExtensionsTest() => Widget = Fixture.Create<IShare42PanelWidget>();
+  public IShare42PanelWidgetExtensionsTest() => Widget = Fixture<IShare42PanelWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IShare42PanelWidgetExtensions.Horizontal(IShare42PanelWidget)"/> method.</para>
@@ -46,7 +46,7 @@ public sealed class IShare42PanelWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IShare42PanelWidgetExtensions.Size(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class IVkontakteRecommendationsWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IVkontakteRecommendationsWidgetExtensionsTest() => Widget = Fixture.Create<IVkontakteRecommendationsWidget>();
+  public IVkontakteRecommendationsWidgetExtensionsTest() => Widget = Fixture<IVkontakteRecommendationsWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IVkontakteRecommendationsWidgetExtensions.Limit(IVkontakteRecommendationsWidget, VkontakteRecommendationsLimit)"/> method.</para>

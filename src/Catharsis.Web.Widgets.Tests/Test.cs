@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using Newtonsoft.Json;
 
@@ -7,13 +7,11 @@ namespace Catharsis.Web.Widgets.Tests;
 
 public class Test : IDisposable
 {
-  protected IFixture Fixture { get; } = new Fixture();
-
   protected Test()
   {
     JsonConvert.DefaultSettings = () => new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
 
-    Fixture
+    Fixture.Fixture.Current.Configuration
       .Map<IAddThisFollowButtonsWidget, AddThisFollowButtonsWidget>()
       .Map<IAddThisShareButtonsWidget, AddThisShareButtonsWidget>()
       .Map<IAddThisSmartLayersWidget, AddThisSmartLayersWidget>()

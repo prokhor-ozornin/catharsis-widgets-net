@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class AddThisSmartLayersWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public AddThisSmartLayersWidgetTest() => Widget = Fixture.Create<IAddThisSmartLayersWidget>();
+  public AddThisSmartLayersWidgetTest() => Widget = Fixture<IAddThisSmartLayersWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -42,7 +42,7 @@ public sealed class AddThisSmartLayersWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new AddThisSmartLayersWidget());
-      Test(Fixture.Create<AddThisSmartLayersWidget>());
+      Test(Fixture<AddThisSmartLayersWidget>.Create());
     }
 
     return;
@@ -62,7 +62,7 @@ public sealed class AddThisSmartLayersWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new AddThisSmartLayersWidget());
-      Test(Fixture.Create<AddThisSmartLayersWidget>());
+      Test(Fixture<AddThisSmartLayersWidget>.Create());
     }
 
     return;

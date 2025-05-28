@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class PinterestFollowButtonWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public PinterestFollowButtonWidgetTest() => Widget = Fixture.Create<IPinterestFollowButtonWidget>();
+  public PinterestFollowButtonWidgetTest() => Widget = Fixture<IPinterestFollowButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -46,7 +46,7 @@ public sealed class PinterestFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class PinterestFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Label(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new PinterestFollowButtonWidget().Label(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -82,7 +82,7 @@ public sealed class PinterestFollowButtonWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new PinterestFollowButtonWidget());
-      Test(Fixture.Create<PinterestFollowButtonWidget>());
+      Test(Fixture<PinterestFollowButtonWidget>.Create());
     }
 
     return;
@@ -107,7 +107,7 @@ public sealed class PinterestFollowButtonWidgetTest : Test
       Test(new PinterestFollowButtonWidget());
       Test(new PinterestFollowButtonWidget().Account("account"), """<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">Follow</a>""");
       Test(new PinterestFollowButtonWidget().Account("account").Label("label"), """<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">label</a>""");
-      Test(Fixture.Create<PinterestFollowButtonWidget>());
+      Test(Fixture<PinterestFollowButtonWidget>.Create());
     }
 
     return;

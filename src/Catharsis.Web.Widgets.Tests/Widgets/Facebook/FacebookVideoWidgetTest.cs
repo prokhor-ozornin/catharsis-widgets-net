@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class FacebookVideoWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public FacebookVideoWidgetTest() => Widget = Fixture.Create<IFacebookVideoWidget>();
+  public FacebookVideoWidgetTest() => Widget = Fixture<IFacebookVideoWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -47,7 +47,7 @@ public sealed class FacebookVideoWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookVideoWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new FacebookVideoWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -66,7 +66,7 @@ public sealed class FacebookVideoWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookVideoWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookVideoWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -85,7 +85,7 @@ public sealed class FacebookVideoWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookVideoWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookVideoWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -102,7 +102,7 @@ public sealed class FacebookVideoWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new FacebookVideoWidget());
-      Test(Fixture.Create<FacebookVideoWidget>());
+      Test(Fixture<FacebookVideoWidget>.Create());
     }
 
     return;
@@ -130,7 +130,7 @@ public sealed class FacebookVideoWidgetTest : Test
       Test(new FacebookVideoWidget().Id("id").Height("height"));
       Test(new FacebookVideoWidget().Id("width").Height("height"));
       Test(new FacebookVideoWidget().Id("id").Width("width").Height("height"), """<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.facebook.com/video/embed?video_id=id" webkitallowfullscreen="true" width="width"></iframe>""");
-      Test(Fixture.Create<FacebookVideoWidget>());
+      Test(Fixture<FacebookVideoWidget>.Create());
     }
 
     return;

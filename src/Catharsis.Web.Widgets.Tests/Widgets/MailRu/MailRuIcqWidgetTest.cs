@@ -1,6 +1,6 @@
-﻿using AutoFixture;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -17,7 +17,7 @@ public sealed class MailRuIcqWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public MailRuIcqWidgetTest() => Widget = Fixture.Create<IMailRuIcqWidget>();
+  public MailRuIcqWidgetTest() => Widget = Fixture<IMailRuIcqWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -47,7 +47,7 @@ public sealed class MailRuIcqWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuIcqWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new MailRuIcqWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -66,7 +66,7 @@ public sealed class MailRuIcqWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuIcqWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new MailRuIcqWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -83,7 +83,7 @@ public sealed class MailRuIcqWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new MailRuIcqWidget());
-      Test(Fixture.Create<MailRuIcqWidget>());
+      Test(Fixture<MailRuIcqWidget>.Create());
     }
 
     return;
@@ -107,7 +107,7 @@ public sealed class MailRuIcqWidgetTest : Test
     {
       Test(new MailRuIcqWidget(), new XElement("script", new XAttribute("src", "http://c.icq.com/siteim/icqbar/js/partners/initbar_ru.js"), new XAttribute("type", "text/javascript")).ToString());
       Test(new MailRuIcqWidget().Account("account").Language("en"), "window.ICQ = {siteOwner:'account'};", """<script src="http://c.icq.com/siteim/icqbar/js/partners/initbar_en.js" type="text/javascript"></script>""");
-      Test(Fixture.Create<MailRuIcqWidget>());
+      Test(Fixture<MailRuIcqWidget>.Create());
     }
 
     return;

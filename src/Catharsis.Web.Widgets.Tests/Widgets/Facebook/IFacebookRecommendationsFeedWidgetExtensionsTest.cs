@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IFacebookRecommendationsFeedWidgetExtensionsTest() => Widget = Fixture.Create<IFacebookRecommendationsFeedWidget>();
+  public IFacebookRecommendationsFeedWidgetExtensionsTest() => Widget = Fixture<IFacebookRecommendationsFeedWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookRecommendationsFeedWidgetExtensions.Actions(IFacebookRecommendationsFeedWidget, string[])"/> method.</para>
@@ -28,7 +28,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { Array.Empty<string>(), [Fixture.Create<string>()] }.ForEach(value => Test(value, Widget));
+      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -46,7 +46,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

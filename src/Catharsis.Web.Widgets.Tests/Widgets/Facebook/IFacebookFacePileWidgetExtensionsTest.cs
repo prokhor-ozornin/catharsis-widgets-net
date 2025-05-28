@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public FacebookFacePileWidgetExtensionsTest() => Widget = Fixture.Create<IFacebookFacePileWidget>();
+  public FacebookFacePileWidgetExtensionsTest() => Widget = Fixture<IFacebookFacePileWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookFacePileWidgetExtensions.Actions(IFacebookFacePileWidget, string[])"/> method.</para>
@@ -28,7 +28,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { Array.Empty<string>(), [Fixture.Create<string>()] }.ForEach(value => Test(value, Widget));
+      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -47,7 +47,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Url(new FacebookFacePileWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture.Create<Uri>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -83,7 +83,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -101,7 +101,7 @@ public sealed class FacebookFacePileWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookFacePileWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

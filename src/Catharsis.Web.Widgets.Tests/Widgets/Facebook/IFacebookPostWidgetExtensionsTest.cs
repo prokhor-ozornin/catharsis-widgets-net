@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class IFacebookPostWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IFacebookPostWidgetExtensionsTest() => Widget = Fixture.Create<IFacebookPostWidget>();
+  public IFacebookPostWidgetExtensionsTest() => Widget = Fixture<IFacebookPostWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IFacebookPostWidgetExtensions.Url(IFacebookPostWidget, Uri)"/> method.</para>
@@ -29,7 +29,7 @@ public sealed class IFacebookPostWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Url(new FacebookPostWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture.Create<Uri>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -47,7 +47,7 @@ public sealed class IFacebookPostWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

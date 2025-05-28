@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public SoundCloudProfileIconWidgetTest() => Widget = Fixture.Create<ISoundCloudProfileIconWidget>();
+  public SoundCloudProfileIconWidgetTest() => Widget = Fixture<ISoundCloudProfileIconWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -47,7 +47,7 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -66,7 +66,7 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new SoundCloudProfileIconWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -82,7 +82,7 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -99,7 +99,7 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new SoundCloudProfileIconWidget());
-      Test(Fixture.Create<SoundCloudProfileIconWidget>());
+      Test(Fixture<SoundCloudProfileIconWidget>.Create());
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
       Test(new SoundCloudProfileIconWidget());
       Test(new SoundCloudProfileIconWidget().Account("account"), """<iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://w.soundcloud.com/icon/?url=http://soundcloud.com/account&amp;color=orange_white&amp;size=32" style="width: 32px; height: 32px;"></iframe>""");
       Test(new SoundCloudProfileIconWidget().Account("account").Color("color").Size(1), """<iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://w.soundcloud.com/icon/?url=http://soundcloud.com/account&amp;color=color&amp;size=1" style="width: 1px; height: 1px;"></iframe>""");
-      Test(Fixture.Create<SoundCloudProfileIconWidget>());
+      Test(Fixture<SoundCloudProfileIconWidget>.Create());
     }
 
     return;

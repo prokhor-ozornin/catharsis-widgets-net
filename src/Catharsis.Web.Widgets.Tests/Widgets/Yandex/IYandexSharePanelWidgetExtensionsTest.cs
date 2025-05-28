@@ -1,6 +1,6 @@
 using System.Globalization;
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -17,7 +17,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IYandexSharePanelWidgetExtensionsTest() => Widget = Fixture.Create<IYandexSharePanelWidget>();
+  public IYandexSharePanelWidgetExtensionsTest() => Widget = Fixture<IYandexSharePanelWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IYandexSharePanelWidgetExtensions.Services(IYandexSharePanelWidget, string[])"/> method.</para>
@@ -30,7 +30,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(new YandexSharePanelWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("services");
 
-      new[] { Array.Empty<string>(), [Fixture.Create<string>()] }.ForEach(value => Test(value, Widget));
+      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
     }
 
     return;

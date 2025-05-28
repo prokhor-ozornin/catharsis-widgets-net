@@ -1,5 +1,5 @@
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public ITumblrFollowButtonWidgetExtensionsTest() => Widget = Fixture.Create<ITumblrFollowButtonWidget>();
+  public ITumblrFollowButtonWidgetExtensionsTest() => Widget = Fixture<ITumblrFollowButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="ITumblrFollowButtonWidgetExtensions.Type(ITumblrFollowButtonWidget, TumblrFollowButtonType)"/> method.</para>

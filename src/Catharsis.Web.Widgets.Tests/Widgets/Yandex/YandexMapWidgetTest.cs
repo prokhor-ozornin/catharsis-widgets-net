@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class YandexMapWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public YandexMapWidgetTest() => Widget = Fixture.Create<IYandexMapWidget>();
+  public YandexMapWidgetTest() => Widget = Fixture<IYandexMapWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -42,7 +42,7 @@ public sealed class YandexMapWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new YandexMapWidget());
-      Test(Fixture.Create<YandexMapWidget>());
+      Test(Fixture<YandexMapWidget>.Create());
     }
 
     return;
@@ -63,7 +63,7 @@ public sealed class YandexMapWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Test(Fixture.Create<YandexMapWidget>());
+      Test(Fixture<YandexMapWidget>.Create());
       throw new NotImplementedException();
     }
 

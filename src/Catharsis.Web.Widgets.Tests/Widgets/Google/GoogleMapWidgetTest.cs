@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class GoogleMapWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public GoogleMapWidgetTest() => Widget = Fixture.Create<IGoogleMapWidget>();
+  public GoogleMapWidgetTest() => Widget = Fixture<IGoogleMapWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -42,7 +42,7 @@ public sealed class GoogleMapWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new GoogleMapWidget());
-      Test(Fixture.Create<GoogleMapWidget>());
+      Test(Fixture<GoogleMapWidget>.Create());
     }
 
     return;
@@ -64,7 +64,7 @@ public sealed class GoogleMapWidgetTest : Test
     using (new AssertionScope())
     {
       throw new NotImplementedException();
-      Test(Fixture.Create<GravatarImageUrlWidget>());
+      Test(Fixture<GravatarImageUrlWidget>.Create());
     }
 
     return;

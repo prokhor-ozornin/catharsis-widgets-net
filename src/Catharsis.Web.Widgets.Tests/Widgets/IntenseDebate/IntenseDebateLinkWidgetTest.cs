@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions.Execution;
 using FluentAssertions;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class IntenseDebateLinkWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IntenseDebateLinkWidgetTest() => Widget = Fixture.Create<IIntenseDebateLinkWidget>();
+  public IntenseDebateLinkWidgetTest() => Widget = Fixture<IIntenseDebateLinkWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -48,7 +48,7 @@ public sealed class IntenseDebateLinkWidgetTest : Test
       AssertionExtensions.Should(() => new IntenseDebateLinkWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new IntenseDebateLinkWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -67,7 +67,7 @@ public sealed class IntenseDebateLinkWidgetTest : Test
       AssertionExtensions.Should(() => new IntenseDebateLinkWidget().PostId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new IntenseDebateLinkWidget().PostId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -86,7 +86,7 @@ public sealed class IntenseDebateLinkWidgetTest : Test
       AssertionExtensions.Should(() => new IntenseDebateLinkWidget().PostUrl(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new IntenseDebateLinkWidget().PostUrl(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -105,7 +105,7 @@ public sealed class IntenseDebateLinkWidgetTest : Test
       AssertionExtensions.Should(() => new IntenseDebateLinkWidget().PostTitle(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new IntenseDebateLinkWidget().PostTitle(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -122,7 +122,7 @@ public sealed class IntenseDebateLinkWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new IntenseDebateLinkWidget());
-      Test(Fixture.Create<IntenseDebateLinkWidget>());
+      Test(Fixture<IntenseDebateLinkWidget>.Create());
     }
 
     return;
@@ -154,7 +154,7 @@ public sealed class IntenseDebateLinkWidgetTest : Test
                                                                                                                                                      """, ("""
                                                                                                                                                            var idcomments_post_title = ""
                                                                                                                                                            """));
-      Test(Fixture.Create<IntenseDebateLinkWidget>());
+      Test(Fixture<IntenseDebateLinkWidget>.Create());
     }
 
 

@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class PayPalDonateWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public PayPalDonateWidgetTest() => Widget = Fixture.Create<IPayPalDonateWidget>();
+  public PayPalDonateWidgetTest() => Widget = Fixture<IPayPalDonateWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -60,7 +60,7 @@ public sealed class PayPalDonateWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new PayPalDonateWidget());
-      Test(Fixture.Create<PayPalDonateWidget>());
+      Test(Fixture<PayPalDonateWidget>.Create());
     }
 
     return;
@@ -81,7 +81,7 @@ public sealed class PayPalDonateWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Test(Fixture.Create<PayPalDonateWidget>());
+      Test(Fixture<PayPalDonateWidget>.Create());
       throw new NotImplementedException();
     }
 

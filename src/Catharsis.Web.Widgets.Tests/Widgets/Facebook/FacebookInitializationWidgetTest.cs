@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class FacebookInitializationWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public FacebookInitializationWidgetTest() => Widget = Fixture.Create<IFacebookInitializationWidget>();
+  public FacebookInitializationWidgetTest() => Widget = Fixture<IFacebookInitializationWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -45,7 +45,7 @@ public sealed class FacebookInitializationWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookInitializationWidget().AppId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new FacebookInitializationWidget().AppId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -62,7 +62,7 @@ public sealed class FacebookInitializationWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new FacebookInitializationWidget());
-      Test(Fixture.Create<FacebookInitializationWidget>());
+      Test(Fixture<FacebookInitializationWidget>.Create());
     }
 
     return;
@@ -85,7 +85,7 @@ public sealed class FacebookInitializationWidgetTest : Test
     {
       Test(new FacebookInitializationWidget());
       Test(new FacebookInitializationWidget().AppId("appId"), """<div id="fb-root"></div>""", "//connect.facebook.net/en_US/all.js#xfbml=1&appId=appId");
-      Test(Fixture.Create<FacebookInitializationWidget>());
+      Test(Fixture<FacebookInitializationWidget>.Create());
     }
 
     return;

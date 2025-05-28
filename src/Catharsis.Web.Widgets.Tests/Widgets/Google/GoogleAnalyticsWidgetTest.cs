@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class GoogleAnalyticsWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public GoogleAnalyticsWidgetTest() => Widget = Fixture.Create<IGoogleAnalyticsWidget>();
+  public GoogleAnalyticsWidgetTest() => Widget = Fixture<IGoogleAnalyticsWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -46,7 +46,7 @@ public sealed class GoogleAnalyticsWidgetTest : Test
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class GoogleAnalyticsWidgetTest : Test
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new GoogleAnalyticsWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -82,7 +82,7 @@ public sealed class GoogleAnalyticsWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new GoogleAnalyticsWidget());
-      Test(Fixture.Create<GoogleAnalyticsWidget>());
+      Test(Fixture<GoogleAnalyticsWidget>.Create());
     }
 
     return;
@@ -108,7 +108,7 @@ public sealed class GoogleAnalyticsWidgetTest : Test
       Test(new GoogleAnalyticsWidget().Account("account"));
       Test(new GoogleAnalyticsWidget().Domain("domain"));
       Test(new GoogleAnalyticsWidget().Account("account").Domain("domain"), "//www.google-analytics.com/analytics.js", """ga("create", "account", "domain");""");
-      Test(Fixture.Create<GoogleAnalyticsWidget>());
+      Test(Fixture<GoogleAnalyticsWidget>.Create());
     }
 
     return;

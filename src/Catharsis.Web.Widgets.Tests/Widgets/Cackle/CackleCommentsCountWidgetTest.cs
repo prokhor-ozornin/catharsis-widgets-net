@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class CackleCommentsCountWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public CackleCommentsCountWidgetTest() => Widget = Fixture.Create<ICackleCommentsCountWidget>();
+  public CackleCommentsCountWidgetTest() => Widget = Fixture<ICackleCommentsCountWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -45,7 +45,7 @@ public sealed class CackleCommentsCountWidgetTest : Test
       AssertionExtensions.Should(() => new CackleCommentsCountWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new CackleCommentsCountWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -62,7 +62,7 @@ public sealed class CackleCommentsCountWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new CackleCommentsCountWidget());
-      Test(Fixture.Create<CackleCommentsCountWidget>());
+      Test(Fixture<CackleCommentsCountWidget>.Create());
     }
 
     return;
@@ -85,7 +85,7 @@ public sealed class CackleCommentsCountWidgetTest : Test
     {
       Test(new CackleCommentsCountWidget());
       Test(new CackleCommentsCountWidget().Account("account"), """{"widget":"CommentCount","id":"account"}""");
-      Test(Fixture.Create<CackleCommentsCountWidget>());
+      Test(Fixture<CackleCommentsCountWidget>.Create());
     }
 
     return;

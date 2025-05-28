@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class YandexAnalyticsWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public YandexAnalyticsWidgetTest() => Widget = Fixture.Create<IYandexAnalyticsWidget>();
+  public YandexAnalyticsWidgetTest() => Widget = Fixture<IYandexAnalyticsWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -52,7 +52,7 @@ public sealed class YandexAnalyticsWidgetTest : Test
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -167,7 +167,7 @@ public sealed class YandexAnalyticsWidgetTest : Test
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new YandexAnalyticsWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -184,7 +184,7 @@ public sealed class YandexAnalyticsWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new YandexAnalyticsWidget());
-      Test(Fixture.Create<YandexAnalyticsWidget>());
+      Test(Fixture<YandexAnalyticsWidget>.Create());
     }
 
     return;
@@ -259,7 +259,7 @@ public sealed class YandexAnalyticsWidgetTest : Test
                "ut":"noindex"
                """
         );
-      Test(Fixture.Create<YandexAnalyticsWidget>());
+      Test(Fixture<YandexAnalyticsWidget>.Create());
     }
 
     return;

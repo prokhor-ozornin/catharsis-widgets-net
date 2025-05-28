@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class PinterestPinWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public PinterestPinWidgetTest() => Widget = Fixture.Create<IPinterestPinWidget>();
+  public PinterestPinWidgetTest() => Widget = Fixture<IPinterestPinWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -45,7 +45,7 @@ public sealed class PinterestPinWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestPinWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new PinterestPinWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -62,7 +62,7 @@ public sealed class PinterestPinWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new PinterestPinWidget());
-      Test(Fixture.Create<PinterestPinWidget>());
+      Test(Fixture<PinterestPinWidget>.Create());
     }
 
     return;
@@ -85,7 +85,7 @@ public sealed class PinterestPinWidgetTest : Test
     {
       Test(new PinterestPinWidget());
       Test(new PinterestPinWidget().Id("id"), """<a data-pin-do="embedPin" href="http://www.pinterest.com/pin/id"></a>""");
-      Test(Fixture.Create<PinterestPinWidget>());
+      Test(Fixture<PinterestPinWidget>.Create());
     }
 
     return;

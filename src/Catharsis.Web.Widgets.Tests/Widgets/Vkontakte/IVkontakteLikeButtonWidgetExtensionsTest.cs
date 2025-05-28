@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IVkontakteLikeButtonWidgetExtensionsTest() => Widget = Fixture.Create<IVkontakteLikeButtonWidget>();
+  public IVkontakteLikeButtonWidgetExtensionsTest() => Widget = Fixture<IVkontakteLikeButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IVkontakteLikeButtonWidgetExtensions.Verb(IVkontakteLikeButtonWidget, VkontakteLikeButtonVerb)"/> method.</para>
@@ -64,7 +64,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontakteLikeButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -82,7 +82,7 @@ public sealed class IVkontakteLikeButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontakteLikeButtonWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

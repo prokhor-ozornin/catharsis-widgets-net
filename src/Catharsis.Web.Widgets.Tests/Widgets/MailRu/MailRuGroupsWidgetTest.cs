@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class MailRuGroupsWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public MailRuGroupsWidgetTest() => Widget = Fixture.Create<IMailRuGroupsWidget>();
+  public MailRuGroupsWidgetTest() => Widget = Fixture<IMailRuGroupsWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -52,7 +52,7 @@ public sealed class MailRuGroupsWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -71,7 +71,7 @@ public sealed class MailRuGroupsWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuGroupsWidget().BackgroundColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().BackgroundColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -90,7 +90,7 @@ public sealed class MailRuGroupsWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuGroupsWidget().ButtonColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().ButtonColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -109,7 +109,7 @@ public sealed class MailRuGroupsWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -128,7 +128,7 @@ public sealed class MailRuGroupsWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -163,7 +163,7 @@ public sealed class MailRuGroupsWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuGroupsWidget().TextColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().TextColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -182,7 +182,7 @@ public sealed class MailRuGroupsWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new MailRuGroupsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -199,7 +199,7 @@ public sealed class MailRuGroupsWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new MailRuGroupsWidget());
-      Test(Fixture.Create<MailRuGroupsWidget>());
+      Test(Fixture<MailRuGroupsWidget>.Create());
     }
 
     return;
@@ -233,7 +233,7 @@ public sealed class MailRuGroupsWidgetTest : Test
       Test(new MailRuGroupsWidget().Width("width").Height("height"));
       Test(new MailRuGroupsWidget().Account("account").Width("width").Height("height"), """<a class="mrc__plugin_groups_widget" href="http://connect.mail.ru/groups_widget?group=account&amp;max_sub=50&amp;width=width&amp;height=height&amp;show_subscribers=true" rel="{&quot;group&quot;:&quot;account&quot;,&quot;max_sub&quot;:50,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;,&quot;show_subscribers&quot;:true}" target="_blank">Группы</a>""");
       Test(new MailRuGroupsWidget().Account("account").Width("width").Height("height").Subscribers(false).BackgroundColor("backgroundColor").TextColor("textColor").ButtonColor("buttonColor").Domain("domain"), """<a class="mrc__plugin_groups_widget" href="http://connect.mail.ru/groups_widget?group=account&amp;max_sub=50&amp;width=width&amp;height=height&amp;background=backgroundColor&amp;color=textColor&amp;button_background=buttonColor&amp;domain=domain" rel="{&quot;group&quot;:&quot;account&quot;,&quot;max_sub&quot;:50,&quot;width&quot;:&quot;width&quot;,&quot;height&quot;:&quot;height&quot;,&quot;background&quot;:&quot;backgroundColor&quot;,&quot;color&quot;:&quot;textColor&quot;,&quot;button_background&quot;:&quot;buttonColor&quot;,&quot;domain&quot;:&quot;domain&quot;}" target="_blank">Группы</a>""");
-      Test(Fixture.Create<MailRuGroupsWidget>());
+      Test(Fixture<MailRuGroupsWidget>.Create());
     }
 
     return;

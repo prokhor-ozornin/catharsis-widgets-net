@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public YandexMoneyPaymentFormWidgetTest() => Widget = Fixture.Create<IYandexMoneyPaymentFormWidget>();
+  public YandexMoneyPaymentFormWidgetTest() => Widget = Fixture<IYandexMoneyPaymentFormWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -55,7 +55,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -74,7 +74,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
       AssertionExtensions.Should(() => new YandexMoneyPaymentFormWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("description");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -90,7 +90,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { decimal.MinValue, decimal.MaxValue, Fixture.Create<decimal>() }.ForEach(value => Test(value, Widget));
+      new[] { decimal.MinValue, decimal.MaxValue, Fixture<decimal>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -122,7 +122,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -235,7 +235,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new YandexMoneyPaymentFormWidget());
-      Test(Fixture.Create<YandexMoneyPaymentFormWidget>());
+      Test(Fixture<YandexMoneyPaymentFormWidget>.Create());
     }
 
     return;
@@ -271,7 +271,7 @@ public sealed class YandexMoneyPaymentFormWidgetTest : Test
       Test(new YandexMoneyPaymentFormWidget().Account("account"));
       Test(new YandexMoneyPaymentFormWidget().Account("account").Description("description"), """<iframe allowtransparency="true" frameborder="0" height="200" scrolling="no" src="https://money.yandex.ru/embed/shop.xml?account=account&amp;quickpay=shop&amp;payment-type-choice=on&amp;writer=seller&amp;targets=description&amp;default-sum=&amp;button-text=01" width="450"></iframe>""");
       Test(new YandexMoneyPaymentFormWidget().Account("account").Description("description").Sum(1).Cards(false).Text(YandexMoneyPaymentFormText.Transfer).AskPayerPurpose(true).AskPayerComment(true).AskPayerFullName(true).AskPayerEmail(true).AskPayerPhone(true).AskPayerAddress(true), """<iframe allowtransparency="true" frameborder="0" height="255" scrolling="no" src="https://money.yandex.ru/embed/shop.xml?account=account&amp;quickpay=shop&amp;writer=buyer&amp;targets-hint=description&amp;default-sum=1&amp;button-text=03&amp;comment=on&amp;fio=on&amp;mail=on&amp;phone=on&amp;address=on" width="450"></iframe>""");
-      Test(Fixture.Create<YandexMoneyPaymentFormWidget>());
+      Test(Fixture<YandexMoneyPaymentFormWidget>.Create());
     }
 
     return;

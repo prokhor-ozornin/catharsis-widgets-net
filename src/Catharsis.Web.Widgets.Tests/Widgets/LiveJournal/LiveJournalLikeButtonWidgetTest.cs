@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class LiveJournalLikeButtonWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public LiveJournalLikeButtonWidgetTest() => Widget = Fixture.Create<ILiveJournalLikeButtonWidget>();
+  public LiveJournalLikeButtonWidgetTest() => Widget = Fixture<ILiveJournalLikeButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="LiveJournalLikeButtonWidget.Clone()"/> method.</para>
@@ -27,7 +27,7 @@ public sealed class LiveJournalLikeButtonWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new LiveJournalLikeButtonWidget());
-      Test(Fixture.Create<LiveJournalLikeButtonWidget>());
+      Test(Fixture<LiveJournalLikeButtonWidget>.Create());
     }
 
     return;
@@ -49,7 +49,7 @@ public sealed class LiveJournalLikeButtonWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new LiveJournalLikeButtonWidget(), """<lj-like buttons="repost"/>""");
-      Test(Fixture.Create<LiveJournalLikeButtonWidget>());
+      Test(Fixture<LiveJournalLikeButtonWidget>.Create());
     }
 
     return;

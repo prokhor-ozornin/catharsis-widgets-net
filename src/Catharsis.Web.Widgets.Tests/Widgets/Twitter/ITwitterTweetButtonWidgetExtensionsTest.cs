@@ -1,6 +1,6 @@
 using System.Globalization;
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -17,7 +17,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public ITwitterTweetButtonWidgetExtensionsTest() => Widget = Fixture.Create<ITwitterTweetButtonWidget>();
+  public ITwitterTweetButtonWidgetExtensionsTest() => Widget = Fixture<ITwitterTweetButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="ITwitterTweetButtonWidgetExtensions.Language(ITwitterTweetButtonWidget, CultureInfo)"/> method.</para>
@@ -85,7 +85,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.HashTags(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.HashTags(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("tags");
 
-      new[] { Array.Empty<string>(), [Fixture.Create<string>()] }.ForEach(value => Test(value, Widget));
+      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -104,7 +104,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("accounts");
 
-      new[] { Array.Empty<string>(), [Fixture.Create<string>()] }.ForEach(value => Test(value, Widget));
+      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
     }
 
     return;

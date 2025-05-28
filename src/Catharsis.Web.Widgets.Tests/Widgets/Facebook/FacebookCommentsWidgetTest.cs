@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class FacebookCommentsWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public FacebookCommentsWidgetTest() => Widget = Fixture.Create<IFacebookCommentsWidget>();
+  public FacebookCommentsWidgetTest() => Widget = Fixture<IFacebookCommentsWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -50,7 +50,7 @@ public sealed class FacebookCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookCommentsWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -85,7 +85,7 @@ public sealed class FacebookCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Order(null)).ThrowExactly<ArgumentNullException>().WithParameterName("order");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Order(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("order");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -101,7 +101,7 @@ public sealed class FacebookCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -120,7 +120,7 @@ public sealed class FacebookCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -139,7 +139,7 @@ public sealed class FacebookCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookCommentsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -156,7 +156,7 @@ public sealed class FacebookCommentsWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new FacebookCommentsWidget());
-      Test(Fixture.Create<FacebookCommentsWidget>());
+      Test(Fixture<FacebookCommentsWidget>.Create());
     }
 
     return;
@@ -184,7 +184,7 @@ public sealed class FacebookCommentsWidgetTest : Test
     {
       Test(new FacebookCommentsWidget(), """<div class="fb-comments"></div>""");
       Test(new FacebookCommentsWidget().Url("url").Posts(1).Width("width").ColorScheme(FacebookColorScheme.Dark).Mobile(true).Order(FacebookCommentsOrder.ReverseTime), """<div class="fb-comments" data-colorscheme="dark" data-href="url" data-mobile="true" data-num-posts="1" data-order-by="reverse_time" data-width="width"></div>""");
-      Test(Fixture.Create<FacebookCommentsWidget>());
+      Test(Fixture<FacebookCommentsWidget>.Create());
     }
 
     return;

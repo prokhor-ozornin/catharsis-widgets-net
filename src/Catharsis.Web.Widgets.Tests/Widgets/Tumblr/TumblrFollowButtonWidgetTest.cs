@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class TumblrFollowButtonWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public TumblrFollowButtonWidgetTest() => Widget = Fixture.Create<ITumblrFollowButtonWidget>();
+  public TumblrFollowButtonWidgetTest() => Widget = Fixture<ITumblrFollowButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -47,7 +47,7 @@ public sealed class TumblrFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -63,7 +63,7 @@ public sealed class TumblrFollowButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -82,7 +82,7 @@ public sealed class TumblrFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -99,7 +99,7 @@ public sealed class TumblrFollowButtonWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new TumblrFollowButtonWidget());
-      Test(Fixture.Create<TumblrFollowButtonWidget>());
+      Test(Fixture<TumblrFollowButtonWidget>.Create());
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class TumblrFollowButtonWidgetTest : Test
       Test(new TumblrFollowButtonWidget());
       Test(new TumblrFollowButtonWidget().Account("account"), """<iframe allowtransparency="true" border="0" class="btn" frameborder="0" height="25" scrolling="no" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&amp;tumblelog=account&amp;color_scheme=light" width="189"></iframe>""");
       Test(new TumblrFollowButtonWidget().Account("account").Type(TumblrFollowButtonType.Second).ColorScheme(TumblrFollowButtonColorScheme.Dark), """<iframe allowtransparency="true" border="0" class="btn" frameborder="0" height="25" scrolling="no" src="http://platform.tumblr.com/v1/follow_button.html?button_type=2&amp;tumblelog=account&amp;color_scheme=dark" width="113"></iframe>""");
-      Test(Fixture.Create<TumblrFollowButtonWidget>());
+      Test(Fixture<TumblrFollowButtonWidget>.Create());
     }
 
     return;

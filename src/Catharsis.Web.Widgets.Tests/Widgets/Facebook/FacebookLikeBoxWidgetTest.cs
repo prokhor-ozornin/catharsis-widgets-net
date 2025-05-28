@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class FacebookLikeBoxWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public FacebookLikeBoxWidgetTest() => Widget = Fixture.Create<IFacebookLikeBoxWidget>();
+  public FacebookLikeBoxWidgetTest() => Widget = Fixture<IFacebookLikeBoxWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -69,7 +69,7 @@ public sealed class FacebookLikeBoxWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeBoxWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookLikeBoxWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -120,7 +120,7 @@ public sealed class FacebookLikeBoxWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -155,7 +155,7 @@ public sealed class FacebookLikeBoxWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -190,7 +190,7 @@ public sealed class FacebookLikeBoxWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookLikeBoxWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -207,7 +207,7 @@ public sealed class FacebookLikeBoxWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new FacebookLikeBoxWidget());
-      Test(Fixture.Create<FacebookLikeBoxWidget>());
+      Test(Fixture<FacebookLikeBoxWidget>.Create());
     }
 
     return;
@@ -239,7 +239,7 @@ public sealed class FacebookLikeBoxWidgetTest : Test
       Test(new FacebookLikeBoxWidget());
       Test(new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070"), """<div class="fb-like-box" data-href="https://www.facebook.com/pages/Clear-Words/515749945120070"></div>""");
       Test(new FacebookLikeBoxWidget().Url("https://www.facebook.com/pages/Clear-Words/515749945120070").Width("width").Height("height").ColorScheme(FacebookColorScheme.Dark).Wall(true).Header(true).Border(true).Faces(true).Stream(true), """<div class="fb-like-box" data-colorscheme="dark" data-force-wall="true" data-header="true" data-height="height" data-href="https://www.facebook.com/pages/Clear-Words/515749945120070" data-show-border="true" data-show-faces="true" data-stream="true" data-width="width"></div>""");
-      Test(Fixture.Create<FacebookLikeBoxWidget>());
+      Test(Fixture<FacebookLikeBoxWidget>.Create());
     }
 
     return;

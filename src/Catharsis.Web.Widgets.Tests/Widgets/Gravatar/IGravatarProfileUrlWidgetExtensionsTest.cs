@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IGravatarProfileUrlWidgetExtensionsTest() => Widget = Fixture.Create<IGravatarProfileUrlWidget>();
+  public IGravatarProfileUrlWidgetExtensionsTest() => Widget = Fixture<IGravatarProfileUrlWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IGravatarProfileUrlWidgetExtensions.Email(IGravatarProfileUrlWidget, string)"/> method.</para>
@@ -48,7 +48,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Json(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

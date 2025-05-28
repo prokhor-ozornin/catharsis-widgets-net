@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public LiveJournalRepostButtonWidgetTest() => Widget = Fixture.Create<ILiveJournalRepostButtonWidget>();
+  public LiveJournalRepostButtonWidgetTest() => Widget = Fixture<ILiveJournalRepostButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -46,7 +46,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : Test
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : Test
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new LiveJournalRepostButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -82,7 +82,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new LiveJournalRepostButtonWidget());
-      Test(Fixture.Create<LiveJournalRepostButtonWidget>());
+      Test(Fixture<LiveJournalRepostButtonWidget>.Create());
     }
 
     return;
@@ -106,7 +106,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : Test
       Test(new LiveJournalRepostButtonWidget(), "<lj-repost></lj-repost>");
       Test(new LiveJournalRepostButtonWidget().Title("title"), """<lj-repost button="title"></lj-repost>""");
       Test(new LiveJournalRepostButtonWidget().Title("title").Text("text"), """<lj-repost button="title">text</lj-repost>""");
-      Test(Fixture.Create<LiveJournalRepostButtonWidget>());
+      Test(Fixture<LiveJournalRepostButtonWidget>.Create());
     }
 
     return;

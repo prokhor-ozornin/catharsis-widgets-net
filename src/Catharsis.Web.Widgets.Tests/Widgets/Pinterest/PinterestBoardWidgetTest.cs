@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class PinterestBoardWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public PinterestBoardWidgetTest() => Widget = Fixture.Create<IPinterestBoardWidget>();
+  public PinterestBoardWidgetTest() => Widget = Fixture<IPinterestBoardWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -49,7 +49,7 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -68,7 +68,7 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -87,7 +87,7 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -106,7 +106,7 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("image");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("image");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -142,7 +142,7 @@ public sealed class PinterestBoardWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new PinterestBoardWidget());
-      Test(Fixture.Create<PinterestBoardWidget>());
+      Test(Fixture<PinterestBoardWidget>.Create());
     }
 
     return;
@@ -172,7 +172,7 @@ public sealed class PinterestBoardWidgetTest : Test
       Test(new PinterestBoardWidget().Id("id"));
       Test(new PinterestBoardWidget().Account("account").Id("id"), """<a data-pin-do="embedBoard" href="http://www.pinterest.com/account/id"></a>""");
       Test(new PinterestBoardWidget().Account("account").Id("id").Width("width").Height("height").Image("image"), """<a data-pin-board-width="width" data-pin-do="embedBoard" data-pin-scale-height="height" data-pin-scale-width="image" href="http://www.pinterest.com/account/id"></a>""");
-      Test(Fixture.Create<PinterestBoardWidget>());
+      Test(Fixture<PinterestBoardWidget>.Create());
     }
 
     return;

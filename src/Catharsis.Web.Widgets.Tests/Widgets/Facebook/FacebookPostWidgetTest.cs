@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class FacebookPostWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public FacebookPostWidgetTest() => Widget = Fixture.Create<IFacebookPostWidget>();
+  public FacebookPostWidgetTest() => Widget = Fixture<IFacebookPostWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -46,7 +46,7 @@ public sealed class FacebookPostWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookPostWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookPostWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class FacebookPostWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookPostWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookPostWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -82,7 +82,7 @@ public sealed class FacebookPostWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new FacebookPostWidget());
-      Test(Fixture.Create<FacebookPostWidget>());
+      Test(Fixture<FacebookPostWidget>.Create());
     }
 
     return;
@@ -106,7 +106,7 @@ public sealed class FacebookPostWidgetTest : Test
     {
       Test(new FacebookPostWidget());
       Test(new FacebookPostWidget().Url("url").Width("width"), """<div class="fb-post" data-href="url" data-width="width"></div>""");
-      Test(Fixture.Create<FacebookPostWidget>());
+      Test(Fixture<FacebookPostWidget>.Create());
     }
 
     return;

@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class YandexMoneyButtonWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public YandexMoneyButtonWidgetTest() => Widget = Fixture.Create<IYandexMoneyButtonWidget>();
+  public YandexMoneyButtonWidgetTest() => Widget = Fixture<IYandexMoneyButtonWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -55,7 +55,7 @@ public sealed class YandexMoneyButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -74,7 +74,7 @@ public sealed class YandexMoneyButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -93,7 +93,7 @@ public sealed class YandexMoneyButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("description");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -176,7 +176,7 @@ public sealed class YandexMoneyButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -192,7 +192,7 @@ public sealed class YandexMoneyButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { decimal.MinValue, decimal.MaxValue, Fixture.Create<decimal>() }.ForEach(value => Test(value, Widget));
+      new[] { decimal.MinValue, decimal.MaxValue, Fixture<decimal>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -208,7 +208,7 @@ public sealed class YandexMoneyButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -227,7 +227,7 @@ public sealed class YandexMoneyButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Type(null)).ThrowExactly<ArgumentNullException>().WithParameterName("type");
       AssertionExtensions.Should(() => new YandexMoneyButtonWidget().Type(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("type");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -244,7 +244,7 @@ public sealed class YandexMoneyButtonWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new YandexMoneyButtonWidget());
-      Test(Fixture.Create<YandexMoneyButtonWidget>());
+      Test(Fixture<YandexMoneyButtonWidget>.Create());
     }
 
     return;
@@ -281,7 +281,7 @@ public sealed class YandexMoneyButtonWidgetTest : Test
       Test(new YandexMoneyButtonWidget().Account("account").Description("description"));
       Test(new YandexMoneyButtonWidget().Account("account").Description("description").Sum(1), """<iframe allowtransparency="true" frameborder="0" height="54" scrolling="no" src="https://money.yandex.ru/embed/small.xml?account=account&amp;quickpay=small&amp;yamoney-payment-type=on&amp;button-text=01&amp;button-size=l&amp;button-color=orange&amp;targets=description&amp;default-sum=1" width="229"></iframe>""");
       Test(new YandexMoneyButtonWidget().Account("account").Description("description").Sum(1).Type(YandexMoneyButtonType.Card).Text(YandexMoneyButtonText.Transfer).Size(YandexMoneyButtonSize.Medium).Color(YandexMoneyButtonColor.White).AskPayerFullName(true).AskPayerEmail(true).AskPayerPhone(true).AskPayerAddress(true), """<iframe allowtransparency="true" frameborder="0" height="54" scrolling="no" src="https://money.yandex.ru/embed/small.xml?account=account&amp;quickpay=small&amp;any-card-payment-type=on&amp;button-text=03&amp;button-size=m&amp;button-color=white&amp;targets=description&amp;default-sum=1&amp;fio=on&amp;mail=on&amp;phone=on&amp;address=on" width="242"></iframe>""");
-      Test(Fixture.Create<YandexMoneyButtonWidget>());
+      Test(Fixture<YandexMoneyButtonWidget>.Create());
     }
 
     return;

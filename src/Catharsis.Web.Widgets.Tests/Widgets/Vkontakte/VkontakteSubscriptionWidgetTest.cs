@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class VkontakteSubscriptionWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public VkontakteSubscriptionWidgetTest() => Widget = Fixture.Create<IVkontakteSubscriptionWidget>();
+  public VkontakteSubscriptionWidgetTest() => Widget = Fixture<IVkontakteSubscriptionWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -48,7 +48,7 @@ public sealed class VkontakteSubscriptionWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -67,7 +67,7 @@ public sealed class VkontakteSubscriptionWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteSubscriptionWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture.Create<string>() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -83,7 +83,7 @@ public sealed class VkontakteSubscriptionWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture.Create<byte>() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -116,7 +116,7 @@ public sealed class VkontakteSubscriptionWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new VkontakteSubscriptionWidget());
-      Test(Fixture.Create<VkontakteSubscriptionWidget>());
+      Test(Fixture<VkontakteSubscriptionWidget>.Create());
     }
 
     return;
@@ -147,7 +147,7 @@ public sealed class VkontakteSubscriptionWidgetTest : Test
       Test(new VkontakteSubscriptionWidget().Account("account").Layout(VkontakteSubscriptionButtonLayout.LightButton).ElementId("elementId").OnlyButton(true), """<div id="elementId"></div>""", """
                                                                                                                                                                                                       VK.Widgets.Subscribe("elementId", {"mode":1,"soft":1}, "account"
                                                                                                                                                                                                       """);
-      Test(Fixture.Create<VkontakteSubscriptionWidget>());
+      Test(Fixture<VkontakteSubscriptionWidget>.Create());
     }
 
     return;

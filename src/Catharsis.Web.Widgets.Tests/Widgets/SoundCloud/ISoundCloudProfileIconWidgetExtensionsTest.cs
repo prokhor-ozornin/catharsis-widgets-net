@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public ISoundCloudProfileIconWidgetExtensionsTest() => Widget = Fixture.Create<ISoundCloudProfileIconWidget>();
+  public ISoundCloudProfileIconWidgetExtensionsTest() => Widget = Fixture<ISoundCloudProfileIconWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="ISoundCloudProfileIconWidgetExtensions.OrangeWhite(ISoundCloudProfileIconWidget)"/> method.</para>

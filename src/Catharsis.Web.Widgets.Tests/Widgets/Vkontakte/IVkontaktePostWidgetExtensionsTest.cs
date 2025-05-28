@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public IVkontaktePostWidgetExtensionsTest() => Widget = Fixture.Create<IVkontaktePostWidget>();
+  public IVkontaktePostWidgetExtensionsTest() => Widget = Fixture<IVkontaktePostWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IVkontaktePostWidgetExtensions.Id(IVkontaktePostWidget, long)"/> method.</para>
@@ -28,7 +28,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Id(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { long.MinValue, long.MaxValue, Fixture.Create<long>() }.ForEach(value => Test(value, Widget));
+      new[] { long.MinValue, long.MaxValue, Fixture<long>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -46,7 +46,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Owner(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { long.MinValue, long.MaxValue, Fixture.Create<long>() }.ForEach(value => Test(value, Widget));
+      new[] { long.MinValue, long.MaxValue, Fixture<long>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;
@@ -64,7 +64,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture.Create<short>() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
     }
 
     return;

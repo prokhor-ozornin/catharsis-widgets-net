@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -16,7 +16,7 @@ public sealed class RobokassaPaymentFormWidgetTest : Test
   /// <summary>
   ///   <para>Test constructor.</para>
   /// </summary>
-  public RobokassaPaymentFormWidgetTest() => Widget = Fixture.Create<IRobokassaPaymentFormWidget>();
+  public RobokassaPaymentFormWidgetTest() => Widget = Fixture<IRobokassaPaymentFormWidget>.Create();
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -42,7 +42,7 @@ public sealed class RobokassaPaymentFormWidgetTest : Test
     using (new AssertionScope())
     {
       Test(new RobokassaPaymentFormWidget());
-      Test(Fixture.Create<RobokassaPaymentFormWidget>());
+      Test(Fixture<RobokassaPaymentFormWidget>.Create());
     }
 
     return;
@@ -63,7 +63,7 @@ public sealed class RobokassaPaymentFormWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Test(Fixture.Create<RobokassaPaymentFormWidget>());
+      Test(Fixture<RobokassaPaymentFormWidget>.Create());
       throw new NotImplementedException();
     }
 
