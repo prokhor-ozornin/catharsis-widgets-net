@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
 
 namespace Catharsis.Web.Widgets;
 
