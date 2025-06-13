@@ -45,7 +45,7 @@ public sealed class VkontakteInitializationWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteInitializationWidget().ApiId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(id => Test(id, Widget));
     }
 
     return;

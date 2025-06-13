@@ -48,7 +48,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Extra(null)).ThrowExactly<ArgumentNullException>().WithParameterName("extra");
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Extra(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("extra");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(extra => Test(extra, Widget));
     }
 
     return;
@@ -67,7 +67,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -86,7 +86,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -104,7 +104,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
     {
       AssertionExtensions.Should(() => new VideoJSPlayerWidget().Videos(null)).ThrowExactly<ArgumentNullException>().WithParameterName("videos");
 
-      new[] { Enumerable.Empty<(string Url, string ContentType)>(), [(Fixture<string>.Create(), Fixture<string>.Create())] }.ForEach(value => Test(value, Widget));
+      new[] { Enumerable.Empty<(string Url, string ContentType)>(), [(Fixture<string>.Create(), Fixture<string>.Create())] }.ForEach(videos => Test(videos, Widget));
     }
 
     return;

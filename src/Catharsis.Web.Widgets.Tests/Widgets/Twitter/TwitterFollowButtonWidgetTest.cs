@@ -52,7 +52,7 @@ public sealed class TwitterFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(account => Test(account, Widget));
     }
 
     return;
@@ -71,7 +71,7 @@ public sealed class TwitterFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(language => Test(language, Widget));
     }
 
     return;
@@ -90,7 +90,7 @@ public sealed class TwitterFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(size => Test(size, Widget));
     }
 
     return;
@@ -109,7 +109,7 @@ public sealed class TwitterFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Alignment(null)).ThrowExactly<ArgumentNullException>().WithParameterName("alignment");
       AssertionExtensions.Should(() => new TwitterFollowButtonWidget().Alignment(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("alignment");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(alignment => Test(alignment, Widget));
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class TwitterFollowButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Test(value, Widget));
+      new[] { false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;
@@ -141,7 +141,7 @@ public sealed class TwitterFollowButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Test(value, Widget));
+      new[] { false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;
@@ -157,7 +157,7 @@ public sealed class TwitterFollowButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Test(value, Widget));
+      new[] { false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;

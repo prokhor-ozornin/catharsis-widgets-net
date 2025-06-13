@@ -54,7 +54,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
     {
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("actions");
 
-      new[] { Enumerable.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
+      new[] { Enumerable.Empty<string>(), [Fixture<string>.Create()] }.ForEach(actions => Test(actions, Widget));
     }
 
     return;
@@ -73,7 +73,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().AppId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().AppId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(id => Test(id, Widget));
     }
 
     return;
@@ -92,7 +92,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(scheme => Test(scheme, Widget));
     }
 
     return;
@@ -111,7 +111,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Domain(null)).ThrowExactly<ArgumentNullException>().WithParameterName("domain");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Domain(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("domain");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(id => Test(id, Widget));
     }
 
     return;
@@ -127,7 +127,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Test(value, Widget));
+      new[] { false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;
@@ -146,7 +146,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -165,7 +165,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().LinkTarget(null)).ThrowExactly<ArgumentNullException>().WithParameterName("target");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().LinkTarget(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("target");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(target => Test(target, Widget));
     }
 
     return;
@@ -181,7 +181,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(max => Test(max, Widget));
     }
 
     return;
@@ -197,7 +197,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Test(value, Widget));
+      new[] { false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;
@@ -216,7 +216,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().TrackLabel(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().TrackLabel(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(label => Test(label, Widget));
     }
 
     return;
@@ -235,7 +235,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookActivityFeedWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;

@@ -45,7 +45,7 @@ public sealed class InlineImageWidgetTest : Test
     {
       AssertionExtensions.Should(() => new InlineImageWidget().Contents(null)).ThrowExactly<ArgumentNullException>().WithParameterName("contents");
       
-      new[] { [], new Random().ByteSequence(16).ToArray() }.ForEach(value => Test(value, Widget));
+      new[] { [], new Random().ByteSequence(16).ToArray() }.ForEach(contents => Test(contents, Widget));
     }
 
     return;
@@ -64,7 +64,7 @@ public sealed class InlineImageWidgetTest : Test
       AssertionExtensions.Should(() => new InlineImageWidget().Format(null)).ThrowExactly<ArgumentNullException>().WithParameterName("format");
       AssertionExtensions.Should(() => new InlineImageWidget().Format(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("format");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(format => Test(format, Widget));
     }
 
     return;

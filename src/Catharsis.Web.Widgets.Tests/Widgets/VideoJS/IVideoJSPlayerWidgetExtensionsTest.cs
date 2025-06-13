@@ -28,7 +28,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -46,7 +46,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class IVideoJSPlayerWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IVideoJSPlayerWidgetExtensions.Videos(new VideoJSPlayerWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("videos");
 
-      new[] { Array.Empty<(string Url, string ContentType)>() }.ForEach(value => Test(value, Widget));
+      new[] { Array.Empty<(string Url, string ContentType)>() }.ForEach(videos => Test(videos, Widget));
     }
 
     return;

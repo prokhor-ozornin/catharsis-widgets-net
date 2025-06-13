@@ -48,7 +48,7 @@ public sealed class IMailRuFacesWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -66,7 +66,7 @@ public sealed class IMailRuFacesWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IMailRuFacesWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;

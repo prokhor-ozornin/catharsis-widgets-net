@@ -51,7 +51,7 @@ public sealed class GooglePlusOneButtonWidgetTest : Test
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;
@@ -70,7 +70,7 @@ public sealed class GooglePlusOneButtonWidgetTest : Test
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -89,7 +89,7 @@ public sealed class GooglePlusOneButtonWidgetTest : Test
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(size => Test(size, Widget));
     }
 
     return;
@@ -108,7 +108,7 @@ public sealed class GooglePlusOneButtonWidgetTest : Test
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Alignment(null)).ThrowExactly<ArgumentNullException>().WithParameterName("alignment");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Alignment(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("alignment");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(alignment => Test(alignment, Widget));
     }
 
     return;
@@ -127,7 +127,7 @@ public sealed class GooglePlusOneButtonWidgetTest : Test
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Annotation(null)).ThrowExactly<ArgumentNullException>().WithParameterName("annotation");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Annotation(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("annotation");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(annotation => Test(annotation, Widget));
     }
 
     return;
@@ -146,7 +146,7 @@ public sealed class GooglePlusOneButtonWidgetTest : Test
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Callback(null)).ThrowExactly<ArgumentNullException>().WithParameterName("callback");
       AssertionExtensions.Should(() => new GooglePlusOneButtonWidget().Callback(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("callback");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(callback => Test(callback, Widget));
     }
 
     return;
@@ -162,7 +162,7 @@ public sealed class GooglePlusOneButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Test(value, Widget));
+      new[] { false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;

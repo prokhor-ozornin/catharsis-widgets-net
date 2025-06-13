@@ -49,7 +49,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;
@@ -68,7 +68,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Title(null)).ThrowExactly<ArgumentNullException>().WithParameterName("title");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Title(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("title");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(title => Test(title, Widget));
     }
 
     return;
@@ -87,7 +87,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(size => Test(size, Widget));
     }
 
     return;
@@ -106,7 +106,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(layout => Test(layout, Widget));
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Text(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
       AssertionExtensions.Should(() => new YandexLikeButtonWidget().Text(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("text");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(text => Test(text, Widget));
     }
 
     return;

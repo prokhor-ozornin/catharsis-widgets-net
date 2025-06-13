@@ -118,7 +118,7 @@ public sealed class ISoundCloudProfileIconWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ISoundCloudProfileIconWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<SoundCloudProfileIconSize>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<SoundCloudProfileIconSize>().ForEach(size => Test(size, Widget));
     }
 
     return;

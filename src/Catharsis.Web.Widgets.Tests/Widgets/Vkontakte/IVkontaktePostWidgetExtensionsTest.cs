@@ -28,7 +28,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Id(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { long.MinValue, long.MaxValue, Fixture<long>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { long.MinValue, long.MaxValue, Fixture<long>.Create() }.ForEach(id => Test(id, Widget));
     }
 
     return;
@@ -46,7 +46,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Owner(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { long.MinValue, long.MaxValue, Fixture<long>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { long.MinValue, long.MaxValue, Fixture<long>.Create() }.ForEach(owner => Test(owner, Widget));
     }
 
     return;
@@ -64,7 +64,7 @@ public sealed class IVkontaktePostWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontaktePostWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;

@@ -47,7 +47,7 @@ public sealed class TumblrFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(account => Test(account, Widget));
     }
 
     return;
@@ -63,7 +63,7 @@ public sealed class TumblrFollowButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(type => Test(type, Widget));
     }
 
     return;
@@ -82,7 +82,7 @@ public sealed class TumblrFollowButtonWidgetTest : Test
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new TumblrFollowButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(scheme => Test(scheme, Widget));
     }
 
     return;

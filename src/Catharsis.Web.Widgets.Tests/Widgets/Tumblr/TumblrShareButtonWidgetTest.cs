@@ -43,7 +43,7 @@ public sealed class TumblrShareButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(type => Test(type, Widget));
     }
 
     return;
@@ -62,7 +62,7 @@ public sealed class TumblrShareButtonWidgetTest : Test
       AssertionExtensions.Should(() => new TumblrShareButtonWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new TumblrShareButtonWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(scheme => Test(scheme, Widget));
     }
 
     return;

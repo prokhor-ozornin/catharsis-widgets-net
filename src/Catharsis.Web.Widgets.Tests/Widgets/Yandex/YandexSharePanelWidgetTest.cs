@@ -47,7 +47,7 @@ public sealed class YandexSharePanelWidgetTest : Test
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(language => Test(language, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class YandexSharePanelWidgetTest : Test
     {
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Services(null)).ThrowExactly<ArgumentNullException>().WithParameterName("services");
 
-      new[] { Enumerable.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
+      new[] { Enumerable.Empty<string>(), [Fixture<string>.Create()] }.ForEach(services => Test(services, Widget));
     }
 
     return;
@@ -84,7 +84,7 @@ public sealed class YandexSharePanelWidgetTest : Test
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new YandexSharePanelWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(layout => Test(layout, Widget));
     }
 
     return;

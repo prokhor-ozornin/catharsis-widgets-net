@@ -28,7 +28,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
+      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(actions => Test(actions, Widget));
     }
 
     return;
@@ -46,7 +46,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookRecommendationsFeedWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -83,7 +83,7 @@ public sealed class IFacebookRecommendationsFeedWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookRecommendationsFeedWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<FacebookColorScheme>().ForEach(scheme => Test(scheme, Widget));
     }
 
     return;

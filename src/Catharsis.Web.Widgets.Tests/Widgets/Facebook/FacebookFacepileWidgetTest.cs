@@ -50,7 +50,7 @@ public sealed class FacebookFacePileWidgetTest : Test
     {
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("actions");
 
-      new[] { Enumerable.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
+      new[] { Enumerable.Empty<string>(), [Fixture<string>.Create()] }.ForEach(actions => Test(actions, Widget));
     }
 
     return;
@@ -69,7 +69,7 @@ public sealed class FacebookFacePileWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookFacePileWidget().ColorScheme(null)).ThrowExactly<ArgumentNullException>().WithParameterName("scheme");
       AssertionExtensions.Should(() => new FacebookFacePileWidget().ColorScheme(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("scheme");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(scheme => Test(scheme, Widget));
     }
 
     return;
@@ -88,7 +88,7 @@ public sealed class FacebookFacePileWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -104,7 +104,7 @@ public sealed class FacebookFacePileWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(count => Test(count, Widget));
     }
 
     return;
@@ -123,7 +123,7 @@ public sealed class FacebookFacePileWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookFacePileWidget().PhotoSize(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new FacebookFacePileWidget().PhotoSize(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(size => Test(size, Widget));
     }
 
     return;
@@ -142,7 +142,7 @@ public sealed class FacebookFacePileWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;
@@ -161,7 +161,7 @@ public sealed class FacebookFacePileWidgetTest : Test
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new FacebookFacePileWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;

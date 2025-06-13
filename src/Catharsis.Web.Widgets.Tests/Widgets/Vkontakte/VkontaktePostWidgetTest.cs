@@ -49,7 +49,7 @@ public sealed class VkontaktePostWidgetTest : Test
       AssertionExtensions.Should(() => new VkontaktePostWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePostWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(id => Test(id, Widget));
     }
 
     return;
@@ -68,7 +68,7 @@ public sealed class VkontaktePostWidgetTest : Test
       AssertionExtensions.Should(() => new VkontaktePostWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(hash => Test(hash, Widget));
     }
 
     return;
@@ -87,7 +87,7 @@ public sealed class VkontaktePostWidgetTest : Test
       AssertionExtensions.Should(() => new VkontaktePostWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(id => Test(id, Widget));
     }
 
     return;
@@ -106,7 +106,7 @@ public sealed class VkontaktePostWidgetTest : Test
       AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Owner(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(owner => Test(owner, Widget));
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class VkontaktePostWidgetTest : Test
       AssertionExtensions.Should(() => new VkontaktePostWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontaktePostWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;

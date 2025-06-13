@@ -28,7 +28,7 @@ public sealed class IYandexLikeButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexLikeButtonSize>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<YandexLikeButtonSize>().ForEach(size => Test(size, Widget));
     }
 
     return;
@@ -46,7 +46,7 @@ public sealed class IYandexLikeButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexLikeButtonLayout>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<YandexLikeButtonLayout>().ForEach(layout => Test(layout, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class IYandexLikeButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexLikeButtonWidgetExtensions.Url(new YandexLikeButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;

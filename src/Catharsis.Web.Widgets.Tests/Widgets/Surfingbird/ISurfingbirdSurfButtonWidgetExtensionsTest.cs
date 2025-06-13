@@ -48,7 +48,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -66,7 +66,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -84,7 +84,7 @@ public sealed class ISurfingbirdSurfButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ISurfingbirdSurfButtonWidgetExtensions.Color(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<SurfingbirdSurfButtonColor>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<SurfingbirdSurfButtonColor>().ForEach(color => Test(color, Widget));
     }
 
     return;

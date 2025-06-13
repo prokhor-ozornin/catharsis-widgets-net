@@ -28,7 +28,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Color(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexMoneyButtonColor>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<YandexMoneyButtonColor>().ForEach(color => Test(color, Widget));
     }
 
     return;
@@ -66,7 +66,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { double.NegativeZero, Fixture<double>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { double.NegativeZero, Fixture<double>.Create() }.ForEach(sum => Test(sum, Widget));
     }
 
     return;
@@ -84,7 +84,7 @@ public sealed class IYandexMoneyButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyButtonWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexMoneyButtonText>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<YandexMoneyButtonText>().ForEach(text => Test(text, Widget));
     }
 
     return;

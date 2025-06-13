@@ -48,7 +48,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(limit => Test(limit, Widget));
     }
 
     return;
@@ -67,7 +67,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(id => Test(id, Widget));
     }
 
     return;
@@ -83,7 +83,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new string[][] { [string.Empty, Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
+      new string[][] { [string.Empty, Fixture<string>.Create()] }.ForEach(types => Test(types, Widget));
     }
 
     return;
@@ -102,7 +102,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteCommentsWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -118,7 +118,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Test(value, Widget));
+      new[] { false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;
@@ -134,7 +134,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Test(value, Widget));
+      new[] { false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;
@@ -150,7 +150,7 @@ public sealed class VkontakteCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new bool?[] { null, false, true }.ForEach(value => Test(value, Widget));
+      new bool?[] { null, false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;

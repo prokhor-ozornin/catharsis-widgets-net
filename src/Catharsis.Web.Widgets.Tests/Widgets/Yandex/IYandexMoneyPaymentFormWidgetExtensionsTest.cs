@@ -28,7 +28,7 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyPaymentFormWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { double.NegativeZero, Fixture<double>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { double.NegativeZero, Fixture<double>.Create() }.ForEach(sum => Test(sum, Widget));
     }
 
     return;
@@ -44,7 +44,7 @@ public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<YandexMoneyPaymentFormText>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<YandexMoneyPaymentFormText>().ForEach(text => Test(text, Widget));
     }
 
     return;

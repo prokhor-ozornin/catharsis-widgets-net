@@ -29,7 +29,7 @@ public sealed class IFacebookPostWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Url(new FacebookPostWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;
@@ -47,7 +47,7 @@ public sealed class IFacebookPostWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookPostWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;

@@ -103,7 +103,7 @@ public sealed class IGravatarImageUrlWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Rating(null, GravatarImageRating.G)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Rating(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("rating");
 
-      Enum.GetValues<GravatarImageRating>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<GravatarImageRating>().ForEach(rating => Test(rating, Widget));
     }
 
     return;
@@ -121,7 +121,7 @@ public sealed class IGravatarImageUrlWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGravatarImageUrlWidgetExtensions.Size(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(size => Test(size, Widget));
     }
 
     return;

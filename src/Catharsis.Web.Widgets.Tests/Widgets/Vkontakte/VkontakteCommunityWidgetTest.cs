@@ -52,7 +52,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().BackgroundColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().BackgroundColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(color => Test(color, Widget));
     }
 
     return;
@@ -71,7 +71,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().TextColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().TextColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(color => Test(color, Widget));
     }
 
     return;
@@ -90,7 +90,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().ButtonColor(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().ButtonColor(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(color => Test(color, Widget));
     }
 
     return;
@@ -109,7 +109,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(id => Test(id, Widget));
     }
 
     return;
@@ -128,7 +128,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(account => Test(account, Widget));
     }
 
     return;
@@ -144,7 +144,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(mode => Test(mode, Widget));
     }
 
     return;
@@ -163,7 +163,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -182,7 +182,7 @@ public sealed class VkontakteCommunityWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new VkontakteCommunityWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;

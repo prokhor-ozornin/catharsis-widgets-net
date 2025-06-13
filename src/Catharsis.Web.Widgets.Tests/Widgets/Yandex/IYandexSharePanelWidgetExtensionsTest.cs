@@ -30,7 +30,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Services(new YandexSharePanelWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("services");
 
-      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
+      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(services => Test(services, Widget));
     }
 
     return;
@@ -49,7 +49,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Language(new YandexSharePanelWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
 
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Test(value, Widget));
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Test(culture, Widget));
     }
 
     return;
@@ -67,7 +67,7 @@ public sealed class IYandexSharePanelWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexSharePanelWidgetExtensions.Layout(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexSharePanelLayout>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<YandexSharePanelLayout>().ForEach(layout => Test(layout, Widget));
     }
 
     return;

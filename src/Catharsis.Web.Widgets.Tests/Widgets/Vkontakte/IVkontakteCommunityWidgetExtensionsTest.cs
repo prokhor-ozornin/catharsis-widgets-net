@@ -28,7 +28,7 @@ public sealed class IVkontakteCommunityWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontakteCommunityWidgetExtensions.Mode(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<VkontakteCommunityMode>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<VkontakteCommunityMode>().ForEach(mode => Test(mode, Widget));
     }
 
     return;
@@ -46,7 +46,7 @@ public sealed class IVkontakteCommunityWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontakteCommunityWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -64,7 +64,7 @@ public sealed class IVkontakteCommunityWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IVkontakteCommunityWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;

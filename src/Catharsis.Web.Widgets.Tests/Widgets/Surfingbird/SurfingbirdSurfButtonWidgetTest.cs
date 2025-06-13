@@ -51,7 +51,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : Test
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;
@@ -70,7 +70,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : Test
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Layout(null)).ThrowExactly<ArgumentNullException>().WithParameterName("layout");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Layout(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("layout");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(layout => Test(layout, Widget));
     }
 
     return;
@@ -89,7 +89,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : Test
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -108,7 +108,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : Test
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -124,7 +124,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Test(value, Widget));
+      new[] { false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;
@@ -143,7 +143,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : Test
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Label(null)).ThrowExactly<ArgumentNullException>().WithParameterName("label");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Label(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("label");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(label => Test(label, Widget));
     }
 
     return;
@@ -162,7 +162,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : Test
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new SurfingbirdSurfButtonWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(color => Test(color, Widget));
     }
 
     return;

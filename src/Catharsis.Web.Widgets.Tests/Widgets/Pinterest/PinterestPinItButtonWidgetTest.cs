@@ -52,7 +52,7 @@ public sealed class PinterestPinItButtonWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Color(null)).ThrowExactly<ArgumentNullException>().WithParameterName("color");
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Color(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("color");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(color => Test(color, Widget));
     }
 
     return;
@@ -68,7 +68,7 @@ public sealed class PinterestPinItButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<PinterestPinItButtonPinCountPosition>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<PinterestPinItButtonPinCountPosition>().ForEach(position => Test(position, Widget));
     }
 
     return;
@@ -87,7 +87,7 @@ public sealed class PinterestPinItButtonWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Description(null)).ThrowExactly<ArgumentNullException>().WithParameterName("description");
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Description(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("description");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(description => Test(description, Widget));
     }
 
     return;
@@ -106,7 +106,7 @@ public sealed class PinterestPinItButtonWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("image");
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("image");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(image => Test(image, Widget));
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class PinterestPinItButtonWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Language(null)).ThrowExactly<ArgumentNullException>().WithParameterName("language");
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Language(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("language");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(language => Test(language, Widget));
     }
 
     return;
@@ -141,7 +141,7 @@ public sealed class PinterestPinItButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<PinterestPinItButtonShape>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<PinterestPinItButtonShape>().ForEach(shape => Test(shape, Widget));
     }
 
     return;
@@ -157,7 +157,7 @@ public sealed class PinterestPinItButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<PinterestPinItButtonSize>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<PinterestPinItButtonSize>().ForEach(size => Test(size, Widget));
     }
 
     return;
@@ -176,7 +176,7 @@ public sealed class PinterestPinItButtonWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Url(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Url(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;

@@ -51,7 +51,7 @@ public sealed class MailRuLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Type(null)).ThrowExactly<ArgumentNullException>().WithParameterName("type");
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Type(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("type");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(type => Test(type, Widget));
     }
 
     return;
@@ -70,7 +70,7 @@ public sealed class MailRuLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Size(null)).ThrowExactly<ArgumentNullException>().WithParameterName("size");
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().Size(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("size");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(size => Test(size, Widget));
     }
 
     return;
@@ -86,7 +86,7 @@ public sealed class MailRuLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(layout => Test(layout, Widget));
     }
 
     return;
@@ -102,7 +102,7 @@ public sealed class MailRuLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Test(value, Widget));
+      new[] { false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;
@@ -118,7 +118,7 @@ public sealed class MailRuLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(type => Test(type, Widget));
     }
 
     return;
@@ -134,7 +134,7 @@ public sealed class MailRuLikeButtonWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { false, true }.ForEach(value => Test(value, Widget));
+      new[] { false, true }.ForEach(enabled => Test(enabled, Widget));
     }
 
     return;
@@ -153,7 +153,7 @@ public sealed class MailRuLikeButtonWidgetTest : Test
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().CounterPosition(null)).ThrowExactly<ArgumentNullException>().WithParameterName("position");
       AssertionExtensions.Should(() => new MailRuLikeButtonWidget().CounterPosition(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("position");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(position => Test(position, Widget));
     }
 
     return;

@@ -48,7 +48,7 @@ public sealed class IPinterestPinItButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IPinterestPinItButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => new PinterestPinItButtonWidget().Language((CultureInfo) null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Test(value, Widget));
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Test(culture, Widget));
     }
 
     return;

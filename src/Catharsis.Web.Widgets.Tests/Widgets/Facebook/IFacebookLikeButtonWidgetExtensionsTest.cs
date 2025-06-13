@@ -49,7 +49,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Url(new FacebookLikeButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;
@@ -67,7 +67,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -85,7 +85,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.Verb(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<FacebookLikeButtonVerb>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<FacebookLikeButtonVerb>().ForEach(verb => Test(verb, Widget));
     }
 
     return;
@@ -103,7 +103,7 @@ public sealed class IFacebookLikeButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookLikeButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<FacebookColorScheme>().ForEach(scheme => Test(scheme, Widget));
     }
 
     return;

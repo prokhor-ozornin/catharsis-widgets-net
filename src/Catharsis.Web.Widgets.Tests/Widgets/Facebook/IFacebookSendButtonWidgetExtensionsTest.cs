@@ -29,7 +29,7 @@ public sealed class IFacebookSendButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Url(new FacebookSendButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;
@@ -47,7 +47,7 @@ public sealed class IFacebookSendButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class IFacebookSendButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -87,7 +87,7 @@ public sealed class IFacebookSendButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookSendButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<FacebookColorScheme>().ForEach(scheme => Test(scheme, Widget));
     }
 
     return;

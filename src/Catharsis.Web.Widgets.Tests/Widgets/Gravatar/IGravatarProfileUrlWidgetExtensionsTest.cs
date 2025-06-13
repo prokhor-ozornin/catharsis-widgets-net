@@ -48,7 +48,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Json(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(callback => Test(callback, Widget));
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Qr(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       
-      new[] { short.MinValue, short.MaxValue }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue }.ForEach(size => Test(size, Widget));
     }
 
     return;

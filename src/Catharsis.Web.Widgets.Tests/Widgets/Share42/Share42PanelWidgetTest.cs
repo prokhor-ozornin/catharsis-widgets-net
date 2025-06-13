@@ -43,7 +43,7 @@ public sealed class Share42PanelWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<Share42PanelDirection>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<Share42PanelDirection>().ForEach(direction => Test(direction, Widget));
     }
 
     return;
@@ -59,7 +59,7 @@ public sealed class Share42PanelWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(size => Test(size, Widget));
     }
 
     return;

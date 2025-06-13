@@ -28,7 +28,7 @@ public sealed class ITumblrShareButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITumblrShareButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<TumblrShareButtonType>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<TumblrShareButtonType>().ForEach(type => Test(type, Widget));
     }
 
     return;
@@ -46,7 +46,7 @@ public sealed class ITumblrShareButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITumblrShareButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<TumblrShareButtonColorScheme>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<TumblrShareButtonColorScheme>().ForEach(scheme => Test(scheme, Widget));
     }
 
     return;

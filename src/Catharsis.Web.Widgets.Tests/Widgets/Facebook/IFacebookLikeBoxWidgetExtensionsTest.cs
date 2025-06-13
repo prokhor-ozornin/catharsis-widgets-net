@@ -28,7 +28,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -46,7 +46,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -64,7 +64,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<FacebookColorScheme>().ForEach(scheme => Test(scheme, Widget));
     }
 
     return;
@@ -83,7 +83,7 @@ public sealed class IFacebookLikeBoxWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IFacebookLikeBoxWidgetExtensions.Url(new FacebookLikeBoxWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;

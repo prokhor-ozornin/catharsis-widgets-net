@@ -49,7 +49,7 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(account => Test(account, Widget));
     }
 
     return;
@@ -68,7 +68,7 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Height(null)).ThrowExactly<ArgumentNullException>().WithParameterName("height");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Height(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("height");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -87,7 +87,7 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Width(null)).ThrowExactly<ArgumentNullException>().WithParameterName("width");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Width(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("width");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -106,7 +106,7 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Id(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Id(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(id => Test(id, Widget));
     }
 
     return;
@@ -125,7 +125,7 @@ public sealed class PinterestBoardWidgetTest : Test
       AssertionExtensions.Should(() => new PinterestBoardWidget().Image(null)).ThrowExactly<ArgumentNullException>().WithParameterName("image");
       AssertionExtensions.Should(() => new PinterestBoardWidget().Image(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("image");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(image => Test(image, Widget));
     }
 
     return;

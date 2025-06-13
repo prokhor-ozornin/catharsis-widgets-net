@@ -47,7 +47,7 @@ public sealed class GravatarImageUrlWidgetTest : Test
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Extension(null)).ThrowExactly<ArgumentNullException>().WithParameterName("extension");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Extension(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("extension");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(extension => Test(extension, Widget));
     }
 
     return;
@@ -66,7 +66,7 @@ public sealed class GravatarImageUrlWidgetTest : Test
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Hash(null)).ThrowExactly<ArgumentNullException>().WithParameterName("hash");
       AssertionExtensions.Should(() => new GravatarImageUrlWidget().Hash(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("hash");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(hash => Test(hash, Widget));
     }
 
     return;

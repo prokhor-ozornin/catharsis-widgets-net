@@ -29,7 +29,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.ProjectSite(new YandexMoneyDonateFormWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;
@@ -47,7 +47,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Sum(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { double.NegativeZero, Fixture<double>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { double.NegativeZero, Fixture<double>.Create() }.ForEach(sum => Test(sum, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class IYandexMoneyDonateFormWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexMoneyDonateFormWidgetExtensions.Text(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<YandexMoneyDonateFormText>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<YandexMoneyDonateFormText>().ForEach(text => Test(text, Widget));
     }
 
     return;

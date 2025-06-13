@@ -28,7 +28,7 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITumblrFollowButtonWidgetExtensions.Type(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<TumblrFollowButtonType>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<TumblrFollowButtonType>().ForEach(type => Test(type, Widget));
     }
 
     return;
@@ -46,7 +46,7 @@ public sealed class ITumblrFollowButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITumblrFollowButtonWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<TumblrFollowButtonColorScheme>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<TumblrFollowButtonColorScheme>().ForEach(scheme => Test(scheme, Widget));
     }
 
     return;

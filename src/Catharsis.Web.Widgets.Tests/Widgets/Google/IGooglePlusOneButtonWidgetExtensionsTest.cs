@@ -29,7 +29,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Url(null, "http://localhost".ToUri())).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Url(new GooglePlusOneButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
 
-      new[] { Fixture<Uri>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<Uri>.Create() }.ForEach(url => Test(url, Widget));
     }
 
     return;
@@ -47,7 +47,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<GooglePlusOneButtonSize>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<GooglePlusOneButtonSize>().ForEach(size => Test(size, Widget));
     }
 
     return;
@@ -83,7 +83,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Alignment(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<GooglePlusOneButtonAlignment>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<GooglePlusOneButtonAlignment>().ForEach(alignment => Test(alignment, Widget));
     }
 
     return;
@@ -101,7 +101,7 @@ public sealed class IGooglePlusOneButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGooglePlusOneButtonWidgetExtensions.Annotation(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<GooglePlusOneButtonAnnotation>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<GooglePlusOneButtonAnnotation>().ForEach(annotation => Test(annotation, Widget));
     }
 
     return;

@@ -46,7 +46,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.CssClass(null, "class")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(cssClass => Test(cssClass, Builder));
     }
 
     return;
@@ -81,7 +81,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.CssStyle(null, "style")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(style => Test(style, Builder));
     }
 
     return;
@@ -136,7 +136,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.AccessKey(null, "key")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(key => Test(key, Builder));
     }
 
     return;
@@ -158,7 +158,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.ContentEditable(null, true)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new bool?[] { null, false, true }.ForEach(value => Test(value, Builder));
+      new bool?[] { null, false, true }.ForEach(enabled => Test(enabled, Builder));
     }
 
     return;
@@ -180,7 +180,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.ContextMenu(null, "id")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(id => Test(id, Builder));
     }
 
     return;
@@ -215,7 +215,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.Hidden(null, true)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new bool?[] { null, false, true }.ForEach(value => Test(value, Builder));
+      new bool?[] { null, false, true }.ForEach(enabled => Test(enabled, Builder));
     }
 
     return;
@@ -237,7 +237,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.Id(null, "id")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(id => Test(id, Builder));
     }
 
     return;
@@ -272,7 +272,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.Spellcheck(null, true)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new bool?[] { null, false, true }.ForEach(value => Test(value, Builder));
+      new bool?[] { null, false, true }.ForEach(enabled => Test(enabled, Builder));
     }
 
     return;
@@ -294,7 +294,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.TabIndex(null, uint.MaxValue)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new uint?[] { null, uint.MinValue, uint.MaxValue, Fixture<uint>.Create() }.ForEach(value => Test(value, Builder));
+      new uint?[] { null, uint.MinValue, uint.MaxValue, Fixture<uint>.Create() }.ForEach(index => Test(index, Builder));
     }
 
     return;
@@ -316,7 +316,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.Title(null, "title")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(title => Test(title, Builder));
     }
 
     return;
@@ -338,7 +338,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnBlur(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -360,7 +360,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnChange(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -382,7 +382,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnClick(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -404,7 +404,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnDoubleClick(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -426,7 +426,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnFocus(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -448,7 +448,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnKeyDown(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -470,7 +470,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnKeyPress(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -492,7 +492,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnKeyUp(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -514,7 +514,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnLoad(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -536,7 +536,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseDown(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -558,7 +558,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseMove(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -580,7 +580,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseOut(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -602,7 +602,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseOver(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -624,7 +624,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnMouseUp(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -646,7 +646,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnReset(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -668,7 +668,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnSelect(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -690,7 +690,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnSubmit(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;
@@ -712,7 +712,7 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.OnUnload(null, "script")).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(value => Test(value, Builder));
+      new[] { null, string.Empty, Fixture<string>.Create() }.ForEach(script => Test(script, Builder));
     }
 
     return;

@@ -49,7 +49,7 @@ public sealed class CackleLatestCommentsWidgetTest : Test
       AssertionExtensions.Should(() => new CackleLatestCommentsWidget().Account(null)).ThrowExactly<ArgumentNullException>().WithParameterName("account");
       AssertionExtensions.Should(() => new CackleLatestCommentsWidget().Account(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("account");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(account => Test(account, Widget));
     }
 
     return;
@@ -65,7 +65,7 @@ public sealed class CackleLatestCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(size => Test(size, Widget));
     }
 
     return;
@@ -81,7 +81,7 @@ public sealed class CackleLatestCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(max => Test(max, Widget));
     }
 
     return;
@@ -97,7 +97,7 @@ public sealed class CackleLatestCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { int.MinValue, int.MaxValue, Fixture<int>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { int.MinValue, int.MaxValue, Fixture<int>.Create() }.ForEach(size => Test(size, Widget));
     }
 
     return;
@@ -113,7 +113,7 @@ public sealed class CackleLatestCommentsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { int.MinValue, int.MaxValue, Fixture<int>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { int.MinValue, int.MaxValue, Fixture<int>.Create() }.ForEach(size => Test(size, Widget));
     }
 
     return;

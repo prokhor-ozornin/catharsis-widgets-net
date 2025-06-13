@@ -30,7 +30,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Language(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Language(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("culture");
 
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(value => Test(value, Widget));
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Test(culture, Widget));
     }
 
     return;
@@ -48,7 +48,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.Size(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<TwitterTweetButtonSize>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<TwitterTweetButtonSize>().ForEach(size => Test(size, Widget));
     }
 
     return;
@@ -66,7 +66,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.CounterPosition(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<TwitterTweetButtonCountBoxPosition>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<TwitterTweetButtonCountBoxPosition>().ForEach(position => Test(position, Widget));
     }
 
     return;
@@ -85,7 +85,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.HashTags(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.HashTags(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("tags");
 
-      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
+      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(tags => Test(tags, Widget));
     }
 
     return;
@@ -104,7 +104,7 @@ public sealed class ITwitterTweetButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => ITwitterTweetButtonWidgetExtensions.RelatedAccounts(new TwitterTweetButtonWidget(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("accounts");
 
-      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
+      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(tags => Test(tags, Widget));
     }
 
     return;

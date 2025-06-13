@@ -51,7 +51,7 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().ElementId(null)).ThrowExactly<ArgumentNullException>().WithParameterName("id");
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().ElementId(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("id");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(id => Test(id, Widget));
     }
 
     return;
@@ -67,7 +67,7 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { byte.MinValue, byte.MaxValue, Fixture<byte>.Create() }.ForEach(limit => Test(limit, Widget));
     }
 
     return;
@@ -83,7 +83,7 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(max => Test(max, Widget));
     }
 
     return;
@@ -99,7 +99,7 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<VkontakteRecommendationsPeriod>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<VkontakteRecommendationsPeriod>().ForEach(period => Test(period, Widget));
     }
 
     return;
@@ -115,7 +115,7 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<VkontakteRecommendationsVerb>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<VkontakteRecommendationsVerb>().ForEach(verb => Test(verb, Widget));
     }
 
     return;
@@ -131,7 +131,7 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
   {
     using (new AssertionScope())
     {
-      Enum.GetValues<VkontakteRecommendationsSorting>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<VkontakteRecommendationsSorting>().ForEach(verb => Test(verb, Widget));
     }
 
     return;
@@ -150,7 +150,7 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().Target(null)).ThrowExactly<ArgumentNullException>().WithParameterName("target");
       AssertionExtensions.Should(() => new VkontakteRecommendationsWidget().Target(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("target");
 
-      new[] { Fixture<string>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { Fixture<string>.Create() }.ForEach(target => Test(target, Widget));
     }
 
     return;

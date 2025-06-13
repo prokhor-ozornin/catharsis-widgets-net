@@ -28,7 +28,7 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Actions(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(value => Test(value, Widget));
+      new[] { Array.Empty<string>(), [Fixture<string>.Create()] }.ForEach(actions => Test(actions, Widget));
     }
 
     return;
@@ -46,7 +46,7 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Width(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(width => Test(width, Widget));
     }
 
     return;
@@ -64,7 +64,7 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.Height(null, 0)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(value => Test(value, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(height => Test(height, Widget));
     }
 
     return;
@@ -82,7 +82,7 @@ public sealed class IFacebookActivityFeedWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IFacebookActivityFeedWidgetExtensions.ColorScheme(null, default)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
 
-      Enum.GetValues<FacebookColorScheme>().ForEach(value => Test(value, Widget));
+      Enum.GetValues<FacebookColorScheme>().ForEach(scheme => Test(scheme, Widget));
     }
 
     return;
