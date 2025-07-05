@@ -15,10 +15,7 @@ public sealed class CackleWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="CackleWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(CackleWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ICackleWidgetsCreator>();
-  }
+  public void Constructors() => typeof(CackleWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ICackleWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="CackleWidgetsCreator.Comments()"/> method.</para>

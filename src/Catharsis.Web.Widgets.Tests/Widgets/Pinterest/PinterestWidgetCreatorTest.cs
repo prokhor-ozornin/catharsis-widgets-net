@@ -15,10 +15,7 @@ public sealed class PinterestWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="PinterestWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(PinterestWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IPinterestWidgetsCreator>();
-  }
+  public void Constructors() => typeof(PinterestWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IPinterestWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="PinterestWidgetsCreator.Board()"/> method.</para>

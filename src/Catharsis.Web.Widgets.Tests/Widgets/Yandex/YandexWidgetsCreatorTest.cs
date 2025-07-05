@@ -15,10 +15,7 @@ public sealed class YandexWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="YandexWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(YandexWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IYandexWidgetsCreator>();
-  }
+  public void Constructors() => typeof(YandexWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IYandexWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YandexWidgetsCreator.Analytics()"/> method.</para>

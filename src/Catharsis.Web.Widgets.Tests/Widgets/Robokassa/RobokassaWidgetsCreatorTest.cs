@@ -15,10 +15,7 @@ public sealed class RobokassaWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="RobokassaWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(RobokassaWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IRobokassaWidgetsCreator>();
-  }
+  public void Constructors() => typeof(RobokassaWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IRobokassaWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="RobokassaWidgetsCreator.PaymentForm()"/> method.</para>

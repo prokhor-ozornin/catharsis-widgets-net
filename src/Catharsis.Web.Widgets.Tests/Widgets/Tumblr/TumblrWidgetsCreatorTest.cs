@@ -15,10 +15,7 @@ public sealed class TumblrWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="TumblrWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(TumblrWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ITumblrWidgetsCreator>();
-  }
+  public void Constructors() => typeof(TumblrWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ITumblrWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="TumblrWidgetsCreator.FollowButton()"/> method.</para>

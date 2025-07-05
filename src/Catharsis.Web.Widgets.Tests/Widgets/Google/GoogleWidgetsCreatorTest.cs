@@ -15,10 +15,7 @@ public sealed class GoogleWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="GoogleWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(GoogleWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IGoogleWidgetsCreator>();
-  }
+  public void Constructors() => typeof(GoogleWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IGoogleWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="GoogleWidgetsCreator.Analytics()"/> method.</para>

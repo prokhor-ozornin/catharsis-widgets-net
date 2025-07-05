@@ -15,10 +15,7 @@ public sealed class PayPalWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="PayPalWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(PayPalWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IPayPalWidgetsCreator>();
-  }
+  public void Constructors() => typeof(PayPalWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IPayPalWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="PayPalWidgetsCreator.BuyGiftCertificate()"/> method.</para>

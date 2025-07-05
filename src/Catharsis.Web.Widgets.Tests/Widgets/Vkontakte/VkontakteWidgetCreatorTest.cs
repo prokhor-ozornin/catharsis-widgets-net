@@ -15,10 +15,7 @@ public sealed class VkontakteWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="VkontakteWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(VkontakteWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IVkontakteWidgetsCreator>();
-  }
+  public void Constructors() => typeof(VkontakteWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IVkontakteWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IVkontakteWidgetCreator.AuthButton()"/> method.</para>

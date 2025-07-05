@@ -15,10 +15,7 @@ public sealed class VimeoWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="VimeoWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(VimeoWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IVimeoWidgetsCreator>();
-  }
+  public void Constructors() => typeof(VimeoWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IVimeoWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="VimeoWidgetsCreator.Video()"/> method.</para>

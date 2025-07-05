@@ -15,10 +15,7 @@ public sealed class VideoJsWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="VideoJSWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(VideoJSWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IVideoJSWidgetsCreator>();
-  }
+  public void Constructors() => typeof(VideoJSWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IVideoJSWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="VideoJSWidgetsCreator.Player()"/> method.</para>

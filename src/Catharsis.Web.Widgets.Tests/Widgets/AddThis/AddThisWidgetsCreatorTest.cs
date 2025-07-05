@@ -15,10 +15,7 @@ public sealed class AddThisWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="AddThisWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(AddThisWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IAddThisWidgetsCreator>();
-  }
+  public void Constructors() => typeof(AddThisWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IAddThisWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="AddThisWidgetsCreator.SmartLayers()"/> method.</para>

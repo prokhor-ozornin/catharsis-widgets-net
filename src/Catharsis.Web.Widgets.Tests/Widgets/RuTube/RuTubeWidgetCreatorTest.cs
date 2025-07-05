@@ -16,10 +16,7 @@ public sealed class RuTubeWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="RuTubeWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(RuTubeWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IRuTubeWidgetsCreator>();
-  }
+  public void Constructors() => typeof(RuTubeWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IRuTubeWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="RuTubeWidgetsCreator.Video()"/> method.</para>

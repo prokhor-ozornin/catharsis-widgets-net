@@ -15,10 +15,7 @@ public sealed class GravatarWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="GravatarWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(GravatarWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IGravatarWidgetsCreator>();
-  }
+  public void Constructors() => typeof(GravatarWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IGravatarWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="GravatarWidgetsCreator.ImageUrl()"/> method.</para>

@@ -15,10 +15,7 @@ public sealed class IntenseDebateWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="IntenseDebateWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(IntenseDebateWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IIntenseDebateWidgetsCreator>();
-  }
+  public void Constructors() => typeof(IntenseDebateWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IIntenseDebateWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="IntenseDebateWidgetsCreator.Comments()"/> method.</para>

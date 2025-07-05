@@ -15,10 +15,7 @@ public sealed class LiveJournalWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="LiveJournalWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(LiveJournalWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ILiveJournalWidgetsCreator>();
-  }
+  public void Constructors() => typeof(LiveJournalWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ILiveJournalWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="LiveJournalWidgetsCreator.LikeButton()"/> method.</para>

@@ -15,10 +15,7 @@ public sealed class DoubleGisWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="DoubleGisWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(DoubleGisWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IDoubleGisWidgetsCreator>();
-  }
+  public void Constructors() => typeof(DoubleGisWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IDoubleGisWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="DoubleGisWidgetsCreator.ContactsMap()"/> method.</para>

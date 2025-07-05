@@ -16,10 +16,7 @@ public sealed class Share42WidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="Share42WidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(Share42WidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IShare42WidgetsCreator>();
-  }
+  public void Constructors() => typeof(Share42WidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IShare42WidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Share42WidgetsCreator.Panel()"/> method.</para>

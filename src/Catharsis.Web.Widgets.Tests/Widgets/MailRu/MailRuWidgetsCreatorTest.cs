@@ -15,10 +15,7 @@ public sealed class MailRuWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="MailRuWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(MailRuWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IMailRuWidgetsCreator>();
-  }
+  public void Constructors() => typeof(MailRuWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IMailRuWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MailRuWidgetsCreator.Faces()"/> method.</para>

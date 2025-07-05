@@ -15,10 +15,7 @@ public sealed class SurfingbirdWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="SurfingbirdWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(SurfingbirdWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ISurfingbirdWidgetsCreator>();
-  }
+  public void Constructors() => typeof(SurfingbirdWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ISurfingbirdWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="SurfingbirdWidgetsCreator.SurfButton()"/> method.</para>

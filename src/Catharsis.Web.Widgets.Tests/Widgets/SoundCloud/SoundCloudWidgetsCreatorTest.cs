@@ -15,10 +15,7 @@ public sealed class SoundCloudWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="SoundCloudWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(SoundCloudWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ISoundCloudWidgetsCreator>();
-  }
+  public void Constructors() => typeof(SoundCloudWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ISoundCloudWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="SoundCloudWidgetsCreator.ProfileIcon()"/> method.</para>

@@ -15,10 +15,7 @@ public sealed class YouTubeWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="YouTubeWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(YouTubeWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IYouTubeWidgetsCreator>();
-  }
+  public void Constructors() => typeof(YouTubeWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IYouTubeWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="YouTubeWidgetsCreator.Video()"/> method.</para>

@@ -16,10 +16,7 @@ public sealed class FacebookWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="FacebookWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(FacebookWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IFacebookWidgetsCreator>();
-  }
+  public void Constructors() => typeof(FacebookWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<IFacebookWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="FacebookWidgetsCreator.Initialize()"/> method.</para>

@@ -15,10 +15,7 @@ public sealed class TwitterWidgetsCreatorTest : Test
   /// </summary>
   /// <seealso cref="TwitterWidgetsCreator()"/>
   [Fact]
-  public void Constructors()
-  {
-    typeof(TwitterWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ITwitterWidgetsCreator>();
-  }
+  public void Constructors() => typeof(TwitterWidgetsCreator).Should().BeDerivedFrom<object>().And.Implement<ITwitterWidgetsCreator>();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="TwitterWidgetsCreator.FollowButton()"/> method.</para>
