@@ -34,7 +34,7 @@ public static class IFacebookLikeButtonWidgetExtensions
   /// <param name="widget"></param>
   /// <param name="url"></param>
   /// <returns></returns>
-  /// <exception cref="ArgumentNullException"></exception>
+  /// <exception cref="ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
   public static IFacebookLikeButtonWidget Url(this IFacebookLikeButtonWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
 
   /// <summary>

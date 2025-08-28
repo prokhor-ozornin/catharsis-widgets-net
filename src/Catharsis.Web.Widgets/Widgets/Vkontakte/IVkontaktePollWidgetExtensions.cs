@@ -23,6 +23,6 @@ public static class IVkontaktePollWidgetExtensions
   /// <param name="widget"></param>
   /// <param name="url"></param>
   /// <returns></returns>
-  /// <exception cref="ArgumentNullException"></exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
   public static IVkontaktePollWidget Url(this IVkontaktePollWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
 }

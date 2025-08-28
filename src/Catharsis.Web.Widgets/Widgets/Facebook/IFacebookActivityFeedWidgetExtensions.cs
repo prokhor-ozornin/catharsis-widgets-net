@@ -16,7 +16,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IFacebookActivityFeedWidget.Actions(IEnumerable{string})"/>
-    public static IFacebookActivityFeedWidget Actions(this IFacebookActivityFeedWidget widget, params string[] actions) => widget is not null ? widget.Actions(actions) : throw new ArgumentNullException(nameof(widget));
+    public static IFacebookActivityFeedWidget Actions(this IFacebookActivityFeedWidget widget, params string[] actions) => widget?.Actions(actions) ?? throw new ArgumentNullException(nameof(widget));
 
     /// <summary>
     ///   <para>The width of the widget in pixels.</para>

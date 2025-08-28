@@ -16,8 +16,8 @@ public static class ITagBuilderExtensions
   /// <param name="name"></param>
   /// <param name="value"></param>
   /// <returns></returns>
-  /// <exception cref="ArgumentNullException"></exception>
-  /// <exception cref="ArgumentException"></exception>
+  /// <exception cref="ArgumentNullException">If either <paramref name="builder"/> or <paramref name="name"/> is <see langword="null"/>.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="name"/> is invalid string.</exception>
   public static ITagBuilder Attribute(this ITagBuilder builder, string name, object value)
   {
     if (builder is null) throw new ArgumentNullException(nameof(builder));
@@ -33,8 +33,7 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="attributes"></param>
   /// <returns></returns>
-  /// <exception cref="ArgumentNullException"></exception>
-  /// <exception cref="ArgumentException"></exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
   public static ITagBuilder Attributes(this ITagBuilder builder, IEnumerable<(string Name, object Value)> attributes)
   {
     if (builder is null) throw new ArgumentNullException(nameof(builder));
@@ -50,7 +49,7 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="attributes"></param>
   /// <returns></returns>
-  /// <exception cref="ArgumentNullException"></exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
   public static ITagBuilder Attributes(this ITagBuilder builder, object attributes) => builder?.Attributes(attributes?.GetState()) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
@@ -59,7 +58,7 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="name"></param>
   /// <returns></returns>
-  /// <exception cref="ArgumentNullException"></exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
   public static ITagBuilder CssClass(this ITagBuilder builder, string name) => builder?.CssClasses(name) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
@@ -68,8 +67,7 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="names"></param>
   /// <returns></returns>
-  /// <exception cref="ArgumentNullException"></exception>
-  /// <exception cref="ArgumentException"></exception>
+  /// <exception cref="ArgumentNullException">If either <paramref name="builder"/> or <paramref name="names"/> is <see langword="null"/>.</exception>
   public static ITagBuilder CssClasses(this ITagBuilder builder, IEnumerable<string> names)
   {
     if (builder is null) throw new ArgumentNullException(nameof(builder));
@@ -83,8 +81,7 @@ public static class ITagBuilderExtensions
   /// </summary>
   /// <param name="builder"></param>
   /// <param name="names"></param>
-  /// <exception cref="ArgumentNullException"></exception>
-  /// <exception cref="ArgumentException"></exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
   public static ITagBuilder CssClasses(this ITagBuilder builder, params string[] names) => builder?.CssClasses(names as IEnumerable<string>) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
@@ -93,7 +90,7 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="style"></param>
   /// <returns></returns>
-  /// <exception cref="ArgumentNullException"></exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
   public static ITagBuilder CssStyle(this ITagBuilder builder, string style) => builder?.Attribute("style", style) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
@@ -102,8 +99,7 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="styles"></param>
   /// <returns></returns>
-  /// <exception cref="ArgumentNullException"></exception>
-  /// <exception cref="ArgumentException"></exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
   public static ITagBuilder CssStyles(this ITagBuilder builder, IEnumerable<(string Name, string Value)> styles)
   {
     if (builder is null) throw new ArgumentNullException(nameof(builder));
@@ -117,9 +113,14 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="styles"></param>
   /// <returns></returns>
-  /// <exception cref="ArgumentNullException"></exception>
-  /// <exception cref="ArgumentException"></exception>
-  public static ITagBuilder CssStyles(this ITagBuilder builder, IEnumerable<(string Name, object Value)> styles) => builder?.CssStyles(styles.Select(style => (style.Name, style.Value?.ToInvariantString()))) ?? throw new ArgumentNullException(nameof(builder));
+  /// <exception cref="ArgumentNullException">If either <paramref name="builder"/> or <paramref name="styles"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder CssStyles(this ITagBuilder builder, IEnumerable<(string Name, object Value)> styles)
+  {
+    if (builder is null) throw new ArgumentNullException(nameof(builder));
+    if (styles is null) throw new ArgumentNullException(nameof(styles));
+    
+    return builder.CssStyles(styles.Select(style => (style.Name, style.Value?.ToInvariantString()))); 
+  }
 
   /// <summary>
   ///   <para></para>
@@ -159,7 +160,7 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="direction"></param>
   /// <returns></returns>
-  /// <exception cref="ArgumentNullException"></exception>
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
   public static ITagBuilder TextDirection(this ITagBuilder builder, TextDirection direction)
   {
     if (builder is null) throw new ArgumentNullException(nameof(builder));
