@@ -15,7 +15,7 @@ public static class IFacebookCommentsWidgetExtensions
   /// <param name="url"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
-  public static IFacebookCommentsWidget Url(this IFacebookCommentsWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookCommentsWidget Url(this IFacebookCommentsWidget widget, Uri url) => widget?.Url(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The width of the widget.</para>
@@ -25,7 +25,7 @@ public static class IFacebookCommentsWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookCommentsWidget.Width(string)"/>
-  public static IFacebookCommentsWidget Width(this IFacebookCommentsWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookCommentsWidget Width(this IFacebookCommentsWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>
@@ -35,7 +35,7 @@ public static class IFacebookCommentsWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookCommentsWidget.ColorScheme(string)"/>
-  public static IFacebookCommentsWidget ColorScheme(this IFacebookCommentsWidget widget, FacebookColorScheme scheme) => widget is not null ? widget.ColorScheme(scheme.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookCommentsWidget ColorScheme(this IFacebookCommentsWidget widget, FacebookColorScheme scheme) => widget?.ColorScheme(scheme.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The order to use when displaying comments.</para>

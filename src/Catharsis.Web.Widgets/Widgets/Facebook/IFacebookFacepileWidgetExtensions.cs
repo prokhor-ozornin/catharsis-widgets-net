@@ -16,7 +16,7 @@ public static class IFacebookFacePileWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFacePileWidget.Actions(IEnumerable{string})"/>
-  public static IFacebookFacePileWidget Actions(this IFacebookFacePileWidget widget, params string[] actions) => widget is not null ? widget.Actions(actions) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFacePileWidget Actions(this IFacebookFacePileWidget widget, params string[] actions) => widget?.Actions(actions) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Controls the size of the photos shown in the widget.</para>
@@ -26,7 +26,7 @@ public static class IFacebookFacePileWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFacePileWidget.PhotoSize(string)"/>
-  public static IFacebookFacePileWidget PhotoSize(this IFacebookFacePileWidget widget, FacebookFacePilePhotoSize size) => widget is not null ? widget.PhotoSize(size.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFacePileWidget PhotoSize(this IFacebookFacePileWidget widget, FacebookFacePilePhotoSize size) => widget?.PhotoSize(size.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para></para>
@@ -35,7 +35,7 @@ public static class IFacebookFacePileWidgetExtensions
   /// <param name="url"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
-  public static IFacebookFacePileWidget Url(this IFacebookFacePileWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFacePileWidget Url(this IFacebookFacePileWidget widget, Uri url) => widget?.Url(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The width of the widget in pixels.</para>
@@ -45,7 +45,7 @@ public static class IFacebookFacePileWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFacePileWidget.Width(string)"/>
-  public static IFacebookFacePileWidget Width(this IFacebookFacePileWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFacePileWidget Width(this IFacebookFacePileWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The height of the widget in pixels.</para>
@@ -55,7 +55,7 @@ public static class IFacebookFacePileWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFacePileWidget.Height(string)"/>
-  public static IFacebookFacePileWidget Height(this IFacebookFacePileWidget widget, short height) => widget is not null ? widget.Height(height.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFacePileWidget Height(this IFacebookFacePileWidget widget, short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The color scheme used by the widget.</para>
@@ -65,5 +65,5 @@ public static class IFacebookFacePileWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFacePileWidget.ColorScheme(string)"/>
-  public static IFacebookFacePileWidget ColorScheme(this IFacebookFacePileWidget widget, FacebookColorScheme scheme) => widget is not null ? widget.ColorScheme(scheme.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFacePileWidget ColorScheme(this IFacebookFacePileWidget widget, FacebookColorScheme scheme) => widget?.ColorScheme(scheme.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 }

@@ -14,7 +14,7 @@ public static class IYandexLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IYandexLikeButtonWidget.Size(string)"/>
-  public static IYandexLikeButtonWidget Size(this IYandexLikeButtonWidget widget, YandexLikeButtonSize size) => widget is not null ? widget.Size(size.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IYandexLikeButtonWidget Size(this IYandexLikeButtonWidget widget, YandexLikeButtonSize size) => widget?.Size(size.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Visual layout/appearance of the button.</para>
@@ -24,7 +24,7 @@ public static class IYandexLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IYandexLikeButtonWidget.Layout(string)"/>
-  public static IYandexLikeButtonWidget Layout(this IYandexLikeButtonWidget widget, YandexLikeButtonLayout layout) => widget is not null ? widget.Layout(layout.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IYandexLikeButtonWidget Layout(this IYandexLikeButtonWidget widget, YandexLikeButtonLayout layout) => widget?.Layout(layout.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para></para>
@@ -33,5 +33,5 @@ public static class IYandexLikeButtonWidgetExtensions
   /// <param name="url"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
-  public static IYandexLikeButtonWidget Url(this IYandexLikeButtonWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+  public static IYandexLikeButtonWidget Url(this IYandexLikeButtonWidget widget, Uri url) => widget?.Url(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
 }

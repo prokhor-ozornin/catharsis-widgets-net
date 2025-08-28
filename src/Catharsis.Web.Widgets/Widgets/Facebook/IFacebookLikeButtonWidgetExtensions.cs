@@ -35,7 +35,7 @@ public static class IFacebookLikeButtonWidgetExtensions
   /// <param name="url"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
-  public static IFacebookLikeButtonWidget Url(this IFacebookLikeButtonWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookLikeButtonWidget Url(this IFacebookLikeButtonWidget widget, Uri url) => widget?.Url(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The width of the button. The layout you choose affects the minimum and default widths you can use.</para>
@@ -45,7 +45,7 @@ public static class IFacebookLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookLikeButtonWidget.Width(string)"/>
-  public static IFacebookLikeButtonWidget Width(this IFacebookLikeButtonWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookLikeButtonWidget Width(this IFacebookLikeButtonWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The verb to display on the button.</para>
@@ -55,7 +55,7 @@ public static class IFacebookLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookLikeButtonWidget.Verb(string)"/>
-  public static IFacebookLikeButtonWidget Verb(this IFacebookLikeButtonWidget widget, FacebookLikeButtonVerb verb) => widget is not null ? widget.Verb(verb.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookLikeButtonWidget Verb(this IFacebookLikeButtonWidget widget, FacebookLikeButtonVerb verb) => widget?.Verb(verb.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Color scheme used by the button.</para>
@@ -65,5 +65,5 @@ public static class IFacebookLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookLikeButtonWidget.ColorScheme(string)"/>
-  public static IFacebookLikeButtonWidget ColorScheme(this IFacebookLikeButtonWidget widget, FacebookColorScheme scheme) => widget is not null ? widget.ColorScheme(scheme.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookLikeButtonWidget ColorScheme(this IFacebookLikeButtonWidget widget, FacebookColorScheme scheme) => widget?.ColorScheme(scheme.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 }

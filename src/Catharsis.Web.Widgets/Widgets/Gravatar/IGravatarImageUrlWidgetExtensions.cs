@@ -76,7 +76,7 @@ public static class IGravatarImageUrlWidgetExtensions
   /// <param name="widget">Widget to call method on.</param>
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IGravatarImageUrlWidget ForceDefault(this IGravatarImageUrlWidget widget) => widget is not null ? widget.Parameter("forcedefault", "y") : throw new ArgumentNullException(nameof(widget));
+  public static IGravatarImageUrlWidget ForceDefault(this IGravatarImageUrlWidget widget) => widget?.Parameter("forcedefault", "y") ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Rating of avatar's image that represents audience restrictions.</para>
@@ -104,7 +104,7 @@ public static class IGravatarImageUrlWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="Rating(IGravatarImageUrlWidget, string)"/>
-  public static IGravatarImageUrlWidget Rating(this IGravatarImageUrlWidget widget, GravatarImageRating rating) => widget is not null ? widget.Rating(rating.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IGravatarImageUrlWidget Rating(this IGravatarImageUrlWidget widget, GravatarImageRating rating) => widget?.Rating(rating.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Size of avatar's image in pixels (both width and height).</para>
@@ -113,5 +113,5 @@ public static class IGravatarImageUrlWidgetExtensions
   /// <param name="size">Size of image.</param>
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IGravatarImageUrlWidget Size(this IGravatarImageUrlWidget widget, short size) => widget is not null ? widget.Parameter("size", size) : throw new ArgumentNullException(nameof(widget));
+  public static IGravatarImageUrlWidget Size(this IGravatarImageUrlWidget widget, short size) => widget?.Parameter("size", size) ?? throw new ArgumentNullException(nameof(widget));
 }

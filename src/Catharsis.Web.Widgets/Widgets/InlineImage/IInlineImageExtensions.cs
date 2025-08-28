@@ -12,7 +12,7 @@ public static class IInlineImageExtensions
   /// <param name="widget"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IInlineImageWidget Jpg(this IInlineImageWidget widget) => widget is not null ? widget.Format("jpg") : throw new ArgumentNullException(nameof(widget));
+  public static IInlineImageWidget Jpg(this IInlineImageWidget widget) => widget?.Format("jpg") ?? throw new ArgumentNullException(nameof(widget));
     
   /// <summary>
   ///   <para></para>
@@ -20,7 +20,7 @@ public static class IInlineImageExtensions
   /// <param name="widget"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IInlineImageWidget Png(this IInlineImageWidget widget) => widget is not null ? widget.Format("png") : throw new ArgumentNullException(nameof(widget));
+  public static IInlineImageWidget Png(this IInlineImageWidget widget) => widget?.Format("png") ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para></para>
@@ -28,5 +28,5 @@ public static class IInlineImageExtensions
   /// <param name="widget"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IInlineImageWidget Gif(this IInlineImageWidget widget) => widget is not null ? widget.Format("gif") : throw new ArgumentNullException(nameof(widget));
+  public static IInlineImageWidget Gif(this IInlineImageWidget widget) => widget?.Format("gif") ?? throw new ArgumentNullException(nameof(widget));
 }

@@ -32,8 +32,8 @@
             <param name="name"></param>
             <param name="value"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="builder"/> or <paramref name="name"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="name"/> is invalid string.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Attributes(Catharsis.Web.Widgets.ITagBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.Object}})">
             <summary>
@@ -42,8 +42,7 @@
             <param name="builder"></param>
             <param name="attributes"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Attributes(Catharsis.Web.Widgets.ITagBuilder,System.Object)">
             <summary>
@@ -52,7 +51,7 @@
             <param name="builder"></param>
             <param name="attributes"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssClass(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -61,7 +60,7 @@
             <param name="builder"></param>
             <param name="name"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssClasses(Catharsis.Web.Widgets.ITagBuilder,System.Collections.Generic.IEnumerable{System.String})">
             <summary>
@@ -70,8 +69,7 @@
             <param name="builder"></param>
             <param name="names"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="builder"/> or <paramref name="names"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssClasses(Catharsis.Web.Widgets.ITagBuilder,System.String[])">
             <summary>
@@ -79,8 +77,7 @@
             </summary>
             <param name="builder"></param>
             <param name="names"></param>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssStyle(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -89,7 +86,7 @@
             <param name="builder"></param>
             <param name="style"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssStyles(Catharsis.Web.Widgets.ITagBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}})">
             <summary>
@@ -98,8 +95,7 @@
             <param name="builder"></param>
             <param name="styles"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssStyles(Catharsis.Web.Widgets.ITagBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.Object}})">
             <summary>
@@ -108,8 +104,7 @@
             <param name="builder"></param>
             <param name="styles"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="builder"/> or <paramref name="styles"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.AccessKey(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -150,7 +145,7 @@
             <param name="builder"></param>
             <param name="direction"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Hidden(Catharsis.Web.Widgets.ITagBuilder,System.Nullable{System.Boolean})">
             <summary>
@@ -2716,7 +2711,7 @@
             <param name="widget"></param>
             <param name="url"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookCommentsWidgetExtensions.Width(Catharsis.Web.Widgets.IFacebookCommentsWidget,System.Int16)">
             <summary>
@@ -2848,7 +2843,7 @@
             <param name="widget"></param>
             <param name="url"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookFacePileWidgetExtensions.Width(Catharsis.Web.Widgets.IFacebookFacePileWidget,System.Int16)">
             <summary>
@@ -3000,7 +2995,7 @@
             <param name="widget"></param>
             <param name="url"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
         </member>
         <member name="T:Catharsis.Web.Widgets.IFacebookInitializationWidget">
             <summary>
@@ -3140,7 +3135,7 @@
             <param name="widget"></param>
             <param name="url"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
         </member>
         <member name="T:Catharsis.Web.Widgets.IFacebookLikeButtonWidget">
             <summary>
@@ -3240,7 +3235,7 @@
             <param name="widget"></param>
             <param name="url"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeButtonWidgetExtensions.Width(Catharsis.Web.Widgets.IFacebookLikeButtonWidget,System.Int16)">
             <summary>
@@ -3311,7 +3306,7 @@
             <param name="widget"></param>
             <param name="url"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookPostWidgetExtensions.Width(Catharsis.Web.Widgets.IFacebookPostWidget,System.Int16)">
             <summary>
@@ -3533,7 +3528,7 @@
             <param name="widget"></param>
             <param name="url"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookSendButtonWidgetExtensions.Width(Catharsis.Web.Widgets.IFacebookSendButtonWidget,System.Int16)">
             <summary>
@@ -3922,7 +3917,7 @@
             <param name="widget"></param>
             <param name="url"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.IGooglePlusOneButtonWidgetExtensions.Width(Catharsis.Web.Widgets.IGooglePlusOneButtonWidget,System.Int16)">
             <summary>
@@ -8802,7 +8797,7 @@
             <param name="widget"></param>
             <param name="url"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Catharsis.Web.Widgets.IVkontaktePostWidget">
             <summary>
@@ -10114,7 +10109,7 @@
             <param name="widget"></param>
             <param name="url"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Catharsis.Web.Widgets.IYandexMapWidget">
             <summary>
@@ -10391,7 +10386,7 @@
             <param name="widget"></param>
             <param name="url"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidgetExtensions.Sum(Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget,System.Double)">
             <summary>

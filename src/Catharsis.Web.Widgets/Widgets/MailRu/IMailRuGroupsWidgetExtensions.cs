@@ -16,7 +16,7 @@ public static class IMailRuGroupsWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IMailRuGroupsWidget.Height(string)"/>
-  public static IMailRuGroupsWidget Height(this IMailRuGroupsWidget widget, short height) => widget is not null ? widget.Height(height.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IMailRuGroupsWidget Height(this IMailRuGroupsWidget widget, short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Width of Groups box area.</para>
@@ -26,5 +26,5 @@ public static class IMailRuGroupsWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IMailRuGroupsWidget.Width(string)"/>
-  public static IMailRuGroupsWidget Width(this IMailRuGroupsWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IMailRuGroupsWidget Width(this IMailRuGroupsWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 }

@@ -13,7 +13,7 @@ public static class ISoundCloudProfileIconWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ISoundCloudProfileIconWidget.Color(string)"/>
-  public static ISoundCloudProfileIconWidget BlackWhite(this ISoundCloudProfileIconWidget widget) => widget is not null ? widget.Color("black_white") : throw new ArgumentNullException(nameof(widget));
+  public static ISoundCloudProfileIconWidget BlackWhite(this ISoundCloudProfileIconWidget widget) => widget?.Color("black_white") ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Sets color of profile icon to transparent-orange pattern.</para>
@@ -22,7 +22,7 @@ public static class ISoundCloudProfileIconWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ISoundCloudProfileIconWidget.Color(string)"/>
-  public static ISoundCloudProfileIconWidget OrangeTransparent(this ISoundCloudProfileIconWidget widget) => widget is not null ? widget.Color("orange_transparent") : throw new ArgumentNullException(nameof(widget));
+  public static ISoundCloudProfileIconWidget OrangeTransparent(this ISoundCloudProfileIconWidget widget) => widget?.Color("orange_transparent") ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Sets color of profile icon to orange-and-white pattern.</para>
@@ -31,7 +31,7 @@ public static class ISoundCloudProfileIconWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ISoundCloudProfileIconWidget.Color(string)"/>
-  public static ISoundCloudProfileIconWidget OrangeWhite(this ISoundCloudProfileIconWidget widget) => widget is not null ? widget.Color("orange_white") : throw new ArgumentNullException(nameof(widget));
+  public static ISoundCloudProfileIconWidget OrangeWhite(this ISoundCloudProfileIconWidget widget) => widget?.Color("orange_white") ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Edge size of profile icon in pixels.</para>
@@ -41,7 +41,7 @@ public static class ISoundCloudProfileIconWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ISoundCloudProfileIconWidget.Size(short)"/>
-  public static ISoundCloudProfileIconWidget Size(this ISoundCloudProfileIconWidget widget, SoundCloudProfileIconSize size) => widget is not null ? widget.Size((short) size) : throw new ArgumentNullException(nameof(widget));
+  public static ISoundCloudProfileIconWidget Size(this ISoundCloudProfileIconWidget widget, SoundCloudProfileIconSize size) => widget?.Size((short) size) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Sets color of profile icon to white-and-orange pattern.</para>
@@ -50,7 +50,7 @@ public static class ISoundCloudProfileIconWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ISoundCloudProfileIconWidget.Color(string)"/>
-  public static ISoundCloudProfileIconWidget WhiteOrange(this ISoundCloudProfileIconWidget widget) => widget is not null ? widget.Color("white_orange") : throw new ArgumentNullException(nameof(widget));
+  public static ISoundCloudProfileIconWidget WhiteOrange(this ISoundCloudProfileIconWidget widget) => widget?.Color("white_orange") ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Sets color of profile icon to transparent-white pattern.</para>
@@ -59,5 +59,5 @@ public static class ISoundCloudProfileIconWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ISoundCloudProfileIconWidget.Color(string)"/>
-  public static ISoundCloudProfileIconWidget WhiteTransparent(this ISoundCloudProfileIconWidget widget) => widget is not null ? widget.Color("white_transparent") : throw new ArgumentNullException(nameof(widget));
+  public static ISoundCloudProfileIconWidget WhiteTransparent(this ISoundCloudProfileIconWidget widget) => widget?.Color("white_transparent") ?? throw new ArgumentNullException(nameof(widget));
 }

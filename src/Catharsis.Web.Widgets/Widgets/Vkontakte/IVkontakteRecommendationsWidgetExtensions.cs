@@ -13,5 +13,5 @@ public static class IVkontakteRecommendationsWidgetExtensions
   /// <param name="limit">Maximum number of pages.</param>
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IVkontakteRecommendationsWidget Limit(this IVkontakteRecommendationsWidget widget, VkontakteRecommendationsLimit limit) => widget is not null ? widget.Limit((byte)limit) : throw new ArgumentNullException(nameof(widget));
+  public static IVkontakteRecommendationsWidget Limit(this IVkontakteRecommendationsWidget widget, VkontakteRecommendationsLimit limit) => widget?.Limit((byte) limit) ?? throw new ArgumentNullException(nameof(widget));
 }

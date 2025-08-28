@@ -16,7 +16,7 @@ public static class IPinterestBoardWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IPinterestBoardWidget.Height(string)"/>
-  public static IPinterestBoardWidget Height(this IPinterestBoardWidget widget, short height) => widget is not null ? widget.Height(height.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestBoardWidget Height(this IPinterestBoardWidget widget, short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Total width of board in pixels.</para>
@@ -26,7 +26,7 @@ public static class IPinterestBoardWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IPinterestBoardWidget.Width(string)"/>
-  public static IPinterestBoardWidget Width(this IPinterestBoardWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestBoardWidget Width(this IPinterestBoardWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Sets predefined dimensions of board and images to make board look like a site's header.</para>
@@ -37,7 +37,7 @@ public static class IPinterestBoardWidgetExtensions
   /// <seealso cref="IPinterestBoardWidget.Image(string)"/>
   /// <seealso cref="IPinterestBoardWidget.Height(string)"/>
   /// <seealso cref="IPinterestBoardWidget.Width(string)"/>
-  public static IPinterestBoardWidget Header(this IPinterestBoardWidget widget) => widget is not null ? widget.Image(115).Height(120).Width(900) : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestBoardWidget Header(this IPinterestBoardWidget widget) => widget?.Image(115).Height(120).Width(900) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Width of board's image in pixels.</para>
@@ -47,7 +47,7 @@ public static class IPinterestBoardWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IPinterestBoardWidget.Image(string)"/>
-  public static IPinterestBoardWidget Image(this IPinterestBoardWidget widget, short width) => widget is not null ? widget.Image(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestBoardWidget Image(this IPinterestBoardWidget widget, short width) => widget?.Image(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Sets predefined dimensions of board and images to make board look like a site's sidebar.</para>
@@ -58,7 +58,7 @@ public static class IPinterestBoardWidgetExtensions
   /// <seealso cref="IPinterestBoardWidget.Image(string)"/>
   /// <seealso cref="IPinterestBoardWidget.Height(string)"/>
   /// <seealso cref="IPinterestBoardWidget.Width(string)"/>
-  public static IPinterestBoardWidget Sidebar(this IPinterestBoardWidget widget) => widget is not null ? widget.Image(60).Height(800).Width(150) : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestBoardWidget Sidebar(this IPinterestBoardWidget widget) => widget?.Image(60).Height(800).Width(150) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Sets predefined dimensions of board and images to make board look like a site's square.</para>
@@ -69,5 +69,5 @@ public static class IPinterestBoardWidgetExtensions
   /// <seealso cref="IPinterestBoardWidget.Image(string)"/>
   /// <seealso cref="IPinterestBoardWidget.Height(string)"/>
   /// <seealso cref="IPinterestBoardWidget.Width(string)"/>
-  public static IPinterestBoardWidget Square(this IPinterestBoardWidget widget) => widget is not null ? widget.Image(80).Height(320).Width(400) : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestBoardWidget Square(this IPinterestBoardWidget widget) => widget?.Image(80).Height(320).Width(400) ?? throw new ArgumentNullException(nameof(widget));
 }

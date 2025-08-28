@@ -16,7 +16,7 @@ public static class IVkontakteCommentsWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IVkontakteCommentsWidget.Limit(byte)"/>
-  public static IVkontakteCommentsWidget Limit(this IVkontakteCommentsWidget widget, VkontakteCommentsLimit limit) => widget is not null ? widget.Limit((byte) limit) : throw new ArgumentNullException(nameof(widget));
+  public static IVkontakteCommentsWidget Limit(this IVkontakteCommentsWidget widget, VkontakteCommentsLimit limit) => widget?.Limit((byte) limit) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Collection of attachment types, which are allowed in comment posts.</para>
@@ -26,7 +26,7 @@ public static class IVkontakteCommentsWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IVkontakteCommentsWidget.Attach(string[])"/>
-  public static IVkontakteCommentsWidget Attach(this IVkontakteCommentsWidget widget, params VkontakteCommentsAttach[] types) => widget is not null ? widget.Attach(types.Select(item => item == VkontakteCommentsAttach.All ? "*" : item.ToString().ToLowerInvariant()).ToArray()) : throw new ArgumentNullException(nameof(widget));
+  public static IVkontakteCommentsWidget Attach(this IVkontakteCommentsWidget widget, params VkontakteCommentsAttach[] types) => widget?.Attach(types.Select(item => item == VkontakteCommentsAttach.All ? "*" : item.ToString().ToLowerInvariant()).ToArray()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Horizontal width of comment area.</para>
@@ -36,5 +36,5 @@ public static class IVkontakteCommentsWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IVkontakteCommentsWidget.Width(string)"/>
-  public static IVkontakteCommentsWidget Width(this IVkontakteCommentsWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IVkontakteCommentsWidget Width(this IVkontakteCommentsWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 }

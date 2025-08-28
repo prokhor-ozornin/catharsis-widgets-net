@@ -32,7 +32,7 @@ public static class ITwitterTweetButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ITwitterTweetButtonWidget.Size(string)"/>
-  public static ITwitterTweetButtonWidget Size(this ITwitterTweetButtonWidget widget, TwitterTweetButtonSize size) => widget is not null ? widget.Size(size.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static ITwitterTweetButtonWidget Size(this ITwitterTweetButtonWidget widget, TwitterTweetButtonSize size) => widget?.Size(size.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Count box position.</para>
@@ -42,7 +42,7 @@ public static class ITwitterTweetButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ITwitterTweetButtonWidget.CounterPosition(string)"/>
-  public static ITwitterTweetButtonWidget CounterPosition(this ITwitterTweetButtonWidget widget, TwitterTweetButtonCountBoxPosition position) => widget is not null ? widget.CounterPosition(position.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static ITwitterTweetButtonWidget CounterPosition(this ITwitterTweetButtonWidget widget, TwitterTweetButtonCountBoxPosition position) => widget?.CounterPosition(position.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Collection of hashtags which are to be appended to tweet text.</para>
@@ -68,5 +68,5 @@ public static class ITwitterTweetButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ITwitterTweetButtonWidget.RelatedAccounts(IEnumerable{string})"/>
-  public static ITwitterTweetButtonWidget RelatedAccounts(this ITwitterTweetButtonWidget widget, params string[] accounts) => widget is not null ? widget.RelatedAccounts(accounts) : throw new ArgumentNullException(nameof(widget));
+  public static ITwitterTweetButtonWidget RelatedAccounts(this ITwitterTweetButtonWidget widget, params string[] accounts) => widget?.RelatedAccounts(accounts) ?? throw new ArgumentNullException(nameof(widget));
 }

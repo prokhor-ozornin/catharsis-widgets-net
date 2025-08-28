@@ -16,7 +16,7 @@ public static class IYandexSharePanelWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IYandexSharePanelWidget.Services(IEnumerable{string})"/>
-  public static IYandexSharePanelWidget Services(this IYandexSharePanelWidget widget, params string[] services) => widget is not null ? widget.Services(services) : throw new ArgumentNullException(nameof(widget));
+  public static IYandexSharePanelWidget Services(this IYandexSharePanelWidget widget, params string[] services) => widget?.Services(services) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Button's interface language.</para>
@@ -42,5 +42,5 @@ public static class IYandexSharePanelWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IYandexSharePanelWidget.Layout(string)"/>
-  public static IYandexSharePanelWidget Layout(this IYandexSharePanelWidget widget, YandexSharePanelLayout layout) => widget is not null ? widget.Layout(layout.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IYandexSharePanelWidget Layout(this IYandexSharePanelWidget widget, YandexSharePanelLayout layout) => widget?.Layout(layout.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 }

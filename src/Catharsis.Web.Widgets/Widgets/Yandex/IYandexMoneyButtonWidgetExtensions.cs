@@ -14,7 +14,7 @@ public static class IYandexMoneyButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IYandexMoneyButtonWidget.Color(string)"/>
-  public static IYandexMoneyButtonWidget Color(this IYandexMoneyButtonWidget widget, YandexMoneyButtonColor color) => widget is not null ? widget.Color(color.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IYandexMoneyButtonWidget Color(this IYandexMoneyButtonWidget widget, YandexMoneyButtonColor color) => widget?.Color(color.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Size of button.</para>
@@ -43,7 +43,7 @@ public static class IYandexMoneyButtonWidgetExtensions
   /// <param name="sum">Payment sum.</param>
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IYandexMoneyButtonWidget Sum(this IYandexMoneyButtonWidget widget, double sum) => widget is not null ? widget.Sum((decimal) sum) : throw new ArgumentNullException(nameof(widget));
+  public static IYandexMoneyButtonWidget Sum(this IYandexMoneyButtonWidget widget, double sum) => widget?.Sum((decimal) sum) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Text to display on button.</para>
@@ -52,7 +52,7 @@ public static class IYandexMoneyButtonWidgetExtensions
   /// <param name="text">Numeric text type to display.</param>
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IYandexMoneyButtonWidget Text(this IYandexMoneyButtonWidget widget, YandexMoneyButtonText text) => widget is not null ? widget.Text((byte) text) : throw new ArgumentNullException(nameof(widget));
+  public static IYandexMoneyButtonWidget Text(this IYandexMoneyButtonWidget widget, YandexMoneyButtonText text) => widget?.Text((byte) text) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Type of payment option.</para>

@@ -14,5 +14,5 @@ public static class IVkontakteSubscriptionWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IVkontakteSubscriptionWidget.Layout(byte)"/>
-  public static IVkontakteSubscriptionWidget Layout(this IVkontakteSubscriptionWidget widget, VkontakteSubscriptionButtonLayout layout) => widget is not null ? widget.Layout((byte)layout) : throw new ArgumentNullException(nameof(widget));
+  public static IVkontakteSubscriptionWidget Layout(this IVkontakteSubscriptionWidget widget, VkontakteSubscriptionButtonLayout layout) => widget?.Layout((byte) layout) ?? throw new ArgumentNullException(nameof(widget));
 }

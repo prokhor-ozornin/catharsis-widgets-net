@@ -13,7 +13,7 @@ public static class IYandexMoneyPaymentFormWidgetExtensions
   /// <param name="sum">Payment sum.</param>
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IYandexMoneyPaymentFormWidget Sum(this IYandexMoneyPaymentFormWidget widget, double sum) => widget is not null ? widget.Sum((decimal) sum) : throw new ArgumentNullException(nameof(widget));
+  public static IYandexMoneyPaymentFormWidget Sum(this IYandexMoneyPaymentFormWidget widget, double sum) => widget?.Sum((decimal) sum) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Text to display on button.</para>
@@ -23,5 +23,5 @@ public static class IYandexMoneyPaymentFormWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IYandexMoneyPaymentFormWidget.Text(byte)"/>
-  public static IYandexMoneyPaymentFormWidget Text(this IYandexMoneyPaymentFormWidget widget, YandexMoneyPaymentFormText text) => widget is not null ? widget.Text((byte) text) : throw new ArgumentNullException(nameof(widget));
+  public static IYandexMoneyPaymentFormWidget Text(this IYandexMoneyPaymentFormWidget widget, YandexMoneyPaymentFormText text) => widget?.Text((byte) text) ?? throw new ArgumentNullException(nameof(widget));
 }

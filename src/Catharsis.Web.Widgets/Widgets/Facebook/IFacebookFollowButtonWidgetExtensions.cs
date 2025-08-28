@@ -16,7 +16,7 @@ public static class IFacebookFollowButtonWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFollowButtonWidget.Width(string)"/>
-  public static IFacebookFollowButtonWidget Width(this IFacebookFollowButtonWidget widget, short width) => widget is not null ? widget.Width(width.ToString()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFollowButtonWidget Width(this IFacebookFollowButtonWidget widget, short width) => widget?.Width(width.ToString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The height of the button.</para>
@@ -26,7 +26,7 @@ public static class IFacebookFollowButtonWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFollowButtonWidget.Height(string)"/>
-  public static IFacebookFollowButtonWidget Height(this IFacebookFollowButtonWidget widget, short height) => widget is not null ? widget.Height(height.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFollowButtonWidget Height(this IFacebookFollowButtonWidget widget, short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>The color scheme used by the button.</para>
@@ -36,7 +36,7 @@ public static class IFacebookFollowButtonWidgetExtensions
   /// <returns>Reference to the current widget.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IFacebookFollowButtonWidget.ColorScheme(string)"/>
-  public static IFacebookFollowButtonWidget ColorScheme(this IFacebookFollowButtonWidget widget, FacebookColorScheme scheme) => widget is not null ? widget.ColorScheme(scheme.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFollowButtonWidget ColorScheme(this IFacebookFollowButtonWidget widget, FacebookColorScheme scheme) => widget?.ColorScheme(scheme.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Selects one of the different layouts that are available for the button.</para>
@@ -65,5 +65,5 @@ public static class IFacebookFollowButtonWidgetExtensions
   /// <param name="url"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException">Если параметр <paramref name="widget"/> является <see langword="null"/> ссылкой.</exception>
-  public static IFacebookFollowButtonWidget Url(this IFacebookFollowButtonWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+  public static IFacebookFollowButtonWidget Url(this IFacebookFollowButtonWidget widget, Uri url) => widget?.Url(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
 }

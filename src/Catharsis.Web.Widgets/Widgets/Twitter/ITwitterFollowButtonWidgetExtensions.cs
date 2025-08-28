@@ -32,7 +32,7 @@ public static class ITwitterFollowButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ITwitterFollowButtonWidget.Size(string)"/>
-  public static ITwitterFollowButtonWidget Size(this ITwitterFollowButtonWidget widget, TwitterFollowButtonSize size) => widget is not null ? widget.Size(size.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static ITwitterFollowButtonWidget Size(this ITwitterFollowButtonWidget widget, TwitterFollowButtonSize size) => widget?.Size(size.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Horizontal alignment of the button.</para>
@@ -42,5 +42,5 @@ public static class ITwitterFollowButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="ITwitterFollowButtonWidget.Alignment(string)"/>
-  public static ITwitterFollowButtonWidget Alignment(this ITwitterFollowButtonWidget widget, TwitterFollowButtonAlignment alignment) => widget is not null ? widget.Alignment(alignment.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static ITwitterFollowButtonWidget Alignment(this ITwitterFollowButtonWidget widget, TwitterFollowButtonAlignment alignment) => widget?.Alignment(alignment.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 }

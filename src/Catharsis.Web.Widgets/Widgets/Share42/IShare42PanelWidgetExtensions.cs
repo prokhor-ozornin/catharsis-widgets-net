@@ -13,7 +13,7 @@ public static class IShare42PanelWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IShare42PanelWidget.Direction(Share42PanelDirection)"/>
-  public static IShare42PanelWidget Horizontal(this IShare42PanelWidget widget) => widget is not null ? widget.Direction(Share42PanelDirection.Horizontal) : throw new ArgumentNullException(nameof(widget));
+  public static IShare42PanelWidget Horizontal(this IShare42PanelWidget widget) => widget?.Direction(Share42PanelDirection.Horizontal) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Specifies size of social icons.</para>
@@ -23,7 +23,7 @@ public static class IShare42PanelWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IShare42PanelWidget.Size(byte)"/>
-  public static IShare42PanelWidget Size(this IShare42PanelWidget widget, Share42PanelSize size) => widget is not null ? widget.Size((byte) size) : throw new ArgumentNullException(nameof(widget));
+  public static IShare42PanelWidget Size(this IShare42PanelWidget widget, Share42PanelSize size) => widget?.Size((byte) size) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Specifies floating vertical direction of panel.</para>
@@ -32,5 +32,5 @@ public static class IShare42PanelWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IShare42PanelWidget.Direction(Share42PanelDirection)"/>
-  public static IShare42PanelWidget Vertical(this IShare42PanelWidget widget) => widget is not null ? widget.Direction(Share42PanelDirection.Vertical) : throw new ArgumentNullException(nameof(widget));
+  public static IShare42PanelWidget Vertical(this IShare42PanelWidget widget) => widget?.Direction(Share42PanelDirection.Vertical) ?? throw new ArgumentNullException(nameof(widget));
 }

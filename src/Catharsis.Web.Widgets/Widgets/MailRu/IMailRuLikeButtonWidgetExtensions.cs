@@ -36,7 +36,7 @@ public static class IMailRuLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IMailRuLikeButtonWidget.Size(string)"/>
-  public static IMailRuLikeButtonWidget Size(this IMailRuLikeButtonWidget widget, short size) => widget is not null ? widget.Size(size.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IMailRuLikeButtonWidget Size(this IMailRuLikeButtonWidget widget, short size) => widget?.Size(size.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Vertical size of button.</para>
@@ -46,7 +46,7 @@ public static class IMailRuLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IMailRuLikeButtonWidget.Size(string)"/>
-  public static IMailRuLikeButtonWidget Size(this IMailRuLikeButtonWidget widget, MailRuLikeButtonSize size) => widget is not null ? widget.Size((short) size) : throw new ArgumentNullException(nameof(widget));
+  public static IMailRuLikeButtonWidget Size(this IMailRuLikeButtonWidget widget, MailRuLikeButtonSize size) => widget?.Size((short) size) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Visual layout/appearance of button.</para>
@@ -56,7 +56,7 @@ public static class IMailRuLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IMailRuLikeButtonWidget.Layout(byte)"/>
-  public static IMailRuLikeButtonWidget Layout(this IMailRuLikeButtonWidget widget, MailRuLikeButtonLayout layout) => widget is not null ? widget.Layout((byte) layout) : throw new ArgumentNullException(nameof(widget));
+  public static IMailRuLikeButtonWidget Layout(this IMailRuLikeButtonWidget widget, MailRuLikeButtonLayout layout) => widget?.Layout((byte) layout) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Type of text label to show on button.</para>
@@ -66,7 +66,7 @@ public static class IMailRuLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IMailRuLikeButtonWidget.TextType(byte)"/>
-  public static IMailRuLikeButtonWidget TextType(this IMailRuLikeButtonWidget widget, MailRuLikeButtonTextType type) => widget is not null ? widget.TextType((byte) type) : throw new ArgumentNullException(nameof(widget));
+  public static IMailRuLikeButtonWidget TextType(this IMailRuLikeButtonWidget widget, MailRuLikeButtonTextType type) => widget?.TextType((byte) type) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Position of a share counter.</para>
@@ -76,5 +76,5 @@ public static class IMailRuLikeButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IMailRuLikeButtonWidget.CounterPosition(string)"/>
-  public static IMailRuLikeButtonWidget CounterPosition(this IMailRuLikeButtonWidget widget, MailRuLikeButtonCounterPosition position) => widget is not null ? widget.CounterPosition(position.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+  public static IMailRuLikeButtonWidget CounterPosition(this IMailRuLikeButtonWidget widget, MailRuLikeButtonCounterPosition position) => widget?.CounterPosition(position.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 }

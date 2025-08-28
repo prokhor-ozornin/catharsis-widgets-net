@@ -15,7 +15,7 @@ public static class IVkontaktePollWidgetExtensions
   /// <param name="width">Width of widget.</param>
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IVkontaktePollWidget Width(this IVkontaktePollWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+  public static IVkontaktePollWidget Width(this IVkontaktePollWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para></para>
@@ -24,5 +24,5 @@ public static class IVkontaktePollWidgetExtensions
   /// <param name="url"></param>
   /// <returns></returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
-  public static IVkontaktePollWidget Url(this IVkontaktePollWidget widget, Uri url) => widget is not null ? widget.Url(url?.ToString()) : throw new ArgumentNullException(nameof(widget));
+  public static IVkontaktePollWidget Url(this IVkontaktePollWidget widget, Uri url) => widget?.Url(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
 }

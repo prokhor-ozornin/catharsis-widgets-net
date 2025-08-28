@@ -15,7 +15,7 @@ public static class IPinterestPinItButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IPinterestPinItButtonWidget.Color(string)"/>
-  public static IPinterestPinItButtonWidget Gray(this IPinterestPinItButtonWidget widget) => widget is not null ? widget.Color("gray") : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestPinItButtonWidget Gray(this IPinterestPinItButtonWidget widget) => widget?.Color("gray") ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Language of button's label.</para>
@@ -40,7 +40,7 @@ public static class IPinterestPinItButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IPinterestPinItButtonWidget.Color(string)"/>
-  public static IPinterestPinItButtonWidget Red(this IPinterestPinItButtonWidget widget) => widget is not null ? widget.Color("red") : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestPinItButtonWidget Red(this IPinterestPinItButtonWidget widget) => widget?.Color("red") ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Sets color of the button to white.</para>
@@ -49,5 +49,5 @@ public static class IPinterestPinItButtonWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IPinterestPinItButtonWidget.Color(string)"/>
-  public static IPinterestPinItButtonWidget White(this IPinterestPinItButtonWidget widget) => widget is not null ? widget.Color("white") : throw new ArgumentNullException(nameof(widget));
+  public static IPinterestPinItButtonWidget White(this IPinterestPinItButtonWidget widget) => widget?.Color("white") ?? throw new ArgumentNullException(nameof(widget));
 }

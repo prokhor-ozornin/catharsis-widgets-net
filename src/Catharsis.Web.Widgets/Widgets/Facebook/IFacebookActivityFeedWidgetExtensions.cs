@@ -26,7 +26,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IFacebookActivityFeedWidget.Width(string)"/>
-    public static IFacebookActivityFeedWidget Width(this IFacebookActivityFeedWidget widget, short width) => widget is not null ? widget.Width(width.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+    public static IFacebookActivityFeedWidget Width(this IFacebookActivityFeedWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
     /// <summary>
     ///   <para>The height of the widget in pixels.</para>
@@ -36,7 +36,7 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
     /// <exception cref="IFacebookActivityFeedWidget.Height(string)"/>
-    public static IFacebookActivityFeedWidget Height(this IFacebookActivityFeedWidget widget, short height) => widget is not null ? widget.Height(height.ToInvariantString()) : throw new ArgumentNullException(nameof(widget));
+    public static IFacebookActivityFeedWidget Height(this IFacebookActivityFeedWidget widget, short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
     /// <summary>
     ///   <para>The color scheme used by the widget.</para>
@@ -46,6 +46,6 @@ namespace Catharsis.Web.Widgets
     /// <returns>Reference to the current widget.</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
     /// <seealso cref="IFacebookActivityFeedWidget.ColorScheme(string)"/>
-    public static IFacebookActivityFeedWidget ColorScheme(this IFacebookActivityFeedWidget widget, FacebookColorScheme scheme) => widget is not null ? widget.ColorScheme(scheme.ToString().ToLowerInvariant()) : throw new ArgumentNullException(nameof(widget));
+    public static IFacebookActivityFeedWidget ColorScheme(this IFacebookActivityFeedWidget widget, FacebookColorScheme scheme) => widget?.ColorScheme(scheme.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
   }
 }

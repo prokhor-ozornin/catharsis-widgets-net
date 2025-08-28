@@ -53,7 +53,7 @@ public static class IGravatarProfileUrlWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IGravatarProfileUrlWidget.Format(string)"/>
-  public static IGravatarProfileUrlWidget Xml(this IGravatarProfileUrlWidget widget) => widget is not null ? widget.Format("xml") : throw new ArgumentNullException(nameof(widget));
+  public static IGravatarProfileUrlWidget Xml(this IGravatarProfileUrlWidget widget) => widget?.Format("xml") ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Requests PHP format for user's profile data.</para>
@@ -62,7 +62,7 @@ public static class IGravatarProfileUrlWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IGravatarProfileUrlWidget.Format(string)"/>
-  public static IGravatarProfileUrlWidget Php(this IGravatarProfileUrlWidget widget) => widget is not null ? widget.Format("php") : throw new ArgumentNullException(nameof(widget));
+  public static IGravatarProfileUrlWidget Php(this IGravatarProfileUrlWidget widget) => widget?.Format("php") ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Requests VCF/vCard format for user's profile data.</para>
@@ -71,7 +71,7 @@ public static class IGravatarProfileUrlWidgetExtensions
   /// <returns>Reference to provided <paramref name="widget"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
   /// <seealso cref="IGravatarProfileUrlWidget.Format(string)"/>
-  public static IGravatarProfileUrlWidget Vcf(this IGravatarProfileUrlWidget widget) => widget is not null ? widget.Format("vcf") : throw new ArgumentNullException(nameof(widget));
+  public static IGravatarProfileUrlWidget Vcf(this IGravatarProfileUrlWidget widget) => widget?.Format("vcf") ?? throw new ArgumentNullException(nameof(widget));
 
   /// <summary>
   ///   <para>Requests QR code format for user's profile data.</para>
