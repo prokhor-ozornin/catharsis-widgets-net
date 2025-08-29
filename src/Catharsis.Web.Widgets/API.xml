@@ -113,6 +113,7 @@
             <param name="builder"></param>
             <param name="key"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.ContentEditable(Catharsis.Web.Widgets.ITagBuilder,System.Nullable{System.Boolean})">
             <summary>
@@ -121,6 +122,7 @@
             <param name="builder"></param>
             <param name="enabled"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.ContextMenu(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -129,6 +131,7 @@
             <param name="builder"></param>
             <param name="id"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.TextDirection(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -137,6 +140,7 @@
             <param name="builder"></param>
             <param name="direction"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.TextDirection(Catharsis.Web.Widgets.ITagBuilder,Catharsis.Web.Widgets.TextDirection)">
             <summary>
@@ -154,6 +158,7 @@
             <param name="builder"></param>
             <param name="enabled"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Id(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -162,6 +167,7 @@
             <param name="builder"></param>
             <param name="id"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Language(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -170,6 +176,7 @@
             <param name="builder"></param>
             <param name="code"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Language(Catharsis.Web.Widgets.ITagBuilder,System.Globalization.CultureInfo)">
             <summary>
@@ -178,6 +185,7 @@
             <param name="builder"></param>
             <param name="culture"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Spellcheck(Catharsis.Web.Widgets.ITagBuilder,System.Nullable{System.Boolean})">
             <summary>
@@ -186,6 +194,7 @@
             <param name="builder"></param>
             <param name="enabled"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.TabIndex(Catharsis.Web.Widgets.ITagBuilder,System.Nullable{System.UInt32})">
             <summary>
@@ -194,6 +203,7 @@
             <param name="builder"></param>
             <param name="index"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Title(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -202,6 +212,7 @@
             <param name="builder"></param>
             <param name="title"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnBlur(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -210,6 +221,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnChange(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -218,6 +230,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnClick(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -226,6 +239,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnDoubleClick(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -234,6 +248,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnFocus(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -242,6 +257,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnKeyDown(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -250,6 +266,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnKeyPress(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -258,6 +275,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnKeyUp(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -266,6 +284,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnLoad(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -274,6 +293,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnMouseDown(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -282,6 +302,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnMouseMove(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -290,6 +311,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnMouseOut(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -298,6 +320,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnMouseOver(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -306,6 +329,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnMouseUp(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -314,6 +338,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnReset(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -322,6 +347,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnSelect(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -330,6 +356,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnSubmit(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -338,6 +365,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnUnload(Catharsis.Web.Widgets.ITagBuilder,System.String)">
             <summary>
@@ -346,6 +374,7 @@
             <param name="builder"></param>
             <param name="script"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Catharsis.Web.Widgets.Extensions.ObjectExtensions">
             <summary>
@@ -840,25 +869,25 @@
             <summary>
               <para></para>
             </summary>
-            <returns></returns>
+            <returns>Initialized widget with default options.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IAddThisWidgetsCreator.FollowButtons">
             <summary>
               <para></para>
             </summary>
-            <returns></returns>
+            <returns>Initialized widget with default options.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IAddThisWidgetsCreator.WelcomeBar">
             <summary>
               <para></para>
             </summary>
-            <returns></returns>
+            <returns>Initialized widget with default options.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IAddThisWidgetsCreator.TrendingContent">
             <summary>
               <para></para>
             </summary>
-            <returns></returns>
+            <returns>Initialized widget with default options.</returns>
         </member>
         <member name="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions">
             <summary>
@@ -1408,7 +1437,7 @@
             <summary>
               <para></para>
             </summary>
-            <returns></returns>
+            <returns>Initialized widget with default options.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.ICackleWidgetsCreator.Login">
             <summary>
@@ -1665,19 +1694,19 @@
             <summary>
               <para></para>
             </summary>
-            <returns></returns>
+            <returns>Initialized widget with default options.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IDoubleGisWidgetsCreator.Map">
             <summary>
               <para></para>
             </summary>
-            <returns></returns>
+            <returns>Initialized widget with default options.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IDoubleGisWidgetsCreator.MiniMap">
             <summary>
               <para></para>
             </summary>
-            <returns></returns>
+            <returns>Initialized widget with default options.</returns>
         </member>
         <member name="T:Catharsis.Web.Widgets.FacebookActivityFeedWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IFacebookActivityFeedWidget"/>
@@ -1865,54 +1894,22 @@
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.FacebookCommentsWidget.ColorScheme(System.String)">
-            <summary>
-              <para>The color scheme used by the widget.</para>
-            </summary>
-            <param name="scheme">Color scheme of widget.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="scheme"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="scheme"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IFacebookCommentsWidget.ColorScheme(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.FacebookCommentsWidget.Mobile(System.Boolean)">
-            <summary>
-              <para>A boolean value that specifies whether to show the mobile-optimized version or not. If not specified, auto-detection is used.</para>
-            </summary>
-            <param name="enabled"><c>true</c> to use mobile-optimized version, <c>false</c> otherwise.</param>
-            <returns>Reference to the current widget.</returns>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IFacebookCommentsWidget.Mobile(System.Boolean)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.FacebookCommentsWidget.Order(System.String)">
-            <summary>
-              <para>The order to use when displaying comments.</para>
-            </summary>
-            <param name="order">Order of comments.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="order"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="order"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IFacebookCommentsWidget.Order(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.FacebookCommentsWidget.Posts(System.Byte)">
-            <summary>
-              <para>The number of comments to show by default. The minimum value is 1. Default is 10.</para>
-            </summary>
-            <param name="count">Number of comments to show.</param>
-            <returns>Reference to the current widget.</returns>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IFacebookCommentsWidget.Posts(System.Byte)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.FacebookCommentsWidget.Url(System.String)">
-            <summary>
-              <para>The absolute URL that comments posted in the widget will be permanently associated with. Stories on Facebook about comments posted in the plugin will link to this URL. Default is current page URL.</para>
-            </summary>
-            <param name="url">URL of the page for comments.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="url"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IFacebookCommentsWidget.Url(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.FacebookCommentsWidget.Width(System.String)">
-            <summary>
-              <para>The width of the widget. The mobile version of the Comments widget ignores the width parameter, and instead has a fluid width of 100%.</para>
-            </summary>
-            <param name="width">Width of widget.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="width"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="width"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IFacebookCommentsWidget.Width(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.FacebookCommentsWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
@@ -4404,7 +4401,7 @@
             <summary>
               <para></para>
             </summary>
-            <returns></returns>
+            <returns>Initialized widget with default options.</returns>
         </member>
         <member name="T:Catharsis.Web.Widgets.InlineImageWidget">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IInlineImageWidget"/>
@@ -5569,61 +5566,25 @@
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.Counter(System.Boolean)">
-            <summary>
-              <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
-            </summary>
-            <param name="enabled"><c>true</c> to show share counter, <c>false</c> to hide.</param>
-            <returns>Reference to the current widget.</returns>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.Counter(System.Boolean)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.CounterPosition(System.String)">
-            <summary>
-              <para>Position of a share counter.</para>
-            </summary>
-            <param name="position">Position of a counter.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="position"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="position"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.CounterPosition(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.Layout(System.Byte)">
-            <summary>
-              <para>Visual layout/appearance of button.</para>
-            </summary>
-            <param name="layout">Visual layout of button.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="layout"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="layout"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.Layout(System.Byte)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.Size(System.String)">
-            <summary>
-              <para>Vertical size of button.</para>
-            </summary>
-            <param name="size">Vertical size of button.</param>
-            <returns>Reference to the current widget.</returns>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.Size(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.Text(System.Boolean)">
-            <summary>
-              <para>Whether to show text label on button. Default is <c>true</c>.</para>
-            </summary>
-            <param name="enabled"><c>true</c> to show text label, <c>false</c> to hide.</param>
-            <returns>Reference to the current widget.</returns>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.Text(System.Boolean)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.Type(System.String)">
-            <summary>
-              <para>Type of button.</para>
-            </summary>
-            <param name="type">Type of button.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="type"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="type"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.Type(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.TextType(System.Byte)">
-            <summary>
-              <para>Type of text label to show on button.</para>
-            </summary>
-            <param name="type">Type of text label.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="type"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="type"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.TextType(System.Byte)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuLikeButtonWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
@@ -6477,65 +6438,25 @@
             <exception cref="T:System.ArgumentException">If <paramref name="color"/> is <see cref="F:System.String.Empty"/> string.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Counter(Catharsis.Web.Widgets.PinterestPinItButtonPinCountPosition)">
-            <summary>
-              <para>Position of button's pin counter.</para>
-            </summary>
-            <param name="position">Pin counter's position.</param>
-            <returns>Reference to the current widget.</returns>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IPinterestPinItButtonWidget.Counter(Catharsis.Web.Widgets.PinterestPinItButtonPinCountPosition)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Description(System.String)">
-            <summary>
-              <para>Description of the "pinned" image.</para>
-            </summary>
-            <param name="description">Pin's description.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="description"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="description"/> is <see cref="F:System.String.Empty"/> string.</exception>
-            <remarks>This attribute is required.</remarks>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IPinterestPinItButtonWidget.Description(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Image(System.String)">
-            <summary>
-              <para>URL address of the "pinned" image.</para>
-            </summary>
-            <param name="image">Pin's image URL.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="image"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="image"/> is <see cref="F:System.String.Empty"/> string.</exception>
-            <remarks>This attribute is required.</remarks>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IPinterestPinItButtonWidget.Image(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Language(System.String)">
-            <summary>
-              <para>Language of button's label.</para>
-            </summary>
-            <param name="language">Button's text language.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="language"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="language"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IPinterestPinItButtonWidget.Language(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Shape(Catharsis.Web.Widgets.PinterestPinItButtonShape)">
-            <summary>
-              <para>Shape of the button.</para>
-            </summary>
-            <param name="shape">Button's shape.</param>
-            <returns>Reference to the current widget.</returns>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IPinterestPinItButtonWidget.Shape(Catharsis.Web.Widgets.PinterestPinItButtonShape)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Size(Catharsis.Web.Widgets.PinterestPinItButtonSize)">
-            <summary>
-              <para>Size of the button.</para>
-            </summary>
-            <param name="size">Button's size.</param>
-            <returns>Reference to the current widget.</returns>
-            <remarks>Actual vertical size in pixels also depends on the button's shape.</remarks>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IPinterestPinItButtonWidget.Size(Catharsis.Web.Widgets.PinterestPinItButtonSize)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Url(System.String)">
-            <summary>
-              <para>URL address of target web page for the button.</para>
-            </summary>
-            <param name="url">Button's target web page.</param>
-            <returns>Reference to the current widget.</returns>
-            <exception cref="T:System.ArgumentNullException">If <paramref name="url"/> is a <c>null</c> reference.</exception>
-            <exception cref="T:System.ArgumentException">If <paramref name="url"/> is <see cref="F:System.String.Empty"/> string.</exception>
-            <remarks>This attribute is required.</remarks>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IPinterestPinItButtonWidget.Url(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestPinItButtonWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
@@ -6600,7 +6521,6 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.PinterestProfileWidget.ToHtml">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IWebWidget.ToHtml"/>
-            <returns>Widget's HTML markup.</returns>
         </member>
         <member name="T:Catharsis.Web.Widgets.PinterestWidgetsCreator">
             <inheritdoc cref="T:Catharsis.Web.Widgets.IPinterestWidgetsCreator"/>

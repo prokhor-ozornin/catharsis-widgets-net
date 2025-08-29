@@ -20,7 +20,7 @@ public interface ICackleWidgetsCreator
   /// <summary>
   ///   <para></para>
   /// </summary>
-  /// <returns></returns>
+  /// <returns>Initialized widget with default options.</returns>
   ICackleLatestCommentsWidget LatestComments();
 
   /// <summary>

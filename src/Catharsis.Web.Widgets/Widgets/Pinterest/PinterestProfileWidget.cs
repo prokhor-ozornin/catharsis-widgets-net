@@ -75,7 +75,6 @@ public class PinterestProfileWidget : WebWidget, IPinterestProfileWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  /// <returns>Widget's HTML markup.</returns>
   public override string ToHtml() => AccountValue.IsUnset() ? string.Empty : new TagBuilder("a")
       .Attribute("data-pin-do", "embedUser")
       .Attribute("href", $"http://www.pinterest.com/${AccountValue}")

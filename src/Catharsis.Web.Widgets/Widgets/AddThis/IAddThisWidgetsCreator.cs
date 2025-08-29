@@ -14,24 +14,24 @@ public interface IAddThisWidgetsCreator
   /// <summary>
   ///   <para></para>
   /// </summary>
-  /// <returns></returns>
+  /// <returns>Initialized widget with default options.</returns>
   IAddThisShareButtonsWidget ShareButtons();
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  /// <returns></returns>
+  /// <returns>Initialized widget with default options.</returns>
   IAddThisFollowButtonsWidget FollowButtons();
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  /// <returns></returns>
+  /// <returns>Initialized widget with default options.</returns>
   IAddThisWelcomeBarWidget WelcomeBar();
 
   /// <summary>
   ///   <para></para>
   /// </summary>
-  /// <returns></returns>
+  /// <returns>Initialized widget with default options.</returns>
   IAddThisTrendingContentWidget TrendingContent();
 }

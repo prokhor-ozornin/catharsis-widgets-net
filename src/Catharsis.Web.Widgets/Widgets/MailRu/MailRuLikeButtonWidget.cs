@@ -41,24 +41,14 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   /// </summary>
   protected virtual string CounterPositionValue { get; set; } = nameof(MailRuLikeButtonCounterPosition.Right).ToLowerInvariant();
 
-  /// <summary>
-  ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to show share counter, <c>false</c> to hide.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IMailRuLikeButtonWidget.Counter(bool)"/>
   public virtual IMailRuLikeButtonWidget Counter(bool enabled)
   {
     CounterValue = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Position of a share counter.</para>
-  /// </summary>
-  /// <param name="position">Position of a counter.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="position"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="position"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuLikeButtonWidget.CounterPosition(string)"/>
   public virtual IMailRuLikeButtonWidget CounterPosition(string position)
   {
     if (position is null) throw new ArgumentNullException(nameof(position));
@@ -68,48 +58,28 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Visual layout/appearance of button.</para>
-  /// </summary>
-  /// <param name="layout">Visual layout of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="layout"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="layout"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuLikeButtonWidget.Layout(byte)"/>
   public virtual IMailRuLikeButtonWidget Layout(byte layout)
   {
     LayoutValue = layout;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Vertical size of button.</para>
-  /// </summary>
-  /// <param name="size">Vertical size of button.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IMailRuLikeButtonWidget.Size(string)"/>
   public virtual IMailRuLikeButtonWidget Size(string size)
   {
     SizeValue = size;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Whether to show text label on button. Default is <c>true</c>.</para>
-  /// </summary>
-  /// <param name="enabled"><c>true</c> to show text label, <c>false</c> to hide.</param>
-  /// <returns>Reference to the current widget.</returns>
+  /// <inheritdoc cref="IMailRuLikeButtonWidget.Text(bool)"/>
   public virtual IMailRuLikeButtonWidget Text(bool enabled)
   {
     TextValue = enabled;
     return this;
   }
 
-  /// <summary>
-  ///   <para>Type of button.</para>
-  /// </summary>
-  /// <param name="type">Type of button.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="type"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="type"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuLikeButtonWidget.Type(string)"/>
   public IMailRuLikeButtonWidget Type(string type)
   {
     if (type is null) throw new ArgumentNullException(nameof(type));
@@ -119,13 +89,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
     return this;
   }
 
-  /// <summary>
-  ///   <para>Type of text label to show on button.</para>
-  /// </summary>
-  /// <param name="type">Type of text label.</param>
-  /// <returns>Reference to the current widget.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="type"/> is a <c>null</c> reference.</exception>
-  /// <exception cref="ArgumentException">If <paramref name="type"/> is <see cref="string.Empty"/> string.</exception>
+  /// <inheritdoc cref="IMailRuLikeButtonWidget.TextType(byte)"/>
   public IMailRuLikeButtonWidget TextType(byte type)
   {
     TextTypeValue = type;

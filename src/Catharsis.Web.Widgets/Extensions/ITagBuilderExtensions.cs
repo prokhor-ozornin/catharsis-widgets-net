@@ -128,7 +128,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="key"></param>
   /// <returns></returns>
-  public static ITagBuilder AccessKey(this ITagBuilder builder, string key) => builder.Attribute("accesskey", key);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder AccessKey(this ITagBuilder builder, string key) => builder?.Attribute("accesskey", key) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -136,7 +137,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="enabled"></param>
   /// <returns></returns>
-  public static ITagBuilder ContentEditable(this ITagBuilder builder, bool? enabled) => builder.Attribute("contenteditable", enabled);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder ContentEditable(this ITagBuilder builder, bool? enabled) => builder?.Attribute("contenteditable", enabled) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -144,7 +146,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="id"></param>
   /// <returns></returns>
-  public static ITagBuilder ContextMenu(this ITagBuilder builder, string id) => builder.Attribute("contextmenu", id);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder ContextMenu(this ITagBuilder builder, string id) => builder?.Attribute("contextmenu", id) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -152,7 +155,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="direction"></param>
   /// <returns></returns>
-  public static ITagBuilder TextDirection(this ITagBuilder builder, string direction) => builder.Attribute("dir", direction);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder TextDirection(this ITagBuilder builder, string direction) => builder?.Attribute("dir", direction) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -181,7 +185,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="enabled"></param>
   /// <returns></returns>
-  public static ITagBuilder Hidden(this ITagBuilder builder, bool? enabled) => builder.Attribute("hidden", enabled.GetValueOrDefault() ? "hidden" : null);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder Hidden(this ITagBuilder builder, bool? enabled) => builder?.Attribute("hidden", enabled.GetValueOrDefault() ? "hidden" : null) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -189,7 +194,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="id"></param>
   /// <returns></returns>
-  public static ITagBuilder Id(this ITagBuilder builder, string id) => builder.Attribute("id", id);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder Id(this ITagBuilder builder, string id) => builder?.Attribute("id", id) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -197,7 +203,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="code"></param>
   /// <returns></returns>
-  public static ITagBuilder Language(this ITagBuilder builder, string code) => builder.Attribute("lang", code);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder Language(this ITagBuilder builder, string code) => builder?.Attribute("lang", code) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -205,7 +212,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="culture"></param>
   /// <returns></returns>
-  public static ITagBuilder Language(this ITagBuilder builder, CultureInfo culture) => builder.Language(culture?.TwoLetterISOLanguageName);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder Language(this ITagBuilder builder, CultureInfo culture) => builder?.Language(culture?.TwoLetterISOLanguageName) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -213,7 +221,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="enabled"></param>
   /// <returns></returns>
-  public static ITagBuilder Spellcheck(this ITagBuilder builder, bool? enabled) => builder.Attribute("spellcheck", enabled);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder Spellcheck(this ITagBuilder builder, bool? enabled) => builder?.Attribute("spellcheck", enabled) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -221,7 +230,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="index"></param>
   /// <returns></returns>
-  public static ITagBuilder TabIndex(this ITagBuilder builder, uint? index) => builder.Attribute("tabindex", index);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder TabIndex(this ITagBuilder builder, uint? index) => builder?.Attribute("tabindex", index) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -229,7 +239,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="title"></param>
   /// <returns></returns>
-  public static ITagBuilder Title(this ITagBuilder builder, string title) => builder.Attribute("title", title);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder Title(this ITagBuilder builder, string title) => builder?.Attribute("title", title) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -237,7 +248,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnBlur(this ITagBuilder builder, string script) => builder.Attribute("onblur", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnBlur(this ITagBuilder builder, string script) => builder?.Attribute("onblur", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -245,7 +257,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnChange(this ITagBuilder builder, string script) => builder.Attribute("onchange", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnChange(this ITagBuilder builder, string script) => builder?.Attribute("onchange", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -253,7 +266,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnClick(this ITagBuilder builder, string script) => builder.Attribute("onclick", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnClick(this ITagBuilder builder, string script) => builder?.Attribute("onclick", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -261,7 +275,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnDoubleClick(this ITagBuilder builder, string script) => builder.Attribute("ondblclick", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnDoubleClick(this ITagBuilder builder, string script) => builder?.Attribute("ondblclick", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -269,7 +284,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnFocus(this ITagBuilder builder, string script) => builder.Attribute("onfocus", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnFocus(this ITagBuilder builder, string script) => builder?.Attribute("onfocus", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -277,7 +293,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnKeyDown(this ITagBuilder builder, string script) => builder.Attribute("onkeydown", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnKeyDown(this ITagBuilder builder, string script) => builder?.Attribute("onkeydown", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -285,7 +302,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnKeyPress(this ITagBuilder builder, string script) => builder.Attribute("onkeypress", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnKeyPress(this ITagBuilder builder, string script) => builder?.Attribute("onkeypress", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -293,7 +311,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnKeyUp(this ITagBuilder builder, string script) => builder.Attribute("onkeyup", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnKeyUp(this ITagBuilder builder, string script) => builder?.Attribute("onkeyup", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -301,7 +320,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnLoad(this ITagBuilder builder, string script) => builder.Attribute("onload", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnLoad(this ITagBuilder builder, string script) => builder?.Attribute("onload", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -309,7 +329,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnMouseDown(this ITagBuilder builder, string script) => builder.Attribute("onmousedown", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnMouseDown(this ITagBuilder builder, string script) => builder?.Attribute("onmousedown", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -317,7 +338,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnMouseMove(this ITagBuilder builder, string script) => builder.Attribute("onmousemove", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnMouseMove(this ITagBuilder builder, string script) => builder?.Attribute("onmousemove", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -325,7 +347,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnMouseOut(this ITagBuilder builder, string script) => builder.Attribute("onmouseout", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnMouseOut(this ITagBuilder builder, string script) => builder?.Attribute("onmouseout", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -333,7 +356,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnMouseOver(this ITagBuilder builder, string script) => builder.Attribute("onmouseover", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnMouseOver(this ITagBuilder builder, string script) => builder?.Attribute("onmouseover", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -341,7 +365,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnMouseUp(this ITagBuilder builder, string script) => builder.Attribute("onmouseup", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnMouseUp(this ITagBuilder builder, string script) => builder?.Attribute("onmouseup", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -349,7 +374,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnReset(this ITagBuilder builder, string script) => builder.Attribute("onreset", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnReset(this ITagBuilder builder, string script) => builder?.Attribute("onreset", script) ?? builder;
 
   /// <summary>
   ///   <para></para>
@@ -357,7 +383,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnSelect(this ITagBuilder builder, string script) => builder.Attribute("onselect", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnSelect(this ITagBuilder builder, string script) => builder?.Attribute("onselect", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -365,7 +392,8 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnSubmit(this ITagBuilder builder, string script) => builder.Attribute("onsubmit", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnSubmit(this ITagBuilder builder, string script) => builder?.Attribute("onsubmit", script) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
@@ -373,5 +401,6 @@ public static class ITagBuilderExtensions
   /// <param name="builder"></param>
   /// <param name="script"></param>
   /// <returns></returns>
-  public static ITagBuilder OnUnload(this ITagBuilder builder, string script) => builder.Attribute("onunload", script);
+  /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
+  public static ITagBuilder OnUnload(this ITagBuilder builder, string script) => builder?.Attribute("onunload", script) ?? throw new ArgumentNullException(nameof(builder));
 }
