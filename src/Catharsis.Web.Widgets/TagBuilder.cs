@@ -24,6 +24,8 @@ public class TagBuilder : ITagBuilder
   ///   <para></para>
   /// </summary>
   /// <param name="name"></param>
+  /// <exception cref="ArgumentNullException">If <paramref name="name"/> is <see langword="null"/>.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="name"/> is invalid string.</exception>
   public TagBuilder(string name) => Name(name);
 
   /// <inheritdoc cref="ITagBuilder.Name(string)"/>

@@ -701,6 +701,8 @@
               <para></para>
             </summary>
             <param name="name"></param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="name"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="name"/> is invalid string.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.TagBuilder.Name(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.ITagBuilder.Name(System.String)"/>
