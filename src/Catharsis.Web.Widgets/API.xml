@@ -31,7 +31,7 @@
             <param name="builder"></param>
             <param name="name"></param>
             <param name="value"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If either <paramref name="builder"/> or <paramref name="name"/> is <see langword="null"/>.</exception>
             <exception cref="T:System.ArgumentException">If <paramref name="name"/> is invalid string.</exception>
         </member>
@@ -41,7 +41,7 @@
             </summary>
             <param name="builder"></param>
             <param name="attributes"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Attributes(Catharsis.Web.Widgets.ITagBuilder,System.Object)">
@@ -50,7 +50,7 @@
             </summary>
             <param name="builder"></param>
             <param name="attributes"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssClass(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -59,7 +59,7 @@
             </summary>
             <param name="builder"></param>
             <param name="name"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssClasses(Catharsis.Web.Widgets.ITagBuilder,System.Collections.Generic.IEnumerable{System.String})">
@@ -68,7 +68,7 @@
             </summary>
             <param name="builder"></param>
             <param name="names"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If either <paramref name="builder"/> or <paramref name="names"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssClasses(Catharsis.Web.Widgets.ITagBuilder,System.String[])">
@@ -77,6 +77,7 @@
             </summary>
             <param name="builder"></param>
             <param name="names"></param>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssStyle(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -85,7 +86,7 @@
             </summary>
             <param name="builder"></param>
             <param name="style"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssStyles(Catharsis.Web.Widgets.ITagBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}})">
@@ -94,7 +95,7 @@
             </summary>
             <param name="builder"></param>
             <param name="styles"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.CssStyles(Catharsis.Web.Widgets.ITagBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.Object}})">
@@ -103,7 +104,7 @@
             </summary>
             <param name="builder"></param>
             <param name="styles"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If either <paramref name="builder"/> or <paramref name="styles"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.AccessKey(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -112,7 +113,7 @@
             </summary>
             <param name="builder"></param>
             <param name="key"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.ContentEditable(Catharsis.Web.Widgets.ITagBuilder,System.Nullable{System.Boolean})">
@@ -121,7 +122,7 @@
             </summary>
             <param name="builder"></param>
             <param name="enabled"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.ContextMenu(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -130,7 +131,7 @@
             </summary>
             <param name="builder"></param>
             <param name="id"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.TextDirection(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -139,7 +140,7 @@
             </summary>
             <param name="builder"></param>
             <param name="direction"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.TextDirection(Catharsis.Web.Widgets.ITagBuilder,Catharsis.Web.Widgets.TextDirection)">
@@ -148,7 +149,7 @@
             </summary>
             <param name="builder"></param>
             <param name="direction"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Hidden(Catharsis.Web.Widgets.ITagBuilder,System.Nullable{System.Boolean})">
@@ -157,7 +158,7 @@
             </summary>
             <param name="builder"></param>
             <param name="enabled"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Id(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -166,7 +167,7 @@
             </summary>
             <param name="builder"></param>
             <param name="id"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Language(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -175,7 +176,7 @@
             </summary>
             <param name="builder"></param>
             <param name="code"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Language(Catharsis.Web.Widgets.ITagBuilder,System.Globalization.CultureInfo)">
@@ -184,7 +185,7 @@
             </summary>
             <param name="builder"></param>
             <param name="culture"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Spellcheck(Catharsis.Web.Widgets.ITagBuilder,System.Nullable{System.Boolean})">
@@ -193,7 +194,7 @@
             </summary>
             <param name="builder"></param>
             <param name="enabled"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.TabIndex(Catharsis.Web.Widgets.ITagBuilder,System.Nullable{System.UInt32})">
@@ -202,7 +203,7 @@
             </summary>
             <param name="builder"></param>
             <param name="index"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.Title(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -211,7 +212,7 @@
             </summary>
             <param name="builder"></param>
             <param name="title"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnBlur(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -220,7 +221,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnChange(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -229,7 +230,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnClick(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -238,7 +239,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnDoubleClick(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -247,7 +248,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnFocus(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -256,7 +257,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnKeyDown(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -265,7 +266,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnKeyPress(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -274,7 +275,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnKeyUp(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -283,7 +284,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnLoad(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -292,7 +293,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnMouseDown(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -301,7 +302,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnMouseMove(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -310,7 +311,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnMouseOut(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -319,7 +320,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnMouseOver(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -328,7 +329,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnMouseUp(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -337,7 +338,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnReset(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -346,7 +347,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnSelect(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -355,7 +356,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnSubmit(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -364,7 +365,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.OnUnload(Catharsis.Web.Widgets.ITagBuilder,System.String)">
@@ -373,7 +374,7 @@
             </summary>
             <param name="builder"></param>
             <param name="script"></param>
-            <returns></returns>
+            <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Catharsis.Web.Widgets.Extensions.ObjectExtensions">
