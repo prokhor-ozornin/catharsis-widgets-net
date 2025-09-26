@@ -125,7 +125,7 @@ public sealed class IGravatarProfileUrlWidgetExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IGravatarProfileUrlWidgetExtensions.Qr(null)).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       
-      new[] { short.MinValue, short.MaxValue }.ForEach(size => Test(size, Widget));
+      new[] { short.MinValue, short.MaxValue, Fixture<short>.Create() }.ForEach(size => Test(size, Widget));
     }
 
     return;
