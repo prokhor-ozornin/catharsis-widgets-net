@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="LiveJournalRepostButtonWidget"/>.</para>
 /// </summary>
+/// <seealso cref="LiveJournalRepostButtonWidget"/>
 public sealed class LiveJournalRepostButtonWidgetTest : Test
 {
   private ILiveJournalRepostButtonWidget Widget { get; }

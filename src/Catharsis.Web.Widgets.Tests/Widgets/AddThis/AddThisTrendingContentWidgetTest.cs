@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="AddThisTrendingContentWidget"/>.</para>
 /// </summary>
+/// <seealso cref="AddThisTrendingContentWidget"/>
 public sealed class AddThisTrendingContentWidgetTest : Test
 {
   private IAddThisTrendingContentWidget Widget { get; }

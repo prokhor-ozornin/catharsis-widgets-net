@@ -6,6 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="SoundCloudWidgetsCreator"/>.</para>
 /// </summary>
+/// <seealso cref="SoundCloudWidgetsCreator"/>
 public sealed class SoundCloudWidgetsCreatorTest : Test
 {
   private ISoundCloudWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.SoundCloud();

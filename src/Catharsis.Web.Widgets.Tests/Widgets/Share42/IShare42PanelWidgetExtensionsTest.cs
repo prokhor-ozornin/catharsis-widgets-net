@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IShare42PanelWidgetExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="IShare42PanelWidgetExtensions"/>
 public sealed class IShare42PanelWidgetExtensionsTest : Test
 {
   private IShare42PanelWidget Widget { get; }

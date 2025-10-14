@@ -6,6 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IntenseDebateWidgetsCreator"/>.</para>
 /// </summary>
+/// <seealso cref="IntenseDebateWidgetsCreator"/>
 public sealed class IntenseDebateWidgetsCreatorTest : Test
 {
   private IIntenseDebateWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.IntenseDebate();

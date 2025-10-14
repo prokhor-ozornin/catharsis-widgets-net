@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="YandexLikeButtonWidget"/>.</para>
 /// </summary>
+/// <seealso cref="YandexLikeButtonWidget"/>
 public sealed class YandexLikeButtonWidgetTest : Test
 {
   private IYandexLikeButtonWidget Widget { get; }

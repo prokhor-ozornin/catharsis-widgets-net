@@ -6,6 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="GoogleWidgetsCreator"/>.</para>
 /// </summary>
+/// <seealso cref="GoogleWidgetsCreator"/>
 public sealed class GoogleWidgetsCreatorTest : Test
 {
   private IGoogleWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Google();

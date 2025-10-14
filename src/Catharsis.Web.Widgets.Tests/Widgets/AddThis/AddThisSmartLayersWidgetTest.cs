@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="AddThisSmartLayersWidget"/>.</para>
 /// </summary>
+/// <seealso cref="AddThisSmartLayersWidget"/>
 public sealed class AddThisSmartLayersWidgetTest : Test
 {
   private IAddThisSmartLayersWidget Widget { get; }

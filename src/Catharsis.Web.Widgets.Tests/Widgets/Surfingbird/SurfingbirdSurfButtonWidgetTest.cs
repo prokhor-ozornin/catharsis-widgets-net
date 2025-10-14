@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="SurfingbirdSurfButtonWidget"/>.</para>
 /// </summary>
+/// <seealso cref="SurfingbirdSurfButtonWidget"/>
 public sealed class SurfingbirdSurfButtonWidgetTest : Test
 {
   private ISurfingbirdSurfButtonWidget Widget { get; }

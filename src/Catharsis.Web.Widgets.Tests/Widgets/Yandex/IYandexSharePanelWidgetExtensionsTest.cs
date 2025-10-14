@@ -10,6 +10,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IYandexSharePanelWidgetExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="IYandexSharePanelWidgetExtensions"/>
 public sealed class IYandexSharePanelWidgetExtensionsTest : Test
 {
   private IYandexSharePanelWidget Widget { get; }

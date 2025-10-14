@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="GravatarImageUrlWidget"/>.</para>
 /// </summary>
+/// <seealso cref="GravatarImageUrlWidget"/>
 public sealed class GravatarImageUrlWidgetTest : Test
 {
   private IGravatarImageUrlWidget Widget { get; }

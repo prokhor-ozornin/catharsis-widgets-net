@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="YouTubeVideoWidget"/>.</para>
 /// </summary>
+/// <seealso cref="YouTubeVideoWidget"/>
 public sealed class YouTubeVideoWidgetTest : Test
 {
   private IYouTubeVideoWidget Widget { get; }

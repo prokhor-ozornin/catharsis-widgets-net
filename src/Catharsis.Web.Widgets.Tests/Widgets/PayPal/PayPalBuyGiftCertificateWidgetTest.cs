@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="PayPalBuyGiftCertificateWidget"/>.</para>
 /// </summary>
+/// <seealso cref="PayPalBuyGiftCertificateWidget"/>
 public sealed class PayPalBuyGiftCertificateWidgetTest : Test
 {
   private IPayPalBuyGiftCertificateWidget Widget { get; }

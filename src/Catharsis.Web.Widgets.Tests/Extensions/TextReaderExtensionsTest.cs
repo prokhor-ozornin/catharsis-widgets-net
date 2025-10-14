@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="TextReaderExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="TextReaderExtensions"/>
 public sealed class TextReaderExtensionsTest : Test
 {
   /// <summary>

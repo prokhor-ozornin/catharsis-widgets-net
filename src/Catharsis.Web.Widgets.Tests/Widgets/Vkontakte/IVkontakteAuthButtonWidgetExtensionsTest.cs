@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IVkontakteAuthButtonWidgetExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="IVkontakteAuthButtonWidgetExtensions"/>
 public sealed class IVkontakteAuthButtonWidgetExtensionsTest : Test
 {
   private IVkontakteAuthButtonWidget Widget { get; }

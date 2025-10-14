@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IInlineImageExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="IInlineImageExtensions"/>
 public sealed class IInlineImageExtensionsTest : Test
 {
   private IInlineImageWidget Widget { get; }

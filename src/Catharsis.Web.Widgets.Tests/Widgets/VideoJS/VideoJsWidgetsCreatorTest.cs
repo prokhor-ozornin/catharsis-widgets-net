@@ -6,6 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="VideoJSWidgetsCreator"/>.</para>
 /// </summary>
+/// <seealso cref="VideoJSWidgetsCreator"/>
 public sealed class VideoJsWidgetsCreatorTest : Test
 {
   private IVideoJSWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.VideoJS();

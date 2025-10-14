@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IMailRuLikeButtonWidgetExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="IMailRuLikeButtonWidgetExtensions"/>
 public sealed class IMailRuLikeButtonWidgetExtensionsTest : Test
 {
   private IMailRuLikeButtonWidget Widget { get; }

@@ -6,6 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="LiveJournalWidgetsCreator"/>.</para>
 /// </summary>
+/// <seealso cref="LiveJournalWidgetsCreator"/>
 public sealed class LiveJournalWidgetsCreatorTest : Test
 {
   private ILiveJournalWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.LiveJournal();

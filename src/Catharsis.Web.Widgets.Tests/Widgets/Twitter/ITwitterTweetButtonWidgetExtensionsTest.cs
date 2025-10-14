@@ -10,6 +10,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="ITwitterTweetButtonWidgetExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="ITwitterTweetButtonWidgetExtensions"/>
 public sealed class ITwitterTweetButtonWidgetExtensionsTest : Test
 {
   private ITwitterTweetButtonWidget Widget { get; }

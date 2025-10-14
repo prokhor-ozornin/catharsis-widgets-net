@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IYandexMoneyPaymentFormWidgetExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="IYandexMoneyPaymentFormWidgetExtensions"/>
 public sealed class IYandexMoneyPaymentFormWidgetExtensionsTest : Test
 {
   private IYandexMoneyPaymentFormWidget Widget { get; }

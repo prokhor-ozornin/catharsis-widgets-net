@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="ISoundCloudProfileIconWidgetExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="ISoundCloudProfileIconWidgetExtensions"/>
 public sealed class ISoundCloudProfileIconWidgetExtensionsTest : Test
 {
   private ISoundCloudProfileIconWidget Widget { get; }

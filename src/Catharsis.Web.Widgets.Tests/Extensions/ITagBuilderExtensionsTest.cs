@@ -10,6 +10,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for interface <see cref="ITagBuilderExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="ITagBuilderExtensions"/>
 public sealed class ITagBuilderExtensionsTest : Test
 {
   private ITagBuilder Builder { get; } = new TagBuilder("tag");

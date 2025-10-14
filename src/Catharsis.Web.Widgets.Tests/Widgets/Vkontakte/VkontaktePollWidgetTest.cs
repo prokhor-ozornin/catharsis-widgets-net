@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="VkontaktePollWidget"/>.</para>
 /// </summary>
+/// <seealso cref="VkontaktePollWidget"/>
 public sealed class VkontaktePollWidgetTest : Test
 {
   private IVkontaktePollWidget Widget { get; }

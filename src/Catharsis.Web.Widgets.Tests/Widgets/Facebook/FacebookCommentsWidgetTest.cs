@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="FacebookCommentsWidget"/>.</para>
 /// </summary>
+/// <seealso cref="FacebookCommentsWidget"/>
 public sealed class FacebookCommentsWidgetTest : Test
 {
   private IFacebookCommentsWidget Widget { get; }

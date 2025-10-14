@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IGooglePlusOneButtonWidgetExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="IGooglePlusOneButtonWidgetExtensions"/>
 public sealed class IGooglePlusOneButtonWidgetExtensionsTest : Test
 {
   private IGooglePlusOneButtonWidget Widget { get; }

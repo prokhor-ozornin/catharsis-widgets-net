@@ -6,6 +6,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="GravatarWidgetsCreator"/>.</para>
 /// </summary>
+/// <seealso cref="GravatarWidgetsCreator"/>
 public sealed class GravatarWidgetsCreatorTest : Test
 {
   private IGravatarWidgetsCreator Widgets { get; } = Web.Widgets.Widgets.Create.Gravatar();

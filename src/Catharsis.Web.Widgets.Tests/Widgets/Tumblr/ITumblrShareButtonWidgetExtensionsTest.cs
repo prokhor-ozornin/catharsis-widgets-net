@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="ITumblrShareButtonWidgetExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="ITumblrShareButtonWidgetExtensions"/>
 public sealed class ITumblrShareButtonWidgetExtensionsTest : Test
 {
   private ITumblrShareButtonWidget Widget { get; }

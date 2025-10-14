@@ -9,6 +9,7 @@ namespace Catharsis.Web.Widgets.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="DoubleGisMiniMapWidget"/>.</para>
 /// </summary>
+/// <seealso cref="DoubleGisMiniMapWidget"/>
 public sealed class DoubleGisMiniMapWidgetTest : Test
 {
   private IDoubleGisMiniMapWidget Widget { get; }

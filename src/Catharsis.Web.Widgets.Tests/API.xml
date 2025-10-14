@@ -8,6 +8,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IDictionaryExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IDictionaryExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IDictionaryExtensionsTest.ToUrlQuery_Method">
             <summary>
@@ -18,6 +19,7 @@
             <summary>
               <para>Tests set for interface <see cref="T:Catharsis.Web.Widgets.ITagBuilderExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.ITagBuilderExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ITagBuilderExtensionsTest.Attribute_Method">
             <summary>
@@ -213,6 +215,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.Extensions.ObjectExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.Extensions.ObjectExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ObjectExtensionsTest.Json_Method">
             <summary>
@@ -223,6 +226,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.StringExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.StringExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.StringExtensionsTest.Json_Method">
             <summary>
@@ -233,6 +237,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TextReaderExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.TextReaderExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TextReaderExtensionsTest.AsJson_Method">
             <summary>
@@ -243,6 +248,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TextWriterExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.TextWriterExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.Extensions.TextWriterExtensionsTest.AsJson_Method">
             <summary>
@@ -253,6 +259,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.AddThisFollowButtonsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.AddThisFollowButtonsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.AddThisFollowButtonsWidgetTest.#ctor">
             <summary>
@@ -279,6 +286,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.AddThisShareButtonsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.AddThisShareButtonsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.AddThisShareButtonsWidgetTest.#ctor">
             <summary>
@@ -305,6 +313,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.AddThisSmartLayersWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.AddThisSmartLayersWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.AddThisSmartLayersWidgetTest.#ctor">
             <summary>
@@ -331,6 +340,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.AddThisTrendingContentWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.AddThisTrendingContentWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.AddThisTrendingContentWidgetTest.#ctor">
             <summary>
@@ -357,6 +367,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.AddThisWelcomeBarWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.AddThisWelcomeBarWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.AddThisWelcomeBarWidgetTest.#ctor">
             <summary>
@@ -383,6 +394,7 @@
             <summary>
               <para>Test set for class <see cref="T:Catharsis.Web.Widgets.AddThisWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.AddThisWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.AddThisWidgetsCreatorTest.Constructors">
             <summary>
@@ -419,78 +431,103 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IWebWidgetsCreatorExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IWebWidgetsCreatorExtensionsTest.AddThis_Method">
             <summary>
@@ -621,6 +658,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleCommentsCountWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.CackleCommentsCountWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsCountWidgetTest.#ctor">
             <summary>
@@ -652,6 +690,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleCommentsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.CackleCommentsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.CackleCommentsWidgetTest.#ctor">
             <summary>
@@ -683,6 +722,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleLatestCommentsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.CackleLatestCommentsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.CackleLatestCommentsWidgetTest.#ctor">
             <summary>
@@ -734,6 +774,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleLoginWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.CackleLoginWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.CackleLoginWidgetTest.#ctor">
             <summary>
@@ -765,6 +806,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.CackleWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.CackleWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.CackleWidgetsCreatorTest.Constructors">
             <summary>
@@ -796,6 +838,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.DisqusCommentsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.DisqusCommentsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DisqusCommentsWidgetTest.#ctor">
             <summary>
@@ -827,6 +870,7 @@
             <summary>
               <para>Test set for class <see cref="T:Catharsis.Web.Widgets.DisqusWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.DisqusWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DisqusWidgetsCreatorTest.Constructors">
             <summary>
@@ -843,6 +887,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.DoubleGisContactsMapWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.DoubleGisContactsMapWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisContactsMapWidgetTest.#ctor">
             <summary>
@@ -869,6 +914,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.DoubleGisMapWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.DoubleGisMapWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisMapWidgetTest.#ctor">
             <summary>
@@ -895,6 +941,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.DoubleGisMiniMapWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.DoubleGisMiniMapWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisMiniMapWidgetTest.#ctor">
             <summary>
@@ -921,6 +968,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.DoubleGisWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.DoubleGisWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.DoubleGisWidgetsCreatorTest.Constructors">
             <summary>
@@ -947,6 +995,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookActivityFeedWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookActivityFeedWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookActivityFeedWidgetTest.#ctor">
             <summary>
@@ -1028,6 +1077,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookCommentsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookCommentsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookCommentsWidgetTest.#ctor">
             <summary>
@@ -1084,6 +1134,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookFacePileWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookFacePileWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookFacePileWidgetTest.#ctor">
             <summary>
@@ -1145,6 +1196,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookFollowButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookFollowButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookFollowButtonWidgetTest.#ctor">
             <summary>
@@ -1206,6 +1258,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookInitializationWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookInitializationWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookInitializationWidgetTest.#ctor">
             <summary>
@@ -1237,6 +1290,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookLikeBoxWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookLikeBoxWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookLikeBoxWidgetTest.#ctor">
             <summary>
@@ -1308,6 +1362,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookLikeButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookLikeButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookLikeButtonWidgetTest.#ctor">
             <summary>
@@ -1374,6 +1429,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookPostWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookPostWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookPostWidgetTest.#ctor">
             <summary>
@@ -1410,6 +1466,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookRecommendationsFeedWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookRecommendationsFeedWidgetTest.#ctor">
             <summary>
@@ -1486,6 +1543,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookSendButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookSendButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookSendButtonWidgetTest.#ctor">
             <summary>
@@ -1542,6 +1600,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookVideoWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookVideoWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookVideoWidgetTest.#ctor">
             <summary>
@@ -1583,6 +1642,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.FacebookWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.FacebookWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookWidgetsCreatorTest.Constructors">
             <summary>
@@ -1649,6 +1709,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookActivityFeedWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IFacebookActivityFeedWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookActivityFeedWidgetExtensionsTest.#ctor">
             <summary>
@@ -1679,6 +1740,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookCommentsWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IFacebookCommentsWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookCommentsWidgetExtensionsTest.#ctor">
             <summary>
@@ -1709,6 +1771,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookFacePileWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IFacebookFacePileWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.FacebookFacePileWidgetExtensionsTest.#ctor">
             <summary>
@@ -1749,6 +1812,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookFollowButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IFacebookFollowButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookFollowButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -1784,6 +1848,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookLikeBoxWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IFacebookLikeBoxWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookLikeBoxWidgetExtensionsTest.#ctor">
             <summary>
@@ -1814,6 +1879,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookLikeButtonWidgetExtensions"/></para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IFacebookLikeButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookLikeButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -1849,6 +1915,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookPostWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IFacebookPostWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookPostWidgetExtensionsTest.#ctor">
             <summary>
@@ -1869,6 +1936,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookRecommendationsFeedWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IFacebookRecommendationsFeedWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookRecommendationsFeedWidgetExtensionsTest.#ctor">
             <summary>
@@ -1899,6 +1967,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IFacebookSendButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IFacebookSendButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IFacebookSendButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -1929,6 +1998,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GoogleAnalyticsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.GoogleAnalyticsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GoogleAnalyticsWidgetTest.#ctor">
             <summary>
@@ -1965,6 +2035,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GoogleMapWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.GoogleMapWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GoogleMapWidgetTest.#ctor">
             <summary>
@@ -1991,6 +2062,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GooglePlusOneButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.GooglePlusOneButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GooglePlusOneButtonWidgetTest.#ctor">
             <summary>
@@ -2052,6 +2124,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GoogleWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.GoogleWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GoogleWidgetsCreatorTest.Constructors">
             <summary>
@@ -2073,6 +2146,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IGooglePlusOneButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IGooglePlusOneButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IGooglePlusOneButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -2108,6 +2182,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GravatarImageUrlWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.GravatarImageUrlWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GravatarImageUrlWidgetTest.#ctor">
             <summary>
@@ -2149,6 +2224,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GravatarProfileUrlWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.GravatarProfileUrlWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GravatarProfileUrlWidgetTest.#ctor">
             <summary>
@@ -2190,6 +2266,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.GravatarWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.GravatarWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.GravatarWidgetsCreatorTest.Constructors">
             <summary>
@@ -2211,6 +2288,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IGravatarImageUrlWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IGravatarImageUrlWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IGravatarImageUrlWidgetExtensionsTest.#ctor">
             <summary>
@@ -2254,6 +2332,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IGravatarProfileUrlWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IGravatarProfileUrlWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IGravatarProfileUrlWidgetExtensionsTest.#ctor">
             <summary>
@@ -2294,6 +2373,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IInlineImageExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IInlineImageExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IInlineImageExtensionsTest.#ctor">
             <summary>
@@ -2319,6 +2399,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.InlineImageWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.InlineImageWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.InlineImageWidgetTest.#ctor">
             <summary>
@@ -2355,6 +2436,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IntenseDebateCommentsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IntenseDebateCommentsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateCommentsWidgetTest.#ctor">
             <summary>
@@ -2401,6 +2483,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IntenseDebateLinkWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IntenseDebateLinkWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateLinkWidgetTest.#ctor">
             <summary>
@@ -2447,6 +2530,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IntenseDebateWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IntenseDebateWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IntenseDebateWidgetsCreatorTest.Constructors">
             <summary>
@@ -2468,6 +2552,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.LiveJournalLikeButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.LiveJournalLikeButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.LiveJournalLikeButtonWidgetTest.#ctor">
             <summary>
@@ -2488,6 +2573,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.LiveJournalRepostButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.LiveJournalRepostButtonWidgetTest.#ctor">
             <summary>
@@ -2524,6 +2610,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.LiveJournalWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.LiveJournalWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.LiveJournalWidgetsCreatorTest.Constructors">
             <summary>
@@ -2545,6 +2632,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IMailRuFacesWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IMailRuFacesWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IMailRuFacesWidgetExtensionsTest.#ctor">
             <summary>
@@ -2570,6 +2658,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IMailRuGroupsWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IMailRuGroupsWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IMailRuGroupsWidgetExtensionsTest.#ctor">
             <summary>
@@ -2590,6 +2679,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IMailRuLikeButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IMailRuLikeButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IMailRuLikeButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -2629,6 +2719,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.MailRuFacesWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.MailRuFacesWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuFacesWidgetTest.#ctor">
             <summary>
@@ -2710,6 +2801,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.MailRuGroupsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.MailRuGroupsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuGroupsWidgetTest.#ctor">
             <summary>
@@ -2776,6 +2868,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.MailRuIcqWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.MailRuIcqWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuIcqWidgetTest.#ctor">
             <summary>
@@ -2812,6 +2905,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.MailRuLikeButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.MailRuLikeButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuLikeButtonWidgetTest.#ctor">
             <summary>
@@ -2873,6 +2967,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.MailRuVideoWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.MailRuVideoWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuVideoWidgetTest.#ctor">
             <summary>
@@ -2914,6 +3009,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.MailRuWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.MailRuWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.MailRuWidgetsCreatorTest.Constructors">
             <summary>
@@ -2956,6 +3052,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PayPalBuyGiftCertificateWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.PayPalBuyGiftCertificateWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalBuyGiftCertificateWidgetTest.#ctor">
             <summary>
@@ -2992,6 +3089,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PayPalBuyNowWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.PayPalBuyNowWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalBuyNowWidgetTest.#ctor">
             <summary>
@@ -3028,6 +3126,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PayPalDonateWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.PayPalDonateWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalDonateWidgetTest.#ctor">
             <summary>
@@ -3064,6 +3163,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PayPalSubscribeWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.PayPalSubscribeWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalSubscribeWidgetTest.#ctor">
             <summary>
@@ -3100,6 +3200,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PayPalWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.PayPalWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PayPalWidgetsCreatorTest.Constructors">
             <summary>
@@ -3131,6 +3232,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IPinterestBoardWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IPinterestBoardWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IPinterestBoardWidgetExtensionsTest.#ctor">
             <summary>
@@ -3171,6 +3273,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IPinterestPinItButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IPinterestPinItButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IPinterestPinItButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -3201,6 +3304,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IPinterestProfileWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IPinterestProfileWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IPinterestProfileWidgetExtensionsTest.#ctor">
             <summary>
@@ -3241,6 +3345,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PinterestBoardWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.PinterestBoardWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestBoardWidgetTest.#ctor">
             <summary>
@@ -3292,6 +3397,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PinterestFollowButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.PinterestFollowButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestFollowButtonWidgetTest.#ctor">
             <summary>
@@ -3328,6 +3434,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PinterestPinItButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.PinterestPinItButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestPinItButtonWidgetTest.#ctor">
             <summary>
@@ -3394,6 +3501,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PinterestPinWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.PinterestPinWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestPinWidgetTest.#ctor">
             <summary>
@@ -3425,6 +3533,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PinterestProfileWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.PinterestProfileWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestProfileWidgetTest.#ctor">
             <summary>
@@ -3471,6 +3580,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.PinterestWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.PinterestWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.PinterestWidgetsCreatorTest.Constructors">
             <summary>
@@ -3507,6 +3617,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.RobokassaPaymentFormWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.RobokassaPaymentFormWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.RobokassaPaymentFormWidgetTest.#ctor">
             <summary>
@@ -3533,6 +3644,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.RobokassaWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.RobokassaWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.RobokassaWidgetsCreatorTest.Constructors">
             <summary>
@@ -3549,6 +3661,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.RuTubeVideoWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.RuTubeVideoWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.RuTubeVideoWidgetTest.#ctor">
             <summary>
@@ -3607,6 +3720,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IShare42PanelWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IShare42PanelWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IShare42PanelWidgetExtensionsTest.#ctor">
             <summary>
@@ -3632,6 +3746,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.Share42PanelWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.Share42PanelWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.Share42PanelWidgetTest.#ctor">
             <summary>
@@ -3685,6 +3800,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ISoundCloudProfileIconWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.ISoundCloudProfileIconWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ISoundCloudProfileIconWidgetExtensionsTest.#ctor">
             <summary>
@@ -3725,6 +3841,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.SoundCloudProfileIconWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.SoundCloudProfileIconWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.SoundCloudProfileIconWidgetTest.#ctor">
             <summary>
@@ -3766,6 +3883,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.SoundCloudWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.SoundCloudWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.SoundCloudWidgetsCreatorTest.Constructors">
             <summary>
@@ -3782,6 +3900,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ISurfingbirdSurfButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.ISurfingbirdSurfButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ISurfingbirdSurfButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -3812,6 +3931,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.SurfingbirdSurfButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.SurfingbirdSurfButtonWidgetTest.#ctor">
             <summary>
@@ -3873,6 +3993,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.SurfingbirdWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.SurfingbirdWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.SurfingbirdWidgetsCreatorTest.Constructors">
             <summary>
@@ -3889,6 +4010,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ITumblrFollowButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.ITumblrFollowButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ITumblrFollowButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -3909,6 +4031,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ITumblrShareButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.ITumblrShareButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ITumblrShareButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -3929,6 +4052,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TumblrFollowButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.TumblrFollowButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TumblrFollowButtonWidgetTest.#ctor">
             <summary>
@@ -3970,6 +4094,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TumblrShareButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.TumblrShareButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TumblrShareButtonWidgetTest.#ctor">
             <summary>
@@ -4006,6 +4131,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TumblrWidgetsCreator"/></para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.TumblrWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TumblrWidgetsCreatorTest.Constructors">
             <summary>
@@ -4027,6 +4153,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ITwitterFollowButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.ITwitterFollowButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ITwitterFollowButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -4052,6 +4179,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.ITwitterTweetButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.ITwitterTweetButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.ITwitterTweetButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -4087,6 +4215,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TwitterFollowButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.TwitterFollowButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TwitterFollowButtonWidgetTest.#ctor">
             <summary>
@@ -4148,6 +4277,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TwitterTweetButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.TwitterTweetButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TwitterTweetButtonWidgetTest.#ctor">
             <summary>
@@ -4224,6 +4354,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.TwitterWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.TwitterWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.TwitterWidgetsCreatorTest.Constructors">
             <summary>
@@ -4245,6 +4376,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVideoJSPlayerWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IVideoJSPlayerWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVideoJSPlayerWidgetExtensionsTest.#ctor">
             <summary>
@@ -4270,6 +4402,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VideoJSPlayerWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VideoJSPlayerWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VideoJSPlayerWidgetTest.#ctor">
             <summary>
@@ -4316,6 +4449,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VideoJSWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VideoJSWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VideoJsWidgetsCreatorTest.Constructors">
             <summary>
@@ -4332,6 +4466,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VimeoVideoWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VimeoVideoWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VimeoVideoWidgetTest.#ctor">
             <summary>
@@ -4383,6 +4518,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VimeoWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VimeoWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VimeoWidgetsCreatorTest.Constructors">
             <summary>
@@ -4399,6 +4535,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteAuthButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IVkontakteAuthButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteAuthButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -4424,6 +4561,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteCommentsWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IVkontakteCommentsWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteCommentsWidgetExtensionsTest.#ctor">
             <summary>
@@ -4449,6 +4587,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteCommunityWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IVkontakteCommunityWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteCommunityWidgetExtensionsTest.#ctor">
             <summary>
@@ -4474,6 +4613,7 @@
             <summary>
               <para>Test set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteLikeButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IVkontakteLikeButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteLikeButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -4504,6 +4644,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontaktePollWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IVkontaktePollWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontaktePollWidgetExtensionsTest.#ctor">
             <summary>
@@ -4524,6 +4665,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontaktePostWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IVkontaktePostWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontaktePostWidgetExtensionsTest.#ctor">
             <summary>
@@ -4549,6 +4691,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteRecommendationsWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IVkontakteRecommendationsWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteRecommendationsWidgetExtensionsTest.#ctor">
             <summary>
@@ -4564,6 +4707,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IVkontakteSubscriptionWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IVkontakteSubscriptionWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IVkontakteSubscriptionWidgetExtensionsTest.#ctor">
             <summary>
@@ -4579,6 +4723,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteAuthButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VkontakteAuthButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteAuthButtonWidgetTest.#ctor">
             <summary>
@@ -4630,6 +4775,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteCommentsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VkontakteCommentsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteCommentsWidgetTest.#ctor">
             <summary>
@@ -4691,6 +4837,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteCommunityWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VkontakteCommunityWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteCommunityWidgetTest.#ctor">
             <summary>
@@ -4757,6 +4904,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteInitializationWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VkontakteInitializationWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteInitializationWidgetTest.#ctor">
             <summary>
@@ -4788,6 +4936,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteLikeButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VkontakteLikeButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteLikeButtonWidgetTest.#ctor">
             <summary>
@@ -4864,6 +5013,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontaktePollWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VkontaktePollWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontaktePollWidgetTest.#ctor">
             <summary>
@@ -4910,6 +5060,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontaktePostWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VkontaktePostWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontaktePostWidgetTest.#ctor">
             <summary>
@@ -4961,6 +5112,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteRecommendationsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VkontakteRecommendationsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteRecommendationsWidgetTest.#ctor">
             <summary>
@@ -5022,6 +5174,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteSubscriptionWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VkontakteSubscriptionWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteSubscriptionWidgetTest.#ctor">
             <summary>
@@ -5068,6 +5221,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteVideoWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VkontakteVideoWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteVideoWidgetTest.#ctor">
             <summary>
@@ -5124,6 +5278,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.VkontakteWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.VkontakteWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.VkontakteWidgetsCreatorTest.Constructors">
             <summary>
@@ -5180,6 +5335,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexAnalyticsWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IYandexAnalyticsWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexAnalyticsWidgetExtensionsTest.#ctor">
             <summary>
@@ -5195,6 +5351,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexLikeButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IYandexLikeButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexLikeButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -5220,6 +5377,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexMoneyButtonWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IYandexMoneyButtonWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexMoneyButtonWidgetExtensionsTest.#ctor">
             <summary>
@@ -5255,6 +5413,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexMoneyDonateFormWidgetExtensionsTest.#ctor">
             <summary>
@@ -5280,6 +5439,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexMoneyPaymentFormWidgetExtensionsTest.#ctor">
             <summary>
@@ -5300,6 +5460,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.IYandexSharePanelWidgetExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.IYandexSharePanelWidgetExtensions"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.IYandexSharePanelWidgetExtensionsTest.#ctor">
             <summary>
@@ -5325,6 +5486,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexAnalyticsWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.YandexAnalyticsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexAnalyticsWidgetTest.#ctor">
             <summary>
@@ -5391,6 +5553,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexLikeButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.YandexLikeButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexLikeButtonWidgetTest.#ctor">
             <summary>
@@ -5442,6 +5605,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexMapWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.YandexMapWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMapWidgetTest.#ctor">
             <summary>
@@ -5468,6 +5632,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexMoneyButtonWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.YandexMoneyButtonWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyButtonWidgetTest.#ctor">
             <summary>
@@ -5549,6 +5714,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.YandexMoneyDonateFormWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyDonateFormWidgetTest.#ctor">
             <summary>
@@ -5640,6 +5806,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.YandexMoneyPaymentFormWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexMoneyPaymentFormWidgetTest.#ctor">
             <summary>
@@ -5721,6 +5888,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexSharePanelWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.YandexSharePanelWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexSharePanelWidgetTest.#ctor">
             <summary>
@@ -5762,6 +5930,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexVideoWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.YandexVideoWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexVideoWidgetTest.#ctor">
             <summary>
@@ -5808,6 +5977,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YandexWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.YandexWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YandexWidgetsCreatorTest.Constructors">
             <summary>
@@ -5854,6 +6024,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YouTubeVideoWidget"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.YouTubeVideoWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YouTubeVideoWidgetTest.#ctor">
             <summary>
@@ -5905,6 +6076,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Catharsis.Web.Widgets.YouTubeWidgetsCreator"/>.</para>
             </summary>
+            <seealso cref="T:Catharsis.Web.Widgets.YouTubeWidgetsCreator"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Tests.YouTubeWidgetsCreatorTest.Constructors">
             <summary>
