@@ -293,14 +293,14 @@ public sealed class ITagBuilderExtensionsTest : Test
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => ITagBuilderExtensions.TabIndex(null, uint.MaxValue)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
+      AssertionExtensions.Should(() => ITagBuilderExtensions.TabIndex(null, int.MaxValue)).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      new uint?[] { null, uint.MinValue, uint.MaxValue, Fixture<uint>.Create() }.ForEach(index => Test(index, Builder));
+      new int?[] { null, int.MinValue, int.MaxValue, Fixture<int>.Create() }.ForEach(index => Test(index, Builder));
     }
 
     return;
 
-    static void Test(uint? index, ITagBuilder builder)
+    static void Test(int? index, ITagBuilder builder)
     {
       builder.TabIndex(index).Should().BeSameAs(builder);
       builder.Attributes().Should().Contain("tabindex", index?.ToInvariantString());

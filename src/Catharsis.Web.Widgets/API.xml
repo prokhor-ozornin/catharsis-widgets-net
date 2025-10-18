@@ -197,7 +197,7 @@
             <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
         </member>
-        <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.TabIndex(Catharsis.Web.Widgets.ITagBuilder,System.Nullable{System.UInt32})">
+        <member name="M:Catharsis.Web.Widgets.ITagBuilderExtensions.TabIndex(Catharsis.Web.Widgets.ITagBuilder,System.Nullable{System.Int32})">
             <summary>
               <para></para>
             </summary>

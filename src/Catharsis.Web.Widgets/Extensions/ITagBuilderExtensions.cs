@@ -232,7 +232,7 @@ public static class ITagBuilderExtensions
   /// <param name="index"></param>
   /// <returns>Back self-reference to the given <paramref name="builder"/>.</returns>
   /// <exception cref="ArgumentNullException">If <paramref name="builder"/> is <see langword="null"/>.</exception>
-  public static ITagBuilder TabIndex(this ITagBuilder builder, uint? index) => builder?.Attribute("tabindex", index) ?? throw new ArgumentNullException(nameof(builder));
+  public static ITagBuilder TabIndex(this ITagBuilder builder, int? index) => builder?.Attribute("tabindex", index) ?? throw new ArgumentNullException(nameof(builder));
 
   /// <summary>
   ///   <para></para>
