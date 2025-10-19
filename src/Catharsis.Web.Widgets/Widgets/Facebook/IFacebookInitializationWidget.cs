@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Performs initialization of Facebook JavaScript API. Initialization must be performed before rendering Facebook widgets on the page.</para>
 /// </summary>
-/// <seealso cref="https://developers.facebook.com/docs/javascript"/>
+/// <seealso href="https://developers.facebook.com/docs/javascript"/>
 public interface IFacebookInitializationWidget : IWebWidget
 {
   /// <summary>

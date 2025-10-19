@@ -4,7 +4,7 @@
 ///   <para>Renders Facebook Like Box.</para>
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="https://developers.facebook.com/docs/plugins/like-box-for-pages"/>
+/// <seealso href="https://developers.facebook.com/docs/plugins/like-box-for-pages"/>
 public interface IFacebookLikeBoxWidget : IWebWidget
 {
   /// <summary>

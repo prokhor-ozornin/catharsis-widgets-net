@@ -65,6 +65,7 @@ public sealed class YandexMapWidgetTest : Test
     using (new AssertionScope())
     {
       Test(Fixture<YandexMapWidget>.Create());
+      
       throw new NotImplementedException();
     }
 

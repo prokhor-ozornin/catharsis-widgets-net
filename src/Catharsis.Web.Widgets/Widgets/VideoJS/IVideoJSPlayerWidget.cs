@@ -4,7 +4,7 @@
 ///   <para>Renders Video.JS web player widget.</para>
 ///   <para>Requires VideoJS scripts and CSS bundles to be included.</para>
 /// </summary>
-/// <seealso cref="http://www.videojs.com"/>
+/// <seealso href="http://www.videojs.com"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.VideoJS(IWidgetsScriptsRenderer)"/>
 /// <seealso cref="IWidgetsStylesRendererExtensions.VideoJS(IWidgetsStylesRenderer)"/>
 public interface IVideoJSPlayerWidget : IWebWidget

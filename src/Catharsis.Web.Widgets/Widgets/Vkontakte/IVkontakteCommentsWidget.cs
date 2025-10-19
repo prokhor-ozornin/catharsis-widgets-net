@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Renders VKontakte comments widget.</para>
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="http://vk.com/dev/Comments"/>
+/// <seealso href="http://vk.com/dev/Comments"/>
 public interface IVkontakteCommentsWidget : IWebWidget
 {
   /// <summary>

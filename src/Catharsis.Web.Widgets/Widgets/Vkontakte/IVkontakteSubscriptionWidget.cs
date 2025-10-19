@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Renders VKontakte page subscription widget.</para>
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="http://vk.com/dev/Subscribe"/>
+/// <seealso href="http://vk.com/dev/Subscribe"/>
 public interface IVkontakteSubscriptionWidget : IWebWidget
 {
   /// <summary>

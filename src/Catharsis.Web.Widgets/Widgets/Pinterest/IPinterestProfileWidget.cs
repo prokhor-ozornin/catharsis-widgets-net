@@ -4,7 +4,7 @@
 ///   <para>Renders Pinterest Profile widget with user's latest pins.</para>
 ///   <para>Requires Pinterest scripts bundle to be included.</para>
 /// </summary>
-/// <seealso cref="http://business.pinterest.com/widget-builder/#do_embed_user"/>
+/// <seealso href="http://business.pinterest.com/widget-builder/#do_embed_user"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
 public interface IPinterestProfileWidget : IWebWidget
 {

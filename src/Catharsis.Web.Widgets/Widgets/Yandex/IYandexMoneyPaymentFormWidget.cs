@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Renders payment form for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
 /// </summary>
-/// <seealso cref="https://money.yandex.ru/embed/quickpay/shop.xml"/>
+/// <seealso href="https://money.yandex.ru/embed/quickpay/shop.xml"/>
 public interface IYandexMoneyPaymentFormWidget : IWebWidget
 {
   /// <summary>

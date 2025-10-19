@@ -4,7 +4,7 @@
 ///   <para>Renders Vkontakte Poll widget.</para>
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="http://vk.com/dev/Poll"/>
+/// <seealso href="http://vk.com/dev/Poll"/>
 public interface IVkontaktePollWidget : IWebWidget
 {
   /// <summary>

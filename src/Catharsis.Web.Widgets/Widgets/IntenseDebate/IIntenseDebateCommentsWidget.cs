@@ -3,7 +3,7 @@ namespace Catharsis.Web.Widgets;
 /// <summary>
 ///   <para>Renders IntenseDebate comments widget for registered website.</para>
 /// </summary>
-/// <seealso cref="http://intensedebate.com"/>
+/// <seealso href="http://intensedebate.com"/>
 public interface IIntenseDebateCommentsWidget : IWebWidget
 {
   /// <summary>

@@ -37,7 +37,7 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IVimeoVideoWidget.Height(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Height(string)"/>
   public virtual IVimeoVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -47,7 +47,7 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IVimeoVideoWidget.Id(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Id(string)"/>
   public virtual IVimeoVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -64,7 +64,7 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IVimeoVideoWidget.Width(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Width(string)"/>
   public virtual IVimeoVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));

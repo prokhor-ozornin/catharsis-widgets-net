@@ -30,7 +30,7 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
   /// </summary>
   protected virtual bool SecureModeValue { get; set; }
 
-  /// <inheritdoc cref="IYouTubeVideoWidget.Id(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Id(string)"/>
   public virtual IYouTubeVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -41,7 +41,7 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IYouTubeVideoWidget.Height(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Height(string)"/>
   public virtual IYouTubeVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -66,7 +66,7 @@ public class YouTubeVideoWidget : WebWidget, IYouTubeVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IYouTubeVideoWidget.Width(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Width(string)"/>
   public virtual IYouTubeVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));

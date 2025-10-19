@@ -108,10 +108,9 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.CssStyles(null, Enumerable.Empty<(string, string)>())).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      throw new NotImplementedException();
-
       static void Test(IEnumerable<(string Name, string Value)> styles, ITagBuilder builder)
       {
+        throw new NotImplementedException();
       }
     }
 
@@ -119,10 +118,9 @@ public sealed class ITagBuilderExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITagBuilderExtensions.CssStyles(null, Enumerable.Empty<(string, object)>())).ThrowExactly<ArgumentNullException>().WithParameterName("builder");
 
-      throw new NotImplementedException();
-
       static void Test(IEnumerable<(string Name, object Value)> styles, ITagBuilder builder)
       {
+        throw new NotImplementedException();
       }
     }
   }
@@ -286,7 +284,7 @@ public sealed class ITagBuilderExtensionsTest : Test
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="ITagBuilderExtensions.TabIndex(ITagBuilder, uint?)"/> method.</para>
+  ///   <para>Performs testing of <see cref="ITagBuilderExtensions.TabIndex(ITagBuilder, int?)"/> method.</para>
   /// </summary>
   [Fact]
   public void TabIndex_Method()

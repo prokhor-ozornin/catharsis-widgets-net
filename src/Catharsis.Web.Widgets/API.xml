@@ -1324,7 +1324,7 @@
               <para>Initializes Cackle comments count widget to show comments count with hyperlinks.</para>
               <para>Requires Cackle scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://ru.cackle.me/help/widget-api"/>
+            <seealso href="http://ru.cackle.me/help/widget-api"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Cackle(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.ICackleCommentsCountWidget.Account(System.String)">
@@ -1342,7 +1342,7 @@
               <para>Renders Cackle comments widget for registered website.</para>
               <para>Requires Cackle scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://ru.cackle.me/help/widget-api"/>
+            <seealso href="http://ru.cackle.me/help/widget-api"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Cackle(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.ICackleCommentsWidget.Account(System.String)">
@@ -1360,7 +1360,7 @@
               <para>Renders Cackle latest comments widget for registered website.</para>
               <para>Requires Cackle scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://ru.cackle.me/help/widget-api"/>
+            <seealso href="http://ru.cackle.me/help/widget-api"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Cackle(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.ICackleLatestCommentsWidget.Account(System.String)">
@@ -1406,7 +1406,7 @@
               <para>Renders Cackle social user login widget for registered website.</para>
               <para>Requires Cackle scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://ru.cackle.me/help/widget-api"/>
+            <seealso href="http://ru.cackle.me/help/widget-api"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Cackle(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.ICackleLoginWidget.Account(System.String)">
@@ -1610,7 +1610,7 @@
               <para>Renders Disqus comments widget for registered website.</para>
               <para>Requires Disqus scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://disqus.com/websites"/>
+            <seealso href="http://disqus.com/websites"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Cackle(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IDisqusCommentsWidget.Account(System.String)">
@@ -2446,13 +2446,13 @@
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.FacebookVideoWidget.Id(System.String)">
-            <inheritdoc cref="!:IFacebookVideoWidget.Id(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Id(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.FacebookVideoWidget.Height(System.String)">
-            <inheritdoc cref="!:IFacebookVideoWidget.Height(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Height(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.FacebookVideoWidget.Width(System.String)">
-            <inheritdoc cref="!:IFacebookVideoWidget.Width(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Width(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.FacebookVideoWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
@@ -2501,7 +2501,7 @@
               <para>Renders Facebook Activity Feed.</para>
               <para>Requires Facebook JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:https://developers.facebook.com/docs/plugins/activity"/>
+            <seealso href="https://developers.facebook.com/docs/plugins/activity"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookActivityFeedWidget.Actions(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
@@ -2646,7 +2646,7 @@
               <para>Renders Facebook comments widget.</para>
               <para>Requires Facebook JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:https://developers.facebook.com/docs/plugins/comments"/>
+            <seealso href="https://developers.facebook.com/docs/plugins/comments"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookCommentsWidget.ColorScheme(System.String)">
             <summary>
@@ -2748,7 +2748,7 @@
               <para>Renders Facebook FacePile widget.</para>
               <para>Requires Facebook JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:https://developers.facebook.com/docs/plugins/facepile"/>
+            <seealso href="https://developers.facebook.com/docs/plugins/facepile"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookFacePileWidget.Actions(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
@@ -2880,7 +2880,7 @@
               <para>Renders Facebook "Follow" button.</para>
               <para>Requires Facebook JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:https://developers.facebook.com/docs/plugins/follow-button"/>
+            <seealso href="https://developers.facebook.com/docs/plugins/follow-button"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookFollowButtonWidget.ColorScheme(System.String)">
             <summary>
@@ -3001,7 +3001,7 @@
             <summary>
               <para>Performs initialization of Facebook JavaScript API. Initialization must be performed before rendering Facebook widgets on the page.</para>
             </summary>
-            <seealso cref="!:https://developers.facebook.com/docs/javascript"/>
+            <seealso href="https://developers.facebook.com/docs/javascript"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookInitializationWidget.AppId(System.String)">
             <summary>
@@ -3018,7 +3018,7 @@
               <para>Renders Facebook Like Box.</para>
               <para>Requires Facebook JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:https://developers.facebook.com/docs/plugins/like-box-for-pages"/>
+            <seealso href="https://developers.facebook.com/docs/plugins/like-box-for-pages"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeBoxWidget.Border(System.Boolean)">
             <summary>
@@ -3142,7 +3142,7 @@
               <para>Renders Facebook "Like"/"Recommend" button.</para>
               <para>Requires Facebook JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:https://developers.facebook.com/docs/plugins/like-button"/>
+            <seealso href="https://developers.facebook.com/docs/plugins/like-button"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeButtonWidget.ColorScheme(System.String)">
             <summary>
@@ -3272,7 +3272,7 @@
               <para>Renders embedded Facebook post on web page.</para>
               <para>Requires Facebook JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:https://developers.facebook.com/docs/plugins/embedded-posts"/>
+            <seealso href="https://developers.facebook.com/docs/plugins/embedded-posts"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookPostWidget.Url(System.String)">
             <summary>
@@ -3323,7 +3323,7 @@
               <para>Renders Facebook Recommendations Feed.</para>
               <para>Requires Facebook JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:https://developers.facebook.com/docs/plugins/recommendations"/>
+            <seealso href="https://developers.facebook.com/docs/plugins/recommendations"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookRecommendationsFeedWidget.Actions(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
@@ -3461,7 +3461,7 @@
               <para>Renders Facebook "Send" button.</para>
               <para>Requires Facebook JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:https://developers.facebook.com/docs/plugins/send-button"/>
+            <seealso href="https://developers.facebook.com/docs/plugins/send-button"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookSendButtonWidget.ColorScheme(System.String)">
             <summary>
@@ -3808,7 +3808,7 @@
             <summary>
               <para>Includes Google Analytics JavaScript code into web page.</para>
             </summary>
-            <seealso cref="!:http://www.google.com/analytics"/>
+            <seealso href="http://www.google.com/analytics"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IGoogleAnalyticsWidget.Account(System.String)">
             <summary>
@@ -3840,8 +3840,8 @@
               <para>Renders Google "+1" button.</para>
               <para>Requires Google scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:https://developers.google.com/+/web/+1button"/>
-            <seealso cref="!:IWidgetsScriptsRendererExtensions.Google(IWidgetsScriptsRenderer)"/>
+            <seealso href="https://developers.google.com/+/web/+1button"/>
+            <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.GoogleAnalytics(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IGooglePlusOneButtonWidget.Alignment(System.String)">
             <summary>
@@ -4120,7 +4120,7 @@
             <summary>
               <para>Gravatar's avatar image URL.</para>
             </summary>
-            <seealso cref="!:http://gravatar.com/site/implement/images"/>
+            <seealso href="http://gravatar.com/site/implement/images"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IGravatarImageUrlWidget.Extension(System.String)">
             <summary>
@@ -4232,7 +4232,7 @@
             <summary>
               <para>Gravatar's user profile URL.</para>
             </summary>
-            <seealso cref="!:http://gravatar.com/site/implement/profiles"/>
+            <seealso href="http://gravatar.com/site/implement/profiles"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IGravatarProfileUrlWidget.Format(System.String)">
             <summary>
@@ -4441,7 +4441,7 @@
             <summary>
               <para>Renders IntenseDebate comments widget for registered website.</para>
             </summary>
-            <seealso cref="!:http://intensedebate.com"/>
+            <seealso href="http://intensedebate.com"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IIntenseDebateCommentsWidget.Account(System.String)">
             <summary>
@@ -4484,7 +4484,7 @@
             <summary>
               <para>Renders IntenseDebate hyperlink with current comment count for registered website.</para>
             </summary>
-            <seealso cref="!:http://intensedebate.com"/>
+            <seealso href="http://intensedebate.com"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IIntenseDebateLinkWidget.Account(System.String)">
             <summary>
@@ -4670,13 +4670,13 @@
             <summary>
               <para>Renders LiveJournal "Like" button.</para>
             </summary>
-            <seealso cref="!:http://www.livejournal.com/support/faq/313.html"/>
+            <seealso href="http://www.livejournal.com/support/faq/313.html"/>
         </member>
         <member name="T:Catharsis.Web.Widgets.ILiveJournalRepostButtonWidget">
             <summary>
               <para>Renders LiveJournal "Repost" button.</para>
             </summary>
-            <seealso cref="!:http://www.livejournal.com/support/faq/313.html"/>
+            <seealso href="http://www.livejournal.com/support/faq/313.html"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.ILiveJournalRepostButtonWidget.Text(System.String)">
             <summary>
@@ -4761,7 +4761,7 @@
               <para>Renders Mail.ru Faces (People On Site) widget.</para>
               <para>Requires MailRu scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://api.mail.ru/sites/plugins/faces"/>
+            <seealso href="http://api.mail.ru/sites/plugins/faces"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.MailRu(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IMailRuFacesWidget.BackgroundColor(System.String)">
@@ -4905,7 +4905,7 @@
               <para>Renders Mail.ru Group (People In Group) widget.</para>
               <para>Requires MailRu scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://api.mail.ru/sites/plugins/groups"/>
+            <seealso href="http://api.mail.ru/sites/plugins/groups"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.MailRu(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IMailRuGroupsWidget.Account(System.String)">
@@ -5009,7 +5009,7 @@
             <summary>
               <para>Adds "ICQ On-Site" widget to web page.</para>
             </summary>
-            <seealso cref="!:http://api.mail.ru/sites/plugins/icq-on-site"/>
+            <seealso href="http://api.mail.ru/sites/plugins/icq-on-site"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IMailRuIcqWidget.Account(System.String)">
             <summary>
@@ -5034,7 +5034,7 @@
               <para>Renders Mail.ru "Like" button on web page.</para>
               <para>Requires MailRu scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://api.mail.ru/sites/plugins/share"/>
+            <seealso href="http://api.mail.ru/sites/plugins/share"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.MailRu(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.Counter(System.Boolean)">
@@ -5614,13 +5614,13 @@
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuVideoWidget.Id(System.String)">
-            <inheritdoc cref="!:IMailRuVideoWidget.Id(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Id(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuVideoWidget.Height(System.String)">
-            <inheritdoc cref="!:IMailRuVideoWidget.Height(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Height(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuVideoWidget.Width(System.String)">
-            <inheritdoc cref="!:IMailRuVideoWidget.Width(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Width(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.MailRuVideoWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
@@ -5823,7 +5823,7 @@
               <para>Renders Pinterest Board widget with board's latest pins.</para>
               <para>Requires Pinterest scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://business.pinterest.com/widget-builder/#do_embed_board"/>
+            <seealso href="http://business.pinterest.com/widget-builder/#do_embed_board"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Pinterest(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IPinterestBoardWidget.Account(System.String)">
@@ -5950,7 +5950,7 @@
               <para>Renders Pinterest "Follow Me" button.</para>
               <para>Requires Pinterest scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://business.pinterest.com/widget-builder/#do_follow_me_button"/>
+            <seealso href="http://business.pinterest.com/widget-builder/#do_follow_me_button"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Pinterest(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IPinterestFollowButtonWidget.Account(System.String)">
@@ -5978,7 +5978,7 @@
               <para>Renders Pinterest "Pin It" button widget.</para>
               <para>Requires Pinterest scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://business.pinterest.com/widget-builder/#do_pin_it_button"/>
+            <seealso href="http://business.pinterest.com/widget-builder/#do_pin_it_button"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Pinterest(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IPinterestPinItButtonWidget.Color(System.String)">
@@ -6099,7 +6099,7 @@
               <para>Renders Pinterest embedded pin widget.</para>
               <para>Requires Pinterest scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://business.pinterest.com/widget-builder/#do_embed_pin"/>
+            <seealso href="http://business.pinterest.com/widget-builder/#do_embed_pin"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Pinterest(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IPinterestPinWidget.Id(System.String)">
@@ -6117,7 +6117,7 @@
               <para>Renders Pinterest Profile widget with user's latest pins.</para>
               <para>Requires Pinterest scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://business.pinterest.com/widget-builder/#do_embed_user"/>
+            <seealso href="http://business.pinterest.com/widget-builder/#do_embed_user"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Pinterest(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IPinterestProfileWidget.Account(System.String)">
@@ -6609,13 +6609,13 @@
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.RuTubeVideoWidget.Id(System.String)">
-            <inheritdoc cref="!:IRuTubeVideoWidget.Id(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Id(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.RuTubeVideoWidget.Height(System.String)">
-            <inheritdoc cref="!:IRuTubeVideoWidget.Height(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Height(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.RuTubeVideoWidget.Width(System.String)">
-            <inheritdoc cref="!:IRuTubeVideoWidget.Width(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Width(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.RuTubeVideoWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
@@ -6763,7 +6763,7 @@
             <summary>
               <para>Renders SoundCloud user's profile icon.</para>
             </summary>
-            <seealso cref="!:https://soundcloud.com/pages/embed"/>
+            <seealso href="https://soundcloud.com/pages/embed"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.ISoundCloudProfileIconWidget.Account(System.String)">
             <summary>
@@ -6947,7 +6947,7 @@
               <para>Renders Surfingbird "Surf" button.</para>
               <para>Requires Surfingbird scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://surfingbird.ru/publishers/surfbutton"/>
+            <seealso href="http://surfingbird.ru/publishers/surfbutton"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Surfingbird(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.ISurfingbirdSurfButtonWidget.Color(System.String)">
@@ -7183,7 +7183,7 @@
             <summary>
               <para>Renders Tumblr "Follow" button.</para>
             </summary>
-            <seealso cref="!:http://www.tumblr.com/buttons"/>
+            <seealso href="http://www.tumblr.com/buttons"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITumblrFollowButtonWidget.Account(System.String)">
             <summary>
@@ -7242,7 +7242,7 @@
               <para>Renders Tumblr "Share" button.</para>
               <para>Requires Tumblr scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://www.tumblr.com/buttons"/>
+            <seealso href="http://www.tumblr.com/buttons"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Tumblr(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITumblrShareButtonWidget.ColorScheme(System.String)">
@@ -7451,7 +7451,7 @@
               <para>Renders Twitter "Follow" button.</para>
               <para>Requires Twitter scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:https://dev.twitter.com/docs/follow-button"/>
+            <seealso href="https://dev.twitter.com/docs/follow-button"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Twitter(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITwitterFollowButtonWidget.Account(System.String)">
@@ -7562,7 +7562,7 @@
               <para>Renders Twitter "Tweet" button.</para>
               <para>Requires Twitter scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:https://dev.twitter.com/docs/tweet-button"/>
+            <seealso href="https://dev.twitter.com/docs/tweet-button"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Twitter(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITwitterTweetButtonWidget.CounterPosition(System.String)">
@@ -7965,7 +7965,7 @@
               <para>Renders Video.JS web player widget.</para>
               <para>Requires VideoJS scripts and CSS bundles to be included.</para>
             </summary>
-            <seealso cref="!:http://www.videojs.com"/>
+            <seealso href="http://www.videojs.com"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.VideoJS(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsStylesRendererExtensions.VideoJS(Catharsis.Web.Widgets.IWidgetsStylesRenderer)"/>
         </member>
@@ -8177,16 +8177,16 @@
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVimeoVideoWidget.AutoPlay(System.Boolean)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VimeoVideoWidget.Height(System.String)">
-            <inheritdoc cref="!:IVimeoVideoWidget.Height(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Height(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VimeoVideoWidget.Id(System.String)">
-            <inheritdoc cref="!:IVimeoVideoWidget.Id(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Id(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VimeoVideoWidget.Loop(System.Boolean)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVimeoVideoWidget.Loop(System.Boolean)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VimeoVideoWidget.Width(System.String)">
-            <inheritdoc cref="!:IVimeoVideoWidget.Width(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Width(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VimeoVideoWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
@@ -8205,7 +8205,7 @@
               <para>Renders VKontakte OAuth button widget.</para>
               <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:http://vk.com/dev/Auth"/>
+            <seealso href="http://vk.com/dev/Auth"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteAuthButtonWidget.ElementId(System.String)">
             <summary>
@@ -8290,7 +8290,7 @@
               <para>Renders VKontakte comments widget.</para>
               <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:http://vk.com/dev/Comments"/>
+            <seealso href="http://vk.com/dev/Comments"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteCommentsWidget.Attach(System.String[])">
             <summary>
@@ -8387,7 +8387,7 @@
               <para>Renders VKontakte community widget.</para>
               <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:http://vk.com/dev/Community"/>
+            <seealso href="http://vk.com/dev/Community"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteCommunityWidget.BackgroundColor(System.String)">
             <summary>
@@ -8501,7 +8501,7 @@
               <para>Performs initialization of VKontakte JavaScript API. Initialization must be performed before render any VKontakte widgets on web pages.</para>
               <para>Requires Vkontakte scripts bundle to be included.</para>
             </summary>
-            <seealso cref="!:http://vk.com/dev/sites"/>
+            <seealso href="http://vk.com/dev/sites"/>
             <seealso cref="M:Catharsis.Web.Widgets.IWidgetsScriptsRendererExtensions.Vkontakte(Catharsis.Web.Widgets.IWidgetsScriptsRenderer)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteInitializationWidget.ApiId(System.String)">
@@ -8519,7 +8519,7 @@
               <para>Renders VKontakte "Like" button widget.</para>
               <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:http://vk.com/dev/Like"/>
+            <seealso href="http://vk.com/dev/Like"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteLikeButtonWidget.ElementId(System.String)">
             <summary>
@@ -8659,7 +8659,7 @@
               <para>Renders Vkontakte Poll widget.</para>
               <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:http://vk.com/dev/Poll"/>
+            <seealso href="http://vk.com/dev/Poll"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontaktePollWidget.Id(System.String)">
             <summary>
@@ -8727,7 +8727,7 @@
               <para>Renders VKontakte Wall Post widget.</para>
               <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:http://vk.com/dev/Post"/>
+            <seealso href="http://vk.com/dev/Post"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontaktePostWidget.ElementId(System.String)">
             <summary>
@@ -8815,7 +8815,7 @@
               <para>Renders VKontakte Recommendations widget.</para>
               <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:http://vk.com/dev/Recommended"/>
+            <seealso href="http://vk.com/dev/Recommended"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteRecommendationsWidget.ElementId(System.String)">
             <summary>
@@ -8892,7 +8892,7 @@
               <para>Renders VKontakte page subscription widget.</para>
               <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
             </summary>
-            <seealso cref="!:http://vk.com/dev/Subscribe"/>
+            <seealso href="http://vk.com/dev/Subscribe"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteSubscriptionWidget.Account(System.String)">
             <summary>
@@ -9817,16 +9817,16 @@
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontakteVideoWidget.Hd(System.Boolean)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteVideoWidget.Height(System.String)">
-            <inheritdoc cref="!:IVkontakteVideoWidget.Height(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Height(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteVideoWidget.Id(System.String)">
-            <inheritdoc cref="!:IVkontakteVideoWidget.Id(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Id(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteVideoWidget.User(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontakteVideoWidget.User(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteVideoWidget.Width(System.String)">
-            <inheritdoc cref="!:IVkontakteVideoWidget.Width(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Width(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.VkontakteVideoWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
@@ -9871,7 +9871,7 @@
             <summary>
               <para>Renders Yandex.Metrika web counter's JavaScript code.</para>
             </summary>
-            <seealso cref="!:https://metrika.yandex.ru"/>
+            <seealso href="https://metrika.yandex.ru"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexAnalyticsWidget.Account(System.String)">
             <summary>
@@ -10043,7 +10043,7 @@
             <summary>
               <para>Renders button for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
             </summary>
-            <seealso cref="!:https://money.yandex.ru/embed/quickpay/small.xml"/>
+            <seealso href="https://money.yandex.ru/embed/quickpay/small.xml"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyButtonWidget.Account(System.String)">
             <summary>
@@ -10191,7 +10191,7 @@
             <summary>
               <para>Renders donation form for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
             </summary>
-            <seealso cref="!:https://money.yandex.ru/embed/quickpay/donate.xml"/>
+            <seealso href="https://money.yandex.ru/embed/quickpay/donate.xml"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.Account(System.String)">
             <summary>
@@ -10334,7 +10334,7 @@
             <summary>
               <para>Renders payment form for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
             </summary>
-            <seealso cref="!:https://money.yandex.ru/embed/quickpay/shop.xml"/>
+            <seealso href="https://money.yandex.ru/embed/quickpay/shop.xml"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget.Account(System.String)">
             <summary>
@@ -11269,16 +11269,16 @@
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.YandexVideoWidget.Id(System.String)">
-            <inheritdoc cref="!:IYandexVideoWidget.Id(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Id(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.YandexVideoWidget.Height(System.String)">
-            <inheritdoc cref="!:IYandexVideoWidget.Height(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Height(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.YandexVideoWidget.User(System.String)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IYandexVideoWidget.User(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.YandexVideoWidget.Width(System.String)">
-            <inheritdoc cref="!:IYandexVideoWidget.Width(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Width(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.YandexVideoWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
@@ -11369,10 +11369,10 @@
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.YouTubeVideoWidget.Id(System.String)">
-            <inheritdoc cref="!:IYouTubeVideoWidget.Id(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Id(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.YouTubeVideoWidget.Height(System.String)">
-            <inheritdoc cref="!:IYouTubeVideoWidget.Height(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Height(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.YouTubeVideoWidget.PrivateMode(System.Boolean)">
             <inheritdoc cref="M:Catharsis.Web.Widgets.IYouTubeVideoWidget.PrivateMode(System.Boolean)"/>
@@ -11381,7 +11381,7 @@
             <inheritdoc cref="M:Catharsis.Web.Widgets.IYouTubeVideoWidget.SecureMode(System.Boolean)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.YouTubeVideoWidget.Width(System.String)">
-            <inheritdoc cref="!:IYouTubeVideoWidget.Width(string)"/>
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVideoWidget`1.Width(System.String)"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.YouTubeVideoWidget.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>

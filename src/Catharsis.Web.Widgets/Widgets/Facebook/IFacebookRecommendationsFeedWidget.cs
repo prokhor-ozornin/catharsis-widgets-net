@@ -4,7 +4,7 @@
 ///   <para>Renders Facebook Recommendations Feed.</para>
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="https://developers.facebook.com/docs/plugins/recommendations"/>
+/// <seealso href="https://developers.facebook.com/docs/plugins/recommendations"/>
 public interface IFacebookRecommendationsFeedWidget : IWebWidget
 {
   /// <summary>

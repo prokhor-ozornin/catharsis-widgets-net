@@ -4,7 +4,7 @@
 ///   <para>Renders Facebook Activity Feed.</para>
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="https://developers.facebook.com/docs/plugins/activity"/>
+/// <seealso href="https://developers.facebook.com/docs/plugins/activity"/>
 public interface IFacebookActivityFeedWidget : IWebWidget
 {
   /// <summary>

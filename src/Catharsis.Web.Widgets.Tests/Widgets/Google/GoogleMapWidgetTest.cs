@@ -65,6 +65,7 @@ public sealed class GoogleMapWidgetTest : Test
     using (new AssertionScope())
     {
       throw new NotImplementedException();
+      
       Test(Fixture<GravatarImageUrlWidget>.Create());
     }
 

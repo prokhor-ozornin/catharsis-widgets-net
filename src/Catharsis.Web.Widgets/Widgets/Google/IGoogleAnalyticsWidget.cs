@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Includes Google Analytics JavaScript code into web page.</para>
 /// </summary>
-/// <seealso cref="http://www.google.com/analytics"/>
+/// <seealso href="http://www.google.com/analytics"/>
 public interface IGoogleAnalyticsWidget : IWebWidget
 {
   /// <summary>

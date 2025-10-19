@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Renders SoundCloud user's profile icon.</para>
 /// </summary>
-/// <seealso cref="https://soundcloud.com/pages/embed"/>
+/// <seealso href="https://soundcloud.com/pages/embed"/>
 public interface ISoundCloudProfileIconWidget : IWebWidget
 {
   /// <summary>

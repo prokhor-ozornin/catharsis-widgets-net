@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Adds "ICQ On-Site" widget to web page.</para>
 /// </summary>
-/// <seealso cref="http://api.mail.ru/sites/plugins/icq-on-site"/>
+/// <seealso href="http://api.mail.ru/sites/plugins/icq-on-site"/>
 public interface IMailRuIcqWidget : IWebWidget
 {
   /// <summary>

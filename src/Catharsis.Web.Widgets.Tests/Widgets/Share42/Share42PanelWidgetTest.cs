@@ -100,6 +100,7 @@ public sealed class Share42PanelWidgetTest : Test
     using (new AssertionScope())
     {
       Test(Fixture<Share42PanelWidget>.Create());
+      
       throw new NotImplementedException();
     }
 

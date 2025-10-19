@@ -25,7 +25,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
   /// </summary>
   protected virtual string UserValue { get; set; }
 
-  /// <inheritdoc cref="IYandexVideoWidget.Id(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Id(string)"/>
   public virtual IYandexVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -36,7 +36,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IYandexVideoWidget.Height(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Height(string)"/>
   public virtual IYandexVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -58,7 +58,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IYandexVideoWidget.Width(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Width(string)"/>
   public virtual IYandexVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));

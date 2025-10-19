@@ -48,9 +48,9 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Standard(null, "url")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Standard(null)).ThrowExactly<ArgumentNullException>().WithParameterName("url");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Standard(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("url");
+      
+      throw new NotImplementedException();
     }
-
-    throw new NotImplementedException();
 
     return;
 
@@ -68,9 +68,9 @@ public sealed class IVkontakteAuthButtonWidgetExtensionsTest : Test
       AssertionExtensions.Should(() => IVkontakteAuthButtonWidgetExtensions.Dynamic(null, "callback")).ThrowExactly<ArgumentNullException>().WithParameterName("widget");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(null)).ThrowExactly<ArgumentNullException>().WithParameterName("callback");
       AssertionExtensions.Should(() => new VkontakteAuthButtonWidget().Dynamic(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("callback");
+      
+      throw new NotImplementedException();
     }
-
-    throw new NotImplementedException();
 
     return;
 

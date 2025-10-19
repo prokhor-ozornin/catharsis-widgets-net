@@ -4,7 +4,7 @@
 ///   <para>Renders Pinterest "Pin It" button widget.</para>
 ///   <para>Requires Pinterest scripts bundle to be included.</para>
 /// </summary>
-/// <seealso cref="http://business.pinterest.com/widget-builder/#do_pin_it_button"/>
+/// <seealso href="http://business.pinterest.com/widget-builder/#do_pin_it_button"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
 public interface IPinterestPinItButtonWidget : IWebWidget
 {

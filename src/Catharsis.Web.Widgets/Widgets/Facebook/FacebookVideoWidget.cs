@@ -20,7 +20,7 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
   /// </summary>
   protected virtual string HeightValue { get; set; }
 
-  /// <inheritdoc cref="IFacebookVideoWidget.Id(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Id(string)"/>
   public virtual IFacebookVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -30,7 +30,7 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IFacebookVideoWidget.Height(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Height(string)"/>
   public virtual IFacebookVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -40,7 +40,7 @@ public class FacebookVideoWidget : WebWidget, IFacebookVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IFacebookVideoWidget.Width(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Width(string)"/>
   public virtual IFacebookVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));

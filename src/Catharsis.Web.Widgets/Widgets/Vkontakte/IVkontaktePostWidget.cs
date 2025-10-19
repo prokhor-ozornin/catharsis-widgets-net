@@ -4,7 +4,7 @@
 ///   <para>Renders VKontakte Wall Post widget.</para>
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="http://vk.com/dev/Post"/>
+/// <seealso href="http://vk.com/dev/Post"/>
 public interface IVkontaktePostWidget : IWebWidget
 {
   /// <summary>

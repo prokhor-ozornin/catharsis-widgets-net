@@ -4,7 +4,7 @@
 ///   <para>Renders Facebook comments widget.</para>
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="https://developers.facebook.com/docs/plugins/comments"/>
+/// <seealso href="https://developers.facebook.com/docs/plugins/comments"/>
 public interface IFacebookCommentsWidget : IWebWidget
 {
   /// <summary>

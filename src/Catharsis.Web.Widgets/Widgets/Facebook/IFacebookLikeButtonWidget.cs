@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Renders Facebook "Like"/"Recommend" button.</para>
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="https://developers.facebook.com/docs/plugins/like-button"/>
+/// <seealso href="https://developers.facebook.com/docs/plugins/like-button"/>
 public interface IFacebookLikeButtonWidget : IWebWidget
 {
   /// <summary>

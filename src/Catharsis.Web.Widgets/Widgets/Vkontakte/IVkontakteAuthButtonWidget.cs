@@ -4,7 +4,7 @@
 ///   <para>Renders VKontakte OAuth button widget.</para>
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="http://vk.com/dev/Auth"/>
+/// <seealso href="http://vk.com/dev/Auth"/>
 public interface IVkontakteAuthButtonWidget : IWebWidget
 {
   /// <summary>

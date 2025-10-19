@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Renders LiveJournal "Repost" button.</para>
 /// </summary>
-/// <seealso cref="http://www.livejournal.com/support/faq/313.html"/>
+/// <seealso href="http://www.livejournal.com/support/faq/313.html"/>
 public interface ILiveJournalRepostButtonWidget : IWebWidget
 {
   /// <summary>

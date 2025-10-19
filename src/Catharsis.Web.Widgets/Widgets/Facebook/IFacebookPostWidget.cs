@@ -4,7 +4,7 @@
 ///   <para>Renders embedded Facebook post on web page.</para>
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="https://developers.facebook.com/docs/plugins/embedded-posts"/>
+/// <seealso href="https://developers.facebook.com/docs/plugins/embedded-posts"/>
 public interface IFacebookPostWidget : IWebWidget
 {
   /// <summary>

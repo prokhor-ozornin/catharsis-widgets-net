@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Gravatar's user profile URL.</para>
 /// </summary>
-/// <seealso cref="http://gravatar.com/site/implement/profiles"/>
+/// <seealso href="http://gravatar.com/site/implement/profiles"/>
 public interface IGravatarProfileUrlWidget : IWebWidget
 {
   /// <summary>

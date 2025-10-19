@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Renders Yandex.Metrika web counter's JavaScript code.</para>
 /// </summary>
-/// <seealso cref="https://metrika.yandex.ru"/>
+/// <seealso href="https://metrika.yandex.ru"/>
 public interface IYandexAnalyticsWidget : IWebWidget
 {
   /// <summary>

@@ -4,7 +4,7 @@
 ///   <para>Renders Facebook "Send" button.</para>
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="https://developers.facebook.com/docs/plugins/send-button"/>
+/// <seealso href="https://developers.facebook.com/docs/plugins/send-button"/>
 public interface IFacebookSendButtonWidget : IWebWidget
 {
   /// <summary>

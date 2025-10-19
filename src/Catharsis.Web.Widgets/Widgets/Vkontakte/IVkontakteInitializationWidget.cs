@@ -4,7 +4,7 @@
 ///   <para>Performs initialization of VKontakte JavaScript API. Initialization must be performed before render any VKontakte widgets on web pages.</para>
 ///   <para>Requires Vkontakte scripts bundle to be included.</para>
 /// </summary>
-/// <seealso cref="http://vk.com/dev/sites"/>
+/// <seealso href="http://vk.com/dev/sites"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Vkontakte(IWidgetsScriptsRenderer)"/>
 public interface IVkontakteInitializationWidget : IWebWidget
 {

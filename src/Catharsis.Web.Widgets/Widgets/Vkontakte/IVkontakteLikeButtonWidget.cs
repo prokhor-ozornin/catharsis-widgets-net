@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Renders VKontakte "Like" button widget.</para>
 ///   <para>Requires Vkontakte JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="http://vk.com/dev/Like"/>
+/// <seealso href="http://vk.com/dev/Like"/>
 public interface IVkontakteLikeButtonWidget : IWebWidget
 {
   /// <summary>

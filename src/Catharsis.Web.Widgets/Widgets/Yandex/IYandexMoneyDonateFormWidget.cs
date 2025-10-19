@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Renders donation form for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.</para>
 /// </summary>
-/// <seealso cref="https://money.yandex.ru/embed/quickpay/donate.xml"/>
+/// <seealso href="https://money.yandex.ru/embed/quickpay/donate.xml"/>
 public interface IYandexMoneyDonateFormWidget : IWebWidget
 {
   /// <summary>

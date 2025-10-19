@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Gravatar's avatar image URL.</para>
 /// </summary>
-/// <seealso cref="http://gravatar.com/site/implement/images"/>
+/// <seealso href="http://gravatar.com/site/implement/images"/>
 public interface IGravatarImageUrlWidget : IWebWidget
 {
   /// <summary>

@@ -4,7 +4,7 @@
 ///   <para>Renders Facebook "Follow" button.</para>
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="https://developers.facebook.com/docs/plugins/follow-button"/>
+/// <seealso href="https://developers.facebook.com/docs/plugins/follow-button"/>
 public interface IFacebookFollowButtonWidget : IWebWidget
 {
   /// <summary>

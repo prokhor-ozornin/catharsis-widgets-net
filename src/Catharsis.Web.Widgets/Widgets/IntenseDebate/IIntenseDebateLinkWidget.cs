@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Renders IntenseDebate hyperlink with current comment count for registered website.</para>
 /// </summary>
-/// <seealso cref="http://intensedebate.com"/>
+/// <seealso href="http://intensedebate.com"/>
 public interface IIntenseDebateLinkWidget : IWebWidget
 {
   /// <summary>

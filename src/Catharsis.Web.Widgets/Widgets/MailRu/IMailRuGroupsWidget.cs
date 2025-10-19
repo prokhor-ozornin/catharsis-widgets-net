@@ -4,7 +4,7 @@
 ///   <para>Renders Mail.ru Group (People In Group) widget.</para>
 ///   <para>Requires MailRu scripts bundle to be included.</para>
 /// </summary>
-/// <seealso cref="http://api.mail.ru/sites/plugins/groups"/>
+/// <seealso href="http://api.mail.ru/sites/plugins/groups"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.MailRu(IWidgetsScriptsRenderer)"/>
 public interface IMailRuGroupsWidget : IWebWidget
 {

@@ -4,7 +4,7 @@
 ///   <para>Renders Facebook FacePile widget.</para>
 ///   <para>Requires Facebook JavaScript initialization to be performed first.</para>
 /// </summary>
-/// <seealso cref="https://developers.facebook.com/docs/plugins/facepile"/>
+/// <seealso href="https://developers.facebook.com/docs/plugins/facepile"/>
 public interface IFacebookFacePileWidget : IWebWidget
 {
   /// <summary>

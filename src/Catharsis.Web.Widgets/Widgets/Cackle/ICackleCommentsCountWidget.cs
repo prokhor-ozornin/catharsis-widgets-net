@@ -4,7 +4,7 @@
 ///   <para>Initializes Cackle comments count widget to show comments count with hyperlinks.</para>
 ///   <para>Requires Cackle scripts bundle to be included.</para>
 /// </summary>
-/// <seealso cref="http://ru.cackle.me/help/widget-api"/>
+/// <seealso href="http://ru.cackle.me/help/widget-api"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Cackle(IWidgetsScriptsRenderer)"/>
 public interface ICackleCommentsCountWidget : IWebWidget
 {

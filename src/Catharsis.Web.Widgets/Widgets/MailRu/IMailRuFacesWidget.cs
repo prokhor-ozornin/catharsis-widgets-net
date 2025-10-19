@@ -4,7 +4,7 @@
 ///   <para>Renders Mail.ru Faces (People On Site) widget.</para>
 ///   <para>Requires MailRu scripts bundle to be included.</para>
 /// </summary>
-/// <seealso cref="http://api.mail.ru/sites/plugins/faces"/>
+/// <seealso href="http://api.mail.ru/sites/plugins/faces"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.MailRu(IWidgetsScriptsRenderer)"/>
 public interface IMailRuFacesWidget : IWebWidget
 {

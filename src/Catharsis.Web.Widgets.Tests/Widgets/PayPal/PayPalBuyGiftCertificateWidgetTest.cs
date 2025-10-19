@@ -83,6 +83,7 @@ public sealed class PayPalBuyGiftCertificateWidgetTest : Test
     using (new AssertionScope())
     {
       Test(Fixture<PayPalBuyGiftCertificateWidget>.Create());
+    
       throw new NotImplementedException();
     }
 

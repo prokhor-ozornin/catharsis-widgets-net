@@ -20,7 +20,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
   /// </summary>
   protected virtual string WidthValue { get; set; }
 
-  /// <inheritdoc cref="IMailRuVideoWidget.Id(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Id(string)"/>
   public virtual IMailRuVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -30,7 +30,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IMailRuVideoWidget.Height(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Height(string)"/>
   public virtual IMailRuVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -40,7 +40,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IMailRuVideoWidget.Width(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Width(string)"/>
   public virtual IMailRuVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));

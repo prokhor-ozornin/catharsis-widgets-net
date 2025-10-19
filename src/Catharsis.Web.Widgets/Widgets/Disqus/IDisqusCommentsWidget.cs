@@ -4,7 +4,7 @@ namespace Catharsis.Web.Widgets;
 ///   <para>Renders Disqus comments widget for registered website.</para>
 ///   <para>Requires Disqus scripts bundle to be included.</para>
 /// </summary>
-/// <seealso cref="http://disqus.com/websites"/>
+/// <seealso href="http://disqus.com/websites"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Cackle(IWidgetsScriptsRenderer)"/>
 public interface IDisqusCommentsWidget : IWebWidget
 {

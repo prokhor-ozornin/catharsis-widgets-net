@@ -65,6 +65,7 @@ public sealed class RobokassaPaymentFormWidgetTest : Test
     using (new AssertionScope())
     {
       Test(Fixture<RobokassaPaymentFormWidget>.Create());
+      
       throw new NotImplementedException();
     }
 

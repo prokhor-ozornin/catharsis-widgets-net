@@ -20,7 +20,7 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
   /// </summary>
   protected virtual string WidthValue { get; set; }
 
-  /// <inheritdoc cref="IRuTubeVideoWidget.Id(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Id(string)"/>
   public virtual IRuTubeVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -30,7 +30,7 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IRuTubeVideoWidget.Height(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Height(string)"/>
   public virtual IRuTubeVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -40,7 +40,8 @@ public class RuTubeVideoWidget : WebWidget, IRuTubeVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IRuTubeVideoWidget.Width(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}
+  /// .Width(string)"/>
   public virtual IRuTubeVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));

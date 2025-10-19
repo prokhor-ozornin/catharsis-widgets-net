@@ -53,7 +53,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IVkontakteVideoWidget.Height(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Height(string)"/>
   public virtual IVkontakteVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
@@ -64,7 +64,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IVkontakteVideoWidget.Id(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Id(string)"/>
   public virtual IVkontakteVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
@@ -86,7 +86,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
     return this;
   }
 
-  /// <inheritdoc cref="IVkontakteVideoWidget.Width(string)"/>
+  /// <inheritdoc cref="IVideoWidget{T}.Width(string)"/>
   public virtual IVkontakteVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));

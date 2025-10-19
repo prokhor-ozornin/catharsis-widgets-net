@@ -4,7 +4,7 @@
 ///   <para>Renders Pinterest "Follow Me" button.</para>
 ///   <para>Requires Pinterest scripts bundle to be included.</para>
 /// </summary>
-/// <seealso cref="http://business.pinterest.com/widget-builder/#do_follow_me_button"/>
+/// <seealso href="http://business.pinterest.com/widget-builder/#do_follow_me_button"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
 public interface IPinterestFollowButtonWidget : IWebWidget
 {

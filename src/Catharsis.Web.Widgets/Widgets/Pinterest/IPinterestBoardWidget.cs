@@ -4,7 +4,7 @@
 ///   <para>Renders Pinterest Board widget with board's latest pins.</para>
 ///   <para>Requires Pinterest scripts bundle to be included.</para>
 /// </summary>
-/// <seealso cref="http://business.pinterest.com/widget-builder/#do_embed_board"/>
+/// <seealso href="http://business.pinterest.com/widget-builder/#do_embed_board"/>
 /// <seealso cref="IWidgetsScriptsRendererExtensions.Pinterest(IWidgetsScriptsRenderer)"/>
 public interface IPinterestBoardWidget : IWebWidget
 {
