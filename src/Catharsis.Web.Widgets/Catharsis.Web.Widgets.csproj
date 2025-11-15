@@ -32,12 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Catharsis.Extensions">
-      <HintPath>..\..\lib\net9.0\Catharsis.Extensions.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -51,6 +45,12 @@
       <LastGenOutput>resources.Designer.cs</LastGenOutput>
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Catharsis.Extensions">
+      <HintPath>..\..\lib\net10.0\Catharsis.Extensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
