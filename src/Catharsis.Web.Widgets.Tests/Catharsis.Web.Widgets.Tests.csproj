@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <AssemblyName>Catharsis.Web.Widgets.Tests</AssemblyName>
     <RootNamespace>Catharsis.Web.Widgets.Tests</RootNamespace>
     <LangVersion>latest</LangVersion>

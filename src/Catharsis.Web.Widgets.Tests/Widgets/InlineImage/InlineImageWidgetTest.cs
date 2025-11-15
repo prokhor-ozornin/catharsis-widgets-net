@@ -46,7 +46,7 @@ public sealed class InlineImageWidgetTest : Test
     {
       AssertionExtensions.Should(() => new InlineImageWidget().Contents(null)).ThrowExactly<ArgumentNullException>().WithParameterName("contents");
       
-      new[] { [], new Random().ByteSequence(16).ToArray() }.ForEach(contents => Test(contents, Widget));
+      new[] { [], new Random().Byte(16).ToArray() }.ForEach(contents => Test(contents, Widget));
     }
 
     return;
