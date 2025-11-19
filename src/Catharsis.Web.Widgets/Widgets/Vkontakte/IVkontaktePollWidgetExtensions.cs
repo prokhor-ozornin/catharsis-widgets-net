@@ -8,21 +8,23 @@ namespace Catharsis.Web.Widgets;
 /// <seealso cref="IVkontaktePollWidget"/>
 public static class IVkontaktePollWidgetExtensions
 {
-  /// <summary>
-  ///   <para>Horizontal width of widget.</para>
-  /// </summary>
   /// <param name="widget">Widget to call method on.</param>
-  /// <param name="width">Width of widget.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IVkontaktePollWidget Width(this IVkontaktePollWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
+  extension(IVkontaktePollWidget widget)
+  {
+    /// <summary>
+    ///   <para>Horizontal width of widget.</para>
+    /// </summary>
+    /// <param name="width">Width of widget.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    public IVkontaktePollWidget Width(short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <param name="widget"></param>
-  /// <param name="url"></param>
-  /// <returns></returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
-  public static IVkontaktePollWidget Url(this IVkontaktePollWidget widget, Uri url) => widget?.Url(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <param name="url"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
+    public IVkontaktePollWidget Url(Uri url) => widget?.Url(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
+  }
 }

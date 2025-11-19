@@ -6,27 +6,28 @@
 /// <seealso cref="IInlineImageWidget"/>
 public static class IInlineImageExtensions
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <param name="widget"></param>
-  /// <returns></returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IInlineImageWidget Jpg(this IInlineImageWidget widget) => widget?.Format("jpg") ?? throw new ArgumentNullException(nameof(widget));
-    
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <param name="widget"></param>
-  /// <returns></returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IInlineImageWidget Png(this IInlineImageWidget widget) => widget?.Format("png") ?? throw new ArgumentNullException(nameof(widget));
+  /// <param name="widget">Widget to call method on.</param>
+  extension(IInlineImageWidget widget)
+  {
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    public IInlineImageWidget Jpg() => widget?.Format("jpg") ?? throw new ArgumentNullException(nameof(widget));
 
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <param name="widget"></param>
-  /// <returns></returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IInlineImageWidget Gif(this IInlineImageWidget widget) => widget?.Format("gif") ?? throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    public IInlineImageWidget Png() => widget?.Format("png") ?? throw new ArgumentNullException(nameof(widget));
+
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    public IInlineImageWidget Gif() => widget?.Format("gif") ?? throw new ArgumentNullException(nameof(widget));
+  }
 }

@@ -6,70 +6,69 @@
 /// <seealso cref="IYandexMoneyButtonWidget"/>
 public static class IYandexMoneyButtonWidgetExtensions
 {
-  /// <summary>
-  ///   <para>Color of button.</para>
-  /// </summary>
   /// <param name="widget">Widget to call method on.</param>
-  /// <param name="color">Button's color.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IYandexMoneyButtonWidget.Color(string)"/>
-  public static IYandexMoneyButtonWidget Color(this IYandexMoneyButtonWidget widget, YandexMoneyButtonColor color) => widget?.Color(color.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
-
-  /// <summary>
-  ///   <para>Size of button.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="size">Button's size.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IYandexMoneyButtonWidget Size(this IYandexMoneyButtonWidget widget, YandexMoneyButtonSize size)
+  extension(IYandexMoneyButtonWidget widget)
   {
-    if (widget is null) throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para>Color of button.</para>
+    /// </summary>
+    /// <param name="color">Button's color.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IYandexMoneyButtonWidget.Color(string)"/>
+    public IYandexMoneyButtonWidget Color(YandexMoneyButtonColor color) => widget?.Color(color.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
-    return size switch
+    /// <summary>
+    ///   <para>Size of button.</para>
+    /// </summary>
+    /// <param name="size">Button's size.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    public IYandexMoneyButtonWidget Size(YandexMoneyButtonSize size)
     {
-      YandexMoneyButtonSize.Small => widget.Size("s"),
-      YandexMoneyButtonSize.Medium => widget.Size("m"),
-      YandexMoneyButtonSize.Large => widget.Size("l"),
-      _ => widget.Size("l")
-    };
-  }
+      if (widget is null) throw new ArgumentNullException(nameof(widget));
 
-  /// <summary>
-  ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="sum">Payment sum.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IYandexMoneyButtonWidget Sum(this IYandexMoneyButtonWidget widget, double sum) => widget?.Sum((decimal) sum) ?? throw new ArgumentNullException(nameof(widget));
+      return size switch
+      {
+        YandexMoneyButtonSize.Small => widget.Size("s"),
+        YandexMoneyButtonSize.Medium => widget.Size("m"),
+        YandexMoneyButtonSize.Large => widget.Size("l"),
+        _ => widget.Size("l")
+      };
+    }
 
-  /// <summary>
-  ///   <para>Text to display on button.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="text">Numeric text type to display.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IYandexMoneyButtonWidget Text(this IYandexMoneyButtonWidget widget, YandexMoneyButtonText text) => widget?.Text((byte) text) ?? throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
+    /// </summary>
+    /// <param name="sum">Payment sum.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    public IYandexMoneyButtonWidget Sum(double sum) => widget?.Sum((decimal) sum) ?? throw new ArgumentNullException(nameof(widget));
 
-  /// <summary>
-  ///   <para>Type of payment option.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="type">Payment source.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IYandexMoneyButtonWidget Type(this IYandexMoneyButtonWidget widget, YandexMoneyButtonType type)
-  {
-    if (widget is null) throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para>Text to display on button.</para>
+    /// </summary>
+    /// <param name="text">Numeric text type to display.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    public IYandexMoneyButtonWidget Text(YandexMoneyButtonText text) => widget?.Text((byte) text) ?? throw new ArgumentNullException(nameof(widget));
 
-    return type switch
+    /// <summary>
+    ///   <para>Type of payment option.</para>
+    /// </summary>
+    /// <param name="type">Payment source.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    public IYandexMoneyButtonWidget Type(YandexMoneyButtonType type)
     {
-      YandexMoneyButtonType.Card => widget.Type("any-card-payment-type"),
-      YandexMoneyButtonType.Wallet => widget.Type("yamoney-payment-type"),
-      _ => widget.Type("yamoney-payment-type")
-    };
+      if (widget is null) throw new ArgumentNullException(nameof(widget));
+
+      return type switch
+      {
+        YandexMoneyButtonType.Card => widget.Type("any-card-payment-type"),
+        YandexMoneyButtonType.Wallet => widget.Type("yamoney-payment-type"),
+        _ => widget.Type("yamoney-payment-type")
+      };
+    }
   }
 }

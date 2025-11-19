@@ -6,32 +6,33 @@ namespace Catharsis.Web.Widgets;
 /// <seealso cref="IYandexLikeButtonWidget"/>
 public static class IYandexLikeButtonWidgetExtensions
 {
-  /// <summary>
-  ///   <para>Size of the button.</para>
-  /// </summary>
   /// <param name="widget">Widget to call method on.</param>
-  /// <param name="size">Size of button.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IYandexLikeButtonWidget.Size(string)"/>
-  public static IYandexLikeButtonWidget Size(this IYandexLikeButtonWidget widget, YandexLikeButtonSize size) => widget?.Size(size.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
+  extension(IYandexLikeButtonWidget widget)
+  {
+    /// <summary>
+    ///   <para>Size of the button.</para>
+    /// </summary>
+    /// <param name="size">Size of button.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IYandexLikeButtonWidget.Size(string)"/>
+    public IYandexLikeButtonWidget Size(YandexLikeButtonSize size) => widget?.Size(size.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
-  /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="layout">Layout of button.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IYandexLikeButtonWidget.Layout(string)"/>
-  public static IYandexLikeButtonWidget Layout(this IYandexLikeButtonWidget widget, YandexLikeButtonLayout layout) => widget?.Layout(layout.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para>Visual layout/appearance of the button.</para>
+    /// </summary>
+    /// <param name="layout">Layout of button.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IYandexLikeButtonWidget.Layout(string)"/>
+    public IYandexLikeButtonWidget Layout(YandexLikeButtonLayout layout) => widget?.Layout(layout.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  /// <param name="widget"></param>
-  /// <param name="url"></param>
-  /// <returns></returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
-  public static IYandexLikeButtonWidget Url(this IYandexLikeButtonWidget widget, Uri url) => widget?.Url(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <param name="url"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
+    public IYandexLikeButtonWidget Url(Uri url) => widget?.Url(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
+  }
 }

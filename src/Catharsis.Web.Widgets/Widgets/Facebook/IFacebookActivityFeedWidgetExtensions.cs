@@ -8,44 +8,44 @@ namespace Catharsis.Web.Widgets
   /// <seealso cref="IFacebookActivityFeedWidget"/>
   public static class IFacebookActivityFeedWidgetExtensions
   {
-    /// <summary>
-    ///   <para>Collection of Open Graph action types to show in the feed.</para>
-    /// </summary>
     /// <param name="widget">Widget to call method on.</param>
-    /// <param name="actions">Collection of Facebook action types.</param>
-    /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IFacebookActivityFeedWidget.Actions(IEnumerable{string})"/>
-    public static IFacebookActivityFeedWidget Actions(this IFacebookActivityFeedWidget widget, params string[] actions) => widget?.Actions(actions) ?? throw new ArgumentNullException(nameof(widget));
+    extension(IFacebookActivityFeedWidget widget)
+    {
+      /// <summary>
+      ///   <para>Collection of Open Graph action types to show in the feed.</para>
+      /// </summary>
+      /// <param name="actions">Collection of Facebook action types.</param>
+      /// <returns>Reference to the current widget.</returns>
+      /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+      /// <seealso cref="IFacebookActivityFeedWidget.Actions(IEnumerable{string})"/>
+      public IFacebookActivityFeedWidget Actions(params string[] actions) => widget?.Actions(actions) ?? throw new ArgumentNullException(nameof(widget));
 
-    /// <summary>
-    ///   <para>The width of the widget in pixels.</para>
-    /// </summary>
-    /// <param name="widget">Widget to call method on.</param>
-    /// <param name="width">Width of widget.</param>
-    /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IFacebookActivityFeedWidget.Width(string)"/>
-    public static IFacebookActivityFeedWidget Width(this IFacebookActivityFeedWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
+      /// <summary>
+      ///   <para>The width of the widget in pixels.</para>
+      /// </summary>
+      /// <param name="width">Width of widget.</param>
+      /// <returns>Reference to the current widget.</returns>
+      /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+      /// <seealso cref="IFacebookActivityFeedWidget.Width(string)"/>
+      public IFacebookActivityFeedWidget Width(short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
-    /// <summary>
-    ///   <para>The height of the widget in pixels.</para>
-    /// </summary>
-    /// <param name="widget">Widget to call method on.</param>
-    /// <param name="height">Height of widget.</param>
-    /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="IFacebookActivityFeedWidget.Height(string)"/>
-    public static IFacebookActivityFeedWidget Height(this IFacebookActivityFeedWidget widget, short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
+      /// <summary>
+      ///   <para>The height of the widget in pixels.</para>
+      /// </summary>
+      /// <param name="height">Height of widget.</param>
+      /// <returns>Reference to the current widget.</returns>
+      /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+      /// <exception cref="IFacebookActivityFeedWidget.Height(string)"/>
+      public IFacebookActivityFeedWidget Height(short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
-    /// <summary>
-    ///   <para>The color scheme used by the widget.</para>
-    /// </summary>
-    /// <param name="widget">Widget to call method on.</param>
-    /// <param name="scheme">Color scheme of widget.</param>
-    /// <returns>Reference to the current widget.</returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-    /// <seealso cref="IFacebookActivityFeedWidget.ColorScheme(string)"/>
-    public static IFacebookActivityFeedWidget ColorScheme(this IFacebookActivityFeedWidget widget, FacebookColorScheme scheme) => widget?.ColorScheme(scheme.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
+      /// <summary>
+      ///   <para>The color scheme used by the widget.</para>
+      /// </summary>
+      /// <param name="scheme">Color scheme of widget.</param>
+      /// <returns>Reference to the current widget.</returns>
+      /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+      /// <seealso cref="IFacebookActivityFeedWidget.ColorScheme(string)"/>
+      public IFacebookActivityFeedWidget ColorScheme(FacebookColorScheme scheme) => widget?.ColorScheme(scheme.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
+    }
   }
 }

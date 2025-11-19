@@ -6,31 +6,32 @@
 /// <seealso cref="IYandexMoneyDonateFormWidget"/>
 public static class IYandexMoneyDonateFormWidgetExtensions
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   /// <param name="widget"></param>
-  /// <param name="url"></param>
-  /// <returns></returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
-  public static IYandexMoneyDonateFormWidget ProjectSite(this IYandexMoneyDonateFormWidget widget, Uri url) => widget?.ProjectSite(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
+  extension(IYandexMoneyDonateFormWidget widget)
+  {
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <param name="url"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is <see langword="null"/>.</exception>
+    public IYandexMoneyDonateFormWidget ProjectSite(Uri url) => widget?.ProjectSite(url?.ToString()) ?? throw new ArgumentNullException(nameof(widget));
 
-  /// <summary>
-  ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="sum">Payment sum.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  public static IYandexMoneyDonateFormWidget Sum(this IYandexMoneyDonateFormWidget widget, double sum) => widget?.Sum((decimal) sum) ?? throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para>Monetary sum to transfer to Yandex.Money account.</para>
+    /// </summary>
+    /// <param name="sum">Payment sum.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    public IYandexMoneyDonateFormWidget Sum(double sum) => widget?.Sum((decimal) sum) ?? throw new ArgumentNullException(nameof(widget));
 
-  /// <summary>
-  ///   <para>Text to display on button.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="text">Numeric code of text to display.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IYandexMoneyDonateFormWidget.Text(byte)"/>
-  public static IYandexMoneyDonateFormWidget Text(this IYandexMoneyDonateFormWidget widget, YandexMoneyDonateFormText text) => widget?.Text((byte) text) ?? throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para>Text to display on button.</para>
+    /// </summary>
+    /// <param name="text">Numeric code of text to display.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IYandexMoneyDonateFormWidget.Text(byte)"/>
+    public IYandexMoneyDonateFormWidget Text(YandexMoneyDonateFormText text) => widget?.Text((byte) text) ?? throw new ArgumentNullException(nameof(widget));
+  }
 }

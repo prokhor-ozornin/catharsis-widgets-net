@@ -8,23 +8,25 @@ namespace Catharsis.Web.Widgets;
 /// <seealso cref="IMailRuGroupsWidget"/>
 public static class IMailRuGroupsWidgetExtensions
 {
-  /// <summary>
-  ///   <para>Height of Groups box area.</para>
-  /// </summary>
   /// <param name="widget">Widget to call method on.</param>
-  /// <param name="height">Area height.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IMailRuGroupsWidget.Height(string)"/>
-  public static IMailRuGroupsWidget Height(this IMailRuGroupsWidget widget, short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
+  extension(IMailRuGroupsWidget widget)
+  {
+    /// <summary>
+    ///   <para>Height of Groups box area.</para>
+    /// </summary>
+    /// <param name="height">Area height.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IMailRuGroupsWidget.Height(string)"/>
+    public IMailRuGroupsWidget Height(short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
-  /// <summary>
-  ///   <para>Width of Groups box area.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="width">Area width.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IMailRuGroupsWidget.Width(string)"/>
-  public static IMailRuGroupsWidget Width(this IMailRuGroupsWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para>Width of Groups box area.</para>
+    /// </summary>
+    /// <param name="width">Area width.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IMailRuGroupsWidget.Width(string)"/>
+    public IMailRuGroupsWidget Width(short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
+  }
 }

@@ -8,33 +8,34 @@ namespace Catharsis.Web.Widgets;
 /// <seealso cref="IVkontakteCommunityWidget"/>
 public static class IVkontakteCommunityWidgetExtensions
 {
-  /// <summary>
-  ///   <para>Type of information to be displayed about given community.</para>
-  /// </summary>
   /// <param name="widget">Widget to call method on.</param>
-  /// <param name="mode">Community's info type.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IVkontakteCommunityWidget.Mode(byte)"/>
-  public static IVkontakteCommunityWidget Mode(this IVkontakteCommunityWidget widget, VkontakteCommunityMode mode) => widget?.Mode((byte) mode) ?? throw new ArgumentNullException(nameof(widget));
+  extension(IVkontakteCommunityWidget widget)
+  {
+    /// <summary>
+    ///   <para>Type of information to be displayed about given community.</para>
+    /// </summary>
+    /// <param name="mode">Community's info type.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IVkontakteCommunityWidget.Mode(byte)"/>
+    public IVkontakteCommunityWidget Mode(VkontakteCommunityMode mode) => widget?.Mode((byte) mode) ?? throw new ArgumentNullException(nameof(widget));
 
-  /// <summary>
-  ///   <para>Horizontal width of widget.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="width">Width of widget.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IVkontakteCommunityWidget.Width(string)"/>
-  public static IVkontakteCommunityWidget Width(this IVkontakteCommunityWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para>Horizontal width of widget.</para>
+    /// </summary>
+    /// <param name="width">Width of widget.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IVkontakteCommunityWidget.Width(string)"/>
+    public IVkontakteCommunityWidget Width(short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
 
-  /// <summary>
-  ///   <para>Vertical height of widget.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="height">Height of widget.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IVkontakteCommunityWidget.Height(string)"/>
-  public static IVkontakteCommunityWidget Height(this IVkontakteCommunityWidget widget, short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
+    /// <summary>
+    ///   <para>Vertical height of widget.</para>
+    /// </summary>
+    /// <param name="height">Height of widget.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IVkontakteCommunityWidget.Height(string)"/>
+    public IVkontakteCommunityWidget Height(short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
+  }
 }

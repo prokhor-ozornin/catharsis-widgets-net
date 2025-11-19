@@ -8,54 +8,54 @@ namespace Catharsis.Web.Widgets;
 /// <seealso cref="ISurfingbirdSurfButtonWidget"/>
 public static class ISurfingbirdSurfButtonWidgetExtensions
 {
-  /// <summary>
-  ///   <para>Layout/appearance of the button.</para>
-  /// </summary>
   /// <param name="widget">Widget to call method on.</param>
-  /// <param name="layout">Layout of button.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="ISurfingbirdSurfButtonWidget.Layout(string)"/>
-  public static ISurfingbirdSurfButtonWidget Layout(this ISurfingbirdSurfButtonWidget widget, SurfingbirdSurfButtonLayout layout)
+  extension(ISurfingbirdSurfButtonWidget widget)
   {
-    if (widget is null) throw new ArgumentNullException(nameof(widget));
-
-    return layout switch
+    /// <summary>
+    ///   <para>Layout/appearance of the button.</para>
+    /// </summary>
+    /// <param name="layout">Layout of button.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="ISurfingbirdSurfButtonWidget.Layout(string)"/>
+    public ISurfingbirdSurfButtonWidget Layout(SurfingbirdSurfButtonLayout layout)
     {
-      SurfingbirdSurfButtonLayout.Micro => widget.Layout("micro"),
-      SurfingbirdSurfButtonLayout.Vertical => widget.Layout("vert"),
-      SurfingbirdSurfButtonLayout.Common => widget.Layout("common"),
-      _ => widget.Layout("common")
-    };
+      if (widget is null) throw new ArgumentNullException(nameof(widget));
+
+      return layout switch
+      {
+        SurfingbirdSurfButtonLayout.Micro => widget.Layout("micro"),
+        SurfingbirdSurfButtonLayout.Vertical => widget.Layout("vert"),
+        SurfingbirdSurfButtonLayout.Common => widget.Layout("common"),
+        _ => widget.Layout("common")
+      };
+    }
+
+    /// <summary>
+    ///   <para>Horizontal width of the button.</para>
+    /// </summary>
+    /// <param name="width">Width of button.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="ISurfingbirdSurfButtonWidget.Width(string)"/>
+    public ISurfingbirdSurfButtonWidget Width(short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
+
+    /// <summary>
+    ///   <para>Vertical height of the button.</para>
+    /// </summary>
+    /// <param name="height">Height of button.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="ISurfingbirdSurfButtonWidget.Height(string)"/>
+    public ISurfingbirdSurfButtonWidget Height(short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
+
+    /// <summary>
+    ///   <para>Text label's color.</para>
+    /// </summary>
+    /// <param name="color">Label's color.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="ISurfingbirdSurfButtonWidget.Color(string)"/>
+    public ISurfingbirdSurfButtonWidget Color(SurfingbirdSurfButtonColor color) => widget?.Color(color.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
   }
-
-  /// <summary>
-  ///   <para>Horizontal width of the button.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="width">Width of button.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="ISurfingbirdSurfButtonWidget.Width(string)"/>
-  public static ISurfingbirdSurfButtonWidget Width(this ISurfingbirdSurfButtonWidget widget, short width) => widget?.Width(width.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
-
-  /// <summary>
-  ///   <para>Vertical height of the button.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="height">Height of button.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="ISurfingbirdSurfButtonWidget.Height(string)"/>
-  public static ISurfingbirdSurfButtonWidget Height(this ISurfingbirdSurfButtonWidget widget, short height) => widget?.Height(height.ToInvariantString()) ?? throw new ArgumentNullException(nameof(widget));
-
-  /// <summary>
-  ///   <para>Text label's color.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="color">Label's color.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="ISurfingbirdSurfButtonWidget.Color(string)"/>
-  public static ISurfingbirdSurfButtonWidget Color(this ISurfingbirdSurfButtonWidget widget, SurfingbirdSurfButtonColor color) => widget?.Color(color.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 }

@@ -8,39 +8,40 @@ namespace Catharsis.Web.Widgets;
 /// <seealso cref="IYandexSharePanelWidget"/>
 public static class IYandexSharePanelWidgetExtensions
 {
-  /// <summary>
-  ///   <para>List of included social services.</para>
-  /// </summary>
   /// <param name="widget">Widget to call method on.</param>
-  /// <param name="services">List of social services for which to render buttons.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IYandexSharePanelWidget.Services(IEnumerable{string})"/>
-  public static IYandexSharePanelWidget Services(this IYandexSharePanelWidget widget, params string[] services) => widget?.Services(services) ?? throw new ArgumentNullException(nameof(widget));
-
-  /// <summary>
-  ///   <para>Button's interface language.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="language">Interface language.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If either <paramref name="widget"/> or <paramref name="language"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IYandexSharePanelWidget.Language(string)"/>
-  public static IYandexSharePanelWidget Language(this IYandexSharePanelWidget widget, CultureInfo language)
+  extension(IYandexSharePanelWidget widget)
   {
-    if (widget is null) throw new ArgumentNullException(nameof(widget));
-    if (language is null) throw new ArgumentNullException(nameof(language));
+    /// <summary>
+    ///   <para>List of included social services.</para>
+    /// </summary>
+    /// <param name="services">List of social services for which to render buttons.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IYandexSharePanelWidget.Services(IEnumerable{string})"/>
+    public IYandexSharePanelWidget Services(params string[] services) => widget?.Services(services) ?? throw new ArgumentNullException(nameof(widget));
 
-    return widget.Language(language.TwoLetterISOLanguageName);
+    /// <summary>
+    ///   <para>Button's interface language.</para>
+    /// </summary>
+    /// <param name="language">Interface language.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If either <paramref name="widget"/> or <paramref name="language"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IYandexSharePanelWidget.Language(string)"/>
+    public IYandexSharePanelWidget Language(CultureInfo language)
+    {
+      if (widget is null) throw new ArgumentNullException(nameof(widget));
+      if (language is null) throw new ArgumentNullException(nameof(language));
+
+      return widget.Language(language.TwoLetterISOLanguageName);
+    }
+
+    /// <summary>
+    ///   <para>Visual layout/appearance of the button.</para>
+    /// </summary>
+    /// <param name="layout">Layout of button.</param>
+    /// <returns>Reference to provided <paramref name="widget"/>.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="IYandexSharePanelWidget.Layout(string)"/>
+    public IYandexSharePanelWidget Layout(YandexSharePanelLayout layout) => widget?.Layout(layout.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
   }
-
-  /// <summary>
-  ///   <para>Visual layout/appearance of the button.</para>
-  /// </summary>
-  /// <param name="widget">Widget to call method on.</param>
-  /// <param name="layout">Layout of button.</param>
-  /// <returns>Reference to provided <paramref name="widget"/>.</returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
-  /// <seealso cref="IYandexSharePanelWidget.Layout(string)"/>
-  public static IYandexSharePanelWidget Layout(this IYandexSharePanelWidget widget, YandexSharePanelLayout layout) => widget?.Layout(layout.ToString().ToLowerInvariant()) ?? throw new ArgumentNullException(nameof(widget));
 }
