@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
 using Catharsis.Extensions;
 using Catharsis.Fixture;
-using FluentAssertions.Execution;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Catharsis.Web.Widgets.Tests;
