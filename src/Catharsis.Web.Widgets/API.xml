@@ -11,10 +11,15 @@
             <seealso cref="T:System.Collections.Generic.IDictionary`2"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IDictionaryExtensions.ToUrlQuery(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IDictionaryExtensions.&lt;G&gt;$813198070719E33BAE53505891961449.ToUrlQuery"/>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.IDictionaryExtensions.&lt;G&gt;$813198070719E33BAE53505891961449.&lt;M&gt;$6A92022D378FBB2581FC343B2391834C">
+            <param name="dictionary"></param>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.IDictionaryExtensions.&lt;G&gt;$813198070719E33BAE53505891961449.ToUrlQuery">
             <summary>
               <para></para>
             </summary>
-            <param name="dictionary"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="dictionary"/> is a <c>null</c> reference.</exception>
         </member>
@@ -465,10 +470,15 @@
             <seealso cref="T:System.Object"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.Extensions.ObjectExtensions.Json(System.Object)">
+            <inheritdoc cref="M:Catharsis.Web.Widgets.Extensions.ObjectExtensions.&lt;G&gt;$C43E2675C7BBF9284AF22FB8A9BF0280.Json"/>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.Extensions.ObjectExtensions.&lt;G&gt;$C43E2675C7BBF9284AF22FB8A9BF0280.&lt;M&gt;$567701BAF5702016643943B48410B876">
+            <param name="subject"></param>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.Extensions.ObjectExtensions.&lt;G&gt;$C43E2675C7BBF9284AF22FB8A9BF0280.Json">
             <summary>
               <para></para>
             </summary>
-            <param name="subject"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="subject"/> is a <c>null</c> reference.</exception>
         </member>
@@ -479,11 +489,16 @@
             <seealso cref="T:System.String"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.StringExtensions.Json``1(System.String)">
+            <inheritdoc cref="M:Catharsis.Web.Widgets.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.Json``1"/>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.&lt;M&gt;$58B4186504A012EF850E37EA430D3B09">
+            <param name="subject"></param>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.Json``1">
             <summary>
               <para></para>
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="subject"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="subject"/> is a <c>null</c> reference.</exception>
             <exception cref="T:System.ArgumentException">If <paramref name="subject"/> is <see cref="F:System.String.Empty"/> string.</exception>
@@ -495,10 +510,15 @@
             <seealso cref="T:System.IO.TextReader"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.TextReaderExtensions.AsJson(System.IO.TextReader)">
+            <inheritdoc cref="M:Catharsis.Web.Widgets.TextReaderExtensions.&lt;G&gt;$ED0C8F962EDBAD5B8F826E0ED7DBC34D.AsJson"/>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.TextReaderExtensions.&lt;G&gt;$ED0C8F962EDBAD5B8F826E0ED7DBC34D.&lt;M&gt;$522EF7CA0AABA6910A9FFE9440C3BBB1">
+            <param name="reader"></param>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.TextReaderExtensions.&lt;G&gt;$ED0C8F962EDBAD5B8F826E0ED7DBC34D.AsJson">
             <summary>
               <para></para>
             </summary>
-            <param name="reader"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="reader"/> is a <c>null</c> reference.</exception>
         </member>
@@ -509,10 +529,15 @@
             <seealso cref="T:System.IO.TextWriter"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.TextWriterExtensions.AsJson(System.IO.TextWriter)">
+            <inheritdoc cref="M:Catharsis.Web.Widgets.TextWriterExtensions.&lt;G&gt;$C8AD13954C5CA5B5C3C3A998919CD66C.AsJson"/>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.TextWriterExtensions.&lt;G&gt;$C8AD13954C5CA5B5C3C3A998919CD66C.&lt;M&gt;$30D9E0D850DA473B8BD5D337C092C5A7">
+            <param name="writer"></param>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.TextWriterExtensions.&lt;G&gt;$C8AD13954C5CA5B5C3C3A998919CD66C.AsJson">
             <summary>
               <para></para>
             </summary>
-            <param name="writer"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="writer"/> is a <c>null</c> reference.</exception>
         </member>
@@ -8451,10 +8476,15 @@
             <seealso cref="T:Catharsis.Web.Widgets.IWidgetsStylesRenderer"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IWidgetsStylesRendererExtensions.VideoJS(Catharsis.Web.Widgets.IWidgetsStylesRenderer)">
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IWidgetsStylesRendererExtensions.&lt;G&gt;$578D58DCCB762EAB038D319427E92659.VideoJS"/>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.IWidgetsStylesRendererExtensions.&lt;G&gt;$578D58DCCB762EAB038D319427E92659.&lt;M&gt;$23B3FC659503FDA241676B53F48C4CCA">
+            <param name="renderer">CSS code renderer.</param>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.IWidgetsStylesRendererExtensions.&lt;G&gt;$578D58DCCB762EAB038D319427E92659.VideoJS">
             <summary>
               <para>Renders required CSS tags for VideoJS widgets.</para>
             </summary>
-            <param name="renderer">CSS code renderer.</param>
             <returns>CSS code.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="renderer"/> is a <c>null</c> reference.</exception>
         </member>
@@ -9323,10 +9353,15 @@
             <seealso cref="T:Catharsis.Web.Widgets.IVkontakteRecommendationsWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteRecommendationsWidgetExtensions.Limit(Catharsis.Web.Widgets.IVkontakteRecommendationsWidget,Catharsis.Web.Widgets.VkontakteRecommendationsLimit)">
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontakteRecommendationsWidgetExtensions.&lt;G&gt;$570F0A200B00F4A696C5E0D58501ED30.Limit(Catharsis.Web.Widgets.VkontakteRecommendationsLimit)"/>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.IVkontakteRecommendationsWidgetExtensions.&lt;G&gt;$570F0A200B00F4A696C5E0D58501ED30.&lt;M&gt;$94ADDCAAE4CFCC523C61DCF59DAE53E9">
+            <param name="widget">Widget to call method on.</param>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.IVkontakteRecommendationsWidgetExtensions.&lt;G&gt;$570F0A200B00F4A696C5E0D58501ED30.Limit(Catharsis.Web.Widgets.VkontakteRecommendationsLimit)">
             <summary>
               <para>Maximum number of pages to display initially. Default is 5.</para>
             </summary>
-            <param name="widget">Widget to call method on.</param>
             <param name="limit">Maximum number of pages.</param>
             <returns>Reference to provided <paramref name="widget"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
@@ -9378,10 +9413,15 @@
             <seealso cref="T:Catharsis.Web.Widgets.IVkontakteSubscriptionWidget"/>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteSubscriptionWidgetExtensions.Layout(Catharsis.Web.Widgets.IVkontakteSubscriptionWidget,Catharsis.Web.Widgets.VkontakteSubscriptionButtonLayout)">
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IVkontakteSubscriptionWidgetExtensions.&lt;G&gt;$0DFF4F9D81E08FE7184D5E8092250D4D.Layout(Catharsis.Web.Widgets.VkontakteSubscriptionButtonLayout)"/>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.IVkontakteSubscriptionWidgetExtensions.&lt;G&gt;$0DFF4F9D81E08FE7184D5E8092250D4D.&lt;M&gt;$F02CEC3B34EC6E8C7A30417A9206A7C2">
+            <param name="widget">Widget to call method on.</param>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.IVkontakteSubscriptionWidgetExtensions.&lt;G&gt;$0DFF4F9D81E08FE7184D5E8092250D4D.Layout(Catharsis.Web.Widgets.VkontakteSubscriptionButtonLayout)">
             <summary>
               <para>Visual layout/appearance of the button.</para>
             </summary>
-            <param name="widget">Widget to call method on.</param>
             <param name="layout">Layout of button.</param>
             <returns>Reference to provided <paramref name="widget"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="widget"/> is a <c>null</c> reference.</exception>
@@ -10384,10 +10424,15 @@
             </summary>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexAnalyticsWidgetExtensions.Language(Catharsis.Web.Widgets.IYandexAnalyticsWidget,System.Globalization.CultureInfo)">
+            <inheritdoc cref="M:Catharsis.Web.Widgets.IYandexAnalyticsWidgetExtensions.&lt;G&gt;$C7FE79B2CAE25AB0DA51EFAC2809EC4E.Language(System.Globalization.CultureInfo)"/>
+        </member>
+        <member name="T:Catharsis.Web.Widgets.IYandexAnalyticsWidgetExtensions.&lt;G&gt;$C7FE79B2CAE25AB0DA51EFAC2809EC4E.&lt;M&gt;$FD044E4FB7586D7FA35BDFE93CD8DBB0">
+            <param name="widget">Widget to call method on.</param>
+        </member>
+        <member name="M:Catharsis.Web.Widgets.IYandexAnalyticsWidgetExtensions.&lt;G&gt;$C7FE79B2CAE25AB0DA51EFAC2809EC4E.Language(System.Globalization.CultureInfo)">
             <summary>
               <para>Language of visual counter's interface to use. Default is current locale's language/language of the current thread.</para>
             </summary>
-            <param name="widget">Widget to call method on.</param>
             <param name="culture">Interface language to use.</param>
             <returns>Reference to provided <paramref name="widget"/>.</returns>
             <exception cref="T:System.ArgumentNullException">If either <paramref name="widget"/> or <paramref name="culture"/> is a <c>null</c> reference.</exception>

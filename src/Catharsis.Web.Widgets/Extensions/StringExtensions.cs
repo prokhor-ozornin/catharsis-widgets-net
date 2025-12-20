@@ -8,25 +8,28 @@ namespace Catharsis.Web.Widgets
   /// <seealso cref="string"/>
   public static class StringExtensions
   {
-    /// <summary>
-    ///   <para></para>
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
     /// <param name="subject"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">If <paramref name="subject"/> is a <c>null</c> reference.</exception>
-    /// <exception cref="ArgumentException">If <paramref name="subject"/> is <see cref="string.Empty"/> string.</exception>
-    public static T Json<T>(this string subject) => subject is not null ?
-      JsonConvert.DeserializeObject<T>(
-        subject,
-        new JsonSerializerSettings
-        {
-          Formatting = Formatting.None,
-          DateTimeZoneHandling = DateTimeZoneHandling.Utc,
-          DefaultValueHandling = DefaultValueHandling.Ignore,
-          PreserveReferencesHandling = PreserveReferencesHandling.Objects,
-          ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-        })
-      : throw new ArgumentNullException(nameof(subject));
+    extension(string subject)
+    {
+      /// <summary>
+      ///   <para></para>
+      /// </summary>
+      /// <typeparam name="T"></typeparam>
+      /// <returns></returns>
+      /// <exception cref="ArgumentNullException">If <paramref name="subject"/> is a <c>null</c> reference.</exception>
+      /// <exception cref="ArgumentException">If <paramref name="subject"/> is <see cref="string.Empty"/> string.</exception>
+      public T Json<T>() => subject is not null ?
+        JsonConvert.DeserializeObject<T>(
+          subject,
+          new JsonSerializerSettings
+          {
+            Formatting = Formatting.None,
+            DateTimeZoneHandling = DateTimeZoneHandling.Utc,
+            DefaultValueHandling = DefaultValueHandling.Ignore,
+            PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+          })
+        : throw new ArgumentNullException(nameof(subject));
+    }
   }
 }

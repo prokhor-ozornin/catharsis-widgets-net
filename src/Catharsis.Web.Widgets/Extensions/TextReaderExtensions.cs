@@ -8,11 +8,14 @@ namespace Catharsis.Web.Widgets;
 /// <seealso cref="TextReader"/>
 public static class TextReaderExtensions
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   /// <param name="reader"></param>
-  /// <returns></returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="reader"/> is a <c>null</c> reference.</exception>
-  public static JsonTextReader AsJson(this TextReader reader) => reader is not null ? new JsonTextReader(reader) : throw new ArgumentNullException(nameof(reader));
+  extension(TextReader reader)
+  {
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="reader"/> is a <c>null</c> reference.</exception>
+    public JsonTextReader AsJson() => reader is not null ? new JsonTextReader(reader) : throw new ArgumentNullException(nameof(reader));
+  }
 }

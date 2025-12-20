@@ -8,11 +8,14 @@ namespace Catharsis.Web.Widgets;
 /// <seealso cref="TextWriter"/>
 public static class TextWriterExtensions
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   /// <param name="writer"></param>
-  /// <returns></returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="writer"/> is a <c>null</c> reference.</exception>
-  public static JsonTextWriter AsJson(this TextWriter writer) => writer is not null ? new JsonTextWriter(writer) : throw new ArgumentNullException(nameof(writer));
+  extension(TextWriter writer)
+  {
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="writer"/> is a <c>null</c> reference.</exception>
+    public JsonTextWriter AsJson() => writer is not null ? new JsonTextWriter(writer) : throw new ArgumentNullException(nameof(writer));
+  }
 }
