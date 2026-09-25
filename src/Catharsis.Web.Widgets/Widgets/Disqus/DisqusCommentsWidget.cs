@@ -14,7 +14,7 @@ public class DisqusCommentsWidget : WebWidget, IDisqusCommentsWidget
   public virtual IDisqusCommentsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
 
@@ -28,5 +28,5 @@ public class DisqusCommentsWidget : WebWidget, IDisqusCommentsWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountValue.IsUnset() ? string.Empty : string.Format(resources.disqus_comments_html, AccountValue);
+  public override string ToHtml() => AccountValue.IsUnset ? string.Empty : string.Format(resources.disqus_comments_html, AccountValue);
 }

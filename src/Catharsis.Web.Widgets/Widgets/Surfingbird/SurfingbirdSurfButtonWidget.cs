@@ -45,7 +45,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   public virtual ISurfingbirdSurfButtonWidget Color(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     ColorValue = color;
 
@@ -63,7 +63,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   public virtual ISurfingbirdSurfButtonWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
 
@@ -74,7 +74,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   public virtual ISurfingbirdSurfButtonWidget Label(string label)
   {
     if (label is null) throw new ArgumentNullException(nameof(label));
-    if (label.IsEmpty()) throw new ArgumentException(nameof(label));
+    if (label.IsEmpty) throw new ArgumentException(nameof(label));
 
     LabelValue = label;
 
@@ -85,7 +85,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   public virtual ISurfingbirdSurfButtonWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
-    if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
+    if (layout.IsEmpty) throw new ArgumentException(nameof(layout));
 
     LayoutValue = layout;
 
@@ -96,7 +96,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   public virtual ISurfingbirdSurfButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
 
@@ -107,7 +107,7 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   public virtual ISurfingbirdSurfButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
 
@@ -131,21 +131,21 @@ public class SurfingbirdSurfButtonWidget : WebWidget, ISurfingbirdSurfButtonWidg
   {
     var config = new Dictionary<string, object>
     {
-      { "layout", $"{LayoutValue}{(CounterValue ? string.Empty : "-nocount")}{(ColorValue.IsUnset() ? string.Empty : "-" + ColorValue)}"
+      { "layout", $"{LayoutValue}{(CounterValue ? string.Empty : "-nocount")}{(ColorValue.IsUnset ? string.Empty : "-" + ColorValue)}"
       }
     };
 
-    if (!UrlValue.IsUnset())
+    if (!UrlValue.IsUnset)
     {
       config["url"] = UrlValue;
     }
 
-    if (!WidthValue.IsUnset())
+    if (!WidthValue.IsUnset)
     {
       config["width"] = WidthValue;
     }
     
-    if (!HeightValue.IsUnset())
+    if (!HeightValue.IsUnset)
     {
       config["height"] = HeightValue;
     }

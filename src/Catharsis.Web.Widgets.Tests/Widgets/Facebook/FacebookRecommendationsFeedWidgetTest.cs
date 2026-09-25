@@ -279,7 +279,7 @@ public sealed class FacebookRecommendationsFeedWidgetTest : Test
 
     static void Test(IFacebookRecommendationsFeedWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

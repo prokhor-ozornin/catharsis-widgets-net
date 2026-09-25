@@ -70,7 +70,7 @@ public sealed class AddThisWelcomeBarWidgetTest : Test
 
     static void Test(IAddThisWelcomeBarWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

@@ -24,7 +24,7 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
   public virtual ITumblrFollowButtonWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
 
@@ -35,7 +35,7 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
   public virtual ITumblrFollowButtonWidget ColorScheme(string scheme)
   {
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
-    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
+    if (scheme.IsEmpty) throw new ArgumentException(nameof(scheme));
 
     ColorSchemeValue = scheme;
       
@@ -60,7 +60,7 @@ public class TumblrFollowButtonWidget : WebWidget, ITumblrFollowButtonWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountValue.IsUnset())
+    if (AccountValue.IsUnset)
     {
       return string.Empty;
     }

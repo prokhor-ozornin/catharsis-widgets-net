@@ -93,7 +93,7 @@ public sealed class CackleCommentsCountWidgetTest : Test
 
     static void Test(ICackleCommentsCountWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

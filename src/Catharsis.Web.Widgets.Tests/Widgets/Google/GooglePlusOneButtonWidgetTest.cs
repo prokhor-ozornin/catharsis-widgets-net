@@ -216,7 +216,7 @@ public sealed class GooglePlusOneButtonWidgetTest : Test
 
     static void Test(IGooglePlusOneButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

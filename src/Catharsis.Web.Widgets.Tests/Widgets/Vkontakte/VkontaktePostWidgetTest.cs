@@ -181,7 +181,7 @@ public sealed class VkontaktePostWidgetTest : Test
 
     static void Test(IVkontaktePostWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

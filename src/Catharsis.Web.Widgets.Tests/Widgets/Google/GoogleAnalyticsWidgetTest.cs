@@ -116,7 +116,7 @@ public sealed class GoogleAnalyticsWidgetTest : Test
 
     static void Test(IGoogleAnalyticsWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

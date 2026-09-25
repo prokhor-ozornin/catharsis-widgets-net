@@ -70,7 +70,7 @@ public sealed class AddThisFollowButtonsWidgetTest : Test
 
     static void Test(IAddThisFollowButtonsWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

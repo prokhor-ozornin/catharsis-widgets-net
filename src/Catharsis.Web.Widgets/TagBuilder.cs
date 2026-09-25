@@ -32,7 +32,7 @@ public class TagBuilder : ITagBuilder
   public virtual ITagBuilder Name(string name)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));
-    if (name.IsEmpty()) throw new ArgumentException(nameof(name));
+    if (name.IsEmpty) throw new ArgumentException(nameof(name));
 
     NameProperty = name;
     return this;
@@ -49,7 +49,7 @@ public class TagBuilder : ITagBuilder
   public virtual ITagBuilder Attribute(string name, string value)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));
-    if (name.IsEmpty()) throw new ArgumentException(nameof(name));
+    if (name.IsEmpty) throw new ArgumentException(nameof(name));
 
     AttributesProperty[name] = value ?? string.Empty;
     

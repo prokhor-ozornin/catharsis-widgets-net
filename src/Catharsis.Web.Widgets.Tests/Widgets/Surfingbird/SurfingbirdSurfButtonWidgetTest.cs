@@ -216,7 +216,7 @@ public sealed class SurfingbirdSurfButtonWidgetTest : Test
 
     static void Test(ISurfingbirdSurfButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

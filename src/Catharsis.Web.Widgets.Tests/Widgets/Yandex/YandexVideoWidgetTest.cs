@@ -160,7 +160,7 @@ public sealed class YandexVideoWidgetTest : Test
 
     static void Test(IYandexVideoWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

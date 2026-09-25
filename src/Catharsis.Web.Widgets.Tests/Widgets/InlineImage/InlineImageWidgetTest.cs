@@ -46,7 +46,7 @@ public sealed class InlineImageWidgetTest : Test
     {
       AssertionExtensions.Should(() => new InlineImageWidget().Contents(null)).ThrowExactly<ArgumentNullException>().WithParameterName("contents");
       
-      new[] { [], new Random().Byte(16).ToArray() }.ForEach(contents => Test(contents, Widget));
+      new[] { [], new Random().ToByte(16).ToArray() }.ForEach(contents => Test(contents, Widget));
     }
 
     return;
@@ -114,7 +114,7 @@ public sealed class InlineImageWidgetTest : Test
 
     static void Test(IInlineImageWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

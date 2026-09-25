@@ -241,7 +241,7 @@ public sealed class MailRuGroupsWidgetTest : Test
 
     static void Test(IMailRuGroupsWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

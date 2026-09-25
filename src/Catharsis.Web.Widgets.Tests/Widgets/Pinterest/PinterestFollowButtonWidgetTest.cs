@@ -115,7 +115,7 @@ public sealed class PinterestFollowButtonWidgetTest : Test
 
     static void Test(IPinterestFollowButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

@@ -91,7 +91,7 @@ public sealed class PayPalDonateWidgetTest : Test
 
     static void Test(IPayPalDonateWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

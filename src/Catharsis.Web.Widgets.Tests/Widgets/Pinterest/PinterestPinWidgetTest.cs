@@ -93,7 +93,7 @@ public sealed class PinterestPinWidgetTest : Test
 
     static void Test(IPinterestPinWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

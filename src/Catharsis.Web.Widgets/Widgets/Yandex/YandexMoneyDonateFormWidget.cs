@@ -74,7 +74,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   public virtual IYandexMoneyDonateFormWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
     return this;
@@ -91,7 +91,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   public virtual IYandexMoneyDonateFormWidget DescriptionText(string description)
   {
     if (description is null) throw new ArgumentNullException(nameof(description));
-    if (description.IsEmpty()) throw new ArgumentException(nameof(description));
+    if (description.IsEmpty) throw new ArgumentException(nameof(description));
 
     DescriptionTextValue = description;
     return this;
@@ -108,7 +108,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   public virtual IYandexMoneyDonateFormWidget CommentHint(string hint)
   {
     if (hint is null) throw new ArgumentNullException(nameof(hint));
-    if (hint.IsEmpty()) throw new ArgumentException(nameof(hint));
+    if (hint.IsEmpty) throw new ArgumentException(nameof(hint));
 
     CommentHintValue = hint;
     return this;
@@ -139,7 +139,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   public virtual IYandexMoneyDonateFormWidget ProjectName(string name)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));
-    if (name.IsEmpty()) throw new ArgumentException(nameof(name));
+    if (name.IsEmpty) throw new ArgumentException(nameof(name));
 
     ProjectNameValue = name;
 
@@ -150,7 +150,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   public virtual IYandexMoneyDonateFormWidget ProjectSite(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     ProjectSiteValue = url;
 
@@ -199,7 +199,7 @@ public class YandexMoneyDonateFormWidget : WebWidget, IYandexMoneyDonateFormWidg
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountValue.IsUnset() || DescriptionTextValue.IsUnset())
+    if (AccountValue.IsUnset || DescriptionTextValue.IsUnset)
     {
       return string.Empty;
     }

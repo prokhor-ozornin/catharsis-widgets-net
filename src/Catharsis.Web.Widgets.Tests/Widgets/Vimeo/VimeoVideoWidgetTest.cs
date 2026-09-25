@@ -175,7 +175,7 @@ public sealed class VimeoVideoWidgetTest : Test
 
     static void Test(IVimeoVideoWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

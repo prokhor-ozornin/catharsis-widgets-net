@@ -39,7 +39,7 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
   public virtual IFacebookSendButtonWidget ColorScheme(string scheme)
   {
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
-    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
+    if (scheme.IsEmpty) throw new ArgumentException(nameof(scheme));
 
     ColorSchemeValue = scheme;
     return this;
@@ -49,7 +49,7 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
   public virtual IFacebookSendButtonWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
     return this;
@@ -66,7 +66,7 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
   public virtual IFacebookSendButtonWidget TrackLabel(string label)
   {
     if (label is null) throw new ArgumentNullException(nameof(label));
-    if (label.IsEmpty()) throw new ArgumentException(nameof(label));
+    if (label.IsEmpty) throw new ArgumentException(nameof(label));
 
     TrackLabelValue = label;
     return this;
@@ -76,7 +76,7 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
   public virtual IFacebookSendButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
     return this;
@@ -86,7 +86,7 @@ public class FacebookSendButtonWidget : WebWidget, IFacebookSendButtonWidget
   public virtual IFacebookSendButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;

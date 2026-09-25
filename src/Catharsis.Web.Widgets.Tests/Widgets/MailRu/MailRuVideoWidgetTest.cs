@@ -138,7 +138,7 @@ public sealed class MailRuVideoWidgetTest : Test
 
     static void Test(IMailRuVideoWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

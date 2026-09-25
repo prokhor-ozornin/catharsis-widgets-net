@@ -91,7 +91,7 @@ public sealed class PayPalBuyGiftCertificateWidgetTest : Test
 
     static void Test(IPayPalBuyGiftCertificateWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

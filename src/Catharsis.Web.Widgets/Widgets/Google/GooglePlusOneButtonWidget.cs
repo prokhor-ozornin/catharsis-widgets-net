@@ -44,7 +44,7 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
   public virtual IGooglePlusOneButtonWidget Alignment(string alignment)
   {
     if (alignment is null) throw new ArgumentNullException(nameof(alignment));
-    if (alignment.IsEmpty()) throw new ArgumentException(nameof(alignment));
+    if (alignment.IsEmpty) throw new ArgumentException(nameof(alignment));
 
     AlignmentValue = alignment;
     return this;
@@ -54,7 +54,7 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
   public virtual IGooglePlusOneButtonWidget Annotation(string annotation)
   {
     if (annotation is null) throw new ArgumentNullException(nameof(annotation));
-    if (annotation.IsEmpty()) throw new ArgumentException(nameof(annotation));
+    if (annotation.IsEmpty) throw new ArgumentException(nameof(annotation));
 
     AnnotationValue = annotation;
     return this;
@@ -64,7 +64,7 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
   public virtual IGooglePlusOneButtonWidget Callback(string callback)
   {
     if (callback is null) throw new ArgumentNullException(nameof(callback));
-    if (callback.IsEmpty()) throw new ArgumentException(nameof(callback));
+    if (callback.IsEmpty) throw new ArgumentException(nameof(callback));
 
     CallbackValue = callback;
     return this;
@@ -81,7 +81,7 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
   public virtual IGooglePlusOneButtonWidget Size(string size)
   {
     if (size is null) throw new ArgumentNullException(nameof(size));
-    if (size.IsEmpty()) throw new ArgumentException(nameof(size));
+    if (size.IsEmpty) throw new ArgumentException(nameof(size));
 
     SizeValue = size;
     return this;
@@ -91,7 +91,7 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
   public virtual IGooglePlusOneButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
     return this;
@@ -101,7 +101,7 @@ public class GooglePlusOneButtonWidget : WebWidget, IGooglePlusOneButtonWidget
   public virtual IGooglePlusOneButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;

@@ -157,7 +157,7 @@ public sealed class PinterestProfileWidgetTest : Test
 
     static void Test(IPinterestProfileWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

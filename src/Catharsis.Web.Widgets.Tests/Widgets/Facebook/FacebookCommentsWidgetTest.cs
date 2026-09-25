@@ -192,7 +192,7 @@ public sealed class FacebookCommentsWidgetTest : Test
 
     static void Test(IFacebookCommentsWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

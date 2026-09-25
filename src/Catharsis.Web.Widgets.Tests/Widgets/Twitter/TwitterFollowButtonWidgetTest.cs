@@ -212,7 +212,7 @@ public sealed class TwitterFollowButtonWidgetTest : Test
 
     static void Test(ITwitterFollowButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

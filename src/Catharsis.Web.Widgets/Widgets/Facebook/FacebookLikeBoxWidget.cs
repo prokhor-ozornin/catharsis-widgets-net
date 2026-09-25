@@ -61,7 +61,7 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   public virtual IFacebookLikeBoxWidget ColorScheme(string scheme)
   {
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
-    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
+    if (scheme.IsEmpty) throw new ArgumentException(nameof(scheme));
 
     ColorSchemeValue = scheme;
     return this;
@@ -85,7 +85,7 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   public virtual IFacebookLikeBoxWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
     return this;
@@ -102,7 +102,7 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   public virtual IFacebookLikeBoxWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
     return this;
@@ -119,7 +119,7 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   public virtual IFacebookLikeBoxWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;
@@ -140,7 +140,7 @@ public class FacebookLikeBoxWidget : WebWidget, IFacebookLikeBoxWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => UrlValue.IsUnset() ? string.Empty : new TagBuilder("div")
+  public override string ToHtml() => UrlValue.IsUnset ? string.Empty : new TagBuilder("div")
                                                                             .Attribute("data-href", UrlValue)
                                                                             .Attribute("data-width", WidthValue)
                                                                             .Attribute("data-height", HeightValue)

@@ -181,7 +181,7 @@ public sealed class IntenseDebateCommentsWidgetTest : Test
 
     static void Test(IIntenseDebateCommentsWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

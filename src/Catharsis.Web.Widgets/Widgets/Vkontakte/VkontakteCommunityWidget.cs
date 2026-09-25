@@ -51,7 +51,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   public virtual IVkontakteCommunityWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
 
@@ -62,7 +62,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   public virtual IVkontakteCommunityWidget BackgroundColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     BackgroundColorValue = color;
 
@@ -73,7 +73,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   public virtual IVkontakteCommunityWidget TextColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     TextColorValue = color;
 
@@ -84,7 +84,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   public virtual IVkontakteCommunityWidget ButtonColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     ButtonColorValue = color;
 
@@ -95,7 +95,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   public virtual IVkontakteCommunityWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     ElementIdValue = id;
 
@@ -106,7 +106,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   public virtual IVkontakteCommunityWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
 
@@ -124,7 +124,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   public virtual IVkontakteCommunityWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
 
@@ -147,7 +147,7 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountValue.IsUnset())
+    if (AccountValue.IsUnset)
     {
       return string.Empty;
     }
@@ -162,27 +162,27 @@ public class VkontakteCommunityWidget : WebWidget, IVkontakteCommunityWidget
       config["wide"] = 1;
     }
 
-    if (!WidthValue.IsUnset())
+    if (!WidthValue.IsUnset)
     {
       config["width"] = WidthValue;
     }
     
-    if (!HeightValue.IsUnset())
+    if (!HeightValue.IsUnset)
     {
       config["height"] = HeightValue;
     }
     
-    if (!BackgroundColorValue.IsUnset())
+    if (!BackgroundColorValue.IsUnset)
     {
       config["color1"] = BackgroundColorValue;
     }
     
-    if (!TextColorValue.IsUnset())
+    if (!TextColorValue.IsUnset)
     {
       config["color2"] = TextColorValue;
     }
     
-    if (!ButtonColorValue.IsUnset())
+    if (!ButtonColorValue.IsUnset)
     {
       config["color3"] = ButtonColorValue;
     }

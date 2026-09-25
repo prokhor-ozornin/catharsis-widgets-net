@@ -36,7 +36,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
   public virtual IVkontaktePostWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     ElementIdValue = id;
 
@@ -47,7 +47,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
   public virtual IVkontaktePostWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     IdValue = id;
       
@@ -58,7 +58,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
   public virtual IVkontaktePostWidget Owner(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     OwnerValue = id;
       
@@ -69,7 +69,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
   public virtual IVkontaktePostWidget Hash(string hash)
   {
     if (hash is null) throw new ArgumentNullException(nameof(hash));
-    if (hash.IsEmpty()) throw new ArgumentException(nameof(hash));
+    if (hash.IsEmpty) throw new ArgumentException(nameof(hash));
 
     HashValue = hash;
 
@@ -80,7 +80,7 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
   public virtual IVkontaktePostWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
 
@@ -100,14 +100,14 @@ public class VkontaktePostWidget : WebWidget, IVkontaktePostWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (IdValue.IsUnset() || OwnerValue.IsUnset() || HashValue.IsUnset())
+    if (IdValue.IsUnset || OwnerValue.IsUnset || HashValue.IsUnset)
     {
       return string.Empty;
     }
 
     var config = new Dictionary<string, object>();
     
-    if (!WidthValue.IsUnset())
+    if (!WidthValue.IsUnset)
     {
       config["width"] = WidthValue;
     }

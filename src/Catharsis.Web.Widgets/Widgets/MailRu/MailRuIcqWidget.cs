@@ -20,7 +20,7 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
   public virtual IMailRuIcqWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
     return this;
@@ -30,7 +30,7 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
   public virtual IMailRuIcqWidget Language(string language)
   {
     if (language is null) throw new ArgumentNullException(nameof(language));
-    if (language.IsEmpty()) throw new ArgumentException(nameof(language));
+    if (language.IsEmpty) throw new ArgumentException(nameof(language));
 
     LanguageValue = language;
     return this;
@@ -52,7 +52,7 @@ public class MailRuIcqWidget : WebWidget, IMailRuIcqWidget
         .Attribute("src", $"http://c.icq.com/siteim/icqbar/js/partners/initbar_$@{LanguageValue ?? "ru"}.js")
       );
       
-    if (!AccountValue.IsUnset())
+    if (!AccountValue.IsUnset)
     {
       builder.Append(new TagBuilder("script").Attribute("type", "text/javascript").Html($"window.ICQ = {{siteOwner:'${AccountValue}'}};"));
     }

@@ -93,7 +93,7 @@ public sealed class VkontakteInitializationWidgetTest : Test
 
     static void Test(IVkontakteInitializationWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

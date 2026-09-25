@@ -235,7 +235,7 @@ public sealed class PinterestPinItButtonWidgetTest : Test
 
     static void Test(IPinterestPinItButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

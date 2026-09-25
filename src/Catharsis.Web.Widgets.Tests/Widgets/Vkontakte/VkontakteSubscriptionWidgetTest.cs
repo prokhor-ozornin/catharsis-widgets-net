@@ -155,7 +155,7 @@ public sealed class VkontakteSubscriptionWidgetTest : Test
 
     static void Test(IVkontakteSubscriptionWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

@@ -24,7 +24,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
   public virtual IMailRuVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     IdValue = id;
     return this;
@@ -34,7 +34,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
   public virtual IMailRuVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
     return this;
@@ -44,7 +44,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
   public virtual IMailRuVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;
@@ -59,7 +59,7 @@ public class MailRuVideoWidget : WebWidget, IMailRuVideoWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => IdValue.IsUnset() || HeightValue.IsUnset() || WidthValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
+  public override string ToHtml() => IdValue.IsUnset || HeightValue.IsUnset || WidthValue.IsUnset ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", $"http://api.video.mail.ru/videos/embed/mail/${IdValue}")
       .Attribute("width", WidthValue)
       .Attribute("height", HeightValue)

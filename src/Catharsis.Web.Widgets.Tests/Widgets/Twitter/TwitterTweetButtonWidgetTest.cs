@@ -277,7 +277,7 @@ public sealed class TwitterTweetButtonWidgetTest : Test
 
     static void Test(ITwitterTweetButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

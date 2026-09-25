@@ -52,7 +52,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   public virtual IMailRuLikeButtonWidget CounterPosition(string position)
   {
     if (position is null) throw new ArgumentNullException(nameof(position));
-    if (position.IsEmpty()) throw new ArgumentException(nameof(position));
+    if (position.IsEmpty) throw new ArgumentException(nameof(position));
 
     CounterPositionValue = position;
     return this;
@@ -83,7 +83,7 @@ public class MailRuLikeButtonWidget : WebWidget, IMailRuLikeButtonWidget
   public IMailRuLikeButtonWidget Type(string type)
   {
     if (type is null) throw new ArgumentNullException(nameof(type));
-    if (type.IsEmpty()) throw new ArgumentException(nameof(type));
+    if (type.IsEmpty) throw new ArgumentException(nameof(type));
 
     TypeValue = type;
     return this;

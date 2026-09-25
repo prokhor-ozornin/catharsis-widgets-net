@@ -138,7 +138,7 @@ public sealed class GravatarProfileUrlWidgetTest : Test
 
     static void Test(IGravatarProfileUrlWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

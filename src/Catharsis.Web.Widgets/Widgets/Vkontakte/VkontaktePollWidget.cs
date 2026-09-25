@@ -31,7 +31,7 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
   public virtual IVkontaktePollWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     IdValue = id;
 
@@ -42,7 +42,7 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
   public virtual IVkontaktePollWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     ElementIdValue = id;
       
@@ -53,7 +53,7 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
   public virtual IVkontaktePollWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
 
@@ -64,7 +64,7 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
   public virtual IVkontaktePollWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
 
@@ -83,19 +83,19 @@ public class VkontaktePollWidget : WebWidget, IVkontaktePollWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (IdValue.IsUnset())
+    if (IdValue.IsUnset)
     {
       return string.Empty;
     }
 
     var config = new Dictionary<string, object>();
     
-    if (!UrlValue.IsUnset())
+    if (!UrlValue.IsUnset)
     {
       config["pageUrl"] = UrlValue;
     }
 
-    if (!WidthValue.IsUnset())
+    if (!WidthValue.IsUnset)
     {
       config["width"] = WidthValue;
     }

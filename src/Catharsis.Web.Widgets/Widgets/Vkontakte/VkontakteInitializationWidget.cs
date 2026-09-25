@@ -14,7 +14,7 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
   public virtual IVkontakteInitializationWidget ApiId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     ApiIdValue = id;
 
@@ -28,7 +28,7 @@ public class VkontakteInitializationWidget : WebWidget, IVkontakteInitialization
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => ApiIdValue.IsUnset() ? string.Empty : 
+  public override string ToHtml() => ApiIdValue.IsUnset ? string.Empty : 
     new TagBuilder("script")
       .Attribute("type", "text/javascript")
       .Html($"VK.init({{apiId:${ApiIdValue}, onlyWidgets:true}});")

@@ -70,7 +70,7 @@ public sealed class AddThisShareButtonsWidgetTest : Test
 
     static void Test(IAddThisShareButtonsWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

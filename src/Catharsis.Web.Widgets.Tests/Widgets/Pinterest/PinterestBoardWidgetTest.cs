@@ -180,7 +180,7 @@ public sealed class PinterestBoardWidgetTest : Test
 
     static void Test(IPinterestBoardWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

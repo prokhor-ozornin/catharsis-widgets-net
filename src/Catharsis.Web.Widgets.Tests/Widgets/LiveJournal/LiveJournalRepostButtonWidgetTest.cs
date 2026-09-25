@@ -114,7 +114,7 @@ public sealed class LiveJournalRepostButtonWidgetTest : Test
 
     static void Test(ILiveJournalRepostButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

@@ -97,7 +97,7 @@ public sealed class CackleLoginWidgetTest : Test
 
     static void Test(ICackleLoginWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

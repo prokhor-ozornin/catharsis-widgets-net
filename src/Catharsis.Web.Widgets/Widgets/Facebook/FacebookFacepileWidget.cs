@@ -52,7 +52,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   public virtual IFacebookFacePileWidget ColorScheme(string scheme)
   {
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
-    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
+    if (scheme.IsEmpty) throw new ArgumentException(nameof(scheme));
 
     ColorSchemeValue = scheme;
       
@@ -63,7 +63,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   public virtual IFacebookFacePileWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
 
@@ -81,7 +81,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   public virtual IFacebookFacePileWidget PhotoSize(string size)
   {
     if (size is null) throw new ArgumentNullException(nameof(size));
-    if (size.IsEmpty()) throw new ArgumentException(nameof(size));
+    if (size.IsEmpty) throw new ArgumentException(nameof(size));
 
     PhotoSizeValue = size;
 
@@ -92,7 +92,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   public virtual IFacebookFacePileWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
 
@@ -103,7 +103,7 @@ public class FacebookFacePileWidget : WebWidget, IFacebookFacePileWidget
   public virtual IFacebookFacePileWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
 

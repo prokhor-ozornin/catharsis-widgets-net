@@ -134,7 +134,7 @@ public sealed class YandexSharePanelWidgetTest : Test
 
     static void Test(IYandexSharePanelWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

@@ -204,7 +204,7 @@ public sealed class VkontakteRecommendationsWidgetTest : Test
 
     static void Test(IVkontakteRecommendationsWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

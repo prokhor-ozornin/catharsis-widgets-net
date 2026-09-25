@@ -138,7 +138,7 @@ public sealed class FacebookVideoWidgetTest : Test
 
     static void Test(IFacebookVideoWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

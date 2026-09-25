@@ -27,7 +27,7 @@ public class InlineImageWidget : WebWidget, IInlineImageWidget
   public virtual IInlineImageWidget Format(string format)
   {
     if (format is null) throw new ArgumentNullException(nameof(format));
-    if (format.IsEmpty()) throw new ArgumentException(nameof(format));
+    if (format.IsEmpty) throw new ArgumentException(nameof(format));
 
     FormatValue = format;
     return this;
@@ -43,6 +43,6 @@ public class InlineImageWidget : WebWidget, IInlineImageWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml() => ContentsValue is null ? string.Empty : 
     new TagBuilder("img")
-      .Attribute("src", string.Format("data:{1};base64,{0}", Convert.ToBase64String(ContentsValue), FormatValue.IsUnset() ? "image" : FormatValue))
+      .Attribute("src", string.Format("data:{1};base64,{0}", Convert.ToBase64String(ContentsValue), FormatValue.IsUnset ? "image" : FormatValue))
       .ToString();
 }

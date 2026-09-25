@@ -325,7 +325,7 @@ public sealed class YandexMoneyDonateFormWidgetTest : Test
 
     static void Test(IYandexMoneyDonateFormWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

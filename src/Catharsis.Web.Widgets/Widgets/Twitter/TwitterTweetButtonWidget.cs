@@ -59,7 +59,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   public virtual ITwitterTweetButtonWidget CounterPosition(string position)
   {
     if (position is null) throw new ArgumentNullException(nameof(position));
-    if (position.IsEmpty()) throw new ArgumentException(nameof(position));
+    if (position.IsEmpty) throw new ArgumentException(nameof(position));
 
     CounterPositionValue = position;
     return this;
@@ -69,7 +69,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   public virtual ITwitterTweetButtonWidget CountUrl(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     CountUrlValue = url;
     return this;
@@ -86,7 +86,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   public virtual ITwitterTweetButtonWidget Language(string language)
   {
     if (language is null) throw new ArgumentNullException(nameof(language));
-    if (language.IsEmpty()) throw new ArgumentException(nameof(language));
+    if (language.IsEmpty) throw new ArgumentException(nameof(language));
 
     LanguageValue = language;
     return this;
@@ -110,7 +110,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   public virtual ITwitterTweetButtonWidget Size(string size)
   {
     if (size is null) throw new ArgumentNullException(nameof(size));
-    if (size.IsEmpty()) throw new ArgumentException(nameof(size));
+    if (size.IsEmpty) throw new ArgumentException(nameof(size));
 
     SizeValue = size;
     return this;
@@ -120,7 +120,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   public virtual ITwitterTweetButtonWidget Text(string text)
   {
     if (text is null) throw new ArgumentNullException(nameof(text));
-    if (text.IsEmpty()) throw new ArgumentException(nameof(text));
+    if (text.IsEmpty) throw new ArgumentException(nameof(text));
 
     TextValue = text;
     return this;
@@ -130,7 +130,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   public virtual ITwitterTweetButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
     return this;
@@ -140,7 +140,7 @@ public class TwitterTweetButtonWidget : WebWidget, ITwitterTweetButtonWidget
   public virtual ITwitterTweetButtonWidget Via(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     ViaValue = account;
     return this;

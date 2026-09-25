@@ -196,7 +196,7 @@ public sealed class FacebookSendButtonWidgetTest : Test
 
     static void Test(IFacebookSendButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

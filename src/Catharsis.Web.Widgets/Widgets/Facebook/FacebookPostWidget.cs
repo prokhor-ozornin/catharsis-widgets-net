@@ -19,7 +19,7 @@ public class FacebookPostWidget : WebWidget, IFacebookPostWidget
   public virtual IFacebookPostWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
     return this;
@@ -29,7 +29,7 @@ public class FacebookPostWidget : WebWidget, IFacebookPostWidget
   public virtual IFacebookPostWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;
@@ -43,7 +43,7 @@ public class FacebookPostWidget : WebWidget, IFacebookPostWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => UrlValue.IsUnset() ? string.Empty : new TagBuilder("div")
+  public override string ToHtml() => UrlValue.IsUnset ? string.Empty : new TagBuilder("div")
       .Attribute("data-href", UrlValue)
       .Attribute("data-width", WidthValue)
       .CssClass("fb-post")

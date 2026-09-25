@@ -24,7 +24,7 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
   public virtual IYandexSharePanelWidget Language(string language)
   {
     if (language is null) throw new ArgumentNullException(nameof(language));
-    if (language.IsEmpty()) throw new ArgumentException(nameof(language));
+    if (language.IsEmpty) throw new ArgumentException(nameof(language));
 
     LanguageValue = language;
     return this;
@@ -34,7 +34,7 @@ public class YandexSharePanelWidget : WebWidget, IYandexSharePanelWidget
   public virtual IYandexSharePanelWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
-    if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
+    if (layout.IsEmpty) throw new ArgumentException(nameof(layout));
           
     LayoutValue = layout;
 

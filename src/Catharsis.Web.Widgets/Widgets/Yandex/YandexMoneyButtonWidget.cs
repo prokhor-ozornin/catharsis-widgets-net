@@ -64,7 +64,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   public virtual IYandexMoneyButtonWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
 
@@ -75,7 +75,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   public virtual IYandexMoneyButtonWidget Color(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     ColorValue = color;
 
@@ -86,7 +86,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   public virtual IYandexMoneyButtonWidget Description(string description)
   {
     if (description is null) throw new ArgumentNullException(nameof(description));
-    if (description.IsEmpty()) throw new ArgumentException(nameof(description));
+    if (description.IsEmpty) throw new ArgumentException(nameof(description));
 
     DescriptionValue = description;
     return this;
@@ -124,7 +124,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   public virtual IYandexMoneyButtonWidget Size(string size)
   {
     if (size is null) throw new ArgumentNullException(nameof(size));
-    if (size.IsEmpty()) throw new ArgumentException(nameof(size));
+    if (size.IsEmpty) throw new ArgumentException(nameof(size));
 
     SizeValue = size;
 
@@ -149,7 +149,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   public virtual IYandexMoneyButtonWidget Type(string type)
   {
     if (type is null) throw new ArgumentNullException(nameof(type));
-    if (type.IsEmpty()) throw new ArgumentException(nameof(type));
+    if (type.IsEmpty) throw new ArgumentException(nameof(type));
 
     TypeValue = type;
     return this;
@@ -174,7 +174,7 @@ public class YandexMoneyButtonWidget : WebWidget, IYandexMoneyButtonWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountValue.IsUnset() || SumValue is null || DescriptionValue.IsUnset())
+    if (AccountValue.IsUnset || SumValue is null || DescriptionValue.IsUnset)
     {
       return string.Empty;
     }

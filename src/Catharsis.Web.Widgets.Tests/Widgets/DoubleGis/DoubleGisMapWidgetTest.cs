@@ -70,7 +70,7 @@ public sealed class DoubleGisMapWidgetTest : Test
 
     static void Test(IDoubleGisMapWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

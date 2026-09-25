@@ -16,7 +16,7 @@ public class CackleLoginWidget : WebWidget, ICackleLoginWidget
   public virtual ICackleLoginWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
       
@@ -32,7 +32,7 @@ public class CackleLoginWidget : WebWidget, ICackleLoginWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountValue.IsUnset())
+    if (AccountValue.IsUnset)
     {
       return string.Empty;
     }

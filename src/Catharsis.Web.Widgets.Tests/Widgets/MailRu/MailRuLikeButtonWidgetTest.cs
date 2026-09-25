@@ -208,7 +208,7 @@ public sealed class MailRuLikeButtonWidgetTest : Test
 
     static void Test(IMailRuLikeButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

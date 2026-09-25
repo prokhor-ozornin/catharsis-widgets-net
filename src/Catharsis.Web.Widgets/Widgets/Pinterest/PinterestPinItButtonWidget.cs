@@ -56,7 +56,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   public virtual IPinterestPinItButtonWidget Color(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     ColorValue = color;
     return this;
@@ -73,7 +73,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   public virtual IPinterestPinItButtonWidget Description(string description)
   {
     if (description is null) throw new ArgumentNullException(nameof(description));
-    if (description.IsEmpty()) throw new ArgumentException(nameof(description));
+    if (description.IsEmpty) throw new ArgumentException(nameof(description));
 
     DescriptionValue = description;
     return this;
@@ -83,7 +83,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   public virtual IPinterestPinItButtonWidget Image(string image)
   {
     if (image is null) throw new ArgumentNullException(nameof(image));
-    if (image.IsEmpty()) throw new ArgumentException(nameof(image));
+    if (image.IsEmpty) throw new ArgumentException(nameof(image));
 
     ImageValue = image;
     return this;
@@ -93,7 +93,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   public virtual IPinterestPinItButtonWidget Language(string language)
   {
     if (language is null) throw new ArgumentNullException(nameof(language));
-    if (language.IsEmpty()) throw new ArgumentException(nameof(language));
+    if (language.IsEmpty) throw new ArgumentException(nameof(language));
 
     LanguageValue = language;
     return this;
@@ -117,7 +117,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   public virtual IPinterestPinItButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
     return this;
@@ -139,7 +139,7 @@ public class PinterestPinItButtonWidget : WebWidget, IPinterestPinItButtonWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (UrlValue.IsUnset() || ImageValue.IsUnset() || DescriptionValue.IsUnset())
+    if (UrlValue.IsUnset || ImageValue.IsUnset || DescriptionValue.IsUnset)
     {
       return string.Empty;
     }

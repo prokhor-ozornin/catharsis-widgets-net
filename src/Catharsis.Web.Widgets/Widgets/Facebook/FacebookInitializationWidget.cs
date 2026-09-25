@@ -15,7 +15,7 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
   public virtual IFacebookInitializationWidget AppId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     AppIdValue = id;
     return this;
@@ -28,7 +28,7 @@ public class FacebookInitializationWidget : WebWidget, IFacebookInitializationWi
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AppIdValue.IsUnset() ? string.Empty : new StringBuilder()
+  public override string ToHtml() => AppIdValue.IsUnset ? string.Empty : new StringBuilder()
       .Append(new TagBuilder("div").Attribute("id", "fb-root"))
       .Append(string.Format(resources.facebook_initialize_js, AppIdValue))
       .ToString();

@@ -19,7 +19,7 @@ public class PinterestFollowButtonWidget : WebWidget, IPinterestFollowButtonWidg
   public virtual IPinterestFollowButtonWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
 
@@ -30,7 +30,7 @@ public class PinterestFollowButtonWidget : WebWidget, IPinterestFollowButtonWidg
   public virtual IPinterestFollowButtonWidget Label(string label)
   {
     if (label is null) throw new ArgumentNullException(nameof(label));
-    if (label.IsEmpty()) throw new ArgumentException(nameof(label));
+    if (label.IsEmpty) throw new ArgumentException(nameof(label));
 
     LabelValue = label;
     return this;
@@ -44,7 +44,7 @@ public class PinterestFollowButtonWidget : WebWidget, IPinterestFollowButtonWidg
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountValue.IsUnset() || LabelValue.IsUnset() ? string.Empty : new TagBuilder("a")
+  public override string ToHtml() => AccountValue.IsUnset || LabelValue.IsUnset ? string.Empty : new TagBuilder("a")
       .Attribute("data-pin-do", "buttonFollow")
       .Attribute("href", $"http://www.pinterest.com/${AccountValue}")
       .Html(LabelValue)

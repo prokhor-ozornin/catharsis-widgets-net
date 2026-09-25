@@ -39,7 +39,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   public virtual IFacebookCommentsWidget ColorScheme(string scheme)
   {
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
-    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
+    if (scheme.IsEmpty) throw new ArgumentException(nameof(scheme));
 
     ColorSchemeValue = scheme;
 
@@ -57,7 +57,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   public virtual IFacebookCommentsWidget Order(string order)
   {
     if (order is null) throw new ArgumentNullException(nameof(order));
-    if (order.IsEmpty()) throw new ArgumentException(nameof(order));
+    if (order.IsEmpty) throw new ArgumentException(nameof(order));
 
     OrderValue = order;
 
@@ -75,7 +75,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   public virtual IFacebookCommentsWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
 
@@ -86,7 +86,7 @@ public class FacebookCommentsWidget : WebWidget, IFacebookCommentsWidget
   public virtual IFacebookCommentsWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
       
     WidthValue = width;
 

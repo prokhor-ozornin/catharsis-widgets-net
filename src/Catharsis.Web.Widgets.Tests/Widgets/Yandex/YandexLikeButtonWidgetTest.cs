@@ -177,7 +177,7 @@ public sealed class YandexLikeButtonWidgetTest : Test
 
     static void Test(IYandexLikeButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

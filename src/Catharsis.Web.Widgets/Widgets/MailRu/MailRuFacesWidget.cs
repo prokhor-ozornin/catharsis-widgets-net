@@ -65,7 +65,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   public virtual IMailRuFacesWidget BackgroundColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     BackgroundColorValue = color;
     return this;
@@ -75,7 +75,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   public virtual IMailRuFacesWidget BorderColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     BorderColorValue = color;
     return this;
@@ -85,7 +85,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   public virtual IMailRuFacesWidget Domain(string domain)
   {
     if (domain is null) throw new ArgumentNullException(nameof(domain));
-    if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
+    if (domain.IsEmpty) throw new ArgumentException(nameof(domain));
 
     DomainValue = domain;
     return this;
@@ -95,7 +95,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   public virtual IMailRuFacesWidget Font(string font)
   {
     if (font is null) throw new ArgumentNullException(nameof(font));
-    if (font.IsEmpty()) throw new ArgumentException(nameof(font));
+    if (font.IsEmpty) throw new ArgumentException(nameof(font));
 
     FontValue = font;
     return this;
@@ -105,7 +105,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   public virtual IMailRuFacesWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
     return this;
@@ -115,7 +115,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   public virtual IMailRuFacesWidget HyperlinkColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     HyperlinkColorValue = color;
     return this;
@@ -125,7 +125,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   public virtual IMailRuFacesWidget TextColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     TextColorValue = color;
     return this;
@@ -142,7 +142,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   public virtual IMailRuFacesWidget TitleColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     TitleColorValue = color;
     return this;
@@ -152,7 +152,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   public virtual IMailRuFacesWidget TitleText(string title)
   {
     if (title is null) throw new ArgumentNullException(nameof(title));
-    if (title.IsEmpty()) throw new ArgumentException(nameof(title));
+    if (title.IsEmpty) throw new ArgumentException(nameof(title));
 
     TitleTextValue = title;
     return this;
@@ -162,7 +162,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   public virtual IMailRuFacesWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;
@@ -187,7 +187,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (DomainValue.IsUnset() || WidthValue.IsUnset() || HeightValue.IsUnset())
+    if (DomainValue.IsUnset || WidthValue.IsUnset || HeightValue.IsUnset)
     {
       return string.Empty;
     }
@@ -200,7 +200,7 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
       { "height", HeightValue }
     };
       
-    if (!TitleTextValue.IsUnset())
+    if (!TitleTextValue.IsUnset)
     {
       config["title"] = TitleTextValue;
     }
@@ -210,27 +210,27 @@ public class MailRuFacesWidget : WebWidget, IMailRuFacesWidget
       config["notitle"] = true;
     }
     
-    if (!TitleColorValue.IsUnset())
+    if (!TitleColorValue.IsUnset)
     {
       config["title-color"] = TitleColorValue;
     }
     
-    if (!BackgroundColorValue.IsUnset())
+    if (!BackgroundColorValue.IsUnset)
     {
       config["background"] = BackgroundColorValue;
     }
     
-    if (!BorderColorValue.IsUnset())
+    if (!BorderColorValue.IsUnset)
     {
       config["border"] = BorderColorValue;
     }
     
-    if (!TextColorValue.IsUnset())
+    if (!TextColorValue.IsUnset)
     {
       config["color"] = TextColorValue;
     }
     
-    if (!HyperlinkColorValue.IsUnset())
+    if (!HyperlinkColorValue.IsUnset)
     {
       config["link-color"] = HyperlinkColorValue;
     }

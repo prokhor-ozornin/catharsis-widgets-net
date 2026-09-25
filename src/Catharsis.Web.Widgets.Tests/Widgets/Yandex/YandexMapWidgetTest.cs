@@ -73,7 +73,7 @@ public sealed class YandexMapWidgetTest : Test
 
     static void Test(IYandexMapWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

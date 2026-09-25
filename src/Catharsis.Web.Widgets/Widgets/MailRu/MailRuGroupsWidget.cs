@@ -50,7 +50,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   public virtual IMailRuGroupsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
     return this;
@@ -60,7 +60,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   public virtual IMailRuGroupsWidget BackgroundColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     BackgroundColorValue = color;
     return this;
@@ -70,7 +70,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   public virtual IMailRuGroupsWidget ButtonColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     ButtonColorValue = color;
     return this;
@@ -80,7 +80,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   public virtual IMailRuGroupsWidget Domain(string domain)
   {
     if (domain is null) throw new ArgumentNullException(nameof(domain));
-    if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
+    if (domain.IsEmpty) throw new ArgumentException(nameof(domain));
 
     DomainValue = domain;
     return this;
@@ -90,7 +90,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   public virtual IMailRuGroupsWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
     return this;
@@ -107,7 +107,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   public virtual IMailRuGroupsWidget TextColor(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     TextColorValue = color;
     return this;
@@ -117,7 +117,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   public virtual IMailRuGroupsWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;
@@ -139,7 +139,7 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountValue.IsUnset() || WidthValue.IsUnset() || HeightValue.IsUnset())
+    if (AccountValue.IsUnset || WidthValue.IsUnset || HeightValue.IsUnset)
     {
       return string.Empty;
     }
@@ -157,22 +157,22 @@ public class MailRuGroupsWidget : WebWidget, IMailRuGroupsWidget
       config["show_subscribers"] = true;
     }
     
-    if (!BackgroundColorValue.IsUnset())
+    if (!BackgroundColorValue.IsUnset)
     {
       config["background"] = BackgroundColorValue;
     }
     
-    if (!TextColorValue.IsUnset())
+    if (!TextColorValue.IsUnset)
     {
       config["color"] = TextColorValue;
     }
     
-    if (!ButtonColorValue.IsUnset())
+    if (!ButtonColorValue.IsUnset)
     {
       config["button_background"] = ButtonColorValue;
     }
     
-    if (!DomainValue.IsUnset())
+    if (!DomainValue.IsUnset)
     {
       config["domain"] = DomainValue;
     }

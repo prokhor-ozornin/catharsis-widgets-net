@@ -115,7 +115,7 @@ public sealed class MailRuIcqWidgetTest : Test
 
     static void Test(IMailRuIcqWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

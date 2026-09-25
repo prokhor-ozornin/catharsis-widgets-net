@@ -61,7 +61,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   public virtual IVkontakteLikeButtonWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     ElementIdValue = id;
 
@@ -72,7 +72,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   public virtual IVkontakteLikeButtonWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
 
@@ -83,7 +83,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   public virtual IVkontakteLikeButtonWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
-    if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
+    if (layout.IsEmpty) throw new ArgumentException(nameof(layout));
 
     LayoutValue = layout;
 
@@ -94,7 +94,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   public virtual IVkontakteLikeButtonWidget Description(string description)
   {
     if (description is null) throw new ArgumentNullException(nameof(description));
-    if (description.IsEmpty()) throw new ArgumentException(nameof(description));
+    if (description.IsEmpty) throw new ArgumentException(nameof(description));
 
     DescriptionValue = description;
 
@@ -105,7 +105,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   public virtual IVkontakteLikeButtonWidget Image(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     ImageValue = url;
 
@@ -116,7 +116,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   public virtual IVkontakteLikeButtonWidget Title(string title)
   {
     if (title is null) throw new ArgumentNullException(nameof(title));
-    if (title.IsEmpty()) throw new ArgumentException(nameof(title));
+    if (title.IsEmpty) throw new ArgumentException(nameof(title));
 
     TitleValue = title;
 
@@ -127,7 +127,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   public virtual IVkontakteLikeButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
 
@@ -138,7 +138,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   public virtual IVkontakteLikeButtonWidget Text(string text)
   {
     if (text is null) throw new ArgumentNullException(nameof(text));
-    if (text.IsEmpty()) throw new ArgumentException(nameof(text));
+    if (text.IsEmpty) throw new ArgumentException(nameof(text));
 
     TextValue = text;
 
@@ -156,7 +156,7 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   public virtual IVkontakteLikeButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
 
@@ -183,42 +183,42 @@ public class VkontakteLikeButtonWidget : WebWidget, IVkontakteLikeButtonWidget
   {
     var config = new Dictionary<string, object>();
       
-    if (!LayoutValue.IsUnset())
+    if (!LayoutValue.IsUnset)
     {
       config["type"] = LayoutValue;
     }
 
-    if (!WidthValue.IsUnset())
+    if (!WidthValue.IsUnset)
     {
       config["width"] = WidthValue;
     }
 
-    if (!TitleValue.IsUnset())
+    if (!TitleValue.IsUnset)
     {
       config["pageTitle"] = TitleValue;
     }
 
-    if (!DescriptionValue.IsUnset())
+    if (!DescriptionValue.IsUnset)
     {
       config["pageDescription"] = DescriptionValue;
     }
 
-    if (!UrlValue.IsUnset())
+    if (!UrlValue.IsUnset)
     {
       config["pageUrl"] = UrlValue;
     }
 
-    if (!ImageValue.IsUnset())
+    if (!ImageValue.IsUnset)
     {
       config["pageImage"] = ImageValue;
     }
 
-    if (!TextValue.IsUnset())
+    if (!TextValue.IsUnset)
     {
       config["text"] = TextValue;
     }
     
-    if (!HeightValue.IsUnset())
+    if (!HeightValue.IsUnset)
     {
       config["height"] = HeightValue;
     }

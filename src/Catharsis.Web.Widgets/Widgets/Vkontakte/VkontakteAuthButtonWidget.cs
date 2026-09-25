@@ -36,7 +36,7 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
   public virtual IVkontakteAuthButtonWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     ElementIdValue = id;
 
@@ -47,7 +47,7 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
   public virtual IVkontakteAuthButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
 
@@ -58,7 +58,7 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
   public virtual IVkontakteAuthButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
 
@@ -76,7 +76,7 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
   public virtual IVkontakteAuthButtonWidget Callback(string callback)
   {
     if (callback is null) throw new ArgumentNullException(nameof(callback));
-    if (callback.IsEmpty()) throw new ArgumentException(nameof(callback));
+    if (callback.IsEmpty) throw new ArgumentException(nameof(callback));
 
     CallbackValue = callback;
 
@@ -96,12 +96,12 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (TypeValue == VkontakteAuthButtonType.Dynamic && CallbackValue.IsUnset())
+    if (TypeValue == VkontakteAuthButtonType.Dynamic && CallbackValue.IsUnset)
     {
       return string.Empty;
     }
 
-    if (TypeValue == VkontakteAuthButtonType.Standard && UrlValue.IsUnset())
+    if (TypeValue == VkontakteAuthButtonType.Standard && UrlValue.IsUnset)
     {
       return string.Empty;
     }
@@ -110,17 +110,17 @@ public class VkontakteAuthButtonWidget : WebWidget, IVkontakteAuthButtonWidget
 
     var config = new Dictionary<string, object>();
     
-    if (!CallbackValue.IsUnset())
+    if (!CallbackValue.IsUnset)
     {
       config["onAuth"] = CallbackValue;
     }
     
-    if (!UrlValue.IsUnset())
+    if (!UrlValue.IsUnset)
     {
       config["authUrl"] = UrlValue;
     }
     
-    if (!WidthValue.IsUnset())
+    if (!WidthValue.IsUnset)
     {
       config["width"] = WidthValue;
     }

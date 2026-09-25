@@ -293,7 +293,7 @@ public sealed class FacebookActivityFeedWidgetTest : Test
 
     static void Test(IFacebookActivityFeedWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

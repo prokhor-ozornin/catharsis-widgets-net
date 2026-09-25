@@ -35,7 +35,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   public virtual IYandexLikeButtonWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
-    if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
+    if (layout.IsEmpty) throw new ArgumentException(nameof(layout));
 
     LayoutValue = layout;
     return this;
@@ -45,7 +45,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   public virtual IYandexLikeButtonWidget Size(string size)
   {
     if (size is null) throw new ArgumentNullException(nameof(size));
-    if (size.IsEmpty()) throw new ArgumentException(nameof(size));
+    if (size.IsEmpty) throw new ArgumentException(nameof(size));
 
     SizeValue = size;
     return this;
@@ -55,7 +55,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   public virtual IYandexLikeButtonWidget Text(string text)
   {
     if (text is null) throw new ArgumentNullException(nameof(text));
-    if (text.IsEmpty()) throw new ArgumentException(nameof(text));
+    if (text.IsEmpty) throw new ArgumentException(nameof(text));
 
     TextValue = text;
     return this;
@@ -65,7 +65,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   public virtual IYandexLikeButtonWidget Title(string title)
   {
     if (title is null) throw new ArgumentNullException(nameof(title));
-    if (title.IsEmpty()) throw new ArgumentException(nameof(title));
+    if (title.IsEmpty) throw new ArgumentException(nameof(title));
 
     TitleValue = title;
     return this;
@@ -75,7 +75,7 @@ public class YandexLikeButtonWidget : WebWidget, IYandexLikeButtonWidget
   public virtual IYandexLikeButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
     return this;

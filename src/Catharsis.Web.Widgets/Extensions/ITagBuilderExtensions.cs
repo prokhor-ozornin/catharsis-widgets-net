@@ -24,7 +24,7 @@ public static class ITagBuilderExtensions
     {
       if (builder is null) throw new ArgumentNullException(nameof(builder));
       if (name is null) throw new ArgumentNullException(nameof(name));
-      if (name.IsEmpty()) throw new ArgumentException(nameof(name));
+      if (name.IsEmpty) throw new ArgumentException(nameof(name));
 
       return builder.Attribute(name, value?.ToInvariantString());
     }

@@ -66,7 +66,7 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public virtual IFacebookRecommendationsFeedWidget AppId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     AppIdValue = id;
     return this;
@@ -76,7 +76,7 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public virtual IFacebookRecommendationsFeedWidget ColorScheme(string scheme)
   {
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
-    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
+    if (scheme.IsEmpty) throw new ArgumentException(nameof(scheme));
 
     ColorSchemeValue = scheme;
     return this;
@@ -86,7 +86,7 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public virtual IFacebookRecommendationsFeedWidget Domain(string domain)
   {
     if (domain is null) throw new ArgumentNullException(nameof(domain));
-    if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
+    if (domain.IsEmpty) throw new ArgumentException(nameof(domain));
 
     DomainValue = domain;
     return this;
@@ -96,7 +96,7 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public virtual IFacebookRecommendationsFeedWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;
@@ -106,7 +106,7 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public virtual IFacebookRecommendationsFeedWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
     return this;
@@ -123,7 +123,7 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public virtual IFacebookRecommendationsFeedWidget LinkTarget(string target)
   {
     if (target is null) throw new ArgumentNullException(nameof(target));
-    if (target.IsEmpty()) throw new ArgumentException(nameof(target));
+    if (target.IsEmpty) throw new ArgumentException(nameof(target));
 
     LinkTargetValue = target;
     return this;
@@ -140,7 +140,7 @@ public class FacebookRecommendationsFeedWidget : WebWidget, IFacebookRecommendat
   public virtual IFacebookRecommendationsFeedWidget TrackLabel(string label)
   {
     if (label is null) throw new ArgumentNullException(nameof(label));
-    if (label.IsEmpty()) throw new ArgumentException(nameof(label));
+    if (label.IsEmpty) throw new ArgumentException(nameof(label));
 
     TrackLabelValue = label;
     return this;

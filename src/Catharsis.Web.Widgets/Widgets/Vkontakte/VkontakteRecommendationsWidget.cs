@@ -46,7 +46,7 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
   public virtual IVkontakteRecommendationsWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     ElementIdValue = id;
 
@@ -92,7 +92,7 @@ public class VkontakteRecommendationsWidget : WebWidget, IVkontakteRecommendatio
   public virtual IVkontakteRecommendationsWidget Target(string target)
   {
     if (target is null) throw new ArgumentNullException(nameof(target));
-    if (target.IsEmpty()) throw new ArgumentException(nameof(target));
+    if (target.IsEmpty) throw new ArgumentException(nameof(target));
 
     TargetValue = target;
 

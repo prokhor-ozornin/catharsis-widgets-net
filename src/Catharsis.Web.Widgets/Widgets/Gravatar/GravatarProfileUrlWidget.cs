@@ -24,7 +24,7 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
   public virtual IGravatarProfileUrlWidget Format(string format)
   {
     if (format is null) throw new ArgumentNullException(nameof(format));
-    if (format.IsEmpty()) throw new ArgumentException(nameof(format));
+    if (format.IsEmpty) throw new ArgumentException(nameof(format));
 
     FormatValue = format;
     return this;
@@ -34,7 +34,7 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
   public virtual IGravatarProfileUrlWidget Hash(string hash)
   {
     if (hash is null) throw new ArgumentNullException(nameof(hash));
-    if (hash.IsEmpty()) throw new ArgumentException(nameof(hash));
+    if (hash.IsEmpty) throw new ArgumentException(nameof(hash));
 
     HashValue = hash;
     return this;
@@ -44,7 +44,7 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
   public virtual IGravatarProfileUrlWidget Parameter(string name, object value)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));
-    if (name.IsEmpty()) throw new ArgumentException(nameof(name));
+    if (name.IsEmpty) throw new ArgumentException(nameof(name));
     if (value is null) throw new ArgumentNullException(nameof(value));
 
     ParametersValue[name] = value;
@@ -60,5 +60,5 @@ public class GravatarProfileUrlWidget : WebWidget, IGravatarProfileUrlWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => HashValue.IsUnset() ? string.Empty : $"http://www.gravatar.com/{HashValue}{(FormatValue.IsUnset() ? string.Empty : $".${FormatValue}")}{(ParametersValue.Any() ? $"?${ParametersValue.ToUrlQuery()}" : string.Empty)}";
+  public override string ToHtml() => HashValue.IsUnset ? string.Empty : $"http://www.gravatar.com/{HashValue}{(FormatValue.IsUnset ? string.Empty : $".${FormatValue}")}{(ParametersValue.Any() ? $"?${ParametersValue.ToUrlQuery()}" : string.Empty)}";
 }

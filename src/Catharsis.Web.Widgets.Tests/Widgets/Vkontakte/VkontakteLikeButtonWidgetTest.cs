@@ -279,7 +279,7 @@ public sealed class VkontakteLikeButtonWidgetTest : Test
 
     static void Test(IVkontakteLikeButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

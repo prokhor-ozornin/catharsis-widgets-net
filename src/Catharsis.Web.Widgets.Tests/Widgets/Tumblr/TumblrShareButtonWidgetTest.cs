@@ -111,7 +111,7 @@ public sealed class TumblrShareButtonWidgetTest : Test
 
     static void Test(ITumblrShareButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

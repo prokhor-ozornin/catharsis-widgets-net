@@ -157,7 +157,7 @@ public sealed class VkontaktePollWidgetTest : Test
 
     static void Test(IVkontaktePollWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

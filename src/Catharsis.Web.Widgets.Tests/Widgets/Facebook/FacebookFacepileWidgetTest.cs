@@ -215,7 +215,7 @@ public sealed class FacebookFacePileWidgetTest : Test
 
     static void Test(IFacebookFacePileWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

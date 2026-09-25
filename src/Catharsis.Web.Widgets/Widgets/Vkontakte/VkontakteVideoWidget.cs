@@ -39,7 +39,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
   public virtual IVkontakteVideoWidget Hash(string hash)
   {
     if (hash is null) throw new ArgumentNullException(nameof(hash));
-    if (hash.IsEmpty()) throw new ArgumentException(nameof(hash));
+    if (hash.IsEmpty) throw new ArgumentException(nameof(hash));
 
     HashValue = hash;
 
@@ -57,7 +57,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
   public virtual IVkontakteVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
 
@@ -68,7 +68,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
   public virtual IVkontakteVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     IdValue = id;
 
@@ -79,7 +79,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
   public virtual IVkontakteVideoWidget User(string user)
   {
     if (user is null) throw new ArgumentNullException(nameof(user));
-    if (user.IsEmpty()) throw new ArgumentException(nameof(user));
+    if (user.IsEmpty) throw new ArgumentException(nameof(user));
       
     UserValue = user;
 
@@ -90,7 +90,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
   public virtual IVkontakteVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
 
@@ -109,7 +109,7 @@ public class VkontakteVideoWidget : WebWidget, IVkontakteVideoWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => IdValue.IsUnset() || UserValue.IsUnset() || HashValue.IsUnset() || WidthValue.IsUnset() || HeightValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
+  public override string ToHtml() => IdValue.IsUnset || UserValue.IsUnset || HashValue.IsUnset || WidthValue.IsUnset || HeightValue.IsUnset ? string.Empty : new TagBuilder("iframe")
       .Attribute("frameborder", 0)
       .Attribute("allowfullscreen", true)
       .Attribute("webkitallowfullscreen", true)

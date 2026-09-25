@@ -67,7 +67,7 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
   public virtual IVkontakteCommentsWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     ElementIdValue = id;
 
@@ -92,7 +92,7 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
   public virtual IVkontakteCommentsWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
 
@@ -128,7 +128,7 @@ public class VkontakteCommentsWidget : WebWidget, IVkontakteCommentsWidget
       config["attach"] = false;
     }
 
-    if (!WidthValue.IsUnset())
+    if (!WidthValue.IsUnset)
     {
       config["width"] = WidthValue;
     }

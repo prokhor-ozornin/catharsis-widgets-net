@@ -70,7 +70,7 @@ public sealed class AddThisSmartLayersWidgetTest : Test
 
     static void Test(IAddThisSmartLayersWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

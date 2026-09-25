@@ -177,7 +177,7 @@ public sealed class YouTubeVideoWidgetTest : Test
     {
       widget.ToHtml().Should().NotBeSameAs(widget.ToHtml());
 
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

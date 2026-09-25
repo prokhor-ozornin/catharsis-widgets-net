@@ -50,7 +50,7 @@ public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
   public virtual IYandexAnalyticsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
 
@@ -75,7 +75,7 @@ public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
   public virtual IYandexAnalyticsWidget Language(string language)
   {
     if (language is null) throw new ArgumentNullException(nameof(language));
-    if (language.IsEmpty()) throw new ArgumentException(nameof(language));
+    if (language.IsEmpty) throw new ArgumentException(nameof(language));
 
     LanguageValue = language;
 
@@ -126,7 +126,7 @@ public class YandexAnalyticsWidget : WebWidget, IYandexAnalyticsWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountValue.IsUnset())
+    if (AccountValue.IsUnset)
     {
       return string.Empty;
     }

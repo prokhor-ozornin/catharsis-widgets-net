@@ -201,7 +201,7 @@ public sealed class VkontakteVideoWidgetTest : Test
 
     static void Test(IVkontakteVideoWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

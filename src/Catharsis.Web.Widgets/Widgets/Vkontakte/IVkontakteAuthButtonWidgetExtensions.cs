@@ -30,7 +30,7 @@ public static class IVkontakteAuthButtonWidgetExtensions
     {
       if (widget is null) throw new ArgumentNullException(nameof(widget));
       if (url is null) throw new ArgumentNullException(nameof(url));
-      if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+      if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
       return widget.Type(VkontakteAuthButtonType.Standard).Url(url);
     }
@@ -46,7 +46,7 @@ public static class IVkontakteAuthButtonWidgetExtensions
     {
       if (widget is null) throw new ArgumentNullException(nameof(widget));
       if (callback is null) throw new ArgumentNullException(nameof(callback));
-      if (callback.IsEmpty()) throw new ArgumentException(nameof(callback));
+      if (callback.IsEmpty) throw new ArgumentException(nameof(callback));
 
       return widget.Type(VkontakteAuthButtonType.Dynamic).Callback(callback);
     }

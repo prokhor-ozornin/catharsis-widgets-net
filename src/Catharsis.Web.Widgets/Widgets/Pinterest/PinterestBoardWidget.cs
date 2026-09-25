@@ -34,7 +34,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
   public virtual IPinterestBoardWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
     return this;
@@ -44,7 +44,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
   public virtual IPinterestBoardWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
     return this;
@@ -54,7 +54,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
   public virtual IPinterestBoardWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;
@@ -64,7 +64,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
   public virtual IPinterestBoardWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     IdValue = id;
     return this;
@@ -74,7 +74,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
   public virtual IPinterestBoardWidget Image(string image)
   {
     if (image is null) throw new ArgumentNullException(nameof(image));
-    if (image.IsEmpty()) throw new ArgumentException(nameof(image));
+    if (image.IsEmpty) throw new ArgumentException(nameof(image));
 
     ImageValue = image;
     return this;
@@ -91,7 +91,7 @@ public class PinterestBoardWidget : WebWidget, IPinterestBoardWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountValue.IsUnset() || IdValue.IsUnset() ? string.Empty : new TagBuilder("a")
+  public override string ToHtml() => AccountValue.IsUnset || IdValue.IsUnset ? string.Empty : new TagBuilder("a")
       .Attribute("data-pin-do", "embedBoard")
       .Attribute("href", $"http://www.pinterest.com/${AccountValue}/{IdValue}")
       .Attribute("data-pin-scale-width", ImageValue)

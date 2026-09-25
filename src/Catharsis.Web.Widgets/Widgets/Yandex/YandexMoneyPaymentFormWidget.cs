@@ -64,7 +64,7 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   public virtual IYandexMoneyPaymentFormWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
 
@@ -82,7 +82,7 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   public virtual IYandexMoneyPaymentFormWidget Description(string description)
   {
     if (description is null) throw new ArgumentNullException(nameof(description));
-    if (description.IsEmpty()) throw new ArgumentException(nameof(description));
+    if (description.IsEmpty) throw new ArgumentException(nameof(description));
 
     DescriptionValue = description;
 
@@ -162,7 +162,7 @@ public class YandexMoneyPaymentFormWidget : WebWidget, IYandexMoneyPaymentFormWi
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountValue.IsUnset() || DescriptionValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
+  public override string ToHtml() => AccountValue.IsUnset || DescriptionValue.IsUnset ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", $"https://money.yandex.ru/embed/shop.xml?account={AccountValue}&quickpay=shop{(CardsValue ? "&payment-type-choice=on" : string.Empty)}&writer={(AskPayerPurposeValue ? "buyer" : "seller")}&{(AskPayerPurposeValue ? "targets-hint" : "targets")}={DescriptionValue}&default-sum={SumValue}&button-text=0{TextValue}{(AskPayerCommentValue ? "&comment=on" : string.Empty)}{(AskPayerFullNameValue ? "&fio=on" : string.Empty)}{(AskPayerEmailValue ? "&mail=on" : string.Empty)}{(AskPayerPhoneValue ? "&phone=on" : string.Empty)}{(AskPayerAddressValue ? "&address=on" : string.Empty)}")
       .Attribute("frameborder", 0)
       .Attribute("allowtransparency", true)

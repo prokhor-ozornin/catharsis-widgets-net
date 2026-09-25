@@ -16,7 +16,7 @@ public class CackleCommentsWidget : WebWidget, ICackleCommentsWidget
   public virtual ICackleCommentsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
     return this;
@@ -31,7 +31,7 @@ public class CackleCommentsWidget : WebWidget, ICackleCommentsWidget
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountValue.IsUnset())
+    if (AccountValue.IsUnset)
     {
       return string.Empty;
     }

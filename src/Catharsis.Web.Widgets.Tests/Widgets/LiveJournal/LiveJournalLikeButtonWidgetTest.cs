@@ -57,7 +57,7 @@ public sealed class LiveJournalLikeButtonWidgetTest : Test
 
     static void Test(ILiveJournalLikeButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

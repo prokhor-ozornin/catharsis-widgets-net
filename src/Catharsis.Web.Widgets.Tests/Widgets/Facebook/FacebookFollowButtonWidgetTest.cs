@@ -214,7 +214,7 @@ public sealed class FacebookFollowButtonWidgetTest : Test
 
     static void Test(IFacebookFollowButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

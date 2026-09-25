@@ -91,7 +91,7 @@ public sealed class PayPalSubscribeWidgetTest : Test
 
     static void Test(IPayPalSubscribeWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

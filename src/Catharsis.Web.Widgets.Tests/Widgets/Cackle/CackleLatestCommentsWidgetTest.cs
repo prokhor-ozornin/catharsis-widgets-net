@@ -166,7 +166,7 @@ public sealed class CackleLatestCommentsWidgetTest : Test
 
     static void Test(ICackleLatestCommentsWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

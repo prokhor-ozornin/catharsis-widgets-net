@@ -49,7 +49,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
   public virtual IFacebookLikeButtonWidget ColorScheme(string scheme)
   {
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
-    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
+    if (scheme.IsEmpty) throw new ArgumentException(nameof(scheme));
 
     ColorSchemeValue = scheme;
     return this;
@@ -73,7 +73,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
   public virtual IFacebookLikeButtonWidget Layout(string layout)
   {
     if (layout is null) throw new ArgumentNullException(nameof(layout));
-    if (layout.IsEmpty()) throw new ArgumentException(nameof(layout));
+    if (layout.IsEmpty) throw new ArgumentException(nameof(layout));
 
     LayoutValue = layout;
     return this;
@@ -83,7 +83,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
   public virtual IFacebookLikeButtonWidget TrackLabel(string label)
   {
     if (label is null) throw new ArgumentNullException(nameof(label));
-    if (label.IsEmpty()) throw new ArgumentException(nameof(label));
+    if (label.IsEmpty) throw new ArgumentException(nameof(label));
 
     TrackLabelValue = label;
     return this;
@@ -93,7 +93,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
   public virtual IFacebookLikeButtonWidget Url(string url)
   {
     if (url is null) throw new ArgumentNullException(nameof(url));
-    if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+    if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
     UrlValue = url;
     return this;
@@ -103,7 +103,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
   public virtual IFacebookLikeButtonWidget Verb(string verb)
   {
     if (verb is null) throw new ArgumentNullException(nameof(verb));
-    if (verb.IsEmpty()) throw new ArgumentException(nameof(verb));
+    if (verb.IsEmpty) throw new ArgumentException(nameof(verb));
 
     VerbValue = verb;
     return this;
@@ -113,7 +113,7 @@ public class FacebookLikeButtonWidget : WebWidget, IFacebookLikeButtonWidget
   public virtual IFacebookLikeButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;

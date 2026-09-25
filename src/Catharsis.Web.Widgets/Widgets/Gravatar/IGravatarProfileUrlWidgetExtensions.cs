@@ -23,7 +23,7 @@ public static class IGravatarProfileUrlWidgetExtensions
     {
       if (widget is null) throw new ArgumentNullException(nameof(widget));
       if (email is null) throw new ArgumentNullException(nameof(email));
-      if (email.IsEmpty()) throw new ArgumentException(nameof(email));
+      if (email.IsEmpty) throw new ArgumentException(nameof(email));
 
       return widget.Hash(email.Trim().ToLowerInvariant().ToBytes(Encoding.ASCII).HashMd5().ToHex().ToLowerInvariant());
     }
@@ -39,7 +39,7 @@ public static class IGravatarProfileUrlWidgetExtensions
     {
       if (widget is null) throw new ArgumentNullException(nameof(widget));
 
-      if (!callback.IsUnset())
+      if (!callback.IsUnset)
       {
         widget.Parameter("callback", callback);
       }

@@ -114,7 +114,7 @@ public sealed class FacebookPostWidgetTest : Test
 
     static void Test(IFacebookPostWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

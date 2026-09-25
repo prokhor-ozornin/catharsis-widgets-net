@@ -31,7 +31,7 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
   public virtual IVkontakteSubscriptionWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
 
@@ -42,7 +42,7 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
   public virtual IVkontakteSubscriptionWidget ElementId(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     ElementIdValue = id;
 
@@ -75,7 +75,7 @@ public class VkontakteSubscriptionWidget : WebWidget, IVkontakteSubscriptionWidg
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
   public override string ToHtml()
   {
-    if (AccountValue.IsUnset())
+    if (AccountValue.IsUnset)
     {
       return string.Empty;
     }

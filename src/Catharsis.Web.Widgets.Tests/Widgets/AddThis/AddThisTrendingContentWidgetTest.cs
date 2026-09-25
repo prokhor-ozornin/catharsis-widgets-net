@@ -70,7 +70,7 @@ public sealed class AddThisTrendingContentWidgetTest : Test
 
     static void Test(IAddThisTrendingContentWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

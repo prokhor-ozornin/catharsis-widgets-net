@@ -289,7 +289,7 @@ public sealed class YandexMoneyButtonWidgetTest : Test
 
     static void Test(IYandexMoneyButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

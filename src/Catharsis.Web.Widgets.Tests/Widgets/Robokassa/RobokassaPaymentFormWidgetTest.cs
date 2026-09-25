@@ -73,7 +73,7 @@ public sealed class RobokassaPaymentFormWidgetTest : Test
 
     static void Test(IRobokassaPaymentFormWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

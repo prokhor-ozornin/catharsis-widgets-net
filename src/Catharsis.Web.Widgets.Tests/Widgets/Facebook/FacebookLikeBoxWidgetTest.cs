@@ -247,7 +247,7 @@ public sealed class FacebookLikeBoxWidgetTest : Test
 
     static void Test(IFacebookLikeBoxWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

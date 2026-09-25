@@ -108,7 +108,7 @@ public sealed class Share42PanelWidgetTest : Test
 
     static void Test(IShare42PanelWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

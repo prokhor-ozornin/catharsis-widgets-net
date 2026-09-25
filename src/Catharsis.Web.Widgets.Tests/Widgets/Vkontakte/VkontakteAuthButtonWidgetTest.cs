@@ -178,7 +178,7 @@ public sealed class VkontakteAuthButtonWidgetTest : Test
 
     static void Test(IVkontakteAuthButtonWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

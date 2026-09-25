@@ -29,7 +29,7 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
   public virtual IVideoJSPlayerWidget Extra(string extra)
   {
     if (extra is null) throw new ArgumentNullException(nameof(extra));
-    if (extra.IsEmpty()) throw new ArgumentException(nameof(extra));
+    if (extra.IsEmpty) throw new ArgumentException(nameof(extra));
 
     ExtraValue = extra;
     return this;
@@ -39,7 +39,7 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
   public virtual IVideoJSPlayerWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
     return this;
@@ -56,7 +56,7 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
   public virtual IVideoJSPlayerWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;
@@ -72,7 +72,7 @@ public class VideoJSPlayerWidget : WebWidget, IVideoJSPlayerWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => !VideosValue.Any() || WidthValue.IsUnset() || HeightValue.IsUnset() ? string.Empty : new TagBuilder("video")
+  public override string ToHtml() => !VideosValue.Any() || WidthValue.IsUnset || HeightValue.IsUnset ? string.Empty : new TagBuilder("video")
       .Attribute("class", "video-js vjs-default-skin")
       .Attribute("controls", "controls")
       .Attribute("preload", "auto")

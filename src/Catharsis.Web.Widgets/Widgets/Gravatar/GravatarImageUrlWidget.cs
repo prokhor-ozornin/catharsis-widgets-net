@@ -24,7 +24,7 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
   public virtual IGravatarImageUrlWidget Extension(string extension)
   {
     if (extension is null) throw new ArgumentNullException(nameof(extension));
-    if (extension.IsEmpty()) throw new ArgumentException(nameof(extension));
+    if (extension.IsEmpty) throw new ArgumentException(nameof(extension));
 
     ExtensionValue = extension;
     return this;
@@ -34,7 +34,7 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
   public virtual IGravatarImageUrlWidget Hash(string hash)
   {
     if (hash is null) throw new ArgumentNullException(nameof(hash));
-    if (hash.IsEmpty()) throw new ArgumentException(nameof(hash));
+    if (hash.IsEmpty) throw new ArgumentException(nameof(hash));
 
     HashValue = hash;
     return this;
@@ -44,7 +44,7 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
   public virtual IGravatarImageUrlWidget Parameter(string name, object value)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));
-    if (name.IsEmpty()) throw new ArgumentException(nameof(name));
+    if (name.IsEmpty) throw new ArgumentException(nameof(name));
 
     ParametersValue[name] = value;
     return this;
@@ -58,5 +58,5 @@ public class GravatarImageUrlWidget : WebWidget, IGravatarImageUrlWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => HashValue.IsUnset() ? string.Empty : $"http://www.gravatar.com/avatar/{HashValue}{(ExtensionValue.IsUnset() ? string.Empty : $".${ExtensionValue}")}{(ParametersValue.Any() ? $"?${ParametersValue.ToUrlQuery()}" : string.Empty)}";
+  public override string ToHtml() => HashValue.IsUnset ? string.Empty : $"http://www.gravatar.com/avatar/{HashValue}{(ExtensionValue.IsUnset ? string.Empty : $".${ExtensionValue}")}{(ParametersValue.Any() ? $"?${ParametersValue.ToUrlQuery()}" : string.Empty)}";
 }

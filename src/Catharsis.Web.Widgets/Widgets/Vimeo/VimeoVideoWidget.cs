@@ -41,7 +41,7 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
   public virtual IVimeoVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
     return this;
@@ -51,7 +51,7 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
   public virtual IVimeoVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     IdValue = id;
     return this;
@@ -68,7 +68,7 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
   public virtual IVimeoVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;
@@ -85,7 +85,7 @@ public class VimeoVideoWidget : WebWidget, IVimeoVideoWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => IdValue.IsUnset() || WidthValue.IsUnset() || HeightValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
+  public override string ToHtml() => IdValue.IsUnset || WidthValue.IsUnset || HeightValue.IsUnset ? string.Empty : new TagBuilder("iframe")
       .Attribute("frameborder", 0)
       .Attribute("allowfullscreen", true)
       .Attribute("webkitallowfullscreen", true)

@@ -19,7 +19,7 @@ public class TumblrShareButtonWidget : WebWidget, ITumblrShareButtonWidget
   public virtual ITumblrShareButtonWidget ColorScheme(string scheme)
   {
     if (scheme is null) throw new ArgumentNullException(nameof(scheme));
-    if (scheme.IsEmpty()) throw new ArgumentException(nameof(scheme));
+    if (scheme.IsEmpty) throw new ArgumentException(nameof(scheme));
 
     ColorSchemeValue = scheme;
       

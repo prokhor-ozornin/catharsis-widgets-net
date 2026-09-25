@@ -163,7 +163,7 @@ public sealed class VideoJSPlayerWidgetTest : Test
 
     static void Test(IVideoJSPlayerWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

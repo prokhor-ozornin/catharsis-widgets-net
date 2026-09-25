@@ -134,7 +134,7 @@ public sealed class TumblrFollowButtonWidgetTest : Test
     static void Test(ITumblrFollowButtonWidget widget, params string[] html)
     {
 
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

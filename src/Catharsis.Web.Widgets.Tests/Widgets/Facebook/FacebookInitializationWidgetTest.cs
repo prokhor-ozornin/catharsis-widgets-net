@@ -93,7 +93,7 @@ public sealed class FacebookInitializationWidgetTest : Test
 
     static void Test(IFacebookInitializationWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

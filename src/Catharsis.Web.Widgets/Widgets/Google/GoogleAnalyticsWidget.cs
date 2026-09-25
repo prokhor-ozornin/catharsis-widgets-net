@@ -19,7 +19,7 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
   public virtual IGoogleAnalyticsWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
     return this;
@@ -29,7 +29,7 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
   public virtual IGoogleAnalyticsWidget Domain(string domain)
   {
     if (domain is null) throw new ArgumentNullException(nameof(domain));
-    if (domain.IsEmpty()) throw new ArgumentException(nameof(domain));
+    if (domain.IsEmpty) throw new ArgumentException(nameof(domain));
 
     DomainValue = domain;
     return this;
@@ -43,5 +43,5 @@ public class GoogleAnalyticsWidget : WebWidget, IGoogleAnalyticsWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountValue.IsUnset() || DomainValue.IsUnset() ? string.Empty : string.Format(resources.google_analytics_js, AccountValue, DomainValue);
+  public override string ToHtml() => AccountValue.IsUnset || DomainValue.IsUnset ? string.Empty : string.Format(resources.google_analytics_js, AccountValue, DomainValue);
 }

@@ -267,7 +267,7 @@ public sealed class YandexAnalyticsWidgetTest : Test
 
     static void Test(IYandexAnalyticsWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

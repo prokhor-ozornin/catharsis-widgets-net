@@ -24,7 +24,7 @@ public static class IGravatarImageUrlWidgetExtensions
     {
       if (widget is null) throw new ArgumentNullException(nameof(widget));
       if (url is null) throw new ArgumentNullException(nameof(url));
-      if (url.IsEmpty()) throw new ArgumentException(nameof(url));
+      if (url.IsEmpty) throw new ArgumentException(nameof(url));
 
       return widget.Parameter("default", url);
     }
@@ -65,7 +65,7 @@ public static class IGravatarImageUrlWidgetExtensions
     {
       if (widget is null) throw new ArgumentNullException(nameof(widget));
       if (email is null) throw new ArgumentNullException(nameof(email));
-      if (email.IsEmpty()) throw new ArgumentException(nameof(email));
+      if (email.IsEmpty) throw new ArgumentException(nameof(email));
 
       return widget.Hash(email.Trim().ToLowerInvariant().ToBytes(Encoding.ASCII).HashMd5().ToHex().ToLowerInvariant());
     }
@@ -89,7 +89,7 @@ public static class IGravatarImageUrlWidgetExtensions
     {
       if (widget is null) throw new ArgumentNullException(nameof(widget));
       if (rating is null) throw new ArgumentNullException(nameof(rating));
-      if (rating.IsEmpty()) throw new ArgumentException(nameof(rating));
+      if (rating.IsEmpty) throw new ArgumentException(nameof(rating));
 
       return widget.Parameter("rating", rating);
     }

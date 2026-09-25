@@ -70,7 +70,7 @@ public sealed class DoubleGisContactsMapWidgetTest : Test
 
     static void Test(IDoubleGisContactsMapWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

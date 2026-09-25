@@ -29,7 +29,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
   public virtual IYandexVideoWidget Id(string id)
   {
     if (id is null) throw new ArgumentNullException(nameof(id));
-    if (id.IsEmpty()) throw new ArgumentException(nameof(id));
+    if (id.IsEmpty) throw new ArgumentException(nameof(id));
 
     IdValue = id;
 
@@ -40,7 +40,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
   public virtual IYandexVideoWidget Height(string height)
   {
     if (height is null) throw new ArgumentNullException(nameof(height));
-    if (height.IsEmpty()) throw new ArgumentException(nameof(height));
+    if (height.IsEmpty) throw new ArgumentException(nameof(height));
 
     HeightValue = height;
 
@@ -51,7 +51,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
   public virtual IYandexVideoWidget User(string user)
   {
     if (user is null) throw new ArgumentNullException(nameof(user));
-    if (user.IsEmpty()) throw new ArgumentException(nameof(user));
+    if (user.IsEmpty) throw new ArgumentException(nameof(user));
 
     UserValue = user;
 
@@ -62,7 +62,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
   public virtual IYandexVideoWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
 
@@ -79,7 +79,7 @@ public class YandexVideoWidget : WebWidget, IYandexVideoWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => IdValue.IsUnset() || UserValue.IsUnset() || HeightValue.IsUnset() || WidthValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
+  public override string ToHtml() => IdValue.IsUnset || UserValue.IsUnset || HeightValue.IsUnset || WidthValue.IsUnset ? string.Empty : new TagBuilder("iframe")
       .Attribute("src", $"http://video.yandex.ru/iframe/${UserValue}/${IdValue}")
       .Attribute("width", WidthValue)
       .Attribute("height", HeightValue)

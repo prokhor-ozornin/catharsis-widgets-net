@@ -95,7 +95,7 @@ public sealed class DisqusCommentsWidgetTest : Test
 
     static void Test(IDisqusCommentsWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

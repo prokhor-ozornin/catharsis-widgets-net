@@ -24,7 +24,7 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
   public virtual ISoundCloudProfileIconWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
     return this;
@@ -34,7 +34,7 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
   public virtual ISoundCloudProfileIconWidget Color(string color)
   {
     if (color is null) throw new ArgumentNullException(nameof(color));
-    if (color.IsEmpty()) throw new ArgumentException(nameof(color));
+    if (color.IsEmpty) throw new ArgumentException(nameof(color));
 
     ColorValue = color;
     return this;
@@ -56,7 +56,7 @@ public class SoundCloudProfileIconWidget : WebWidget, ISoundCloudProfileIconWidg
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountValue.IsUnset() ? string.Empty : new TagBuilder("iframe")
+  public override string ToHtml() => AccountValue.IsUnset ? string.Empty : new TagBuilder("iframe")
       .Attribute("allowtransparency", true)
       .Attribute("frameborder", 0)
       .Attribute("scrolling", "no")

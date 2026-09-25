@@ -73,7 +73,7 @@ public sealed class GoogleMapWidgetTest : Test
 
     static void Test(IGravatarImageUrlWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }

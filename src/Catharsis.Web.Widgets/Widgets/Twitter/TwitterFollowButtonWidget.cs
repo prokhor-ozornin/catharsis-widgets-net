@@ -49,7 +49,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   public virtual ITwitterFollowButtonWidget Account(string account)
   {
     if (account is null) throw new ArgumentNullException(nameof(account));
-    if (account.IsEmpty()) throw new ArgumentException(nameof(account));
+    if (account.IsEmpty) throw new ArgumentException(nameof(account));
 
     AccountValue = account;
     return this;
@@ -59,7 +59,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   public virtual ITwitterFollowButtonWidget Alignment(string alignment)
   {
     if (alignment is null) throw new ArgumentNullException(nameof(alignment));
-    if (alignment.IsEmpty()) throw new ArgumentException(nameof(alignment));
+    if (alignment.IsEmpty) throw new ArgumentException(nameof(alignment));
 
     AlignmentValue = alignment;
     return this;
@@ -76,7 +76,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   public virtual ITwitterFollowButtonWidget Language(string language)
   {
     if (language is null) throw new ArgumentNullException(nameof(language));
-    if (language.IsEmpty()) throw new ArgumentException(nameof(language));
+    if (language.IsEmpty) throw new ArgumentException(nameof(language));
 
     LanguageValue = language;
     return this;
@@ -93,7 +93,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   public virtual ITwitterFollowButtonWidget Size(string size)
   {
     if (size is null) throw new ArgumentNullException(nameof(size));
-    if (size.IsEmpty()) throw new ArgumentException(nameof(size));
+    if (size.IsEmpty) throw new ArgumentException(nameof(size));
 
     SizeValue = size;
     return this;
@@ -110,7 +110,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   public virtual ITwitterFollowButtonWidget Width(string width)
   {
     if (width is null) throw new ArgumentNullException(nameof(width));
-    if (width.IsEmpty()) throw new ArgumentException(nameof(width));
+    if (width.IsEmpty) throw new ArgumentException(nameof(width));
 
     WidthValue = width;
     return this;
@@ -130,7 +130,7 @@ public class TwitterFollowButtonWidget : WebWidget, ITwitterFollowButtonWidget
   };
 
   /// <inheritdoc cref="IWebWidget.ToHtml()"/>
-  public override string ToHtml() => AccountValue.IsUnset() ? string.Empty : 
+  public override string ToHtml() => AccountValue.IsUnset ? string.Empty : 
     new TagBuilder("a")
       .Attribute("href", $"https://twitter.com/${AccountValue}")
       .Attribute("data-lang", LanguageValue ?? Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)

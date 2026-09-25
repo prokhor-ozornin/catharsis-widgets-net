@@ -19,7 +19,7 @@ public class LiveJournalRepostButtonWidget : WebWidget, ILiveJournalRepostButton
   public virtual ILiveJournalRepostButtonWidget Text(string text)
   {
     if (text is null) throw new ArgumentNullException(nameof(text));
-    if (text.IsEmpty()) throw new ArgumentException(nameof(text));
+    if (text.IsEmpty) throw new ArgumentException(nameof(text));
 
     TextValue = text;
     return this;
@@ -29,7 +29,7 @@ public class LiveJournalRepostButtonWidget : WebWidget, ILiveJournalRepostButton
   public virtual ILiveJournalRepostButtonWidget Title(string title)
   {
     if (title is null) throw new ArgumentNullException(nameof(title));
-    if (title.IsEmpty()) throw new ArgumentException(nameof(title));
+    if (title.IsEmpty) throw new ArgumentException(nameof(title));
 
     TitleValue = title;
     return this;

@@ -133,7 +133,7 @@ public sealed class SoundCloudProfileIconWidgetTest : Test
 
     static void Test(ISoundCloudProfileIconWidget widget, params string[] html)
     {
-      if (html.IsUnset())
+      if (html.IsUnset)
       {
         widget.ToHtml().Should().BeEmpty();
       }
