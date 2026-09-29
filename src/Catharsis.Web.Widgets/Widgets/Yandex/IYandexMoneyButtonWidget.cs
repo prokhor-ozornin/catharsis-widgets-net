@@ -36,30 +36,30 @@ public interface IYandexMoneyButtonWidget : IWebWidget
   IYandexMoneyButtonWidget Description(string description);
 
   /// <summary>
-  ///   <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
+  ///   <para>Whether to ask for full name of payer during transaction. Default is <see langword="false"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
+  /// <param name="enabled"><see langword="true"/> to make payer's full name required, <see langword="false"/> to not.</param>
   /// <returns>Reference to the current widget.</returns>
   IYandexMoneyButtonWidget AskPayerFullName(bool enabled);
 
   /// <summary>
-  ///   <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
+  ///   <para>Whether to ask for email address of payer during transaction. Default is <see langword="false"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
+  /// <param name="enabled"><see langword="true"/> to make payer's email required, <see langword="false"/> to not.</param>
   /// <returns>Reference to the current widget.</returns>
   IYandexMoneyButtonWidget AskPayerEmail(bool enabled);
 
   /// <summary>
-  ///   <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
+  ///   <para>Whether to ask for payer phone number during transaction. Default is <see langword="false"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
+  /// <param name="enabled"><see langword="true"/> to make payer's phone required, <see langword="false"/> to not.</param>
   /// <returns>Reference to the current widget.</returns>
   IYandexMoneyButtonWidget AskPayerPhone(bool enabled);
 
   /// <summary>
-  ///   <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
+  ///   <para>Whether to ask for payer address during transaction. Default is <see langword="false"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
+  /// <param name="enabled"><see langword="true"/> to make payer's address required, <see langword="false"/> to not.</param>
   /// <returns>Reference to the current widget.</returns>
   IYandexMoneyButtonWidget AskPayerAddress(bool enabled);
 

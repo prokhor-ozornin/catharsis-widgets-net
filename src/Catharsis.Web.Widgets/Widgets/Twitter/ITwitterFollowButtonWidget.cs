@@ -28,9 +28,9 @@ public interface ITwitterFollowButtonWidget : IWebWidget
   ITwitterFollowButtonWidget Alignment(string alignment);
 
   /// <summary>
-  ///   <para>Whether to display user's followers count. Default is <c>false</c>.</para>
+  ///   <para>Whether to display user's followers count. Default is <see langword="false"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show followers count, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show followers count, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   ITwitterFollowButtonWidget Counter(bool enabled);
 
@@ -44,9 +44,9 @@ public interface ITwitterFollowButtonWidget : IWebWidget
   ITwitterFollowButtonWidget Language(string language);
 
   /// <summary>
-  ///   <para>Whether to show user's screen name. Default is <c>true</c>.</para>
+  ///   <para>Whether to show user's screen name. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show screen name, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show screen name, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   ITwitterFollowButtonWidget ScreenName(bool enabled);
 
@@ -60,9 +60,9 @@ public interface ITwitterFollowButtonWidget : IWebWidget
   ITwitterFollowButtonWidget Size(string size);
 
   /// <summary>
-  ///   <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
+  ///   <para>Whether to enable twitter suggestions. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</param>
+  /// <param name="enabled"><see langword="true"/> to not opt-out of suggestions, <see langword="false"/> to opt-in.</param>
   /// <returns>Reference to the current widget.</returns>
   ITwitterFollowButtonWidget Suggestions(bool enabled);
 

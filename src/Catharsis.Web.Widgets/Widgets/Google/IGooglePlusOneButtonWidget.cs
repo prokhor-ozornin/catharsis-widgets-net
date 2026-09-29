@@ -36,9 +36,9 @@ public interface IGooglePlusOneButtonWidget : IWebWidget
   IGooglePlusOneButtonWidget Callback(string callback);
 
   /// <summary>
-  ///   <para>Whether to show recommendations within the +1 hover bubble. Default is <c>true</c>.</para>
+  ///   <para>Whether to show recommendations within the +1 hover bubble. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show recommendations, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show recommendations, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IGooglePlusOneButtonWidget Recommendations(bool enabled);
 

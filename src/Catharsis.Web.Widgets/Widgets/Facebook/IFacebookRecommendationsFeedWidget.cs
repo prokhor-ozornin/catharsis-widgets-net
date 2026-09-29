@@ -43,9 +43,9 @@ public interface IFacebookRecommendationsFeedWidget : IWebWidget
   IFacebookRecommendationsFeedWidget Domain(string domain);
 
   /// <summary>
-  ///   <para>Whether to show the "Recent Activity" header above the feed or not. Default is <c>true</c>.</para>
+  ///   <para>Whether to show the "Recent Activity" header above the feed or not. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show header, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show header, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookRecommendationsFeedWidget Header(bool enabled);
 

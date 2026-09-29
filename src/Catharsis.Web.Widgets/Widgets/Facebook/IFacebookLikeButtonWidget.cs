@@ -17,16 +17,16 @@ public interface IFacebookLikeButtonWidget : IWebWidget
   IFacebookLikeButtonWidget ColorScheme(string scheme);
 
   /// <summary>
-  ///   <para>Whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites. Default is <c>false</c>.</para>
+  ///   <para>Whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites. Default is <see langword="false"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to display profile photos, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to display profile photos, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookLikeButtonWidget Faces(bool enabled);
 
   /// <summary>
-  ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
+  ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <see langword="false"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> if site is directed to small children, <c>false</c> otherwise.</param>
+  /// <param name="enabled"><see langword="true"/> if site is directed to small children, <see langword="false"/> otherwise.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookLikeButtonWidget KidsMode(bool enabled);
 

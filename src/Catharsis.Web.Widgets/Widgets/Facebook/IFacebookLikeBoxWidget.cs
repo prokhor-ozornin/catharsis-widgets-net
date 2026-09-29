@@ -8,9 +8,9 @@
 public interface IFacebookLikeBoxWidget : IWebWidget
 {
   /// <summary>
-  ///   <para>Specifies whether or not to show a border around the plugin. Default is <c>true</c>.</para>
+  ///   <para>Specifies whether or not to show a border around the plugin. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show border, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show border, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookLikeBoxWidget Border(bool enabled);
 
@@ -24,16 +24,16 @@ public interface IFacebookLikeBoxWidget : IWebWidget
   IFacebookLikeBoxWidget ColorScheme(string scheme);
 
   /// <summary>
-  ///   <para>Specifies whether to display profile photos of people who like the page. Default is <c>true</c>.</para>
+  ///   <para>Specifies whether to display profile photos of people who like the page. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show profile photos, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show profile photos, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookLikeBoxWidget Faces(bool enabled);
 
   /// <summary>
-  ///   <para>Specifies whether to display the Facebook header at the top of the widget. Default is <c>true</c>.</para>
+  ///   <para>Specifies whether to display the Facebook header at the top of the widget. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show header, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show header, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookLikeBoxWidget Header(bool enabled);
 
@@ -47,9 +47,9 @@ public interface IFacebookLikeBoxWidget : IWebWidget
   IFacebookLikeBoxWidget Height(string height);
 
   /// <summary>
-  ///   <para>Specifies whether to display a stream of the latest posts by the Page. Default is <c>true</c>.</para>
+  ///   <para>Specifies whether to display a stream of the latest posts by the Page. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show stream of posts, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show stream of posts, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookLikeBoxWidget Stream(bool enabled);
 
@@ -64,9 +64,9 @@ public interface IFacebookLikeBoxWidget : IWebWidget
   IFacebookLikeBoxWidget Url(string url);
 
   /// <summary>
-  ///   <para>For "place" Pages (Pages that have a physical location that can be used with check-ins), this specifies whether the stream contains posts by the Page or just check-ins from friends. Default is <c>false</c>.</para>
+  ///   <para>For "place" Pages (Pages that have a physical location that can be used with check-ins), this specifies whether the stream contains posts by the Page or just check-ins from friends. Default is <see langword="false"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to include page's posts in the stream, <c>false</c> to exclude.</param>
+  /// <param name="enabled"><see langword="true"/> to include page's posts in the stream, <see langword="false"/> to exclude.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookLikeBoxWidget Wall(bool enabled);
 

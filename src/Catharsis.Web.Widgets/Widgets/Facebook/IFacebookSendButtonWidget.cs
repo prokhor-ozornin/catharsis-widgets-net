@@ -26,9 +26,9 @@ public interface IFacebookSendButtonWidget : IWebWidget
   IFacebookSendButtonWidget Height(string height);
 
   /// <summary>
-  ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
+  ///   <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <see langword="false"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
+  /// <param name="enabled"><see langword="true"/> to activate kids-directed mode, <see langword="false"/> to use default mode.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookSendButtonWidget KidsMode(bool enabled);
 

@@ -2646,9 +2646,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookActivityFeedWidget.Header(System.Boolean)">
             <summary>
-              <para>Whether to enabled the "Recent Activity" header above the feed or not. Default is <c>true</c>.</para>
+              <para>Whether to enabled the "Recent Activity" header above the feed or not. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show header, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show header, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookActivityFeedWidget.Height(System.String)">
@@ -2678,9 +2678,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookActivityFeedWidget.Recommendations(System.Boolean)">
             <summary>
-              <para>Specifies whether to always show recommendations (Articles liked by a high amount of people) in the bottom half of the feed. Default is <c>false</c>.</para>
+              <para>Specifies whether to always show recommendations (Articles liked by a high amount of people) in the bottom half of the feed. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show recommendations, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show recommendations, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookActivityFeedWidget.TrackLabel(System.String)">
@@ -2778,7 +2778,7 @@
             <summary>
               <para>A boolean value that specifies whether to show the mobile-optimized version or not. If not specified, auto-detection is used.</para>
             </summary>
-            <param name="enabled"><c>true</c> to use mobile-optimized version, <c>false</c> otherwise.</param>
+            <param name="enabled"><see langword="true"/> to use mobile-optimized version, <see langword="false"/> otherwise.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookCommentsWidget.Order(System.String)">
@@ -3038,7 +3038,7 @@
             <summary>
               <para>Specifies whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show profiles photos, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show profiles photos, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookFollowButtonWidget.Height(System.String)">
@@ -3052,9 +3052,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookFollowButtonWidget.KidsMode(System.Boolean)">
             <summary>
-              <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
+              <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
+            <param name="enabled"><see langword="true"/> to activate kids-directed mode, <see langword="false"/> to use default mode.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookFollowButtonWidget.Layout(System.String)">
@@ -3178,9 +3178,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeBoxWidget.Border(System.Boolean)">
             <summary>
-              <para>Specifies whether or not to show a border around the plugin. Default is <c>true</c>.</para>
+              <para>Specifies whether or not to show a border around the plugin. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show border, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show border, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeBoxWidget.ColorScheme(System.String)">
@@ -3194,16 +3194,16 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeBoxWidget.Faces(System.Boolean)">
             <summary>
-              <para>Specifies whether to display profile photos of people who like the page. Default is <c>true</c>.</para>
+              <para>Specifies whether to display profile photos of people who like the page. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show profile photos, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show profile photos, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeBoxWidget.Header(System.Boolean)">
             <summary>
-              <para>Specifies whether to display the Facebook header at the top of the widget. Default is <c>true</c>.</para>
+              <para>Specifies whether to display the Facebook header at the top of the widget. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show header, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show header, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeBoxWidget.Height(System.String)">
@@ -3217,9 +3217,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeBoxWidget.Stream(System.Boolean)">
             <summary>
-              <para>Specifies whether to display a stream of the latest posts by the Page. Default is <c>true</c>.</para>
+              <para>Specifies whether to display a stream of the latest posts by the Page. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show stream of posts, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show stream of posts, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeBoxWidget.Url(System.String)">
@@ -3234,9 +3234,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeBoxWidget.Wall(System.Boolean)">
             <summary>
-              <para>For "place" Pages (Pages that have a physical location that can be used with check-ins), this specifies whether the stream contains posts by the Page or just check-ins from friends. Default is <c>false</c>.</para>
+              <para>For "place" Pages (Pages that have a physical location that can be used with check-ins), this specifies whether the stream contains posts by the Page or just check-ins from friends. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to include page's posts in the stream, <c>false</c> to exclude.</param>
+            <param name="enabled"><see langword="true"/> to include page's posts in the stream, <see langword="false"/> to exclude.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeBoxWidget.Width(System.String)">
@@ -3322,16 +3322,16 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeButtonWidget.Faces(System.Boolean)">
             <summary>
-              <para>Whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites. Default is <c>false</c>.</para>
+              <para>Whether to display profile photos below the button (standard layout only). You must not enable this on child-directed sites. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to display profile photos, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to display profile photos, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeButtonWidget.KidsMode(System.Boolean)">
             <summary>
-              <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
+              <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> if site is directed to small children, <c>false</c> otherwise.</param>
+            <param name="enabled"><see langword="true"/> if site is directed to small children, <see langword="false"/> otherwise.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookLikeButtonWidget.Layout(System.String)">
@@ -3549,9 +3549,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookRecommendationsFeedWidget.Header(System.Boolean)">
             <summary>
-              <para>Whether to show the "Recent Activity" header above the feed or not. Default is <c>true</c>.</para>
+              <para>Whether to show the "Recent Activity" header above the feed or not. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show header, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show header, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookRecommendationsFeedWidget.Height(System.String)">
@@ -3681,9 +3681,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookSendButtonWidget.KidsMode(System.Boolean)">
             <summary>
-              <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <c>false</c>.</para>
+              <para>If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to activate kids-directed mode, <c>false</c> to use default mode.</param>
+            <param name="enabled"><see langword="true"/> to activate kids-directed mode, <see langword="false"/> to use default mode.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IFacebookSendButtonWidget.TrackLabel(System.String)">
@@ -4081,9 +4081,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IGooglePlusOneButtonWidget.Recommendations(System.Boolean)">
             <summary>
-              <para>Whether to show recommendations within the +1 hover bubble. Default is <c>true</c>.</para>
+              <para>Whether to show recommendations within the +1 hover bubble. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show recommendations, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show recommendations, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IGooglePlusOneButtonWidget.Size(System.String)">
@@ -5096,7 +5096,7 @@
             <summary>
               <para>Whether to show or hide Faces box title.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show title, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show title, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IMailRuFacesWidget.TitleColor(System.String)">
@@ -5230,7 +5230,7 @@
             <summary>
               <para>Whether to show portraits of group's subscribers or not.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show subscribers, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show subscribers, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IMailRuGroupsWidget.TextColor(System.String)">
@@ -5318,9 +5318,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.Counter(System.Boolean)">
             <summary>
-              <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
+              <para>Whether to render share counter next to a button. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show share counter, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show share counter, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.CounterPosition(System.String)">
@@ -5350,9 +5350,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.Text(System.Boolean)">
             <summary>
-              <para>Whether to show text label on button. Default is <c>true</c>.</para>
+              <para>Whether to show text label on button. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show text label, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show text label, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IMailRuLikeButtonWidget.TextType(System.Byte)">
@@ -7320,9 +7320,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.ISurfingbirdSurfButtonWidget.Counter(System.Boolean)">
             <summary>
-              <para>Whether to render share counter next to a button. Default is <c>false</c>.</para>
+              <para>Whether to render share counter next to a button. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show counter, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show counter, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.ISurfingbirdSurfButtonWidget.Height(System.String)">
@@ -7859,9 +7859,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.ITwitterFollowButtonWidget.Counter(System.Boolean)">
             <summary>
-              <para>Whether to display user's followers count. Default is <c>false</c>.</para>
+              <para>Whether to display user's followers count. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show followers count, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show followers count, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITwitterFollowButtonWidget.Language(System.String)">
@@ -7875,9 +7875,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.ITwitterFollowButtonWidget.ScreenName(System.Boolean)">
             <summary>
-              <para>Whether to show user's screen name. Default is <c>true</c>.</para>
+              <para>Whether to show user's screen name. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show screen name, <c>false</c> to hide.</param>
+            <param name="enabled"><see langword="true"/> to show screen name, <see langword="false"/> to hide.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITwitterFollowButtonWidget.Size(System.String)">
@@ -7891,9 +7891,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.ITwitterFollowButtonWidget.Suggestions(System.Boolean)">
             <summary>
-              <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
+              <para>Whether to enable twitter suggestions. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</param>
+            <param name="enabled"><see langword="true"/> to not opt-out of suggestions, <see langword="false"/> to opt-in.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITwitterFollowButtonWidget.Width(System.String)">
@@ -7995,9 +7995,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.ITwitterTweetButtonWidget.Suggestions(System.Boolean)">
             <summary>
-              <para>Whether to enable twitter suggestions. Default is <c>true</c>.</para>
+              <para>Whether to enable twitter suggestions. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to not opt-out of suggestions, <c>false</c> to opt-in.</param>
+            <param name="enabled"><see langword="true"/> to not opt-out of suggestions, <see langword="false"/> to opt-in.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.ITwitterTweetButtonWidget.RelatedAccounts(System.Collections.Generic.IEnumerable{System.String})">
@@ -8542,16 +8542,16 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IVimeoVideoWidget.AutoPlay(System.Boolean)">
             <summary>
-              <para>Whether to start playing video automatically. Default is <c>false</c>.</para>
+              <para>Whether to start playing video automatically. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to enable autoplay, <c>false</c> to disable.</param>
+            <param name="enabled"><see langword="true"/> to enable autoplay, <see langword="false"/> to disable.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVimeoVideoWidget.Loop(System.Boolean)">
             <summary>
-              <para>Whether to replay video when it finishes. Default is <c>false</c>.</para>
+              <para>Whether to replay video when it finishes. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to enable looping, <c>false</c> to disable.</param>
+            <param name="enabled"><see langword="true"/> to enable looping, <see langword="false"/> to disable.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="T:Catharsis.Web.Widgets.IVimeoWidgetsCreator">
@@ -8731,16 +8731,16 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteCommentsWidget.AutoPublish(System.Boolean)">
             <summary>
-              <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+              <para>Whether to automatically publish user's comment to his status. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</param>
+            <param name="enabled"><see langword="true"/> to enable auto-publishing, <see langword="false"/> to disable it.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteCommentsWidget.AutoUpdate(System.Boolean)">
             <summary>
-              <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+              <para>Whether to automatically publish user's comment to his status. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</param>
+            <param name="enabled"><see langword="true"/> to enable auto-publishing, <see langword="false"/> to disable it.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteCommentsWidget.ElementId(System.String)">
@@ -8763,7 +8763,7 @@
             <summary>
               <para>Whether to use minimalistic mode of widget (small fonts, images, etc.). Default is to use auto mode (determine automatically).</para>
             </summary>
-            <param name="enabled"><c>true</c> to enable minimalistic mode, <c>false</c> to disable it.</param>
+            <param name="enabled"><see langword="true"/> to enable minimalistic mode, <see langword="false"/> to disable it.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteCommentsWidget.Width(System.String)">
@@ -9403,7 +9403,7 @@
             <summary>
               <para>Whether to display both author and button or button only.</para>
             </summary>
-            <param name="enabled"><c>false</c> to display both author/button, <c>true</c> to display only button.</param>
+            <param name="enabled"><see langword="false"/> to display both author/button, <see langword="true"/> to display only button.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="T:Catharsis.Web.Widgets.IVkontakteSubscriptionWidgetExtensions">
@@ -9443,9 +9443,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteVideoWidget.Hd(System.Boolean)">
             <summary>
-              <para>Whether to play video in High Definition format. Default is <c>false</c>.</para>
+              <para>Whether to play video in High Definition format. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</param>
+            <param name="enabled"><see langword="true"/> to use HD quality format, <see langword="false"/> to use standard quality.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IVkontakteVideoWidget.User(System.String)">
@@ -10369,16 +10369,16 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexAnalyticsWidget.Accurate(System.Boolean)">
             <summary>
-              <para>Specifies whether to use accurate track bounce. Default is <c>true</c>.</para>
+              <para>Specifies whether to use accurate track bounce. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to enable accurate track bounce functionality, <c>false</c> to disable it.</param>
+            <param name="enabled"><see langword="true"/> to enable accurate track bounce functionality, <see langword="false"/> to disable it.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexAnalyticsWidget.ClickMap(System.Boolean)">
             <summary>
-              <para>Specifies whether to use click map (gathering statistics for "click map" report). Default is <c>true</c>.</para>
+              <para>Specifies whether to use click map (gathering statistics for "click map" report). Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to enable click map functionality, <c>false</c> to disable it.</param>
+            <param name="enabled"><see langword="true"/> to enable click map functionality, <see langword="false"/> to disable it.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexAnalyticsWidget.Language(System.String)">
@@ -10392,30 +10392,30 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexAnalyticsWidget.NoIndex(System.Boolean)">
             <summary>
-              <para>Specifies whether to disable indexing of site's pages. Default is <c>false</c>.</para>
+              <para>Specifies whether to disable indexing of site's pages. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to disable indexing, <c>false</c> to enable it.</param>
+            <param name="enabled"><see langword="true"/> to disable indexing, <see langword="false"/> to enable it.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexAnalyticsWidget.TrackHash(System.Boolean)">
             <summary>
-              <para>Specifies whether to track address hash in URL query string. Default is <c>true</c>.</para>
+              <para>Specifies whether to track address hash in URL query string. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to enable track hash functionality, <c>false</c> to disable.</param>
+            <param name="enabled"><see langword="true"/> to enable track hash functionality, <see langword="false"/> to disable.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexAnalyticsWidget.TrackLinks(System.Boolean)">
             <summary>
-              <para>Specifies whether to track links (gathering statistics for external links, file uploads and "Share" button). Default is <c>true</c>.</para>
+              <para>Specifies whether to track links (gathering statistics for external links, file uploads and "Share" button). Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to enable track links functionality, <c>false</c> to disable it.</param>
+            <param name="enabled"><see langword="true"/> to enable track links functionality, <see langword="false"/> to disable it.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexAnalyticsWidget.WebVisor(System.Boolean)">
             <summary>
-              <para>Specifies whether to use webvisor (recording and analysis of site's visitors behaviour). Default is <c>true</c>.</para>
+              <para>Specifies whether to use webvisor (recording and analysis of site's visitors behaviour). Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to enable webvisor functionality, <c>false</c> to disable it.</param>
+            <param name="enabled"><see langword="true"/> to enable webvisor functionality, <see langword="false"/> to disable it.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="T:Catharsis.Web.Widgets.IYandexAnalyticsWidgetExtensions">
@@ -10574,30 +10574,30 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyButtonWidget.AskPayerFullName(System.Boolean)">
             <summary>
-              <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
+              <para>Whether to ask for full name of payer during transaction. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to make payer's full name required, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyButtonWidget.AskPayerEmail(System.Boolean)">
             <summary>
-              <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
+              <para>Whether to ask for email address of payer during transaction. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to make payer's email required, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyButtonWidget.AskPayerPhone(System.Boolean)">
             <summary>
-              <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
+              <para>Whether to ask for payer phone number during transaction. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to make payer's phone required, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyButtonWidget.AskPayerAddress(System.Boolean)">
             <summary>
-              <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
+              <para>Whether to ask for payer address during transaction. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to make payer's address required, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyButtonWidget.Size(System.String)">
@@ -10716,9 +10716,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.Cards(System.Boolean)">
             <summary>
-              <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>
+              <para>Whether to accept payment from Visa/Master Card cards. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to accept Visa/Master Card payments, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.DescriptionText(System.String)">
@@ -10733,9 +10733,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.AskPayerComment(System.Boolean)">
             <summary>
-              <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
+              <para>Whether to allow payer add custom payment comment. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to allow payer to add a form's comment, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.CommentHint(System.String)">
@@ -10749,23 +10749,23 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.AskPayerEmail(System.Boolean)">
             <summary>
-              <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
+              <para>Whether to ask for email address of payer during transaction. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to make payer's email required, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.AskPayerFullName(System.Boolean)">
             <summary>
-              <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
+              <para>Whether to ask for full name of payer during transaction. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to make payer's full name required, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.AskPayerPhone(System.Boolean)">
             <summary>
-              <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
+              <para>Whether to ask for payer phone number during transaction. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to make payer's phone required, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.ProjectName(System.String)">
@@ -10788,9 +10788,9 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.Description(System.Boolean)">
             <summary>
-              <para>Whether to show description of payment goal/purpose in the form. Default is <c>false</c>.</para>
+              <para>Whether to show description of payment goal/purpose in the form. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to show payment purpose text on the form, <c>false</c> to hide it.</param>
+            <param name="enabled"><see langword="true"/> to show payment purpose text on the form, <see langword="false"/> to hide it.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyDonateFormWidget.Sum(System.Decimal)">
@@ -10868,51 +10868,51 @@
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget.AskPayerAddress(System.Boolean)">
             <summary>
-              <para>Whether to ask for payer address during transaction. Default is <c>false</c>.</para>
+              <para>Whether to ask for payer address during transaction. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to make payer's address required, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to make payer's address required, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget.AskPayerComment(System.Boolean)">
             <summary>
-              <para>Whether to allow payer add custom payment comment. Default is <c>false</c>.</para>
+              <para>Whether to allow payer add custom payment comment. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to allow payer to add a form's comment, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to allow payer to add a form's comment, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget.AskPayerEmail(System.Boolean)">
             <summary>
-              <para>Whether to ask for email address of payer during transaction. Default is <c>false</c>.</para>
+              <para>Whether to ask for email address of payer during transaction. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to make payer's email required, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to make payer's email required, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget.AskPayerFullName(System.Boolean)">
             <summary>
-              <para>Whether to ask for full name of payer during transaction. Default is <c>false</c>.</para>
+              <para>Whether to ask for full name of payer during transaction. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to make payer's full name required, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to make payer's full name required, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget.AskPayerPhone(System.Boolean)">
             <summary>
-              <para>Whether to ask for payer phone number during transaction. Default is <c>false</c>.</para>
+              <para>Whether to ask for payer phone number during transaction. Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to make payer's phone required, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to make payer's phone required, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget.AskPayerPurpose(System.Boolean)">
             <summary>
-              <para>Whether to allow payer specify custom payment purpose text (<c>true</c>) or use predefined purpose text (<c>false</c>). Default is <c>false</c>.</para>
+              <para>Whether to allow payer specify custom payment purpose text (<see langword="true"/>) or use predefined purpose text (<see langword="false"/>). Default is <see langword="false"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to allow payer specify payment purpose, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to allow payer specify payment purpose, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget.Cards(System.Boolean)">
             <summary>
-              <para>Whether to accept payment from Visa/Master Card cards. Default is <c>true</c>.</para>
+              <para>Whether to accept payment from Visa/Master Card cards. Default is <see langword="true"/>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to accept Visa/Master Card payments, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to accept Visa/Master Card payments, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYandexMoneyPaymentFormWidget.Description(System.String)">
@@ -11855,14 +11855,14 @@
             <summary>
               <para>Specifies whether to keep track of user cookies or not (default is <c>false)</c>.</para>
             </summary>
-            <param name="enabled"><c>true</c> to set cookies, <c>false</c> to not.</param>
+            <param name="enabled"><see langword="true"/> to set cookies, <see langword="false"/> to not.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="M:Catharsis.Web.Widgets.IYouTubeVideoWidget.SecureMode(System.Boolean)">
             <summary>
-              <para>Specifies whether to access video through secure HTTPS protocol or unsecure HTTP (default is <c>false</c>).</para>
+              <para>Specifies whether to access video through secure HTTPS protocol or unsecure HTTP (default is <see langword="false"/>).</para>
             </summary>
-            <param name="enabled"><c>true</c> to use HTTPS protocol, <c>false</c> to use HTTP.</param>
+            <param name="enabled"><see langword="true"/> to use HTTPS protocol, <see langword="false"/> to use HTTP.</param>
             <returns>Reference to the current widget.</returns>
         </member>
         <member name="T:Catharsis.Web.Widgets.IYouTubeWidgetsCreator">

@@ -19,7 +19,7 @@ public interface IFacebookCommentsWidget : IWebWidget
   /// <summary>
   ///   <para>A boolean value that specifies whether to show the mobile-optimized version or not. If not specified, auto-detection is used.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to use mobile-optimized version, <c>false</c> otherwise.</param>
+  /// <param name="enabled"><see langword="true"/> to use mobile-optimized version, <see langword="false"/> otherwise.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookCommentsWidget Mobile(bool enabled);
 

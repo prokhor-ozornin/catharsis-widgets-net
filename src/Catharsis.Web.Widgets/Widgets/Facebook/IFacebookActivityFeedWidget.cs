@@ -43,9 +43,9 @@ public interface IFacebookActivityFeedWidget : IWebWidget
   IFacebookActivityFeedWidget Domain(string domain);
 
   /// <summary>
-  ///   <para>Whether to enabled the "Recent Activity" header above the feed or not. Default is <c>true</c>.</para>
+  ///   <para>Whether to enabled the "Recent Activity" header above the feed or not. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show header, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show header, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookActivityFeedWidget Header(bool enabled);
 
@@ -75,9 +75,9 @@ public interface IFacebookActivityFeedWidget : IWebWidget
   IFacebookActivityFeedWidget MaxAge(byte age);
 
   /// <summary>
-  ///   <para>Specifies whether to always show recommendations (Articles liked by a high amount of people) in the bottom half of the feed. Default is <c>false</c>.</para>
+  ///   <para>Specifies whether to always show recommendations (Articles liked by a high amount of people) in the bottom half of the feed. Default is <see langword="false"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show recommendations, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show recommendations, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IFacebookActivityFeedWidget Recommendations(bool enabled);
 

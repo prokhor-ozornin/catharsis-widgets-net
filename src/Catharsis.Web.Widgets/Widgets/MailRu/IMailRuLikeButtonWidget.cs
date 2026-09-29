@@ -9,9 +9,9 @@ namespace Catharsis.Web.Widgets;
 public interface IMailRuLikeButtonWidget : IWebWidget
 {
   /// <summary>
-  ///   <para>Whether to render share counter next to a button. Default is <c>true</c>.</para>
+  ///   <para>Whether to render share counter next to a button. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show share counter, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show share counter, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IMailRuLikeButtonWidget Counter(bool enabled);
 
@@ -41,9 +41,9 @@ public interface IMailRuLikeButtonWidget : IWebWidget
   IMailRuLikeButtonWidget Size(string size);
 
   /// <summary>
-  ///   <para>Whether to show text label on button. Default is <c>true</c>.</para>
+  ///   <para>Whether to show text label on button. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show text label, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show text label, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IMailRuLikeButtonWidget Text(bool enabled);
 

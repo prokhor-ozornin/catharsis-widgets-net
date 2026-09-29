@@ -57,7 +57,7 @@ public interface IMailRuGroupsWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to show portraits of group's subscribers or not.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show subscribers, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show subscribers, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IMailRuGroupsWidget Subscribers(bool enabled);
 

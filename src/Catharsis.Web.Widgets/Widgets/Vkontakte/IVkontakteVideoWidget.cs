@@ -15,9 +15,9 @@ public interface IVkontakteVideoWidget : IVideoWidget<IVkontakteVideoWidget>
   IVkontakteVideoWidget Hash(string hash);
 
   /// <summary>
-  ///   <para>Whether to play video in High Definition format. Default is <c>false</c>.</para>
+  ///   <para>Whether to play video in High Definition format. Default is <see langword="false"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to use HD quality format, <c>false</c> to use standard quality.</param>
+  /// <param name="enabled"><see langword="true"/> to use HD quality format, <see langword="false"/> to use standard quality.</param>
   /// <returns>Reference to the current widget.</returns>
   IVkontakteVideoWidget Hd(bool enabled);
 

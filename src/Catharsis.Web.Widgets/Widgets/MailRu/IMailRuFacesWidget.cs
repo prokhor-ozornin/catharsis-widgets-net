@@ -76,7 +76,7 @@ public interface IMailRuFacesWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to show or hide Faces box title.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to show title, <c>false</c> to hide.</param>
+  /// <param name="enabled"><see langword="true"/> to show title, <see langword="false"/> to hide.</param>
   /// <returns>Reference to the current widget.</returns>
   IMailRuFacesWidget Title(bool enabled);
 

@@ -16,16 +16,16 @@ public interface IVkontakteCommentsWidget : IWebWidget
   IVkontakteCommentsWidget Attach(params string[] types);
 
   /// <summary>
-  ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+  ///   <para>Whether to automatically publish user's comment to his status. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</param>
+  /// <param name="enabled"><see langword="true"/> to enable auto-publishing, <see langword="false"/> to disable it.</param>
   /// <returns>Reference to the current widget.</returns>
   IVkontakteCommentsWidget AutoPublish(bool enabled);
 
   /// <summary>
-  ///   <para>Whether to automatically publish user's comment to his status. Default is <c>true</c>.</para>
+  ///   <para>Whether to automatically publish user's comment to his status. Default is <see langword="true"/>.</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to enable auto-publishing, <c>false</c> to disable it.</param>
+  /// <param name="enabled"><see langword="true"/> to enable auto-publishing, <see langword="false"/> to disable it.</param>
   /// <returns>Reference to the current widget.</returns>
   IVkontakteCommentsWidget AutoUpdate(bool enabled);
 
@@ -48,7 +48,7 @@ public interface IVkontakteCommentsWidget : IWebWidget
   /// <summary>
   ///   <para>Whether to use minimalistic mode of widget (small fonts, images, etc.). Default is to use auto mode (determine automatically).</para>
   /// </summary>
-  /// <param name="enabled"><c>true</c> to enable minimalistic mode, <c>false</c> to disable it.</param>
+  /// <param name="enabled"><see langword="true"/> to enable minimalistic mode, <see langword="false"/> to disable it.</param>
   /// <returns>Reference to the current widget.</returns>
   IVkontakteCommentsWidget Mini(bool? enabled);
 
